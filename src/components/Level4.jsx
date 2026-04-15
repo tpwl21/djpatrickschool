@@ -94,7 +94,7 @@ const LoopTrackView = ({ wagons, currentPositionSec, bpm, isPlaying, pitch = 1.0
   );
 };
 
-const Level4 = ({ onNextLevel }) => {
+const Level4 = ({ onNextLevel, onRetry }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -103,12 +103,12 @@ const Level4 = ({ onNextLevel }) => {
   const reqRef = useRef();
 
   const bpmA = 120;
-  const initialBpmB = 128;
+  const initialBpmB = 126; // 5% diff
   const trackLengthSec = 120;
   const [pitch, setPitch] = useState(1.0);
 
-  const wagonsA = useRef(generateWagons(bpmA, trackLengthSec, true)).current;
-  const wagonsB = useRef(generateWagons(initialBpmB, trackLengthSec, true)).current;
+  const [wagonsA] = useState(generateWagons(bpmA, trackLengthSec, true));
+  const [wagonsB] = useState(generateWagons(initialBpmB, trackLengthSec, true));
 
   const [isLevelCleared, setIsLevelCleared] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -130,40 +130,37 @@ const Level4 = ({ onNextLevel }) => {
         setPosB(currentB);
 
         if (currentA >= trackLengthSec - 0.2) {
-          ctx.pauseTrack('A');
-          ctx.pauseTrack('B');
-          setIsGameOver(true);
+            ctx.pauseTrack('A');
+            ctx.pauseTrack('B');
+            setIsGameOver(true);
         }
 
         if (ctx.decks.A.isPlaying && ctx.decks.B.isPlaying && !isGameOver) {
-          // Level 4: align on 8-beat loop. Beat-index comparison.
+          // Level 4: align on phrase (8 beats). 
           const beatsA = currentA * (bpmA / 60);
           const beatsB = currentB * (initialBpmB / 60);
-          let diff = Math.abs((beatsA % BEATS_PER_LOOP) - (beatsB % BEATS_PER_LOOP));
-          if (diff > BEATS_PER_LOOP / 2) diff = BEATS_PER_LOOP - diff; // wrap
+          let diff = Math.abs((beatsA % BEATS_PER_PHRASE) - (beatsB % BEATS_PER_PHRASE));
+          if (diff > BEATS_PER_PHRASE / 2) diff = BEATS_PER_PHRASE - diff;
 
-          // 0% pitch tolerance: displayed BPM must be exactly bpmA
+          // 0% pitch tolerance
           const isPitchCorrect = Math.abs(initialBpmB * ctx.decks.B.rate - bpmA) < 0.05;
 
-          // 0.05 beat tolerance (~25ms at 120 BPM)
           if (diff < 0.05 && isPitchCorrect) {
-            syncTimerRef.current += 1;
-            if (syncTimerRef.current > 600) setIsLevelCleared(true);
+             syncTimerRef.current += 1;
+             if (syncTimerRef.current > 600) setIsLevelCleared(true);
           } else {
-            syncTimerRef.current = 0;
+             syncTimerRef.current = 0;
           }
         }
       }
-      if (!isLevelCleared && !isGameOver) {
-        reqRef.current = requestAnimationFrame(updateLoop);
-      }
+      if (!isLevelCleared && !isGameOver) reqRef.current = requestAnimationFrame(updateLoop);
     };
     reqRef.current = requestAnimationFrame(updateLoop);
 
     return () => {
-      cancelAnimationFrame(reqRef.current);
-      if (ctx) ctx.ctx.close();
-    };
+       cancelAnimationFrame(reqRef.current);
+       if (ctx) ctx.ctx.close();
+    }
   }, [isLevelCleared, isGameOver]);
 
 
@@ -208,20 +205,22 @@ const Level4 = ({ onNextLevel }) => {
     if (audioCtx) audioCtx.setPlaybackRate('B', newPitch);
   };
 
-  const handleRetry = () => window.location.reload();
+  const handleRetry = () => {
+    onRetry();
+  }
 
   return (
     <div className="app-container">
       <div className="level-header">
         <h1>Niveau 4 : La Boucle 🔄</h1>
-        <p>Chaque couleur représente une boucle de 8 temps. Aligne les <strong>boucles</strong> ET les <strong>wagons</strong> pour que les Kicks 🔥 de chaque section tombent ensemble !</p>
+        <p>Aligne les <strong>boucles</strong> ET les <strong>wagons</strong> pour que les Kicks 🔥 de chaque section tombent ensemble !</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', flex: 1 }}>
+      <div className="main-gameplay">
         <div className="railway-container">
           <div className="target-line" />
 
-          <div className="track-container" style={{ height: '110px' }}>
+          <div className="track-container">
             <LoopTrackView
               wagons={wagonsA}
               currentPositionSec={posA}
@@ -231,7 +230,7 @@ const Level4 = ({ onNextLevel }) => {
             />
           </div>
 
-          <div className="track-container" style={{ height: '110px' }}>
+          <div className="track-container">
             <LoopTrackView
               wagons={wagonsB}
               currentPositionSec={posB}
@@ -243,7 +242,7 @@ const Level4 = ({ onNextLevel }) => {
           </div>
         </div>
 
-        <div style={{ width: '80px', backgroundColor: '#e9ecef', borderRadius: '15px', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="pitch-fader-container">
           <h4>Vitesse</h4>
           <input
             type="range"
@@ -252,30 +251,35 @@ const Level4 = ({ onNextLevel }) => {
             step="0.5"
             value={initialBpmB * pitch}
             onChange={handlePitchChange}
-            style={{ writingMode: 'vertical-lr', direction: 'rtl', height: '100%', cursor: 'pointer' }}
+            className="pitch-input-vertical"
           />
+          <div style={{ fontWeight: 'bold', marginTop: '10px', color: '#ff6b6b' }}>
+            {(initialBpmB * pitch).toFixed(1)} BPM
+          </div>
         </div>
       </div>
 
       <div className="controls">
-        <div style={{ textAlign: 'center' }}>
-          <h3>Train A — {bpmA.toFixed(1)} BPM</h3>
+        <div className="control-group">
+          <h3>Train A</h3>
           <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
             {isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}
           </button>
         </div>
 
-        <div style={{ textAlign: 'center' }}>
-          <h3>Train B — {(initialBpmB * pitch).toFixed(1)} BPM</h3>
-          <button className="btn-crayon play-btn" onClick={playB} style={{ marginRight: '10px' }} disabled={isPlayingB}>
-            Play 🚂
-          </button>
-          <button className="btn-crayon play-btn" onClick={pauseB} style={{ marginRight: '10px' }} disabled={!isPlayingB}>
-            Pause ⏸
-          </button>
-          <button className="btn-crayon nudge-btn" onClick={cueB} style={{ marginRight: '10px' }}>CUE ⏮</button>
-          <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>⏪ Reculer</button>
-          <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)} style={{ marginLeft: '10px' }}>Avancer ⏩</button>
+        <div className="control-group">
+          <h3>Train B</h3>
+          <div className="control-buttons">
+            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>
+              Play 🚂
+            </button>
+            <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>
+              Pause ⏸
+            </button>
+            <button className="btn-crayon nudge-btn" onClick={cueB}>CUE ⏮</button>
+            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>⏪ Reculer</button>
+            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)}>Avancer ⏩</button>
+          </div>
         </div>
       </div>
 
@@ -283,6 +287,7 @@ const Level4 = ({ onNextLevel }) => {
       {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
     </div>
   );
+
 };
 
 export default Level4;

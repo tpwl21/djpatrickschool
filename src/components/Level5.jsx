@@ -150,7 +150,7 @@ const PhraseIndicator = ({ label, currentPhrase, isOutro = false }) => (
   </div>
 );
 
-const Level5 = ({ onNextLevel }) => {
+const Level5 = ({ onNextLevel, onRetry }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -281,29 +281,28 @@ const Level5 = ({ onNextLevel }) => {
     if (audioCtx) audioCtx.setPlaybackRate('B', newPitch);
   };
 
-  const handleRetry = () => window.location.reload();
+  const handleRetry = () => onRetry();
 
   return (
     <div className="app-container">
       <div className="level-header">
         <h1>Niveau 5 : La Transition 🎧</h1>
         <p>
-          Chaque phrase contient 4 boucles de 8 temps. Tu dois faire démarrer l'<strong>Intro 🌅</strong> du Train B
-          exactement sur l'<strong>Outro 🌙</strong> du Train A !
+          Démarre l'<strong>Intro 🌅</strong> du Train B sur l'<strong>Outro 🌙</strong> du Train A !
         </p>
       </div>
 
       {/* Phrase indicators */}
-      <div style={{ display: 'flex', justifyContent: 'space-around', padding: '8px 20px', gap: '12px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
         <PhraseIndicator label="Train A" currentPhrase={currentPhraseA} isOutro={currentPhraseA?.index === 4} />
         <PhraseIndicator label="Train B" currentPhrase={currentPhraseB} />
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', flex: 1 }}>
+      <div className="main-gameplay">
         <div className="railway-container">
           <div className="target-line" />
 
-          <div className="track-container" style={{ height: '120px' }}>
+          <div className="track-container">
             <PhraseTrackView
               phraseBlocks={phraseBlocksA}
               wagons={wagonsA}
@@ -313,7 +312,7 @@ const Level5 = ({ onNextLevel }) => {
             />
           </div>
 
-          <div className="track-container" style={{ height: '120px' }}>
+          <div className="track-container">
             <PhraseTrackView
               phraseBlocks={phraseBlocksB}
               wagons={wagonsB}
@@ -325,7 +324,7 @@ const Level5 = ({ onNextLevel }) => {
           </div>
         </div>
 
-        <div style={{ width: '80px', backgroundColor: '#e9ecef', borderRadius: '15px', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="pitch-fader-container">
           <h4>Vitesse</h4>
           <input
             type="range"
@@ -334,30 +333,35 @@ const Level5 = ({ onNextLevel }) => {
             step="0.5"
             value={initialBpmB * pitch}
             onChange={handlePitchChange}
-            style={{ writingMode: 'vertical-lr', direction: 'rtl', height: '100%', cursor: 'pointer' }}
+            className="pitch-input-vertical"
           />
+          <div style={{ fontWeight: 'bold', marginTop: '10px', color: '#ff6b6b' }}>
+            {(initialBpmB * pitch).toFixed(1)} BPM
+          </div>
         </div>
       </div>
 
       <div className="controls">
-        <div style={{ textAlign: 'center' }}>
-          <h3>Train A — {bpmA.toFixed(1)} BPM</h3>
+        <div className="control-group">
+          <h3>Train A</h3>
           <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
             {isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}
           </button>
         </div>
 
-        <div style={{ textAlign: 'center' }}>
-          <h3>Train B — {(initialBpmB * pitch).toFixed(1)} BPM</h3>
-          <button className="btn-crayon play-btn" onClick={playB} style={{ marginRight: '10px' }} disabled={isPlayingB}>
-            Play 🚂
-          </button>
-          <button className="btn-crayon play-btn" onClick={pauseB} style={{ marginRight: '10px' }} disabled={!isPlayingB}>
-            Pause ⏸
-          </button>
-          <button className="btn-crayon nudge-btn" onClick={cueB} style={{ marginRight: '10px' }}>CUE ⏮</button>
-          <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>⏪ Reculer</button>
-          <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)} style={{ marginLeft: '10px' }}>Avancer ⏩</button>
+        <div className="control-group">
+          <h3>Train B</h3>
+          <div className="control-buttons">
+            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>
+              Play 🚂
+            </button>
+            <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>
+              Pause ⏸
+            </button>
+            <button className="btn-crayon nudge-btn" onClick={cueB}>CUE ⏮</button>
+            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>⏪ Reculer</button>
+            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)}>Avancer ⏩</button>
+          </div>
         </div>
       </div>
 

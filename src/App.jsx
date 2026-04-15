@@ -10,21 +10,28 @@ import Level7 from './components/Level7';
 
 function App() {
   const [level, setLevel] = useState(1);
+  const [retryKey, setRetryKey] = useState(0);
 
   const handleNextLevel = () => {
     setLevel(prev => prev + 1);
+    setRetryKey(0); // Optional: reset retry key when moving to next level
+  };
+
+  const handleRetry = () => {
+    setRetryKey(prev => prev + 1);
   };
 
   return (
     <>
-      {level === 1 && <Level1 onNextLevel={handleNextLevel} />}
-      {level === 2 && <Level2 onNextLevel={handleNextLevel} />}
-      {level === 3 && <Level3 onNextLevel={handleNextLevel} />}
-      {level === 4 && <Level4 onNextLevel={handleNextLevel} />}
-      {level === 5 && <Level5 onNextLevel={handleNextLevel} />}
-      {level === 6 && <Level6 onNextLevel={handleNextLevel} />}
-      {level === 7 && <Level7 onNextLevel={handleNextLevel} />}
+      {level === 1 && <Level1 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 2 && <Level2 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 3 && <Level3 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 4 && <Level4 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 5 && <Level5 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 6 && <Level6 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
+      {level === 7 && <Level7 key={retryKey} onNextLevel={handleNextLevel} onRetry={handleRetry} />}
       {level > 7 && (
+
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

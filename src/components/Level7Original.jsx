@@ -181,43 +181,41 @@ const Level7 = ({ onNextLevel, onRetry }) => {
         <p>Expertise Totale. <strong>Pas de BPM, et surtout PAS DE NUDGE.</strong> Aligne tes trains uniquement avec le Play/CUE et le Pitch !</p>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around', padding: '8px 20px', gap: '12px' }}>
         <PhraseIndicator label="Train A" currentPhrase={currentPhraseA} isOutro={currentPhraseA?.index === 4} />
         <PhraseIndicator label="Train B" currentPhrase={currentPhraseB} />
       </div>
 
-      <div className="main-gameplay">
+      <div style={{ display: 'flex', gap: '20px', flex: 1 }}>
         <div className="railway-container">
           <div className="target-line" />
-          <div className="track-container">
+          <div className="track-container" style={{ height: '120px' }}>
             <PhraseTrackView phraseBlocks={phraseBlocksA} wagons={wagonsA} currentPositionSec={posA} bpm={bpmA} isPlaying={isPlayingA} />
           </div>
-          <div className="track-container">
+          <div className="track-container" style={{ height: '120px' }}>
             <PhraseTrackView phraseBlocks={phraseBlocksB} wagons={wagonsB} currentPositionSec={posB} bpm={initialBpmB} isPlaying={isPlayingB} pitch={pitch} />
           </div>
         </div>
 
-        <div className="pitch-fader-container">
+        <div style={{ width: '100px', backgroundColor: '#e9ecef', borderRadius: '15px', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
           <h4>Pitch</h4>
-          <input type="range" min="100" max="150" step="0.5" value={initialBpmB * pitch} onChange={handlePitchChange} className="pitch-input-vertical" />
-          <div style={{ fontWeight: 'bold', fontSize: '1.2rem', color: pitch >= 1 ? '#ff6b6b' : '#4ecdc4', marginTop: '10px' }}>
+          <input type="range" min="100" max="150" step="0.5" value={initialBpmB * pitch} onChange={handlePitchChange} style={{ writingMode: 'vertical-lr', direction: 'rtl', height: '100%', cursor: 'pointer' }} />
+          <div style={{ fontWeight: 'bold', fontSize: '1.2rem', color: pitch >= 1 ? '#ff6b6b' : '#4ecdc4' }}>
             {pitch >= 1 ? '+' : ''}{((pitch - 1) * 100).toFixed(1)}%
           </div>
         </div>
       </div>
 
       <div className="controls">
-        <div className="control-group">
+        <div style={{ textAlign: 'center' }}>
           <h3>Train A</h3>
           <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>{isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}</button>
         </div>
-        <div className="control-group">
+        <div style={{ textAlign: 'center' }}>
           <h3>Train B</h3>
-          <div className="control-buttons">
-            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>Play 🚂</button>
-            <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>Pause ⏸</button>
-            <button className="btn-crayon nudge-btn" onClick={cueB}>CUE ⏮</button>
-          </div>
+          <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB} style={{ marginRight: '10px' }}>Play 🚂</button>
+          <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB} style={{ marginRight: '10px' }}>Pause ⏸</button>
+          <button className="btn-crayon nudge-btn" onClick={cueB}>CUE ⏮</button>
         </div>
       </div>
 
@@ -225,7 +223,6 @@ const Level7 = ({ onNextLevel, onRetry }) => {
       {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
     </div>
   );
-
 };
 
 export default Level7;

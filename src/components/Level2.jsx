@@ -3,7 +3,7 @@ import Train, { generateWagons } from './Train';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
 
-const Level2 = ({ onNextLevel }) => {
+const Level2 = ({ onNextLevel, onRetry }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -125,17 +125,18 @@ const Level2 = ({ onNextLevel }) => {
   };
 
   const handleRetry = () => {
-    window.location.reload(); 
+    onRetry();
   }
+
 
   return (
     <div className="app-container">
       <div className="level-header">
         <h1>Niveau 2 : Le Contrôle du Moteur</h1>
-        <p>Le Train B va trop vite (135 BPM au lieu de 120) ! Trouve la bonne vitesse (Pitch) avant de pousser/tirer ton wagon. (Temps limite : 2 minutes)</p>
+        <p>Le Train B va trop vite (135 BPM au lieu de 120) ! Trouve la bonne vitesse (Pitch) avant de pousser/tirer ton wagon.</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', flex: 1 }}>
+      <div className="main-gameplay">
         <div className="railway-container">
            <div className="target-line" />
            <div className="track-container">
@@ -147,7 +148,7 @@ const Level2 = ({ onNextLevel }) => {
         </div>
 
         {/* Pitch Fader UI */}
-        <div style={{ width: '80px', backgroundColor: '#e9ecef', borderRadius: '15px', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="pitch-fader-container">
           <h4>Vitesse</h4>
           <input 
             type="range" 
@@ -156,36 +157,41 @@ const Level2 = ({ onNextLevel }) => {
             step="0.5" 
             value={initialBpmB * pitch} 
             onChange={handlePitchChange}
-            style={{ writingMode: 'vertical-lr', direction: 'rtl', height: '100%', cursor: 'pointer' }}
+            className="pitch-input-vertical"
           />
+          <div style={{ fontWeight: 'bold', marginTop: '10px', color: '#ff6b6b' }}>
+            {(initialBpmB * pitch).toFixed(1)} BPM
+          </div>
         </div>
       </div>
 
       <div className="controls">
-        <div style={{ textAlign: 'center' }}>
+        <div className="control-group">
             <h3>Train A ({bpmA.toFixed(1)} BPM)</h3>
             <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
                 {isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}
             </button>
         </div>
 
-        <div style={{ textAlign: 'center' }}>
-            <h3>Train B ({(initialBpmB * pitch).toFixed(1)} BPM)</h3>
-            <button className="btn-crayon play-btn" onClick={playB} style={{ marginRight: '10px' }} disabled={isPlayingB}>
-                Play 🚂
-            </button>
-            <button className="btn-crayon play-btn" onClick={pauseB} style={{ marginRight: '10px' }} disabled={!isPlayingB}>
-                Pause ⏸
-            </button>
-            <button className="btn-crayon nudge-btn" onClick={cueB} style={{ marginRight: '10px' }}>
-                CUE ⏮
-            </button>
-            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>
-                ⏪ Reculer
-            </button>
-            <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)} style={{ marginLeft: '10px' }}>
-                Avancer ⏩
-            </button>
+        <div className="control-group">
+            <h3>Train B</h3>
+            <div className="control-buttons">
+              <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>
+                  Play 🚂
+              </button>
+              <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>
+                  Pause ⏸
+              </button>
+              <button className="btn-crayon nudge-btn" onClick={cueB}>
+                  CUE ⏮
+              </button>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>
+                  ⏪ Reculer
+              </button>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)}>
+                  Avancer ⏩
+              </button>
+            </div>
         </div>
       </div>
       
@@ -193,6 +199,7 @@ const Level2 = ({ onNextLevel }) => {
       {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
     </div>
   );
+
 };
 
 export default Level2;
