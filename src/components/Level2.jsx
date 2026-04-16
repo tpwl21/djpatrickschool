@@ -1,211 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Train, { generateWagons } from './Train';
-import { MagicAudioContext } from '../audio/MagicAudioContext';
-import Cinematic from './Cinematic';
-import { useValidation } from '../hooks/useValidation';
+import React from 'react';
+import WorkshopLevel from './WorkshopLevel';
 import { TRACK_CONFIG } from '../constants/tracks';
-import CoachPatrick from './CoachPatrick';
 import { COACH_TIPS } from '../constants/coachPatrick';
 
-const Level2 = ({ onNextLevel, onRetry, onBack, difficulty, onUnlockNext }) => {
-  const [audioCtx, setAudioCtx] = useState(null);
-  const [isPlayingA, setIsPlayingA] = useState(false);
-  const [isPlayingB, setIsPlayingB] = useState(false);
-  
-  const [posA, setPosA] = useState(0);
-  const [posB, setPosB] = useState(0);
-
-  const reqRef = useRef();
-
-  const configA = TRACK_CONFIG.LEVEL_2.A;
-  const configB = TRACK_CONFIG.LEVEL_2.B;
-  const bpmA = configA.bpm;
-  const initialBpmB = configB.bpm; 
-  const trackLengthSec = 120; // 2 minutes
-
-  const [wagonsA] = useState(generateWagons(bpmA, trackLengthSec, false));
-  const [wagonsB] = useState(generateWagons(initialBpmB, trackLengthSec, false));
-
-  const [pitch, setPitch] = useState(1.0);
-
-  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, validate } = useValidation(difficulty);
-  const [isGameOver, setIsGameOver] = useState(false);
-
-  useEffect(() => {
-    if (isLevelCleared && onUnlockNext) {
-      onUnlockNext();
-    }
-  }, [isLevelCleared, onUnlockNext]);
-
-  useEffect(() => {
-    const ctx = new MagicAudioContext();
-    ctx.init().then(() => {
-      ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
-      ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
-      setAudioCtx(ctx);
-    });
-
-    const updateLoop = () => {
-      if (ctx) {
-        const currentA = ctx.getTrackPosition('A');
-        const currentB = ctx.getTrackPosition('B');
-        setPosA(currentA);
-        setPosB(currentB);
-
-        if (currentA >= trackLengthSec - 0.2) {
-            ctx.pauseTrack('A');
-            ctx.pauseTrack('B');
-            setIsGameOver(true);
-        }
-
-        if (ctx.decks.A.isPlaying && ctx.decks.B.isPlaying && !isGameOver) {
-          // Beat-index comparison: each track's position mapped to its own beat grid.
-          // When synced, beat N of A plays at the same real time as beat N of B.
-          const beatsA = currentA * (bpmA / 60);
-          const beatsB = currentB * (initialBpmB / 60);
-          let diff = Math.abs((beatsA % 1.0) - (beatsB % 1.0));
-          if (diff > 0.5) diff = 1.0 - diff; // wrap around
-
-          const diffSec = diff / (bpmA / 60);
-
-          // Use centralized validation
-          validate(diffSec, initialBpmB * ctx.decks.B.rate, bpmA);
-        }
-      }
-      if (!isLevelCleared && !isGameOver) {
-         reqRef.current = requestAnimationFrame(updateLoop);
-      }
-    };
-    reqRef.current = requestAnimationFrame(updateLoop);
-
-    return () => {
-       cancelAnimationFrame(reqRef.current);
-       if (ctx) ctx.ctx.close();
-    }
-  }, [isLevelCleared, isGameOver]);
-
-
-
-  const playA = async () => {
-    if (!audioCtx || isPlayingA) return;
-    await audioCtx.playTrack('A');
-    setIsPlayingA(true);
-  };
-
-  const playB = async () => {
-    if (!audioCtx || isPlayingB) return;
-    await audioCtx.playTrack('B');
-    setIsPlayingB(true);
-  };
-
-  const pauseB = () => {
-    if (!audioCtx) return;
-    audioCtx.pauseTrack('B');
-    setIsPlayingB(false);
-  };
-
-  const cueB = () => {
-    if (!audioCtx) return;
-    audioCtx.cueTrack('B');
-    setPosB(0);
-    setIsPlayingB(false);
-  };
-
-  const nudgeB = (amountSec) => {
-    if (!audioCtx) return;
-    audioCtx.nudgeTrack('B', amountSec);
-    setPosB(audioCtx.getTrackPosition('B'));
-  };
-
-  const handlePitchChange = (e) => {
-    const targetBpm = parseFloat(e.target.value);
-    const newPitch = targetBpm / initialBpmB;
-    setPitch(newPitch);
-    if (audioCtx) {
-      audioCtx.setPlaybackRate('B', newPitch);
-    }
-  };
-
-  const handleRetry = () => {
-    onRetry();
-  }
-
-
+const Level2 = (props) => {
   return (
-    <div className="app-container">
-      <div className="level-header">
-        <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">
-          🏠 Menu
-        </button>
-        <h1>Niveau 2 : Le Contrôle du Moteur</h1>
-        <p>Le Train B va trop vite (135 BPM au lieu de 120) ! Trouve la bonne vitesse (Pitch).</p>
-      </div>
-
-      <div className="main-gameplay">
-        <div className="railway-container">
-           <div className="target-line" />
-           <div className="track-container">
-              <Train wagons={wagonsA} currentPositionSec={posA} bpm={bpmA} isPlaying={isPlayingA} />
-           </div>
-           <div className="track-container">
-              <Train wagons={wagonsB} currentPositionSec={posB} bpm={initialBpmB} isPlaying={isPlayingB} pitch={pitch} />
-           </div>
-        </div>
-
-        {/* Pitch Fader UI */}
-        <div className="pitch-fader-container">
-          <h4>Vitesse</h4>
-          <input 
-            type="range" 
-            min="100" 
-            max="150" 
-            step="0.01" 
-            value={initialBpmB * pitch} 
-            onChange={handlePitchChange}
-            className="pitch-input-vertical"
-          />
-          <div style={{ fontWeight: 'bold', marginTop: '10px', color: isPerfectPitch ? '#27ae60' : '#ff6b6b' }}>
-            {(initialBpmB * pitch).toFixed(1)} BPM
-          </div>
-        </div>
-      </div>
-
-      <div className="controls">
-        <div className="control-group">
-            <h3>Train A ({bpmA.toFixed(1)} BPM)</h3>
-            <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
-                {isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}
-            </button>
-        </div>
-
-        <div className="control-group">
-            <h3>Train B</h3>
-            <div className="control-buttons">
-              <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>
-                  Play 🚂
-              </button>
-              <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>
-                  Pause ⏸
-              </button>
-              <button className="btn-crayon nudge-btn" onClick={cueB}>
-                  CUE ⏮
-              </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>
-                  ⏪ Reculer
-              </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>
-                  Avancer ⏩
-              </button>
-            </div>
-        </div>
-      </div>
-      
-      {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
-      {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
-      <CoachPatrick tips={COACH_TIPS.LEVEL_2} />
-    </div>
+    <WorkshopLevel 
+      {...props}
+      trackConfig={TRACK_CONFIG.LEVEL_2}
+      title="Niveau 2 : Le Défi du Tempo"
+      description="Le Train B roule à une vitesse fixe différente. Ajuste sa vitesse pour qu'elle corresponde parfaitement au Train A !"
+      viewType="simple"
+      showBpm={true}
+      randomizeBpm={false}
+      allowNudge={true}
+      coachTips={COACH_TIPS.LEVEL_2}
+    />
   );
-
 };
 
 export default Level2;

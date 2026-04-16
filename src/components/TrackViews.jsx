@@ -5,13 +5,13 @@ import {
   LOOP_COLORS 
 } from '../utils/workshopUtils';
 
+
 /**
  * Colored loop bands + wagons on top.
  * Used primarily in Level 4.
  */
-export const LoopTrackView = ({ wagons, currentPositionSec, bpm, isPlaying, pitch = 1.0, zoomLevel = 100, trackLengthSec }) => {
+export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomLevel = 100, trackLengthSec }, ref) => {
   const effectiveZoom = zoomLevel / pitch;
-  const pixelOffset = currentPositionSec * effectiveZoom;
   const secPerBeat = 60 / bpm;
   const secPerLoop = secPerBeat * BEATS_PER_LOOP;
   const numLoops = Math.ceil(trackLengthSec / secPerLoop);
@@ -25,10 +25,9 @@ export const LoopTrackView = ({ wagons, currentPositionSec, bpm, isPlaying, pitc
 
   return (
     <div style={{ position: 'absolute', width: '100%', height: '100%', overflow: 'hidden' }}>
-      <motion.div
-        style={{ position: 'absolute', left: '50%', x: -pixelOffset, height: '100%', top: 0 }}
-        animate={{ x: -pixelOffset }}
-        transition={{ type: 'tween', ease: 'linear', duration: 0 }}
+      <div
+        ref={ref}
+        style={{ position: 'absolute', left: '50%', transform: 'translateX(0px)', height: '100%', top: 0, willChange: 'transform' }}
       >
         {/* Layer 1: Loop color bands */}
         {Array.from({ length: numLoops }).map((_, i) => (
@@ -89,26 +88,24 @@ export const LoopTrackView = ({ wagons, currentPositionSec, bpm, isPlaying, pitc
             </div>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
-};
+});
 
 /**
  * Phrase blocks + loop dividers + wagons.
  * Used in Levels 5, 6, 7.
  */
-export const PhraseTrackView = ({ phraseBlocks, wagons, currentPositionSec, bpm, isPlaying, pitch = 1.0, zoomLevel = 100 }) => {
+export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pitch = 1.0, zoomLevel = 100 }, ref) => {
   const effectiveZoom = zoomLevel / pitch;
-  const pixelOffset = currentPositionSec * effectiveZoom;
   const secPerBeat = 60 / bpm;
 
   return (
     <div style={{ position: 'absolute', width: '100%', height: '100%', overflow: 'hidden' }}>
-      <motion.div
-        style={{ position: 'absolute', left: '50%', x: -pixelOffset, height: '100%', top: 0 }}
-        animate={{ x: -pixelOffset }}
-        transition={{ type: 'tween', ease: 'linear', duration: 0 }}
+      <div
+        ref={ref}
+        style={{ position: 'absolute', left: '50%', transform: 'translateX(0px)', height: '100%', top: 0, willChange: 'transform' }}
       >
         {phraseBlocks.map((block) => {
           const widthPx = block.durationSec * effectiveZoom;
@@ -180,10 +177,11 @@ export const PhraseTrackView = ({ phraseBlocks, wagons, currentPositionSec, bpm,
             </div>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
-};
+});
+
 
 /**
  * Text indicator showing current phrase.

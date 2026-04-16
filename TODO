@@ -1,0 +1,6 @@
+- Revoir la mise en page pour tous les niveaux, on doit voir tous les elements sans scroller
+- Ajouter la tonalite des morceaux ajoutes dans les metadonnees
+- Ajouter une nouvelle section harmonie, ou l'on gere la synchronisation des trains pour l'utilisateur mais il faut choisir le morceau dans la bonne tonalite
+- Ajouter une section effets, ou l'on gere les effets (filtres, reverb, delay, flanger, phaser, echo, etc) et ou l'on peut les assigner a des boutons sur le controleur. chaque effet doit etre reprensente de facon amusante avec un chat
+- Ajouter un dernier niveau dans la section beatmatching on l'on masque les trains avec des grandes bandes noir l'utilisateur doit se servir uniquement de ses oreilles
+- Revoir la page d'acceuil en s'inspirant du style de coach patrick, l'integrer dans celle-ci on il presente le Jeu global, et propose de s'intersser a differentes sections (beatchmatching, harmonie, mix etc) avec un petit message sympa quand on passe la souris sur chaque categorie.

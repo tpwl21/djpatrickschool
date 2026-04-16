@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
 import { useValidation } from '../hooks/useValidation';
-import { generateWagons } from './Train';
+import Train, { generateWagons } from './Train';
+import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { 
   BEATS_PER_PHRASE, 
   PHRASES, 
   NUM_PHRASES, 
   buildPhraseBlocks,
-  COMPATIBLE_PHRASE_PAIRS
 } from '../utils/workshopUtils';
 import { 
   LoopTrackView, 
@@ -17,9 +17,6 @@ import {
 } from './TrackViews';
 import CoachPatrick from './CoachPatrick';
 
-/**
- * WorkshopLevel: The generic engine for DJ Teacher advanced workshops (4-7).
- */
 const WorkshopLevel = ({ 
   trackConfig, 
   title, 
@@ -28,41 +25,42 @@ const WorkshopLevel = ({
   showBpm = true, 
   randomizeBpm = false, 
   allowNudge = true,
-  compatiblePhrases = null, // if null, used L5 simple outro/intro check
+  compatiblePhrases = null,
   difficulty,
   onNextLevel,
   onRetry,
   onBack,
   onUnlockNext,
-  coachTips = [] // Added coachTips prop
+  coachTips = []
 }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
-  const [posA, setPosA] = useState(0);
-  const [posB, setPosB] = useState(0);
+  
+  // These are for UI elements like indicators that don't need 60fps updates
   const [currentPhraseA, setCurrentPhraseA] = useState(null);
   const [currentPhraseB, setCurrentPhraseB] = useState(null);
-  const reqRef = useRef();
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [currentBpmBDisplay, setCurrentBpmBDisplay] = useState(0);
+
+  const trackARef = useRef(null);
+  const trackBRef = useRef(null);
+  const audioCtxRef = useRef(null);
 
   const configA = trackConfig.A;
   const configB = trackConfig.B;
   const bpmA = configA.bpm;
   const trackLengthSec = 160;
 
-  // Initial calculation of B's starting BPM for the challenge
   const initialBpmB = useRef(randomizeBpm ? (configB.bpm + (Math.random() * 20 - 10)) : configB.bpm).current;
-  
-  // Pitch is the playback rate relative to the Native BPM of the file
   const [pitch, setPitch] = useState(initialBpmB / configB.bpm);
 
-  const wagonsA = useRef(generateWagons(bpmA, trackLengthSec, true)).current;
-  const wagonsB = useRef(generateWagons(configB.bpm, trackLengthSec, true)).current;
-  const phraseBlocksA = useRef(buildPhraseBlocks(bpmA, trackLengthSec)).current;
-  const phraseBlocksB = useRef(buildPhraseBlocks(configB.bpm, trackLengthSec)).current;
+  const wagonsA = useMemo(() => generateWagons(bpmA, trackLengthSec, viewType !== 'simple'), [bpmA, viewType]);
+  const wagonsB = useMemo(() => generateWagons(configB.bpm, trackLengthSec, viewType !== 'simple'), [configB.bpm, viewType]);
+  const phraseBlocksA = useMemo(() => buildPhraseBlocks(bpmA, trackLengthSec), [bpmA]);
+  const phraseBlocksB = useMemo(() => buildPhraseBlocks(configB.bpm, trackLengthSec), [configB.bpm]);
 
-  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, validate } = useValidation(difficulty);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const { config, isLevelCleared, isPerfectPitch, validate } = useValidation(difficulty);
 
   useEffect(() => {
     if (isLevelCleared && onUnlockNext) onUnlockNext();
@@ -70,6 +68,7 @@ const WorkshopLevel = ({
 
   useEffect(() => {
     const ctx = new MagicAudioContext();
+    audioCtxRef.current = ctx;
     ctx.init().then(() => {
       ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
       ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
@@ -77,80 +76,82 @@ const WorkshopLevel = ({
       setAudioCtx(ctx);
     });
 
-    const updateLoop = () => {
-      if (ctx) {
-        const currentA = ctx.getTrackPosition('A');
-        const currentB = ctx.getTrackPosition('B');
-        setPosA(currentA);
-        setPosB(currentB);
+    return () => ctx.ctx.close();
+  }, []);
 
-        const beatsA = currentA * (bpmA / 60);
-        const beatsB = currentB * (configB.bpm / 60);
-        const phraseIdxA = Math.floor(beatsA / BEATS_PER_PHRASE) % NUM_PHRASES;
-        const phraseIdxB = Math.floor(beatsB / BEATS_PER_PHRASE) % NUM_PHRASES;
-        
-        if (viewType === 'phrase') {
-          setCurrentPhraseA(PHRASES[phraseIdxA]);
-          setCurrentPhraseB(PHRASES[phraseIdxB]);
-        }
+  useAnimationFrame(() => {
+    const ctx = audioCtxRef.current;
+    if (!ctx || isLevelCleared || isGameOver) return;
 
-        if (currentA >= trackLengthSec - 0.2) {
-          ctx.pauseTrack('A');
-          ctx.pauseTrack('B');
-          setIsGameOver(true);
-        }
+    const currentA = ctx.getTrackPosition('A');
+    const currentB = ctx.getTrackPosition('B');
 
-        if (ctx.decks.A.isPlaying && ctx.decks.B.isPlaying && !isGameOver) {
-          let syncValid = false;
-          let diffSec = 0;
+    // High performance DOM updates
+    const zoom = 100;
+    const effZoomA = zoom; 
+    const effZoomB = zoom / (ctx.decks.B.rate || 1);
 
-          if (viewType === 'loop') {
-            const beatsLoopA = beatsA % 8; // 8 is BEATS_PER_LOOP
-            const beatsLoopB = (currentB * (configB.bpm / 60)) % 8;
-            let diff = Math.abs(beatsLoopA - beatsLoopB);
-            if (diff > 4) diff = 8 - diff;
-            diffSec = diff / (bpmA / 60);
-            syncValid = true; 
-          } else {
-            // Phrase based validation
-            const isCompatible = compatiblePhrases 
-              ? compatiblePhrases.some(([a, b]) => a === phraseIdxA && b === phraseIdxB)
-              : (phraseIdxA === 4 && phraseIdxB === 0); // Default Level 5 behavior
-
-            const posInPhraseA = beatsA % BEATS_PER_PHRASE;
-            const posInPhraseB = beatsB % BEATS_PER_PHRASE;
-            let diff = Math.abs(posInPhraseA - posInPhraseB);
-            if (diff > BEATS_PER_PHRASE / 2) diff = BEATS_PER_PHRASE - diff;
-            diffSec = diff / (bpmA / 60);
-            syncValid = isCompatible;
-          }
-
-          const currentBpmB = configB.bpm * ctx.decks.B.rate;
-          const { inFullSync } = validate(diffSec, currentBpmB, bpmA);
-          if (!syncValid || !inFullSync) {
-            validate(999, currentBpmB, bpmA); 
-          }
-        }
-      }
-      if (!isLevelCleared && !isGameOver) reqRef.current = requestAnimationFrame(updateLoop);
-    };
-    reqRef.current = requestAnimationFrame(updateLoop);
-
-    return () => {
-       cancelAnimationFrame(reqRef.current);
-       if (ctx) ctx.ctx.close();
+    if (trackARef.current) {
+      trackARef.current.style.transform = `translateX(${-currentA * effZoomA}px)`;
     }
-  }, [isLevelCleared, isGameOver]);
+    if (trackBRef.current) {
+      trackBRef.current.style.transform = `translateX(${-currentB * effZoomB}px)`;
+    }
+
+    // Business Logic
+    const beatsA = currentA * (bpmA / 60);
+    const beatsB = currentB * (configB.bpm / 60);
+    
+    // Update phrase indicators only when they change
+    const phraseIdxA = Math.floor(beatsA / BEATS_PER_PHRASE) % NUM_PHRASES;
+    const phraseIdxB = Math.floor(beatsB / BEATS_PER_PHRASE) % NUM_PHRASES;
+    
+    if (viewType === 'phrase') {
+      if (currentPhraseA?.index !== phraseIdxA) setCurrentPhraseA(PHRASES[phraseIdxA]);
+      if (currentPhraseB?.index !== phraseIdxB) setCurrentPhraseB(PHRASES[phraseIdxB]);
+    }
+
+    if (currentA >= trackLengthSec - 0.2) {
+      ctx.pauseTrack('A');
+      ctx.pauseTrack('B');
+      setIsGameOver(true);
+    }
+
+    if (ctx.decks.A.isPlaying && ctx.decks.B.isPlaying) {
+      let diffSec = 0;
+      let syncCompatible = true;
+
+      if (viewType === 'simple') {
+        const secPerBeat = 60 / bpmA;
+        let diff = Math.abs((currentA % secPerBeat) - (currentB % secPerBeat));
+        if (diff > secPerBeat * 0.5) diff = secPerBeat - diff;
+        diffSec = diff;
+      } else if (viewType === 'loop') {
+        let diff = Math.abs((beatsA % 8) - (beatsB % 8));
+        if (diff > 4) diff = 8 - diff;
+        diffSec = diff / (bpmA / 60);
+      } else {
+        syncCompatible = compatiblePhrases 
+          ? compatiblePhrases.some(([a, b]) => a === phraseIdxA && b === phraseIdxB)
+          : (phraseIdxA === 4 && phraseIdxB === 0);
+
+        let diff = Math.abs((beatsA % BEATS_PER_PHRASE) - (beatsB % BEATS_PER_PHRASE));
+        if (diff > BEATS_PER_PHRASE / 2) diff = BEATS_PER_PHRASE - diff;
+        diffSec = diff / (bpmA / 60);
+      }
+
+      const currentBpmB = configB.bpm * ctx.decks.B.rate;
+      if (currentBpmB !== currentBpmBDisplay) setCurrentBpmBDisplay(currentBpmB);
+      
+      validate(syncCompatible ? diffSec : 999, currentBpmB, bpmA);
+    }
+  });
 
   const playA = async () => { if (audioCtx && !isPlayingA) { await audioCtx.playTrack('A'); setIsPlayingA(true); } };
   const playB = async () => { if (audioCtx && !isPlayingB) { await audioCtx.playTrack('B'); setIsPlayingB(true); } };
   const pauseB = () => { if (audioCtx) { audioCtx.pauseTrack('B'); setIsPlayingB(false); } };
-  const cueB = () => { if (audioCtx) { audioCtx.cueTrack('B'); setPosB(0); setIsPlayingB(false); } };
-  const nudgeB = (amount) => {
-    if (!audioCtx) return;
-    audioCtx.nudgeTrack('B', amount);
-    setPosB(audioCtx.getTrackPosition('B'));
-  };
+  const cueB = () => { if (audioCtx) { audioCtx.cueTrack('B'); setIsPlayingB(false); } };
+  const nudgeB = (amount) => { if (audioCtx) audioCtx.nudgeTrack('B', amount); };
 
   const handlePitchChange = (e) => {
     const targetBpm = parseFloat(e.target.value);
@@ -178,17 +179,21 @@ const WorkshopLevel = ({
         <div className="railway-container">
           <div className="target-line" />
           <div className="track-container">
-            {viewType === 'loop' ? (
-              <LoopTrackView wagons={wagonsA} currentPositionSec={posA} bpm={bpmA} isPlaying={isPlayingA} trackLengthSec={trackLengthSec} />
+            {viewType === 'simple' ? (
+              <Train ref={trackARef} wagons={wagonsA} bpm={bpmA} />
+            ) : viewType === 'loop' ? (
+              <LoopTrackView ref={trackARef} wagons={wagonsA} bpm={bpmA} trackLengthSec={trackLengthSec} />
             ) : (
-              <PhraseTrackView phraseBlocks={phraseBlocksA} wagons={wagonsA} currentPositionSec={posA} bpm={bpmA} isPlaying={isPlayingA} />
+              <PhraseTrackView ref={trackARef} phraseBlocks={phraseBlocksA} wagons={wagonsA} bpm={bpmA} />
             )}
           </div>
           <div className="track-container">
-            {viewType === 'loop' ? (
-              <LoopTrackView wagons={wagonsB} currentPositionSec={posB} bpm={configB.bpm} isPlaying={isPlayingB} pitch={pitch} trackLengthSec={trackLengthSec} />
+            {viewType === 'simple' ? (
+              <Train ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} />
+            ) : viewType === 'loop' ? (
+              <LoopTrackView ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} trackLengthSec={trackLengthSec} />
             ) : (
-              <PhraseTrackView phraseBlocks={phraseBlocksB} wagons={wagonsB} currentPositionSec={posB} bpm={configB.bpm} isPlaying={isPlayingB} pitch={pitch} />
+              <PhraseTrackView ref={trackBRef} phraseBlocks={phraseBlocksB} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} />
             )}
           </div>
         </div>
@@ -196,7 +201,7 @@ const WorkshopLevel = ({
         <div className="pitch-fader-container">
           <h4>{randomizeBpm ? 'Pitch' : 'Vitesse'}</h4>
           <input 
-            type="range" min="100" max="150" step="0.01" 
+            type="range" min={configB.bpm - 25} max={configB.bpm + 25} step="0.01" 
             value={configB.bpm * pitch} 
             onChange={handlePitchChange} 
             className="pitch-input-vertical" 
@@ -228,8 +233,8 @@ const WorkshopLevel = ({
             <button className="btn-crayon nudge-btn" onClick={cueB}>CUE ⏮</button>
             {allowNudge && (
               <>
-                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>⏪ Reculer</button>
-                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>Avancer ⏩</button>
+                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>⏪ Ralentir</button>
+                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>Accélérer ⏩</button>
               </>
             )}
           </div>
@@ -243,6 +248,5 @@ const WorkshopLevel = ({
     </div>
   );
 };
-
 
 export default WorkshopLevel;

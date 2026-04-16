@@ -29,22 +29,22 @@ export const generateWagons = (bpm, lengthInSeconds = 60, isComplex = false) => 
   });
 };
 
-const Train = ({ wagons, currentPositionSec, bpm, isPlaying, zoomLevel = 100, pitch = 1.0 }) => {
+
+const Train = React.forwardRef(({ wagons, bpm, zoomLevel = 100, pitch = 1.0 }, ref) => {
   // To make sure trains map visually at the same scale when BPM is adjusted,
   // we scale the zoom by the inverse of the pitch.
   const effectiveZoom = zoomLevel / pitch;
-  const pixelOffset = currentPositionSec * effectiveZoom;
 
   return (
     <div style={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
-      <motion.div
+      <div
+        ref={ref}
         style={{
           position: 'absolute',
           left: '50%', 
-          x: -pixelOffset,
+          transform: 'translateX(0px)',
+          willChange: 'transform'
         }}
-        animate={{ x: -pixelOffset }}
-        transition={{ type: 'tween', ease: 'linear', duration: 0 }} 
       >
         {/* The Engine */}
         <div style={{
@@ -109,9 +109,10 @@ const Train = ({ wagons, currentPositionSec, bpm, isPlaying, zoomLevel = 100, pi
             </div>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
-};
+});
+
 
 export default Train;

@@ -15,7 +15,56 @@ export class MagicAudioContext {
     return Promise.resolve(); // Context is resumed later on first play
   }
 
-  // A simple synthesized beat for testing if no URL is provided.
+
+  // Helper to generate a simple kick drum
+  _addKick(data, start, sr, type, bufferLength) {
+    const freq = type === 'A' ? 140 : 180;
+    for (let j = 0; j < sr * 0.15; j++) {
+      const idx = Math.floor(start) + j;
+      if (idx < bufferLength) {
+        const env = Math.exp(-25 * j / sr);
+        const pitchDrop = Math.exp(-40 * j / sr) * freq; 
+        data[idx] += Math.sin(2 * Math.PI * (freq + pitchDrop) * (j / sr)) * env * 0.8;
+      }
+    }
+  }
+
+  // Helper to generate a snare
+  _addSnare(data, start, sr, bufferLength) {
+    for (let j = 0; j < sr * 0.1; j++) {
+      const idx = Math.floor(start) + j;
+      if (idx < bufferLength) {
+        const env = Math.exp(-20 * j / sr);
+        const noise = (Math.random() * 2 - 1) * 0.4;
+        data[idx] += noise * env;
+      }
+    }
+  }
+
+  // Helper to generate a hi-hat
+  _addHat(data, start, sr, bufferLength) {
+    for (let j = 0; j < sr * 0.05; j++) {
+      const idx = Math.floor(start) + j;
+      if (idx < bufferLength) {
+        const env = Math.exp(-60 * j / sr);
+        const noise = (Math.random() * 2 - 1) * 0.2;
+        data[idx] += noise * env;
+      }
+    }
+  }
+
+  // Helper to generate a bass pluck
+  _addBass(data, start, sr, type, bufferLength) {
+    const bassFreq = type === 'A' ? 55 : 65;
+    for (let j = 0; j < sr * 0.2; j++) {
+      const idx = Math.floor(start) + j;
+      if (idx < bufferLength) {
+        const env = Math.exp(-12 * j / sr);
+        data[idx] += Math.sin(2 * Math.PI * bassFreq * (j / sr)) * env * 0.4;
+      }
+    }
+  }
+
   generateSyntheticBeat(bpm, type, lengthInSecs = 120, complexity = 1) {
     const sr = this.ctx.sampleRate;
     const beatLength = 60 / bpm;
@@ -33,139 +82,82 @@ export class MagicAudioContext {
         if (Math.floor(start) >= bufferLength) break;
 
         const beatIndex = i / 2;
-        const isKick = (i % 2 === 0); // Every beat
-        const isSnare = (i % 4 === 2); // Beats 2 and 4
-        const isHat = (i % 2 !== 0); // Off-beats
-        
-        // Loop Marker (Beat 1 of 8)
+        const isKick = (i % 2 === 0);
+        const isSnare = (i % 4 === 2);
+        const isHat = (i % 2 !== 0);
         const isLoopStart = (i % (beatsPerLoop * 2) === 0);
-        // Phrase Marker (Beat 1 of 32)
         const isPhraseStart = (i % (beatsPerPhrase * 2) === 0);
 
-        if (complexity >= 1) {
-           const phaseIndex = complexity >= 5 ? Math.floor(beatIndex / beatsPerPhrase) % 5 : -1;
-           const isBreak = (phaseIndex === 3);
+        const phaseIndex = complexity >= 5 ? Math.floor(beatIndex / beatsPerPhrase) % 5 : -1;
+        const isBreak = (phaseIndex === 3);
 
-           // Basic Kick
-           if (isKick && !isBreak) {
-              const freq = type === 'A' ? 140 : 180;
-              for (let j = 0; j < sr * 0.15; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-25 * j / sr);
-                    const pitchDrop = Math.exp(-40 * j / sr) * freq; 
-                    data[Math.floor(start) + j] += Math.sin(2 * Math.PI * (freq + pitchDrop) * (j / sr)) * env * 0.8;
-                 }
-              }
-           }
+        if (complexity >= 1 && isKick && !isBreak) {
+          this._addKick(data, start, sr, type, bufferLength);
         }
 
         if (complexity >= 3) {
-           const phaseIndex = complexity >= 5 ? Math.floor(beatIndex / beatsPerPhrase) % 5 : -1;
-           const isBreak = (phaseIndex === 3);
-
-           // Snare and Hats
-           if (isSnare && !isBreak) {
-              for (let j = 0; j < sr * 0.1; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-20 * j / sr);
-                    const noise = (Math.random() * 2 - 1) * 0.4;
-                    data[Math.floor(start) + j] += noise * env;
-                 }
-              }
-           } else if (isHat) {
-              for (let j = 0; j < sr * 0.05; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-60 * j / sr);
-                    const noise = (Math.random() * 2 - 1) * 0.2;
-                    data[Math.floor(start) + j] += noise * env;
-                 }
-              }
-           }
+          if (isSnare && !isBreak) {
+            this._addSnare(data, start, sr, bufferLength);
+          } else if (isHat) {
+            this._addHat(data, start, sr, bufferLength);
+          }
         }
 
-        if (complexity >= 4) {
-           // Loop Accent (Cowbell/Ride style)
-           if (isLoopStart) {
-              const freq = 800;
-              for (let j = 0; j < sr * 0.1; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-30 * j / sr);
-                    data[Math.floor(start) + j] += Math.sin(2 * Math.PI * freq * (j / sr)) * env * 0.2;
-                 }
-              }
-           }
+        if (complexity >= 4 && isLoopStart) {
+          // Loop Accent (Cowbell style)
+          const freq = 800;
+          for (let j = 0; j < sr * 0.1; j++) {
+            const idx = Math.floor(start) + j;
+            if (idx < bufferLength) {
+              const env = Math.exp(-30 * j / sr);
+              data[idx] += Math.sin(2 * Math.PI * freq * (j / sr)) * env * 0.2;
+            }
+          }
         }
 
         if (complexity >= 5) {
-           const phraseIndex = Math.floor(beatIndex / beatsPerPhrase) % 5;
-           
-           // Phrase Accent (Crash) only at the start of a new phrase
-           if (isPhraseStart) {
-              for (let j = 0; j < sr * 2.0; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-3 * j / sr);
-                    const noise = (Math.random() * 2 - 1) * 0.4;
-                    data[Math.floor(start) + j] += noise * env;
-                 }
+          if (isPhraseStart) {
+            // Phrase Accent (Crash)
+            for (let j = 0; j < sr * 2.0; j++) {
+              const idx = Math.floor(start) + j;
+              if (idx < bufferLength) {
+                const env = Math.exp(-3 * j / sr);
+                const noise = (Math.random() * 2 - 1) * 0.4;
+                data[idx] += noise * env;
               }
-           }
-
-           // Evolutionary Bassline / Melody
-           // Phrase 0: Intro (Sub-bass, very simple)
-           // Phrase 1: Build (Rising pulse)
-           // Phrase 2: Drop (Full Groovy Bass)
-           // Phrase 3: Break (No Kick, just Melody)
-           // Phrase 4: Outro (Stripped back)
-
-           if (phraseIndex === 2 || phraseIndex === 0 || phraseIndex === 4) {
-              // Bass Pluck
-              const isBassMoment = (i % 8 === 0 || i % 8 === 3 || i % 8 === 6);
-              if (isBassMoment) {
-                 const bassFreq = type === 'A' ? 55 : 65; // A1 or C2 approx
-                 for (let j = 0; j < sr * 0.2; j++) {
-                    if (start + j < bufferLength) {
-                       const env = Math.exp(-12 * j / sr);
-                       data[Math.floor(start) + j] += Math.sin(2 * Math.PI * bassFreq * (j / sr)) * env * 0.4;
-                    }
-                 }
-              }
-           }
-
-           if (phraseIndex === 1) {
-              // Build-up Riser (White noise sweeping up in volume over the phrase)
-              const posInPhrase = (beatIndex % beatsPerPhrase) / beatsPerPhrase;
-              const riserEnv = posInPhrase * 0.2;
-              for (let j = 0; j < sr * halfBeat; j++) {
-                 if (start + j < bufferLength) {
-                    const noise = (Math.random() * 2 - 1) * riserEnv;
-                    data[Math.floor(start) + j] += noise;
-                 }
-              }
-           }
-
-           if (phraseIndex === 3) {
-              // Break: Melodic Arpeggio instead of drums
-              const notes = type === 'A' ? [220, 277, 330, 440] : [261, 329, 392, 523];
-              const note = notes[Math.floor(beatIndex % notes.length)];
-              for (let j = 0; j < sr * 0.3; j++) {
-                 if (start + j < bufferLength) {
-                    const env = Math.exp(-8 * j / sr);
-                    data[Math.floor(start) + j] += Math.sin(2 * Math.PI * note * (j / sr)) * env * 0.2;
-                 }
-              }
-           }
-        }
-    }
-
-    // Post-processing: If Break (phrase 3), reduce Kick/Snare volume
-    if (complexity >= 5) {
-       for (let i = 0; i < totalHalfBeats; i++) {
-          const phraseIndex = Math.floor((i / 2) / beatsPerPhrase) % 5;
-          if (phraseIndex === 3) {
-             // We can't really "undo" the kick here easily without changing the loop structure.
-             // But we can just make the logic above smarter.
+            }
           }
-       }
+
+          if (phaseIndex === 2 || phaseIndex === 0 || phaseIndex === 4) {
+            if (i % 8 === 0 || i % 8 === 3 || i % 8 === 6) {
+              this._addBass(data, start, sr, type, bufferLength);
+            }
+          }
+
+          if (phaseIndex === 1) {
+            // Build-up Riser
+            const riserEnv = ((beatIndex % beatsPerPhrase) / beatsPerPhrase) * 0.2;
+            for (let j = 0; j < sr * halfBeat; j++) {
+              const idx = Math.floor(start) + j;
+              if (idx < bufferLength) {
+                data[idx] += (Math.random() * 2 - 1) * riserEnv;
+              }
+            }
+          }
+
+          if (phaseIndex === 3) {
+            // Break: Melodic Arpeggio
+            const notes = type === 'A' ? [220, 277, 330, 440] : [261, 329, 392, 523];
+            const note = notes[Math.floor(beatIndex % notes.length)];
+            for (let j = 0; j < sr * 0.3; j++) {
+              const idx = Math.floor(start) + j;
+              if (idx < bufferLength) {
+                const env = Math.exp(-8 * j / sr);
+                data[idx] += Math.sin(2 * Math.PI * note * (j / sr)) * env * 0.2;
+              }
+            }
+          }
+        }
     }
 
     return buffer;
@@ -184,7 +176,6 @@ export class MagicAudioContext {
       this.decks[deckId].buffer = audioBuffer;
     } catch (err) {
       console.error("Failed to load track:", err);
-      // Fallback
       this.decks[deckId].buffer = this.generateSyntheticBeat(defaultBpm, deckId, lengthInSecs);
     }
   }
@@ -221,6 +212,31 @@ export class MagicAudioContext {
     deck.isPlaying = false;
   }
 
+  setVolume(deckId, volume, rampTime = 0.05) {
+    const deck = this.decks[deckId];
+    if (deck.gain) {
+      deck.gain.gain.setTargetAtTime(volume, this.ctx.currentTime, rampTime);
+    }
+  }
+
+  async fadeOutDeck(deckId, durationSec = 1.0) {
+    const deck = this.decks[deckId];
+    if (!deck.isPlaying || !deck.gain) return;
+
+    const currentVal = deck.gain.gain.value;
+    deck.gain.gain.setValueAtTime(currentVal, this.ctx.currentTime);
+    deck.gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + durationSec);
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        this.pauseTrack(deckId);
+        // Reset volume for next time
+        deck.gain.gain.setValueAtTime(1, this.ctx.currentTime);
+        resolve();
+      }, durationSec * 1000);
+    });
+  }
+
   setPlaybackRate(deckId, rate) {
     const deck = this.decks[deckId];
     deck.rate = rate;
@@ -245,8 +261,12 @@ export class MagicAudioContext {
     const duration = deck.buffer ? deck.buffer.duration : 1;
     
     if (deck.isPlaying) {
-      this.pauseTrack(deckId);
-      // Ensure positive modulo wrap
+      // Calculate current position exactly before nudging
+      deck.currentPosition = ((this.ctx.currentTime - deck.startTime) * deck.rate) % duration;
+      deck.source.stop();
+      deck.isPlaying = false;
+      
+      // Apply nudge and restart
       deck.currentPosition = (((deck.currentPosition + amountSec) % duration) + duration) % duration;
       this.playTrack(deckId);
     } else {
