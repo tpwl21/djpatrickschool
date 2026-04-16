@@ -63,9 +63,9 @@ export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomL
           let marginTop = '-18px';
           let height = '36px';
 
-          if (w.isKick)       { bgColor = '#ff9f43'; icon = '🔥'; }
-          else if (w.isSnare) { bgColor = '#3498db'; icon = '👏'; }
-          else if (w.isHat)   { wagonWidth = 18; bgColor = '#f1c40f'; icon = '✨'; height = '18px'; marginTop = '-9px'; }
+          if (w.isKick)       { bgColor = '#ff9f43'; icon = 'K'; }
+          else if (w.isSnare) { bgColor = '#3498db'; icon = 'S'; }
+          else if (w.isHat)   { wagonWidth = 18; bgColor = '#f1c40f'; icon = 'H'; height = '18px'; marginTop = '-9px'; }
 
           return (
             <div key={w.id} style={{
@@ -84,7 +84,7 @@ export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomL
               boxShadow: '2px 2px 0px #333',
               zIndex: 2,
             }}>
-              {icon}
+              <span style={{ fontWeight: 'bold' }}>{icon}</span>
             </div>
           );
         })}
@@ -149,13 +149,13 @@ export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pi
           const beatWidth = secPerBeat * effectiveZoom;
           let wagonWidth = 32;
           let bgColor = '#4ecdc4';
-          let icon = '🎵';
+          let icon = 'M';
           let top = '50%';
           let marginTop = '-16px';
           let height = '32px';
-          if (w.isKick)       { bgColor = '#ff9f43'; icon = '🔥'; }
-          else if (w.isSnare) { bgColor = '#3498db'; icon = '👏'; }
-          else if (w.isHat)   { wagonWidth = 16; bgColor = '#f1c40f'; icon = '✨'; height = '16px'; marginTop = '-8px'; }
+          if (w.isKick)       { bgColor = '#ff9f43'; icon = 'K'; }
+          else if (w.isSnare) { bgColor = '#3498db'; icon = 'S'; }
+          else if (w.isHat)   { wagonWidth = 16; bgColor = '#f1c40f'; icon = 'H'; height = '16px'; marginTop = '-8px'; }
           return (
             <div key={w.id} style={{
               position: 'absolute',
@@ -173,7 +173,7 @@ export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pi
               boxShadow: '2px 2px 0px #333',
               zIndex: 2,
             }}>
-              {icon}
+              <span style={{ fontWeight: 'bold' }}>{icon}</span>
             </div>
           );
         })}

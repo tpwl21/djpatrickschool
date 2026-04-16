@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import './App.css';
-import Level1 from './components/Level1';
-import Level2 from './components/Level2';
-import Level3 from './components/Level3';
-import Level4 from './components/Level4';
-import Level5 from './components/Level5';
-import Level6 from './components/Level6';
-import Level7 from './components/Level7';
-
+import Level1 from './workshops/beatmatching/Level1';
+import Level2 from './workshops/beatmatching/Level2';
+import Level3 from './workshops/beatmatching/Level3';
+import Level4 from './workshops/beatmatching/Level4';
+import Level5 from './workshops/beatmatching/Level5';
+import Level6 from './workshops/beatmatching/Level6';
+import Level7 from './workshops/beatmatching/Level7';
 import Home from './components/Home';
+import GraduationPopup from './components/GraduationPopup';
 
 function App() {
-  const [level, setLevel] = useState(0); // 0 = Home
+  const [level, setLevel] = useState(0); // 0 = Home, 1-7 = Beatmatch
   const [unlockedLevel, setUnlockedLevel] = useState(() => {
     const saved = localStorage.getItem('dj_teacher_progression');
     return saved ? parseInt(saved, 10) : 1;
   });
   const [difficulty, setDifficulty] = useState('EASY');
   const [retryKey, setRetryKey] = useState(0);
+  const [isGraduated, setIsGraduated] = useState(false);
 
   const handleNextLevel = () => {
+    if (level === 7) {
+      setIsGraduated(true);
+      return;
+    }
     const next = level + 1;
     if (next > unlockedLevel && next <= 7) {
       setUnlockedLevel(next);
@@ -36,6 +41,7 @@ function App() {
   const handleBackToHome = () => {
     setLevel(0);
     setRetryKey(0);
+    setIsGraduated(false);
   };
 
   const unlockNext = (current) => {
@@ -50,6 +56,7 @@ function App() {
     setDifficulty(diff);
     setLevel(levelIdx);
     setRetryKey(0);
+    setIsGraduated(false);
   };
 
   return (
@@ -64,20 +71,8 @@ function App() {
       {level === 6 && <Level6 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(6)} />}
       {level === 7 && <Level7 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(7)} />}
       
-      {level > 7 && (
-        <div style={{ textAlign: 'center', padding: '100px 20px', background: 'var(--primary-bg)', minHeight: '100vh' }}>
-          <h1 style={{ fontSize: '5rem', textShadow: '4px 4px 0px #ff9f43' }}>🎓 DJ MASTER ! 🎧</h1>
-          <p style={{ fontSize: '2rem', color: '#666', maxWidth: '600px', margin: '20px auto' }}>
-            Tu as maîtrisé le rythme, le pitch et le paysage musical. Les trains roulent maintenant en parfaite harmonie grâce à toi !
-          </p>
-          <button 
-            className="btn-crayon play-btn" 
-            style={{ marginTop: '50px', fontSize: '2.5rem', padding: '20px 50px' }}
-            onClick={() => setLevel(0)}
-          >
-            Retour au Menu 🎠
-          </button>
-        </div>
+      {isGraduated && (
+        <GraduationPopup difficulty={difficulty} onBackHome={handleBackToHome} />
       )}
     </>
   );

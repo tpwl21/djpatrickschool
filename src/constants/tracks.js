@@ -8,31 +8,37 @@
  */
 export const TRACK_CONFIG = {
   LEVEL_1: {
-    A: { url: null, bpm: 120, complexity: 1, title: "Train A" },
-    B: { url: null, bpm: 120, complexity: 1, title: "Train B" }
+    A: { url: null, bpm: 120, complexity: 1, title: "Train A", key: "8A" },
+    B: { url: null, bpm: 120, complexity: 1, title: "Train B", key: "8A" }
   },
   LEVEL_2: {
-    A: { url: null, bpm: 120, complexity: 1, title: "Reference" },
-    B: { url: null, bpm: 135, complexity: 1, title: "Vitesse à caler" }
+    A: { url: null, bpm: 120, complexity: 1, title: "Reference", key: "5A" },
+    B: { url: null, bpm: 135, complexity: 1, title: "Vitesse à caler", key: "5A" }
   },
   LEVEL_3: {
-    A: { url: "/AUDIO/Trip.mp3", bpm: 122, complexity: 3, title: "Base" },
-    B: { url: "/AUDIO/Tech.mp3", bpm: 127, complexity: 3, title: "Rythme fou" }
+    A: { url: "/AUDIO/Trip.mp3", bpm: 122, complexity: 3, title: "Base", key: "4A" },
+    B: { url: "/AUDIO/Tech.mp3", bpm: 127, complexity: 3, title: "Rythme fou", key: "8A" }
   },
   LEVEL_4: {
-    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref" },
-    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler" }
+    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref", key: "11A" },
+    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "12A" }
   },
   LEVEL_5: {
-    A: { url: "/AUDIO/Ensaios.mp3", bpm: 130, complexity: 5, title: "Intro" },
-    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 5, title: "Outro" }
+    A: { url: "/AUDIO/Ensaios.mp3", bpm: 130, complexity: 5, title: "Intro", key: "1A" },
+    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 5, title: "Outro", key: "12A" }
   },
   LEVEL_6: {
-    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref" },
-    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler" }
+    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref", key: "11A" },
+    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "12A" }
   },
   LEVEL_7: {
-    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref" },
-    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler" }
+    A: { url: "/AUDIO/SuperMarket.mp3", bpm: 130, complexity: 4, title: "Boucle Ref", key: "11A" },
+    B: { url: "/AUDIO/SCIFI.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "11A" }
   }
-};
+};export const HARMONY_POOL = [
+  { url: "/AUDIO/Trip.mp3", bpm: 122, title: "Trip", key: "4A" },
+  { url: "/AUDIO/Tech.mp3", bpm: 127, title: "Tech", key: "8A" },
+  { url: "/AUDIO/SuperMarket.mp3", bpm: 130, title: "Market", key: "11A" },
+  { url: "/AUDIO/SCIFI.mp3", bpm: 128, title: "SciFi", key: "12A" },
+  { url: "/AUDIO/Ensaios.mp3", bpm: 130, title: "Ensaios", key: "1A" },
+];

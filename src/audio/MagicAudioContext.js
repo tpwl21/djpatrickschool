@@ -3,17 +3,31 @@
 
 export class MagicAudioContext {
   constructor() {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    this.ctx = new AudioContext();
+    this.ctx = null;
     this.decks = {
       A: { isPlaying: false, source: null, buffer: null, rate: 1.0, currentPosition: 0, startTime: 0, gain: null },
       B: { isPlaying: false, source: null, buffer: null, rate: 1.0, currentPosition: 0, startTime: 0, gain: null }
     };
+    this.masterGain = null;
+    this.analyser = null;
   }
 
-  init() {
-    return Promise.resolve(); // Context is resumed later on first play
+  async init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioContext();
+      
+      // Master Chain
+      this.masterGain = this.ctx.createGain();
+      this.analyser = this.ctx.createAnalyser();
+      this.analyser.fftSize = 256;
+      
+      this.masterGain.connect(this.analyser);
+      this.analyser.connect(this.ctx.destination);
+    }
+    return Promise.resolve();
   }
+
 
 
   // Helper to generate a simple kick drum
@@ -193,14 +207,53 @@ export class MagicAudioContext {
     deck.source.playbackRate.value = deck.rate;
     deck.source.loop = true;
 
+    // Gain
     deck.gain = this.ctx.createGain();
-    deck.source.connect(deck.gain);
-    deck.gain.connect(this.ctx.destination);
+    
+    // LowPass Filter
+    deck.filter = this.ctx.createBiquadFilter();
+    deck.filter.type = 'lowpass';
+    deck.filter.frequency.value = 20000;
+
+    // Delay
+    deck.delay = this.ctx.createDelay(2.0);
+    deck.delayGain = this.ctx.createGain();
+    deck.delayGain.gain.value = 0; // Off by default
+    deck.delay.delayTime.value = 0.3;
+
+    // Routing
+    deck.source.connect(deck.filter);
+    deck.filter.connect(deck.gain);
+    
+    // Parallel Delay
+    deck.filter.connect(deck.delay);
+    deck.delay.connect(deck.delayGain);
+    deck.delayGain.connect(deck.gain);
+    deck.delayGain.connect(deck.delay); // Feedback loop
+
+    deck.gain.connect(this.masterGain);
 
     deck.source.start(0, deck.currentPosition);
     deck.startTime = this.ctx.currentTime - (deck.currentPosition / deck.rate);
     deck.isPlaying = true;
   }
+
+  setFilter(deckId, freq, type = 'lowpass') {
+    const deck = this.decks[deckId];
+    if (deck.filter) {
+      deck.filter.type = type;
+      deck.filter.frequency.setTargetAtTime(freq, this.ctx.currentTime, 0.1);
+    }
+  }
+
+  setDelay(deckId, level, time = 0.3) {
+    const deck = this.decks[deckId];
+    if (deck.delay && deck.delayGain) {
+      deck.delay.delayTime.setTargetAtTime(time, this.ctx.currentTime, 0.1);
+      deck.delayGain.gain.setTargetAtTime(level, this.ctx.currentTime, 0.1);
+    }
+  }
+
 
   pauseTrack(deckId) {
     const deck = this.decks[deckId];
