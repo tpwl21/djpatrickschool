@@ -4,6 +4,8 @@ import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
 import Knob from './Knob';
 import Fader from './Fader';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
 const W2Game1_EQ = ({ onNextLevel, onRetry }) => {
   const [audioCtx, setAudioCtx] = useState(null);
@@ -177,6 +179,7 @@ const W2Game1_EQ = ({ onNextLevel, onRetry }) => {
 
       {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
+      <CoachPatrick tips={COACH_TIPS.W2_EQ} />
     </div>
   );
 };

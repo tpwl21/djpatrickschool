@@ -1,119 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Music, Zap, Disc, Play } from 'lucide-react';
+import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
 
-const Home = ({ onSelectWorkshop }) => {
+const Home = ({ onStart, unlockedLevel = 1 }) => {
+  const [selectedDifficulty, setSelectedDifficulty] = useState('EASY');
+
+  const workshops = [
+    { id: 1, title: "Lancement", icon: "🏁", desc: "Maîtrise le timing du départ." },
+    { id: 2, title: "Moteur", icon: "⚙️", desc: "Ajuste la vitesse (Pitch)." },
+    { id: 3, title: "Rythme", icon: "🔥", desc: "Aligne les mesures (4 temps)." },
+    { id: 4, title: "Boucle", icon: "🔄", desc: "Synchronisation sur 8 temps." },
+    { id: 5, title: "Transition", icon: "🎧", desc: "Intro vs Outro." },
+    { id: 6, title: "Blind Chief", icon: "🌑", desc: "Calage à l'oreille sans BPM." },
+    { id: 7, title: "Puriste", icon: "🧘", desc: "Zéro aide, CUE & Pitch." },
+  ];
+
   return (
     <div className="home-container">
-      <motion.header 
-        initial={{ opacity: 0, y: -50 }}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="home-header"
       >
-        <div className="hero-badge">🎓 DJ ACADEMY</div>
-        <h1>DJ Teacher</h1>
-        <p>Maîtrise le rythme et l'énergie des foules</p>
-      </motion.header>
-
-      <div className="workshop-grid">
-        {/* Workshop 1 Card */}
-        <motion.div 
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="workshop-card ws1"
-          onClick={() => onSelectWorkshop('workshop1')}
-        >
-          <div className="card-icon"><Music size={48} /></div>
-          <h2>Atelier 1</h2>
-          <h3>Le Rail du Rythme</h3>
-          <p>Apprends le beatmatching, le pitch et le calage des phrases musicales.</p>
-          <div className="card-footer">
-            <span>7 Niveaux</span>
-            <Play size={24} />
-          </div>
-        </motion.div>
-
-        {/* Workshop 2 Card */}
-        <motion.div 
-          whileHover={{ scale: 1.05, rotateY: -5 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-          className="workshop-card ws2"
-          onClick={() => onSelectWorkshop('workshop2')}
-        >
-          <div className="card-icon"><Zap size={48} /></div>
-          <h2>Atelier 2</h2>
-          <h3>Performance & Crowd</h3>
-          <p>Maîtrise les EQ, les effets et la gestion de la playlist pour retourner le dancefloor.</p>
-          <div className="card-footer">
-            <span>3 Défis</span>
-            <Play size={24} />
-          </div>
-        </motion.div>
-      </div>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ delay: 1, duration: 2 }}
-        className="home-footer"
-      >
-        Version 1.2.0 • Propulsé by Magic Audio Engine
+        <h1>DJ TEACHER</h1>
+        <p>Maîtrise l'art du calage tempo avec les trains du rythme</p>
       </motion.div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        .hero-badge {
-          background: #ff9f43;
-          color: black;
-          padding: 5px 15px;
-          border-radius: 20px;
-          font-weight: bold;
-          font-size: 0.8rem;
-          display: inline-block;
-          margin-bottom: 20px;
-          letter-spacing: 2px;
-        }
-        .workshop-card.ws1 { border-top: 5px solid #ff9f43; }
-        .workshop-card.ws2 { border-top: 5px solid #00d2d3; }
+      <div className="difficulty-selector">
+        <h2 style={{ marginBottom: '20px', color: '#ff9f43' }}>1. Choisis ta difficulté</h2>
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          {Object.entries(DIFFICULTY_SETTINGS).map(([key, setting]) => (
+            <motion.div
+              key={key}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`difficulty-card ${selectedDifficulty === key ? 'selected' : ''}`}
+              onClick={() => setSelectedDifficulty(key)}
+            >
+              <h3 style={{ color: selectedDifficulty === key ? '#ff9f43' : 'white' }}>{setting.name}</h3>
+              <p>
+                {key === 'EASY' && "Idéal pour débuter (40ms)"}
+                {key === 'MEDIUM' && "Challenge standard (20ms)"}
+                {key === 'PRO' && "Précision chirurgicale (4ms)"}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-        .card-icon {
-          width: 80px;
-          height: 80px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .ws1 .card-icon { color: #ff9f43; }
-        .ws2 .card-icon { color: #00d2d3; }
-
-        .workshop-card h2 { color: #888; font-size: 0.9rem; margin: 0; }
-        .workshop-card h3 { font-size: clamp(1.2rem, 3vw, 2rem); margin: 0; }
-        .workshop-card p { color: #aaa; line-height: 1.6; min-height: 60px; font-size: 0.9rem; }
-        
-        .card-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: auto;
-          color: #fff;
-          font-weight: bold;
-        }
-        .card-footer span { opacity: 0.6; }
-
-        .home-footer {
-          margin-top: 40px;
-          font-size: 0.7rem;
-          letter-spacing: 1px;
-          opacity: 0.5;
-        }
-      `}} />
+      <div className="mission-selector" style={{ marginTop: '50px', width: '100%', maxWidth: '1000px' }}>
+        <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#4ecdc4' }}>2. Sélectionne ta mission</h2>
+        <div className="mission-grid">
+          {workshops.map((w) => {
+            const isLocked = w.id > unlockedLevel;
+            return (
+              <motion.div
+                key={w.id}
+                whileHover={!isLocked ? { y: -5, background: 'rgba(255,255,255,0.1)' } : {}}
+                onClick={() => !isLocked && onStart(w.id, selectedDifficulty)}
+                className={`workshop-card ${isLocked ? 'locked' : ''}`}
+                style={{ cursor: isLocked ? 'not-allowed' : 'pointer', position: 'relative' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', opacity: isLocked ? 0.3 : 1 }}>
+                  <span style={{ fontSize: '2.5rem' }}>{isLocked ? '🔒' : w.icon}</span>
+                  <div>
+                    <h4 style={{ margin: 0, fontSize: '1.2rem' }}>Mission {w.id}</h4>
+                    <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.6 }}>{w.title}</p>
+                  </div>
+                </div>
+                <p style={{ fontSize: '0.85rem', margin: '10px 0 0 0', lineHeight: '1.4', opacity: isLocked ? 0.3 : 1 }}>{w.desc}</p>
+                {!isLocked && <div style={{ marginTop: 'auto', textAlign: 'right', fontSize: '1.5rem', opacity: 0.3 }}>→</div>}
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

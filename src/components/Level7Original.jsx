@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
 import { generateWagons } from './Train';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
 // Level 7: "The Purist" 🧘‍♂️
 // Same as Level 6 (No BPM, randomization), but NO NUDGE BUTTONS.

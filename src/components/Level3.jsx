@@ -2,8 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import Train, { generateWagons } from './Train';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
+import { useValidation } from '../hooks/useValidation';
+import { TRACK_CONFIG } from '../constants/tracks';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
-const Level3 = ({ onNextLevel, onRetry }) => {
+const Level3 = ({ onNextLevel, onRetry, onBack, difficulty, onUnlockNext }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -13,8 +17,10 @@ const Level3 = ({ onNextLevel, onRetry }) => {
 
   const reqRef = useRef();
 
-  const bpmA = 120;
-  const initialBpmB = 145; 
+  const configA = TRACK_CONFIG.LEVEL_3.A;
+  const configB = TRACK_CONFIG.LEVEL_3.B;
+  const bpmA = configA.bpm;
+  const initialBpmB = configB.bpm; 
   const trackLengthSec = 120; 
 
   const [wagonsA] = useState(generateWagons(bpmA, trackLengthSec, true));
@@ -22,15 +28,20 @@ const Level3 = ({ onNextLevel, onRetry }) => {
 
   const [pitch, setPitch] = useState(1.0);
 
-  const [isLevelCleared, setIsLevelCleared] = useState(false);
+  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, validate } = useValidation(difficulty);
   const [isGameOver, setIsGameOver] = useState(false);
-  const syncTimerRef = useRef(0);
+
+  useEffect(() => {
+    if (isLevelCleared && onUnlockNext) {
+      onUnlockNext();
+    }
+  }, [isLevelCleared, onUnlockNext]);
 
   useEffect(() => {
     const ctx = new MagicAudioContext();
     ctx.init().then(() => {
-      ctx.loadTrack('A', null, bpmA, trackLengthSec, 3);
-      ctx.loadTrack('B', null, initialBpmB, trackLengthSec, 3);
+      ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
+      ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
       setAudioCtx(ctx);
     });
 
@@ -55,18 +66,10 @@ const Level3 = ({ onNextLevel, onRetry }) => {
           let diff = Math.abs((beatsA % 4.0) - (beatsB % 4.0));
           if (diff > 2.0) diff = 4.0 - diff; // wrap around
 
-          // 0% pitch tolerance: displayed BPM must be exactly bpmA
-          const isPitchCorrect = Math.abs(initialBpmB * ctx.decks.B.rate - bpmA) < 0.05;
+          const diffSec = diff / (bpmA / 60);
 
-          // 0.05 beat tolerance (~25ms at 120 BPM)
-          if (diff < 0.05 && isPitchCorrect) {
-             syncTimerRef.current += 1;
-             if (syncTimerRef.current > 600) {
-                 setIsLevelCleared(true);
-             }
-          } else {
-             syncTimerRef.current = 0;
-          }
+          // Use centralized validation
+          validate(diffSec, initialBpmB * ctx.decks.B.rate, bpmA);
         }
       }
       if (!isLevelCleared && !isGameOver) {
@@ -133,6 +136,9 @@ const Level3 = ({ onNextLevel, onRetry }) => {
   return (
     <div className="app-container">
       <div className="level-header">
+        <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">
+          🏠 Menu
+        </button>
         <h1>Niveau 3 : Le Rythme Parfait 🔥</h1>
         <p>Aligne la Vitesse ET assure-toi que les wagons FEU (🔥) tombent exactement en même temps !</p>
       </div>
@@ -157,12 +163,12 @@ const Level3 = ({ onNextLevel, onRetry }) => {
             type="range" 
             min="100" 
             max="150" 
-            step="0.5" 
+            step="0.01" 
             value={initialBpmB * pitch} 
             onChange={handlePitchChange}
             className="pitch-input-vertical"
           />
-          <div style={{ fontWeight: 'bold', marginTop: '10px', color: '#ff6b6b' }}>
+          <div style={{ fontWeight: 'bold', marginTop: '10px', color: isPerfectPitch ? '#27ae60' : '#ff6b6b' }}>
             {(initialBpmB * pitch).toFixed(1)} BPM
           </div>
         </div>
@@ -188,10 +194,10 @@ const Level3 = ({ onNextLevel, onRetry }) => {
               <button className="btn-crayon nudge-btn" onClick={cueB}>
                   CUE ⏮
               </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>
                   ⏪ Reculer
               </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)}>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>
                   Avancer ⏩
               </button>
             </div>
@@ -200,6 +206,7 @@ const Level3 = ({ onNextLevel, onRetry }) => {
       
       {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
       {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
+      <CoachPatrick tips={COACH_TIPS.LEVEL_3} />
     </div>
   );
 

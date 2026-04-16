@@ -3,6 +3,8 @@ import Train, { generateWagons } from './Train';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
 import Knob from './Knob';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
 const W2Game2_FX = ({ onNextLevel, onRetry }) => {
   const [audioCtx, setAudioCtx] = useState(null);
@@ -152,6 +154,7 @@ const W2Game2_FX = ({ onNextLevel, onRetry }) => {
 
       {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
+      <CoachPatrick tips={COACH_TIPS.W2_FX} />
     </div>
   );
 };

@@ -44,7 +44,7 @@ const Train = ({ wagons, currentPositionSec, bpm, isPlaying, zoomLevel = 100, pi
           x: -pixelOffset,
         }}
         animate={{ x: -pixelOffset }}
-        transition={{ type: 'tween', ease: 'linear', duration: isPlaying ? 0.1 : 0 }} 
+        transition={{ type: 'tween', ease: 'linear', duration: 0 }} 
       >
         {/* The Engine */}
         <div style={{

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import Train, { generateWagons } from './Train';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
 const styles = [
   { id: 'disco', name: 'GLITTER DISCO', bpm: 115, complexity: 2, color: '#ff9ff3' },
@@ -200,6 +202,7 @@ const W2Game3_Playlist = ({ onNextLevel, onRetry }) => {
 
       {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
+      <CoachPatrick tips={COACH_TIPS.W2_PLAYLIST} />
     </div>
   );
 };

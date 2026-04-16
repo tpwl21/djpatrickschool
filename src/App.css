@@ -244,6 +244,7 @@
   margin: 0;
   background: linear-gradient(to right, #ff9f43, #ee5253);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 10px 30px rgba(255,159,67,0.3);
 }
@@ -283,27 +284,82 @@
   gap: 15px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   width: 100%;
+  transition: all 0.3s ease;
 }
 
-/* Cinematic/Overlay Styles */
-.cinematic-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  zIndex: 100;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  backdropFilter: blur(5px);
+.workshop-card.locked {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+  filter: grayscale(0.8) opacity(0.5);
+  cursor: not-allowed;
+}
+
+.workshop-card.locked:hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.difficulty-selector {
+  width: 100%;
+  max-width: 800px;
   text-align: center;
-  padding: 20px;
+  margin-bottom: 40px;
 }
 
-.cinematic-emoji {
-  font-size: clamp(4rem, 15vw, 8rem);
+.difficulty-card {
+  width: 180px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cinematic-title {
-  font-size: clamp(1.5rem, 6vw, 3rem);
-  margin-top: 20px;
+.difficulty-card.selected {
+  background: rgba(255, 159, 67, 0.15);
+  border-color: #ff9f43;
+  box-shadow: 0 0 20px rgba(255, 159, 67, 0.2);
+  transform: translateY(-5px);
+}
+
+.difficulty-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.difficulty-card p {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.back-home-btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+  }
+  
+  .back-home-btn {
+    position: static;
+    margin-bottom: 10px;
+    align-self: center;
+  }
 }

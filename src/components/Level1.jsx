@@ -2,8 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import Train, { generateWagons } from './Train';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from './Cinematic';
+import { useValidation } from '../hooks/useValidation';
+import { TRACK_CONFIG } from '../constants/tracks';
+import CoachPatrick from './CoachPatrick';
+import { COACH_TIPS } from '../constants/coachPatrick';
 
-const Level1 = ({ onNextLevel, onRetry }) => {
+const Level1 = ({ onNextLevel, onRetry, onBack, difficulty, onUnlockNext }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -13,25 +17,30 @@ const Level1 = ({ onNextLevel, onRetry }) => {
 
   const reqRef = useRef();
 
-  // Basic BPM for this level. 
-  // Train A and Train B have the exact same BPM natively.
-  const bpm = 120;
+  // Basic BPM for this level from config
+  const configA = TRACK_CONFIG.LEVEL_1.A;
+  const configB = TRACK_CONFIG.LEVEL_1.B;
+  const bpm = configA.bpm; 
   const trackLengthSec = 120; // 2 minutes
 
   const [wagonsA] = useState(generateWagons(bpm, trackLengthSec, false));
   const [wagonsB] = useState(generateWagons(bpm, trackLengthSec, false));
 
-  const [isLevelCleared, setIsLevelCleared] = useState(false);
+  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, validate } = useValidation(difficulty);
   const [isGameOver, setIsGameOver] = useState(false);
-  const syncTimerRef = useRef(0);
+
+  useEffect(() => {
+    if (isLevelCleared && onUnlockNext) {
+      onUnlockNext();
+    }
+  }, [isLevelCleared, onUnlockNext]);
 
   useEffect(() => {
     const ctx = new MagicAudioContext();
     ctx.init().then(() => {
-      // Load synthetic tracks since we don't have real audio URLs yet.
-      // Pass the trackLengthSec to avoid infinite short looping.
-      ctx.loadTrack('A', null, bpm, trackLengthSec, 1);
-      ctx.loadTrack('B', null, bpm, trackLengthSec, 1);
+      // Load tracks from config
+      ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
+      ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
       setAudioCtx(ctx);
     });
 
@@ -51,22 +60,14 @@ const Level1 = ({ onNextLevel, onRetry }) => {
 
         // Check if both are playing and beats are aligned.
         if (ctx.decks.A.isPlaying && ctx.decks.B.isPlaying && !isGameOver) {
-          // 1 beat at 120 BPM = 0.5s. Compare modulo 1 beat in seconds.
           const secPerBeat = 60 / bpm;
           const modA = currentA % secPerBeat;
           const modB = currentB % secPerBeat;
           let diff = Math.abs(modA - modB);
           if (diff > secPerBeat * 0.8) diff = secPerBeat - diff; // wrap
 
-          // Tolerance: < 50ms
-          if (diff < 0.05) {
-             syncTimerRef.current += 1;
-             if (syncTimerRef.current > 600) {
-                 setIsLevelCleared(true);
-             }
-          } else {
-             syncTimerRef.current = 0;
-          }
+          // Use centralized validation
+          validate(diff, bpm, bpm);
         }
       }
       if (!isLevelCleared && !isGameOver) {
@@ -125,8 +126,11 @@ const Level1 = ({ onNextLevel, onRetry }) => {
   return (
     <div className="app-container">
       <div className="level-header">
+        <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">
+          🏠 Menu
+        </button>
         <h1>Niveau 1 : Le Lancement Parfait</h1>
-        <p>Les deux trains roulent à la même vitesse (120 BPM). Lance le Train B au bon moment, et utilise Pousser/Tirer pour aligner les wagons !</p>
+        <p>Les deux trains roulent à la même vitesse ({bpm} BPM). Lance le Train B au bon moment, et utilise Pousser/Tirer pour aligner les wagons !</p>
       </div>
 
       <div className="main-gameplay">
@@ -145,14 +149,14 @@ const Level1 = ({ onNextLevel, onRetry }) => {
 
       <div className="controls">
         <div className="control-group">
-            <h3>Train A ({bpm.toFixed(1)} BPM)</h3>
+            <h3>Train A (<span style={{ color: isPerfectPitch ? '#27ae60' : 'inherit' }}>{bpm.toFixed(1)} BPM</span>)</h3>
             <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
                 {isPlayingA ? 'En route... 🚂' : 'Démarrer Train A 🏁'}
             </button>
         </div>
 
         <div className="control-group">
-            <h3>Train B ({bpm.toFixed(1)} BPM)</h3>
+            <h3>Train B (<span style={{ color: isPerfectPitch ? '#27ae60' : 'inherit' }}>{bpm.toFixed(1)} BPM</span>)</h3>
             <div className="control-buttons">
               <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>
                   Play 🚂
@@ -163,10 +167,10 @@ const Level1 = ({ onNextLevel, onRetry }) => {
               <button className="btn-crayon nudge-btn" onClick={cueB}>
                   CUE ⏮
               </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-0.02)}>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>
                   ⏪ Reculer
               </button>
-              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(0.02)}>
+              <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>
                   Avancer ⏩
               </button>
             </div>
@@ -175,6 +179,8 @@ const Level1 = ({ onNextLevel, onRetry }) => {
       
       {isLevelCleared && <Cinematic type="win" onNextLevel={onNextLevel} />}
       {isGameOver && <Cinematic type="lose" onRetry={handleRetry} />}
+
+      <CoachPatrick tips={COACH_TIPS.LEVEL_1} />
     </div>
 
   );
