@@ -13,8 +13,8 @@ const SoundOnIndicator = () => {
       transition={{ duration: 0.5, delay: 0.5 }}
       style={{
         position: 'fixed',
-        bottom: '20px',
-        right: '20px',
+        top: '20px',
+        right: '180px',
         zIndex: 9999,
         display: 'flex',
         alignItems: 'center',

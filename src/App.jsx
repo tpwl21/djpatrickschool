@@ -118,7 +118,7 @@ function App() {
           />
         )}
       </AnimatePresence>
-      <SoundOnIndicator />
+      {level !== 0 && <SoundOnIndicator />}
     </>
   );
 }

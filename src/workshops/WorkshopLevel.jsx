@@ -6,28 +6,28 @@ import { useValidation } from '../hooks/useValidation';
 import Train, { generateWagons } from '../components/Train';
 import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { LanguageContext } from '../hooks/LanguageContext';
-import { 
-  BEATS_PER_PHRASE, 
-  PHRASES, 
-  NUM_PHRASES, 
+import {
+  BEATS_PER_PHRASE,
+  PHRASES,
+  NUM_PHRASES,
   buildPhraseBlocks,
 } from '../utils/workshopUtils';
-import { 
-  LoopTrackView, 
-  PhraseTrackView, 
-  PhraseIndicator 
+import {
+  LoopTrackView,
+  PhraseTrackView,
+  PhraseIndicator
 } from '../components/TrackViews';
 import CoachPatrick from '../components/CoachPatrick';
 import AudioVisualizer from '../components/AudioVisualizer';
 
-const WorkshopLevel = ({ 
-  trackConfig, 
-  title, 
-  description, 
+const WorkshopLevel = ({
+  trackConfig,
+  title,
+  description,
   levelId,
-  viewType = 'phrase', 
-  showBpm = true, 
-  randomizeBpm = false, 
+  viewType = 'phrase',
+  showBpm = true,
+  randomizeBpm = false,
   allowNudge = true,
   compatiblePhrases = null,
   difficulty,
@@ -54,7 +54,7 @@ const WorkshopLevel = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   const [currentPhraseA, setCurrentPhraseA] = useState(null);
   const [currentPhraseB, setCurrentPhraseB] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -89,7 +89,7 @@ const WorkshopLevel = ({
     if (isLevelCleared && !isWinSequence) {
       setIsWinSequence(true);
       if (onUnlockNext) onUnlockNext();
-      
+
       if (audioCtxRef.current) {
         audioCtxRef.current.fadeOutDeck('A', 1.5);
         audioCtxRef.current.fadeOutDeck('B', 1.5);
@@ -119,9 +119,9 @@ const WorkshopLevel = ({
         ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity),
         ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity)
       ]);
-      
+
       ctx.setPlaybackRate('B', initialBpmB / configB.bpm);
-      
+
       if (startPositionBBeats > 0) {
         ctx.decks.B.currentPosition = (startPositionBBeats - 1) * (60 / configB.bpm);
       }
@@ -131,7 +131,7 @@ const WorkshopLevel = ({
     });
 
     return () => {
-      if (ctx && ctx.ctx) ctx.ctx.close().catch(() => {});
+      if (ctx && ctx.ctx) ctx.ctx.close().catch(() => { });
     };
   }, [configA, configB, initialBpmB]);
 
@@ -142,7 +142,7 @@ const WorkshopLevel = ({
     if (speedRef.current > 0) {
       animTimeRef.current += (deltaTime / 1000) * speedRef.current;
     }
-    
+
     if (!ctx.decks || !ctx.decks.A || !ctx.decks.B) return;
 
     const currentBpmA = configA.bpm * (ctx.decks.A.rate || 1);
@@ -152,7 +152,7 @@ const WorkshopLevel = ({
     const currentB = isWinSequence ? (ctx.decks.B.currentPosition || 0) + animTimeRef.current : ctx.getTrackPosition('B');
 
     const zoom = isMobile ? 60 : 100;
-    const effZoomA = zoom; 
+    const effZoomA = zoom;
     const effZoomB = zoom / (ctx.decks.B.rate || 1);
 
     if (trackARef.current) {
@@ -166,10 +166,10 @@ const WorkshopLevel = ({
 
     const beatsA = currentA * (bpmA / 60);
     const beatsB = currentB * (configB.bpm / 60);
-    
+
     const phraseIdxA = Math.floor(beatsA / BEATS_PER_PHRASE) % NUM_PHRASES;
     const phraseIdxB = Math.floor(beatsB / BEATS_PER_PHRASE) % NUM_PHRASES;
-    
+
     if (viewType === 'phrase') {
       const pA = PHRASES[phraseIdxA];
       const pB = PHRASES[phraseIdxB];
@@ -208,23 +208,23 @@ const WorkshopLevel = ({
   });
 
   const playA = async () => { if (audioCtx && !isPlayingA) { await audioCtx.playTrack('A'); setIsPlayingA(true); } };
-  const playB = async () => { 
-    if (audioCtx && !isPlayingB) { 
+  const playB = async () => {
+    if (audioCtx && !isPlayingB) {
       const currentPositionA = audioCtx.getTrackPosition('A');
       validateStart(currentPositionA, bpmA, levelId);
-      
-      await audioCtx.playTrack('B'); 
-      setIsPlayingB(true); 
-    } 
+
+      await audioCtx.playTrack('B');
+      setIsPlayingB(true);
+    }
   };
   const pauseB = () => { if (audioCtx) { audioCtx.pauseTrack('B'); setIsPlayingB(false); resetStartStatus(); } };
-  const cueB = () => { 
-    if (audioCtx) { 
+  const cueB = () => {
+    if (audioCtx) {
       const startPosSec = startPositionBBeats > 1 ? (startPositionBBeats - 1) * (60 / configB.bpm) : 0;
-      audioCtx.cueTrack('B', startPosSec); 
-      setIsPlayingB(false); 
-      resetStartStatus(); 
-    } 
+      audioCtx.cueTrack('B', startPosSec);
+      setIsPlayingB(false);
+      resetStartStatus();
+    }
   };
   const nudgeB = (amount) => { if (audioCtx) audioCtx.nudgeTrack('B', amount); };
 
@@ -246,7 +246,7 @@ const WorkshopLevel = ({
         <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">{t('workshop.menu')}</button>
         <h1>{title}</h1>
         <p dangerouslySetInnerHTML={{ __html: description }} />
-        
+
         {/* Status HUD - Moved here to prevent train display bugs */}
         {difficulty === 'EASY' && (
           <div className="sync-hud-container" style={{
@@ -261,10 +261,10 @@ const WorkshopLevel = ({
             right: isMobile ? '0' : '20px',
             zIndex: 100
           }}>
-            <div style={{ 
-              background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < currentBpmA ? '#3498db' : '#e74c3c'), 
-              color: 'white', 
-              padding: '4px 12px', 
+            <div style={{
+              background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < currentBpmA ? '#3498db' : '#e74c3c'),
+              color: 'white',
+              padding: '4px 12px',
               borderRadius: '12px',
               fontSize: '0.75rem',
               fontWeight: '900',
@@ -275,10 +275,10 @@ const WorkshopLevel = ({
             }}>
               {isPerfectPitch ? t('workshop.status.pitchOk') : (currentBpmBDisplay < currentBpmA ? t('workshop.status.pitchPlus') : t('workshop.status.pitchMinus'))}
             </div>
-            <div style={{ 
-              background: isPerfectSync ? '#27ae60' : '#fff', 
-              color: isPerfectSync ? 'white' : '#333', 
-              padding: '4px 12px', 
+            <div style={{
+              background: isPerfectSync ? '#27ae60' : '#fff',
+              color: isPerfectSync ? 'white' : '#333',
+              padding: '4px 12px',
               borderRadius: '12px',
               fontSize: '0.75rem',
               fontWeight: '900',
@@ -289,10 +289,10 @@ const WorkshopLevel = ({
             }}>
               {isPerfectSync ? t('workshop.status.syncOk') : t('workshop.status.toSync')}
             </div>
-            <div style={{ 
-              background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'), 
-              color: startStatus === null ? '#333' : 'white', 
-              padding: '4px 12px', 
+            <div style={{
+              background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'),
+              color: startStatus === null ? '#333' : 'white',
+              padding: '4px 12px',
               borderRadius: '12px',
               fontSize: '0.75rem',
               fontWeight: '900',
@@ -302,9 +302,9 @@ const WorkshopLevel = ({
               whiteSpace: 'nowrap'
             }}>
               {
-                startStatus === null ? t('workshop.status.startWaiting') : 
-                startStatus === 'ok' ? t('workshop.status.startOk') : 
-                startStatus === 'early' ? t('workshop.status.early') : t('workshop.status.late')
+                startStatus === null ? t('workshop.status.startWaiting') :
+                  startStatus === 'ok' ? t('workshop.status.startOk') :
+                    startStatus === 'early' ? t('workshop.status.early') : t('workshop.status.late')
               }
             </div>
           </div>
@@ -375,18 +375,18 @@ const WorkshopLevel = ({
               {t('workshop.trainA')}: {bpmA.toFixed(1)} BPM
             </div>
           )}
-          <PitchFader 
-            min={configB.bpm - 25} 
-            max={configB.bpm + 25} 
-            value={configB.bpm * pitch} 
+          <PitchFader
+            min={configB.bpm - 25}
+            max={configB.bpm + 25}
+            value={configB.bpm * pitch}
             onChange={(val) => handlePitchChange({ target: { value: val } })}
             orientation={isMobile ? "horizontal" : "vertical"}
             label=""
           />
           {showBpm ? (
-            <div style={{ 
-              fontWeight: '900', 
-              marginTop: '10px', 
+            <div style={{
+              fontWeight: '900',
+              marginTop: '10px',
               color: (difficulty === 'EASY') ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333',
               fontSize: '1.2rem',
               fontFamily: 'inherit'
@@ -394,10 +394,10 @@ const WorkshopLevel = ({
               {(configB.bpm * pitch).toFixed(1)} BPM
             </div>
           ) : (
-            <div style={{ 
-              fontWeight: '900', 
-              fontSize: '1.2rem', 
-              color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4', 
+            <div style={{
+              fontWeight: '900',
+              fontSize: '1.2rem',
+              color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4',
               marginTop: '10px',
               fontFamily: 'inherit'
             }}>
@@ -419,7 +419,7 @@ const WorkshopLevel = ({
           <div className="control-buttons">
             <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : t('workshop.play')}</button>
             <button className="btn-crayon nudge-btn" onClick={cueB}>{t('workshop.cue')}</button>
-            
+
             {allowNudge && (
               <div className="nudge-controls-row">
                 <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>{t('workshop.slowDown')}</button>
@@ -431,10 +431,10 @@ const WorkshopLevel = ({
       </div>
 
       {isWinSequence && (
-        <Cinematic 
-          type="win" 
-          onNextLevel={onNextLevel} 
-          message={t('successMessages')[levelId]} 
+        <Cinematic
+          type="win"
+          onNextLevel={onNextLevel}
+          message={t('successMessages')[levelId]}
           title={title}
           grade={getGrade()}
         />
