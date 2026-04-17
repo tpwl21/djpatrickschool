@@ -190,7 +190,8 @@ export class MagicAudioContext {
       this.decks[deckId].buffer = audioBuffer;
     } catch (err) {
       console.error("Failed to load track:", err);
-      this.decks[deckId].buffer = this.generateSyntheticBeat(defaultBpm, deckId, lengthInSecs);
+      // Fallback to a synthetic beat with at least some audible complexity
+      this.decks[deckId].buffer = this.generateSyntheticBeat(defaultBpm, deckId, lengthInSecs, complexity || 1);
     }
   }
 

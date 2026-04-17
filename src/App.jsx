@@ -24,7 +24,7 @@ function App() {
   const [isGraduated, setIsGraduated] = useState(false);
 
   const handleNextLevel = () => {
-    if (level === 7) {
+    if (level === 8) {
       setIsGraduated(true);
       return;
     }
@@ -34,7 +34,7 @@ function App() {
       localStorage.setItem('dj_teacher_progression', next);
     }
     setLevel(next);
-    setPersistedLevelIdx(next); // Update persistence to following level
+    setPersistedLevelIdx(next); 
     setRetryKey(0);
   };
 

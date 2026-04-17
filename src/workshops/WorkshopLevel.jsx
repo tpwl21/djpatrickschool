@@ -45,7 +45,7 @@ const WorkshopLevel = ({
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -69,9 +69,6 @@ const WorkshopLevel = ({
   const configB = trackConfig.B;
   const bpmA = configA.bpm;
   const trackLengthSec = 160;
-
-  const currentBpmA = configA.bpm * ((audioCtxRef.current && audioCtxRef.current.decks.A) ? audioCtxRef.current.decks.A.rate : 1);
-  const currentBpmB = configB.bpm * ((audioCtxRef.current && audioCtxRef.current.decks.B) ? audioCtxRef.current.decks.B.rate : 1);
 
   const initialBpmB = useRef(randomizeBpm ? (configB.bpm + (Math.random() * 20 - 10)) : configB.bpm).current;
   const [pitch, setPitch] = useState(initialBpmB / configB.bpm);
@@ -111,9 +108,13 @@ const WorkshopLevel = ({
   useEffect(() => {
     const ctx = new MagicAudioContext();
     audioCtxRef.current = ctx;
-    ctx.init().then(() => {
-      ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
-      ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
+    ctx.init().then(async () => {
+      // Parallel load
+      await Promise.all([
+        ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity),
+        ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity)
+      ]);
+      
       ctx.setPlaybackRate('B', initialBpmB / configB.bpm);
       
       if (startPositionBBeats > 0) {
@@ -121,6 +122,7 @@ const WorkshopLevel = ({
       }
 
       setAudioCtx(ctx);
+      setIsReady(true);
     });
 
     return () => {
@@ -130,7 +132,7 @@ const WorkshopLevel = ({
 
   useAnimationFrame((deltaTime) => {
     const ctx = audioCtxRef.current;
-    if (!ctx || isGameOver) return;
+    if (!ctx || isGameOver || !isReady) return;
 
     if (speedRef.current > 0) {
       animTimeRef.current += (deltaTime / 1000) * speedRef.current;
@@ -403,14 +405,14 @@ const WorkshopLevel = ({
       <div className="controls">
         <div className="control-group">
           <h3>Train A</h3>
-          <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA}>
-            {isPlayingA ? 'En route...' : 'Démarrer Train A'}
+          <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
+            {!isReady ? 'Chargement...' : (isPlayingA ? 'En route...' : 'Démarrer Train A')}
           </button>
         </div>
         <div className="control-group">
           <h3>Train B</h3>
           <div className="control-buttons">
-            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>Play</button>
+            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : 'Play'}</button>
             <button className="btn-crayon nudge-btn" onClick={cueB}>CUE</button>
             
             {allowNudge && (

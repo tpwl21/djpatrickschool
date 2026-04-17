@@ -17,7 +17,7 @@ export const TRACK_CONFIG = {
   },
   LEVEL_3: {
     A: { url: "AUDIO/Trip.mp3", bpm: 122, complexity: 3, title: "Base", key: "4A" },
-    B: { url: "AUDIO/What_is_music.mp3", bpm: 126, complexity: 3, title: "Rythme fou", key: "8A" }
+    B: { url: "AUDIO/What_is_Music.mp3", bpm: 126, complexity: 3, title: "Rythme fou", key: "8A" }
   },
   LEVEL_4: {
     A: { url: "AUDIO/Estupido.mp3", bpm: 125, complexity: 4, title: "Boucle Ref", key: "11A" },
@@ -33,7 +33,7 @@ export const TRACK_CONFIG = {
   },
   LEVEL_7: {
     A: { url: "AUDIO/before_palmos.mp3", bpm: 130, complexity: 4, title: "Boucle Ref", key: "11A" },
-    B: { url: "AUDIO/Jazzman_Doucheur.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "12A" }
+    B: { url: "AUDIO/JazzMan_Doucheur.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "12A" }
   },
   LEVEL_8: {
     A: { url: "AUDIO/Bjork.mp3", bpm: 132, complexity: 4, title: "Boucle Ref", key: "11A" },
