@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import WorkshopLevel from '../WorkshopLevel';
 import { TRACK_CONFIG } from '../../constants/tracks';
-import { COACH_TIPS } from '../../constants/coachPatrick';
+import { LanguageContext } from '../../hooks/LanguageContext';
 
 const Level5 = (props) => {
+  const { t } = useContext(LanguageContext);
   return (
     <WorkshopLevel
       {...props}
       levelId="LEVEL_5"
       trackConfig={TRACK_CONFIG.LEVEL_5}
-      title="Niveau 5 : Le Clap 👏"
-      description="Démarre sur le <strong>Clap</strong> ! Calcule bien : tu dois lancer le Train B pile au <strong>162ème temps</strong> (juste après le drop). Attention, ton Train B démarre déjà sur son second temps !"
+      title={`${t('home.popup.level')} 5 : ${t('home.workshops')[5].title}`}
+      description={t('levelDesc')[5]}
       viewType="loop"
       showBpm={true}
       randomizeBpm={false}
       allowNudge={true}
-      allowNudge={true}
       startPositionBBeats={2}
       markersA={[{ beat: 162, label: "DROP CLAP 👏", color: "#f1c40f" }]}
-      coachTips={COACH_TIPS.LEVEL_5}
+      coachTips={t('coachTips').LEVEL_5}
     />
   );
 };

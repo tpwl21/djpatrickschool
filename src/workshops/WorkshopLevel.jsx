@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
 import PitchFader from '../components/PitchFader';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from '../components/Cinematic';
 import { useValidation } from '../hooks/useValidation';
 import Train, { generateWagons } from '../components/Train';
 import { useAnimationFrame } from '../hooks/useAnimationFrame';
+import { LanguageContext } from '../hooks/LanguageContext';
 import { 
   BEATS_PER_PHRASE, 
   PHRASES, 
@@ -18,7 +19,6 @@ import {
 } from '../components/TrackViews';
 import CoachPatrick from '../components/CoachPatrick';
 import AudioVisualizer from '../components/AudioVisualizer';
-import { SUCCESS_MESSAGES } from '../constants/coachPatrick';
 
 const WorkshopLevel = ({ 
   trackConfig, 
@@ -42,6 +42,7 @@ const WorkshopLevel = ({
   markersA = [],
   markersB = []
 }) => {
+  const { t } = useContext(LanguageContext);
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -242,7 +243,7 @@ const WorkshopLevel = ({
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, zIndex: -1, pointerEvents: 'none' }}>
           <AudioVisualizer audioCtx={audioCtxRef.current} color="#ff6b6b" />
         </div>
-        <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">Menu</button>
+        <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">{t('workshop.menu')}</button>
         <h1>{title}</h1>
         <p dangerouslySetInnerHTML={{ __html: description }} />
         
@@ -272,7 +273,7 @@ const WorkshopLevel = ({
               fontFamily: 'inherit',
               whiteSpace: 'nowrap'
             }}>
-              {isPerfectPitch ? 'PITCH OK' : (currentBpmBDisplay < currentBpmA ? 'PITCH +' : 'PITCH -')}
+              {isPerfectPitch ? t('workshop.status.pitchOk') : (currentBpmBDisplay < currentBpmA ? t('workshop.status.pitchPlus') : t('workshop.status.pitchMinus'))}
             </div>
             <div style={{ 
               background: isPerfectSync ? '#27ae60' : '#fff', 
@@ -286,7 +287,7 @@ const WorkshopLevel = ({
               fontFamily: 'inherit',
               whiteSpace: 'nowrap'
             }}>
-              {isPerfectSync ? 'SYNC OK' : 'À CALER'}
+              {isPerfectSync ? t('workshop.status.syncOk') : t('workshop.status.toSync')}
             </div>
             <div style={{ 
               background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'), 
@@ -301,9 +302,9 @@ const WorkshopLevel = ({
               whiteSpace: 'nowrap'
             }}>
               {
-                startStatus === null ? 'DÉPART...' : 
-                startStatus === 'ok' ? 'DÉPART OK' : 
-                startStatus === 'early' ? 'TÔT' : 'TARD'
+                startStatus === null ? t('workshop.status.startWaiting') : 
+                startStatus === 'ok' ? t('workshop.status.startOk') : 
+                startStatus === 'early' ? t('workshop.status.early') : t('workshop.status.late')
               }
             </div>
           </div>
@@ -312,8 +313,8 @@ const WorkshopLevel = ({
 
       {viewType === 'phrase' && (
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
-          <PhraseIndicator label="Train A" currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
-          <PhraseIndicator label="Train B" currentPhrase={currentPhraseB} />
+          <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
+          <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
         </div>
       )}
 
@@ -345,7 +346,7 @@ const WorkshopLevel = ({
               fontFamily: 'inherit',
               opacity: 0.95
             }}>
-              ÉCOUTE UNIQUEMENT...<br/>PAS DE TRICHE !
+              <span dangerouslySetInnerHTML={{ __html: t('workshop.blindModeWarning') }} />
             </div>
           )}
           <div className="track-container">
@@ -371,7 +372,7 @@ const WorkshopLevel = ({
         <div className="pitch-fader-container" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
           {showBpm && (
             <div style={{ padding: '6px 12px', background: '#333', color: '#fff', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '8px', boxShadow: '3px 3px 0 rgba(0,0,0,0.1)' }}>
-              Train A: {bpmA.toFixed(1)} BPM
+              {t('workshop.trainA')}: {bpmA.toFixed(1)} BPM
             </div>
           )}
           <PitchFader 
@@ -408,21 +409,21 @@ const WorkshopLevel = ({
 
       <div className="controls">
         <div className="control-group">
-          <h3>Train A</h3>
+          <h3>{t('workshop.trainA')}</h3>
           <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
-            {!isReady ? 'Chargement...' : (isPlayingA ? 'En route...' : 'Démarrer Train A')}
+            {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
           </button>
         </div>
         <div className="control-group">
-          <h3>Train B</h3>
+          <h3>{t('workshop.trainB')}</h3>
           <div className="control-buttons">
-            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : 'Play'}</button>
-            <button className="btn-crayon nudge-btn" onClick={cueB}>CUE</button>
+            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : t('workshop.play')}</button>
+            <button className="btn-crayon nudge-btn" onClick={cueB}>{t('workshop.cue')}</button>
             
             {allowNudge && (
               <div className="nudge-controls-row">
-                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>Ralentir</button>
-                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>Accélérer</button>
+                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>{t('workshop.slowDown')}</button>
+                <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>{t('workshop.speedUp')}</button>
               </div>
             )}
           </div>
@@ -433,7 +434,7 @@ const WorkshopLevel = ({
         <Cinematic 
           type="win" 
           onNextLevel={onNextLevel} 
-          message={SUCCESS_MESSAGES[levelId]} 
+          message={t('successMessages')[levelId]} 
           title={title}
           grade={getGrade()}
         />

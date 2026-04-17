@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
+import { LanguageContext } from '../hooks/LanguageContext';
 import coachImg from '../assets/coach_patrick.png';
 import beatmatchingImg from '../assets/beatmatching_patrick.png';
 import harmonyImg from '../assets/harmony_patrick.png';
@@ -12,11 +13,15 @@ import easyImg from '../assets/easy_patrick.png';
 import mediumImg from '../assets/medium_patrick.png';
 import proImg from '../assets/pro_patrick.png';
 import bannerImg from '../assets/banner.png';
+import frFlagImg from '../assets/fr_flag.png';
+import ukFlagImg from '../assets/uk_flag.png';
 import AudioVisualizer from './AudioVisualizer';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Locomotive from './Locomotive';
 
 const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLevel = null, onPersistState }) => {
+  const { language, setLanguage, t } = useContext(LanguageContext);
+  
   const [audioCtx] = useState(() => {
     const ctx = new MagicAudioContext();
     ctx.init(); // Silent init
@@ -28,13 +33,19 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
   useEffect(() => {
     if (onPersistState) onPersistState(selectedLevel, selectedDifficulty);
   }, [selectedLevel, selectedDifficulty, onPersistState]);
-  const [hoveredDescription, setHoveredDescription] = useState("Bienvenue à l'école de DJing ! Choisis d'abord ta difficulté en haut à droite.");
+
+  const [hoveredDescription, setHoveredDescription] = useState(t('home.welcome'));
   const [currentCoachImg, setCurrentCoachImg] = useState(coachImg);
 
+  // Update welcome message if language changes and we are on the default message
+  useEffect(() => {
+    setHoveredDescription(t('home.welcome'));
+  }, [language]);
+
   const difficultyInfo = {
-    EASY: "Parfait pour débuter. Tolérance généreuse, feedback visuel complet et maintien court (3s).",
-    MEDIUM: "Le défi intermédiaire. Tolérance réduite, aucun indicateur visuel de précision. Maintien de 4s.",
-    PRO: "Réservé aux experts. Tolérance millimétrée, aucun feedback visuel. Maintien de 5s exigé."
+    EASY: t('home.difficultyInfo.EASY'),
+    MEDIUM: t('home.difficultyInfo.MEDIUM'),
+    PRO: t('home.difficultyInfo.PRO')
   };
 
   const difficultyImages = {
@@ -46,97 +57,70 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
   const workshopSections = [
     {
       id: 'beatmatching',
-      title: "BEATMATCHING",
-      desc: "L'art d'aligner les tempos parfaits.",
+      title: t('home.categories.beatmatching.title'),
+      desc: t('home.categories.beatmatching.desc'),
       color: "#5DADE2",
       image: beatmatchingImg,
       levels: [1, 2, 3, 4, 5, 6, 7, 8]
     },
     { 
       id: 'harmonies', 
-      title: "HARMONIES", 
-      desc: "Le mix harmonique (Camelot wheel).", 
+      title: t('home.categories.harmonies.title'), 
+      desc: t('home.categories.harmonies.desc'), 
       color: "#999", 
       image: harmonyImg,
       forthcoming: true 
     },
     { 
       id: 'eq', 
-      title: "EQ", 
-      desc: "Maîtrise des fréquences et isolateurs.", 
+      title: t('home.categories.eq.title'), 
+      desc: t('home.categories.eq.desc'), 
       color: "#999", 
       image: eqImg,
       forthcoming: true 
     },
     { 
       id: 'effets', 
-      title: "EFFETS", 
-      desc: "Delay, Reverb et Echo Out.", 
+      title: t('home.categories.effets.title'), 
+      desc: t('home.categories.effets.desc'), 
       color: "#999", 
       image: effectsImg,
       forthcoming: true 
     },
     { 
       id: 'digging', 
-      title: "DIGGING", 
-      desc: "Comment trouver les perles rares.", 
+      title: t('home.categories.digging.title'), 
+      desc: t('home.categories.digging.desc'), 
       color: "#999", 
       image: diggingImg,
       forthcoming: true 
     }
   ];
 
-  const mysterySections = [
-    { title: "DJ Patrick secret tricks", desc: "Les techniques interdites." },
-    { title: "DJ Patrick secret weapons", desc: "Ses morceaux qui sauvent une soirée." },
-    { title: "Le Booth de DJ Patrick", desc: "Visite guidée de son sanctuaire." }
-  ];
-
-  const workshops = {
-    1: { 
-      title: "Lancement Parfait", 
-      desc: "Les deux trains roulent à la même vitesse. Lance le Train B au bon moment !",
-      details: "Focus : Timing du bouton Play. Vitesse : 120 BPM."
-    },
-    2: { 
-      title: "Contrôle du Moteur", 
-      desc: "Le Train B roule à une vitesse différente. Ajuste-la pour qu'elle corresponde au Train A.",
-      details: "Focus : Utilisation du Pitch. 120 vs 135 BPM."
-    },
-    3: { 
-      title: "Le Rythme Vrai", 
-      desc: "Fini le kick seul. Découvre comment le rythme s'organise dans un vrai morceau.",
-      details: "Focus : Écoute de la Snare sur le 2ème temps."
-    },
-    4: { 
-      title: "La Boucle", 
-      desc: "Aligne les boucles ET les wagons pour que les temps forts se synchronisent.",
-      details: "Focus : Calage structurel (8 temps)."
-    },
-    5: { 
-      title: "Le Clap Master", 
-      desc: "Démarre sur le Clap ! Calcule bien : tu dois lancer le Train B pile sur le 42ème temps.",
-      details: "Focus : Précision du départ sur un temps spécifique (Beat 42)."
-    },
-    6: { 
-      title: "La Transition", 
-      desc: "Le moment critique. Démarre l'Intro du Train B exactement sur l'Outro du Train A.",
-      details: "Focus : Phrasé musical et anticipation."
-    },
-    7: { 
-      title: "Blind Chief", 
-      desc: "L'affichage du BPM a disparu. Aligne les trains visuellement et à l'oreille.",
-      details: "Focus : Indépendance vis-à-vis des chiffres."
-    },
-    8: { 
-      title: "Le Puriste", 
-      desc: "Pas de BPM, et surtout PAS DE NUDGE. Aligne tout au Pitch, comme un vrai.",
-      details: "Focus : Maîtrise totale du plateau."
-    }
-  };
+  const mysterySections = t('home.mysterySections');
+  const workshops = t('home.workshops');
 
   return (
     <div className="home-container premium" style={{ position: 'relative' }}>
+      
+      {/* Language Selector */}
+      <div className="language-selector" style={{ position: 'absolute', top: 20, left: 20, zIndex: 100, display: 'flex', gap: '10px' }}>
+        <motion.img 
+          src={frFlagImg} 
+          alt="FR"
+          style={{ width: '40px', height: 'auto', cursor: 'pointer', filter: language === 'fr' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }}
+          onClick={() => setLanguage('fr')}
+          whileHover={{ scale: 1.1 }}
+        />
+        <motion.img 
+          src={ukFlagImg} 
+          alt="EN"
+          style={{ width: '40px', height: 'auto', cursor: 'pointer', filter: language === 'en' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }}
+          onClick={() => setLanguage('en')}
+          whileHover={{ scale: 1.1 }}
+        />
+      </div>
+
       {/* Dynamic Background Visualizer & Watermark */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100vh', zIndex: -1, opacity: 0.15, pointerEvents: 'none', overflow: 'hidden' }}>
         <h1 style={{ 
@@ -204,11 +188,12 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
                 className={`diff-btn ${selectedDifficulty === key ? 'active' : ''}`}
                 onClick={() => setSelectedDifficulty(key)}
                 onMouseEnter={() => {
-                  setHoveredDescription(`Difficulté ${setting.name} : ${difficultyInfo[key]}`);
+                  setHoveredDescription(`${setting.name} : ${difficultyInfo[key]}`);
                   setCurrentCoachImg(difficultyImages[key]);
                 }}
                 onMouseLeave={() => {
                   setCurrentCoachImg(coachImg);
+                  setHoveredDescription(t('home.welcome'));
                 }}
               >
                 {setting.name}
@@ -217,7 +202,7 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
           </div>
 
           <div className="categories-container">
-            <h3>ATELIERS DJ</h3>
+            <h3>{t('home.workshopsTitle')}</h3>
             {workshopSections.map((cat) => (
               <div 
                 key={cat.id} 
@@ -228,12 +213,13 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
                 }}
                 onMouseLeave={() => {
                   setCurrentCoachImg(coachImg);
+                  setHoveredDescription(t('home.welcome'));
                 }}
                 style={{ borderTop: '1px solid #eee', paddingTop: '15px' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <h4 style={{ color: cat.color, margin: 0, fontSize: '1rem' }}>{cat.title}</h4>
-                  {cat.forthcoming && <span className="tag-soon">Bientôt</span>}
+                  {cat.forthcoming && <span className="tag-soon">{t('home.soon')}</span>}
                 </div>
                 {!cat.forthcoming ? (
                   <div className="levels-row" style={{ alignItems: 'center' }}>
@@ -297,7 +283,7 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
                 viewport={{ once: true }}
               />
             </div>
-            <h4>LES MYSTÈRES DE PATRICK</h4>
+            <h4>{t('home.mysteriesTitle')}</h4>
             <div className="mystery-grid">
               {mysterySections.map((sec, idx) => (
                 <div 
@@ -305,6 +291,9 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
                   className="mystery-item" 
                   onMouseEnter={() => {
                     setHoveredDescription(sec.desc);
+                  }}
+                  onMouseLeave={() => {
+                     setHoveredDescription(t('home.welcome'));
                   }}
                 >
                   <span className="mystery-icon">🔒</span>
@@ -328,9 +317,9 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
               onClick={(e) => e.stopPropagation()}
             >
               <div className="popup-header">
-                <div className="popup-level-id">NIVEAU {selectedLevel}</div>
+                <div className="popup-level-id">{t('home.popup.level')} {selectedLevel}</div>
                 <div className="popup-diff-tag" style={{ backgroundColor: selectedDifficulty ? '#333' : '#ff6b6b' }}>
-                  {selectedDifficulty ? DIFFICULTY_SETTINGS[selectedDifficulty].name : 'DIFFICULTÉ MANQUANTE'}
+                  {selectedDifficulty ? DIFFICULTY_SETTINGS[selectedDifficulty].name : t('home.popup.missingDifficulty')}
                 </div>
               </div>
               
@@ -338,18 +327,18 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
               <p className="popup-desc">{workshops[selectedLevel].desc}</p>
               
               <div className="popup-details-box">
-                {selectedDifficulty ? workshops[selectedLevel].details : "Tu dois choisir une difficulté (Easy, Medium ou Pro) avant de pouvoir démarrer l'entraînement."}
+                {selectedDifficulty ? workshops[selectedLevel].details : t('home.popup.selectDifficultyText')}
               </div>
 
               <div className="popup-footer">
-                <button className="btn-crayon nudge-btn" onClick={() => setSelectedLevel(null)}>ANNULER</button>
+                <button className="btn-crayon nudge-btn" onClick={() => setSelectedLevel(null)}>{t('home.popup.cancel')}</button>
                 <button 
                   className="btn-crayon play-btn large" 
                   style={{ opacity: selectedDifficulty ? 1 : 0.5, cursor: selectedDifficulty ? 'pointer' : 'not-allowed' }}
                   onClick={() => selectedDifficulty && onStart(selectedLevel, selectedDifficulty)}
                   disabled={!selectedDifficulty}
                 >
-                  {selectedDifficulty ? 'DÉMARRER' : 'CHOISIR DIFFICULTÉ'}
+                  {selectedDifficulty ? t('home.popup.start') : t('home.popup.chooseDifficulty')}
                 </button>
               </div>
             </motion.div>
@@ -482,6 +471,7 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
           letter-spacing: 2px;
           margin-bottom: 10px;
           opacity: 0.8;
+          text-transform: uppercase;
         }
         .levels-row {
           display: flex;

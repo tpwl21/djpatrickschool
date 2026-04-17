@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import WorkshopLevel from '../WorkshopLevel';
 import { TRACK_CONFIG } from '../../constants/tracks';
-import { COACH_TIPS } from '../../constants/coachPatrick';
+import { LanguageContext } from '../../hooks/LanguageContext';
 
 const Level6 = (props) => {
+  const { t } = useContext(LanguageContext);
   return (
     <WorkshopLevel 
       {...props}
       levelId="LEVEL_6"
       trackConfig={TRACK_CONFIG.LEVEL_6}
-      title="Niveau 6 : La Transition 🎧"
-      description="Démarre l'<strong>Intro 🌅</strong> du Train B sur l'<strong>Outro 🌙</strong> du Train A !"
+      title={`${t('home.popup.level')} 6 : ${t('home.workshops')[6].title}`}
+      description={t('levelDesc')[6]}
       viewType="phrase"
       showBpm={true}
       randomizeBpm={false}
       allowNudge={true}
-      compatiblePhrases={null} // Uses default L6 behavior (Outro->Intro)
-      coachTips={COACH_TIPS.LEVEL_6}
+      compatiblePhrases={null}
+      coachTips={t('coachTips').LEVEL_6}
     />
   );
 };

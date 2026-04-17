@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import professorImg from '../assets/professor_patrick.png';
+import { LanguageContext } from '../hooks/LanguageContext';
 
 const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "", grade = "" }) => {
+  const { t } = useContext(LanguageContext);
   const isWin = type === 'win';
   
   return (
@@ -40,20 +42,20 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
               
               <div className="success-text">
                 <div className="grade-badge">{grade}</div>
-                <h1 className="win-title">{title || "NIVEAU RÉUSSI !"}</h1>
-                <p className="win-subtitle">Ta maîtrise du mix est impressionnante.</p>
+                <h1 className="win-title">{title || t('cinematic.win.title')}</h1>
+                <p className="win-subtitle">{t('cinematic.win.subtitle')}</p>
                 <button className="btn-crayon play-btn large" onClick={onNextLevel}>
-                  Niveau Suivant
+                  {t('cinematic.win.nextLevel')}
                 </button>
               </div>
             </div>
           ) : (
             <div className="lose-layout">
               <div className="lose-badge">RETRY</div>
-              <h2>{title || "Le train est parti..."}</h2>
-              <p>Ne baisse pas les bras, DJ ! On réessaye ?</p>
+              <h2>{title || t('cinematic.lose.title')}</h2>
+              <p>{t('cinematic.lose.subtitle')}</p>
               <button className="btn-crayon nudge-btn large" onClick={onRetry}>
-                Réessayer
+                {t('cinematic.lose.retry')}
               </button>
             </div>
           )}
