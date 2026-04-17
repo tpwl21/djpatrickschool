@@ -69,6 +69,11 @@ function App() {
     }
   };
 
+  const handleUnlockAll = () => {
+    setUnlockedLevel(8);
+    localStorage.setItem('dj_teacher_progression', 8);
+  };
+
   const startLevel = (levelIdx, diff) => {
     setDifficulty(diff);
     setPersistedDifficulty(diff);
@@ -92,6 +97,7 @@ function App() {
           initialDifficulty={persistedDifficulty}
           initialLevel={persistedLevelIdx}
           onPersistState={persistState}
+          onUnlockAll={handleUnlockAll}
         />
       )}
       

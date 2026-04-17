@@ -20,8 +20,9 @@ import AudioVisualizer from './AudioVisualizer';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Locomotive from './Locomotive';
 
-const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLevel = null, onPersistState }) => {
+const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLevel = null, onPersistState, onUnlockAll }) => {
   const { language, setLanguage, t } = useContext(LanguageContext);
+  const [secretCode, setSecretCode] = useState('');
   
   const [audioCtx] = useState(() => {
     const ctx = new MagicAudioContext();
@@ -301,6 +302,26 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
                   <span>{sec.title}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Master Password Input */}
+            <div className="secret-input-wrapper" style={{ marginTop: '30px', position: 'relative' }}>
+              <input 
+                type="text"
+                placeholder={language === 'fr' ? "Code secret de Patrick..." : "Patrick's secret code..."}
+                value={secretCode}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setSecretCode(val);
+                  if (val.toUpperCase() === 'PATRICKTHEBOSS') {
+                    onUnlockAll();
+                    setSecretCode('🔓 UNLOCKED');
+                    setTimeout(() => setSecretCode(''), 2000);
+                  }
+                }}
+                className="secret-input"
+              />
+              <div className="secret-input-line" />
             </div>
           </div>
         </div>
@@ -590,6 +611,45 @@ const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLev
           }
           .banner-logo-container { max-width: 250px; }
           .nav-section { gap: 20px; width: 100%; }
+        }
+
+        .secret-input-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+        .secret-input {
+          background: transparent;
+          border: none;
+          border-bottom: 2px dashed #ccc;
+          padding: 10px;
+          outline: none;
+          font-family: 'Patrick Hand', cursive;
+          font-size: 1.1rem;
+          color: #333;
+          width: 100%;
+          text-align: center;
+          transition: all 0.3s;
+          letter-spacing: 1px;
+        }
+        .secret-input::placeholder {
+          color: #ccc;
+          opacity: 0.6;
+        }
+        .secret-input:focus {
+          border-bottom: 2px solid #5DADE2;
+          background: rgba(93, 173, 226, 0.05);
+          border-radius: 10px 10px 0 0;
+        }
+        .secret-input-line {
+          height: 1px;
+          background: #5DADE2;
+          width: 0;
+          transition: width 0.3s;
+        }
+        .secret-input:focus + .secret-input-line {
+          width: 100%;
         }
       `}} />
     </div>
