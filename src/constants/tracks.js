@@ -33,7 +33,7 @@ export const TRACK_CONFIG = {
   },
   LEVEL_7: {
     A: { url: "AUDIO/before_palmos.mp3", bpm: 130, complexity: 4, title: "Boucle Ref", key: "11A" },
-    B: { url: "AUDIO/JazzMan_Doucheur.mp3", bpm: 128, complexity: 4, title: "Boucle à caler", key: "12A" }
+    B: { url: "AUDIO/JazzMan_Doucheur.mp3", bpm: 130, complexity: 4, title: "Boucle à caler", key: "12A" }
   },
   LEVEL_8: {
     A: { url: "AUDIO/Bjork.mp3", bpm: 132, complexity: 4, title: "Boucle Ref", key: "11A" },
