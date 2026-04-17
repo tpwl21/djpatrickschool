@@ -22,13 +22,14 @@ const PitchFaderLabel = ({ label, value }) => (
 
 const PitchFader = ({ min, max, value, onChange, label = "PITCH", orientation = "vertical" }) => {
   const faderRef = useRef(null);
+  const dragRectRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const percent = (value - min) / (max - min);
 
   const handlePointerMove = (e) => {
     if (!isDragging || !faderRef.current) return;
-    const rect = faderRef.current.getBoundingClientRect();
+    const rect = dragRectRef.current || faderRef.current.getBoundingClientRect();
     let newPercent;
     
     if (orientation === 'vertical') {
@@ -48,6 +49,8 @@ const PitchFader = ({ min, max, value, onChange, label = "PITCH", orientation = 
     e.target.setPointerCapture(e.pointerId);
     
     const rect = faderRef.current.getBoundingClientRect();
+    dragRectRef.current = rect;
+    
     let newPercent;
     if (orientation === 'vertical') {
       const y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
@@ -62,6 +65,7 @@ const PitchFader = ({ min, max, value, onChange, label = "PITCH", orientation = 
 
   const handlePointerUp = (e) => {
     setIsDragging(false);
+    dragRectRef.current = null;
   };
 
   const isVertical = orientation === 'vertical';
@@ -77,7 +81,7 @@ const PitchFader = ({ min, max, value, onChange, label = "PITCH", orientation = 
       width: isVertical ? 'auto' : '100%',
       padding: '10px'
     }}>
-      <div style={{ fontWeight: '900', fontSize: '0.9rem', color: '#333', letterSpacing: '1px' }}>{label}</div>
+      {label && <div style={{ fontWeight: '900', fontSize: '0.9rem', color: '#333', letterSpacing: '1px' }}>{label}</div>}
       
       <div 
         ref={faderRef}

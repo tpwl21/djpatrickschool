@@ -371,8 +371,10 @@ const WorkshopLevel = ({
 
         <div className="pitch-fader-container" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
           {showBpm && (
-            <div style={{ padding: '6px 12px', background: '#333', color: '#fff', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '8px', boxShadow: '3px 3px 0 rgba(0,0,0,0.1)' }}>
-              {t('workshop.trainA')}: {bpmA.toFixed(1)} BPM
+            <div style={{ height: '40px', marginBottom: '15px' }}>
+              <div style={{ padding: '6px 12px', background: '#333', color: '#fff', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', boxShadow: '3px 3px 0 rgba(0,0,0,0.1)', whiteSpace: 'nowrap' }}>
+                {t('workshop.trainA')}: {bpmA.toFixed(1)} BPM
+              </div>
             </div>
           )}
           <PitchFader
@@ -383,27 +385,27 @@ const WorkshopLevel = ({
             orientation={isMobile ? "horizontal" : "vertical"}
             label=""
           />
-          {showBpm ? (
-            <div style={{
-              fontWeight: '900',
-              marginTop: '10px',
-              color: (difficulty === 'EASY') ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333',
-              fontSize: '1.2rem',
-              fontFamily: 'inherit'
-            }}>
-              {(configB.bpm * pitch).toFixed(1)} BPM
-            </div>
-          ) : (
-            <div style={{
-              fontWeight: '900',
-              fontSize: '1.2rem',
-              color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4',
-              marginTop: '10px',
-              fontFamily: 'inherit'
-            }}>
-              {pitch >= (initialBpmB / configB.bpm) ? '+' : ''}{((pitch - (initialBpmB / configB.bpm)) * 100).toFixed(1)}%
-            </div>
-          )}
+          <div style={{ height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '10px' }}>
+            {showBpm ? (
+              <div style={{
+                fontWeight: '900',
+                color: (difficulty === 'EASY') ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333',
+                fontSize: '1.2rem',
+                fontFamily: 'inherit'
+              }}>
+                {(configB.bpm * pitch).toFixed(1)} BPM
+              </div>
+            ) : (
+              <div style={{
+                fontWeight: '900',
+                fontSize: '1.2rem',
+                color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4',
+                fontFamily: 'inherit'
+              }}>
+                {pitch >= (initialBpmB / configB.bpm) ? '+' : ''}{((pitch - (initialBpmB / configB.bpm)) * 100).toFixed(1)}%
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
