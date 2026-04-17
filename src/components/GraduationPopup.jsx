@@ -3,10 +3,6 @@ import { motion } from 'framer-motion';
 import professorImg from '../assets/professor_patrick.png';
 
 const GraduationPopup = ({ difficulty, onBackHome }) => {
-  const getPaternalAdvice = () => {
-    return "Écoute-moi bien, gamin. Le beatmatching, c'est pas une science froide, c'est une question de cœur. Tu as prouvé que tu savais dompter les machines et aligner les astres. N'oublie jamais : le public ne danse pas sur des chiffres, il danse sur ta vibration. Reste humble, garde les oreilles grandes ouvertes, et fais rugir la basse. Papa Patrick est fier de toi.";
-  };
-
   const diffNames = {
     'EASY': 'Apprenti-DJ (Easy)',
     'MEDIUM': 'Ninja du Tempo (Medium)',
@@ -42,18 +38,8 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
           </div>
           
           <div className="message-side">
-            <h2>Félicitations, mon grand !</h2>
-            <p className="intro">
-              C'est officiel. Tu as triomphé des 7 épreuves de l'atelier de Beatmatching. 
-              Même avec les yeux bandés, je parie que tu l'entendrais, ce petit décalage...
-            </p>
+            <h2>Félicitations !</h2>
             
-            <div className="paternal-advice">
-              <h3>Le Conseil Ultime de Patrick :</h3>
-              <p>"{getPaternalAdvice()}"</p>
-              <div className="signature">Signé : Patrick.</div>
-            </div>
-
             <button className="btn-crayon play-btn" style={{ width: '100%', fontSize: '1.8rem' }} onClick={onBackHome}>
               Retour au Menu Principal
             </button>
@@ -132,53 +118,15 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
 
         .message-side {
           flex: 1;
+          text-align: center;
         }
 
         .message-side h2 {
-          font-size: 2.5rem;
+          font-size: 4rem;
           margin-top: 0;
           color: #2c3e50;
           font-weight: 900;
-        }
-
-        .intro {
-          font-size: 1.2rem;
-          line-height: 1.5;
-          color: #444;
-          margin-bottom: 20px;
-          font-weight: bold;
-        }
-
-        .paternal-advice {
-          background: #222;
-          color: #f1f1f1;
-          padding: 30px;
-          border-radius: 5px; /* Boxy look for certificate feel */
-          margin: 20px 0 30px 0;
-          position: relative;
-          box-shadow: 10px 10px 0 #ff9f43;
-        }
-
-        .paternal-advice h3 {
-          margin-top: 0;
-          color: #ff9f43;
-          font-size: 1.1rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-
-        .paternal-advice p {
-          font-style: italic;
-          font-size: 1.1rem;
-          line-height: 1.6;
-          margin-bottom: 15px;
-        }
-
-        .signature {
-          text-align: right;
-          font-family: 'Brush Script MT', cursive;
-          font-size: 1.8rem;
-          color: #ff9f43;
+          margin-bottom: 40px;
         }
 
         @media (max-width: 768px) {
@@ -192,11 +140,7 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
           .grad-header h1 { font-size: 1.8rem; }
           .grad-content { flex-direction: column; text-align: center; gap: 20px; }
           .coach-pat-side img { width: 150px; }
-          .message-side h2 { font-size: 1.8rem; }
-          .intro { font-size: 1rem; }
-          .paternal-advice { padding: 15px; margin: 10px 0 20px 0; }
-          .paternal-advice p { font-size: 0.9rem; }
-          .signature { font-size: 1.4rem; }
+          .message-side h2 { font-size: 2.2rem; margin-bottom: 20px; }
           .btn-crayon.play-btn { font-size: 1.2rem !important; padding: 15px !important; }
         }
       `}} />

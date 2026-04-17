@@ -70,7 +70,7 @@ const WorkshopLevel = ({
   const phraseBlocksA = useMemo(() => buildPhraseBlocks(bpmA, trackLengthSec), [bpmA]);
   const phraseBlocksB = useMemo(() => buildPhraseBlocks(configB.bpm, trackLengthSec), [configB.bpm]);
 
-  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, getGrade, validate } = useValidation(difficulty);
+  const { config, isLevelCleared, isPerfectPitch, isPerfectSync, startStatus, getGrade, validate, validateStart, resetStartStatus } = useValidation(difficulty);
 
   useEffect(() => {
     if (isLevelCleared && !isWinSequence) {
@@ -169,11 +169,14 @@ const WorkshopLevel = ({
       const nativeSecPerBeatB = 60 / configB.bpm;
 
       if (viewType === 'simple') {
-        const progA = (currentA % nativeSecPerBeatA) / nativeSecPerBeatA;
-        const progB = (currentB % nativeSecPerBeatB) / nativeSecPerBeatB;
+        const cycleSecA = nativeSecPerBeatA;
+        const cycleSecB = nativeSecPerBeatB;
+
+        const progA = (currentA % cycleSecA) / cycleSecA;
+        const progB = (currentB % cycleSecB) / cycleSecB;
         let diffProg = Math.abs(progA - progB);
         if (diffProg > 0.5) diffProg = 1 - diffProg;
-        diffSec = diffProg * (60 / currentBpmA);
+        diffSec = diffProg * cycleSecA;
       } else if (viewType === 'loop') {
         let diff = Math.abs((beatsA % 8) - (beatsB % 8));
         if (diff > 4) diff = 8 - diff;
@@ -196,9 +199,17 @@ const WorkshopLevel = ({
   });
 
   const playA = async () => { if (audioCtx && !isPlayingA) { await audioCtx.playTrack('A'); setIsPlayingA(true); } };
-  const playB = async () => { if (audioCtx && !isPlayingB) { await audioCtx.playTrack('B'); setIsPlayingB(true); } };
-  const pauseB = () => { if (audioCtx) { audioCtx.pauseTrack('B'); setIsPlayingB(false); } };
-  const cueB = () => { if (audioCtx) { audioCtx.cueTrack('B'); setIsPlayingB(false); } };
+  const playB = async () => { 
+    if (audioCtx && !isPlayingB) { 
+      const currentPositionA = audioCtx.getTrackPosition('A');
+      validateStart(currentPositionA, bpmA, levelId);
+      
+      await audioCtx.playTrack('B'); 
+      setIsPlayingB(true); 
+    } 
+  };
+  const pauseB = () => { if (audioCtx) { audioCtx.pauseTrack('B'); setIsPlayingB(false); resetStartStatus(); } };
+  const cueB = () => { if (audioCtx) { audioCtx.cueTrack('B'); setIsPlayingB(false); resetStartStatus(); } };
   const nudgeB = (amount) => { if (audioCtx) audioCtx.nudgeTrack('B', amount); };
 
   const handlePitchChange = (e) => {
@@ -269,6 +280,23 @@ const WorkshopLevel = ({
                 fontFamily: 'inherit'
               }}>
                 ALIGNEMENT : {isPerfectSync ? 'OK' : 'À CALER'}
+              </div>
+              <div style={{ 
+                background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'), 
+                color: startStatus === null ? '#333' : 'white', 
+                padding: '6px 15px', 
+                borderRadius: '15px',
+                fontSize: '0.8rem',
+                fontWeight: '900',
+                border: '3px solid #333',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+                fontFamily: 'inherit'
+              }}>
+                DÉPART : {
+                  startStatus === null ? 'EN ATTENTE' : 
+                  startStatus === 'ok' ? 'BON DÉPART' : 
+                  startStatus === 'early' ? 'TROP TÔT' : 'TROP TARD'
+                }
               </div>
             </div>
           )}

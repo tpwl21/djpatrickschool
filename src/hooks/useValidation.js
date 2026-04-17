@@ -7,11 +7,55 @@ export const useValidation = (difficultyLevel = CURRENT_DIFFICULTY) => {
   const [isLevelCleared, setIsLevelCleared] = useState(false);
   const [isPerfectPitch, setIsPerfectPitch] = useState(false);
   const [isPerfectSync, setIsPerfectSync] = useState(false);
+  const [startStatus, setStartStatus] = useState(null); // null, 'ok', 'early', 'late'
   const [score, setScore] = useState(0);
   const scoreRef = useRef(0);
   
   const syncStartTimeRef = useRef(0);
   const syncStabilityRef = useRef(0); // Positive for sync, negative for out-of-sync
+  const validateStart = (actualPositionA, bpmA, levelId) => {
+    const secPerBeat = 60 / bpmA;
+    const beatsA = actualPositionA / secPerBeat;
+    let diff = 0;
+    let levelTolerance = 1.0; // Default 1s
+
+    if (levelId === 'LEVEL_1' || levelId === 'LEVEL_2') {
+      // All beats are valid
+      const nearestBeat = Math.round(beatsA);
+      diff = actualPositionA - (nearestBeat * secPerBeat);
+      levelTolerance = 1.0; 
+    } else if (levelId === 'LEVEL_3') {
+      // Odd beats only (1, 3, 5...)
+      const nearestEvenBeat = Math.round(beatsA / 2) * 2;
+      diff = actualPositionA - (nearestEvenBeat * secPerBeat);
+      levelTolerance = secPerBeat * 0.4;
+    } else if (levelId === 'LEVEL_4') {
+      // Uniquement sur les temps multiples de 8 (0, 8, 16, 24...)
+      const nearest8Beat = Math.round(beatsA / 8) * 8;
+      diff = actualPositionA - (nearest8Beat * secPerBeat);
+      levelTolerance = secPerBeat * 0.5;
+    } else if (levelId === 'LEVEL_7') {
+      // Pour le dernier niveau, plusieurs multiples validés (débuts de phrases : 0, 32, 64, 96, 128...)
+      const nearestPhraseBeat = Math.round(beatsA / 32) * 32;
+      diff = actualPositionA - (nearestPhraseBeat * secPerBeat);
+      levelTolerance = 1.0;
+    } else {
+      // Levels 5, 6: Outro (Beat 128 uniquement)
+      const targetBeat = 4 * 32; 
+      diff = actualPositionA - (targetBeat * secPerBeat);
+      levelTolerance = 1.0;
+    }
+
+    if (Math.abs(diff) <= levelTolerance) {
+      setStartStatus('ok');
+    } else if (diff < -levelTolerance) {
+      setStartStatus('early');
+    } else {
+      setStartStatus('late');
+    }
+  };
+
+  const resetStartStatus = () => setStartStatus(null);
 
   const validate = (diffSec, currentBpmB, currentBpmA) => {
     // 1. Direct BPM Comparison (Pitch)
@@ -32,8 +76,8 @@ export const useValidation = (difficultyLevel = CURRENT_DIFFICULTY) => {
 
     const syncCorrect = instantSyncCorrect || (syncStabilityRef.current > 0);
 
-    // 3. Overall validation
-    const inFullSync = pitchCorrect && syncCorrect;
+    // 3. Overall validation (Must have pitch, sync AND correct start)
+    const inFullSync = pitchCorrect && syncCorrect && startStatus === 'ok';
 
     if (inFullSync) {
       scoreRef.current += 1; // Accumulate sync points in ref (no re-render)
@@ -64,9 +108,12 @@ export const useValidation = (difficultyLevel = CURRENT_DIFFICULTY) => {
     isLevelCleared,
     isPerfectPitch,
     isPerfectSync,
+    startStatus,
     score,
     getGrade,
-    validate
+    validate,
+    validateStart,
+    resetStartStatus
   };
 };
 

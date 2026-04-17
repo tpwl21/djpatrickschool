@@ -18,8 +18,9 @@ export const COACH_TIPS = {
     "Utilise 'Reculer' ou 'Avancer' pour corriger les petits décalages."
   ],
   LEVEL_4: [
-    "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, en général pour la musique électronique on compte par 8",
-    "Lance bien le train au début d'une boucle, compte jusqu'à 8 et lâche le train B au bon moment"
+    "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, les boucles de 8 temps.",
+    "Pour valider, tu dois lâcher le train B uniquement au début d'une boucle : le temps 1, 9, 17, 25, 33, etc.",
+    "C'est la règle du 8n + 1 ! Regarde bien le début des wagons sur les rails."
   ],
   LEVEL_5: [
     "Bon là on s'attaque à encore plus grand, les phrases musicales. Globalement tu peux souvent diviser tes morceaux en plusieurs moments distincts avec une fonction et un but différent",
@@ -37,6 +38,7 @@ export const COACH_TIPS = {
   ],
   LEVEL_7: [
     "Ici, c'est du sérieux. Pas de bouton magique, juste toi et le disque.",
+    "A toi de choisir le bon moment pour lancer le train B, tant que c'est au début d'une phrase (tous les 32 temps) !",
     "Sers-toi du pitch uniquement, force un des trains à être plus rapide qu'il ne doit être, pour qu'il rattrape l'autre, ou dans l'autre sens",
     "Tu peux faire des vagues avec le pitch, c'est-à-dire accélérer puis ralentir, pour corriger les petits décalages.",
     "En gros le pitch remplace le bouton accélérer ou ralentir, c'est comme si tu n'avais pas le droit de toucher le vinyle ou ton jog"

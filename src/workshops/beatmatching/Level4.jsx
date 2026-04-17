@@ -10,7 +10,7 @@ const Level4 = (props) => {
       levelId="LEVEL_4"
       trackConfig={TRACK_CONFIG.LEVEL_4}
       title="Niveau 4 : La Boucle 🔄"
-      description="Aligne les <strong>boucles</strong> ET les <strong>wagons</strong> pour que les temps forts des boucles se retrouvent en même temps !"
+      description="Aligne les <strong>boucles</strong> ET les <strong>wagons</strong> ! Attention, tu dois maintenant démarrer sur un début de boucle (temps 1, 9, 17, 25...)."
       viewType="loop"
       showBpm={true}
       randomizeBpm={false}
