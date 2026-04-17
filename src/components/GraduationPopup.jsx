@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import coachImg from '../assets/coach_patrick.png';
+import professorImg from '../assets/professor_patrick.png';
 
 const GraduationPopup = ({ difficulty, onBackHome }) => {
   const getPaternalAdvice = () => {
@@ -34,8 +34,8 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
         <div className="grad-content">
           <div className="coach-pat-side">
             <motion.img 
-              src={coachImg} 
-              alt="Coach Patrick"
+              src={professorImg} 
+              alt="Professor Patrick"
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             />
@@ -111,10 +111,12 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
         }
 
         .grad-header h1 {
-          font-size: 3rem;
+          font-size: 3.5rem;
           margin: 0;
-          letter-spacing: 1px;
+          letter-spacing: -1px;
           color: #333;
+          font-family: inherit;
+          font-weight: 900;
         }
 
         .grad-content {
@@ -133,16 +135,18 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
         }
 
         .message-side h2 {
-          font-size: 2.2rem;
+          font-size: 2.5rem;
           margin-top: 0;
           color: #2c3e50;
+          font-weight: 900;
         }
 
         .intro {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           line-height: 1.5;
           color: #444;
           margin-bottom: 20px;
+          font-weight: bold;
         }
 
         .paternal-advice {
@@ -178,10 +182,22 @@ const GraduationPopup = ({ difficulty, onBackHome }) => {
         }
 
         @media (max-width: 768px) {
-          .grad-content { flex-direction: column; text-align: center; }
-          .coach-pat-side img { width: 180px; }
+          .graduation-card { 
+            padding: 20px; 
+            width: 95%;
+            max-height: 95vh;
+            overflow-y: auto;
+            border-width: 5px;
+          }
           .grad-header h1 { font-size: 1.8rem; }
-          .graduation-card { padding: 20px; }
+          .grad-content { flex-direction: column; text-align: center; gap: 20px; }
+          .coach-pat-side img { width: 150px; }
+          .message-side h2 { font-size: 1.8rem; }
+          .intro { font-size: 1rem; }
+          .paternal-advice { padding: 15px; margin: 10px 0 20px 0; }
+          .paternal-advice p { font-size: 0.9rem; }
+          .signature { font-size: 1.4rem; }
+          .btn-crayon.play-btn { font-size: 1.2rem !important; padding: 15px !important; }
         }
       `}} />
     </div>

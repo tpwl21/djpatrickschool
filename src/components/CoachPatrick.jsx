@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import coachImg from '../assets/coach_patrick.png';
+import professorImg from '../assets/professor_patrick.png';
 
 const CoachPatrick = ({ tips = [] }) => {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
@@ -55,7 +55,7 @@ const CoachPatrick = ({ tips = [] }) => {
         animate={{ y: 0 }}
         whileHover={{ scale: 1.05 }}
       >
-        <img src={coachImg} alt="Coach Patrick" />
+        <img src={professorImg} alt="Professor Patrick" />
       </motion.div>
 
       <style dangerouslySetInnerHTML={{ __html: `
@@ -99,7 +99,7 @@ const CoachPatrick = ({ tips = [] }) => {
         .speech-bubble p {
           margin: 0;
           color: #333;
-          font-family: 'Comic Sans MS', 'Crayon', cursive;
+          font-family: 'Patrick Hand', cursive;
           font-weight: bold;
           font-size: 0.95rem;
           line-height: 1.4;

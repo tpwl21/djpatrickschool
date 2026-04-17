@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import coachImg from '../assets/coach_patrick.png';
+import professorImg from '../assets/professor_patrick.png';
 
 const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "", grade = "" }) => {
   const isWin = type === 'win';
@@ -31,7 +31,7 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img src={coachImg} alt="Coach Patrick" />
+                <img src={professorImg} alt="Professor Patrick" />
                 <div className="speech-bubble-large">
                    <p>{message}</p>
                    <div className="bubble-tail-large" />
@@ -124,9 +124,9 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
 
         .speech-bubble-large p {
           margin: 0;
-          font-family: inherit;
+          font-family: 'Patrick Hand', cursive;
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1.25rem;
           color: #333;
           line-height: 1.4;
         }
@@ -156,7 +156,7 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
           top: -40px;
           right: -20px;
           z-index: 0;
-          font-family: 'Arial Black', sans-serif;
+          font-family: inherit;
         }
 
         .win-title {
@@ -191,11 +191,26 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
         }
 
         @media (max-width: 768px) {
-          .win-layout { flex-direction: column; text-align: center; padding: 20px; }
-          .win-title { font-size: 2.5rem; }
-          .coach-celebration img { width: 200px; }
+          .cinematic-card {
+            padding: 20px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-width: 4px;
+          }
+          .win-layout { 
+            flex-direction: column; 
+            text-align: center; 
+            gap: 20px;
+          }
+          .win-title { font-size: 2rem; }
+          .win-subtitle { font-size: 1rem; margin: 10px 0 20px 0; }
+          .coach-celebration img { width: 150px; }
+          .speech-bubble-large { padding: 15px; margin-top: -10px; }
+          .speech-bubble-large p { font-size: 1rem; }
           .success-text { text-align: center; }
-          .grade-badge { font-size: 5rem; position: static; }
+          .grade-badge { font-size: 4rem; position: static; margin-bottom: 10px; }
+          .btn-crayon.large { font-size: 1.2rem; padding: 15px 30px; width: 100%; }
         }
       `}} />
     </div>

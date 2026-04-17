@@ -245,28 +245,28 @@ const WorkshopLevel = ({
               pointerEvents: 'none'
             }}>
               <div style={{ 
-                background: isPerfectPitch ? 'rgba(39, 174, 96, 0.9)' : (currentBpmBDisplay < currentBpmA ? 'rgba(52, 152, 219, 0.9)' : 'rgba(231, 76, 60, 0.9)'), 
+                background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < currentBpmA ? '#3498db' : '#e74c3c'), 
                 color: 'white', 
-                padding: '4px 10px', 
-                borderRadius: '10px',
-                fontSize: '0.7rem',
-                fontWeight: 'bold',
-                border: `2px solid white`,
-                transition: 'all 0.3s',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                padding: '6px 15px', 
+                borderRadius: '15px',
+                fontSize: '0.8rem',
+                fontWeight: '900',
+                border: '3px solid #333',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+                fontFamily: 'inherit'
               }}>
                 VITESSE : {isPerfectPitch ? 'OK' : (currentBpmBDisplay < currentBpmA ? 'ACCÉLÉRER ↑' : 'RALENTIR ↓')}
               </div>
               <div style={{ 
-                background: isPerfectSync ? 'rgba(39, 174, 96, 0.9)' : 'rgba(0,0,0,0.6)', 
-                color: 'white', 
-                padding: '4px 10px', 
-                borderRadius: '10px',
-                fontSize: '0.7rem',
-                fontWeight: 'bold',
-                border: `2px solid ${isPerfectSync ? 'white' : 'transparent'}`,
-                transition: 'all 0.3s',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                background: isPerfectSync ? '#27ae60' : '#fff', 
+                color: isPerfectSync ? 'white' : '#333', 
+                padding: '6px 15px', 
+                borderRadius: '15px',
+                fontSize: '0.8rem',
+                fontWeight: '900',
+                border: '3px solid #333',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+                fontFamily: 'inherit'
               }}>
                 ALIGNEMENT : {isPerfectSync ? 'OK' : 'À CALER'}
               </div>
@@ -279,17 +279,25 @@ const WorkshopLevel = ({
               left: 0,
               right: 0,
               bottom: 0,
-              background: '#1a1a1a',
+              background: '#fdfaf6',
               zIndex: 20,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'rgba(255,255,255,0.1)',
-              fontSize: '4rem',
-              fontWeight: 'bold',
-              pointerEvents: 'none'
+              color: '#333',
+              fontSize: '3rem',
+              fontWeight: '900',
+              pointerEvents: 'none',
+              border: '10px solid #333',
+              boxShadow: 'inset 0 0 100px rgba(0,0,0,0.05)',
+              textAlign: 'center',
+              padding: '40px',
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              fontFamily: 'inherit',
+              opacity: 0.95
             }}>
-              ÉCOUTE UNIQUEMENT
+              ÉCOUTE UNIQUEMENT...<br/>PAS DE TRICHE !
             </div>
           )}
           <div className="track-container">
