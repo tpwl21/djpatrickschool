@@ -8,16 +8,16 @@ export const DIFFICULTY_SETTINGS = {
   },
   MEDIUM: {
     name: 'Medium',
-    toleranceSec: 0.020,     // 20ms
+    toleranceSec: 0.02,     // 20ms
     winDurationSec: 4.0,     // 4s
-    pitchToleranceBpm: 0.05,
+    pitchToleranceBpm: 0.2,
     nudgeAmount: 0.005       // 5ms
   },
   PRO: {
     name: 'Pro',
-    toleranceSec: 0.004,     // 4ms - Professional grade
+    toleranceSec: 0.015,     // 4ms - Professional grade
     winDurationSec: 5.0,     // 5s
-    pitchToleranceBpm: 0.01,
+    pitchToleranceBpm: 0.1,  // Tolérance augmentée pour le slider (0.01 était physiquement injouable)
     nudgeAmount: 0.001       // 1ms
   }
 };
