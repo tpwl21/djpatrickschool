@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
 import coachImg from '../assets/coach_patrick.png';
@@ -14,16 +14,21 @@ import proImg from '../assets/pro_patrick.png';
 import bannerImg from '../assets/banner.png';
 import AudioVisualizer from './AudioVisualizer';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
+import Locomotive from './Locomotive';
 
-const Home = ({ onStart, unlockedLevel = 1 }) => {
+const Home = ({ onStart, unlockedLevel = 1, initialDifficulty = null, initialLevel = null, onPersistState }) => {
   const [audioCtx] = useState(() => {
     const ctx = new MagicAudioContext();
     ctx.init(); // Silent init
     return ctx;
   });
-  const [selectedDifficulty, setSelectedDifficulty] = useState('EASY');
-  const [selectedLevel, setSelectedLevel] = useState(null);
-  const [hoveredDescription, setHoveredDescription] = useState("Bienvenue à l'école de DJing ! Choisis ta section pour commencer.");
+  const [selectedDifficulty, setSelectedDifficulty] = useState(initialDifficulty);
+  const [selectedLevel, setSelectedLevel] = useState(initialLevel);
+
+  useEffect(() => {
+    if (onPersistState) onPersistState(selectedLevel, selectedDifficulty);
+  }, [selectedLevel, selectedDifficulty, onPersistState]);
+  const [hoveredDescription, setHoveredDescription] = useState("Bienvenue à l'école de DJing ! Choisis d'abord ta difficulté en haut à droite.");
   const [currentCoachImg, setCurrentCoachImg] = useState(coachImg);
 
   const difficultyInfo = {
@@ -45,7 +50,7 @@ const Home = ({ onStart, unlockedLevel = 1 }) => {
       desc: "L'art d'aligner les tempos parfaits.",
       color: "#5DADE2",
       image: beatmatchingImg,
-      levels: [1, 2, 3, 4, 5, 6, 7]
+      levels: [1, 2, 3, 4, 5, 6, 7, 8]
     },
     { 
       id: 'harmonies', 
@@ -109,16 +114,21 @@ const Home = ({ onStart, unlockedLevel = 1 }) => {
       details: "Focus : Calage structurel (8 temps)."
     },
     5: { 
+      title: "Le Clap Master", 
+      desc: "Démarre sur le Clap ! Calcule bien : tu dois lancer le Train B pile sur le 42ème temps.",
+      details: "Focus : Précision du départ sur un temps spécifique (Beat 42)."
+    },
+    6: { 
       title: "La Transition", 
       desc: "Le moment critique. Démarre l'Intro du Train B exactement sur l'Outro du Train A.",
       details: "Focus : Phrasé musical et anticipation."
     },
-    6: { 
+    7: { 
       title: "Blind Chief", 
       desc: "L'affichage du BPM a disparu. Aligne les trains visuellement et à l'oreille.",
       details: "Focus : Indépendance vis-à-vis des chiffres."
     },
-    7: { 
+    8: { 
       title: "Le Puriste", 
       desc: "Pas de BPM, et surtout PAS DE NUDGE. Aligne tout au Pitch, comme un vrai.",
       details: "Focus : Maîtrise totale du plateau."
@@ -226,7 +236,10 @@ const Home = ({ onStart, unlockedLevel = 1 }) => {
                   {cat.forthcoming && <span className="tag-soon">Bientôt</span>}
                 </div>
                 {!cat.forthcoming ? (
-                  <div className="levels-row">
+                  <div className="levels-row" style={{ alignItems: 'center' }}>
+                    {cat.id === 'beatmatching' && (
+                      <Locomotive color="#5DADE2" style={{ marginRight: '15px', transform: 'scale(0.8)' }} />
+                    )}
                     {cat.levels.map(l => {
                       const isLocked = l > unlockedLevel;
                       return (
@@ -236,8 +249,31 @@ const Home = ({ onStart, unlockedLevel = 1 }) => {
                           onClick={() => !isLocked && setSelectedLevel(l)}
                           onMouseEnter={() => !isLocked && setHoveredDescription(`${workshops[l].title} : ${workshops[l].desc}`)}
                           className={`level-btn ${isLocked ? 'locked' : ''}`}
+                          style={{
+                             display: 'flex',
+                             flexDirection: 'column',
+                             justifyContent: 'center',
+                             alignItems: 'center',
+                             gap: '2px',
+                             paddingTop: cat.id === 'beatmatching' && !isLocked ? '10px' : '0'
+                          }}
                         >
-                          {isLocked ? '?' : l}
+                          {isLocked ? '?' : (
+                            <>
+                              {cat.id === 'beatmatching' && (
+                                <Locomotive 
+                                  color="#5DADE2" 
+                                  style={{ 
+                                    transform: 'scale(0.35)', 
+                                    height: '0px', 
+                                    width: '0px',
+                                    marginBottom: '15px' 
+                                  }} 
+                                />
+                              )}
+                              <span style={{ fontSize: cat.id === 'beatmatching' ? '1rem' : '1.2rem' }}>{l}</span>
+                            </>
+                          )}
                         </motion.div>
                       );
                     })}
@@ -293,24 +329,27 @@ const Home = ({ onStart, unlockedLevel = 1 }) => {
             >
               <div className="popup-header">
                 <div className="popup-level-id">NIVEAU {selectedLevel}</div>
-                <div className="popup-diff-tag">{selectedDifficulty}</div>
+                <div className="popup-diff-tag" style={{ backgroundColor: selectedDifficulty ? '#333' : '#ff6b6b' }}>
+                  {selectedDifficulty ? DIFFICULTY_SETTINGS[selectedDifficulty].name : 'DIFFICULTÉ MANQUANTE'}
+                </div>
               </div>
               
               <h1 className="popup-title">{workshops[selectedLevel].title}</h1>
               <p className="popup-desc">{workshops[selectedLevel].desc}</p>
               
               <div className="popup-details-box">
-                {workshops[selectedLevel].details}
+                {selectedDifficulty ? workshops[selectedLevel].details : "Tu dois choisir une difficulté (Easy, Medium ou Pro) avant de pouvoir démarrer l'entraînement."}
               </div>
 
               <div className="popup-footer">
                 <button className="btn-crayon nudge-btn" onClick={() => setSelectedLevel(null)}>ANNULER</button>
                 <button 
                   className="btn-crayon play-btn large" 
-                  onClick={() => onStart(selectedLevel, selectedDifficulty)}
-                  autoFocus
+                  style={{ opacity: selectedDifficulty ? 1 : 0.5, cursor: selectedDifficulty ? 'pointer' : 'not-allowed' }}
+                  onClick={() => selectedDifficulty && onStart(selectedLevel, selectedDifficulty)}
+                  disabled={!selectedDifficulty}
                 >
-                  DÉMARRER
+                  {selectedDifficulty ? 'DÉMARRER' : 'CHOISIR DIFFICULTÉ'}
                 </button>
               </div>
             </motion.div>

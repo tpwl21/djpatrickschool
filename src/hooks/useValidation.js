@@ -34,13 +34,18 @@ export const useValidation = (difficultyLevel = CURRENT_DIFFICULTY) => {
       const nearest8Beat = Math.round(beatsA / 8) * 8;
       diff = actualPositionA - (nearest8Beat * secPerBeat);
       levelTolerance = secPerBeat * 0.5;
-    } else if (levelId === 'LEVEL_7') {
+    } else if (levelId === 'LEVEL_5') {
+      // NOUVEAU : Départ sur le CLAP (Beat 162 @ 126 BPM)
+      const targetBeat = 162;
+      diff = actualPositionA - (targetBeat - 1) * (60 / bpmA);
+      levelTolerance = secPerBeat * 0.5;
+    } else if (levelId === 'LEVEL_8') {
       // Pour le dernier niveau, plusieurs multiples validés (débuts de phrases : 0, 32, 64, 96, 128...)
       const nearestPhraseBeat = Math.round(beatsA / 32) * 32;
       diff = actualPositionA - (nearestPhraseBeat * secPerBeat);
       levelTolerance = 1.0;
     } else {
-      // Levels 5, 6: Outro (Beat 128 uniquement)
+      // Levels 6, 7: Outro (Beat 128 uniquement)
       const targetBeat = 4 * 32; 
       diff = actualPositionA - (targetBeat * secPerBeat);
       levelTolerance = 1.0;

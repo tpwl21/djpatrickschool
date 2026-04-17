@@ -301,12 +301,12 @@ export class MagicAudioContext {
     }
   }
 
-  cueTrack(deckId) {
+  cueTrack(deckId, position = 0) {
     const deck = this.decks[deckId];
     if (deck.isPlaying) {
       this.pauseTrack(deckId);
     }
-    deck.currentPosition = 0;
+    deck.currentPosition = position;
   }
 
   nudgeTrack(deckId, amountSec) {

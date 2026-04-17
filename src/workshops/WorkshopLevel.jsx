@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
+import PitchFader from '../components/PitchFader';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Cinematic from '../components/Cinematic';
 import { useValidation } from '../hooks/useValidation';
@@ -36,11 +37,21 @@ const WorkshopLevel = ({
   onUnlockNext,
   coachTips = [],
   isBlindMode = false,
-  forceComplexWagons = false
+  forceComplexWagons = false,
+  startPositionBBeats = 0,
+  markersA = [],
+  markersB = []
 }) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const [currentPhraseA, setCurrentPhraseA] = useState(null);
   const [currentPhraseB, setCurrentPhraseB] = useState(null);
@@ -104,6 +115,11 @@ const WorkshopLevel = ({
       ctx.loadTrack('A', configA.url, configA.bpm, trackLengthSec, configA.complexity);
       ctx.loadTrack('B', configB.url, configB.bpm, trackLengthSec, configB.complexity);
       ctx.setPlaybackRate('B', initialBpmB / configB.bpm);
+      
+      if (startPositionBBeats > 0) {
+        ctx.decks.B.currentPosition = (startPositionBBeats - 1) * (60 / configB.bpm);
+      }
+
       setAudioCtx(ctx);
     });
 
@@ -128,7 +144,7 @@ const WorkshopLevel = ({
     const currentA = isWinSequence ? (ctx.decks.A.currentPosition || 0) + animTimeRef.current : ctx.getTrackPosition('A');
     const currentB = isWinSequence ? (ctx.decks.B.currentPosition || 0) + animTimeRef.current : ctx.getTrackPosition('B');
 
-    const zoom = 100;
+    const zoom = isMobile ? 60 : 100;
     const effZoomA = zoom; 
     const effZoomB = zoom / (ctx.decks.B.rate || 1);
 
@@ -168,32 +184,18 @@ const WorkshopLevel = ({
       const nativeSecPerBeatA = 60 / configA.bpm;
       const nativeSecPerBeatB = 60 / configB.bpm;
 
-      if (viewType === 'simple') {
-        const cycleSecA = nativeSecPerBeatA;
-        const cycleSecB = nativeSecPerBeatB;
+      // We now use beat-based alignment for all levels to ensure visual/indicator consistency
+      const cycleSecA = nativeSecPerBeatA;
+      const cycleSecB = nativeSecPerBeatB;
+      const progA = (currentA % cycleSecA) / cycleSecA;
+      const progB = (currentB % cycleSecB) / cycleSecB;
+      let diffProg = Math.abs(progA - progB);
+      if (diffProg > 0.5) diffProg = 1 - diffProg;
+      const beatDiffSec = diffProg * cycleSecA;
 
-        const progA = (currentA % cycleSecA) / cycleSecA;
-        const progB = (currentB % cycleSecB) / cycleSecB;
-        let diffProg = Math.abs(progA - progB);
-        if (diffProg > 0.5) diffProg = 1 - diffProg;
-        diffSec = diffProg * cycleSecA;
-      } else if (viewType === 'loop') {
-        let diff = Math.abs((beatsA % 8) - (beatsB % 8));
-        if (diff > 4) diff = 8 - diff;
-        diffSec = diff / (currentBpmA / 60);
-      } else {
-        syncCompatible = compatiblePhrases 
-          ? compatiblePhrases.some(([a, b]) => a === phraseIdxA && b === phraseIdxB)
-          : (phraseIdxA === 4 && phraseIdxB === 0);
-
-        let diff = Math.abs((beatsA % BEATS_PER_PHRASE) - (beatsB % BEATS_PER_PHRASE));
-        if (diff > BEATS_PER_PHRASE / 2) diff = BEATS_PER_PHRASE - diff;
-        diffSec = diff / (currentBpmA / 60);
-      }
-
-      validate(syncCompatible ? diffSec : 999, currentBpmB, currentBpmA);
+      validate(beatDiffSec, currentBpmB, currentBpmA);
     } else {
-      // Still validate pitch even if not playing, but pass a high diffSec to prevent sync success
+      // Still validate pitch even if not playing
       validate(999, currentBpmB, currentBpmA);
     }
   });
@@ -209,7 +211,14 @@ const WorkshopLevel = ({
     } 
   };
   const pauseB = () => { if (audioCtx) { audioCtx.pauseTrack('B'); setIsPlayingB(false); resetStartStatus(); } };
-  const cueB = () => { if (audioCtx) { audioCtx.cueTrack('B'); setIsPlayingB(false); resetStartStatus(); } };
+  const cueB = () => { 
+    if (audioCtx) { 
+      const startPosSec = startPositionBBeats > 1 ? (startPositionBBeats - 1) * (60 / configB.bpm) : 0;
+      audioCtx.cueTrack('B', startPosSec); 
+      setIsPlayingB(false); 
+      resetStartStatus(); 
+    } 
+  };
   const nudgeB = (amount) => { if (audioCtx) audioCtx.nudgeTrack('B', amount); };
 
   const handlePitchChange = (e) => {
@@ -230,6 +239,69 @@ const WorkshopLevel = ({
         <button onClick={onBack} className="btn-crayon nudge-btn back-home-btn">Menu</button>
         <h1>{title}</h1>
         <p dangerouslySetInnerHTML={{ __html: description }} />
+        
+        {/* Status HUD - Moved here to prevent train display bugs */}
+        {difficulty === 'EASY' && (
+          <div className="sync-hud-container" style={{
+            display: 'flex',
+            flexDirection: isMobile ? 'row' : 'column',
+            gap: isMobile ? '5px' : '8px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: '15px',
+            position: isMobile ? 'relative' : 'absolute',
+            top: isMobile ? '0' : '20px',
+            right: isMobile ? '0' : '20px',
+            zIndex: 100
+          }}>
+            <div style={{ 
+              background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < currentBpmA ? '#3498db' : '#e74c3c'), 
+              color: 'white', 
+              padding: '4px 12px', 
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              fontWeight: '900',
+              border: '2px solid #333',
+              boxShadow: '3px 3px 0 rgba(0,0,0,0.1)',
+              fontFamily: 'inherit',
+              whiteSpace: 'nowrap'
+            }}>
+              {isPerfectPitch ? 'PITCH OK' : (currentBpmBDisplay < currentBpmA ? 'PITCH +' : 'PITCH -')}
+            </div>
+            <div style={{ 
+              background: isPerfectSync ? '#27ae60' : '#fff', 
+              color: isPerfectSync ? 'white' : '#333', 
+              padding: '4px 12px', 
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              fontWeight: '900',
+              border: '2px solid #333',
+              boxShadow: '3px 3px 0 rgba(0,0,0,0.1)',
+              fontFamily: 'inherit',
+              whiteSpace: 'nowrap'
+            }}>
+              {isPerfectSync ? 'SYNC OK' : 'À CALER'}
+            </div>
+            <div style={{ 
+              background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'), 
+              color: startStatus === null ? '#333' : 'white', 
+              padding: '4px 12px', 
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              fontWeight: '900',
+              border: '2px solid #333',
+              boxShadow: '3px 3px 0 rgba(0,0,0,0.1)',
+              fontFamily: 'inherit',
+              whiteSpace: 'nowrap'
+            }}>
+              {
+                startStatus === null ? 'DÉPART...' : 
+                startStatus === 'ok' ? 'DÉPART OK' : 
+                startStatus === 'early' ? 'TÔT' : 'TARD'
+              }
+            </div>
+          </div>
+        )}
       </div>
 
       {viewType === 'phrase' && (
@@ -242,64 +314,6 @@ const WorkshopLevel = ({
       <div className="main-gameplay">
         <div className="railway-container">
           <div className="target-line" />
-          
-          {/* Status HUD - Hidden in Medium/Pro */}
-          {difficulty === 'EASY' && (
-            <div className="sync-hud" style={{
-              position: 'absolute',
-              top: '10px',
-              right: '20px',
-              zIndex: 30,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '5px',
-              pointerEvents: 'none'
-            }}>
-              <div style={{ 
-                background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < currentBpmA ? '#3498db' : '#e74c3c'), 
-                color: 'white', 
-                padding: '6px 15px', 
-                borderRadius: '15px',
-                fontSize: '0.8rem',
-                fontWeight: '900',
-                border: '3px solid #333',
-                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
-                fontFamily: 'inherit'
-              }}>
-                VITESSE : {isPerfectPitch ? 'OK' : (currentBpmBDisplay < currentBpmA ? 'ACCÉLÉRER ↑' : 'RALENTIR ↓')}
-              </div>
-              <div style={{ 
-                background: isPerfectSync ? '#27ae60' : '#fff', 
-                color: isPerfectSync ? 'white' : '#333', 
-                padding: '6px 15px', 
-                borderRadius: '15px',
-                fontSize: '0.8rem',
-                fontWeight: '900',
-                border: '3px solid #333',
-                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
-                fontFamily: 'inherit'
-              }}>
-                ALIGNEMENT : {isPerfectSync ? 'OK' : 'À CALER'}
-              </div>
-              <div style={{ 
-                background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'), 
-                color: startStatus === null ? '#333' : 'white', 
-                padding: '6px 15px', 
-                borderRadius: '15px',
-                fontSize: '0.8rem',
-                fontWeight: '900',
-                border: '3px solid #333',
-                boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
-                fontFamily: 'inherit'
-              }}>
-                DÉPART : {
-                  startStatus === null ? 'EN ATTENTE' : 
-                  startStatus === 'ok' ? 'BON DÉPART' : 
-                  startStatus === 'early' ? 'TROP TÔT' : 'TROP TARD'
-                }
-              </div>
-            </div>
-          )}
           {isBlindMode && (
             <div className="blind-overlay" style={{
               position: 'absolute',
@@ -330,42 +344,56 @@ const WorkshopLevel = ({
           )}
           <div className="track-container">
             {viewType === 'simple' ? (
-              <Train ref={trackARef} wagons={wagonsA} bpm={bpmA} />
+              <Train ref={trackARef} wagons={wagonsA} bpm={bpmA} zoomLevel={isMobile ? 60 : 100} />
             ) : viewType === 'loop' ? (
-              <LoopTrackView ref={trackARef} wagons={wagonsA} bpm={bpmA} trackLengthSec={trackLengthSec} />
+              <LoopTrackView ref={trackARef} wagons={wagonsA} bpm={bpmA} trackLengthSec={trackLengthSec} zoomLevel={isMobile ? 60 : 100} markers={markersA} />
             ) : (
-              <PhraseTrackView ref={trackARef} phraseBlocks={phraseBlocksA} wagons={wagonsA} bpm={bpmA} />
+              <PhraseTrackView ref={trackARef} phraseBlocks={phraseBlocksA} wagons={wagonsA} bpm={bpmA} zoomLevel={isMobile ? 60 : 100} markers={markersA} />
             )}
           </div>
           <div className="track-container">
             {viewType === 'simple' ? (
-              <Train ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} />
+              <Train ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={isMobile ? 60 : 100} />
             ) : viewType === 'loop' ? (
-              <LoopTrackView ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} trackLengthSec={trackLengthSec} />
+              <LoopTrackView ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} trackLengthSec={trackLengthSec} zoomLevel={isMobile ? 60 : 100} markers={markersB} />
             ) : (
-              <PhraseTrackView ref={trackBRef} phraseBlocks={phraseBlocksB} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} />
+              <PhraseTrackView ref={trackBRef} phraseBlocks={phraseBlocksB} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={isMobile ? 60 : 100} markers={markersB} />
             )}
           </div>
         </div>
 
-        <div className="pitch-fader-container">
-          <h4>Vitesse</h4>
-          <input 
-            type="range" min={configB.bpm - 25} max={configB.bpm + 25} step="0.01" 
+        <div className="pitch-fader-container" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
+          {showBpm && (
+            <div style={{ padding: '6px 12px', background: '#333', color: '#fff', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '8px', boxShadow: '3px 3px 0 rgba(0,0,0,0.1)' }}>
+              Train A: {bpmA.toFixed(1)} BPM
+            </div>
+          )}
+          <PitchFader 
+            min={configB.bpm - 25} 
+            max={configB.bpm + 25} 
             value={configB.bpm * pitch} 
-            onChange={handlePitchChange} 
-            className="pitch-input-vertical" 
+            onChange={(val) => handlePitchChange({ target: { value: val } })}
+            orientation={isMobile ? "horizontal" : "vertical"}
+            label=""
           />
           {showBpm ? (
             <div style={{ 
-              fontWeight: 'bold', 
+              fontWeight: '900', 
               marginTop: '10px', 
-              color: (difficulty === 'EASY') ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333' 
+              color: (difficulty === 'EASY') ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333',
+              fontSize: '1.2rem',
+              fontFamily: 'inherit'
             }}>
               {(configB.bpm * pitch).toFixed(1)} BPM
             </div>
           ) : (
-            <div style={{ fontWeight: 'bold', fontSize: '1.2rem', color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4', marginTop: '10px' }}>
+            <div style={{ 
+              fontWeight: '900', 
+              fontSize: '1.2rem', 
+              color: pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4', 
+              marginTop: '10px',
+              fontFamily: 'inherit'
+            }}>
               {pitch >= (initialBpmB / configB.bpm) ? '+' : ''}{((pitch - (initialBpmB / configB.bpm)) * 100).toFixed(1)}%
             </div>
           )}
@@ -374,8 +402,8 @@ const WorkshopLevel = ({
 
       <div className="controls">
         <div className="control-group">
-          <h3>Train A {showBpm && `(${bpmA.toFixed(1)} BPM)`}</h3>
-          <button className="btn-crayon play-btn" onClick={playA} disabled={isPlayingA}>
+          <h3>Train A</h3>
+          <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA}>
             {isPlayingA ? 'En route...' : 'Démarrer Train A'}
           </button>
         </div>
@@ -383,13 +411,13 @@ const WorkshopLevel = ({
           <h3>Train B</h3>
           <div className="control-buttons">
             <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB}>Play</button>
-            <button className="btn-crayon play-btn" onClick={pauseB} disabled={!isPlayingB}>Pause</button>
             <button className="btn-crayon nudge-btn" onClick={cueB}>CUE</button>
+            
             {allowNudge && (
-              <>
+              <div className="nudge-controls-row">
                 <button className="btn-crayon nudge-btn" onClick={() => nudgeB(-config.nudgeAmount)}>Ralentir</button>
                 <button className="btn-crayon nudge-btn" onClick={() => nudgeB(config.nudgeAmount)}>Accélérer</button>
-              </>
+              </div>
             )}
           </div>
         </div>

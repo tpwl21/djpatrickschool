@@ -10,13 +10,12 @@ const Level7 = (props) => {
       {...props}
       levelId="LEVEL_7"
       trackConfig={TRACK_CONFIG.LEVEL_7}
-      title="Niveau 7 : Le Puriste"
-      description="Expertise Totale. <strong>Pas de BPM, et surtout PAS DE NUDGE.</strong> Aligne tes trains uniquement avec le Play/CUE et le Pitch !"
+      title="Niveau 7 : Blind Chief 🌑"
+      description="Expertise Ultime. <strong>L'affichage du BPM a disparu.</strong> Aligne les trains visuellement et aux oreilles !"
       viewType="phrase"
       showBpm={false}
       randomizeBpm={true}
-      allowNudge={false}
-      isBlindMode={true}
+      allowNudge={true}
       compatiblePhrases={COMPATIBLE_PHRASE_PAIRS}
       coachTips={COACH_TIPS.LEVEL_7}
     />

@@ -1,7 +1,6 @@
 import React from 'react';
 import WorkshopLevel from '../WorkshopLevel';
 import { TRACK_CONFIG } from '../../constants/tracks';
-import { COMPATIBLE_PHRASE_PAIRS } from '../../utils/workshopUtils';
 import { COACH_TIPS } from '../../constants/coachPatrick';
 
 const Level6 = (props) => {
@@ -10,13 +9,13 @@ const Level6 = (props) => {
       {...props}
       levelId="LEVEL_6"
       trackConfig={TRACK_CONFIG.LEVEL_6}
-      title="Niveau 6 : Blind Chief 🌑"
-      description="Expertise Ultime. <strong>L'affichage du BPM a disparu.</strong> Aligne les trains visuellement et aux oreilles !"
+      title="Niveau 6 : La Transition 🎧"
+      description="Démarre l'<strong>Intro 🌅</strong> du Train B sur l'<strong>Outro 🌙</strong> du Train A !"
       viewType="phrase"
-      showBpm={false}
-      randomizeBpm={true}
+      showBpm={true}
+      randomizeBpm={false}
       allowNudge={true}
-      compatiblePhrases={COMPATIBLE_PHRASE_PAIRS}
+      compatiblePhrases={null} // Uses default L6 behavior (Outro->Intro)
       coachTips={COACH_TIPS.LEVEL_6}
     />
   );

@@ -18,17 +18,22 @@ export const COACH_TIPS = {
     "Utilise 'Reculer' ou 'Avancer' pour corriger les petits décalages."
   ],
   LEVEL_4: [
-    "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, les boucles de 8 temps.",
-    "Pour valider, tu dois lâcher le train B uniquement au début d'une boucle : le temps 1, 9, 17, 25, 33, etc.",
-    "C'est la règle du 8n + 1 ! Regarde bien le début des wagons sur les rails."
+    "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, en général pour la musique électronique on compte par 8",
+    "Lance bien le train au début d'une boucle, compte jusqu'à 8 et lâche le train B au bon moment"
   ],
   LEVEL_5: [
+    "Celle-là elle est fourbe. Ton pote de B2B t'as joué un morceau avec un break interminable",
+    "Qu'a cela ne tienne, tu vas le caler quand même, tu place le cue non pas sur le premier temps mais sur le deuxieme pour te laisser le temps de réagir.",
+    "Attention de bien laisser passer un temps avant de lancer ton morceau, sinon tu va être inversé cf Lvl3.",
+    "Aller à toi de jouer, lance ton morceau au moment du drop du train A"
+  ],
+  LEVEL_6: [
     "Bon là on s'attaque à encore plus grand, les phrases musicales. Globalement tu peux souvent diviser tes morceaux en plusieurs moments distincts avec une fonction et un but différent",
     "Souvent en musique électronique les morceaux sont pensés par les producteurs pour être mixés, il y a donc des moments propices à la transition",
     "Lancer l'intro du train B au moment où le train A commence son outro est une idée basique de transition, c'est la sécurité ça va rarement sonner faux",
     "Tiens-toi prêt, le train A va bientôt finir son morceau, il faut que tu lances le train B au bon moment"
   ],
-  LEVEL_6: [
+  LEVEL_7: [
     "Tu trouvais le temps long au niveau d'avant ?",
     "Et oui car tu avais l'assistance technique, tu avais tout de prêt en attendant l'outro.",
     "Ici pas d'assistance, tu dois te fier uniquement à tes oreilles pour régler la vitesse et tu as justement ce temps mort pour le faire.",
@@ -36,9 +41,8 @@ export const COACH_TIPS = {
     "Plus ça se désynchronise rapidement plus tu es loin du bon réglage.",
     "Tu peux également utiliser les boutons accélérer et ralentir, tant que tu as besoin d'utiliser un des deux boutons c'est qu'il faut changer le bpm dans le sens opposé"
   ],
-  LEVEL_7: [
+  LEVEL_8: [
     "Ici, c'est du sérieux. Pas de bouton magique, juste toi et le disque.",
-    "A toi de choisir le bon moment pour lancer le train B, tant que c'est au début d'une phrase (tous les 32 temps) !",
     "Sers-toi du pitch uniquement, force un des trains à être plus rapide qu'il ne doit être, pour qu'il rattrape l'autre, ou dans l'autre sens",
     "Tu peux faire des vagues avec le pitch, c'est-à-dire accélérer puis ralentir, pour corriger les petits décalages.",
     "En gros le pitch remplace le bouton accélérer ou ralentir, c'est comme si tu n'avais pas le droit de toucher le vinyle ou ton jog"
@@ -62,7 +66,8 @@ export const SUCCESS_MESSAGES = {
   LEVEL_2: "Maître du pitch ! Tu as réussi à synchroniser deux vitesses différentes. Un vrai pro !",
   LEVEL_3: "L'oreille absolue ! Même sans voir le BPM, tu as trouvé le réglage parfait. Impressionnant !",
   LEVEL_4: "Le roi du kick ! Tes boucles sont parfaitement alignées, la foule est en délire !",
-  LEVEL_5: "Quelle fluidité ! Ta transition entre les morceaux était magique. On ne voit plus la couture !",
-  LEVEL_6: "À l'aveugle ! Tu maîtrises le mix à l'instinct. C'est ça, la vraie magie du DJing !",
-  LEVEL_7: "DJ MASTER ! Le contrôle total, plus rien ne t'arrête. Prêt pour la scène ?"
+  LEVEL_5: "Le Clap Master ! Tu as géré le décalage de départ comme un chef. Patrick est fier !",
+  LEVEL_6: "Quelle fluidité ! Ta transition entre les morceaux était magique. On ne voit plus la couture !",
+  LEVEL_7: "À l'aveugle ! Tu maîtrises le mix à l'instinct. C'est ça, la vraie magie du DJing !",
+  LEVEL_8: "DJ MASTER ! Le contrôle total, plus rien ne t'arrête. Prêt pour la scène ?"
 };

@@ -7,6 +7,7 @@ import Level4 from './workshops/beatmatching/Level4';
 import Level5 from './workshops/beatmatching/Level5';
 import Level6 from './workshops/beatmatching/Level6';
 import Level7 from './workshops/beatmatching/Level7';
+import Level8 from './workshops/beatmatching/Level8';
 import Home from './components/Home';
 import GraduationPopup from './components/GraduationPopup';
 
@@ -17,6 +18,8 @@ function App() {
     return saved ? parseInt(saved, 10) : 1;
   });
   const [difficulty, setDifficulty] = useState('EASY');
+  const [persistedDifficulty, setPersistedDifficulty] = useState(null);
+  const [persistedLevelIdx, setPersistedLevelIdx] = useState(null);
   const [retryKey, setRetryKey] = useState(0);
   const [isGraduated, setIsGraduated] = useState(false);
 
@@ -26,11 +29,12 @@ function App() {
       return;
     }
     const next = level + 1;
-    if (next > unlockedLevel && next <= 7) {
+    if (next > unlockedLevel && next <= 8) {
       setUnlockedLevel(next);
       localStorage.setItem('dj_teacher_progression', next);
     }
     setLevel(next);
+    setPersistedLevelIdx(next); // Update persistence to following level
     setRetryKey(0);
   };
 
@@ -46,7 +50,7 @@ function App() {
 
   const unlockNext = (current) => {
     const next = current + 1;
-    if (next > unlockedLevel && next <= 7) {
+    if (next > unlockedLevel && next <= 8) {
       setUnlockedLevel(next);
       localStorage.setItem('dj_teacher_progression', next);
     }
@@ -54,14 +58,29 @@ function App() {
 
   const startLevel = (levelIdx, diff) => {
     setDifficulty(diff);
+    setPersistedDifficulty(diff);
+    setPersistedLevelIdx(levelIdx);
     setLevel(levelIdx);
     setRetryKey(0);
     setIsGraduated(false);
   };
 
+  const persistState = React.useCallback((l, d) => {
+    setPersistedLevelIdx(l);
+    setPersistedDifficulty(d);
+  }, []);
+
   return (
     <>
-      {level === 0 && <Home onStart={startLevel} unlockedLevel={unlockedLevel} />}
+      {level === 0 && (
+        <Home 
+          onStart={startLevel} 
+          unlockedLevel={unlockedLevel} 
+          initialDifficulty={persistedDifficulty}
+          initialLevel={persistedLevelIdx}
+          onPersistState={persistState}
+        />
+      )}
       
       {level === 1 && <Level1 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(1)} />}
       {level === 2 && <Level2 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(2)} />}
@@ -70,6 +89,7 @@ function App() {
       {level === 5 && <Level5 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(5)} />}
       {level === 6 && <Level6 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(6)} />}
       {level === 7 && <Level7 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(7)} />}
+      {level === 8 && <Level8 key={`${difficulty}-${retryKey}`} difficulty={difficulty} onNextLevel={handleNextLevel} onRetry={handleRetry} onBack={handleBackToHome} onUnlockNext={() => unlockNext(8)} />}
       
       {isGraduated && (
         <GraduationPopup difficulty={difficulty} onBackHome={handleBackToHome} />
