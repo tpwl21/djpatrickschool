@@ -12,6 +12,7 @@ import Level8 from './workshops/beatmatching/Level8';
 import Home from './components/Home';
 import GraduationPopup from './components/GraduationPopup';
 import LevelPopup from './components/LevelPopup';
+import SoundOnIndicator from './components/SoundOnIndicator';
 
 function App() {
   const [level, setLevel] = useState(0); // 0 = Home, 1-7 = Beatmatch
@@ -117,6 +118,7 @@ function App() {
           />
         )}
       </AnimatePresence>
+      <SoundOnIndicator />
     </>
   );
 }
