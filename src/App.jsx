@@ -57,6 +57,7 @@ function App() {
     setRetryKey(0);
     setIsGraduated(false);
     setPendingNextLevel(null);
+    setPersistedLevelIdx(null);
   };
 
   const unlockNext = (current) => {
