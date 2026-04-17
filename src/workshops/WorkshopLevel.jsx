@@ -46,6 +46,7 @@ const WorkshopLevel = ({
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -69,6 +70,9 @@ const WorkshopLevel = ({
   const configB = trackConfig.B;
   const bpmA = configA.bpm;
   const trackLengthSec = 160;
+
+  const currentBpmA = configA.bpm * (audioCtxRef.current?.decks.A.rate || 1);
+  const currentBpmB = configB.bpm * (audioCtxRef.current?.decks.B.rate || 1);
 
   const initialBpmB = useRef(randomizeBpm ? (configB.bpm + (Math.random() * 20 - 10)) : configB.bpm).current;
   const [pitch, setPitch] = useState(initialBpmB / configB.bpm);
