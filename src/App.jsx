@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import './App.css';
 import Level1 from './workshops/beatmatching/Level1';
 import Level2 from './workshops/beatmatching/Level2';
@@ -10,6 +11,7 @@ import Level7 from './workshops/beatmatching/Level7';
 import Level8 from './workshops/beatmatching/Level8';
 import Home from './components/Home';
 import GraduationPopup from './components/GraduationPopup';
+import LevelPopup from './components/LevelPopup';
 
 function App() {
   const [level, setLevel] = useState(0); // 0 = Home, 1-7 = Beatmatch
@@ -22,6 +24,7 @@ function App() {
   const [persistedLevelIdx, setPersistedLevelIdx] = useState(null);
   const [retryKey, setRetryKey] = useState(0);
   const [isGraduated, setIsGraduated] = useState(false);
+  const [pendingNextLevel, setPendingNextLevel] = useState(null);
 
   const handleNextLevel = () => {
     if (level === 8) {
@@ -33,9 +36,16 @@ function App() {
       setUnlockedLevel(next);
       localStorage.setItem('dj_teacher_progression', next);
     }
-    setLevel(next);
-    setPersistedLevelIdx(next); 
-    setRetryKey(0);
+    setPendingNextLevel(next);
+  };
+
+  const startPendingLevel = () => {
+    if (pendingNextLevel) {
+      setLevel(pendingNextLevel);
+      setPersistedLevelIdx(pendingNextLevel);
+      setRetryKey(0);
+      setPendingNextLevel(null);
+    }
   };
 
   const handleRetry = () => {
@@ -46,6 +56,7 @@ function App() {
     setLevel(0);
     setRetryKey(0);
     setIsGraduated(false);
+    setPendingNextLevel(null);
   };
 
   const unlockNext = (current) => {
@@ -94,6 +105,17 @@ function App() {
       {isGraduated && (
         <GraduationPopup difficulty={difficulty} onBackHome={handleBackToHome} />
       )}
+
+      <AnimatePresence>
+        {pendingNextLevel && (
+          <LevelPopup 
+            level={pendingNextLevel}
+            difficulty={difficulty}
+            onCancel={handleBackToHome}
+            onStart={startPendingLevel}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
