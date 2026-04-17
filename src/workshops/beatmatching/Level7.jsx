@@ -18,6 +18,10 @@ const Level7 = (props) => {
       randomizeBpm={true}
       allowNudge={true}
       compatiblePhrases={COMPATIBLE_PHRASE_PAIRS}
+      markersA={[
+        { beat: 129, label: "OUTRO 🌙", color: "#a29bfe" },
+        { beat: 289, label: "OUTRO 🌙", color: "#a29bfe" }
+      ]}
       coachTips={t('coachTips').LEVEL_7}
     />
   );

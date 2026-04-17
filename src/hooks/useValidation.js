@@ -44,8 +44,14 @@ export const useValidation = (difficultyLevel = CURRENT_DIFFICULTY) => {
       const nearestPhraseBeat = Math.round(beatsA / 32) * 32;
       diff = actualPositionA - (nearestPhraseBeat * secPerBeat);
       levelTolerance = 1.0;
+    } else if (levelId === 'LEVEL_7') {
+      // Multiple Outro-Intro matching (Outro starts at 128, 288, etc.)
+      const cycleSec = 160 * secPerBeat; // 5 phrases = 160 beats
+      const targetSec = 128 * secPerBeat;
+      diff = (actualPositionA % cycleSec) - targetSec;
+      levelTolerance = 1.0;
     } else {
-      // Levels 6, 7: Outro (Beat 128 uniquement)
+      // Level 6: Outro (Beat 128 uniquement)
       const targetBeat = 4 * 32; 
       diff = actualPositionA - (targetBeat * secPerBeat);
       levelTolerance = 1.0;
