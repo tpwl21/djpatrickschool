@@ -1,0 +1,28 @@
+id = "digging"
+order = 5
+color = "#E74C3C"
+image = "digging_patrick.png"
+forthcoming = false
+kind = "digging"
+
+[en]
+title      = "DIGGING"
+short_desc = "Find the gems. Crate-digging, curation, setlist-building."
+long_desc  = "The art of choosing the right track at the right time — and hunting for the ones nobody else has. Each practice sharpens a different muscle: reading fiches, spotting subtle traps, picking blind by ear, and hunting rare releases on Discogs."
+objectives = [
+  "Read BPM and Camelot fiches to filter compatible tracks",
+  "Spot the subtle trap when all candidates look close",
+  "Trust your ear when the numbers aren't there",
+  "Navigate Discogs advanced filters to retrieve rare releases"
+]
+
+[fr]
+title      = "DIGGING"
+short_desc = "Trouve les pépites. Digging, curation, construction de setlist."
+long_desc  = "L'art de choisir le bon morceau au bon moment — et d'aller chercher ceux que personne d'autre n'a. Chaque practice affûte un muscle : lire les fiches, repérer le piège subtil, choisir à l'oreille, chasser sur Discogs."
+objectives = [
+  "Lire les fiches BPM et Camelot pour filtrer les tracks compatibles",
+  "Repérer le piège subtil quand toutes les candidates semblent proches",
+  "Faire confiance à ton oreille quand les chiffres ne sont plus là",
+  "Naviguer les filtres avancés Discogs pour retrouver des releases rares"
+]

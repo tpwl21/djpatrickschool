@@ -1,0 +1,286 @@
+id = "LESSON_BM_2_MEDIUM"
+order = 2
+
+[en]
+title       = "Beat Structure: Rhythm Anatomy and Phrase Logic"
+short_desc  = "Backbeat, polyrhythm, phrase hierarchy — the vocabulary that separates a DJ from a button-pusher."
+description = "The kick is just the beginning. Understanding the full anatomy of a groove — backbeat, genre-specific patterns, phrase hierarchy — lets you mix with intent instead of luck."
+recap = [
+  "Four-on-the-floor is a disco inheritance, dominant in electronic music because the steady isochronous pulse entrains easily.",
+  "The backbeat (snare on 2 & 4) comes from R&B/funk; in Afrobeat or Latin, the snare lies — use kick only.",
+  "A flam = phase error. The Haas/precedence effect fuses transients below ~5 ms; above it they become distinct events.",
+  "Standard phrase = 32 beats (8 bars), often subdivided as 8+8+16 or 16+16 with fills at bar 7 and 15.",
+  "Trance uses 64-bar phrases; hip-hop uses 4-bar and 16-bar; knowing the convention tells you when to expect the next change.",
+  "Phrase alignment is a prerequisite for harmonic mixing: key changes should land on phrase boundaries."
+]
+
+[[en.pages]]
+title   = "The four-on-the-floor kick: genealogy and perceptual physics"
+content = """
+The **four-on-the-floor** pattern — a kick on every beat — is not a given. It's a choice inherited from **disco**. The pattern was codified by drummers like Earl Young (MFSB, Philadelphia International Records, early 1970s), whose steady kick pulse freed the rest of the arrangement for polyrhythmic ornamentation.
+
+Electronic producers of the late 70s and 80s — Roland TR-808, TR-909 — baked it into the factory presets because it matched what dancers expected from disco. House and techno inherited it wholesale.
+
+**Why it dominates psychoacoustically**: a steady isochronous pulse at 2 Hz (120 BPM = 2 kicks per second) sits at the sweet spot of the human sensorimotor system's entrainment frequency. Research in music cognition (Repp & Su 2013) shows this is the frequency range where tapping to a beat is most automatic and least effortful. It's the same reason 120 BPM appears in exercise music, video games, and children's songs: the brain locks onto it without trying.
+
+## Beyond the house convention
+
+- **Hip-hop / breakbeat**: kicks fall on 1 and the "and" of 3 (or other broken patterns from sampled breaks)
+- **Drum & Bass**: 170 BPM but perceived as half-time — the main pulse is every 2 beats, not 4
+- **Afrobeat / Highlife**: kick interweaves with bass drum in polyrhythmic patterns; the four-on-the-floor is absent
+"""
+
+[[en.pages]]
+title   = "Backbeat, flam, and the Haas effect"
+content = """
+The **backbeat** — snare or clap on beats 2 and 4 — is borrowed directly from R&B, rock, and funk drumming. It gives the listener a second, higher-pitched pulse to latch onto.
+
+For DJs, the backbeat is a **phase detector**: when two tracks are perfectly synced, their snares land simultaneously and sound as one. When phase is off, you hear a **flam** — two very close but distinct transients.
+
+## The physics of the flam
+
+The Haas effect (also called the precedence effect) explains why the flam appears:
+
+- Two identical transients separated by **< 1 ms**: fused, heard as one event with a slightly diffuse source
+- Separated by **1–5 ms**: still fused, but with a directional bias toward the leading sound
+- Separated by **> 5 ms**: heard as two distinct events — that's the flam
+
+At 120 BPM, one beat = 500 ms. A 5 ms flam threshold = 1% of a beat. Human interaural time discrimination is ~10–20 μs, but for non-localised (headphone) listening, the detection threshold for flutter is around 1 ms.
+
+## When the snare lies
+
+In **Afrobeat, Latin percussion, broken beat**, and many non-Western dance genres, the snare or equivalent accent falls on unexpected subdivisions, creating polyrhythms against the underlying pulse. In these genres, using the snare as a phase anchor is unreliable — lock onto the kick or bass drum instead.
+"""
+
+[[en.pages]]
+title   = "Phrase structure: hierarchy and genre conventions"
+content = """
+Music is organized hierarchically: **beat → bar (4 beats) → sub-phrase (4 bars / 16 beats) → phrase (8 bars / 32 beats) → section**.
+
+The **32-beat phrase** (8 bars) is the fundamental unit of DJ thinking. It's not arbitrary: the ear expects powers of two, and 8 bars fits neatly into the harmonic and melodic structures of most electronic music.
+
+## Internal phrase architecture
+
+A 32-beat phrase typically has internal structure:
+- **8+8+16**: two 8-beat cells followed by a 16-beat expansion (common in progressive house)
+- **16+16**: two equal halves, each with a fill or tension peak at bar 7 (16th beat)
+- **4+4+4+4+16**: first half in 4-bar micro-phrases, second half as continuous build
+
+The **fill or risebar** at bar 7 (beat 29–32) is a nearly universal signal: something changes next. If you're mixing in, this is your cue to have the incoming track ready.
+
+## Genre phrase lengths
+
+| Genre | Typical phrase length |
+|---|---|
+| House / Techno | 32 beats (8 bars) |
+| Trance | 64 beats (16 bars) at peak sections |
+| Hip-hop | 16 beats (4 bars) or 64 beats (16 bars) |
+| D&B | 32 beats but perceived as 16 (half-time feel) |
+
+## Phrase alignment and harmonic mixing
+
+Phrase alignment is not just about timing — it's the prerequisite for **harmonic mixing** (mixing in compatible keys). A key change that lands mid-phrase will jar even if the keys are theoretically compatible. The chord progression needs to resolve before the new track's progression begins. This is why the Harmonies workshop (next) builds directly on phrase structure.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Which drummer is often credited with codifying the four-on-the-floor kick in disco?"
+answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
+[quiz.fr]
+question = "Quel batteur est souvent crédité pour avoir codifié le kick four-on-the-floor dans le disco ?"
+answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Above roughly what separation time do two identical transients become audible as distinct events (flam threshold)?"
+answers  = ["0.1 ms", "1 ms", "5 ms"]
+[quiz.fr]
+question = "Au-dessus de quelle séparation temporelle deux transitoires identiques deviennent-ils audibles comme événements distincts (seuil du flam) ?"
+answers  = ["0,1 ms", "1 ms", "5 ms"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "In Afrobeat and Latin music, why is the snare unreliable as a phase anchor?"
+answers  = ["It falls on unexpected subdivisions, creating polyrhythms against the kick", "It is usually pitched higher than the kick", "It is mixed too quietly to hear in the booth"]
+[quiz.fr]
+question = "En Afrobeat et musique latine, pourquoi la snare est-elle peu fiable comme ancre de phase ?"
+answers  = ["Elle tombe sur des subdivisions inattendues, créant des polyrythmies contre le kick", "Elle est généralement plus aigüe que le kick", "Elle est mixée trop doucement pour s'entendre en cabine"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What is the most common internal structure of a 32-beat phrase in progressive house?"
+answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
+[quiz.fr]
+question = "Quelle est la structure interne la plus courante d'une phrase de 32 beats en progressive house ?"
+answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why does phrase alignment matter for harmonic mixing?"
+answers  = ["It ensures both tracks are at the same BPM", "It keeps the energy level consistent", "A key change mid-phrase jars even with compatible keys — progressions need to resolve first"]
+[quiz.fr]
+question = "Pourquoi l'alignement de phrase est-il important pour le mix harmonique ?"
+answers  = ["Il s'assure que les deux morceaux sont au même BPM", "Il maintient un niveau d'énergie cohérent", "Un changement de tonalité au milieu d'une phrase jarre même avec des tonalités compatibles — les progressions doivent d'abord résoudre"]
+
+[[sources]]
+label = "Four on the floor — Wikipedia (historical context)"
+url   = "https://en.wikipedia.org/wiki/Four_on_the_floor_(music)"
+
+[[sources]]
+label = "Repp & Su — Sensorimotor synchronization: A review of recent research (2013)"
+url   = "https://link.springer.com/article/10.3758/s13423-012-0371-2"
+
+[[sources]]
+label = "Haas effect — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Haas_effect"
+
+[[sources]]
+label = "DJ.Studio — Phrase mixing and structure"
+url   = "https://dj.studio/blog/phrasing-dj-mixing"
+
+[fr]
+title       = "Structure du rythme : anatomie du groove et logique des phrases"
+short_desc  = "Backbeat, polyrythmie, hiérarchie des phrases — le vocabulaire qui sépare un DJ d'un pousse-bouton."
+description = "Le kick n'est que le début. Comprendre l'anatomie complète d'un groove — backbeat, patterns spécifiques aux genres, hiérarchie des phrases — te permet de mixer avec intention plutôt qu'avec de la chance."
+recap = [
+  "Le four-on-the-floor est un héritage disco, dominant en musique électronique parce que la pulsation isochrone stable s'accroche facilement.",
+  "Le backbeat (snare sur 2 & 4) vient du R&B/funk ; en Afrobeat ou Latin, la snare ment — utilise le kick uniquement.",
+  "Un flam = erreur de phase. L'effet Haas/précédence fusionne les transitoires en dessous de ~5 ms ; au-delà ils deviennent des événements distincts.",
+  "Phrase standard = 32 beats (8 mesures), souvent subdivisée en 8+8+16 ou 16+16 avec fills en mesure 7 et 15.",
+  "La trance utilise des phrases de 64 mesures ; le hip-hop 4 et 16 mesures ; connaître la convention te dit quand attendre le prochain changement.",
+  "L'alignement de phrase est un prérequis pour le mix harmonique : les changements de tonalité doivent tomber sur les fins de phrases."
+]
+
+[[fr.pages]]
+title   = "Le kick four-on-the-floor : généalogie et physique perceptuelle"
+content = """
+Le pattern **four-on-the-floor** — un kick sur chaque temps — n'est pas une évidence. C'est un choix hérité du **disco**. Il a été codifié par des batteurs comme Earl Young (MFSB, Philadelphia International Records, début des années 1970), dont le kick stable libérait le reste de l'arrangement pour des ornements polyrythmiques.
+
+Les producteurs électroniques de la fin des années 70 et 80 — Roland TR-808, TR-909 — l'ont intégré dans les presets d'usine parce qu'il correspondait à ce que les danseurs attendaient du disco. La house et la techno l'ont hérité intégralement.
+
+**Pourquoi il domine psychoacoustiquement** : une pulsation isochrone stable à 2 Hz (120 BPM = 2 kicks par seconde) se situe dans la zone optimale du système sensorimoteur humain. La recherche en cognition musicale (Repp & Su 2013) montre que c'est la plage de fréquence où taper sur un beat est le plus automatique. C'est pour ça que 120 BPM apparaît dans la musique de sport, les jeux vidéo et les comptines.
+
+## Au-delà de la convention house
+
+- **Hip-hop / breakbeat** : kicks sur le 1 et le "et" du 3 (ou autres patterns brisés issus de breaks samplés)
+- **Drum & Bass** : 170 BPM mais perçu en half-time — la pulsation principale est tous les 2 temps, pas 4
+- **Afrobeat / Highlife** : le kick s'entremêle avec la basse dans des patterns polyrythmiques ; le four-on-the-floor est absent
+"""
+
+[[fr.pages]]
+title   = "Backbeat, flam, et l'effet Haas"
+content = """
+Le **backbeat** — snare ou clap sur les temps 2 et 4 — est emprunté directement au drumming R&B, rock et funk. Il donne à l'auditeur une deuxième pulsation, plus aigüe, à laquelle s'accrocher.
+
+Pour les DJs, le backbeat est un **détecteur de phase** : quand deux morceaux sont parfaitement synchronisés, leurs snares tombent simultanément et sonnent comme une seule. Quand la phase est décalée, tu entends un **flam** — deux transitoires très proches mais distincts.
+
+## La physique du flam
+
+L'effet Haas (aussi appelé effet de précédence) explique pourquoi le flam apparaît :
+
+- Deux transitoires identiques séparés de **< 1 ms** : fusionnés, entendus comme un seul événement avec une source légèrement diffuse
+- Séparés de **1–5 ms** : encore fusionnés, mais avec un biais directionnel vers le son le plus en avance
+- Séparés de **> 5 ms** : entendus comme deux événements distincts — c'est le flam
+
+À 120 BPM, un beat = 500 ms. Le seuil de flam de 5 ms = 1% d'un beat. La discrimination temporelle interaurale humaine est ~10–20 μs, mais pour une écoute non localisée (casque), le seuil de détection du flottement est d'environ 1 ms.
+
+## Quand la snare ment
+
+En **Afrobeat, percussion latine, broken beat** et de nombreux genres de danse non-occidentaux, la snare ou son équivalent tombe sur des subdivisions inattendues, créant des polyrythmies contre la pulsation sous-jacente. Dans ces genres, utiliser la snare comme ancre de phase est peu fiable — accroche-toi au kick ou à la grosse caisse.
+"""
+
+[[fr.pages]]
+title   = "Structure des phrases : hiérarchie et conventions de genre"
+content = """
+La musique est organisée hiérarchiquement : **beat → mesure (4 beats) → sous-phrase (4 mesures / 16 beats) → phrase (8 mesures / 32 beats) → section**.
+
+La **phrase de 32 beats** (8 mesures) est l'unité fondamentale de la pensée DJ. Ce n'est pas arbitraire : l'oreille attend des puissances de deux, et 8 mesures s'adapte parfaitement aux structures harmoniques et mélodiques de la plupart de la musique électronique.
+
+## Architecture interne d'une phrase
+
+Une phrase de 32 beats a typiquement une structure interne :
+- **8+8+16** : deux cellules de 8 beats suivies d'une expansion de 16 beats (courante en progressive house)
+- **16+16** : deux moitiés égales, chacune avec un fill ou pic de tension en mesure 7
+- **4+4+4+4+16** : première moitié en micro-phrases de 4 mesures, deuxième moitié en build continu
+
+Le **fill ou risebar** en mesure 7 (beats 29–32) est un signal quasi-universel : quelque chose change ensuite. Si tu mixes en entrée, c'est ton signal pour avoir le morceau entrant prêt.
+
+## Longueurs de phrase par genre
+
+| Genre | Longueur de phrase typique |
+|---|---|
+| House / Techno | 32 beats (8 mesures) |
+| Trance | 64 beats (16 mesures) sur les sections peak |
+| Hip-hop | 16 beats (4 mesures) ou 64 beats (16 mesures) |
+| D&B | 32 beats mais perçus comme 16 (feel half-time) |
+
+## Alignement de phrase et mix harmonique
+
+L'alignement de phrase n'est pas seulement une question de timing — c'est le prérequis pour le **mix harmonique** (mixer dans des tonalités compatibles). Un changement de tonalité qui tombe au milieu d'une phrase jarre même si les tonalités sont théoriquement compatibles. La progression harmonique doit résoudre avant que celle du nouveau morceau commence. C'est pour ça que le workshop Harmonies (suivant) s'appuie directement sur la structure en phrases.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Which drummer is often credited with codifying the four-on-the-floor kick in disco?"
+answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
+[quiz.fr]
+question = "Quel batteur est souvent crédité pour avoir codifié le kick four-on-the-floor dans le disco ?"
+answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Above roughly what separation time do two identical transients become audible as distinct events (flam threshold)?"
+answers  = ["0.1 ms", "1 ms", "5 ms"]
+[quiz.fr]
+question = "Au-dessus de quelle séparation temporelle deux transitoires identiques deviennent-ils audibles comme événements distincts (seuil du flam) ?"
+answers  = ["0,1 ms", "1 ms", "5 ms"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "In Afrobeat and Latin music, why is the snare unreliable as a phase anchor?"
+answers  = ["It falls on unexpected subdivisions, creating polyrhythms against the kick", "It is usually pitched higher than the kick", "It is mixed too quietly to hear in the booth"]
+[quiz.fr]
+question = "En Afrobeat et musique latine, pourquoi la snare est-elle peu fiable comme ancre de phase ?"
+answers  = ["Elle tombe sur des subdivisions inattendues, créant des polyrythmies contre le kick", "Elle est généralement plus aigüe que le kick", "Elle est mixée trop doucement pour s'entendre en cabine"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What is the most common internal structure of a 32-beat phrase in progressive house?"
+answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
+[quiz.fr]
+question = "Quelle est la structure interne la plus courante d'une phrase de 32 beats en progressive house ?"
+answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why does phrase alignment matter for harmonic mixing?"
+answers  = ["It ensures both tracks are at the same BPM", "It keeps the energy level consistent", "A key change mid-phrase jars even with compatible keys — progressions need to resolve first"]
+[quiz.fr]
+question = "Pourquoi l'alignement de phrase est-il important pour le mix harmonique ?"
+answers  = ["Il s'assure que les deux morceaux sont au même BPM", "Il maintient un niveau d'énergie cohérent", "Un changement de tonalité au milieu d'une phrase jarre même avec des tonalités compatibles — les progressions doivent d'abord résoudre"]
+
+[[sources]]
+label = "Four on the floor — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Four_on_the_floor_(music)"
+
+[[sources]]
+label = "Repp & Su — Sensorimotor synchronization: A review of recent research (2013)"
+url   = "https://link.springer.com/article/10.3758/s13423-012-0371-2"
+
+[[sources]]
+label = "Haas effect — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Haas_effect"
+
+[[sources]]
+label = "DJ.Studio — Phrase mixing and structure"
+url   = "https://dj.studio/blog/phrasing-dj-mixing"

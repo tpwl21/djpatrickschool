@@ -1,0 +1,75 @@
+id = "EQ_LEVEL_1"
+order = 1
+
+[en]
+title       = "Crossfader"
+short_desc  = "Ride the crossfader. Bring B in while A fades out."
+description = "Learn to ride the crossfader. Slowly bring up B during phrase 4 (A's outro)."
+details     = "Focus: smooth energy transfer with the fader only."
+success     = "Clean fader transition! Perfect energy match."
+coach_tips  = [
+  "Ready to mix? Slowly bring up Train B's volume while Train A fades out.",
+  "The goal is to avoid any drop in energy during the transition."
+]
+recap = [
+  "The crossfader blends deck A and deck B — center = both, edges = one only.",
+  "Ride it slowly to preserve energy; a sudden slam creates a dip.",
+  "Bring B in during A's outro, not in the middle of A's drop.",
+  "A fader-only transition is the simplest intro-outro move in the DJ toolkit."
+]
+
+[fr]
+title       = "Crossfader"
+short_desc  = "Utilise le fader. Monte B pendant que A se termine."
+description = "Apprend à utiliser le fader. Monte le son de B lentement pendant la phrase 4 (Outro de A)."
+details     = "Focus : transfert d'énergie avec le fader uniquement."
+success     = "Fader ultra propre ! Une transition d'énergie parfaite."
+coach_tips  = [
+  "Prêt pour le mix ? Monte doucement le volume du Train B pendant que le Train A se termine.",
+  "Le but est de ne pas avoir de coupure de son pendant la transition."
+]
+recap = [
+  "Le crossfader mélange A et B — centre = les deux, bords = un seul.",
+  "Manipule-le lentement pour garder l'énergie ; un coup sec crée un trou.",
+  "Fais entrer B pendant l'outro de A, pas au milieu du drop de A.",
+  "Une transition au fader seul reste le mouvement intro-outro le plus simple du DJ."
+]
+
+[track.A]
+url = "AUDIO/Trip.mp3"
+bpm = 122
+title = "Base"
+key = "4A"
+complexity = 3
+[track.B]
+url = "AUDIO/What_is_Music.mp3"
+bpm = 126
+title = "Rythme fou"
+key = "8A"
+complexity = 3
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[[checks]]
+phrase    = 0
+control   = "volB_eff"
+value     = 0.0
+tolerance = 0.3
+
+[[checks]]
+phrase    = 5
+control   = "volB_eff"
+value     = 1.0
+tolerance = 0.3
+
+[[markers.A]]
+beat  = 129
+label = "Fader B UP"
+color = "#2ecc71"

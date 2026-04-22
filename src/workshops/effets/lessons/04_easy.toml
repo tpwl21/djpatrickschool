@@ -1,0 +1,18 @@
+id = "LESSON_FX_4_EASY"
+order = 4
+
+[en]
+title      = "Loop Rolls: The Beat Repeat"
+short_desc = "Easy version coming soon."
+
+[[en.pages]]
+title   = "Coming Soon"
+content = "The Easy version of this lesson is being prepared. Check back soon!"
+
+[fr]
+title      = "Loop Rolls : Le Beat Repeat"
+short_desc = "Version Easy en préparation."
+
+[[fr.pages]]
+title   = "Bientôt disponible"
+content = "La version Easy de cette leçon est en cours de rédaction. Reviens bientôt !"

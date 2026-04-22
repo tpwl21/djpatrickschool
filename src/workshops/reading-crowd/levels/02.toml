@@ -1,0 +1,92 @@
+id = "RTC_LEVEL_2"
+order = 2
+
+[en]
+title       = "Relance the Afterpeak"
+short_desc  = "02:30. The peak passed. Energy dropped 5→3. Don't panic. Don't overkill."
+description = "The peak has happened. People are drinking water, going outside to smoke, coming back. The crowd is bleeding energy. Two wrong moves: drop another peak banger (overkill, crowd reads it as desperate), or chill too hard (surrender)."
+coach_tips  = [
+  "Afterpeak ≠ closing. The floor hasn't given up; it's catching its breath.",
+  "Pick a track that re-engages bodies WITHOUT demanding peak-energy return.",
+  "Tribal/groovy recoveries land the best. Forget the biggest drops for now."
+]
+recap = [
+  "Afterpeak is recovery, not closing — the crowd is breathing, not leaving.",
+  "Re-attempting a peak right after one feels desperate to the room.",
+  "Nudge energy up one notch (3 → 4), don't snap back to 5.",
+  "Tribal and groovy recoveries re-engage bodies without demanding full peak return."
+]
+
+[fr]
+title       = "Relance l'afterpeak"
+short_desc  = "02h30. Le peak est passé. Énergie tombée de 5 à 3. Pas de panique. Pas d'overkill."
+description = "Le peak a eu lieu. Les gens boivent de l'eau, sortent fumer, reviennent. La foule saigne de l'énergie. Deux mauvais moves : claquer un autre banger peak (overkill, la foule lit ça comme du désespoir), ou partir trop chill (capitulation)."
+coach_tips  = [
+  "Afterpeak ≠ closing. La piste n'a pas abandonné ; elle reprend son souffle.",
+  "Choisis une track qui rembarque les corps SANS exiger un retour energy-5.",
+  "Les relances tribales/groovy tombent le mieux. Oublie les gros drops pour l'instant."
+]
+recap = [
+  "L'afterpeak est une récupération, pas une fermeture — la foule respire, elle ne part pas.",
+  "Retenter un peak direct après un peak fait désespéré aux yeux de la salle.",
+  "Monte d'un cran (3 → 4), ne reclaque pas sur 5.",
+  "Les relances tribales et groovy rembarquent les corps sans exiger le retour au peak."
+]
+
+[track.A]
+url = "AUDIO/Ensaios.mp3"
+bpm = 128
+title = "Afterpeak A"
+key = "1A"
+complexity = 4
+
+[crowd]
+energy = 3
+density = 4
+moment = "afterpeak"
+vibe_tags = ["descending", "catching_breath", "still_with_you"]
+description_en = "02:30. The peak dropped at 01:15. Room still 80% full but people are drinking, chatting, some outside. You can feel the tempo slipping if you don't act."
+description_fr = "02h30. Le peak est tombé à 01h15. Salle encore remplie à 80% mais les gens boivent, parlent, certains sont dehors. Tu sens que le tempo glisse si tu n'agis pas."
+
+[ui]
+show_fiches = true
+
+[[candidates]]
+url = "AUDIO/Fulgulandio.mp3"
+title = "Fulgulandio"
+genre = "tribal techno"
+energy = 4
+vibe = "groovy, tribal"
+correct = true
+reason_en = "Energy 4 is the perfect nudge back up — a notch above current crowd state (3), but not back at peak (5). Tribal groove re-engages bodies through repetition. The room finds its legs again without being commanded to."
+reason_fr = "Énergie 4, le nudge parfait — un cran au-dessus de l'état actuel (3), sans retour au peak (5). Groove tribal qui rembarque les corps par la répétition. La salle retrouve ses jambes sans qu'on lui hurle dessus."
+
+[[candidates]]
+url = "AUDIO/SCIFI.mp3"
+title = "SciFi (Peak Banger)"
+genre = "peak techno"
+energy = 5
+vibe = "banger, overkill"
+correct = false
+reason_en = "Re-attempting energy 5 after a drop feels desperate. The crowd reads it as 'the DJ is panicking, we've already heard better from them'. Don't chase a past peak — build a new groove."
+reason_fr = "Retenter énergie 5 après une descente fait désespéré. La foule lit ça comme 'le DJ panique, on a déjà eu mieux'. Ne chasse pas un peak passé — construis un nouveau groove."
+
+[[candidates]]
+url = "AUDIO/JazzMan_Doucheur.mp3"
+title = "JazzMan"
+genre = "nu-jazz / downtempo"
+energy = 2
+vibe = "melancholic, quiet"
+correct = false
+reason_en = "Too deep too fast. You're surrendering the room 2 hours early. Energy 2 after an afterpeak at 3 is the 'closing' curve — too soon."
+reason_fr = "Trop deep trop vite. Tu capitules 2 heures trop tôt. Énergie 2 après un afterpeak à 3, c'est la courbe 'closing' — trop tôt."
+
+[[candidates]]
+url = "AUDIO/Wake.mp3"
+title = "Wake (acapella)"
+genre = "spoken-word acapella"
+energy = 2
+vibe = "vocal, exposed"
+correct = false
+reason_en = "An acapella now is brutal honesty when the room wants repair. You stop the groove dead. Good tool — wrong moment."
+reason_fr = "Une acapella maintenant, c'est une honnêteté brutale alors que la salle veut être réparée. Tu casses le groove. Bon outil — mauvais moment."

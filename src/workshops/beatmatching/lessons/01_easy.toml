@@ -1,0 +1,210 @@
+id = "LESSON_BM_1_EASY"
+order = 1
+
+[en]
+title       = "What is BPM?"
+short_desc  = "Two tracks, two speeds — learn to hear the difference."
+description = "BPM is just a number that tells you how fast a song goes. This lesson is all about your ears, not formulas."
+recap = [
+  "BPM = how many beats happen in one minute. Fast song = high number.",
+  "If two tracks run at different speeds, their kicks drift apart — that sounds terrible.",
+  "The pitch fader on your deck is the speed dial. Push it, the track speeds up or slows down.",
+  "Your job: make deck B match deck A's speed so both kicks land together.",
+  "You don't need to read numbers to beatmatch — your ears will tell you when it's right."
+]
+
+[[en.pages]]
+title   = "Speed, counted out loud"
+content = """
+A song at **120 BPM** has 120 beats in one minute — or 2 beats every second. Fast songs have high numbers, slow songs have low numbers.
+
+That's it. No formula needed.
+
+## How to feel it
+
+- **House music** (club tracks, four-on-the-floor): roughly 120–130 BPM — a brisk walk
+- **Drum & Bass**: 170–180 BPM — a light jog
+- **Hip-hop beats**: 80–100 BPM — lazy stroll
+
+Load a house track. Tap your foot to it. That tap is 1 beat. Count how many taps happen in 10 seconds and multiply by 6 — you've just measured the BPM yourself.
+"""
+youtube = "E2-hMqNmOoE"
+youtube_start = 0
+youtube_caption = "DJ Jazzy Jeff shows how tempo feels before numbers. Watch the first 2 minutes."
+
+[[en.pages]]
+title   = "Why speed matters when you mix"
+content = """
+Imagine two songs playing at the same time. One is faster than the other. Every few seconds, their beats drift further apart — like two people clapping who started together but sped up at different rates. That's called a **trainwreck** and it sounds exactly as bad as it sounds.
+
+**The fix**: slow one down or speed up the other until both kicks land at the same instant.
+
+## Try it right now
+
+1. Load any two tracks into a DJ app (or use the practice level after this lesson)
+2. Start both playing
+3. Listen — do the kicks hit together, or do they flutter?
+4. Drag the pitch fader on deck B slightly up or down until they lock
+"""
+
+[[en.pages]]
+title   = "The speed dial (pitch fader)"
+content = """
+On every DJ deck there is a **pitch fader** — a vertical slider usually on the right side of the deck. Despite the name, right now think of it purely as a **speed dial**:
+
+- Slide it **up** → track plays **faster**
+- Slide it **down** → track plays **slower**
+- Leave it in the **middle** → original speed
+
+The number shown (like +2.0% or -1.5%) tells you how much faster or slower you've made it relative to the original recording.
+
+**Don't overthink the number.** Use your ears. When the kicks lock together you're done.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "A track at 60 BPM has how many beats per second?"
+answers  = ["2 beats per second", "1 beat per second", "Half a beat per second"]
+[quiz.fr]
+question = "Un morceau à 60 BPM a combien de beats par seconde ?"
+answers  = ["2 beats par seconde", "1 beat par seconde", "Un demi-beat par seconde"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What does a 'trainwreck' sound like?"
+answers  = ["Two tracks perfectly in sync", "One track playing alone", "Two tracks whose beats drift apart — a flutter"]
+[quiz.fr]
+question = "À quoi ressemble un 'trainwreck' ?"
+answers  = ["Deux morceaux parfaitement en sync", "Un seul morceau qui joue", "Deux morceaux dont les beats se décalent — un flottement"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What does moving the pitch fader up do?"
+answers  = ["Speeds up the track", "Slows down the track", "Changes the volume"]
+[quiz.fr]
+question = "Que fait le fader pitch poussé vers le haut ?"
+answers  = ["Accélère le morceau", "Ralentit le morceau", "Change le volume"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "When is beatmatching done?"
+answers  = ["When the BPM numbers match on screen", "When your ears hear the kicks landing together", "When the waveforms look identical"]
+[quiz.fr]
+question = "Quand le beatmatching est-il terminé ?"
+answers  = ["Quand les chiffres BPM correspondent à l'écran", "Quand tes oreilles entendent les kicks tomber ensemble", "Quand les formes d'onde semblent identiques"]
+
+[[sources]]
+label = "BPM Counter — Tap your tempo (online tool)"
+url   = "https://www.all8.com/tools/bpm.htm"
+
+[[sources]]
+label = "What Is BPM? — DJ.Studio beginner guide"
+url   = "https://dj.studio/blog/what-is-bpm"
+
+[fr]
+title       = "C'est quoi le BPM ?"
+short_desc  = "Deux morceaux, deux vitesses — apprends à entendre la différence."
+description = "Le BPM c'est juste un nombre qui indique la vitesse d'un morceau. Cette leçon mise tout sur tes oreilles, pas sur les formules."
+recap = [
+  "BPM = combien de beats arrivent en une minute. Morceau rapide = chiffre élevé.",
+  "Deux morceaux à vitesses différentes : leurs kicks se décalent — ça sonne très mal.",
+  "Le fader pitch sur ta platine c'est le bouton de vitesse. Tu le pousses, ça accélère ou ralentit.",
+  "Ton but : faire matcher la vitesse du deck B sur celle du deck A pour que les kicks tombent ensemble.",
+  "Tu n'as pas besoin de lire des chiffres pour beatmatcher — tes oreilles te diront quand c'est bon."
+]
+
+[[fr.pages]]
+title   = "La vitesse, comptée à voix haute"
+content = """
+Un morceau à **120 BPM** a 120 beats en une minute — soit 2 beats par seconde. Les morceaux rapides ont des chiffres élevés, les lents ont des chiffres bas.
+
+C'est tout. Pas de formule nécessaire.
+
+## Comment le ressentir
+
+- **House music** (tracks de club, four-on-the-floor) : environ 120–130 BPM — une marche rapide
+- **Drum & Bass** : 170–180 BPM — un petit trot
+- **Hip-hop** : 80–100 BPM — flânerie détendue
+
+Charge un morceau house. Tape du pied. Ce tap, c'est 1 beat. Compte combien de taps en 10 secondes et multiplie par 6 — tu viens de mesurer le BPM toi-même.
+"""
+youtube = "E2-hMqNmOoE"
+youtube_start = 0
+youtube_caption = "DJ Jazzy Jeff montre comment le tempo se ressent avant les chiffres. Regarde les 2 premières minutes."
+
+[[fr.pages]]
+title   = "Pourquoi la vitesse compte quand tu mixes"
+content = """
+Imagine deux morceaux qui jouent en même temps. L'un est plus rapide que l'autre. Toutes les quelques secondes, leurs beats s'écartent — comme deux personnes qui applaudissent ensemble au départ mais accélèrent à des rythmes différents. Ça s'appelle un **trainwreck** (un clash) et ça sonne exactement aussi mal que ça en a l'air.
+
+**La correction** : ralentir l'un ou accélérer l'autre jusqu'à ce que les deux kicks tombent au même instant.
+
+## Essaie maintenant
+
+1. Charge deux morceaux dans une appli DJ (ou utilise le niveau de pratique après cette leçon)
+2. Lance les deux
+3. Écoute — les kicks tombent-ils ensemble, ou flottent-ils ?
+4. Glisse le fader pitch du deck B légèrement vers le haut ou le bas jusqu'à ce qu'ils se verrouillent
+"""
+
+[[fr.pages]]
+title   = "Le bouton de vitesse (fader pitch)"
+content = """
+Sur chaque platine DJ il y a un **fader pitch** — un slider vertical généralement à droite. Malgré son nom, pour l'instant pense-y uniquement comme un **bouton de vitesse** :
+
+- Glisse vers le **haut** → le morceau joue **plus vite**
+- Glisse vers le **bas** → le morceau joue **plus lentement**
+- Laisse au **milieu** → vitesse originale
+
+Le chiffre affiché (genre +2.0% ou -1.5%) indique de combien tu t'es écarté de la vitesse d'enregistrement d'origine.
+
+**N'overthink pas le chiffre.** Utilise tes oreilles. Quand les kicks se verrouillent, c'est terminé.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "A track at 60 BPM has how many beats per second?"
+answers  = ["2 beats per second", "1 beat per second", "Half a beat per second"]
+[quiz.fr]
+question = "Un morceau à 60 BPM a combien de beats par seconde ?"
+answers  = ["2 beats par seconde", "1 beat par seconde", "Un demi-beat par seconde"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What does a 'trainwreck' sound like?"
+answers  = ["Two tracks perfectly in sync", "One track playing alone", "Two tracks whose beats drift apart — a flutter"]
+[quiz.fr]
+question = "À quoi ressemble un 'trainwreck' ?"
+answers  = ["Deux morceaux parfaitement en sync", "Un seul morceau qui joue", "Deux morceaux dont les beats se décalent — un flottement"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What does moving the pitch fader up do?"
+answers  = ["Speeds up the track", "Slows down the track", "Changes the volume"]
+[quiz.fr]
+question = "Que fait le fader pitch poussé vers le haut ?"
+answers  = ["Accélère le morceau", "Ralentit le morceau", "Change le volume"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "When is beatmatching done?"
+answers  = ["When the BPM numbers match on screen", "When your ears hear the kicks landing together", "When the waveforms look identical"]
+[quiz.fr]
+question = "Quand le beatmatching est-il terminé ?"
+answers  = ["Quand les chiffres BPM correspondent à l'écran", "Quand tes oreilles entendent les kicks tomber ensemble", "Quand les formes d'onde semblent identiques"]
+
+[[sources]]
+label = "BPM Counter — Tap your tempo (outil en ligne)"
+url   = "https://www.all8.com/tools/bpm.htm"
+
+[[sources]]
+label = "What Is BPM? — DJ.Studio guide débutant"
+url   = "https://dj.studio/blog/what-is-bpm"

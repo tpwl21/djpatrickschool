@@ -1,0 +1,18 @@
+id = "LESSON_FX_5_EASY"
+order = 5
+
+[en]
+title      = "FX Chain: Order Matters"
+short_desc = "Easy version coming soon."
+
+[[en.pages]]
+title   = "Coming Soon"
+content = "The Easy version of this lesson is being prepared. Check back soon!"
+
+[fr]
+title      = "FX Chain : L'Ordre Change Tout"
+short_desc = "Version Easy en préparation."
+
+[[fr.pages]]
+title   = "Bientôt disponible"
+content = "La version Easy de cette leçon est en cours de rédaction. Reviens bientôt !"

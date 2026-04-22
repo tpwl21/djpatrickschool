@@ -1,0 +1,118 @@
+id = "LESSON_HARMONIES_3_EASY"
+order = 3
+
+[en]
+title      = "Your DJ cheat-sheet: the Camelot wheel"
+short_desc = "A clock face with letters. That's it. Here's how to read it and use it tonight."
+description = "The Camelot wheel looks complicated at first. It's not. It's a clock with 12 numbers and 2 letters. This lesson teaches you the 3 moves that cover 95% of harmonic DJ mixing — no music theory needed."
+recap = [
+  "The wheel is a clock: 12 numbers, A (minor/dark) on the inside, B (major/bright) on the outside.",
+  "Move 1 — Stay: play the next track at the same number and letter. Zero risk.",
+  "Move 2 — Flip: change only the letter (8A → 8B). Same notes, different mood. Dark to bright.",
+  "Move 3 — Step: go one number forward or back (8A → 9A or 7A). One small new color enters.",
+  "Always check: does the next track's Camelot code match one of your 3 moves? If yes, blend freely."
+]
+
+[[en.pages]]
+title   = "What the wheel actually is"
+content = "The Camelot wheel was created around 2005 by Mark Davis of Mixed In Key. He took a music theory concept called the **circle of fifths** and made it easy for DJs: instead of key signatures and flats/sharps, you get **a number and a letter**.\n\nThat's really it:\n- **Number (1-12)**: think of it as a position on a clock face. Adjacent numbers are musically close.\n- **Letter A**: the track is in a minor key (darker, deeper sound).\n- **Letter B**: the track is in a major key (brighter, more open sound).\n\n**8A = A minor** (a common dark techno/house key). **8B = C major** (its bright relative). Same 7 notes, totally different vibe.\n\nYour DJ software (Rekordbox, Serato, Traktor) can detect the Camelot code automatically. Every track in your library can have a code. Then mixing becomes: *do the codes match?*"
+image         = "lesson-images/camelot-wheel.png"
+image_caption = "The Camelot wheel. Numbers 1-12, A (inner ring, minor) and B (outer ring, major)."
+
+[[en.pages]]
+title   = "The 3 moves you need"
+content = "From any starting key, 3 moves keep you harmonically safe:\n\n**Move 1 — STAY (same NX → same NX)**\nPlay two tracks in the same key. Zero clash, complete safety. If the energy is right, stay all night in 8A.\n\n**Move 2 — FLIP (NX → N, other letter)**\nChange only the letter: 8A → 8B, or 5B → 5A. You stay on the **same 7 notes** but shift the mood — minor to major is a 'lift', major to minor is a 'drop into darker territory'. This is one of the most powerful moves in electronic music.\n\n**Move 3 — STEP (NX → (N+1)X or (N-1)X)**\nGo one step clockwise or counter-clockwise on the wheel, same letter. 8A → 9A or 8A → 7A. One new note enters the palette, creating a gentle harmonic movement. Sounds like the music is 'traveling' somewhere."
+
+[[en.pages]]
+title   = "The wrap-around: 12 goes back to 1"
+content = "The wheel is a **circle**, not a straight line. After 12, it wraps back to 1.\n\nThis trips beginners up: **12A and 1A are neighbors**, not enemies. They're only one step apart.\n\nSo if you're on 12A and want to step forward, you go to 1A — not off the wheel.\n\nSame with the energy-boost move (one step with the same letter but 7 positions forward): 6A + 7 = 1A (wraps). 11A + 7 = 6A (wraps).\n\n**Quick test**: what's 12B stepped forward one position?\n→ 1B. That's it. Always wrap at 12."
+
+[[en.pages]]
+title   = "Practice: read the code before you cue"
+content = "Here's a simple habit that will transform your mixes:\n\n**Before every transition**: look at the Camelot code of the track currently playing, and the code of the track you're about to drop.\n\nAsk yourself one question: **is the next code within 1 move of the current code?**\n- Same? → Blend freely.\n- Letter flipped, same number? → Blend freely (mood shift).\n- ±1 on the number, same letter? → Blend freely (gentle movement).\n- Anything else? → Either choose a different track, or plan a short cut instead of a long blend.\n\nYou don't need to know what Am or C major means. You just need to read the code. That's the whole workflow."
+
+[[en.quiz]]
+question = "On the Camelot wheel, what does the letter 'A' stand for?"
+answers  = ["A major key (bright)", "A minor key (darker, deeper)", "The note A (La)"]
+correct  = 1
+
+[[en.quiz]]
+question = "You're playing 6A. The next track is 6B. Are they compatible?"
+answers  = ["No — different letters means different family", "Yes — same number, letter flip = relative keys, same 7 notes", "Only if the BPMs match exactly"]
+correct  = 1
+
+[[en.quiz]]
+question = "You're on 12A and want to step one position forward. You go to..."
+answers  = ["13A (doesn't exist)", "1A (wraps around)", "12B"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which of the following is NOT one of the 3 basic Camelot moves?"
+answers  = ["Stay (same code)", "Step (±1 on the number)", "Jump (+6 positions)"]
+correct  = 2
+
+[[en.sources]]
+label = "Mixed In Key — Official Camelot Wheel"
+url   = "https://mixedinkey.com/camelot-wheel/"
+
+[[en.sources]]
+label = "Digital DJ Tips — Harmonic Mixing for Beginners"
+url   = "https://www.digitaldjtips.com/how-to-harmonic-mix/"
+
+[fr]
+title      = "Ton anti-sèche DJ : la roue Camelot"
+short_desc = "Un cadran d'horloge avec des lettres. C'est tout. Voici comment le lire et l'utiliser ce soir."
+description = "La roue Camelot semble compliquée au premier coup d'oeil. Ce n'est pas le cas. C'est une horloge avec 12 chiffres et 2 lettres. Cette leçon t'apprend les 3 mouvements qui couvrent 95% du mix harmonique — pas besoin de théorie musicale."
+recap = [
+  "La roue est une horloge : 12 chiffres, A (mineur/sombre) à l'intérieur, B (majeur/lumineux) à l'extérieur.",
+  "Mouvement 1 — Rester : joue la prochaine track au même chiffre et même lettre. Zéro risque.",
+  "Mouvement 2 — Flip : change uniquement la lettre (8A → 8B). Mêmes notes, ambiance différente. Sombre vers lumineux.",
+  "Mouvement 3 — Pas : va d'un chiffre en avant ou en arrière (8A → 9A ou 7A). Une petite couleur nouvelle entre.",
+  "Vérifie toujours : est-ce que le code Camelot de la prochaine track correspond à l'un de tes 3 mouvements ? Si oui, blende librement."
+]
+
+[[fr.pages]]
+title   = "Ce qu'est vraiment la roue"
+content = "La roue Camelot a été créée vers 2005 par Mark Davis de Mixed In Key. Il a pris un concept de théorie musicale appelé le **cercle des quintes** et l'a rendu accessible aux DJs : au lieu des armures et des dièses/bémols, tu obtiens **un chiffre et une lettre**.\n\nC'est vraiment tout :\n- **Chiffre (1-12)** : pense-y comme une position sur un cadran d'horloge. Les chiffres adjacents sont musicalement proches.\n- **Lettre A** : le morceau est dans une tonalité mineure (son plus sombre, plus profond).\n- **Lettre B** : le morceau est dans une tonalité majeure (son plus lumineux, plus ouvert).\n\n**8A = La mineur** (une tonalité commune de techno/house sombre). **8B = Do majeur** (son relatif lumineux). Mêmes 7 notes, ambiance totalement différente.\n\nTon logiciel DJ (Rekordbox, Serato, Traktor) peut détecter le code Camelot automatiquement. Chaque morceau de ta bibliothèque peut avoir un code. Ensuite le mix devient : *est-ce que les codes matchent ?*"
+image         = "lesson-images/camelot-wheel.png"
+image_caption = "La roue Camelot. Chiffres 1-12, A (anneau intérieur, mineur) et B (anneau extérieur, majeur)."
+
+[[fr.pages]]
+title   = "Les 3 mouvements dont tu as besoin"
+content = "Depuis n'importe quelle tonalité de départ, 3 mouvements te gardent harmoniquement en sécurité :\n\n**Mouvement 1 — RESTER (même NX → même NX)**\nJoue deux tracks dans la même tonalité. Zéro clash, sécurité totale. Si l'énergie est bonne, reste toute la nuit en 8A.\n\n**Mouvement 2 — FLIP (NX → N, autre lettre)**\nChange uniquement la lettre : 8A → 8B, ou 5B → 5A. Tu restes sur les **mêmes 7 notes** mais tu fais changer l'ambiance — mineur vers majeur = un 'lift', majeur vers mineur = une 'plongée dans un territoire plus sombre'. C'est l'un des mouvements les plus puissants en musique électronique.\n\n**Mouvement 3 — PAS (NX → (N+1)X ou (N-1)X)**\nVa d'un pas dans le sens horaire ou anti-horaire sur la roue, même lettre. 8A → 9A ou 8A → 7A. Une nouvelle note entre dans la palette, créant un mouvement harmonique doux. Ça ressemble à de la musique qui 'voyage' quelque part."
+
+[[fr.pages]]
+title   = "Le wrap : 12 revient à 1"
+content = "La roue est un **cercle**, pas une ligne droite. Après 12, elle revient à 1.\n\nÇa piège les débutants : **12A et 1A sont voisins**, pas ennemis. Ils ne sont qu'à un pas l'un de l'autre.\n\nDonc si tu es sur 12A et veux faire un pas en avant, tu vas à 1A — pas hors de la roue.\n\nIdem pour le mouvement d'energy boost (un pas avec la même lettre mais 7 positions plus loin) : 6A + 7 = 1A (wrap). 11A + 7 = 6A (wrap).\n\n**Test rapide** : qu'est-ce que 12B un pas en avant ?\n→ 1B. C'est tout. Toujours wrapper à 12."
+
+[[fr.pages]]
+title   = "Pratique : lis le code avant de cuer"
+content = "Voici une habitude simple qui va transformer tes mixes :\n\n**Avant chaque transition** : regarde le code Camelot du morceau qui joue, et le code du morceau que tu t'apprêtes à dropper.\n\nPose-toi une seule question : **est-ce que le prochain code est à 1 mouvement du code actuel ?**\n- Identique ? → Blende librement.\n- Lettre flippée, même chiffre ? → Blende librement (shift de mood).\n- ±1 sur le chiffre, même lettre ? → Blende librement (mouvement doux).\n- Autre chose ? → Soit choisis une autre track, soit planifie une coupe courte plutôt qu'un long blend.\n\nTu n'as pas besoin de savoir ce que Am ou Do majeur veut dire. Tu as juste besoin de lire le code. C'est tout le workflow."
+
+[[fr.quiz]]
+question = "Sur la roue Camelot, que signifie la lettre 'A' ?"
+answers  = ["Une tonalité majeure (lumineuse)", "Une tonalité mineure (plus sombre, plus profonde)", "La note La"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu joues 6A. La prochaine track est 6B. Sont-elles compatibles ?"
+answers  = ["Non — lettres différentes = famille différente", "Oui — même chiffre, flip de lettre = clés relatives, mêmes 7 notes", "Seulement si les BPM matchent exactement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu es sur 12A et veux faire un pas en avant. Tu vas à..."
+answers  = ["13A (n'existe pas)", "1A (wrap)", "12B"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Lequel des suivants N'EST PAS l'un des 3 mouvements Camelot de base ?"
+answers  = ["Rester (même code)", "Pas (±1 sur le chiffre)", "Saut (+6 positions)"]
+correct  = 2
+
+[[fr.sources]]
+label = "Mixed In Key — Roue Camelot officielle"
+url   = "https://mixedinkey.com/camelot-wheel/"
+
+[[fr.sources]]
+label = "Digital DJ Tips — Mix harmonique pour débutants"
+url   = "https://www.digitaldjtips.com/how-to-harmonic-mix/"

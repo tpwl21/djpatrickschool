@@ -1,0 +1,112 @@
+id = "LESSON_HARMONIES_1_EASY"
+order = 1
+
+[en]
+title      = "Notes are colors"
+short_desc = "No sheet music. We use colors, feelings, and your ear to get solfège."
+description = "You don't need to read music to understand harmony. In this lesson we use color analogies and your ear to explain what a note, a chord, and a key actually are — before we even look at a keyboard."
+recap = [
+  "A note is a single color. A chord is 3 colors mixed. A key is a family of 7 colors that go well together.",
+  "Major sounds bright and open. Minor sounds darker and more intense. One note's difference.",
+  "When two tracks share the same key, their notes belong to the same color family — they blend naturally.",
+  "Your ear already knows this. You've felt a 'wrong' note in a mix even without knowing why.",
+  "Camelot (lesson 3) is just labels on those color families so you can find them fast."
+]
+
+[[en.pages]]
+title   = "Notes are colors"
+content = "Imagine music as a **palette of 12 colors** — only 12. Every song you've ever heard is painted using some of these 12. A **note** is a single color. A **chord** is 3 colors blended together. A **key** is a family of 7 colors that the composer picked as their palette for the whole track.\n\nWhen two tracks are **in the same key**, they use the same 7-color palette. Mix them together and the colors match — the music blends. Play two tracks with **different palettes** that clash, and you'll feel it: something sounds 'off', tense, like two colors fighting each other.\n\nYou already know this feeling from listening to music your whole life. Today we just give it a name."
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "12 notes per octave — like 12 colors on a palette."
+
+[[en.pages]]
+title   = "Major = bright. Minor = dark."
+content = "Every key has a **personality**. There are two main families:\n\n**Major keys** = warm, open, energetic. Think of a sunset beach party, a Daft Punk drop, a gospel choir. The color equivalent: yellow, orange, gold.\n\n**Minor keys** = deep, intense, mysterious. Think of a Berlin basement at 4am, a deep techno room, a film noir. The color equivalent: deep blue, purple, black.\n\nListen to any track in your library right now. Does it feel bright or dark? That's the key talking to you. Roughly **90% of dance music is in minor** — house, techno, drum & bass, dubstep. Your library is probably mostly 'dark palette'."
+youtube         = "https://www.youtube.com/watch?v=DgnQ9k7cj2E"
+youtube_caption = "Infected Mushroom - Converting Vegetarians: the same motif in major then minor at ~2:00. Hear the flip."
+
+[[en.pages]]
+title   = "The family — 7 colors that go together"
+content = "A **key** is a chosen family of **7 notes** out of the 12 available. The other 5 are 'outside the palette' for that song — they're not banned, but they feel like a visitor from another family.\n\nTracks in the **same key** share all 7 family members. They blend beautifully.\n\nTracks in **relative keys** share all 7 members but with a different 'head of family' — like siblings in the same house with different personalities. They also blend very well.\n\nTracks a **step away** share 6 of the 7 members. They blend smoothly with just a tiny bit of new flavor.\n\nThis family idea is the entire foundation of harmonic mixing. Camelot (lesson 3) is just a map that shows you which families live next to each other."
+
+[[en.pages]]
+title   = "Try it — trust your ear"
+content = "Here's a quick listening exercise you can do with your own tracks:\n\n1. Pick a track you know well. Let it play.\n2. Find another track that feels **the same mood** — same brightness or darkness.\n3. Try blending them. If they blend well, they're probably in the same or neighboring key.\n4. Now find a track that feels **opposite** in mood — flip from dark to bright, or vice versa.\n5. Try blending those. You'll hear the 'color clash'.\n\nYou don't need an app yet. Your ear is the first tool. Camelot and key detection apps come second — they confirm what your ear already felt."
+
+[[en.quiz]]
+question = "What is a 'key' in music?"
+answers  = ["A button on a keyboard", "A family of 7 notes that belong together", "The tempo of a track"]
+correct  = 1
+
+[[en.quiz]]
+question = "In dance music, most tracks are in..."
+answers  = ["Major keys (bright)", "Minor keys (dark)", "Exactly half and half"]
+correct  = 1
+
+[[en.quiz]]
+question = "If two tracks share the same key, their notes..."
+answers  = ["Are completely different", "Belong to the same 7-note family", "Have the same BPM"]
+correct  = 1
+
+[[en.sources]]
+label = "Musictheory.net — What is a scale? (visual, beginner)"
+url   = "https://www.musictheory.net/lessons/21"
+
+[[en.sources]]
+label = "Hooktheory — Keys explained with actual songs"
+url   = "https://www.hooktheory.com/music-theory-for-beginners"
+
+[fr]
+title      = "Les notes sont des couleurs"
+short_desc = "Pas de solfège. On utilise des couleurs, des sensations et ton oreille."
+description = "Tu n'as pas besoin de lire la musique pour comprendre l'harmonie. Dans cette leçon, on utilise des analogies couleurs et ton oreille pour expliquer ce qu'est une note, un accord et une tonalité — avant même de regarder un clavier."
+recap = [
+  "Une note = une couleur. Un accord = 3 couleurs mélangées. Une tonalité = une famille de 7 couleurs qui s'harmonisent.",
+  "Majeur sonne lumineux et ouvert. Mineur sonne plus sombre et intense. Une seule note de différence.",
+  "Quand deux tracks partagent la même tonalité, leurs notes appartiennent à la même famille de couleurs — elles se mélangent naturellement.",
+  "Ton oreille le sait déjà. Tu as déjà ressenti une 'mauvaise' note dans un mix sans savoir pourquoi.",
+  "Camelot (leçon 3) n'est que des étiquettes sur ces familles de couleurs pour les trouver vite."
+]
+
+[[fr.pages]]
+title   = "Les notes sont des couleurs"
+content = "Imagine la musique comme une **palette de 12 couleurs** — seulement 12. Tous les morceaux que tu as jamais entendus sont peints avec certaines de ces 12. Une **note** = une couleur. Un **accord** = 3 couleurs mélangées. Une **tonalité** = une famille de 7 couleurs que le compositeur a choisie comme palette pour tout le morceau.\n\nQuand deux tracks sont **dans la même tonalité**, elles utilisent la même palette de 7 couleurs. Mélange-les et les couleurs matchent — la musique se blend. Joue deux tracks avec des **palettes qui clashent**, et tu le ressentiras : quelque chose sonne 'faux', tendu, comme deux couleurs qui se battent.\n\nTu connais déjà ce ressenti depuis que tu écoutes de la musique. Aujourd'hui on lui donne juste un nom."
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "12 notes par octave — comme 12 couleurs sur une palette."
+
+[[fr.pages]]
+title   = "Majeur = lumineux. Mineur = sombre."
+content = "Chaque tonalité a une **personnalité**. Deux grandes familles :\n\n**Tonalités majeures** = chaud, ouvert, énergique. Pense à une fête sur la plage au coucher du soleil, un drop Daft Punk, un gospel choir. Équivalent couleur : jaune, orange, or.\n\n**Tonalités mineures** = profond, intense, mystérieux. Pense à un sous-sol berlinois à 4h du mat, une salle de deep techno, un film noir. Équivalent couleur : bleu profond, violet, noir.\n\nEcoute n'importe quel morceau de ta bibliothèque maintenant. Est-ce qu'il sonne lumineux ou sombre ? C'est la tonalité qui te parle. Environ **90% de la musique dance est en mineur** — house, techno, drum & bass, dubstep. Ta bibliothèque est probablement surtout 'palette sombre'."
+youtube         = "https://www.youtube.com/watch?v=DgnQ9k7cj2E"
+youtube_caption = "Infected Mushroom - Converting Vegetarians : même motif en majeur puis mineur vers 2:00. Entends le flip."
+
+[[fr.pages]]
+title   = "La famille — 7 couleurs qui vont ensemble"
+content = "Une **tonalité** = une famille choisie de **7 notes** sur les 12 disponibles. Les 5 autres sont 'hors palette' pour ce morceau — elles ne sont pas interdites, mais elles sonnent comme une visiteuse d'une autre famille.\n\nDes tracks dans la **même tonalité** partagent les 7 membres de la famille. Elles se mélangent magnifiquement.\n\nDes tracks en **tonalités relatives** partagent les 7 membres mais avec un 'chef de famille' différent — comme des frères et sœurs dans la même maison avec des personnalités différentes. Elles se mélangent aussi très bien.\n\nDes tracks à **un pas** partagent 6 des 7 membres. Elles se mélangent en douceur avec juste une petite touche de nouveauté.\n\nCette idée de famille est toute la fondation du mix harmonique. Camelot (leçon 3) est juste une carte qui montre quelles familles vivent côte à côte."
+
+[[fr.pages]]
+title   = "Essaie — fais confiance à ton oreille"
+content = "Un petit exercice d'écoute que tu peux faire avec tes propres tracks :\n\n1. Prends un morceau que tu connais bien. Lance-le.\n2. Trouve un autre morceau qui a **la même ambiance** — même luminosité ou même obscurité.\n3. Essaie de les blender. S'ils se mélangent bien, ils sont probablement dans la même tonalité ou une tonalité voisine.\n4. Maintenant trouve un morceau à l'**ambiance opposée** — bascule du sombre au lumineux, ou inversement.\n5. Essaie de les blender. Tu entendras le 'clash de couleurs'.\n\nPas besoin d'appli pour l'instant. Ton oreille est le premier outil. Camelot et les applis de détection de tonalité viennent en deuxième — elles confirment ce que ton oreille a déjà ressenti."
+
+[[fr.quiz]]
+question = "Qu'est-ce qu'une 'tonalité' en musique ?"
+answers  = ["Un bouton sur un clavier", "Une famille de 7 notes qui vont ensemble", "Le tempo d'un morceau"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans la musique dance, la plupart des morceaux sont en..."
+answers  = ["Tonalités majeures (lumineux)", "Tonalités mineures (sombres)", "Exactement moitié-moitié"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Si deux tracks partagent la même tonalité, leurs notes..."
+answers  = ["Sont complètement différentes", "Appartiennent à la même famille de 7 notes", "Ont le même BPM"]
+correct  = 1
+
+[[fr.sources]]
+label = "Musictheory.net — Qu'est-ce qu'une gamme ? (visuel, débutant)"
+url   = "https://www.musictheory.net/lessons/21"
+
+[[fr.sources]]
+label = "Hooktheory — Les tonalités expliquées avec de vraies chansons"
+url   = "https://www.hooktheory.com/music-theory-for-beginners"

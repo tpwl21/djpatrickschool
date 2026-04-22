@@ -1,0 +1,158 @@
+id = "LESSON_DIGGING_5_EASY"
+order = 5
+
+[en]
+title      = "Your Gig Crate — Organised to Save You"
+short_desc = "200 well-sorted tracks beat 10,000 unsorted every time. Here's how."
+
+[[en.pages]]
+title   = "The problem with too many tracks"
+content = """
+Imagine you're in a live set. The track is coming to its outro. You have 60 seconds to pick the next one. You scroll through 5,000 tracks. Nothing looks right. Panic.
+
+Now imagine you have 200 tracks sorted into clear folders. You go to "Peak / 128 BPM" — you see 15 candidates. You pick one in 10 seconds. Clean transition.
+
+**The lesson:** having more music isn't the goal. **Having the right music findable fast** is the goal.
+
+Most DJs who struggle in live sets aren't struggling because they don't have enough music. They're struggling because they can't find what they need when they need it.
+"""
+
+[[en.pages]]
+title   = "Three simple folders to start"
+content = """
+You don't need a complex system to start. Try three folders:
+
+**Folder 1 — Warmup**
+Tracks that are groovy but not too intense. Works for the first 30 minutes when the room is half-empty. Energy 1–2 out of 5.
+
+**Folder 2 — Main**
+Your solid dance floor tracks. This is the bulk of your set. Energy 3–4 out of 5.
+
+**Folder 3 — Peak**
+Your biggest, most intense tracks. Saved for when the room is packed and energised. Energy 4–5 out of 5.
+
+**Start simple.** Sort 30–50 tracks you actually play into these three folders. That's already 10x more organised than most beginners.
+
+Later you can add sub-folders by BPM, by key, by genre. But three folders beats zero folders every time.
+"""
+
+[[en.pages]]
+title   = "Your secret weapon: the oh-shit track"
+content = """
+Every DJ — even the pros — keeps a small private folder of their most reliable tracks.
+
+These are their **"oh-shit" tracks**: the dancefloor is dying, the energy is off, the promoter is staring. You drop one of these and it buys you time to recover.
+
+**What makes a good oh-shit track:**
+- It starts working within 8 bars (very quick impact)
+- Almost everyone in the room will respond to it
+- It has a long enough intro that you can mix it in from anywhere
+
+**How to find yours:**
+Think of 3 tracks you've played before that *always* land. The ones where you see hands go up, where people turn to look at each other. Those are your oh-shit tracks.
+
+Put them in a separate folder and never use them except in emergencies.
+
+**Rule:** your oh-shit tracks are not your favourites. They're your most *reliable*. Those are different things.
+"""
+
+[[en.quiz]]
+question = "You have 5,000 unsorted tracks and 200 well-sorted tracks. Which is more useful in a live set?"
+answers  = ["5,000 — more choice is always better", "200 well-sorted — finding the right track fast beats having more tracks", "They're equal"]
+correct  = 1
+
+[[en.quiz]]
+question = "What's the best description of a Warmup folder track?"
+answers  = ["Your most intense banger", "A groovy, lower-energy track for when the room is building", "A track with immediate vocals"]
+correct  = 1
+
+[[en.quiz]]
+question = "An oh-shit track is..."
+answers  = ["Your personal favourite track", "A reliable rescue track that always lands, kept in reserve", "A very loud track"]
+correct  = 1
+
+[[en.sources]]
+label = "Rekordbox — how to create playlists and folders"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "Laurent Garnier — The Man With The Red Face (the ultimate oh-shit track)"
+url   = "https://www.discogs.com/release/8839"
+
+[fr]
+title      = "Ton Crate de Set — Organisé pour te sauver"
+short_desc = "200 tracks bien triées battent 10 000 en vrac à chaque fois. Voilà comment."
+
+[[fr.pages]]
+title   = "Le problème d'avoir trop de tracks"
+content = """
+Imagine que tu es en plein live. La track arrive à son outro. Tu as 60 secondes pour choisir la suivante. Tu scrolles 5 000 tracks. Rien ne te parle. Panique.
+
+Maintenant imagine que tu as 200 tracks triées en dossiers clairs. Tu vas dans "Peak / 128 BPM" — tu vois 15 candidats. Tu en choisis une en 10 secondes. Transition propre.
+
+**La leçon :** avoir plus de musique, ce n'est pas l'objectif. **Avoir la bonne musique trouvable rapidement**, c'est l'objectif.
+
+La plupart des DJs qui galèrent en live ne galèrent pas par manque de musique. Ils galèrent parce qu'ils ne trouvent pas ce qu'ils cherchent au moment où ils en ont besoin.
+"""
+
+[[fr.pages]]
+title   = "Trois dossiers simples pour commencer"
+content = """
+Tu n'as pas besoin d'un système complexe pour commencer. Essaie trois dossiers :
+
+**Dossier 1 — Warmup**
+Des tracks groovy mais pas trop intenses. Parfait pour les 30 premières minutes quand la salle est à moitié vide. Énergie 1–2 sur 5.
+
+**Dossier 2 — Main**
+Tes tracks dancefloor solides. C'est le cœur de ton set. Énergie 3–4 sur 5.
+
+**Dossier 3 — Peak**
+Tes tracks les plus grosses, les plus intenses. Réservées pour quand la salle est pleine et énergisée. Énergie 4–5 sur 5.
+
+**Commence simple.** Trie 30–50 tracks que tu joues vraiment dans ces trois dossiers. C'est déjà 10 fois plus organisé que la plupart des débutants.
+
+Plus tard tu peux ajouter des sous-dossiers par BPM, par clé, par genre. Mais trois dossiers battent zéro dossier à chaque fois.
+"""
+
+[[fr.pages]]
+title   = "Ton arme secrète : la track oh-shit"
+content = """
+Tous les DJs — même les pros — gardent un petit dossier privé de leurs tracks les plus fiables.
+
+Ce sont leurs **tracks "oh-shit"** : le dancefloor est en train de mourir, la vibe est à côté, le promoter te fixe. Tu en drop une et ça t'achète du temps pour te remettre.
+
+**Ce qui fait une bonne track oh-shit :**
+- Elle commence à marcher en 8 mesures (impact très rapide)
+- Presque tout le monde dans la salle va y répondre
+- Elle a un intro assez long pour que tu puisses la mixer depuis n'importe où
+
+**Comment trouver les tiennes :**
+Pense à 3 tracks que tu as déjà jouées qui *tombent toujours*. Celles où tu vois les mains se lever, où les gens se retournent pour se regarder. Ce sont tes tracks oh-shit.
+
+Mets-les dans un dossier séparé et ne les utilise jamais sauf en urgence.
+
+**Règle :** tes tracks oh-shit ne sont pas tes préférées. Elles sont tes plus *fiables*. Ce sont deux choses différentes.
+"""
+
+[[fr.quiz]]
+question = "Tu as 5 000 tracks non triées et 200 tracks bien triées. Laquelle est la plus utile en live ?"
+answers  = ["5 000 — plus de choix c'est toujours mieux", "200 bien triées — trouver la bonne track vite bat avoir plus de tracks", "Elles sont équivalentes"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle est la meilleure description d'une track du dossier Warmup ?"
+answers  = ["Ton banger le plus intense", "Une track groovy, basse énergie pour quand la salle se construit", "Une track avec des vocaux immédiats"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Une track oh-shit, c'est..."
+answers  = ["Ta track personnellement préférée", "Une track de sauvetage fiable qui tombe toujours, gardée en réserve", "Une track très forte"]
+correct  = 1
+
+[[fr.sources]]
+label = "Rekordbox — créer des playlists et des dossiers"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "Laurent Garnier — The Man With The Red Face (la track oh-shit ultime)"
+url   = "https://www.discogs.com/release/8839"

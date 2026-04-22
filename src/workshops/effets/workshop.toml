@@ -1,0 +1,26 @@
+id = "effets"
+order = 4
+color = "#27AE60"
+image = "effects_patrick.png"
+forthcoming = false
+kind = "effets"
+
+[en]
+title      = "FX"
+short_desc = "Filters, delays, reverbs, loop rolls — color every transition."
+long_desc  = "Add drama with FX used smartly. Each practice drills a canonical move: filter transition, echo-out with reverb tail, and the loop-roll glitch combo."
+objectives = [
+  "Master the filter as your first FX reflex",
+  "Build cinematic transitions with delay + reverb",
+  "Use loop rolls with intent, not panic"
+]
+
+[fr]
+title      = "EFFETS"
+short_desc = "Filtres, delays, reverbs, loop rolls — colore tes transitions."
+long_desc  = "Ajoute du drama avec les FX utilisés intelligemment. Chaque practice travaille un geste classique : transition au filtre, echo-out avec reverb tail, et le combo loop-roll glitch."
+objectives = [
+  "Maîtriser le filtre comme premier réflexe FX",
+  "Construire des transitions cinématographiques avec delay + reverb",
+  "Utiliser les loop rolls avec intention, pas en panique"
+]

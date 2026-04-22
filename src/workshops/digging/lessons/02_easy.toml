@@ -1,0 +1,232 @@
+id = "LESSON_DIGGING_2_EASY"
+order = 2
+
+[en]
+title      = "DJ-Friendly Tracks — Read Before You Buy"
+short_desc = "3 signals on any release page that tell you if a track will mix."
+
+[[en.pages]]
+title   = "Three signals before you hit play"
+content = """
+You can tell if a track will be DJ-friendly **before even listening** — just by reading the release page.
+
+**Signal 1 — Length**
+- Under 4 minutes: almost certainly a Radio Edit. Starts with vocals, no DJ intro. Skip it.
+- 5–8 minutes: Extended or Club Mix. DJ-ready.
+- 8–12 minutes: Extended Mix. Maximum DJ utility.
+
+**Signal 2 — Version name in the title**
+- "Club Mix", "Extended Mix", "12\" Mix" = DJ-friendly
+- "Radio Edit", "Single Version" = not for DJ use
+- "Dub", "Instrumental" = great for blending (no vocals to clash)
+- "Acapella" = vocals only, for creative layering
+
+**Signal 3 — Format**
+- 12" vinyl = designed for DJs
+- 7" vinyl = usually Radio Edit
+- CD single = often Radio Edit too
+
+**Quick exercise**: open Discogs, find any release you like, and read the tracklist. Which versions are there? Which would you buy for a DJ set?
+"""
+
+[[en.pages]]
+title   = "What a good intro looks like"
+content = """
+A DJ-friendly track has an **intro** that gives you room to mix in.
+
+The ideal intro:
+- Starts with **drums only** — kick, hi-hat, maybe a bass pulse
+- No vocals, no main melody
+- Lasts **16 to 32+ beats** (roughly 30–60 seconds at 128 BPM)
+
+**Why does this matter?** When you mix two tracks together, both are playing at the same time. You need the incoming track to start quietly (drums only) while the outgoing track is still finishing. If the incoming track starts with a full vocal or a big synth lead, the mix sounds like two tracks fighting.
+
+**How to check**: before buying, find a preview clip. Does it start with just rhythm? Good. Does it launch straight into vocals or a big melody? Hard to mix in.
+
+**Also check the outro**: does the track end with drums peeling away, or does it cut out cold on a big chord? Drums-out outro = easy to mix away from.
+"""
+youtube = "https://www.youtube.com/watch?v=VfH5ENkaCaA"
+youtube_caption = "Watch the waveform — notice the quiet intro (drums only), then the track builds."
+
+[[en.pages]]
+title   = "Reading a waveform in Rekordbox"
+content = """
+Once you have a track in Rekordbox (or Serato, or any DJ software), the waveform tells you everything at a glance.
+
+**What to look for:**
+
+- **Low waveform at the start** = quiet drums-only intro. Good.
+- **Full waveform immediately** = track starts at full energy. Hard to mix in.
+- **A gap (silence) in the middle** = a "break". This is a moment where everything drops out — can be dramatic or a trap if you didn't plan for it.
+- **Low waveform at the end** = drums-only outro. Good.
+
+**Your exercise:**
+1. Load 5 tracks you already have into Rekordbox (free version works).
+2. Look at each waveform. Which ones have quiet intros and outros?
+3. Mark those as your first "mixable" tracks.
+4. Compare to a Radio Edit of the same song — notice the difference?
+"""
+
+[[en.pages]]
+title   = "The surprise break trap"
+content = """
+A **break** is a moment in the middle of a track where most of the elements suddenly drop out — often just a clap or a single melody line for 8–16 beats, then everything crashes back in.
+
+Breaks are **great for DJs who know about them** — you can plan a transition during a break because it's a reset moment.
+
+Breaks are a **trap** if you don't know about them — you're in the middle of a mix and suddenly the track drops to almost nothing. The crowd looks confused. You scramble.
+
+**How to avoid the trap:**
+- In Rekordbox, scrub (drag) through the waveform before playing live. Look for any gaps.
+- Place a **Cue Point** right before a break (so you can anticipate it)
+- Write a note in the Comments field: "break at 3:20"
+
+**Rule of thumb**: any track where you haven't scrubbed the full waveform is a track that can surprise you. Never play a track live that you haven't previewed fully at least once.
+"""
+
+[[en.quiz]]
+question = "A track is labeled 'Radio Edit' and is 3:10 long. Is it DJ-friendly?"
+answers  = ["Yes — short tracks are easier to mix", "No — Radio Edits have no DJ intro and start immediately with vocals", "Yes — length doesn't matter"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does a 'Dub' version of a track contain?"
+answers  = ["Drums only", "The track with vocals removed (instrumental/effects version)", "A very long intro only"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does a low/quiet waveform at the start of a track tell you?"
+answers  = ["The track has bad audio quality", "There's a drums-only intro — good for mixing in", "The track starts too slow"]
+correct  = 1
+
+[[en.quiz]]
+question = "You see a gap (silence) in the middle of a track's waveform. What is it?"
+answers  = ["A corrupted file", "A break — a moment where the track drops most elements", "A different song added by mistake"]
+correct  = 1
+
+[[en.sources]]
+label = "Rekordbox — free download to practice waveform reading"
+url   = "https://rekordbox.com/en/plan/free/"
+
+[[en.sources]]
+label = "Beatport — Extended Mix examples"
+url   = "https://www.beatport.com/"
+
+[[en.sources]]
+label = "Discogs — tracklist format explained"
+url   = "https://support.discogs.com/hc/en-us/articles/360001441454"
+
+[fr]
+title      = "Tracks DJ-Friendly — Lire avant d'acheter"
+short_desc = "3 signaux sur n'importe quelle fiche de release pour savoir si une track va mixer."
+
+[[fr.pages]]
+title   = "Trois signaux avant d'appuyer sur play"
+content = """
+Tu peux savoir si une track sera DJ-friendly **avant même d'écouter** — juste en lisant la fiche de release.
+
+**Signal 1 — La durée**
+- Moins de 4 minutes : presque certainement un Radio Edit. Commence avec la voix, pas d'intro DJ. Skip.
+- 5–8 minutes : Extended ou Club Mix. DJ-ready.
+- 8–12 minutes : Extended Mix. Utilité DJ maximale.
+
+**Signal 2 — Le nom de la version dans le titre**
+- "Club Mix", "Extended Mix", "12\" Mix" = DJ-friendly
+- "Radio Edit", "Single Version" = pas pour usage DJ
+- "Dub", "Instrumental" = excellent pour le blend (pas de voix qui clash)
+- "Acapella" = voix seule, pour le layering créatif
+
+**Signal 3 — Le format**
+- Vinyle 12" = conçu pour les DJs
+- Vinyle 7" = généralement Radio Edit
+- CD single = souvent Radio Edit aussi
+
+**Exercice rapide** : ouvre Discogs, trouve une release que tu aimes, et lis la tracklist. Quelles versions y a-t-il ? Laquelle achèterais-tu pour un set DJ ?
+"""
+
+[[fr.pages]]
+title   = "À quoi ressemble un bon intro"
+content = """
+Une track DJ-friendly a une **intro** qui te donne de la place pour mixer en entrée.
+
+L'intro idéale :
+- Commence avec **les drums seuls** — kick, hi-hat, peut-être une basse pulsée
+- Pas de voix, pas de mélodie principale
+- Dure **16 à 32+ beats** (environ 30–60 secondes à 128 BPM)
+
+**Pourquoi ça compte ?** Quand tu mixtes deux tracks ensemble, les deux jouent en même temps. Tu as besoin que la track entrante commence doucement (drums seuls) pendant que la track sortante finit encore. Si la track entrante commence avec une voix complète ou un gros lead synth, le mix ressemble à deux tracks qui se battent.
+
+**Comment vérifier** : avant d'acheter, trouve un clip preview. Est-ce que ça commence avec juste du rythme ? Bien. Est-ce que ça lance direct sur des voix ou une grosse mélodie ? Dur à mixer en entrée.
+
+**Vérifie aussi l'outro** : est-ce que la track finit avec les drums qui s'effacent, ou est-ce qu'elle coupe net sur un gros accord ? Outro drums = facile à quitter.
+"""
+youtube = "https://www.youtube.com/watch?v=VfH5ENkaCaA"
+youtube_caption = "Regarde la waveform — note l'intro calme (drums seuls), puis la track monte."
+
+[[fr.pages]]
+title   = "Lire une waveform dans Rekordbox"
+content = """
+Une fois que tu as une track dans Rekordbox (ou Serato, ou n'importe quel logiciel DJ), la waveform te dit tout d'un coup d'œil.
+
+**Ce qu'il faut chercher :**
+
+- **Waveform basse au début** = intro drums seuls silencieuse. Bien.
+- **Waveform pleine immédiatement** = la track commence à pleine énergie. Dur à mixer en entrée.
+- **Un trou (silence) au milieu** = un "break". C'est un moment où tout s'efface — peut être dramatique ou un piège si tu ne t'y attendais pas.
+- **Waveform basse à la fin** = outro drums seuls. Bien.
+
+**Ton exercice :**
+1. Charge 5 tracks que tu as déjà dans Rekordbox (la version gratuite marche).
+2. Regarde chaque waveform. Lesquelles ont des intros et outros silencieux ?
+3. Marque celles-là comme tes premières tracks "mixables".
+4. Compare avec un Radio Edit de la même chanson — tu vois la différence ?
+"""
+
+[[fr.pages]]
+title   = "Le piège du break surprise"
+content = """
+Un **break** est un moment au milieu d'une track où la plupart des éléments disparaissent soudainement — souvent juste un clap ou une mélodie seule pendant 8–16 beats, puis tout revient en force.
+
+Les breaks sont **géniaux pour les DJs qui le savent** — tu peux planifier une transition pendant un break parce que c'est un moment de reset.
+
+Les breaks sont un **piège** si tu ne les connais pas — tu es au milieu d'un mix et soudain la track tombe à presque rien. Le public se regarde. Tu paniquest.
+
+**Comment éviter le piège :**
+- Dans Rekordbox, scrub (glisse) à travers la waveform avant de jouer en live. Cherche des trous.
+- Place un **Cue Point** juste avant un break (pour pouvoir l'anticiper)
+- Écris une note dans le champ Comments : "break à 3:20"
+
+**Règle de base** : toute track dont tu n'as pas scrubé la waveform complète est une track qui peut te surprendre. Ne joue jamais en live une track que tu n'as pas prévisualisée entièrement au moins une fois.
+"""
+
+[[fr.quiz]]
+question = "Une track est étiquetée 'Radio Edit' et dure 3:10. Est-elle DJ-friendly ?"
+answers  = ["Oui — les tracks courtes sont plus faciles à mixer", "Non — les Radio Edits n'ont pas d'intro DJ et commencent directement avec les voix", "Oui — la durée n'a pas d'importance"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que contient une version 'Dub' d'une track ?"
+answers  = ["Les drums seuls", "La track avec les voix enlevées (version instrumentale/effets)", "Un très long intro seulement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que te dit une waveform basse/silencieuse au début d'une track ?"
+answers  = ["La track a une mauvaise qualité audio", "Il y a un intro drums seuls — bien pour mixer en entrée", "La track commence trop lentement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu vois un trou (silence) au milieu de la waveform d'une track. C'est quoi ?"
+answers  = ["Un fichier corrompu", "Un break — un moment où la track laisse tomber la plupart des éléments", "Une autre chanson ajoutée par erreur"]
+correct  = 1
+
+[[fr.sources]]
+label = "Rekordbox — téléchargement gratuit pour pratiquer la lecture de waveform"
+url   = "https://rekordbox.com/en/plan/free/"
+
+[[fr.sources]]
+label = "Beatport — exemples d'Extended Mix"
+url   = "https://www.beatport.com/"
+
+[[fr.sources]]
+label = "Discogs — format de tracklist expliqué"
+url   = "https://support.discogs.com/hc/en-us/articles/360001441454"

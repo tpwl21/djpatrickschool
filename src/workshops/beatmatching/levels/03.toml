@@ -1,0 +1,69 @@
+id = "LEVEL_3"
+order = 3
+
+[en]
+title       = "The Real Groove"
+short_desc  = "Enough with the basic kicks. Let's see how a real groove works."
+description = "No more naked kick drums! Discover how a <strong>real groove</strong> is structured. Listen for the snare on the second beat!"
+details     = "Focus: Listen for the snare landing on the 2nd beat."
+success     = "Perfect pitch! Mixing blind and you still nailed it. That's crazy impressive!"
+coach_tips  = [
+  "Okay, kicks are cool, but let's step it up to a real track. You see how the groove falls into place?",
+  "Basically, you usually have a crispy snare or clap on the 2nd beat, that's your anchor!",
+  "When you sync the two trains, make sure those snares hit at the exact same moment on both decks.",
+  "Try dropping them totally off-beat on purpose just to hear how bad it sounds.",
+  "Use 'Drag' or 'Push' to fix those tiny drifts."
+]
+recap = [
+  "Real tracks usually hit a snare or clap on beat 2 — that's your audible anchor.",
+  "When syncing, snares from both decks must land at the exact same instant.",
+  "Start off-beat on purpose once to really hear what a trainwreck sounds like.",
+  "Nudge keeps working: tiny Push/Drag corrections absorb the small drifts."
+]
+
+[fr]
+title       = "Le Rythme Vrai"
+short_desc  = "Fini le kick seul. Découvre comment le rythme s'organise dans un vrai morceau."
+description = "Fini le kick drum tout seul ! Découvre comment le rythme s'organise dans un <strong>vrai morceau</strong>. Repère la caisse claire (Snare) sur le deuxième temps !"
+details     = "Focus : Écoute de la Snare sur le 2ème temps."
+success     = "L'oreille absolue ! Même sans voir le BPM, tu as trouvé le réglage parfait. Impressionnant !"
+coach_tips  = [
+  "Bon c'est bien gentil le kick drum, mais cette fois on passe à un vrai morceau, tu comprends comment le rythme s'organise ?",
+  "En gros tu as très souvent un élément distinctif sur le deuxième temps de ta mesure, c'est ton repère !",
+  "Quand tu alignes les deux trains tu veux que les deux éléments tombent en même temps pour chaque train",
+  "Essaye de lancer les deux morceaux mais \"à l'envers\" pour te rendre compte",
+  "Utilise 'Reculer' ou 'Avancer' pour corriger les petits décalages."
+]
+recap = [
+  "Les vrais morceaux ont souvent un snare ou clap sur le 2ème temps — c'est ton repère sonore.",
+  "Pour synchroniser, les snares des deux platines doivent tomber au même instant.",
+  "Essaye une fois de lancer à l'envers pour entendre ce qu'est un trainwreck.",
+  "Le nudge reste utile : petites poussées Avancer/Reculer pour absorber la dérive."
+]
+
+[track.A]
+url = "AUDIO/Trip.mp3"
+bpm = 122
+title = "Base"
+key = "4A"
+complexity = 3
+[track.B]
+url = "AUDIO/What_is_Music.mp3"
+bpm = 126
+title = "Rythme fou"
+key = "8A"
+complexity = 3
+
+[ui]
+view_type              = "simple"
+show_bpm               = true
+allow_nudge            = true
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = true
+start_position_b_beats = 0
+
+[validation.start_rule]
+beat_multiple    = 2
+beat_offset      = 0
+tolerance_factor = 0.4

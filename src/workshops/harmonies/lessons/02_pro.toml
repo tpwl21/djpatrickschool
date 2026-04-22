@@ -1,0 +1,160 @@
+id = "LESSON_HARMONIES_2_PRO"
+order = 2
+
+[en]
+title      = "Pitch math, JND, WSOLA & phase vocoder"
+short_desc = "The full formula, 5-cent perception thresholds, and why WSOLA artifacts sound different from vocoder artifacts."
+description = "This lesson goes under the hood of the pitch-tempo relationship. You'll derive the formula from first principles (logarithmic pitch perception), understand where human perception breaks down (JND under masking), and dissect the two dominant time-stretch algorithms — WSOLA and the phase vocoder — enough to recognize their failure modes by ear."
+recap = [
+  "Pitch perception is logarithmic (base 2). Semitones = 12 × log₂(rate). Rate = 2^(semitones/12). Each semitone = the 12th root of 2.",
+  "JND on isolated tones: 5-6 cents (average listener), 3 cents at 2 kHz, 2 cents (trained musician). In a dense mix, spectral masking raises the threshold to 15-25 cents.",
+  "Keys clash audibly at ~50 cents (½ semitone). 100 cents (1 semitone) is an obvious clash even to non-musicians.",
+  "WSOLA (time domain): shifts overlapping frames by ±10 ms to maximize normalized cross-correlation. Artifacts: transient blur on percussives.",
+  "Phase vocoder (frequency domain): STFT → phase manipulation → ISTFT. Artifacts: phasiness (metallic ringing from phase incoherence), transient smearing, formant shift on vocals."
+]
+
+[[en.pages]]
+title   = "Deriving the formula from first principles"
+content = "Why is the pitch-shift formula logarithmic?\n\n**Pitch perception is logarithmic.** The ear encodes frequency as a ratio, not a difference. Doubling frequency = one octave, regardless of the starting point: 110→220 Hz is the same 'distance' as 440→880 Hz. The ear's cochlea is essentially a frequency analyzer with logarithmic spacing — low frequencies get more 'space' on the basilar membrane than high ones.\n\nThis gives us: the natural unit of pitch change is the **octave** = factor of 2. We want 12 equal steps per octave. 'Equal' here means geometrically equal (same ratio), so:\n\n  **one semitone = 2^(1/12) ≈ 1.05946**\n\nFor n semitones: **rate = 2^(n/12)**, so **n = 12 × log₂(rate)**.\n\nWhere `rate = new_BPM / native_BPM` for the pitch-fader-to-semitone case.\n\nFor percent pitch (as shown on CDJ faders): `n = 12 × log₂(1 + pitch_percent/100)`. The useful approximation: `log₂(1.06) ≈ 0.0841`, so +6 % ≈ **+1.009 semitones**. Close enough to call it 1 semitone — that's the harmonic meaning of the Technics SL-1200 working range."
+
+[[en.pages]]
+title   = "JND: where the ear gives up"
+content = "The **Just-Noticeable Difference (JND)** for pitch varies by context:\n\n| Context | JND | Explanation |\n|---------|-----|-------------|\n| Isolated pure tone, 2 kHz | **~3 cents** | Peak cochlear sensitivity. Trained musicians detect the just-tempered fifth difference here (702 − 700 = 2¢). |\n| Isolated tone (average listener) | **5-6 cents** | Standard psychoacoustic measurement (Zwicker & Fastl, 1990). |\n| Complex tone (instrument, voice) | **8-10 cents** | Harmonics and timbre add uncertainty. |\n| Dense mix (beat + bass + two tracks) | **15-25 cents** | **Spectral masking**: cochlear frequency channels are saturated; overlapping signals mask each other. |\n| Short transition (≤ 8 bars) | **~50 cents threshold for 'clash'** | The ear hasn't had time to calibrate a tonal center. A 50-cent mismatch in 4 bars goes largely unnoticed. |\n| Long blend (2+ minutes) | **25-30 cents** | The ear calibrates to the dominant pitch over time; mismatches audible at bar 1 become obvious at bar 64. |\n\nThe implication: a 3 % pitch drift (~50 cents) is manageable in a short 8-bar transition but will inevitably reveal itself in a 2-minute blend — the ear's temporal integration catches it."
+youtube         = "https://www.youtube.com/watch?v=RB7upq8nzIU"
+youtube_caption = "David Dunn — psychoacoustics lecture: spectral masking and critical bands explained."
+
+[[en.pages]]
+title   = "WSOLA: time-stretching in the time domain"
+content = "**WSOLA** (Waveform-Similarity Overlap-Add) was described by Verhelst & Roelands in 1993. It operates entirely in the **time domain** — no FFT required.\n\n**Algorithm (simplified):**\n1. Chop the input into short **overlapping analysis frames** (~30 ms, ~50 % overlap).\n2. For each frame, search a window of ±10 ms for the frame that **maximizes normalized cross-correlation** with the previous output frame — find the splice that looks most similar to what you just output.\n3. **Overlap-add** the matched frame at the new (stretched/compressed) playback position.\n\n**Artifacts:**\n- **Transient blur**: a snare or kick attack (~1-2 ms) gets smeared across the crossfade window (~15 ms). Percussive elements lose their 'crack'.\n- **Flamming**: if the optimal frame is 10 ms from the nominal position, a rhythmic event can appear as a doublet (original + echo). Rare but audible on very tight BPM matching.\n\nWSWOLA's advantage: very **low CPU**, near-zero latency, works well on **percussive / low-harmonic content**. This project ships its own WSOLA AudioWorklet at `src/audio/wsola-worklet.js`."
+
+[[en.pages]]
+title   = "Phase vocoder: time-stretching in the frequency domain"
+content = "The **phase vocoder** (Flanagan 1966, modernized by Laroche & Dolson 1999) operates in the **frequency domain** via the Short-Time Fourier Transform.\n\n**Algorithm (simplified):**\n1. **Analysis STFT**: compute FFT of short frames (e.g., 2048 samples at 44.1 kHz ≈ 46 ms), ~75 % overlap.\n2. **Phase manipulation**: for each bin, compute instantaneous frequency = nominal bin frequency + phase difference / frame hop. Scale hop to achieve time-stretch ratio.\n3. **Phase coherence** (Laroche-Dolson 1999): identify spectral peaks, rotate their phase coherently, drag neighboring bins — eliminates naïve-vocoder 'phasiness'.\n4. **Synthesis ISTFT**: inverse FFT and overlap-add.\n\n**Artifacts:**\n- **Phasiness / metallic ringing**: when bin phases lose coherence, partials interfere randomly — hollow, 'underwater' or metallic tone. Classic on sustained chords and pads.\n- **Transient smearing**: the STFT window spreads transients. Worse than WSOLA on percussives without transient detection.\n- **Formant shift**: if pitch and time-shift are combined, vocal formants shift with pitch unless explicitly preserved. Upward = Chipmunk, downward = Darth Vader. Mitigated by formant-preserving variants (Rubber Band R3, Ableton Complex Pro)."
+
+[[en.pages]]
+title   = "Practical decision: WSOLA vs phase vocoder for DJs"
+content = "A comparison for the working DJ context:\n\n| Criterion | WSOLA | Phase Vocoder |\n|-----------|-------|---------------|\n| Best for | Percussive, rhythmic content | Tonal, harmonic content |\n| Worst for | Sustained chords, pads | Kick/snare with tight transients |\n| CPU | Low | Medium-High |\n| Latency | Near-zero | ~1 STFT window (~46 ms) |\n| Artifact type | Transient blur, occasional flamming | Phasiness, formant shift on vocals |\n| Example | Traktor 'ECO' mode | Pioneer CDJ hardware, Ableton Warp 'Complex' |\n\nIn practice, Pioneer CDJ-2000NXS2 and later use a **hybrid approach**: transient detection, WSOLA on percussive frames, Laroche-Dolson phase vocoder on tonal frames. That's why CDJs generally sound cleaner than software-only implementations within ±6-8 %.\n\n**Takeaway**: beyond ±8-10 %, you *will* hear artifacts regardless of algorithm. Within ±6 %, Master Tempo is near-transparent on most content. Trust your ears over the spec sheet — dense mixes with multiple simultaneous tracks compound artifacts."
+
+[[en.quiz]]
+question = "Semitones = 12 × log₂(rate). If rate = 1.06, how many semitones approximately?"
+answers  = ["0.17 semitones", "1 semitone", "6 semitones"]
+correct  = 1
+
+[[en.quiz]]
+question = "In a dense mix, spectral masking raises the pitch JND to approximately..."
+answers  = ["5-6 cents (same as isolated)", "15-25 cents", "100 cents (1 semitone)"]
+correct  = 1
+
+[[en.quiz]]
+question = "WSOLA works in which domain?"
+answers  = ["Frequency domain (FFT)", "Time domain (waveform)", "Cepstral domain"]
+correct  = 1
+
+[[en.quiz]]
+question = "The classic 'phasiness' artifact (hollow, metallic sound) is characteristic of..."
+answers  = ["WSOLA without transient detection", "Naïve phase vocoder (pre-Laroche-Dolson)", "Resampling without anti-aliasing"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which is better suited to processing kick drums and snares?"
+answers  = ["Phase vocoder", "WSOLA", "Both are equally good"]
+correct  = 1
+
+[[en.sources]]
+label = "Verhelst & Roelands (1993) — WSOLA original paper (IEEE)"
+url   = "https://ieeexplore.ieee.org/document/319366"
+
+[[en.sources]]
+label = "Laroche & Dolson (1999) — Improved Phase Vocoder Time-Scale Modification"
+url   = "https://www.ee.columbia.edu/~dpwe/papers/LaroD99-pvoc.pdf"
+
+[[en.sources]]
+label = "Driedger & Müller (2016) — Time-Scale Modification of Music Signals review"
+url   = "https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/04_bookPapers/2016_DriedgerMueller_TSMOverview_AppliedSciences_ePrint.pdf"
+
+[[en.sources]]
+label = "Zwicker & Fastl — Psychoacoustics: Facts and Models (2nd ed.)"
+url   = "https://link.springer.com/book/10.1007/978-3-662-09562-1"
+
+[[en.sources]]
+label = "Project WSOLA worklet — src/audio/wsola-worklet.js"
+url   = "src/audio/wsola-worklet.js"
+
+[fr]
+title      = "Maths du pitch, JND, WSOLA & phase vocoder"
+short_desc = "La formule complète, les seuils de perception à 5 cents, et pourquoi les artefacts WSOLA sonnent différemment des artefacts vocoder."
+description = "Cette leçon va sous le capot de la relation pitch-tempo. Tu vas dériver la formule à partir des premiers principes (perception logarithmique du pitch), comprendre où la perception humaine lâche (JND sous masking), et disséquer les deux algorithmes de time-stretch dominants — WSOLA et le phase vocoder — assez pour reconnaître leurs modes d'échec à l'oreille."
+recap = [
+  "La perception du pitch est logarithmique (base 2). Demi-tons = 12 × log₂(taux). Taux = 2^(demi-tons/12). Chaque demi-ton = la 12e racine de 2.",
+  "JND sur notes isolées : 5-6 cents (auditeur moyen), 3 cents à 2 kHz, 2 cents (musicien entraîné). En mix dense, le masking spectral monte le seuil à 15-25 cents.",
+  "Les clés clashent audiblement à ~50 cents (½ demi-ton). 100 cents (1 demi-ton) est un clash évident même pour un non-musicien.",
+  "WSOLA (domaine temporel) : décale des frames recouvrantes de ±10 ms pour maximiser la corrélation croisée normalisée. Artefacts : flou sur les transitoires.",
+  "Phase vocoder (domaine fréquentiel) : STFT → manipulation de phase → ISTFT. Artefacts : phasiness (sonnerie métallique due à l'incohérence de phase), étalement des transitoires, formant shift sur les voix."
+]
+
+[[fr.pages]]
+title   = "Dériver la formule à partir des premiers principes"
+content = "Pourquoi la formule de décalage de pitch est-elle logarithmique ?\n\n**La perception du pitch est logarithmique.** L'oreille encode la fréquence comme un ratio, pas une différence. Doubler la fréquence = une octave, quelle que soit la fréquence de départ : 110→220 Hz est la même 'distance' que 440→880 Hz. La cochlée de l'oreille est essentiellement un analyseur de fréquence à espacement logarithmique — les basses fréquences occupent plus d'espace sur la membrane basilaire que les hautes.\n\nCela nous donne : l'unité naturelle de changement de pitch est l'**octave** = facteur 2. On veut 12 pas égaux par octave. 'Égaux' signifie géométriquement égaux (même ratio), donc :\n\n  **un demi-ton = 2^(1/12) ≈ 1,05946**\n\nPour n demi-tons : **taux = 2^(n/12)**, donc **n = 12 × log₂(taux)**.\n\nOù `taux = BPM_nouveau / BPM_natif` pour le cas fader-pitch→demi-tons.\n\nPour le pitch en pourcentage (affiché sur les faders CDJ) : `n = 12 × log₂(1 + pitch_pourcent/100)`. L'approximation utile : `log₂(1,06) ≈ 0,0841`, donc +6 % ≈ **+1,009 demi-ton**. Assez proche d'un demi-ton — c'est le sens harmonique de la plage de travail du Technics SL-1200."
+
+[[fr.pages]]
+title   = "JND : là où l'oreille abandonne"
+content = "Le **Just-Noticeable Difference (JND)** en hauteur varie selon le contexte :\n\n| Contexte | JND | Explication |\n|---------|-----|-------------|\n| Ton pur isolé, 2 kHz | **~3 cents** | Pic de sensibilité cochléaire. Les musiciens entraînés détectent l'écart juste-tempéré de la quinte (702 − 700 = 2¢). |\n| Ton isolé (auditeur moyen) | **5-6 cents** | Mesure psychoacoustique standard (Zwicker & Fastl, 1990). |\n| Ton complexe (instrument, voix) | **8-10 cents** | Les harmoniques et le timbre ajoutent de l'incertitude. |\n| Mix dense (beat + basse + deux tracks) | **15-25 cents** | **Masking spectral** : canaux fréquentiels cochléaires saturés ; signaux chevauchants se masquent mutuellement. |\n| Transition courte (≤ 8 mesures) | **~50 cents seuil de 'clash'** | L'oreille n'a pas eu le temps de calibrer un centre tonal. Un mismatch de 50 cents en 4 mesures passe presque inaperçu. |\n| Blend long (2+ minutes) | **25-30 cents** | L'oreille calibre vers le pitch dominant dans le temps ; mismatches inaudibles à la mesure 1 deviennent évidents à la mesure 64. |\n\nL'implication : une dérive de 3 % (~50 cents) est gérable dans une courte transition de 8 mesures, mais se révèlera dans un blend de 2 minutes — l'intégration temporelle de l'oreille la rattrape."
+youtube         = "https://www.youtube.com/watch?v=RB7upq8nzIU"
+youtube_caption = "David Dunn — cours de psychoacoustique : masking spectral et bandes critiques expliqués."
+
+[[fr.pages]]
+title   = "WSOLA : time-stretching dans le domaine temporel"
+content = "**WSOLA** (Waveform-Similarity Overlap-Add) a été décrit par Verhelst & Roelands en 1993. Il opère entièrement dans le **domaine temporel** — pas de FFT requise.\n\n**Algorithme (simplifié) :**\n1. Découpe le signal en **frames d'analyse recouvrantes** (~30 ms, ~50 % de chevauchement).\n2. Pour chaque frame, cherche dans ±10 ms la frame qui **maximise la corrélation croisée normalisée** avec la frame de sortie précédente — trouve la jointure qui ressemble le plus à ce que tu viens de sortir.\n3. **Overlap-add** la frame matchée à la nouvelle position de lecture (étirée/compressée).\n\n**Artefacts :**\n- **Flou de transitoires** : un coup de caisse claire ou un kick (~1-2 ms d'attaque) s'étale sur la fenêtre de crossfade (~15 ms). Les éléments percussifs perdent leur 'crack'.\n- **Flamming** : si la frame optimale se trouve 10 ms loin de la position nominale, un événement rythmique peut apparaître comme un doublet (original + écho). Rare mais audible sur un BPM matching très serré.\n\nL'avantage de WSOLA : **CPU très faible**, latence quasi-nulle, fonctionne bien sur le **contenu percussif / peu harmonique**. Ce projet embarque son propre WSOLA AudioWorklet dans `src/audio/wsola-worklet.js`."
+
+[[fr.pages]]
+title   = "Phase vocoder : time-stretching dans le domaine fréquentiel"
+content = "Le **phase vocoder** (Flanagan 1966, modernisé par Laroche & Dolson 1999) opère dans le **domaine fréquentiel** via la Transformée de Fourier à Court Terme.\n\n**Algorithme (simplifié) :**\n1. **STFT d'analyse** : calcule la FFT de courtes frames (ex : 2048 éch. à 44,1 kHz ≈ 46 ms), ~75 % de chevauchement.\n2. **Manipulation de phase** : pour chaque bin, fréquence instantanée = fréquence nominale + différence de phase / hop. Scale le hop pour obtenir le ratio de time-stretch voulu.\n3. **Cohérence de phase** (Laroche-Dolson 1999) : identifier les pics spectraux, faire tourner leur phase de façon cohérente, entraîner les bins voisins — élimine la 'phasiness' des vocoders naïfs.\n4. **ISTFT de synthèse** : FFT inverse et overlap-add.\n\n**Artefacts :**\n- **Phasiness / sonnerie métallique** : quand les phases perdent leur cohérence, les partiels interfèrent aléatoirement — ton creux, 'sous l'eau' ou métallique. Classique sur les accords soutenus et les pads.\n- **Étalement des transitoires** : la fenêtre STFT étale les transitoires. Pire que WSOLA sur les percussives sans détection de transitoires.\n- **Formant shift** : si pitch et time-shift sont combinés, les formants vocaux décalent avec le pitch sauf s'ils sont préservés. Vers le haut = Chipmunk, vers le bas = Dark Vador. Atténué par les variantes préservant les formants (Rubber Band R3, Ableton Complex Pro)."
+
+[[fr.pages]]
+title   = "Décision pratique : WSOLA vs phase vocoder pour le DJ"
+content = "Comparaison dans le contexte du DJ :\n\n| Critère | WSOLA | Phase Vocoder |\n|---------|-------|---------------|\n| Meilleur pour | Contenu percussif, rythmique | Contenu tonal, harmonique |\n| Pire pour | Accords soutenus, pads | Kicks/snares avec transitoires serrés |\n| CPU | Faible | Moyen-Élevé |\n| Latence | Quasi-nulle | ~1 fenêtre STFT (~46 ms) |\n| Type d'artefact | Flou de transitoires, flamming occasionnel | Phasiness, formant shift sur les voix |\n| Exemple | Mode 'ECO' de Traktor | CDJ Pioneer, Ableton Warp 'Complex' |\n\nEn pratique, le Pioneer CDJ-2000NXS2 et les suivants utilisent une **approche hybride** : détection des transitoires, WSOLA sur les frames percussives, phase vocoder Laroche-Dolson sur les frames tonales. C'est pourquoi les CDJs sonnent généralement plus propre que les implémentations software pures dans la plage ±6-8 %.\n\n**La leçon** : au-delà de ±8-10 %, tu *entendras* des artefacts quel que soit l'algorithme. Dans ±6 %, Master Tempo est quasi-transparent sur la plupart des contenus. Fais confiance à tes oreilles — les mixes denses avec plusieurs tracks simultanés cumulent les artefacts."
+
+[[fr.quiz]]
+question = "Demi-tons = 12 × log₂(taux). Si taux = 1,06, c'est approximativement combien de demi-tons ?"
+answers  = ["0,17 demi-ton", "1 demi-ton", "6 demi-tons"]
+correct  = 1
+
+[[fr.quiz]]
+question = "En mix dense, le masking spectral monte le JND de pitch à environ..."
+answers  = ["5-6 cents (comme isolé)", "15-25 cents", "100 cents (1 demi-ton)"]
+correct  = 1
+
+[[fr.quiz]]
+question = "WSOLA opère dans quel domaine ?"
+answers  = ["Domaine fréquentiel (FFT)", "Domaine temporel (forme d'onde)", "Domaine cepstral"]
+correct  = 1
+
+[[fr.quiz]]
+question = "L'artefact classique de 'phasiness' (son creux, métallique) est caractéristique de..."
+answers  = ["WSOLA sans détection de transitoires", "Phase vocoder naïf (avant Laroche-Dolson)", "Rééchantillonnage sans anti-aliasing"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Lequel est le mieux adapté au traitement des kicks et snares ?"
+answers  = ["Phase vocoder", "WSOLA", "Les deux sont également bons"]
+correct  = 1
+
+[[fr.sources]]
+label = "Verhelst & Roelands (1993) — Article original WSOLA (IEEE)"
+url   = "https://ieeexplore.ieee.org/document/319366"
+
+[[fr.sources]]
+label = "Laroche & Dolson (1999) — Improved Phase Vocoder Time-Scale Modification"
+url   = "https://www.ee.columbia.edu/~dpwe/papers/LaroD99-pvoc.pdf"
+
+[[fr.sources]]
+label = "Driedger & Müller (2016) — Revue des méthodes de Time-Scale Modification"
+url   = "https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/04_bookPapers/2016_DriedgerMueller_TSMOverview_AppliedSciences_ePrint.pdf"
+
+[[fr.sources]]
+label = "Zwicker & Fastl — Psychoacoustics: Facts and Models (2e éd.)"
+url   = "https://link.springer.com/book/10.1007/978-3-662-09562-1"
+
+[[fr.sources]]
+label = "Worklet WSOLA du projet — src/audio/wsola-worklet.js"
+url   = "src/audio/wsola-worklet.js"

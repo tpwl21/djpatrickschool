@@ -1,0 +1,95 @@
+id = "DIGGING_LEVEL_2"
+order = 2
+
+[en]
+title       = "Spot the Subtle Trap"
+short_desc  = "Fiches visible. 4 candidates, all close. Only one truly fits."
+description = "Harder now — all four candidates pass the obvious filters (BPM within range, not wildly wrong). The trap is in the details."
+details     = "Energy direction, Camelot distance, genre cousinage. Read the fiches and listen hard."
+coach_tips  = [
+  "Two candidates match in BPM but diverge in energy — one sustains the vibe, one kills it.",
+  "Camelot +4 positions is a valid 'energy boost' for some DJs but a clash for others. Trust your ears.",
+  "The correct answer is the one where ALL four dimensions line up — not three out of four."
+]
+recap = [
+  "When all candidates pass basic filters, subtle details decide.",
+  "Energy direction matters: never drop energy in the middle of a peak.",
+  "Camelot +1 (same letter, next number) is the tightest harmonic move.",
+  "The right pick aligns ALL four dimensions: BPM, key, energy, genre."
+]
+
+[fr]
+title       = "Repère le piège subtil"
+short_desc  = "Fiches visibles. 4 candidates, toutes proches. Une seule colle vraiment."
+description = "Plus dur maintenant — les quatre candidates passent les filtres évidents (BPM en range, pas complètement fausses). Le piège est dans le détail."
+details     = "Direction d'énergie, distance Camelot, cousinage de genre. Lis les fiches et écoute bien."
+coach_tips  = [
+  "Deux candidates matchent en BPM mais divergent en énergie — une tient la vibe, l'autre la tue.",
+  "Camelot +4 cases est un 'energy boost' valide pour certains DJs mais un clash pour d'autres. Écoute.",
+  "La bonne réponse, c'est celle où les QUATRE dimensions s'alignent — pas trois sur quatre."
+]
+recap = [
+  "Quand toutes les candidates passent les filtres de base, ce sont les détails qui tranchent.",
+  "La direction d'énergie compte : ne baisse jamais l'énergie en plein peak.",
+  "Camelot +1 (même lettre, numéro suivant) est le move harmonique le plus serré.",
+  "Le bon choix aligne les QUATRE dimensions : BPM, clé, énergie, genre."
+]
+
+[track.A]
+url = "AUDIO/Ensaios.mp3"
+bpm = 130
+title = "Track A"
+key = "1A"
+complexity = 4
+
+[context]
+reveal_phrase = 2
+description_en = "00:15. Peak-time techno. Track A has built for 3 minutes. The next one must sustain, not collapse the tension."
+description_fr = "00h15. Techno peak-time. Track A a construit pendant 3 min. La suivante doit tenir, pas écrouler la tension."
+
+[ui]
+show_fiches = true
+
+[[candidates]]
+url = "AUDIO/Tech.mp3"
+title = "Tech"
+bpm = 127
+key = "8A"
+genre = "tech house"
+energy = 3
+correct = false
+reason_en = "BPM -2% is fine, Camelot 8A is compatible with 1A (+7 boost), BUT: dropping from peak techno to tech house kills the tension. Energy 3 after an energy-5 build feels like a cold shower."
+reason_fr = "BPM -2% OK, Camelot 8A compatible avec 1A (+7), MAIS : descendre du peak techno vers la tech house tue la tension. Énergie 3 après un build energy-5 fait l'effet d'une douche froide."
+
+[[candidates]]
+url = "AUDIO/Fulgulandio.mp3"
+title = "Fulgulandio"
+bpm = 132
+key = "2A"
+genre = "techno"
+energy = 5
+correct = true
+reason_en = "BPM +1.5%, Camelot 2A is the direct neighbor of 1A (same letter, +1 number — the tightest harmonic move). Energy 5 sustains the peak. Same genre pocket. Every dimension lines up."
+reason_fr = "BPM +1.5%, Camelot 2A est le voisin direct de 1A (même lettre, +1 numéro — le move harmonique le plus serré). Énergie 5 tient le peak. Même genre. Toutes les dimensions s'alignent."
+
+[[candidates]]
+url = "AUDIO/SuperMarket.mp3"
+title = "SuperMarket"
+bpm = 130
+key = "11A"
+genre = "techno"
+energy = 5
+correct = false
+reason_en = "BPM, energy and genre perfect. But Camelot 11A is 2 steps away from 1A (wraps around the wheel as 12A → 11A). Not impossible, but a subtle key clash on sustained chords. A purist hears it."
+reason_fr = "BPM, énergie et genre parfaits. Mais Camelot 11A est à 2 cases de 1A (ça enroule par 12A → 11A). Pas impossible, mais un clash de clé subtil sur les accords tenus. Un puriste l'entend."
+
+[[candidates]]
+url = "AUDIO/Funkasteroid.mp3"
+title = "Funkasteroid"
+bpm = 128
+key = "1A"
+genre = "minimal"
+energy = 3
+correct = false
+reason_en = "Same key, BPM close, same energy letter... BUT: minimal/peak techno is a micro-genre switch. A listener locked into 130 BPM peak techno will feel the texture drop even if the grid holds."
+reason_fr = "Même clé, BPM proche, même lettre d'énergie... MAIS : minimal/peak techno c'est un switch de micro-genre. Un auditeur calé sur du 130 BPM peak sentira la texture descendre même si la grille tient."

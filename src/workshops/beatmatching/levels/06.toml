@@ -1,0 +1,66 @@
+id = "LEVEL_6"
+order = 6
+
+[en]
+title       = "The Transition"
+short_desc  = "The critical moment. Drop Train B's intro exactly when Train A's outro hits."
+description = "Drop Train B's <strong>Intro 🌅</strong> exactly over Train A's <strong>Outro 🌙</strong>!"
+details     = "Focus: Musical phrasing and anticipation."
+success     = "Butter smooth! That transition was magical, you couldn't even see the seams!"
+coach_tips  = [
+  "Time to think even bigger: musical phrasing. Most tracks are structured into distinct sections, each with a different vibe and purpose.",
+  "Electronic tracks are literally produced to be mixed. They have designated \"mix-in\" and \"mix-out\" zones.",
+  "Dropping Train B's intro right when Train A starts its outro is the classic safety transition. Rarely sounds bad.",
+  "Get ready, Train A is about to finish. You need to drop Train B right on the money."
+]
+recap = [
+  "Tracks have sections: intro, build, drop, break, outro — each with a purpose.",
+  "Intro-over-outro is the safest transition — it almost always works.",
+  "Producers design intros and outros specifically to be mixed together.",
+  "Anticipate: prepare Train B before Train A's outro actually starts."
+]
+
+[fr]
+title       = "La Transition"
+short_desc  = "Le moment critique. Démarre l'Intro du Train B exactement sur l'Outro du Train A."
+description = "Démarre l'<strong>Intro 🌅</strong> du Train B sur l'<strong>Outro 🌙</strong> du Train A !"
+details     = "Focus : Phrasé musical et anticipation."
+success     = "Quelle fluidité ! Ta transition entre les morceaux était magique. On ne voit plus la couture !"
+coach_tips  = [
+  "Bon là on s'attaque à encore plus grand, les phrases musicales. Globalement tu peux souvent diviser tes morceaux en plusieurs moments distincts avec une fonction et un but différent",
+  "Souvent en musique électronique les morceaux sont pensés par les producteurs pour être mixés, il y a donc des moments propices à la transition",
+  "Lancer l'intro du train B au moment où le train A commence son outro est une idée basique de transition, c'est la sécurité ça va rarement sonner faux",
+  "Tiens-toi prêt, le train A va bientôt finir son morceau, il faut que tu lances le train B au bon moment"
+]
+recap = [
+  "Un morceau a plusieurs sections : intro, build, drop, break, outro — chacune avec un rôle.",
+  "Intro-sur-outro est la transition la plus safe — ça sonne presque toujours juste.",
+  "Les producers dessinent intros et outros spécifiquement pour être mixées.",
+  "Anticipe : prépare le Train B avant que l'outro du Train A commence vraiment."
+]
+
+[track.A]
+url = "AUDIO/Ensaios.mp3"
+bpm = 130
+title = "Intro"
+key = "1A"
+complexity = 5
+[track.B]
+url = "AUDIO/SuperMarket.mp3"
+bpm = 130
+title = "Outro"
+key = "12A"
+complexity = 5
+
+[ui]
+view_type              = "phrase"
+show_bpm               = true
+allow_nudge            = true
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[validation.start_rule]
+target_beats  = [128]
+tolerance_sec = 1.0

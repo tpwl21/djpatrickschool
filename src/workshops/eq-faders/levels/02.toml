@@ -1,0 +1,83 @@
+id = "EQ_LEVEL_2"
+order = 2
+
+[en]
+title       = "Bass Swap"
+short_desc  = "Cut A's bass exactly when B's bass comes in."
+description = "The classic: Bass Swap. Switch the low frequencies when the phrase changes."
+details     = "Focus: zero low-end clash."
+success     = "Bass swapped! Zero frequency clash, well done."
+coach_tips  = [
+  "Bass swap! Cut the bass from A right when you bring in B's bass.",
+  "It's the cleanest way to transition in Techno."
+]
+recap = [
+  "Two basslines playing simultaneously = muddy, painful low-end.",
+  "The bass swap: cut A's low EQ while raising B's, ideally on a phrase change.",
+  "Only one track should own the sub at any time.",
+  "This is THE go-to transition in techno and house."
+]
+
+[fr]
+title       = "Swap Bass"
+short_desc  = "Coupe la basse A pile quand celle de B arrive."
+description = "Le grand classique : le Swap de Basses. Échange les fréquences graves au moment du changement de phrase."
+details     = "Focus : aucun conflit sur les basses."
+success     = "Swap de basses réussi ! Aucun conflit de fréquences, bien joué."
+coach_tips  = [
+  "Ici on swap les basses ! Coupe la basse de A pile quand tu rends celle de B active.",
+  "C'est la transition la plus propre en Techno !"
+]
+recap = [
+  "Deux basses qui jouent en même temps = bas du spectre boueux et fatigant.",
+  "Bass swap : coupe le low EQ de A et monte celui de B, idéalement au changement de phrase.",
+  "Un seul morceau doit posséder le sub à la fois.",
+  "C'est LA transition de référence en techno et house."
+]
+
+[track.A]
+url = "AUDIO/Estupido.mp3"
+bpm = 125
+title = "Boucle Ref"
+key = "11A"
+complexity = 4
+[track.B]
+url = "AUDIO/SCIFI.mp3"
+bpm = 128
+title = "Boucle à caler"
+key = "12A"
+complexity = 4
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[[checks]]
+phrase  = 0
+control = "eqA.low"
+value   = 0
+
+[[checks]]
+phrase  = 0
+control = "eqB.low"
+value   = -24
+
+[[checks]]
+phrase  = 4
+control = "eqA.low"
+value   = -24
+
+[[checks]]
+phrase  = 4
+control = "eqB.low"
+value   = 0
+
+[[markers.A]]
+beat  = 129
+label = "BASS A OUT / B IN"
+color = "#e67e22"

@@ -1,0 +1,262 @@
+id = "LESSON_RTC_2_PRO"
+order = 2
+
+[en]
+title      = "Reading a Dancefloor — Pro"
+short_desc = "Groove entrainment, dance-leader dynamics, focal-point effect, sensorimotor synchronization."
+description = "The neuroscience and social psychology of what you're actually reading when you read a crowd — and why the back row is a more reliable diagnostic than any other signal."
+recap = [
+  "Groove entrainment: syncopated 4/4 at moderate complexity maximizes sensorimotor synchronization — Keller & Witek research.",
+  "Dance-leader phenomenon: ~10% initiate, ~50% mirror, the rest require overwhelming social momentum to join.",
+  "The back row is diagnostically superior because it captures only the general-audience threshold, not the hardcore threshold.",
+  "Focal-point effect (Schelling point): a crowd looking at the booth is sometimes asking 'what are we doing here?' not admiring you.",
+  "Reverse social proof: a visible cluster at the bar gives uncertain dancers permission to leave — counter with low-end anchor, not escalation.",
+]
+
+[[en.pages]]
+title   = "Groove entrainment: what synchronized movement actually is"
+content = """
+When a dancefloor enters synchronized sway — bodies moving together without verbal coordination — you're watching **interpersonal sensorimotor entrainment** in real time.
+
+The underlying research (Keller, Witek et al., PLOS One 2014; Witek et al. PMC 2014) identifies a specific structural condition that maximizes this: **syncopated 4/4 at moderate complexity**. The inverted-U applies here too: too little rhythmic complexity = boring, no desire to move. Too much = motor planning becomes difficult, synchronization breaks down.
+
+The practical implication is that **groove is not purely subjective taste** — it has a structural sweet spot measurable in terms of syncopation and note density. When you see synchronized movement on the floor, the track you're playing is likely sitting in that sweet spot. When you see movement desynchronize — people dancing independently, out of phase with each other — you've either fallen below the threshold (track too simple) or exceeded it (too complex or irregular).
+
+The DJ decision in response is not "play something people know" but "play something with appropriate syncopation density for this room's motor engagement level". These are different diagnoses and different interventions.
+"""
+
+[[en.pages]]
+title   = "Dance-leader phenomenon and the back-row diagnostic"
+content = """
+In any group-movement situation, movement doesn't emerge uniformly. Research on social facilitation and crowd dynamics identifies three behavioral strata:
+
+- **Initiators (~10%)**: dance regardless of social permission — intrinsic motivation drives them. These are your front rows.
+- **Mirrors (~50%)**: follow the initiators once permission is visible. These are your middle section.
+- **Laggards (~40%)**: participate only when social momentum is overwhelming. These are your back rows.
+
+The back row is diagnostically superior because **laggards are self-selected as less committed**. When they move, the track has crossed the general-audience threshold — the cascade is happening. When only the front moves, you have hardcore engagement but not general engagement.
+
+This is why touring DJs with unfamiliar venues specifically ask the resident: *where's the committed section?* — so they can skip it and read the uncommitted section. The resident's committed section (front rows) is the worst possible diagnostic when you're trying to assess whether a track is working for the whole room.
+
+Implication: **after a drop, read the laggards, not the leaders**. The leaders will always respond. The laggards tell you whether you have a room or a clique.
+"""
+
+[[en.pages]]
+title   = "The focal-point effect and Schelling coordination"
+content = """
+Thomas Schelling's concept of **focal points** (1960) describes how groups coordinate without communication by converging on salient points. In a room, the DJ booth is a Schelling point: it's where eyes converge when people are uncertain what to feel.
+
+This creates a diagnostic ambiguity: a crowd looking at the booth is not necessarily engaged. It may be **asking for interpretation** — uncertain how to respond, looking to the DJ for a cue. This is different from a crowd that looks at the booth because they're excited to see what you play next.
+
+Reading the difference requires face-reading, not just orientation-reading. Faces oriented toward the booth with neutral or questioning expressions = the room is uncertain. Faces with open, moving expressions = they're in it.
+
+The Schelling point effect also explains why **eye contact with the crowd matters** in the booth. A DJ who acknowledges the crowd's gaze provides the interpretation signal they're looking for — this is why booth presence (body language, occasional gesture) matters beyond aesthetics. You're providing the coordination signal the Schelling point is asking for.
+"""
+
+[[en.pages]]
+title   = "Reverse social proof and the bar-cluster problem"
+content = """
+When uncertain dancers see a visible cluster forming at the bar, they receive a **social proof signal** — not proof that the music is good, but proof that leaving is socially acceptable. This is reverse social proof: the cluster gives permission to leave, and the cluster grows until the floor collapses.
+
+The correct intervention is not escalation. Escalation on a disengaging floor increases cognitive load and aggravates the aversion system (Berlyne again). The correct intervention is a **low-end anchor** — a track with a strong sub-bass hook that pulls bodies back through physical vibration before the social-proof cascade completes.
+
+This is why certain records are described as "floor-fixer" tracks in DJ practice: they work not because of their artistic value in isolation, but because their sub-bass content is strong enough to override the social-proof signal with a physiological pull. The body is pulled back before the mind has decided.
+
+The timing window for this intervention is approximately **15 minutes after the back row empties** before the middle section follows. After the middle is gone, no floor-fixer will work — the social proof is now overwhelming.
+
+Professional residents (Objekt, Ben UFO) have described developing a near-physiological sensitivity to this window — sensing the room's "temperature" changing (fewer moving bodies = less heat production, perceptibly different humidity) as an early-warning system that precedes visible signal collapse.
+"""
+
+[[en.pages]]
+title   = "Attention and the 4-bar verdict window"
+content = """
+When a new track drops, the floor's response is not instantaneous — but it is **fast**. Research on attention and motor synchronization suggests the verdict window is approximately **one phrase (4 bars, or 8–16 seconds at typical club tempos)**.
+
+Dancers commit or disengage in the first phrase. The mechanism: the first 4 bars establish the rhythmic frame. Listeners' motor systems begin entraining to the groove structure within this window. If the track's syncopation density matches their current motor engagement level, entrainment proceeds and the dance response locks in. If not, the orienting response decays and attention shifts.
+
+What this means operationally: **the 4-bar observation window is not an approximation — it's when the decision happens**. A DJ who looks at the back row after bar 8 is already late — the social cascade (mirror initiation by the 50% mirror stratum) is either underway or it isn't.
+
+The disciplined practice: after every drop, look up immediately (not after adjusting EQ, not after checking the outgoing track's cue point). The back-row read within bars 1–4 is the highest-resolution signal available. Bar 5 onward is confirmation, not decision.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Keller & Witek's groove research shows synchronized dancefloor movement is maximized by..."
+answers  = ["Simple 4-on-the-floor kick patterns", "Syncopated 4/4 at moderate complexity", "Very complex polyrhythmic structures"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "The back row is the superior diagnostic signal because..."
+answers  = ["They have better visibility of the DJ", "They arrived first and are more tired", "They are self-selected as less committed — when they move, general-audience threshold is crossed"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "The focal-point / Schelling effect means a crowd looking at the booth might be..."
+answers  = ["Asking for interpretation — uncertain how to feel, looking to the DJ for a cue", "Definitely loving the music", "About to leave"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "The correct response to a growing bar cluster (reverse social proof) is..."
+answers  = ["Escalate — play your biggest track", "Turn up the volume", "Drop a low-end anchor track that pulls bodies back through physical vibration"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "The 4-bar verdict window means..."
+answers  = ["Dancers commit or disengage within the first phrase — read the back at bars 1–4, not bar 8", "You have 4 minutes to assess a track", "Back-row read should happen at the 4-minute mark"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "A desynchronized dancefloor (people dancing independently, out of phase) usually means..."
+answers  = ["The crowd is very experienced", "The track complexity is outside the groove sweet spot — too simple or too complex", "You need a faster BPM"]
+
+[[sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"
+
+[[sources]]
+label = "Moving Together in Music and Dance — Keller (Oxford)"
+url   = "https://academic.oup.com/book/56186/chapter/443056689"
+
+[[sources]]
+label = "Schelling focal points — The Strategy of Conflict (Cambridge)"
+url   = "https://en.wikipedia.org/wiki/Focal_point_(game_theory)"
+
+[fr]
+title      = "Lire un dancefloor — Pro"
+short_desc = "Entrainement de groove, phénomène dance-leader, effet focal, synchronisation sensorimotrice."
+description = "Les neurosciences et la psychologie sociale de ce que tu lis vraiment quand tu lis une foule — et pourquoi le rang du fond est plus fiable que n'importe quel autre signal."
+recap = [
+  "Entrainement de groove : le 4/4 syncopé à complexité moyenne maximise la synchronisation sensorimotrice — recherches Keller & Witek.",
+  "Phénomène dance-leader : ~10% initient, ~50% imitent, le reste n'entre que sous momentum social écrasant.",
+  "Le rang du fond est diagnostiquement supérieur car il ne capte que le seuil grand public, pas le seuil hardcore.",
+  "Effet focal (point de Schelling) : une foule qui regarde le booth demande parfois 'qu'est-ce qu'on fait là ?' sans t'admirer.",
+  "Preuve sociale inversée : un cluster visible au bar donne aux danseurs incertains la permission de partir — contre avec une ancre de bas du spectre, pas l'escalade.",
+]
+
+[[fr.pages]]
+title   = "Entrainement de groove : ce qu'est vraiment le mouvement synchronisé"
+content = """
+Quand un dancefloor entre en balancement synchronisé — corps qui bougent ensemble sans coordination verbale — tu regardes de l'**entrainement sensorimoteur interpersonnel** en temps réel.
+
+La recherche sous-jacente (Keller, Witek et al., PLOS One 2014 ; Witek et al. PMC 2014) identifie une condition structurelle spécifique qui le maximise : **le 4/4 syncopé à complexité moyenne**. L'U inversé s'applique ici aussi : trop peu de complexité rythmique = ennuyeux, aucune envie de bouger. Trop = la planification motrice devient difficile, la synchronisation se casse.
+
+L'implication pratique c'est que **le groove n'est pas du goût purement subjectif** — il a un sweet spot structurel mesurable en termes de syncopation et de densité de notes. Quand tu vois du mouvement synchronisé sur la piste, la track que tu joues est probablement dans ce sweet spot. Quand tu vois le mouvement se désynchroniser — gens qui dansent indépendamment, hors phase les uns des autres — tu es soit tombé sous le seuil (track trop simple) soit au-delà (trop complexe ou irrégulière).
+
+La décision DJ en réponse n'est pas "joue quelque chose que les gens connaissent" mais "joue quelque chose avec une densité de syncopation appropriée au niveau d'engagement moteur de cette salle". Ce sont des diagnostics différents et des interventions différentes.
+"""
+
+[[fr.pages]]
+title   = "Le phénomène dance-leader et le diagnostic du rang du fond"
+content = """
+Dans toute situation de mouvement de groupe, le mouvement n'émerge pas de façon uniforme. La recherche sur la facilitation sociale et la dynamique des foules identifie trois strates comportementales :
+
+- **Initiateurs (~10%)** : dansent indépendamment de la permission sociale — motivation intrinsèque. Ce sont tes premiers rangs.
+- **Suiveurs (~50%)** : imitent les initiateurs une fois la permission visible. Ce sont ta section du milieu.
+- **Retardataires (~40%)** : participent seulement quand le momentum social est écrasant. Ce sont tes rangs du fond.
+
+Le rang du fond est diagnostiquement supérieur parce que **les retardataires se sont auto-sélectionnés comme moins engagés**. Quand ils bougent, la track a passé le seuil grand public — la cascade est en train d'avoir lieu. Quand seul le devant bouge, tu as de l'engagement hardcore mais pas de l'engagement général.
+
+C'est pour ça que les DJs qui tournent dans des salles inconnues demandent spécifiquement au résident : *où est la section engagée ?* — pour la sauter et lire la section non-engagée. La section engagée du résident (premiers rangs) est le pire diagnostic possible quand tu essaies d'évaluer si une track fonctionne pour toute la salle.
+
+Implication : **après un drop, lis les retardataires, pas les leaders**. Les leaders réagiront toujours. Les retardataires te disent si tu as une salle ou un clan.
+"""
+
+[[fr.pages]]
+title   = "L'effet focal et la coordination de Schelling"
+content = """
+Le concept de **points focaux** de Thomas Schelling (1960) décrit comment les groupes se coordonnent sans communication en convergeant vers des points saillants. Dans une salle, le booth DJ est un point de Schelling : c'est vers là que les regards convergent quand les gens sont incertains de ce qu'ils doivent ressentir.
+
+Ça crée une ambiguïté diagnostique : une foule qui regarde le booth n'est pas forcément engagée. Elle est peut-être en train de **demander une interprétation** — incertaine de comment réagir, cherchant un signal chez le DJ. C'est différent d'une foule qui regarde le booth parce qu'elle est excitée de voir ce que tu vas jouer.
+
+Lire la différence nécessite de lire les visages, pas juste l'orientation. Visages orientés vers le booth avec des expressions neutres ou interrogatives = la salle est incertaine. Visages avec des expressions ouvertes et mouvantes = ils sont dedans.
+
+L'effet point de Schelling explique aussi pourquoi la **présence visuelle dans le booth compte**. Un DJ qui reconnaît le regard de la foule fournit le signal d'interprétation qu'elle cherche — c'est pour ça que la présence (langage corporel, geste occasionnel) compte au-delà de l'esthétique. Tu fournis le signal de coordination que le point de Schelling demande.
+"""
+
+[[fr.pages]]
+title   = "Preuve sociale inversée et le problème du cluster au bar"
+content = """
+Quand des danseurs incertains voient un cluster visible se former au bar, ils reçoivent un **signal de preuve sociale** — pas la preuve que la musique est bonne, mais la preuve que partir est socialement acceptable. C'est de la preuve sociale inversée : le cluster donne la permission de partir, et le cluster grandit jusqu'à ce que la piste s'effondre.
+
+La bonne intervention n'est pas l'escalade. L'escalade sur une piste qui se désengage augmente la charge cognitive et aggrave le système d'aversion (Berlyne encore). La bonne intervention c'est une **ancre de bas du spectre** — une track avec un hook de sub-bass fort qui rappelle les corps par vibration physique avant que la cascade de preuve sociale ne se complète.
+
+C'est pour ça que certains disques sont décrits comme des tracks "floor-fixer" dans la pratique DJ : ils fonctionnent non pas pour leur valeur artistique intrinsèque, mais parce que leur contenu sub-bass est assez fort pour primer sur le signal de preuve sociale avec une attraction physiologique. Le corps est rappelé avant que l'esprit ait décidé.
+
+La fenêtre temporelle pour cette intervention est d'environ **15 minutes après que le rang du fond se vide** avant que la section du milieu ne suive. Après que le milieu est parti, aucun floor-fixer ne fonctionnera — la preuve sociale est maintenant écrasante.
+
+Des résidents professionnels (Objekt, Ben UFO) ont décrit avoir développé une sensibilité quasi-physiologique à cette fenêtre — sentant la "température" de la salle changer (moins de corps qui bougent = moins de production de chaleur, humidité perceptiblement différente) comme système d'alerte précoce qui précède l'effondrement des signaux visibles.
+"""
+
+[[fr.pages]]
+title   = "L'attention et la fenêtre de verdict des 4 mesures"
+content = """
+Quand une nouvelle track drop, la réponse de la piste n'est pas instantanée — mais elle est **rapide**. La recherche sur l'attention et la synchronisation motrice suggère que la fenêtre de verdict est d'environ **une phrase (4 mesures, soit 8–16 secondes à des tempos club typiques)**.
+
+Les danseurs s'engagent ou se désengagent dans la première phrase. Le mécanisme : les 4 premières mesures établissent le cadre rythmique. Les systèmes moteurs des auditeurs commencent à s'entrainer à la structure de groove dans cette fenêtre. Si la densité de syncopation de la track correspond à leur niveau actuel d'engagement moteur, l'entrainement continue et la réponse de danse se verrouille. Sinon, le réflexe d'orientation décroît et l'attention se déplace.
+
+Ce que ça veut dire opérationnellement : **la fenêtre d'observation de 4 mesures n'est pas une approximation — c'est quand la décision a lieu**. Un DJ qui regarde le rang du fond après la mesure 8 est déjà en retard — la cascade sociale (initiation d'imitation par les 50% de la strate miroir) est soit en cours soit pas.
+
+La pratique disciplinée : après chaque drop, lève les yeux immédiatement (pas après avoir ajusté l'EQ, pas après avoir vérifié le cue point de la track sortante). La lecture du rang du fond dans les mesures 1–4 est le signal le plus haute résolution disponible. Les mesures 5 et suivantes sont une confirmation, pas une décision.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "La recherche Keller & Witek montre que le mouvement synchronisé du dancefloor est maximisé par..."
+answers  = ["Des patterns de kick simples 4-on-the-floor", "Un 4/4 syncopé à complexité moyenne", "Des structures polyrythmiques très complexes"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Le rang du fond est le signal diagnostique supérieur parce que..."
+answers  = ["Il a une meilleure vue sur le DJ", "Il est arrivé en premier et est plus fatigué", "Il s'est auto-sélectionné comme moins engagé — quand il bouge, le seuil grand public est passé"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "L'effet focal / Schelling signifie qu'une foule qui regarde le booth pourrait être..."
+answers  = ["En train de demander une interprétation — incertaine de comment se sentir", "En train d'adorer la musique", "Sur le point de partir"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "La bonne réponse à un cluster au bar qui grandit (preuve sociale inversée) c'est..."
+answers  = ["Escalader — jouer ta plus grosse track", "Monter le volume", "Dropper une track d'ancre de bas du spectre qui rappelle les corps par vibration physique"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "La fenêtre de verdict des 4 mesures signifie..."
+answers  = ["Les danseurs s'engagent ou se désengagent dans la première phrase — lis le fond aux mesures 1–4, pas à la mesure 8", "Tu as 4 minutes pour évaluer une track", "La lecture du rang du fond doit se faire à la 4ème minute"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Un dancefloor désynchronisé (gens qui dansent indépendamment, hors phase) veut généralement dire..."
+answers  = ["La foule est très expérimentée", "La complexité de la track est hors du sweet spot de groove — trop simple ou trop complexe", "Tu as besoin d'un BPM plus rapide"]
+
+[[sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"
+
+[[sources]]
+label = "Moving Together in Music and Dance — Keller (Oxford)"
+url   = "https://academic.oup.com/book/56186/chapter/443056689"
+
+[[sources]]
+label = "Schelling focal points — game theory (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Focal_point_(game_theory)"

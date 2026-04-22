@@ -1,0 +1,196 @@
+id = "LESSON_DIGGING_6_EASY"
+order = 6
+
+[en]
+title      = "Discogs — Your Music Research Tool"
+short_desc = "The world's biggest music database. Here's how to use it in 10 minutes."
+
+[[en.pages]]
+title   = "What is Discogs?"
+content = """
+**Discogs** is a giant online database of music releases — every album, EP, single, and 12" ever pressed, catalogued by music lovers since 2000.
+
+It's free to use. Right now, it has over **16 million releases** with:
+- Artist and label info
+- Year and country of release
+- Format (vinyl, CD, digital...)
+- Genre and style tags
+- Tracklist with version names
+- Photos of the sleeve and record
+
+**For DJs, it's essential for two things:**
+
+1. **Identifying tracks** you heard somewhere — you know roughly what it sounds like, and you use the filters to narrow down what it is.
+
+2. **Finding new tracks** in a genre, label, or era you want to explore.
+
+Think of it as Google Images for records — but with proper metadata you can filter.
+"""
+
+[[en.pages]]
+title   = "The basic search — 4 filters that do most of the work"
+content = """
+Go to **discogs.com** → click "Search" → click "Advanced Search".
+
+**The 4 filters you'll use most:**
+
+**Genre:** the broad category. "Electronic", "Hip Hop", "Funk/Soul". Start here.
+
+**Style:** the sub-genre. "Deep House", "Minimal Techno", "Funk". Narrows it much faster than Genre alone.
+
+**Year:** a single year or a range (e.g. 1994–2001). Extremely useful to filter by era.
+
+**Format:** "12"" for DJ-friendly vinyl. "LP" for full albums. "CD" for CDs.
+
+**Example search:** you want deep house tracks from the 90s on vinyl.
+- Genre: Electronic
+- Style: Deep House
+- Year: 1990–1999
+- Format: 12"
+
+Hit search. Instead of 16 million releases you get maybe 300–800 that are genuinely relevant. That's the whole trick.
+"""
+
+[[en.pages]]
+title   = "Wantlist and label browsing"
+content = """
+Two things to do right now:
+
+**1 — Add things to your Wantlist.**
+Every time you see a release that interests you, click the heart icon to add it to your Wantlist. Discogs will notify you when a copy comes available in the Marketplace. This is your long-term dig list.
+
+**2 — Click label names.**
+This is the move that most beginners miss. When you find a track you love, **click the label name** on the release page. This takes you to a full discography of everything that label ever released.
+
+Labels have a sound. If you love one track on a label, there are probably 10 more you'd love. Browse the label's catalog for 10 minutes — you'll almost always find something you didn't know existed.
+
+**Two solid starting labels for electronic music:**
+- **Trax Records** (Chicago, 1983+) — the birthplace of house music
+- **Tresor** (Berlin, 1991+) — the home of Berlin techno
+
+Click either of those on Discogs and you'll spend an hour going down the rabbit hole.
+"""
+
+[[en.quiz]]
+question = "What does the Discogs 'Style' filter do that 'Genre' doesn't?"
+answers  = ["It sorts by date automatically", "It narrows the genre to a specific sub-genre (e.g. Deep House within Electronic)", "It shows only vinyl releases"]
+correct  = 1
+
+[[en.quiz]]
+question = "You find a track you love. What should you do with the label name on the release page?"
+answers  = ["Ignore it — labels don't matter", "Click it and browse the full label discography for more tracks", "Use it to filter by country"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does adding a release to your Discogs Wantlist do?"
+answers  = ["Instantly buys it", "Notifies you when a copy becomes available in the Marketplace", "Downloads the MP3"]
+correct  = 1
+
+[[en.sources]]
+label = "Discogs — Advanced Search"
+url   = "https://www.discogs.com/search/?type=release"
+
+[[en.sources]]
+label = "Discogs — How to use the Wantlist"
+url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
+
+[[en.sources]]
+label = "Trax Records — the birthplace of house (Discogs label page)"
+url   = "https://www.discogs.com/label/777-Trax-Records"
+
+[fr]
+title      = "Discogs — Ton Outil de Recherche Musicale"
+short_desc = "La plus grande base de données musicale au monde. Voilà comment l'utiliser en 10 minutes."
+
+[[fr.pages]]
+title   = "C'est quoi Discogs ?"
+content = """
+**Discogs** est une gigantesque base de données de releases musicales en ligne — chaque album, EP, single et 12" jamais pressé, catalogué par des amateurs de musique depuis 2000.
+
+C'est gratuit. En ce moment, il y a plus de **16 millions de releases** avec :
+- Infos artiste et label
+- Année et pays de sortie
+- Format (vinyle, CD, numérique...)
+- Tags de genre et de style
+- Tracklist avec les noms des versions
+- Photos de la pochette et du disque
+
+**Pour les DJs, c'est essentiel pour deux choses :**
+
+1. **Identifier des tracks** que tu as entendues quelque part — tu sais vaguement à quoi ça ressemble, et tu utilises les filtres pour réduire ce que c'est.
+
+2. **Trouver de nouvelles tracks** dans un genre, label ou époque que tu veux explorer.
+
+Pense-y comme Google Images pour les disques — mais avec des métadonnées propres que tu peux filtrer.
+"""
+
+[[fr.pages]]
+title   = "La recherche de base — 4 filtres qui font la plupart du boulot"
+content = """
+Va sur **discogs.com** → clique "Search" → clique "Advanced Search".
+
+**Les 4 filtres que tu vas le plus utiliser :**
+
+**Genre :** la grande catégorie. "Electronic", "Hip Hop", "Funk/Soul". Commence ici.
+
+**Style :** le sous-genre. "Deep House", "Minimal Techno", "Funk". Réduit beaucoup plus vite que Genre seul.
+
+**Year :** une année ou un range (ex. 1994–2001). Extrêmement utile pour filtrer par époque.
+
+**Format :** "12"" pour le vinyle DJ-friendly. "LP" pour les albums. "CD" pour les CD.
+
+**Exemple de recherche :** tu veux des tracks deep house des années 90 en vinyle.
+- Genre : Electronic
+- Style : Deep House
+- Year : 1990–1999
+- Format : 12"
+
+Lance la recherche. Au lieu de 16 millions de releases tu en as 300–800 qui sont vraiment pertinentes. C'est tout le truc.
+"""
+
+[[fr.pages]]
+title   = "Wantlist et navigation par label"
+content = """
+Deux choses à faire maintenant :
+
+**1 — Ajoute des trucs à ta Wantlist.**
+Chaque fois que tu vois une release qui t'intéresse, clique l'icône cœur pour l'ajouter à ta Wantlist. Discogs te notifie quand une copie est disponible sur la Marketplace. C'est ta liste de dig long terme.
+
+**2 — Clique les noms de labels.**
+C'est le move que la plupart des débutants ratent. Quand tu trouves une track que tu adores, **clique le nom du label** sur la fiche de release. Ça t'emmène vers une discographie complète de tout ce que ce label a jamais sorti.
+
+Les labels ont un son. Si tu adores une track d'un label, il y en a probablement 10 autres que tu aimerais. Browse le catalogue du label 10 minutes — tu trouveras presque toujours quelque chose que tu ne savais pas qui existait.
+
+**Deux labels solides pour commencer en musique électronique :**
+- **Trax Records** (Chicago, 1983+) — le berceau de la house music
+- **Tresor** (Berlin, 1991+) — la maison de la techno berlinoise
+
+Clique l'un ou l'autre sur Discogs et tu passeras une heure dans le terrier du lapin.
+"""
+
+[[fr.quiz]]
+question = "Que fait le filtre 'Style' de Discogs que 'Genre' ne fait pas ?"
+answers  = ["Il trie automatiquement par date", "Il réduit le genre à un sous-genre précis (ex. Deep House dans Electronic)", "Il n'affiche que les sorties en vinyle"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu trouves une track que tu adores. Que fais-tu avec le nom du label sur la fiche de release ?"
+answers  = ["Tu l'ignores — les labels n'ont pas d'importance", "Tu cliques dessus et tu browses toute la discographie du label pour trouver d'autres tracks", "Tu l'utilises pour filtrer par pays"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Qu'est-ce qu'ajouter une release à ta Wantlist Discogs fait ?"
+answers  = ["L'achète instantanément", "Te notifie quand une copie devient disponible sur la Marketplace", "Télécharge le MP3"]
+correct  = 1
+
+[[fr.sources]]
+label = "Discogs — Recherche Avancée"
+url   = "https://www.discogs.com/search/?type=release"
+
+[[fr.sources]]
+label = "Discogs — Comment utiliser la Wantlist"
+url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
+
+[[fr.sources]]
+label = "Trax Records — le berceau de la house (page label Discogs)"
+url   = "https://www.discogs.com/label/777-Trax-Records"

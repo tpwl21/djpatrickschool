@@ -1,0 +1,266 @@
+id = "LESSON_FX_1_MEDIUM"
+order = 1
+
+[en]
+title      = "The Filter: Cutoff, Resonance & Genre Moves"
+short_desc = "Slope, Q, self-oscillation, and the Carl Cox crutch."
+description = "You know what a filter does. Now learn the parameters that shape how it sounds — and the genre signatures that make the same sweep feel like techno, not house."
+recap = [
+  "The slope (12 or 24 dB/oct) controls how hard the cutoff 'wall' is: 12 dB = musical, 24 dB = aggressive techno.",
+  "Resonance (Q) boosts a narrow band at the cutoff — a little is beautiful, too much and the filter self-oscillates.",
+  "Self-oscillation: the filter starts ringing as a sine wave with no input — avoid it live unless intentional.",
+  "Highpass on a break cleans muddy low-mids before you bring in deck B.",
+  "Carl Cox: 'The filter is the crutch of DJs who can't mix.' He still uses it — the art is in restraint.",
+]
+
+[[en.pages]]
+title   = "The slope: 12 vs 24 dB per octave"
+content = """
+A filter doesn't have a perfectly hard cutoff — it's a slope. The steepness is measured in **dB per octave**.
+
+- **12 dB/oct**: gentle roll-off. The sound fades gradually past the cutoff. This is the default on most DJM mixers — it sounds musical and works in house, disco, soul.
+- **24 dB/oct**: steep wall. Frequencies just past the cutoff are nearly gone. This sounds aggressive, surgical, and is the signature sound of techno and industrial.
+
+You can hear the difference clearly on a hi-hat: 12 dB/oct leaves a ghostly shimmer past the cutoff; 24 dB/oct kills it dead.
+
+The Pioneer DJM-900 filter is 12 dB/oct. The Allen & Heath Xone:92 is 12 dB/oct by default, but with a steeper mode available. Most hardware filters sit in this range.
+"""
+
+[[en.pages]]
+title   = "Resonance (Q): beauty and danger"
+content = """
+Every DJ filter has a **resonance** control (also called Q). This is a narrow frequency boost right at the cutoff frequency.
+
+**Low Q (0.2–0.5):** the filter blends smoothly, almost no coloration at the cutoff point. Subtle.
+
+**Medium Q (0.5–2):** a gentle peak at the cutoff. The sweep sounds 'wah-like', vocal, expressive. This is the sweet spot for DJ use.
+
+**High Q (2–5+):** the peak becomes aggressive and nasal. Very useful for dramatic effect on a single moment.
+
+**Beyond Q = self-oscillation threshold:** the filter starts generating a sine wave **on its own**, at the cutoff frequency, with no input signal. The feedback loop inside the filter gains energy instead of losing it. On analog hardware this sounds wild and musical; on digital emulations it can clip badly.
+
+Practical rule: on a DJM, leave resonance below 2 o'clock. If you hear a ringing tone, back it off.
+"""
+image = "lesson-images/filter_resonance_diagram.png"
+image_caption = "Low Q vs high Q: the peak at cutoff grows until the filter self-oscillates."
+
+[[en.pages]]
+title   = "The highpass sweep on a break"
+content = """
+One of the most useful filter moves happens during a **break** (the drums-only or stripped-down section between builds):
+
+1. Track A is playing, you're about to mix in Track B.
+2. Engage a **highpass filter on Track A** and slowly raise the cutoff — you're cleaning out the muddy low-mids (100–400 Hz) that would clash with Track B's bass.
+3. Bring in Track B as the highpass on A peaks.
+4. Release the filter on A — it sounds like A just opened up as B arrives.
+
+This is the pro version of the EQ cut technique: instead of riding the low-EQ knob, you use the filter sweep as a narrative move.
+
+The key: start the highpass early (4–8 bars before the blend), sweep slowly, and don't push to the point where A loses all body.
+"""
+
+[[en.pages]]
+title   = "Carl Cox and the crutch problem"
+content = """
+Carl Cox once said in an interview: *"The filter is the crutch of DJs who don't know how to mix."*
+
+He's right. And he uses it anyway — because the filter is a legitimate, powerful tool. The issue isn't the tool; it's the dependency.
+
+Intermediate DJs fall into a pattern: every transition starts with a filter sweep. It's safe, it fills time, it sounds dramatic. But when **every** transition is a filter, the crowd habituates. The move stops working.
+
+Genre signatures to internalize:
+- **House**: slow lowpass sweep over 8–16 bars, opens on the 1 of the drop.
+- **Techno**: sudden highpass cut to strip everything but the kick, then a violent open.
+- **Afro house / melodic tech**: heavy lowpass on acapella or lead, with resonance pumped up for a vocal formant effect.
+
+The craft is picking **when** to filter, not just **how**.
+"""
+
+[[en.quiz]]
+question = "What is the practical difference between a 12 dB/oct and 24 dB/oct filter slope?"
+answers  = [
+  "12 dB/oct is louder",
+  "12 dB/oct sounds gentle and musical; 24 dB/oct is steeper and more aggressive",
+  "24 dB/oct affects only the bass"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What happens when resonance (Q) is pushed past the self-oscillation threshold?"
+answers  = [
+  "The filter generates a sine wave tone at the cutoff frequency, with no input",
+  "The BPM doubles",
+  "The lowpass becomes a highpass"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "Why use a highpass sweep on Track A during a blend with Track B?"
+answers  = [
+  "To raise the volume of A",
+  "To clean muddy low-mids from A so they don't clash with B's bass",
+  "To change the key of A"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the risk of using the filter on every single transition?"
+answers  = [
+  "Technical damage to the mixer",
+  "The crowd habituates and stops reacting — the effect loses its power",
+  "The filter wears out"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "Which subdivision style is typical of a house lowpass sweep?"
+answers  = [
+  "Sudden cut on beat 1",
+  "Slow sweep over 8–16 bars opening on the drop",
+  "Rapid random Q modulation"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJM filters — SoundOnSound technique guide"
+url   = "https://www.soundonsound.com/techniques/filters-explained"
+
+[[en.sources]]
+label = "Resonance and self-oscillation — Audio EQ Cookbook (R. Bristow-Johnson)"
+url   = "https://www.w3.org/TR/audio-eq-cookbook/"
+
+[[en.sources]]
+label = "Allen & Heath Xone:92 filter specs"
+url   = "https://www.allen-heath.com/hardware/xone/xone92/"
+
+[fr]
+title      = "Le Filtre : Cutoff, Résonance & Gestes de Genre"
+short_desc = "Pente, Q, self-oscillation, et la béquille de Carl Cox."
+description = "Tu sais ce que fait un filtre. Apprends maintenant les paramètres qui sculptent son son — et les signatures de genre qui font qu'un même sweep sonne techno, pas house."
+recap = [
+  "La pente (12 ou 24 dB/oct) contrôle la dureté du 'mur' de coupure : 12 dB = musical, 24 dB = techno agressif.",
+  "La résonance (Q) booste une bande étroite au cutoff — un peu c'est beau, trop et le filtre se met à auto-oscilller.",
+  "Self-oscillation : le filtre se met à sonner comme une sinusoïde sans source — à éviter en live sauf si intentionnel.",
+  "Le passe-haut sur un break nettoie les bas-mids boueux avant de ramener le deck B.",
+  "Carl Cox : 'Le filtre c'est la béquille des DJs qui savent pas mixer.' Il l'utilise quand même — l'art c'est la retenue.",
+]
+
+[[fr.pages]]
+title   = "La pente : 12 vs 24 dB par octave"
+content = """
+Un filtre n'a pas une coupure parfaitement verticale — c'est une pente. Sa raideur se mesure en **dB par octave**.
+
+- **12 dB/oct** : descente douce. Le son s'atténue graduellement au-delà de la coupure. C'est la valeur par défaut sur la plupart des DJM — ça sonne musical et convient à la house, la disco, la soul.
+- **24 dB/oct** : mur abrupt. Les fréquences juste après la coupure sont pratiquement éteintes. Ça sonne agressif, chirurgical — la signature de la techno et de l'industriel.
+
+Tu entends la différence clairement sur un hi-hat : 12 dB/oct laisse un scintillement fantôme au-delà du cutoff ; 24 dB/oct le tue net.
+
+Le filtre du Pioneer DJM-900 est à 12 dB/oct. L'Allen & Heath Xone:92 aussi par défaut, avec un mode plus raide disponible.
+"""
+
+[[fr.pages]]
+title   = "La résonance (Q) : beauté et danger"
+content = """
+Tout filtre DJ a un réglage de **résonance** (aussi appelé Q). C'est un boost étroit juste à la fréquence de coupure.
+
+**Q faible (0,2–0,5) :** le filtre se fond en douceur, presque pas de coloration au point de coupure. Subtil.
+
+**Q moyen (0,5–2) :** un pic léger au cutoff. Le sweep sonne 'wah', vocal, expressif. C'est le sweet spot pour le DJ.
+
+**Q élevé (2–5+) :** le pic devient agressif et nasal. Très utile pour un effet dramatique sur un moment précis.
+
+**Au-delà du seuil de self-oscillation :** le filtre commence à générer lui-même une onde sinusoïdale **à la fréquence de coupure**, sans signal d'entrée. La boucle de feedback à l'intérieur du filtre gagne de l'énergie au lieu d'en perdre. Sur du matériel analogique ça sonne sauvage et musical ; sur des émulations numériques ça peut clipper brutalement.
+
+Règle pratique : sur un DJM, laisse la résonance en dessous de 14h. Si tu entends un son qui sonne comme un sifflet, recule.
+"""
+image = "lesson-images/filter_resonance_diagram.png"
+image_caption = "Q faible vs Q élevé : le pic au cutoff grandit jusqu'à l'auto-oscillation."
+
+[[fr.pages]]
+title   = "Le sweep passe-haut sur un break"
+content = """
+Un des gestes de filtre les plus utiles se passe pendant un **break** (la section sans drops, juste la structure) :
+
+1. La track A joue, tu vas mixer la track B.
+2. Engage un **filtre passe-haut sur la track A** et monte lentement le cutoff — tu nettoies les bas-mids boueux (100–400 Hz) qui clasheraient avec les basses de B.
+3. Amène B pendant que le passe-haut de A est au plus haut.
+4. Relâche le filtre de A — ça sonne comme si A venait de s'ouvrir au moment où B arrive.
+
+C'est la version pro de la technique de coupe EQ : au lieu de rouler le knob de graves, tu utilises le sweep comme un geste narratif.
+
+La clé : commence le passe-haut tôt (4–8 mesures avant le mélange), sweep lentement, ne pousse pas jusqu'à ce que A perde toute sa matière.
+"""
+
+[[fr.pages]]
+title   = "Carl Cox et le problème de la béquille"
+content = """
+Carl Cox a dit un jour dans une interview : *"Le filtre c'est la béquille des DJs qui savent pas mixer."*
+
+Il a raison. Et il l'utilise quand même — parce que le filtre est un outil légitime et puissant. Le problème n'est pas l'outil ; c'est la dépendance.
+
+Les DJs intermédiaires tombent dans un schéma : chaque transition commence par un sweep de filtre. C'est safe, ça remplit le temps, ça sonne dramatique. Mais quand **chaque** transition est un filtre, le public s'habitue. Le geste arrête de fonctionner.
+
+Signatures de genre à intérioriser :
+- **House** : sweep passe-bas lent sur 8–16 mesures, s'ouvre sur le 1 du drop.
+- **Techno** : coupe passe-haut soudaine pour tout retirer sauf le kick, puis ouverture violente.
+- **Afro house / melodic tech** : passe-bas prononcé sur une acapella ou un lead, avec la résonance poussée pour un effet formantique vocal.
+
+L'art c'est de choisir **quand** filtrer, pas juste **comment**.
+"""
+
+[[fr.quiz]]
+question = "Quelle est la différence pratique entre une pente de 12 dB/oct et 24 dB/oct ?"
+answers  = [
+  "12 dB/oct est plus fort",
+  "12 dB/oct sonne doux et musical ; 24 dB/oct est plus raide et agressif",
+  "24 dB/oct n'affecte que les basses"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que se passe-t-il quand la résonance (Q) dépasse le seuil d'auto-oscillation ?"
+answers  = [
+  "Le filtre génère lui-même une sinusoïde à la fréquence de coupure, sans source",
+  "Le BPM double",
+  "Le passe-bas devient un passe-haut"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Pourquoi utiliser un sweep passe-haut sur la track A pendant un mixage avec la track B ?"
+answers  = [
+  "Pour monter le volume de A",
+  "Pour nettoyer les bas-mids boueux de A afin qu'ils ne classhent pas avec les basses de B",
+  "Pour changer la tonalité de A"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel est le risque d'utiliser le filtre sur chaque transition ?"
+answers  = [
+  "Dommages matériels à la table",
+  "Le public s'habitue et arrête de réagir — l'effet perd sa force",
+  "Le filtre s'use"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel style de subdivision caractérise un sweep passe-bas en house ?"
+answers  = [
+  "Coupe soudaine sur le beat 1",
+  "Sweep lent sur 8–16 mesures qui s'ouvre sur le drop",
+  "Modulation rapide aléatoire du Q"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Filtres Pioneer DJM — guide SoundOnSound"
+url   = "https://www.soundonsound.com/techniques/filters-explained"
+
+[[fr.sources]]
+label = "Résonance et auto-oscillation — Audio EQ Cookbook (R. Bristow-Johnson)"
+url   = "https://www.w3.org/TR/audio-eq-cookbook/"
+
+[[fr.sources]]
+label = "Spécifications filtre Allen & Heath Xone:92"
+url   = "https://www.allen-heath.com/hardware/xone/xone92/"

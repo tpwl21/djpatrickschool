@@ -1,0 +1,44 @@
+id = "beatmatching"
+order = 1
+color = "#5DADE2"
+image = "beatmatching_patrick.png"
+forthcoming = false
+kind = "beatmatching"
+
+[en]
+title      = "BEATMATCHING"
+short_desc = "The fine art of locking in perfect tempos, fam."
+long_desc  = "Master the foundation of every DJ set: matching the tempo and phase of two tracks so they sound like one. Start with rock-solid kicks, graduate to full tracks, and finish mixing blind at the Purist level — ears and pitch fader only."
+objectives = [
+  "Understand pitch vs. phase and how to fix both",
+  "Cue, nudge, and ride the pitch fader like a pro",
+  "Feel musical phrasing (8-beat loops, 32-beat phrases)"
+]
+
+[fr]
+title      = "BEATMATCHING"
+short_desc = "L'art d'aligner les tempos parfaits."
+long_desc  = "Apprends la base de tout set DJ : aligner le tempo et la phase de deux morceaux pour qu'ils sonnent comme un seul. Du kick solide au mix à l'aveugle, chaque niveau pousse un peu plus la précision."
+objectives = [
+  "Comprendre pitch et phase, et savoir corriger les deux",
+  "Utiliser Cue, nudge et pitch comme un pro",
+  "Ressentir le phrasé musical (boucles 8, phrases 32)"
+]
+
+[validation_defaults.easy]
+pitch_tolerance_bpm = 0.2
+tolerance_sec       = 0.040
+win_duration_sec    = 3.0
+nudge_amount        = 0.010
+
+[validation_defaults.medium]
+pitch_tolerance_bpm = 0.2
+tolerance_sec       = 0.020
+win_duration_sec    = 4.0
+nudge_amount        = 0.005
+
+[validation_defaults.pro]
+pitch_tolerance_bpm = 0.1
+tolerance_sec       = 0.015
+win_duration_sec    = 5.0
+nudge_amount        = 0.001

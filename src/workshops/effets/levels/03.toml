@@ -1,0 +1,108 @@
+id = "EFFETS_LEVEL_3"
+order = 3
+
+[en]
+title       = "Loop Rolls & Combo"
+short_desc  = "Stutter A's outro with loop rolls, combo into B with filter."
+description = "The modern DJ signature sound. Hold a loop roll on the last bar of A, release into B with a filter sweep."
+details     = "Focus: glitch with intention, not random."
+success     = "Glitch-god! That was surgical."
+coach_tips  = [
+  "Phrase 4: HOLD a 1/8 loop roll on Deck A. The last bar turns into a stutter.",
+  "Phrase 5: Release the pad. Filter A closes (lowpass). B drops in.",
+  "Phrase 6: A gone. B's filter opens up wide. You live on the other side."
+]
+recap = [
+  "Loop rolls stutter the end of a track on purpose — glitch with intention.",
+  "Combine effects: loop roll + filter sweep = modern signature transition.",
+  "Release the pad exactly on the phrase — a late release drags the stutter past its welcome.",
+  "Open B's filter WIDE after the drop for maximum contrast with the filtered outro."
+]
+
+[fr]
+title       = "Loop Rolls & Combo"
+short_desc  = "Stutter l'outro de A aux loop rolls, combo vers B au filtre."
+description = "Le son signature du DJ moderne. Tiens un loop roll sur la dernière mesure de A, relâche vers B avec un sweep de filtre."
+details     = "Focus : glitch intentionnel, pas aléatoire."
+success     = "Glitch-god ! Chirurgical."
+coach_tips  = [
+  "Phrase 4 : MAINTIENS un loop roll 1/8 sur le Deck A. La dernière mesure devient stutter.",
+  "Phrase 5 : relâche le pad. Filter A ferme (passe-bas). B rentre.",
+  "Phrase 6 : A disparaît. Filter B grand ouvert. Tu vis de l'autre côté."
+]
+recap = [
+  "Les loop rolls stuttrent la fin d'un morceau volontairement — glitch avec intention.",
+  "Combine les effets : loop roll + sweep de filtre = transition signature moderne.",
+  "Relâche le pad pile sur la phrase — un relâche tardif fait traîner le stutter.",
+  "Ouvre grand le filtre de B après le drop pour maximiser le contraste avec l'outro filtrée."
+]
+
+[track.A]
+url = "AUDIO/SuperMarket.mp3"
+bpm = 130
+title = "Sortant"
+key = "11A"
+complexity = 4
+
+[track.B]
+url = "AUDIO/Ensaios.mp3"
+bpm = 130
+title = "Entrant"
+key = "1A"
+complexity = 4
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[[checks]]
+phrase = 4
+progress = 0.75
+control = "loopRollA_active"
+value = 1
+tolerance = 0.4
+
+[[checks]]
+phrase = 5
+control = "loopRollA_active"
+value = 0
+tolerance = 0.4
+
+[[checks]]
+phrase = 5
+control = "filterA"
+value = -0.6
+tolerance = 0.3
+
+[[checks]]
+phrase = 5
+control = "volB_eff"
+value = 0.8
+tolerance = 0.2
+
+[[checks]]
+phrase = 6
+control = "volA_eff"
+value = 0
+tolerance = 0.2
+
+[[checks]]
+phrase = 6
+control = "filterB"
+value = 0
+tolerance = 0.2
+
+[[markers.A]]
+beat = 148
+label = "HOLD LOOP ROLL A (1/8)"
+color = "#f39c12"
+
+[[markers.A]]
+beat = 161
+label = "RELEASE / FILTER A"
+color = "#27AE60"

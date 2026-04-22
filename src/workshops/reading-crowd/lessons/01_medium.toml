@@ -1,0 +1,236 @@
+id = "LESSON_RTC_1_MEDIUM"
+order = 1
+
+[en]
+title      = "The Energy Curve — Medium"
+short_desc = "BPM trajectory, genre-specific arcs, and how professional DJs plan the shape before touching the decks."
+description = "The five-zone arc revisited through a pro lens: warm-up/peak-time/closing vocabulary, BPM curves, energy-arc planning, and the genre-specific variations every serious DJ must know."
+recap = [
+  "Warm-up, peak-time, and closing are **job titles**, not just labels — each has a different mandate and skill set.",
+  "The **BPM curve** is not linear: most rise happens in the final 30% of the slot, not evenly distributed.",
+  "A techno set and a house set have different **arc shapes** — know the genre conventions before you draw your curve.",
+  "**Plan the peak clock time** before you enter the booth — it's a decision, not a reaction.",
+  "The energy arc is a feedback loop: the crowd's response shapes the curve in real time.",
+]
+
+[[en.pages]]
+title   = "Warm-up, peak-time, closing: three different jobs"
+content = """
+The five zones of a set map onto three distinct **professional roles**. Understanding which role you're in changes every decision you make.
+
+**Warm-up (warmup + early build)**
+Your mandate: build social weight from an empty or thinly populated room. Tracks are chosen for groove and patience, not impact. Metric of success: room density delta. Nobody will remember your tracks — and that's correct.
+
+**Peak-time (late build + peak + early afterpeak)**
+Your mandate: deliver the emotional payload the warm-up earned. Tracks chosen for maximum energy and dancefloor momentum. You are spending the social capital the opener built.
+
+**Closing (afterpeak + closing)**
+Your mandate: produce a single memorable ending moment. Tracks chosen for emotional resolution, not escalation. The closer is the track people talk about next day — not the loudest, the most *right*.
+
+Most DJs default to peak-time logic regardless of slot. The skill is reading which role your slot requires and executing that role's specific mandate — not your personal preference.
+"""
+
+[[en.pages]]
+title   = "The BPM curve: asymmetric by design"
+content = """
+A common misconception: if your set goes from 120 to 132 BPM over 2 hours, you rise 1 BPM every 10 minutes. That's linear — and it's wrong.
+
+The professional BPM curve is **asymmetric**:
+- First 40% of the slot: BPM rises slowly (1–2 BPM per 15 minutes). The energy of the groove does the lifting, not the tempo.
+- Middle 30%: BPM accelerates (2–3 BPM per 10 minutes). The crowd is already engaged — tempo becomes the amplifier.
+- Last 30% (peak + early afterpeak): BPM reaches ceiling, then descends deliberately for the closing.
+
+Why asymmetric? Because BPM perception is **relative to what came before**. A jump from 118 to 122 after 40 minutes of 116–120 feels enormous. The same jump from 128 to 132 in an already-loud room barely registers.
+
+Practical application: plan your BPM targets at the 25%, 50%, 75%, and 100% mark of your slot. Don't leave the BPM trajectory to intuition.
+"""
+
+[[en.pages]]
+title   = "Genre-specific arc shapes"
+content = """
+The five-zone arc is universal — but its **proportions** are genre-specific. Playing the wrong proportions in a genre signals inexperience immediately.
+
+| Genre | Warm-up % | Build % | Peak % | Afterpeak % | Closing % |
+|---|---|---|---|---|---|
+| Techno (Berlin) | 35–40% | 25% | 20% | 10–15% | 5% |
+| House (Chicago/Deep) | 25% | 20% | 30% | 15% | 10% |
+| Drum & Bass | 15% | 20% | 40% | 20% | 5% |
+| Afro-house / Afrobeats | 30% | 25% | 25% | 15% | 5% |
+| Ambient/Leftfield | 40% | 30% | 15% | 10% | 5% |
+
+Techno sets **spend more time in the build** than any other genre — the slow escalation IS the experience. A house set front-loads a shorter warm-up and spends more time at peak. D&B is the opposite: fast escalation, long peak, fast exit.
+
+If you're warming up for a techno headliner and you escalate at house proportions, you hand the headliner an over-excited room they can't work with. Genre arc literacy is part of the job.
+"""
+
+[[en.pages]]
+title   = "The energy arc as a feedback loop"
+content = """
+Planning your arc in advance is necessary — but executing it requires real-time adjustment. The arc is a **feedback loop**, not a fixed script.
+
+The loop:
+1. **Observe** — crowd density, hand position, movement synchrony, back-row activity.
+2. **Diagnose** — are you ahead of or behind your planned arc position?
+3. **Adjust** — accelerate the build if crowd is warmer than expected; hold the slope if they're ahead.
+4. **Re-observe** — 4 bars, then confirm.
+
+Two common failure modes:
+- **Ignoring the feedback**: you stick to your planned arc while the crowd is clearly ready for peak 15 minutes early. You lose them to boredom.
+- **Over-responding to the feedback**: every bad signal triggers a track change. The arc never develops; the set feels chaotic.
+
+The professional balance: your arc is a **baseline**, not a rule. Small deviations are expected. Large deviations are decisions. Know which is which.
+"""
+
+[[en.quiz]]
+question = "In an asymmetric BPM curve, most of the BPM rise happens..."
+answers  = ["Evenly distributed across the set", "In the first 40% of the slot", "In the last 30% of the slot — after the crowd is already engaged"]
+correct  = 2
+
+[[en.quiz]]
+question = "A techno set (Berlin style) differs from a house set in its arc proportions because..."
+answers  = ["Techno peaks much faster", "Techno spends significantly more time in the build register", "Techno has no closing section"]
+correct  = 1
+
+[[en.quiz]]
+question = "The 'energy arc as feedback loop' means..."
+answers  = ["You respond to every bad signal by changing track", "The arc is a baseline adjusted in real time — not ignored and not micro-managed", "The crowd controls the set entirely"]
+correct  = 1
+
+[[en.quiz]]
+question = "The warm-up role's metric of success is..."
+answers  = ["Crowd applause", "Technical mix quality", "Room density delta — did more people arrive than left?"]
+correct  = 2
+
+[[en.quiz]]
+question = "Why is a linear BPM progression (1 BPM per 10 minutes) a misconception?"
+answers  = ["It's too fast at the start", "BPM perception is relative — a jump from 118 to 122 hits harder than 128 to 132 in the same room", "It doesn't work in techno specifically"]
+correct  = 1
+
+[[en.sources]]
+label = "Chmiel & Schubert — Back to the inverted-U for music preference"
+url   = "https://journals.sagepub.com/doi/full/10.1177/0305735617697507"
+
+[[en.sources]]
+label = "The Esoteric Art of the Opening DJ — Resident Advisor"
+url   = "https://ra.co/features/1095"
+
+[[en.sources]]
+label = "Daniele Baldelli — Red Bull Music Academy lecture"
+url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"
+
+[fr]
+title      = "La courbe d'énergie — Medium"
+short_desc = "Trajectoire BPM, arcs genre-spécifiques, et comment les DJs pro planifient la forme avant de toucher les platines."
+description = "L'arc en cinq zones revisité par une lentille pro : vocabulaire warm-up/peak-time/closing, courbes de BPM, planification de l'arc d'énergie, et les variations genre-spécifiques que tout DJ sérieux doit connaître."
+recap = [
+  "Warm-up, peak-time et closing sont des **intitulés de poste**, pas juste des étiquettes — chacun a un mandat et des compétences différents.",
+  "La **courbe de BPM** n'est pas linéaire : la majorité de la montée se passe dans les 30% finaux du slot, pas de façon homogène.",
+  "Un set techno et un set house ont des **formes d'arc** différentes — connais les conventions du genre avant de dessiner ta courbe.",
+  "**Planifie l'heure d'horloge du peak** avant d'entrer dans le booth — c'est une décision, pas une réaction.",
+  "L'arc d'énergie est une boucle de rétroaction : la réponse de la foule façonne la courbe en temps réel.",
+]
+
+[[fr.pages]]
+title   = "Warm-up, peak-time, closing : trois boulots différents"
+content = """
+Les cinq zones d'un set correspondent à trois **rôles professionnels** distincts. Comprendre dans quel rôle tu es change chaque décision que tu prends.
+
+**Warm-up (warmup + début de build)**
+Ton mandat : construire du poids social depuis une salle vide ou à moitié vide. Les tracks sont choisies pour le groove et la patience, pas l'impact. Métrique de succès : delta de densité de salle. Personne ne se souviendra de tes tracks — et c'est correct.
+
+**Peak-time (fin de build + peak + début d'afterpeak)**
+Ton mandat : délivrer la charge émotionnelle que le warmup a gagnée. Tracks choisies pour l'énergie maximale et le momentum de dancefloor. Tu dépenses le capital social que l'opener a construit.
+
+**Closing (afterpeak + closing)**
+Ton mandat : produire un seul moment de fin mémorable. Tracks choisies pour la résolution émotionnelle, pas l'escalade. La closer est la track dont les gens parlent le lendemain — pas la plus forte, la plus *juste*.
+
+La plupart des DJs fonctionnent avec la logique peak-time quel que soit le slot. La compétence, c'est de lire quel rôle ton slot demande et d'exécuter le mandat spécifique de ce rôle — pas ta préférence personnelle.
+"""
+
+[[fr.pages]]
+title   = "La courbe de BPM : asymétrique par design"
+content = """
+Un malentendu courant : si ton set passe de 120 à 132 BPM sur 2h, tu montes de 1 BPM toutes les 10 minutes. C'est linéaire — et c'est faux.
+
+La courbe de BPM professionnelle est **asymétrique** :
+- Premiers 40% du slot : le BPM monte lentement (1–2 BPM par 15 minutes). L'énergie du groove fait le travail, pas le tempo.
+- 30% du milieu : le BPM s'accélère (2–3 BPM par 10 minutes). La foule est déjà engagée — le tempo devient l'amplificateur.
+- 30% finaux (peak + début d'afterpeak) : le BPM atteint son plafond, puis descend délibérément pour le closing.
+
+Pourquoi asymétrique ? Parce que la perception du BPM est **relative à ce qui précède**. Un saut de 118 à 122 après 40 minutes de 116–120 est énorme. Le même saut de 128 à 132 dans une salle déjà saturée passe à peine.
+
+Application pratique : planifie tes cibles BPM aux marks de 25%, 50%, 75% et 100% de ton slot. Ne laisse pas la trajectoire BPM à l'intuition.
+"""
+
+[[fr.pages]]
+title   = "Les formes d'arc genre-spécifiques"
+content = """
+L'arc en cinq zones est universel — mais ses **proportions** sont genre-spécifiques. Jouer les mauvaises proportions pour un genre signale l'inexpérience immédiatement.
+
+| Genre | Warm-up % | Build % | Peak % | Afterpeak % | Closing % |
+|---|---|---|---|---|---|
+| Techno (Berlin) | 35–40% | 25% | 20% | 10–15% | 5% |
+| House (Chicago/Deep) | 25% | 20% | 30% | 15% | 10% |
+| Drum & Bass | 15% | 20% | 40% | 20% | 5% |
+| Afro-house / Afrobeats | 30% | 25% | 25% | 15% | 5% |
+| Ambient/Leftfield | 40% | 30% | 15% | 10% | 5% |
+
+Les sets techno **passent plus de temps dans le build** que tout autre genre — l'escalade lente EST l'expérience. Un set house raccourcit le warmup et passe plus de temps au peak. Le D&B fait l'inverse : escalade rapide, long peak, sortie rapide.
+
+Si tu chauffes pour une tête d'affiche techno et que tu escalades aux proportions house, tu passes la main à une salle sur-excitée qu'elle ne peut pas travailler. La littératie d'arc de genre fait partie du métier.
+"""
+
+[[fr.pages]]
+title   = "L'arc d'énergie comme boucle de rétroaction"
+content = """
+Planifier ton arc à l'avance est nécessaire — mais l'exécuter demande de l'ajustement en temps réel. L'arc est une **boucle de rétroaction**, pas un script figé.
+
+La boucle :
+1. **Observe** — densité de foule, position des mains, synchronie du mouvement, activité du fond.
+2. **Diagnostique** — es-tu en avance ou en retard sur ta position d'arc planifiée ?
+3. **Ajuste** — accélère le build si la foule est plus chaude que prévu ; tiens la pente si elle est déjà en avance.
+4. **Ré-observe** — 4 mesures, puis confirme.
+
+Deux modes d'échec courants :
+- **Ignorer le retour** : tu tiens ton arc planifié pendant que la foule est clairement prête pour le peak 15 minutes en avance. Tu les perds à l'ennui.
+- **Sur-réagir au retour** : chaque mauvais signal déclenche un changement de track. L'arc ne se développe jamais ; le set semble chaotique.
+
+L'équilibre professionnel : ton arc est une **baseline**, pas une règle. Les petits écarts sont attendus. Les grands écarts sont des décisions. Sache faire la différence.
+"""
+
+[[fr.quiz]]
+question = "Dans une courbe BPM asymétrique, la majorité de la montée BPM se passe..."
+answers  = ["Distribuée de façon homogène sur le set", "Dans les 40% initiaux du slot", "Dans les 30% finaux du slot — après que la foule est déjà engagée"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Un set techno (style Berlin) diffère d'un set house dans ses proportions d'arc parce que..."
+answers  = ["La techno peake beaucoup plus vite", "La techno passe significativement plus de temps dans le registre build", "La techno n'a pas de section closing"]
+correct  = 1
+
+[[fr.quiz]]
+question = "L'arc d'énergie comme boucle de rétroaction signifie..."
+answers  = ["Tu réagis à chaque mauvais signal en changeant de track", "L'arc est une baseline ajustée en temps réel — ni ignorée ni micro-managée", "La foule contrôle entièrement le set"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La métrique de succès du rôle warm-up c'est..."
+answers  = ["Les applaudissements de la foule", "La qualité technique des mix", "Le delta de densité de salle — est-ce que plus de gens sont arrivés que partis ?"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Pourquoi une progression BPM linéaire (1 BPM par 10 min) est-elle une idée fausse ?"
+answers  = ["C'est trop rapide au début", "La perception du BPM est relative — un saut de 118 à 122 tape plus fort que 128 à 132 dans la même salle", "Ça ne marche pas en techno spécifiquement"]
+correct  = 1
+
+[[fr.sources]]
+label = "Chmiel & Schubert — Back to the inverted-U for music preference"
+url   = "https://journals.sagepub.com/doi/full/10.1177/0305735617697507"
+
+[[fr.sources]]
+label = "The Esoteric Art of the Opening DJ — Resident Advisor"
+url   = "https://ra.co/features/1095"
+
+[[fr.sources]]
+label = "Daniele Baldelli — Red Bull Music Academy lecture"
+url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"

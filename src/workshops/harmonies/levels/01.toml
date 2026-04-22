@@ -1,0 +1,102 @@
+id = "HARMONIES_LEVEL_1"
+order = 1
+
+[en]
+title       = "Same-Key Pick"
+short_desc  = "Find a track in the same key as A. Read the KEY column."
+description = "Track A is in <b>Am</b>. Scan the playlist, load a track with the same key onto Deck B, and start playing it. Hold for 2 seconds to win."
+details     = "Only one track in the playlist shares A's key. Sort by KEY to find it faster."
+success     = "Same key locked in. Your mix will never clash."
+coach_tips  = [
+  "Click the KEY column header to sort alphabetically.",
+  "Load onto Deck B, then hit PLAY. No pitching required.",
+  "If the HUD says 'Clash', your pick is in the wrong key — try another one."
+]
+recap = [
+  "Same-key mixing is the safest harmonic move — zero clash risk.",
+  "Camelot notation: 8A = A minor. Look at the KEY column to pick fast.",
+  "Sorting the playlist by key is faster than scanning one by one.",
+  "A 'clash' HUD means your pick is in a different tonality — always double-check."
+]
+
+[fr]
+title       = "Choix même clé"
+short_desc  = "Trouve un morceau dans la même clé que A. Regarde la colonne Clé."
+description = "Track A est en <b>Am</b>. Scanne la playlist, charge sur le Deck B un morceau avec la même clé, puis lance-le. Tiens 2 s pour gagner."
+details     = "Un seul morceau de la playlist partage la clé de A. Trie par Clé pour le trouver plus vite."
+success     = "Même clé, pas de clash. Ton mix sonne net."
+coach_tips  = [
+  "Clique l'en-tête Clé pour trier.",
+  "Charge sur Deck B puis appuie sur PLAY. Pas besoin de pitcher.",
+  "Si le HUD affiche 'Clash', ta clé est fausse — essaie un autre track."
+]
+recap = [
+  "Mixer dans la même clé est le move harmonique le plus safe — zéro risque de clash.",
+  "Notation Camelot : 8A = La mineur. Regarde la colonne Clé pour choisir vite.",
+  "Trier la playlist par clé va plus vite que scanner morceau par morceau.",
+  "Le HUD 'Clash' signifie que ta clé est différente — vérifie toujours."
+]
+
+[track.A]
+url = "AUDIO/Tech.mp3"
+bpm = 127
+title = "Tech"
+key = "8A"
+complexity = 4
+
+[ui]
+mode = "same_key"
+key_format = "musical"
+show_wheel = false
+show_pitch = false
+show_master_tempo = false
+hold_match_sec = 2.0
+
+[[pool]]
+url = "AUDIO/Ensaios.mp3"
+title = "Ensaios"
+bpm = 125
+key = "8A"
+genre = "house"
+
+[[pool]]
+url = "AUDIO/SuperMarket.mp3"
+title = "Market"
+bpm = 128
+key = "3B"
+genre = "techno"
+
+[[pool]]
+url = "AUDIO/SCIFI.mp3"
+title = "SciFi"
+bpm = 126
+key = "11B"
+genre = "electro"
+
+[[pool]]
+url = "AUDIO/Fulgulandio.mp3"
+title = "Fulgulandio"
+bpm = 124
+key = "2A"
+genre = "techno"
+
+[[pool]]
+url = "AUDIO/Doucheur_Downtempo.mp3"
+title = "Doucheur"
+bpm = 128
+key = "10B"
+genre = "downtempo"
+
+[[pool]]
+url = "AUDIO/Sourire.mp3"
+title = "Sourire"
+bpm = 126
+key = "9B"
+genre = "deep house"
+
+[[pool]]
+url = "AUDIO/Funkasteroid.mp3"
+title = "Funkasteroid"
+bpm = 127
+key = "5A"
+genre = "funk"

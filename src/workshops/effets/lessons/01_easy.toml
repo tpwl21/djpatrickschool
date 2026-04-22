@@ -1,0 +1,162 @@
+id = "LESSON_FX_1_EASY"
+order = 1
+
+[en]
+title      = "The Filter: What Your Ears Hear"
+short_desc = "One knob, two directions. Learn what changes when you turn it."
+description = "Imagine a window blind on the sound. Pull it down: the bright sunshine (highs) disappears first, leaving only the warmth of the low light (bass). That's a lowpass filter."
+recap = [
+  "A filter is like a blind: lower it and the highs disappear, leaving only the bass.",
+  "Turn the knob left = lowpass (bass stays), turn right = highpass (bass disappears).",
+  "The kick anchors the crowd even when everything else is filtered out.",
+  "Slowly opening the filter after a long sweep feels like a drop — without changing the BPM.",
+  "Overuse is the enemy: reserve the filter for one big move per transition.",
+]
+
+[[en.pages]]
+title   = "The window blind analogy"
+content = """
+Picture the full sound of a track as sunlight pouring through a window. A **lowpass filter** is a blind you slowly pull down:
+
+- First the **treble** disappears (hi-hats, cymbals, the sparkle).
+- Then the **mids** fade (snare, bass guitar, vocals).
+- Eventually all that's left is the **bass and kick** — the heartbeat.
+
+A **highpass filter** is the reverse: lift the blind from the bottom and you cut the bass and kick first.
+
+The single knob on your DJ mixer does both: **left = lowpass, right = highpass, center = full sound**.
+"""
+image = "lesson-images/filter_blind_analogy.png"
+image_caption = "Lowpass: pulling the blind down removes highs first."
+
+[[en.pages]]
+title   = "What you actually hear"
+content = """
+Try this in your head: you're on the dancefloor. The DJ slowly closes a lowpass filter on the track.
+
+1. The hi-hats get quieter and softer.
+2. The snare becomes a dull thud.
+3. Only the kick and deep bass are left — the floor is vibrating, nothing else.
+
+Then the DJ opens the filter quickly. The full track floods back in. The crowd feels it like a drop — even though the DJ didn't add any new music.
+
+**That contrast is free. That's the power of the filter.**
+"""
+youtube = "https://www.youtube.com/watch?v=4a9aB-rFbZ8"
+youtube_start = 30
+youtube_caption = "Watch a DJ perform a classic lowpass filter sweep — notice when the crowd reacts."
+
+[[en.pages]]
+title   = "One rule to start"
+content = """
+The filter is the most powerful single-knob move in DJing — which also means it's the easiest to overuse.
+
+**Rule for beginners:** use the filter on **one transition per set**, maximum. Make it the moment you've been building toward.
+
+When the DJ next to you uses it on every song, the crowd stops reacting. When you save it for the peak moment, it hits like a fist.
+
+A good way to practice: listen to a track at home, pick the moment where you'd open the filter, and commit to it.
+"""
+
+[[en.quiz]]
+question = "Lowpass filter: what disappears first when you close it?"
+answers  = ["The bass and kick", "The hi-hats and cymbals", "The BPM"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why does opening a filter suddenly feel like a drop?"
+answers  = ["The BPM changes", "New sounds are added", "The full spectrum floods back after being drained"]
+correct  = 2
+
+[[en.quiz]]
+question = "What's the risk of using the filter on every transition?"
+answers  = ["It damages the speakers", "The crowd stops reacting — the effect loses its power", "The BPM becomes unstable"]
+correct  = 1
+
+[[en.sources]]
+label = "How DJ filters work — SoundOnSound"
+url   = "https://www.soundonsound.com/techniques/filters-explained"
+
+[[en.sources]]
+label = "Pioneer DJM filter demo"
+url   = "https://www.pioneerdj.com/en/learning/tutorials/"
+
+[fr]
+title      = "Le Filtre : Ce Que Tu Entends"
+short_desc = "Un seul knob, deux directions. Écoute ce qui change quand tu tournes."
+description = "Imagine un volet devant le son. Baisse-le : le soleil brillant (les aigus) disparaît en premier, ne laissant que la chaleur des basses lumières. C'est un filtre passe-bas."
+recap = [
+  "Le filtre c'est un volet : ferme-le et les aigus disparaissent, il reste les basses.",
+  "Knob à gauche = passe-bas (les basses restent), à droite = passe-haut (les basses disparaissent).",
+  "Le kick ancre la piste même quand tout le reste est filtré.",
+  "Ouvrir doucement un filtre après un long sweep fait l'effet d'un drop — sans changer le BPM.",
+  "La surutilisation tue l'effet : réserve le filtre pour un grand geste par transition.",
+]
+
+[[fr.pages]]
+title   = "L'analogie du volet"
+content = """
+Imagine le son complet d'une track comme le soleil qui entre par une fenêtre. Un **filtre passe-bas**, c'est un volet que tu descends lentement :
+
+- D'abord les **aigus** disparaissent (hi-hats, cymbales, le brillant).
+- Puis les **mids** s'effacent (caisse claire, basse, voix).
+- Il reste finalement que les **basses et le kick** — le battement de cœur.
+
+Un **filtre passe-haut** est l'inverse : tu lèves le volet par le bas et tu coupes d'abord les graves et le kick.
+
+Le seul knob sur ta table DJ fait les deux : **gauche = passe-bas, droite = passe-haut, centre = son complet**.
+"""
+image = "lesson-images/filter_blind_analogy.png"
+image_caption = "Passe-bas : baisser le volet retire d'abord les aigus."
+
+[[fr.pages]]
+title   = "Ce que tu entends vraiment"
+content = """
+Essaie dans ta tête : tu es sur la dancefloor. Le DJ ferme lentement un filtre passe-bas sur la track.
+
+1. Les hi-hats deviennent plus silencieux et plus doux.
+2. La caisse claire devient un coup sourd.
+3. Il reste seulement le kick et les basses profondes — le sol vibre, rien d'autre.
+
+Puis le DJ ouvre le filtre d'un coup. Le son complet revient. Le public ressent un drop — même si le DJ n'a rien ajouté de nouveau.
+
+**Ce contraste est gratuit. Voilà le pouvoir du filtre.**
+"""
+youtube = "https://www.youtube.com/watch?v=4a9aB-rFbZ8"
+youtube_start = 30
+youtube_caption = "Un DJ fait un sweep passe-bas classique — remarque quand le public réagit."
+
+[[fr.pages]]
+title   = "Une règle pour commencer"
+content = """
+Le filtre est le geste à un seul knob le plus puissant du DJing — ce qui veut dire que c'est aussi le plus facile à abuser.
+
+**Règle pour les débutants :** utilise le filtre sur **une transition par set**, maximum. Fais-en le moment que tu construis depuis le début.
+
+Quand le DJ à côté l'utilise sur chaque morceau, le public arrête de réagir. Quand tu le gardes pour le moment clé, ça frappe comme un poing.
+
+Un bon exercice : écoute une track chez toi, choisis l'instant où tu ouvrirais le filtre, et engage-toi.
+"""
+
+[[fr.quiz]]
+question = "Filtre passe-bas : qu'est-ce qui disparaît en premier quand tu le fermes ?"
+answers  = ["Les basses et le kick", "Les hi-hats et les cymbales", "Le BPM"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi ouvrir un filtre d'un coup donne l'effet d'un drop ?"
+answers  = ["Le BPM change", "Des sons nouveaux s'ajoutent", "Le spectre complet revient après avoir été vidé"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Quel est le risque d'utiliser le filtre à chaque transition ?"
+answers  = ["Ça abîme les enceintes", "Le public arrête de réagir — l'effet perd sa force", "Le BPM devient instable"]
+correct  = 1
+
+[[fr.sources]]
+label = "Comprendre les filtres audio — SoundOnSound"
+url   = "https://www.soundonsound.com/techniques/filters-explained"
+
+[[fr.sources]]
+label = "Demo filtre Pioneer DJM"
+url   = "https://www.pioneerdj.com/en/learning/tutorials/"

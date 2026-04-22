@@ -1,0 +1,240 @@
+id = "LESSON_DIGGING_3_MEDIUM"
+order = 3
+
+[en]
+title      = "Reading a BPM Range — Filtering, Key Lock & Tempo Strategy"
+short_desc = "The ±6% rule in depth, key lock trade-offs, and how to structure tempo neighborhoods for a set."
+
+[[en.pages]]
+title   = "Why ±6% is the magic number"
+content = """
+Most DJ software pitches tracks via **playback rate change** — speed up the buffer 6% and BPM goes up 6%, but pitch (musical key) also goes up by approximately 1 semitone.
+
+At around ±6–7% the ear starts hearing it:
+- Kicks sound thinner or muddy
+- Voices sound helium-y or sluggish
+
+Below ±3% almost nobody hears it. Between 3% and 6% is the mixing sweet spot.
+
+**Concrete examples:**
+
+| Track A | Track B | Difference | Verdict |
+|---|---|---|---|
+| 127 BPM | 130 BPM | 2.3% | Transparent — mix safely |
+| 124 BPM | 130 BPM | 4.6% | Audible on melodic material, fine on drums |
+| 125 BPM | 135 BPM | 7.4% | Audible — use key lock or avoid |
+| 120 BPM | 130 BPM | 8.0% | Too far without key lock |
+
+The exact math — why ±6% ≈ one semitone, and the log₂ relationship between playback rate and perceived pitch — lives in **LESSON_HARMONIES_2 (Pitch, Key & Master Tempo)**. For this lesson: ±3% invisible, ±6% audible edge, ±10% surgery.
+"""
+
+[[en.pages]]
+title   = "Key lock and its trade-offs"
+content = """
+**Key lock** (also called 'master tempo') is a DSP feature that decouples pitch from playback rate — you speed up without changing the key. Sounds great. But:
+
+- It introduces artifacts above a few percent: metallic 'phasing' on sustained notes, smearing on transients
+- For electronic music up to ±3%, key lock is transparent
+- Past that, many DJs turn it OFF and accept the pitch shift — a clean sound matters more than a half-semitone drift
+
+**Rule of thumb:**
+- ±2% or less: key lock is a free win
+- ±3–6%: listen — it might still be clean on percussive tracks
+- Past ±6%: key lock is mandatory if you proceed, but expect artifacts
+
+**Double-time / half-time** is the workaround for tempo gaps that key lock can't fix.
+
+A 140 BPM DnB track and a 70 BPM hip-hop track share the same pulse: the DnB kick lands on every beat, the hip-hop kick on every other. Mixed with EQ and crossfader, you can transition across the gap. Classic bridges:
+- 140 DnB ↔ 70 trap
+- 130 techno ↔ 65 dub
+- 174 DnB ↔ 87 broken-beat / UKG
+"""
+
+[[en.pages]]
+title   = "Using BPM ranges when digging — three-neighborhood strategy"
+content = """
+When building a set around 128 BPM, filter for **120–134** (±5% gives room). Inside that range, you can pitch anything to 128 without audible issue.
+
+But the further a track is from your target, the more pitch-shift it needs — and some tracks tolerate it better than others:
+- **Loop-heavy techno:** pitches cleanly up to ±6%
+- **Melodic tracks with long vocal notes:** reveals shift at ±3%
+
+**Three-neighborhood architecture:**
+
+| Neighborhood | BPM Range | Role |
+|---|---|---|
+| Warmup | 120–125 | Build the energy slowly |
+| Main | 126–130 | Core of the set |
+| Peak | 130–134 | Maximum density and intensity |
+
+Each is a separate Rekordbox folder. You jump between neighborhoods only at **phrase boundaries** (32- or 64-beat lines).
+
+**On Beatport / Bandcamp:** use the BPM slider as a range (e.g. 120–134 for a 128 target). On Rekordbox, sort by BPM and visually bracket the three zones.
+"""
+
+[[en.pages]]
+title   = "BPM hubs — where genres cross"
+content = """
+Certain BPM values are **genre intersection points** — tracks from multiple families share the same tempo:
+
+**140 BPM:** techno, grime, dubstep, trap, and DnB-adjacent all intersect here. A digger treats 140 as a hub: tracks from any of these genres live in the same BPM cell and can be cross-programmed. The kick placement and bass tone determine which genre the track *reads as*, not the BPM alone.
+
+**130 BPM:** techno / deep house / downtempo-doubled (65 BPM half-time).
+
+**174 BPM:** DnB / jungle, with 87 BPM broken-beat as the half-time companion.
+
+**When you filter your library, don't think 'one number, one genre'** — think 'this BPM, which half-time or double-time families live here?'
+
+Genre-crossing transitions at hubs require a minimum 64-beat overlap — the crowd needs time to re-read the tempo before the genre shift fully registers.
+"""
+
+[[en.quiz]]
+question = "A track at 125 BPM and your target 130 BPM — what's the pitch shift percentage?"
+answers  = ["2.3%", "3.8%", "7.4%", "10%"]
+correct  = 1
+
+[[en.quiz]]
+question = "When is key lock a clear win without compromise?"
+answers  = ["Always", "At ±2% or less — transparent on virtually all material", "Only on vocal tracks", "Never — it always introduces artifacts"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does the 'three-neighborhood' BPM strategy achieve?"
+answers  = ["It forces all tracks to the same BPM", "It organises the crate into warmup / main / peak ranges with clear folder structure", "It prevents key lock from activating", "It automatically detects phrase boundaries"]
+correct  = 1
+
+[[en.quiz]]
+question = "A 174 BPM DnB track can bridge to which BPM via half-time?"
+answers  = ["140 BPM — same genre zone", "87 BPM — half-time shared pulse", "128 BPM — standard house", "130 BPM — standard techno"]
+correct  = 1
+
+[[en.sources]]
+label = "MixedInKey — BPM and harmonic mixing guide"
+url   = "https://mixedinkey.com/harmonic-mixing-guide/"
+
+[[en.sources]]
+label = "Ableton — Warping, key lock and master tempo explained"
+url   = "https://www.ableton.com/en/manual/audio-clips-tempo-and-warping/"
+
+[[en.sources]]
+label = "Rekordbox — BPM analysis and playlist organisation"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[fr]
+title      = "Lire un BPM Range — Filtrage, Key Lock & Stratégie de Tempo"
+short_desc = "La règle des ±6% en profondeur, les compromis du key lock, et comment structurer des quartiers de tempo pour un set."
+
+[[fr.pages]]
+title   = "Pourquoi ±6% est le chiffre magique"
+content = """
+La plupart des logiciels DJ pitchent les tracks via un **changement du taux de lecture** — accélère le buffer de 6% et le BPM monte de 6%, mais la hauteur (la clé musicale) monte aussi d'environ 1 demi-ton.
+
+Vers ±6–7% l'oreille commence à l'entendre :
+- Les kicks sonnent maigres ou brouillons
+- Les voix deviennent hélium ou pâteuses
+
+Sous ±3% presque personne n'entend. Entre 3% et 6% c'est la zone de confort du mix.
+
+**Exemples concrets :**
+
+| Track A | Track B | Différence | Verdict |
+|---|---|---|---|
+| 127 BPM | 130 BPM | 2.3% | Transparent — mixe sans problème |
+| 124 BPM | 130 BPM | 4.6% | Audible sur matériel mélodique, ok sur drums |
+| 125 BPM | 135 BPM | 7.4% | Audible — utilise le key lock ou évite |
+| 120 BPM | 130 BPM | 8.0% | Trop loin sans key lock |
+
+Le détail mathématique exact — pourquoi ±6% ≈ un demi-ton, et la relation log₂ entre rate et hauteur perçue — vit dans **LESSON_HARMONIES_2 (Pitch, Tonalité & Master Tempo)**. Pour cette leçon : ±3% invisible, ±6% bord audible, ±10% chirurgie.
+"""
+
+[[fr.pages]]
+title   = "Le key lock et ses compromis"
+content = """
+Le **key lock** (aussi 'master tempo') est une fonction DSP qui découple la hauteur du taux de lecture — tu accélères sans changer la clé. Ça a l'air génial. Mais :
+
+- Ça introduit des artefacts au-delà de quelques pourcents : 'phasing' métallique sur les notes tenues, smear sur les transitoires
+- Pour la musique électronique jusqu'à ±3%, le key lock est transparent
+- Au-delà, beaucoup de DJs le coupent et acceptent le shift de pitch — un son propre compte plus qu'un demi-ton de dérive
+
+**Règle de base :**
+- ±2% ou moins : key lock = victoire gratuite
+- ±3–6% : écoute — peut rester propre sur des tracks percussives
+- Au-delà de ±6% : key lock obligatoire si tu continues, mais attends-toi à des artefacts
+
+**Double-time / half-time** est la parade pour les écarts de tempo que le key lock ne peut pas absorber.
+
+Une DnB 140 BPM et un hip-hop 70 BPM partagent la même pulsation : le kick DnB tombe sur chaque beat, le kick hip-hop sur un beat sur deux. Mixé avec EQ et crossfader, tu traverses le gap. Ponts classiques :
+- 140 DnB ↔ 70 trap
+- 130 techno ↔ 65 dub
+- 174 DnB ↔ 87 broken-beat / UKG
+"""
+
+[[fr.pages]]
+title   = "Utiliser les ranges BPM en diggant — stratégie à trois quartiers"
+content = """
+Quand tu construis un set autour de 128 BPM, filtre entre **120 et 134** (±5% laisse de la marge). Dans ce range, tu peux tout pitcher à 128 sans problème audible.
+
+Mais plus une track est loin de ta cible, plus elle demande de shift — et certaines supportent mieux que d'autres :
+- **Techno loop-heavy :** se pitche proprement jusqu'à ±6%
+- **Tracks mélodiques avec longues notes vocales :** révèle le shift dès ±3%
+
+**Architecture à trois quartiers :**
+
+| Quartier | Range BPM | Rôle |
+|---|---|---|
+| Warmup | 120–125 | Monter l'énergie doucement |
+| Cœur | 126–130 | Cœur du set |
+| Peak | 130–134 | Densité et intensité maximales |
+
+Chacun est un dossier Rekordbox séparé. Tu passes entre quartiers uniquement sur des **frontières de phrase** (lignes de 32 ou 64 beats).
+
+**Sur Beatport / Bandcamp :** utilise le slider BPM comme un range (ex. 120–134 pour une cible à 128). Sur Rekordbox, trie par BPM et encadre visuellement les trois zones.
+"""
+
+[[fr.pages]]
+title   = "Les hubs BPM — là où les genres se croisent"
+content = """
+Certaines valeurs BPM sont des **points d'intersection de genres** — des tracks de plusieurs familles partagent le même tempo :
+
+**140 BPM :** techno, grime, dubstep, trap, et le bord DnB se croisent ici. Un digger traite 140 comme un hub : des tracks de n'importe lequel de ces genres vivent dans la même cellule BPM et se cross-programment. Le placement du kick et le timbre de la basse déterminent dans quel genre la track se *lit*, pas le BPM seul.
+
+**130 BPM :** techno / deep house / downtempo-doublé (65 BPM half-time).
+
+**174 BPM :** DnB / jungle, avec 87 BPM broken-beat comme compagnon half-time.
+
+**Quand tu filtres ta librairie, ne pense pas 'un chiffre, un genre'** — pense 'ce BPM, quelles familles half-time ou double-time y vivent ?'
+
+Les transitions cross-genre aux hubs nécessitent un overlap minimum de 64 beats — le public a besoin de temps pour re-lire le tempo avant que le shift de genre soit pleinement enregistré.
+"""
+
+[[fr.quiz]]
+question = "Une track à 125 BPM et ta cible à 130 BPM — quel est le pourcentage de pitch shift ?"
+answers  = ["2.3%", "3.8%", "7.4%", "10%"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quand le key lock est-il une claire victoire sans compromis ?"
+answers  = ["Toujours", "À ±2% ou moins — transparent sur presque tout le matériel", "Seulement sur les tracks vocales", "Jamais — il introduit toujours des artefacts"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Qu'est-ce que la stratégie de 'trois quartiers' BPM accomplit ?"
+answers  = ["Elle force toutes les tracks au même BPM", "Elle organise le crate en ranges warmup / cœur / peak avec une structure de dossiers claire", "Elle empêche le key lock de s'activer", "Elle détecte automatiquement les frontières de phrase"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Une track DnB à 174 BPM peut faire le pont vers quel BPM via le half-time ?"
+answers  = ["140 BPM — même zone de genre", "87 BPM — pulsation partagée half-time", "128 BPM — house standard", "130 BPM — techno standard"]
+correct  = 1
+
+[[fr.sources]]
+label = "MixedInKey — Guide de mix harmonique et BPM"
+url   = "https://mixedinkey.com/harmonic-mixing-guide/"
+
+[[fr.sources]]
+label = "Ableton — Warping, key lock et master tempo expliqués"
+url   = "https://www.ableton.com/en/manual/audio-clips-tempo-and-warping/"
+
+[[fr.sources]]
+label = "Rekordbox — Analyse BPM et organisation des playlists"
+url   = "https://rekordbox.com/en/support/manual/"

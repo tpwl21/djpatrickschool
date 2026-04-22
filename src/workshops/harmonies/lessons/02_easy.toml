@@ -1,0 +1,112 @@
+id = "LESSON_HARMONIES_2_EASY"
+order = 2
+
+[en]
+title      = "Speed changes the voice"
+short_desc = "No math. When you pitch a track up or down, what actually happens to the music?"
+description = "Before Master Tempo, all DJ decks worked like a tape player: faster = higher-pitched. This lesson explains that coupling with your ear, not a formula. You'll understand why pitch-shift matters and when to flip Key Lock — no numbers required."
+recap = [
+  "Faster playback = higher pitch. Slower = lower. It's the same physics as a tape recorder.",
+  "When you pitch a track up to match a faster one, every instrument — kick, bass, vocals — rises in pitch too.",
+  "Your ear notices vocal pitch drift faster than anything else: even 3-5 % is obvious.",
+  "Master Tempo (Key Lock) breaks that link: tempo changes, key stays. Use it for long blends and vocal tracks.",
+  "Short, tight transitions under 16 bars: leave Key Lock off. The drift is inaudible and the natural tension can help."
+]
+
+[[en.pages]]
+title   = "The tape recorder effect"
+content = "Think of an old tape recorder. You've probably seen it in movies: when the tape runs fast, everyone sounds like Alvin and the Chipmunks. When it runs slow, they sound like a monster.\n\nDJ decks work the same way. When you drag the **pitch fader up** to match a faster track, you're speeding up the tape. Every instrument rises in pitch — the kick sounds lighter, the bass goes up, the vocals (if any) start to drift sharp.\n\nThis is not a flaw. It's physics. The question is: **how much drift can the crowd tolerate before it sounds wrong?**\n\nThe answer depends on the track and how long the blend lasts."
+youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
+youtube_caption = "Classic vinyl DJ set: hear how vocals shift when the pitch fader moves."
+
+[[en.pages]]
+title   = "What drifts first: the voice"
+content = "Not all instruments reveal pitch drift at the same speed. In order of 'how quickly the audience notices':\n\n1. **Vocals** — the ear is tuned to the human voice above all else. Even a 3 % pitch shift is obvious on a recognizable vocal. This is why DJing with vocal tracks is harder: you have almost no pitch margin.\n\n2. **Lead synths / melodic loops** — if the tune is well-known, drift is obvious fast. Unknown synth lines give more room.\n\n3. **Bass line** — a sliding or rising bass line is noticeable within a few bars if the blend is long.\n\n4. **Kick and percussion** — least tonal, most forgiven. A 6 % drift on a kick drum is barely audible in a loud room.\n\nRule: **the more melodic and recognizable the sound, the less pitch drift you can afford.**"
+
+[[en.pages]]
+title   = "Key Lock (Master Tempo): the solution"
+content = "Somewhere in the late 1990s, Pioneer started shipping CDJs with a feature called **Master Tempo** (some decks call it **Key Lock**). The idea: change the tempo, but digitally stretch or compress the audio so the pitch stays the same.\n\nImagine you're zooming a photo on your screen: the picture gets bigger but the shapes don't distort — that's the software compensating. Master Tempo is the audio equivalent.\n\n**Turn it ON when:**\n- The blend will last more than 30 seconds (crowd will notice drift)\n- The track has recognizable vocals\n- You want to key-match two tracks precisely for a long ride\n\n**Leave it OFF when:**\n- Short, tight transition under 16 bars (nobody hears 3 % in 8 bars)\n- You *want* the natural energy lift of the pitch going up — at peak time, pitching a track up 1-2 % naturally creates tension and excitement"
+image         = "lesson-images/pioneer-key-lock.png"
+image_caption = "Master Tempo button on a CDJ-2000NXS2. Usually labeled 'Key' or 'Master Tempo'."
+
+[[en.pages]]
+title   = "Quick exercise — hear it yourself"
+content = "Do this with any DJ software (Serato, Rekordbox, Traktor, or even VirtualDJ):\n\n1. Load the same track on both decks.\n2. Set one deck's pitch to **+6 %** and leave the other at **0 %**.\n3. Play both simultaneously — hear the two different pitches clash.\n4. Now flip on **Key Lock / Master Tempo** on the +6 % deck.\n5. The keys snap back together. Only the BPMs differ.\n\nThat snap is the algorithm working. The slight 'metallic' quality you might hear is the cost of the algorithm — it's doing real-time audio stretching, and it's not free."
+
+[[en.quiz]]
+question = "When you increase a track's playback speed without Key Lock, the pitch..."
+answers  = ["Goes up", "Stays the same", "Goes down"]
+correct  = 0
+
+[[en.quiz]]
+question = "Which sound reveals pitch drift to the audience fastest?"
+answers  = ["The kick drum", "The hi-hat", "The vocals"]
+correct  = 2
+
+[[en.quiz]]
+question = "When should you turn ON Master Tempo / Key Lock?"
+answers  = ["Always, no exceptions", "For long blends with vocal tracks", "Only for short 4-bar transitions"]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — Master Tempo explained"
+url   = "https://support.pioneerdj.com/hc/en-us/articles/360008783711"
+
+[[en.sources]]
+label = "DJ TechTools — Key Lock: When to use it"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
+
+[fr]
+title      = "La vitesse change la voix"
+short_desc = "Pas de maths. Quand tu pitches un morceau, qu'est-ce qui se passe vraiment ?"
+description = "Avant Master Tempo, toutes les tables de mixage fonctionnaient comme un magnétophone : plus rapide = plus aigu. Cette leçon explique ce couplage avec ton oreille, pas une formule. Tu comprendras pourquoi le pitch-shift compte et quand activer Key Lock — sans chiffres."
+recap = [
+  "Lecture plus rapide = hauteur plus aiguë. Plus lente = plus grave. C'est la même physique qu'un magnétophone.",
+  "Quand tu pitches un morceau vers le haut pour matcher un plus rapide, chaque instrument — kick, basse, voix — monte en hauteur aussi.",
+  "Ton oreille détecte la dérive vocale plus vite que tout le reste : même 3-5 % est évident.",
+  "Master Tempo (Key Lock) casse ce lien : le tempo change, la clé reste. Utilise-le pour les blends longs et les morceaux vocaux.",
+  "Transitions courtes et serrées sous 16 mesures : laisse Key Lock off. La dérive est inaudible et la tension naturelle peut aider."
+]
+
+[[fr.pages]]
+title   = "L'effet magnétophone"
+content = "Pense à un vieux magnétophone. Tu l'as probablement vu dans des films : quand la bande tourne vite, tout le monde ressemble à Alvin et les Chipmunks. Quand elle tourne lentement, ça ressemble à un monstre.\n\nLes tables de mixage DJ fonctionnent pareil. Quand tu montes le **fader de pitch** pour matcher un morceau plus rapide, tu accélères la bande. Tous les instruments montent en hauteur — le kick sonne plus léger, la basse remonte, et les voix (s'il y en a) commencent à dériver vers le haut.\n\nCe n'est pas un défaut. C'est de la physique. La question est : **combien de dérive le public peut-il tolérer avant que ça sonne faux ?**\n\nLa réponse dépend du morceau et de la durée du blend."
+youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
+youtube_caption = "Set vinyl classique : écoute comment les voix dérivent quand le fader de pitch bouge."
+
+[[fr.pages]]
+title   = "Ce qui dérive en premier : la voix"
+content = "Tous les instruments ne révèlent pas la dérive de pitch à la même vitesse. Dans l'ordre 'à quelle vitesse le public s'en aperçoit' :\n\n1. **Les voix** — l'oreille est accordée sur la voix humaine par-dessus tout. Même un décalage de 3 % est évident sur une voix reconnaissable. C'est pour ça que mixer avec des morceaux vocaux est plus difficile : tu n'as presque pas de marge de pitch.\n\n2. **Les synths lead / boucles mélodiques** — si la mélodie est bien connue, la dérive est rapidement évidente. Des lignes de synth inconnues donnent plus de marge.\n\n3. **La ligne de basse** — une ligne de basse glissante ou montante est perceptible en quelques mesures si le blend est long.\n\n4. **Le kick et les percussions** — moins tonal, plus pardonné. Une dérive de 6 % sur un kick est à peine audible dans une salle forte.\n\nRègle : **plus le son est mélodique et reconnaissable, moins tu peux te permettre de dérive de pitch.**"
+
+[[fr.pages]]
+title   = "Key Lock (Master Tempo) : la solution"
+content = "Quelque part à la fin des années 90, Pioneer a commencé à équiper ses CDJ d'une fonction appelée **Master Tempo** (certaines tables l'appellent **Key Lock**). L'idée : change le tempo, mais étire ou compresse numériquement l'audio pour que la hauteur reste la même.\n\nImagine que tu zoomes une photo sur ton écran : l'image s'agrandit mais les formes ne se déforment pas — le logiciel compense. Master Tempo est l'équivalent audio.\n\n**Active-le quand :**\n- Le blend durera plus de 30 secondes (le public remarquera la dérive)\n- Le morceau a des voix reconnaissables\n- Tu veux matcher des clés précisément pour un long ride\n\n**Laisse-le off quand :**\n- Transition courte et serrée sous 16 mesures (personne n'entend 3 % en 8 mesures)\n- Tu *veux* le lift d'énergie naturel de la montée en pitch — en peak time, pitcher un morceau de 1-2 % crée naturellement de la tension et de l'excitation"
+image         = "lesson-images/pioneer-key-lock.png"
+image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Key' ou 'Master Tempo'."
+
+[[fr.pages]]
+title   = "Exercice rapide — entends-le toi-même"
+content = "Fais ça avec n'importe quel logiciel DJ (Serato, Rekordbox, Traktor, ou même VirtualDJ) :\n\n1. Charge le même morceau sur les deux platines.\n2. Met le pitch d'une platine à **+6 %** et laisse l'autre à **0 %**.\n3. Joue les deux simultanément — entends les deux hauteurs différentes clasher.\n4. Maintenant active **Key Lock / Master Tempo** sur la platine à +6 %.\n5. Les clés reviennent ensemble. Seuls les BPM diffèrent.\n\nCe snap, c'est l'algorithme au travail. La légère qualité 'métallique' que tu pourrais entendre est le coût de l'algorithme — il fait de l'étirement audio en temps réel, et ce n'est pas gratuit."
+
+[[fr.quiz]]
+question = "Quand tu augmentes la vitesse de lecture sans Key Lock, la hauteur..."
+answers  = ["Monte", "Reste la même", "Descend"]
+correct  = 0
+
+[[fr.quiz]]
+question = "Quel son révèle la dérive de pitch au public le plus vite ?"
+answers  = ["Le kick drum", "Le hi-hat", "Les voix"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Quand faut-il activer Master Tempo / Key Lock ?"
+answers  = ["Toujours, sans exception", "Pour les blends longs avec des morceaux vocaux", "Uniquement pour les transitions courtes de 4 mesures"]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — Master Tempo expliqué"
+url   = "https://support.pioneerdj.com/hc/en-us/articles/360008783711"
+
+[[fr.sources]]
+label = "DJ TechTools — Key Lock : quand l'utiliser"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"

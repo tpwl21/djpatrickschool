@@ -1,0 +1,18 @@
+id = "LESSON_FX_4_PRO"
+order = 4
+
+[en]
+title      = "Loop Rolls: The Beat Repeat"
+short_desc = "Pro version coming soon."
+
+[[en.pages]]
+title   = "Coming Soon"
+content = "The Pro version of this lesson is being prepared. Check back soon!"
+
+[fr]
+title      = "Loop Rolls : Le Beat Repeat"
+short_desc = "Version Pro en préparation."
+
+[[fr.pages]]
+title   = "Bientôt disponible"
+content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"

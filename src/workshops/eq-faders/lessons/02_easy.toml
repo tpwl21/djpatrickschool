@@ -1,0 +1,292 @@
+id = "LESSON_EQ_2_EASY"
+order = 2
+
+[en]
+title       = "Gain Staging: Volume Before You Start Mixing"
+short_desc  = "Why tracks sound louder or quieter than each other, and the one thing to fix before anything else."
+description = "Some tracks sound twice as loud as others even with the same settings. The fix is simple: the TRIM knob. This lesson explains why tracks live at different volumes and gives you a three-step routine to fix it every time."
+recap = [
+  "Tracks from different eras are mastered at different loudness levels. Old records are quieter; new tracks hit harder.",
+  "The TRIM (or GAIN) knob is your first fix. Use it before touching anything else.",
+  "Target: the loudest parts of your track should hit around -6 dB on the meter — not 0, not -12.",
+  "Mixing without adjusting trim = constantly fighting your faders to compensate.",
+  "The headphone CUE reflects the trim — if your trim is wrong, your headphone reference is wrong too."
+]
+
+[[en.pages]]
+title   = "Why does this track sound so much louder?"
+content = """
+## You've heard this problem
+
+You load a track and it sounds twice as loud as the one before it.
+Or the opposite: you bring up the fader and the crowd barely notices.
+
+This isn't your imagination. Tracks are genuinely mastered at different volume levels.
+
+## A simple way to think about it
+
+Imagine turning up your radio in the car.
+Older songs from the 80s or 90s were recorded to have some quiet moments and some loud moments — they breathe.
+Pop tracks from 2010–2020 are often compressed as loud as possible — there's almost no quiet anymore.
+Both tracks might be on the same playlist, but one feels twice as intense as the other.
+
+DJs face this constantly. A 1996 jungle record sitting next to a 2023 hyperpop track can be 2–3× quieter in perceived volume. Without adjustment, one will blow the room out and the other will disappear.
+
+## The fix: TRIM (or GAIN)
+
+Every channel on a DJ mixer has a **TRIM** knob — sometimes labeled GAIN.
+This is your **volume before the mix begins**. You use it to make each incoming track the same loudness as what's already playing.
+
+Think of it as the **starting volume** — not for the performance, but before the performance.
+"""
+
+[[en.pages]]
+title   = "How to set the trim: a three-step routine"
+content = """
+## Before every track, do this
+
+**Step 1:** Load your next track and put it in CUE (headphones only — not playing to the room yet).
+
+**Step 2:** Look at the channel meter while the track plays. The loudest parts (usually the drop or chorus) should hit around **-6 dB** on the meter. Not 0, not -12.
+
+**Step 3:** Turn the TRIM knob until the peaks hit that -6 dB mark. Done.
+
+## What the meter is telling you
+
+- **0 dBFS** = the absolute maximum. Above this = clipping = distortion.
+- **-6 dB** = 6 dB below the maximum. This is the target. You have room for the loud moments without distorting.
+- **-12 dB or below** = too quiet. You'll have to push your fader too high to be heard.
+
+## The "dotted line" shortcut
+
+Many professional DJ mixers have a small **dotted line or marker** on the meter at around -6 dB. This is your target. Train yourself to always aim there.
+"""
+
+[[en.pages]]
+title   = "Why mixing without trim adjustment is a trap"
+content = """
+## The fader compensation trap
+
+If you skip the trim and just push the fader higher to compensate for a quiet track, you'll constantly be "chasing" levels.
+
+Here's the problem:
+- **Fader at 60%** for a normal track → sounds right.
+- **Fader at 100%** for a quiet (untrimmed) track → sounds the same, but you have no room left to adjust.
+- When the quiet track has a loud drop, it suddenly jumps — you can't pull it back fast enough.
+
+Good trim discipline means: **every track plays with the fader in the same position** (roughly 70–80% of travel). Your fader becomes meaningful again.
+
+## What "unity gain" means in practice
+
+Most DJ mixer faders have a small **tick mark** at around 70–80% of travel. That's the "unity gain" position — the fader is not adding or subtracting volume, just passing it through.
+
+If every track is trimmed to -6 dB, you can run all your faders at unity, and your mix will be consistent.
+"""
+
+[[en.pages]]
+title   = "Berghain and the venue that solved it for you"
+content = """
+## The club that pre-solves gain staging
+
+**Berghain** in Berlin is famous for having one of the best sound systems in the world.
+One big reason: the entire setup is calibrated before any DJ touches it.
+
+Every DJ who plays there gets a booth where the gain is already set correctly from the system end.
+The DJ just mixes. The sound stays consistent all night, across different DJs with different libraries.
+
+## Why most clubs don't do this
+
+Most clubs don't pre-calibrate to this level. The job falls to you.
+When you show up for a gig, assume nothing is set correctly. Spend the first 5 minutes checking your trim while playing a low-key opener.
+
+Your rule: **trim first, mix second.** Every time.
+
+## A simple ear test
+
+While CUE-ing your next track, ask: "Does this sound about as loud in my headphones as the current track sounds in the room?"
+If yes, trim is probably fine.
+If it's significantly louder or quieter, adjust.
+
+It takes 10 seconds. It will save you 60 minutes of fighting faders.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why can two tracks sound very different in volume even when set to the same fader position?"
+answers  = ["Because one is recorded in stereo and the other in mono", "Because the tempo difference affects volume", "Because they were mastered at different loudness levels"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Where should the loudest peaks of your next track hit on the meter when setting trim?"
+answers  = ["At 0 dBFS (the red zone)", "Around -6 dB", "Around -20 dB"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is the TRIM (or GAIN) knob used for?"
+answers  = ["Setting the starting volume of a track before it's mixed", "Adding reverb to the track", "Controlling the crossfader speed"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What happens if you compensate for a quiet track by pushing the fader too high instead of adjusting trim?"
+answers  = ["Nothing, it sounds the same", "The bass disappears", "You run out of room to adjust when a loud moment hits, and the mix becomes uncontrollable"]
+
+[[sources]]
+label = "Gain Staging for DJs — DJ TechTools"
+url   = "https://djtechtools.com/2019/09/11/gain-staging-for-djs/"
+
+[[sources]]
+label = "Understanding Headroom — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-headroom-in-audio"
+
+[[sources]]
+label = "Bob Katz — Mastering Audio: The Art and the Science"
+url   = "https://www.digido.com/portfolio-item/mastering-audio/"
+
+[fr]
+title       = "Gain Staging : le volume avant de commencer à mixer"
+short_desc  = "Pourquoi les morceaux sonnent plus fort ou plus faible les uns que les autres, et la chose à régler avant tout le reste."
+description = "Certains morceaux sonnent deux fois plus fort que d'autres même avec les mêmes réglages. La solution est simple : le bouton TRIM. Cette leçon explique pourquoi les morceaux ont des volumes différents et te donne une routine en trois étapes pour corriger ça à chaque fois."
+recap = [
+  "Les morceaux d'époque différente sont masterisés à des niveaux de loudness différents. Les vieux disques sont plus calmes ; les nouvelles tracks tapent plus fort.",
+  "Le bouton TRIM (ou GAIN) est le premier réglage. Fais-le avant de toucher quoi que ce soit d'autre.",
+  "Objectif : les parties les plus fortes de ton morceau devraient taper vers -6 dB sur le mètre — pas 0, pas -12.",
+  "Mixer sans ajuster le trim = se battre constamment avec ses faders pour compenser.",
+  "Le CUE casque reflète le trim — si ton trim est faux, ta référence casque est fausse aussi."
+]
+
+[[fr.pages]]
+title   = "Pourquoi ce morceau sonne-t-il aussi fort ?"
+content = """
+## Tu as déjà vécu ce problème
+
+Tu charges un morceau et il sonne deux fois plus fort que celui d'avant.
+Ou le contraire : tu montes le fader et la salle ne l'entend presque pas.
+
+Ce n'est pas ton imagination. Les morceaux sont vraiment masterisés à des niveaux de volume différents.
+
+## Une façon simple d'y penser
+
+Imagine que tu montes la radio dans la voiture.
+Les vieilles chansons des années 80 ou 90 avaient été enregistrées avec des moments calmes et des moments forts — elles respirent.
+Les tracks pop de 2010–2020 sont souvent compressées aussi fort que possible — il n'y a presque plus de calme.
+Les deux tracks peuvent être sur la même playlist, mais l'une paraît deux fois plus intense que l'autre.
+
+Les DJs vivent ça constamment. Un disque jungle de 1996 à côté d'une track hyperpop de 2023 peut être 2–3× plus calme en volume perçu. Sans ajustement, l'une fera sauter la salle et l'autre disparaîtra.
+
+## La solution : TRIM (ou GAIN)
+
+Chaque canal d'une table DJ a un bouton **TRIM** — parfois écrit GAIN.
+C'est ton **volume avant que le mix commence**. Tu l'utilises pour amener chaque morceau entrant au même niveau que ce qui joue déjà.
+
+Pense-y comme au **volume de départ** — pas pour la performance, mais avant la performance.
+"""
+
+[[fr.pages]]
+title   = "Comment régler le trim : une routine en trois étapes"
+content = """
+## Avant chaque morceau, fais ça
+
+**Étape 1 :** Charge ton prochain morceau et mets-le en CUE (casque uniquement — pas encore dans la salle).
+
+**Étape 2 :** Regarde le mètre de canal pendant que le morceau joue. Les parties les plus fortes (généralement le drop ou le refrain) devraient taper vers **-6 dB** sur le mètre. Pas 0, pas -12.
+
+**Étape 3 :** Tourne le TRIM jusqu'à ce que les pics touchent ce -6 dB. C'est tout.
+
+## Ce que le mètre te dit
+
+- **0 dBFS** = le maximum absolu. Au-dessus = clipping = distorsion.
+- **-6 dB** = 6 dB sous le maximum. C'est la cible. Tu as de la marge pour les moments forts sans distordre.
+- **-12 dB ou moins** = trop calme. Tu devras pousser ton fader trop haut pour être entendu.
+
+## Le raccourci de la "ligne pointillée"
+
+Beaucoup de tables DJ pro ont une petite **ligne pointillée ou marque** sur le mètre vers -6 dB. C'est ta cible. Entraîne-toi à toujours viser là.
+"""
+
+[[fr.pages]]
+title   = "Pourquoi mixer sans ajuster le trim est un piège"
+content = """
+## Le piège de la compensation par fader
+
+Si tu sautes le trim et que tu pousses juste le fader plus haut pour compenser une track calme, tu seras constamment à "chasser" les niveaux.
+
+Voici le problème :
+- **Fader à 60%** pour une track normale → ça sonne bien.
+- **Fader à 100%** pour une track calme (sans trim) → ça sonne pareil, mais tu n'as plus de marge pour ajuster.
+- Quand la track calme a un drop fort, elle saute soudainement — tu ne peux pas la rattraper assez vite.
+
+Une bonne discipline de trim signifie : **chaque morceau joue avec le fader à la même position** (environ 70–80% de la course). Ton fader retrouve du sens.
+
+## Ce que "unity gain" signifie en pratique
+
+La plupart des faders de tables DJ ont une petite **marque** vers 70–80% de la course. C'est la position "unity gain" — le fader n'ajoute ni ne soustrait du volume, il laisse juste passer.
+
+Si chaque morceau est trimé à -6 dB, tu peux faire tourner tous tes faders à unity, et ton mix sera cohérent.
+"""
+
+[[fr.pages]]
+title   = "Berghain et la salle qui résout ça pour toi"
+content = """
+## Le club qui pré-résout le gain staging
+
+**Berghain** à Berlin est célèbre pour avoir l'un des meilleurs systèmes sonores au monde.
+Une grande raison : tout le setup est calibré avant qu'un DJ y touche.
+
+Chaque DJ qui y joue reçoit un booth où le gain est déjà correctement réglé côté système.
+Le DJ mixe juste. Le son reste cohérent toute la nuit, d'un DJ à l'autre avec des bibliothèques différentes.
+
+## Pourquoi la plupart des clubs ne font pas ça
+
+La plupart des clubs ne pré-calibrent pas à ce niveau. Le travail te revient.
+Quand tu arrives pour un gig, pars du principe que rien n'est correctement réglé. Prends les 5 premières minutes pour vérifier ton trim en jouant un morceau tranquille pour commencer.
+
+Ta règle : **trim d'abord, mix ensuite.** À chaque fois.
+
+## Un test d'oreille simple
+
+Pendant que tu mets en CUE ton prochain morceau, demande-toi : "Est-ce que ça sonne à peu près aussi fort dans mon casque que le morceau actuel dans la salle ?"
+Si oui, le trim est probablement correct.
+S'il est nettement plus fort ou plus calme, ajuste.
+
+Ça prend 10 secondes. Ça t'évitera 60 minutes à te battre avec tes faders.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Pourquoi deux morceaux peuvent-ils sonner très différemment en volume même avec le fader à la même position ?"
+answers  = ["Parce que l'un est en stéréo et l'autre en mono", "Parce que la différence de tempo affecte le volume", "Parce qu'ils ont été masterisés à des niveaux de loudness différents"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Où les pics les plus forts de ton prochain morceau doivent-ils taper sur le mètre lors du réglage du trim ?"
+answers  = ["À 0 dBFS (la zone rouge)", "Autour de -6 dB", "Autour de -20 dB"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "À quoi sert le bouton TRIM (ou GAIN) ?"
+answers  = ["Régler le volume de départ d'un morceau avant de le mixer", "Ajouter de la réverbe au morceau", "Contrôler la vitesse du crossfader"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Que se passe-t-il si tu compenses une track calme en poussant le fader trop haut plutôt qu'en ajustant le trim ?"
+answers  = ["Rien, ça sonne pareil", "Les basses disparaissent", "Tu n'as plus de marge quand un moment fort arrive, et le mix devient ingérable"]
+
+[[sources]]
+label = "Gain Staging for DJs — DJ TechTools"
+url   = "https://djtechtools.com/2019/09/11/gain-staging-for-djs/"
+
+[[sources]]
+label = "Comprendre le headroom — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-headroom-in-audio"
+
+[[sources]]
+label = "Bob Katz — Mastering Audio: The Art and the Science"
+url   = "https://www.digido.com/portfolio-item/mastering-audio/"

@@ -1,0 +1,414 @@
+import { useState, useEffect, useCallback } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import './App.css';
+import Home from './components/Home';
+import WorkshopHome from './components/WorkshopHome';
+import GraduationPopup from './components/GraduationPopup';
+import LevelPopup from './components/LevelPopup';
+import SoundOnIndicator from './components/SoundOnIndicator';
+import ThemeTransition from './components/ThemeTransition';
+// import AmbientPlayer from './components/AmbientPlayer'; // TODO: re-enable once real loops are ready
+import SecretBooth from './workshops/SecretBooth';
+import LessonLevel from './workshops/LessonLevel';
+import { useDifficulty } from './hooks/useDifficulty.jsx';
+import { workshops, getWorkshop, getLevelByOrder, getLessonByOrder, getLessonVariant } from './lib/levels/load';
+
+const PROGRESSION_KEY = 'dj_teacher_progression_v3';
+
+function defaultProgression() {
+  const map = {};
+  for (const id of Object.keys(workshops)) {
+    map[id] = { practice: 1, lessons: 1, completedLessons: {}, completedPractice: {} };
+  }
+  return map;
+}
+
+// Rétro-compat : assure les champs completion sur une entrée existante.
+// completedLessons migre de l'ancien format array vers objet { [order]: [diffs] }.
+function normalizeWorkshopEntry(entry) {
+  let completedLessons = entry.completedLessons ?? {};
+  // Migrate old array format (list of completed lesson orders with no diff tracking)
+  if (Array.isArray(completedLessons)) {
+    const migrated = {};
+    for (const order of completedLessons) {
+      migrated[order] = ['MEDIUM']; // best guess: assume medium
+    }
+    completedLessons = migrated;
+  }
+  return {
+    practice: 1,
+    lessons: 1,
+    completedPractice: {},
+    ...entry,
+    completedLessons,
+  };
+}
+
+function loadProgression() {
+  try {
+    const raw = localStorage.getItem(PROGRESSION_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      // Normalise les entrées existantes qui n'auraient pas encore les champs completion
+      const normalized = {};
+      for (const [id, entry] of Object.entries(parsed)) {
+        normalized[id] = normalizeWorkshopEntry(entry);
+      }
+      return normalized;
+    }
+  } catch { /* ignore */ }
+
+  // Migrate from v2
+  const base = defaultProgression();
+  try {
+    const v2 = JSON.parse(localStorage.getItem('dj_teacher_progression_v2') || '{}');
+    for (const [id, order] of Object.entries(v2)) {
+      if (base[id] && typeof order === 'number') base[id].practice = order;
+    }
+  } catch { /* ignore */ }
+
+  localStorage.setItem(PROGRESSION_KEY, JSON.stringify(base));
+  return base;
+}
+
+function saveProgression(map) {
+  localStorage.setItem(PROGRESSION_KEY, JSON.stringify(map));
+}
+
+function parseHash() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash || hash === '/') return { view: 'home' };
+  if (hash === '/booth') return { view: 'booth' };
+
+  const parts = hash.split('/').filter(Boolean);
+
+  if (parts[0] === 'workshop' && parts[1]) {
+    return { view: 'workshop_home', workshopId: parts[1] };
+  }
+
+  // Lesson route: /{workshopId}/lesson/{order}
+  if (parts.length >= 3 && parts[1] === 'lesson') {
+    const workshopId = parts[0];
+    const lessonOrder = parseInt(parts[2], 10);
+    if (getWorkshop(workshopId) && !Number.isNaN(lessonOrder)) {
+      return { view: 'lesson', workshopId, lessonOrder };
+    }
+  }
+
+  // Practice route: /{workshopId}/{order}[/{difficulty}]
+  if (parts.length >= 2) {
+    const workshopId = parts[0];
+    const levelOrder = parseInt(parts[1], 10);
+    const difficulty = parts[2] || 'EASY';
+    if (getWorkshop(workshopId) && !Number.isNaN(levelOrder)) {
+      return { view: 'level', workshopId, levelOrder, difficulty };
+    }
+  }
+
+  return { view: 'home' };
+}
+
+function routeToHash(route) {
+  switch (route.view) {
+    case 'home': return '/';
+    case 'booth': return '/booth';
+    case 'workshop_home': return `/workshop/${route.workshopId}`;
+    case 'lesson': return `/${route.workshopId}/lesson/${route.lessonOrder}`;
+    case 'level':
+      return route.difficulty && route.difficulty !== 'EASY'
+        ? `/${route.workshopId}/${route.levelOrder}/${route.difficulty}`
+        : `/${route.workshopId}/${route.levelOrder}`;
+    default: return '/';
+  }
+}
+
+function App() {
+  const [route, setRoute] = useState(() => parseHash());
+  const [unlockedOrder, setUnlockedOrder] = useState(() => loadProgression());
+  const [retryKey, setRetryKey] = useState(0);
+  const [isGraduated, setIsGraduated] = useState(false);
+  const [pendingNext, setPendingNext] = useState(null); // { workshopId, order, difficulty }
+  const [difficulty, setDifficulty] = useDifficulty();
+
+  useEffect(() => {
+    window.location.hash = routeToHash(route);
+  }, [route]);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const next = parseHash();
+      setRoute((curr) => {
+        if (JSON.stringify(curr) === JSON.stringify(next)) return curr;
+        return next;
+      });
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const goHome = useCallback(() => {
+    setRoute({ view: 'home' });
+    setRetryKey(0);
+    setIsGraduated(false);
+    setPendingNext(null);
+  }, []);
+
+  const goWorkshop = useCallback((workshopId) => {
+    setRoute({ view: 'workshop_home', workshopId });
+  }, []);
+
+  const goBooth = useCallback(() => {
+    setRoute({ view: 'booth' });
+  }, []);
+
+  const startLevel = useCallback((workshopId, levelOrder, diff = 'EASY') => {
+    setDifficulty(diff);
+    setRoute({ view: 'level', workshopId, levelOrder, difficulty: diff });
+    setRetryKey(0);
+    setIsGraduated(false);
+    setPendingNext(null);
+  }, [setDifficulty]);
+
+  const startLesson = useCallback((workshopId, lessonOrder) => {
+    setRoute({ view: 'lesson', workshopId, lessonOrder });
+    setRetryKey(0);
+    setIsGraduated(false);
+    setPendingNext(null);
+  }, []);
+
+  const unlockNext = useCallback((workshopId, completedOrder, completedDifficulty) => {
+    setUnlockedOrder((prev) => {
+      const ws = normalizeWorkshopEntry(prev[workshopId] || {});
+      const next = completedOrder + 1;
+      const updatedUnlock = next > ws.practice ? next : ws.practice;
+
+      // Enregistre la difficulté validée pour ce level
+      const prevDiffs = ws.completedPractice[completedOrder] || [];
+      const newDiffs = completedDifficulty && !prevDiffs.includes(completedDifficulty)
+        ? [...prevDiffs, completedDifficulty]
+        : prevDiffs;
+
+      const updated = {
+        ...prev,
+        [workshopId]: {
+          ...ws,
+          practice: updatedUnlock,
+          completedPractice: { ...ws.completedPractice, [completedOrder]: newDiffs },
+        },
+      };
+      saveProgression(updated);
+      return updated;
+    });
+  }, []);
+
+  // completedDifficulty : 'EASY' | 'MEDIUM' | 'PRO' — which variant the user just validated
+  const unlockNextLesson = useCallback((workshopId, completedOrder, completedDifficulty) => {
+    setUnlockedOrder((prev) => {
+      const ws = normalizeWorkshopEntry(prev[workshopId] || {});
+      const next = completedOrder + 1;
+      const updatedUnlock = next > ws.lessons ? next : ws.lessons;
+
+      // Track completed difficulty variants per lesson order (same pattern as practice)
+      const prevDiffs = ws.completedLessons[completedOrder] || [];
+      const newDiffs =
+        completedDifficulty && !prevDiffs.includes(completedDifficulty)
+          ? [...prevDiffs, completedDifficulty]
+          : prevDiffs;
+
+      const updated = {
+        ...prev,
+        [workshopId]: {
+          ...ws,
+          lessons: updatedUnlock,
+          completedLessons: { ...ws.completedLessons, [completedOrder]: newDiffs },
+        },
+      };
+      saveProgression(updated);
+      return updated;
+    });
+  }, []);
+
+  const handleNextLevel = useCallback(() => {
+    if (route.view !== 'level') return;
+    const { workshopId, levelOrder, difficulty } = route;
+    const workshop = getWorkshop(workshopId);
+    if (!workshop) return;
+    if (levelOrder >= workshop.levelsList.length) {
+      setIsGraduated(true);
+      return;
+    }
+    unlockNext(workshopId, levelOrder, difficulty);
+    setPendingNext({ workshopId, order: levelOrder + 1, difficulty });
+  }, [route, unlockNext]);
+
+  const handleNextLesson = useCallback(() => {
+    if (route.view !== 'lesson') return;
+    const { workshopId, lessonOrder } = route;
+    const workshop = getWorkshop(workshopId);
+    if (!workshop) return;
+    if (lessonOrder >= workshop.lessonsList.length) {
+      goWorkshop(workshopId);
+      return;
+    }
+    startLesson(workshopId, lessonOrder + 1);
+  }, [route, goWorkshop, startLesson]);
+
+  const startPendingLevel = useCallback(() => {
+    if (!pendingNext) return;
+    startLevel(pendingNext.workshopId, pendingNext.order, pendingNext.difficulty);
+  }, [pendingNext, startLevel]);
+
+  const handleRetry = useCallback(() => {
+    setRetryKey((k) => k + 1);
+  }, []);
+
+  const handleResetAll = useCallback(() => {
+    const reset = {};
+    for (const id of Object.keys(workshops)) {
+      reset[id] = { practice: 1, lessons: 1, completedLessons: [], completedPractice: {} };
+    }
+    setUnlockedOrder(reset);
+    saveProgression(reset);
+  }, []);
+
+  const handleUnlockAll = useCallback(() => {
+    const all = {};
+    for (const [id, ws] of Object.entries(workshops)) {
+      all[id] = {
+        practice: Math.max(1, ws.levelsList.length),
+        lessons: Math.max(1, ws.lessonsList?.length || 1),
+        completedLessons: {},
+        completedPractice: {},
+      };
+    }
+    setUnlockedOrder(all);
+    saveProgression(all);
+  }, []);
+
+  const renderLevel = () => {
+    const workshop = getWorkshop(route.workshopId);
+    if (!workshop || !workshop.Component) {
+      return (
+        <div className="app-container">
+          <h1>Unknown workshop: {route.workshopId}</h1>
+          <button className="btn-crayon" onClick={goHome}>Home</button>
+        </div>
+      );
+    }
+    const level = getLevelByOrder(route.workshopId, route.levelOrder);
+    if (!level) {
+      return (
+        <div className="app-container">
+          <h1>Unknown level {route.levelOrder} in {route.workshopId}</h1>
+          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
+        </div>
+      );
+    }
+    const Component = workshop.Component;
+    return (
+      <Component
+        key={`${route.workshopId}-${route.levelOrder}-${route.difficulty}-${retryKey}`}
+        levelId={level.id}
+        difficulty={route.difficulty}
+        onNextLevel={handleNextLevel}
+        onRetry={handleRetry}
+        onBack={() => goWorkshop(route.workshopId)}
+        onUnlockNext={() => unlockNext(route.workshopId, route.levelOrder, route.difficulty)}
+      />
+    );
+  };
+
+  const renderLesson = () => {
+    const workshop = getWorkshop(route.workshopId);
+    const lesson = getLessonByOrder(route.workshopId, route.lessonOrder);
+    if (!workshop || !lesson) {
+      return (
+        <div className="app-container">
+          <h1>Unknown lesson</h1>
+          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
+        </div>
+      );
+    }
+    const variantResult = getLessonVariant(route.workshopId, route.lessonOrder, difficulty);
+    if (!variantResult) {
+      return (
+        <div className="app-container">
+          <h1>No content for lesson {route.lessonOrder}</h1>
+          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
+        </div>
+      );
+    }
+    return (
+      <LessonLevel
+        key={`${route.workshopId}-lesson-${route.lessonOrder}-${variantResult.servedDifficulty}-${retryKey}`}
+        lesson={variantResult.lesson}
+        workshop={workshop}
+        requestedDifficulty={difficulty}
+        servedDifficulty={variantResult.servedDifficulty}
+        onNextLevel={handleNextLesson}
+        onRetry={handleRetry}
+        onBack={() => goWorkshop(route.workshopId)}
+        onUnlockNext={() => unlockNextLesson(route.workshopId, route.lessonOrder, variantResult.servedDifficulty)}
+      />
+    );
+  };
+
+  const pendingLevelObj = pendingNext ? getLevelByOrder(pendingNext.workshopId, pendingNext.order) : null;
+  const pendingWorkshop = pendingNext ? getWorkshop(pendingNext.workshopId) : null;
+  const pendingIsBeatmatching = pendingWorkshop?.meta?.kind === 'beatmatching';
+
+  return (
+    <>
+      <ThemeTransition />
+      {route.view === 'home' && (
+        <Home
+          onWorkshopSelect={goWorkshop}
+          onStartLevel={startLevel}
+          onStartLesson={startLesson}
+          onStartBooth={goBooth}
+          unlockedOrder={unlockedOrder}
+          onUnlockAll={handleUnlockAll}
+          onResetAll={handleResetAll}
+        />
+      )}
+
+      {route.view === 'workshop_home' && (
+        <WorkshopHome
+          workshopId={route.workshopId}
+          unlockedOrder={unlockedOrder[route.workshopId] || { practice: 1, lessons: 1 }}
+          onStart={startLevel}
+          onStartLesson={startLesson}
+          onBack={goHome}
+        />
+      )}
+
+      {route.view === 'booth' && (
+        <SecretBooth onBack={goHome} />
+      )}
+
+      {route.view === 'level' && renderLevel()}
+      {route.view === 'lesson' && renderLesson()}
+
+      {isGraduated && (
+        <GraduationPopup difficulty={route.difficulty} onBackHome={goHome} />
+      )}
+
+      <AnimatePresence>
+        {pendingNext && pendingLevelObj && (
+          <LevelPopup
+            workshopMeta={pendingWorkshop?.meta}
+            level={pendingLevelObj}
+            difficulty={pendingIsBeatmatching ? pendingNext.difficulty : null}
+            requireDifficulty={pendingIsBeatmatching}
+            onCancel={goHome}
+            onStart={startPendingLevel}
+          />
+        )}
+      </AnimatePresence>
+
+      {route.view === 'level' && <SoundOnIndicator />}
+    </>
+  );
+}
+
+export default App;

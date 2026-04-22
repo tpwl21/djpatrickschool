@@ -1,0 +1,322 @@
+id = "LESSON_BM_2_PRO"
+order = 2
+
+[en]
+title       = "Beat Structure: Hypermeter, Psychoacoustics, and the Limits of 4/4"
+short_desc  = "Anacrusis, hypermeasure, AABA form, Haas precedence, and what happens when the groove breaks the rules."
+description = "Phase detection, perceptual entrainment, phrase hierarchy beyond 32 beats, polyrhythm taxonomy, and the structural analysis tools that separate pattern recognition from mechanical counting."
+recap = [
+  "The four-on-the-floor is a 2 Hz isochronous pulse — sits at peak sensorimotor entrainment frequency (Repp & Su 2013).",
+  "Haas/precedence effect: fusion below ~1 ms, directional bias 1–5 ms, distinct events above 5 ms. 120 BPM → 1 beat = 500 ms → 5 ms flam = 1% of beat.",
+  "Hypermeasure: N bars functioning as a single macro-unit. A 32-beat phrase = 8 hypermeasure units of 4 beats each.",
+  "Anacrusis (upbeat/pickup): motif before the first downbeat of a phrase — rare in club music but present in jazz-influenced house and breaks.",
+  "AABA form (Tin Pan Alley) maps onto DJ track structure: Intro/Build = A, Drop = A, Break = B, Outro = A.",
+  "Half-time feel: snare displaced to beat 3 only — creates a 'double-wide' phrase feel without changing the actual BPM.",
+  "Polyrhythm taxonomy: hemiola (3:2 cross-rhythm), metric modulation, polytempo — edge cases every DJ encounters in eclectic crates."
+]
+
+[[en.pages]]
+title   = "Perceptual entrainment: why 120 BPM locks the brain"
+content = """
+The dominance of 120 BPM in electronic dance music is not arbitrary taste — it has a neurophysiological basis.
+
+**Sensorimotor synchronization** (tapping to a beat) is most accurate and automatic in the range of **1.5–3 Hz** (90–180 BPM), with a peak around 2 Hz (120 BPM). Outside this range, synchronization requires more cognitive effort and timing errors increase. This is documented extensively in Repp & Su (2013) and earlier in Fraisse (1982).
+
+The reason: the cerebellum, basal ganglia, and supplementary motor area form a timing circuit that generates an internal period. When an external beat matches this period, error correction is minimal and the body "falls into" the pulse. This is dance floor entrainment — not metaphor, actual neuroscience.
+
+**Implication for DJs**: transient breaks from the kick pattern (half-time drops, rhythmic breakdowns) work on the dance floor *because* the audience's motor system keeps the internal pulse running — they are still moving even when the kick disappears, because entrainment persists for several seconds after the external signal stops. This is why a well-placed breakdown feels like tension, not confusion.
+
+## Isochrony and groove
+
+Pure four-on-the-floor is *isochronous* — perfectly even spacing. Many grooves deviate slightly: the **swing ratio** (ratio of long to short subdivision in a triplet or dotted-note pattern) adds humanity. A 50/50 ratio is straight; 67/33 is a triplet feel (shuffle). DJ software typically stores swing as a percentage deviation from isochrony.
+
+Mixing a swung groove with a straight groove at the same BPM will still produce a subtle rhythm clash even when perfectly phase-locked.
+"""
+
+[[en.pages]]
+title   = "Haas effect, phase resolution, and the flam in detail"
+content = """
+The **Haas effect** (also: precedence effect, Wallach et al. 1949) describes how the auditory system fuses spatially coincident sounds arriving within ~35 ms as a single event. The DJ-relevant threshold is much smaller.
+
+For **non-spatialised, monaural** transients (club speaker playback, mono sum):
+- **< 1 ms**: complete fusion — heard as one attack
+- **1–5 ms**: **fusion with coloration** — the combined transient has a comb-filtered quality; this is the beginning of the audible flam
+- **5–40 ms**: **two distinct events** — a clear flam or echo
+- **> 40 ms**: clearly a separate event (delay/reverb territory)
+
+At 120 BPM, 1 beat = 500 ms. The 5 ms threshold = **1% of a beat**. In beats-per-minute terms: a phase error that produces a 5 ms flam corresponds to a BPM error of 0.01 BPM at 120 — far below any digital display resolution.
+
+**What this means in practice**: a digitally perfect BPM match does not guarantee a clean mix. Phase drift of even 2–3 ms produces audible coloration. This is why experienced DJs nudge after locking BPM — they're correcting a phase error that the BPM display cannot show.
+
+## Interaural vs. monaural thresholds
+
+Human interaural time discrimination (detecting which ear a sound arrives at first) resolves to ~10–20 μs. Monaural flutter detection (what you hear in a DJ booth) is coarser: ~1–2 ms for trained listeners. DJ software with real-time phase meters can show this, but the final judge is always the ear.
+"""
+youtube = "Zn_BZkVxzFU"
+youtube_start = 0
+youtube_caption = "Haas effect demonstration — listen with headphones to hear the directional bias at different delay times."
+
+[[en.pages]]
+title   = "Hypermeter, anacrusis, AABA, and structural edge cases"
+content = """
+## Hypermeter
+
+A **hypermeasure** is a group of bars that function as a single macro-unit. In most house/techno, four 4/4 bars form a **4-bar hypermeasure**, and eight 4/4 bars form an **8-bar hypermeasure** (= one DJ phrase). The "big beat" you feel every 4 bars is hypermeter in action.
+
+This framing is useful for understanding why **fills and risebars** feel obligatory at bar 4 and bar 8 of a phrase: they are the hypermetric accents — the downbeats at the hypermeasure level. Miss them and the listener feels structural displacement.
+
+## Anacrusis
+
+An **anacrusis** (upbeat, pickup) is a note or motif that begins *before* the first downbeat of a phrase. In rock and jazz, a vocal pickup ("in the jungle, the mighty jungle...") lands before beat 1 of the verse. In DJ music, anacrusis is rare but present:
+- **Open hi-hat on beat 4** of the last bar, leading into the phrase: functions as an anacrusis to the incoming phrase
+- **Pitch riser** starting 2 beats before the phrase boundary: classic producer technique, creates the anacrusis effect digitally
+- **Cue point** set on the anacrusis rather than beat 1: advanced DJs use this for tighter phrase-aligned drops
+
+## AABA form
+
+The **AABA** structure (Tin Pan Alley, jazz standards: 32-bar form with 8+8+8+8) maps surprisingly well onto the DJ track layout:
+
+| AABA | DJ structure |
+|---|---|
+| A (bars 1–8) | Intro / first build phrase |
+| A (bars 9–16) | Drop |
+| B (bars 17–24) | Break (the "bridge" — different energy) |
+| A (bars 25–32) | Return / outro |
+
+Understanding AABA helps when cueing unfamiliar tracks: the B section (break) is structurally obligated to resolve back to A. It cannot extend indefinitely. This is why a DJ can predict, without having heard a track before, that the break will end in approximately 8–16 bars.
+
+## Half-time feel
+
+In **half-time** grooves (common in D&B, trap, and some nu-metal influenced tracks), the snare is displaced from beats 2 and 4 to beat **3 only** — effectively halving the perceived tempo without changing the BPM. At 170 BPM (D&B), the half-time feel makes the perceived pulse feel like 85 BPM. Beat-tracking algorithms routinely misread this as 85 BPM. The fix: tap-tempo or manually inspect the kick pattern.
+
+## Polyrhythm edge cases
+
+- **Hemiola (3:2)**: three notes in the time of two — creates a cross-rhythm against the 4/4 kick. Common in Afro-Cuban and some techno breakdowns
+- **Metric modulation**: the tempo of one layer becomes the new pulse of the whole track (e.g., the triplet subdivision becomes the new quarter note). Rare in DJ music, present in some jazz-influenced broken beat
+- **Polytempo**: two layers genuinely at different BPMs simultaneously — almost absent in mixable DJ music, but present in some experimental/industrial tracks
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "At what frequency range is sensorimotor synchronization (tapping to a beat) most accurate and effortless?"
+answers  = ["0.5–1 Hz (30–60 BPM)", "3–5 Hz (180–300 BPM)", "1.5–3 Hz (90–180 BPM)"]
+[quiz.fr]
+question = "Dans quelle plage de fréquence la synchronisation sensorimotrice (taper sur un beat) est-elle la plus précise et sans effort ?"
+answers  = ["0,5–1 Hz (30–60 BPM)", "3–5 Hz (180–300 BPM)", "1,5–3 Hz (90–180 BPM)"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "At 120 BPM, what phase error in milliseconds corresponds to 1% of a beat?"
+answers  = ["0.5 ms", "5 ms", "50 ms"]
+[quiz.fr]
+question = "À 120 BPM, quelle erreur de phase en millisecondes correspond à 1% d'un beat ?"
+answers  = ["0,5 ms", "5 ms", "50 ms"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is an anacrusis in the context of a DJ track?"
+answers  = ["A note or motif (like an open hi-hat or pitch riser) that begins before the first downbeat of a phrase", "A break that lasts longer than one phrase", "A kick pattern displaced to beat 3 only"]
+[quiz.fr]
+question = "Qu'est-ce qu'une anacrouse dans le contexte d'un track DJ ?"
+answers  = ["Une note ou un motif (comme un hi-hat ouvert ou un pitch riser) qui commence avant le premier downbeat d'une phrase", "Un break qui dure plus d'une phrase", "Un pattern de kick déplacé sur le temps 3 uniquement"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In AABA form applied to a DJ track, what does the B section correspond to?"
+answers  = ["The drop — highest energy section", "The intro — sparse, mixing-in section", "The break — a bridge with different energy, structurally required to resolve back to A"]
+[quiz.fr]
+question = "Dans la forme AABA appliquée à un track DJ, à quoi correspond la section B ?"
+answers  = ["Le drop — section à plus haute énergie", "L'intro — section sparse pour mixer en entrée", "Le break — un pont avec une énergie différente, structurellement obligé de résoudre vers A"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Why does a half-time feel at 170 BPM confuse BPM detection algorithms?"
+answers  = ["The kick pattern becomes four-on-the-floor at 170, which is too fast to autocorrelate", "The snare displaced to beat 3 creates a perceived pulse of ~85 BPM — algorithms may lock onto that instead", "The onset density is too high for spectral flux detection"]
+[quiz.fr]
+question = "Pourquoi un feel half-time à 170 BPM trompe-t-il les algorithmes de détection BPM ?"
+answers  = ["Le pattern de kick devient four-on-the-floor à 170, trop rapide pour l'autocorrélation", "La snare déplacée sur le temps 3 crée une pulsation perçue de ~85 BPM — les algos peuvent s'accrocher à ça", "La densité d'onsets est trop élevée pour la détection par flux spectral"]
+
+[[sources]]
+label = "Repp & Su — Sensorimotor synchronization: A review of recent research (2013)"
+url   = "https://link.springer.com/article/10.3758/s13423-012-0371-2"
+
+[[sources]]
+label = "Wallach, Newman & Rosenzweig — The precedence effect in sound localization (1949)"
+url   = "https://www.jstor.org/stable/1418740"
+
+[[sources]]
+label = "Fraisse — Rhythm and Tempo, in D. Deutsch (Ed.), The Psychology of Music (1982)"
+url   = "https://www.sciencedirect.com/book/9780122135620/the-psychology-of-music"
+
+[[sources]]
+label = "London — Hearing in Time: Psychological Aspects of Musical Meter (2004)"
+url   = "https://global.oup.com/academic/product/hearing-in-time-9780195160819"
+
+[[sources]]
+label = "Anacrusis — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Anacrusis"
+
+[fr]
+title       = "Structure du rythme : hypermètre, psychoacoustique et les limites du 4/4"
+short_desc  = "Anacrouse, hypermesure, forme AABA, précédence Haas, et ce qui se passe quand le groove casse les règles."
+description = "Détection de phase, entraînement perceptuel, hiérarchie des phrases au-delà des 32 beats, taxonomie des polyrythmies, et les outils d'analyse structurelle qui séparent la reconnaissance de patterns du comptage mécanique."
+recap = [
+  "Le four-on-the-floor est une pulsation isochrone à 2 Hz — à la fréquence de pic d'entraînement sensorimoteur (Repp & Su 2013).",
+  "Effet Haas/précédence : fusion en dessous de ~1 ms, biais directionnel 1–5 ms, événements distincts au-dessus de 5 ms. 120 BPM → 1 beat = 500 ms → flam de 5 ms = 1% d'un beat.",
+  "Hypermesure : N mesures fonctionnant comme une seule macro-unité. Une phrase de 32 beats = 8 unités hypermètriques de 4 beats chacune.",
+  "Anacrouse (levée) : motif avant le premier downbeat d'une phrase — rare en musique club mais présent en house jazz-influencée et breaks.",
+  "La forme AABA (Tin Pan Alley) se décalque sur la structure DJ : Intro/Build = A, Drop = A, Break = B, Outro = A.",
+  "Feel half-time : snare déplacée sur le temps 3 uniquement — crée un ressenti de phrase 'doublement large' sans changer le BPM réel.",
+  "Taxonomie polyrythmique : hémiole (3:2), modulation métrique, polytempo — cas limites que tout DJ rencontre dans des crates éclectiques."
+]
+
+[[fr.pages]]
+title   = "Entraînement perceptuel : pourquoi 120 BPM verrouille le cerveau"
+content = """
+La domination du 120 BPM dans la musique électronique de danse n'est pas un goût arbitraire — elle a une base neurophysiologique.
+
+La **synchronisation sensorimotrice** (taper sur un beat) est la plus précise et automatique dans la plage de **1,5–3 Hz** (90–180 BPM), avec un pic autour de 2 Hz (120 BPM). En dehors de cette plage, la synchronisation demande plus d'effort cognitif et les erreurs de timing augmentent. C'est documenté dans Repp & Su (2013) et plus tôt dans Fraisse (1982).
+
+La raison : le cervelet, les ganglions de la base et l'aire motrice supplémentaire forment un circuit de temporisation qui génère une période interne. Quand un beat externe correspond à cette période, la correction d'erreur est minimale et le corps "tombe" dans la pulsation. C'est l'entraînement de dance floor — pas une métaphore, de la vraie neuroscience.
+
+**Implication pour les DJs** : les pauses transitoires dans le pattern de kick (drops half-time, breakdowns rythmiques) fonctionnent sur le dance floor *parce que* le système moteur du public continue la pulsation interne — ils bougent encore même quand le kick disparaît, parce que l'entraînement persiste plusieurs secondes après l'arrêt du signal externe. C'est pour ça qu'un break bien placé se ressent comme tension, pas confusion.
+
+## Isochroie et groove
+
+Le four-on-the-floor pur est *isochrone* — espacement parfaitement régulier. De nombreux grooves dévient légèrement : le **ratio swing** (ratio long/court dans un pattern triolet ou pointé) ajoute de l'humanité. Un ratio 50/50 est straight ; 67/33 est un feel triolet (shuffle). Les logiciels DJ stockent généralement le swing comme un pourcentage de déviation par rapport à l'isochroie.
+
+Mixer un groove swingué avec un groove straight au même BPM produira toujours un léger clash rythmique même en phase parfaite.
+"""
+
+[[fr.pages]]
+title   = "Effet Haas, résolution de phase, et le flam en détail"
+content = """
+L'**effet Haas** (aussi : effet de précédence, Wallach et al. 1949) décrit comment le système auditif fusionne des sons spatialement coïncidents arrivant dans ~35 ms comme un seul événement. Le seuil pertinent pour les DJs est bien plus petit.
+
+Pour des transitoires **non spatialisés, monauraux** (écoute enceinte club, somme mono) :
+- **< 1 ms** : fusion complète — entendu comme une seule attaque
+- **1–5 ms** : **fusion avec coloration** — le transitoire combiné a une qualité filtrée en peigne ; c'est le début du flam audible
+- **5–40 ms** : **deux événements distincts** — un flam ou écho clair
+- **> 40 ms** : clairement un événement séparé (territoire delay/reverb)
+
+À 120 BPM, 1 beat = 500 ms. Le seuil de 5 ms = **1% d'un beat**. En termes de BPM : une erreur de phase produisant un flam de 5 ms correspond à une erreur de BPM de 0,01 BPM à 120 — bien en dessous de toute résolution d'affichage numérique.
+
+**Ce que ça signifie en pratique** : un match BPM numériquement parfait ne garantit pas un mix propre. Une dérive de phase de 2–3 ms produit une coloration audible. C'est pour ça que les DJs expérimentés nudgent après avoir verrouillé le BPM — ils corrigent une erreur de phase que l'affichage BPM ne peut pas montrer.
+
+## Seuils interaural vs. monaural
+
+La discrimination temporelle interaurale humaine (détecter quelle oreille reçoit un son en premier) résout à ~10–20 μs. La détection de flottement monaural (ce qu'on entend dans une cabine DJ) est plus grossière : ~1–2 ms pour les auditeurs entraînés. Les logiciels DJ avec mètres de phase en temps réel peuvent montrer ça, mais le juge final reste toujours l'oreille.
+"""
+youtube = "Zn_BZkVxzFU"
+youtube_start = 0
+youtube_caption = "Démonstration de l'effet Haas — écouter au casque pour entendre le biais directionnel à différents temps de délai."
+
+[[fr.pages]]
+title   = "Hypermètre, anacrouse, AABA et cas limites structurels"
+content = """
+## Hypermètre
+
+Une **hypermesure** est un groupe de mesures qui fonctionne comme une seule macro-unité. Dans la plupart de la house/techno, quatre mesures 4/4 forment une **hypermesure de 4 mesures**, et huit mesures 4/4 forment une **hypermesure de 8 mesures** (= une phrase DJ). Le "gros beat" qu'on ressent toutes les 4 mesures, c'est l'hypermètre en action.
+
+Ce cadre est utile pour comprendre pourquoi les **fills et risebars** semblent obligatoires en mesure 4 et 8 d'une phrase : ce sont les accents hypermètriques — les downbeats au niveau de l'hypermesure. Les rater et l'auditeur ressent un déplacement structurel.
+
+## Anacrouse
+
+Une **anacrouse** (levée, upbeat) est une note ou un motif qui commence *avant* le premier downbeat d'une phrase. En rock et jazz, une levée vocale tombe avant le temps 1 du couplet. En musique DJ, l'anacrouse est rare mais présente :
+- **Hi-hat ouvert sur le temps 4** de la dernière mesure, menant à la phrase : fonctionne comme anacrouse à la phrase entrante
+- **Pitch riser** commençant 2 beats avant la limite de phrase : technique classique de producteur, crée l'effet d'anacrouse numériquement
+- **Cue point** placé sur l'anacrouse plutôt que sur le temps 1 : les DJs avancés utilisent ça pour des drops plus précis alignés sur les phrases
+
+## Forme AABA
+
+La structure **AABA** (Tin Pan Alley, standards de jazz : forme 32 mesures avec 8+8+8+8) se décalque étonnamment bien sur la structure d'un track DJ :
+
+| AABA | Structure DJ |
+|---|---|
+| A (mesures 1–8) | Intro / première phrase de build |
+| A (mesures 9–16) | Drop |
+| B (mesures 17–24) | Break (le "pont" — énergie différente) |
+| A (mesures 25–32) | Retour / outro |
+
+Comprendre l'AABA aide quand on cue des morceaux inconnus : la section B (break) est structurellement obligée de résoudre vers A. Elle ne peut pas s'étendre indéfiniment. C'est pour ça qu'un DJ peut prédire, sans avoir entendu un morceau auparavant, que le break se terminera en environ 8–16 mesures.
+
+## Feel half-time
+
+Dans les grooves **half-time** (courants en D&B, trap, et certains tracks influencés nu-metal), la snare est déplacée des temps 2 et 4 au temps **3 uniquement** — divisant effectivement par deux le tempo perçu sans changer le BPM. À 170 BPM (D&B), le feel half-time rend la pulsation perçue comme 85 BPM. Les algorithmes de beat-tracking lisent régulièrement ça comme 85 BPM. Le correctif : tap-tempo ou inspecter manuellement le pattern de kick.
+
+## Cas limites polyrythmiques
+
+- **Hémiole (3:2)** : trois notes dans le temps de deux — crée une cross-rhythm contre le kick 4/4. Courant en Afro-cubain et certains breakdowns techno
+- **Modulation métrique** : le tempo d'une couche devient la nouvelle pulsation de tout le morceau (ex : la subdivision triolet devient la nouvelle noire). Rare en musique DJ, présent en broken beat jazz-influencé
+- **Polytempo** : deux couches genuinement à des BPMs différents simultanément — quasi absent en musique DJ mixable, mais présent dans certains tracks expérimentaux/industriels
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "At what frequency range is sensorimotor synchronization (tapping to a beat) most accurate and effortless?"
+answers  = ["0.5–1 Hz (30–60 BPM)", "3–5 Hz (180–300 BPM)", "1.5–3 Hz (90–180 BPM)"]
+[quiz.fr]
+question = "Dans quelle plage de fréquence la synchronisation sensorimotrice (taper sur un beat) est-elle la plus précise et sans effort ?"
+answers  = ["0,5–1 Hz (30–60 BPM)", "3–5 Hz (180–300 BPM)", "1,5–3 Hz (90–180 BPM)"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "At 120 BPM, what phase error in milliseconds corresponds to 1% of a beat?"
+answers  = ["0.5 ms", "5 ms", "50 ms"]
+[quiz.fr]
+question = "À 120 BPM, quelle erreur de phase en millisecondes correspond à 1% d'un beat ?"
+answers  = ["0,5 ms", "5 ms", "50 ms"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is an anacrusis in the context of a DJ track?"
+answers  = ["A note or motif (like an open hi-hat or pitch riser) that begins before the first downbeat of a phrase", "A break that lasts longer than one phrase", "A kick pattern displaced to beat 3 only"]
+[quiz.fr]
+question = "Qu'est-ce qu'une anacrouse dans le contexte d'un track DJ ?"
+answers  = ["Une note ou un motif (comme un hi-hat ouvert ou un pitch riser) qui commence avant le premier downbeat d'une phrase", "Un break qui dure plus d'une phrase", "Un pattern de kick déplacé sur le temps 3 uniquement"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In AABA form applied to a DJ track, what does the B section correspond to?"
+answers  = ["The drop — highest energy section", "The intro — sparse, mixing-in section", "The break — a bridge with different energy, structurally required to resolve back to A"]
+[quiz.fr]
+question = "Dans la forme AABA appliquée à un track DJ, à quoi correspond la section B ?"
+answers  = ["Le drop — section à plus haute énergie", "L'intro — section sparse pour mixer en entrée", "Le break — un pont avec une énergie différente, structurellement obligé de résoudre vers A"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Why does a half-time feel at 170 BPM confuse BPM detection algorithms?"
+answers  = ["The kick pattern becomes four-on-the-floor at 170, which is too fast to autocorrelate", "The snare displaced to beat 3 creates a perceived pulse of ~85 BPM — algorithms may lock onto that instead", "The onset density is too high for spectral flux detection"]
+[quiz.fr]
+question = "Pourquoi un feel half-time à 170 BPM trompe-t-il les algorithmes de détection BPM ?"
+answers  = ["Le pattern de kick devient four-on-the-floor à 170, trop rapide pour l'autocorrélation", "La snare déplacée sur le temps 3 crée une pulsation perçue de ~85 BPM — les algos peuvent s'accrocher à ça", "La densité d'onsets est trop élevée pour la détection par flux spectral"]
+
+[[sources]]
+label = "Repp & Su — Sensorimotor synchronization: A review of recent research (2013)"
+url   = "https://link.springer.com/article/10.3758/s13423-012-0371-2"
+
+[[sources]]
+label = "Wallach, Newman & Rosenzweig — The precedence effect in sound localization (1949)"
+url   = "https://www.jstor.org/stable/1418740"
+
+[[sources]]
+label = "Fraisse — Rhythm and Tempo, in The Psychology of Music (1982)"
+url   = "https://www.sciencedirect.com/book/9780122135620/the-psychology-of-music"
+
+[[sources]]
+label = "London — Hearing in Time: Psychological Aspects of Musical Meter (2004)"
+url   = "https://global.oup.com/academic/product/hearing-in-time-9780195160819"
+
+[[sources]]
+label = "Anacrusis — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Anacrusis"

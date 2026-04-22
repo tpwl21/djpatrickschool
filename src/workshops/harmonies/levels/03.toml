@@ -1,0 +1,84 @@
+id = "HARMONIES_LEVEL_3"
+order = 3
+
+[en]
+title       = "Camelot Wheel Pick"
+short_desc  = "Use the Camelot wheel to find a compatible track. Not same-key — compatible."
+description = "Track A is in <b>11A</b> (F♯m). Any track in the compatibility set {11A, 11B, 10A, 12A, 6A} will blend. The wheel is your cheat-sheet: compatible cells light up lavender."
+details     = "Validation: pick any compatible track, load B, play, hold 2s."
+success     = "Compatible, not identical. That's the real DJ move."
+coach_tips  = [
+  "11A sits next to 10A and 12A on the ring — those are neighbors, 1 sharp/flat apart.",
+  "11A and 11B share the same 7 notes (relative minor/major) — always smooth.",
+  "11A + 7 wraps to 6A — that's the energy-boost move."
+]
+recap = [
+  "The Camelot wheel shows every compatible move visually — neighbors and relative pairs.",
+  "Same number different letter (11A ↔ 11B) = relative major/minor, always smooth.",
+  "±1 on the wheel (10A, 12A from 11A) = closest harmonic neighbors.",
+  "+7 is the energy-boost jump — a classic move to lift a set."
+]
+
+[track.A]
+url = "AUDIO/SuperMarket.mp3"
+bpm = 130
+title = "Market"
+key = "11A"
+complexity = 4
+
+[ui]
+mode = "camelot_pick"
+key_format = "camelot"
+show_wheel = true
+show_pitch = false
+show_master_tempo = false
+hold_match_sec = 2.0
+
+[[pool]]
+url = "AUDIO/Trip.mp3"
+title = "Trip"
+bpm = 128
+key = "10A"
+genre = "house"
+
+[[pool]]
+url = "AUDIO/SCIFI.mp3"
+title = "SciFi"
+bpm = 130
+key = "11B"
+genre = "electro"
+
+[[pool]]
+url = "AUDIO/Ensaios.mp3"
+title = "Ensaios"
+bpm = 128
+key = "6A"
+genre = "techno"
+
+[[pool]]
+url = "AUDIO/Tech.mp3"
+title = "Tech"
+bpm = 130
+key = "8A"
+genre = "tech house"
+
+[[pool]]
+url = "AUDIO/Bjork.mp3"
+title = "Bjork"
+bpm = 100
+key = "2A"
+genre = "downtempo"
+
+[[pool]]
+url = "AUDIO/Fulgulandio.mp3"
+title = "Fulgulandio"
+bpm = 132
+key = "4A"
+genre = "hard techno"
+
+[[pool]]
+url = "AUDIO/JazzMan_Doucheur.mp3"
+title = "JazzMan"
+bpm = 125
+key = "9A"
+genre = "jazz house"

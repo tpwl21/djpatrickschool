@@ -1,0 +1,320 @@
+id = "LESSON_BM_1_PRO"
+order = 1
+
+[en]
+title       = "BPM: DSP, Time-Scale Modification, and the Limits of Detection"
+short_desc  = "WSOLA, phase vocoders, beat-tracking algorithms, and why vinyl DJs never fully trust the screen."
+description = "Behind the BPM number lies a chain of DSP algorithms, perceptual thresholds, and engineering trade-offs. This lesson goes there."
+recap = [
+  "Tempo in DAWs is defined at tick resolution (1/960th of a quarter note in Ableton) — vinyl decks drift mechanically.",
+  "BPM auto-detection uses onset detection + autocorrelation or beat-tracking (Dixon, Scheirer). Accurate within ±1 BPM on clean 4/4, unreliable on swung, live, or short material.",
+  "Pitch-rate coupling: Δpitch (semitones) = 12 × log₂(new_rate / old_rate). 6% ≈ 1 semitone.",
+  "WSOLA (Waveform-Similarity Overlap-Add) slices audio into overlapping frames, maximizes cross-correlation across splice points, reassembles at target rate.",
+  "Phase vocoder does the same in the frequency domain: resynthesizes at new rate by phase interpolation of STFT bins.",
+  "Both methods degrade above ±10–15%: transient smearing (WSOLA) or metallic phasing (phase vocoder). Laroche-Dolson phase locking reduces artifacts at the cost of added complexity.",
+  "At 120 BPM a 1 ms phase error = 0.2% of a beat — human hearing resolves phase to ~1 ms interaurally."
+]
+
+[[en.pages]]
+title   = "Tempo in the machine: ticks, drift, and mechanical limits"
+content = """
+Inside a DAW, tempo is not stored as BPM but as **microseconds per beat** (MIDI standard: 480,000 μs = 120 BPM). Ableton works at **tick resolution**: 1/960th of a quarter note, roughly 0.52 ms at 120 BPM. This gives sub-millisecond alignment accuracy — far below human perception thresholds.
+
+Vinyl turntables are the opposite: the platter is driven by an AC motor, and its speed drifts with motor load, stylus friction, and platter weight distribution. A standard 1200 has a quartz-locked motor, but even quartz-locked decks exhibit ~±0.1 BPM drift over the duration of a record. That's why vinyl DJs micro-nudge constantly — they're compensating for real mechanical variation, not just phase errors.
+
+CDJs solve this with a digital motor simulator (the platter is a rotary encoder, not a true motor driving a spindle), but older firmware had similar timing jitter on the USB read buffer, especially with high-resolution waveform rendering enabled.
+
+**Implication**: when you're told a track is "120 BPM", that is an *approximation*. On vinyl it's a statistical mean. In a well-produced DAW session it's accurate to microseconds. Know which world you're operating in.
+"""
+
+[[en.pages]]
+title   = "Beat-tracking algorithms: how BPM detection actually works"
+content = """
+BPM auto-detection is a two-stage DSP pipeline:
+
+## 1. Onset detection
+
+The goal is to find moments of energy increase — kick attacks, snare hits, hi-hat transients. Methods include:
+- **Spectral flux**: measure the difference between consecutive STFT frames; positive flux = onset candidate
+- **HFC (High Frequency Content)**: weight higher spectral bins more heavily — good for percussive attacks
+- **Phase deviation**: detect where spectral bin phases change unexpectedly (used by Brossier / aubio)
+
+## 2. Tempo estimation
+
+Given a list of onset times, estimate the underlying period. Common approaches:
+- **Autocorrelation**: convolve the onset function with itself at varying lags; peaks in the autocorrelation indicate likely periods. Efficient, works well for steady tempos
+- **Comb filter bank**: apply a bank of resonators tuned to different BPMs; whichever resonates strongest wins (used in early Scheirer 1998 work)
+- **Dynamic programming beat-tracking** (Dixon 2001, Davies & Plumbley 2007): track beat positions forward in time using a cost function that penalizes large deviations from expected inter-beat interval
+
+**Failure modes**:
+- Swung grooves: the inter-onset interval is uneven — the mean period is the correct BPM but the autocorrelation shows two distinct shorter periods
+- Half-time: the kick falls every 2 beats, not 4 — autocorrelation peak at 2× the true BPM is strong
+- Polyrhythm: onset function has competing periods; the strongest wins, which may be wrong
+- High-density textures (reverb tails, dense chords): onset function is noisy, many false positives
+"""
+youtube = "x3ZqFBMTkE8"
+youtube_start = 0
+youtube_caption = "Juan Pablo Bello — Music Information Retrieval lecture: beat tracking (New York University)"
+
+[[en.pages]]
+title   = "WSOLA and the phase vocoder: decoupling pitch from tempo"
+content = """
+**Key Lock / Master Tempo** requires changing the playback rate without changing perceived pitch. This is the time-scale modification (TSM) problem, and there are two dominant solutions.
+
+## WSOLA (Waveform-Similarity Overlap-Add)
+
+Algorithm (Verhelst & Roelands 1993, refined by Driedger & Müller 2016):
+1. Slice the input audio into overlapping frames of length *N* (typically 1024–4096 samples)
+2. For each output frame position, find the input frame whose waveform best matches the previous output frame's tail — measured by cross-correlation in a search window of ±*Δmax* samples
+3. Overlap-add the selected frames into the output at the target rate
+
+The search step is what makes WSOLA "waveform-similarity" — it minimizes phase discontinuities at splice points. This works well for **steady tonal content** up to about ±8–10% rate change.
+
+**Artifacts above ±10%**: the cross-correlation can't find good matches, splice points become audible as transient smearing (the attack of a kick is spread over several frames).
+
+## Phase Vocoder
+
+Algorithm (Flanagan & Golden 1966, improved by Laroche & Dolson 1999):
+1. Compute STFT of input (Short-Time Fourier Transform)
+2. Scale the time axis of the STFT by the target rate ratio
+3. Resynthesize via inverse STFT
+
+Pitch is preserved because the frequency content of each bin is unchanged; only the time positions of frames change.
+
+**Laroche-Dolson phase locking** (1999): in the standard phase vocoder, peaks in the spectrum "rotate" at different speeds, causing metallic/phasey artifacts on sustained notes. Phase locking groups bins around spectral peaks and rotates them as a unit — dramatically reducing the artifact at the cost of additional computation.
+
+## Trade-offs
+
+| | WSOLA | Phase Vocoder |
+|---|---|---|
+| Quality on percussives | Good | Metallic artifacts |
+| Quality on sustained tones | OK | Good (with phase locking) |
+| Computational cost | Low | Higher |
+| Latency | Low | Higher (full STFT frame) |
+
+This project's audio engine uses WSOLA for Key Lock (see `src/audio/` — an AudioWorklet implementation). Above ±8%, expect transient smearing.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In WSOLA, what does the 'waveform similarity' step do?"
+answers  = ["Computes the STFT of each input frame", "Locks the phase of spectral peaks together", "Cross-correlates candidate frames to minimize phase discontinuities at splice points"]
+[quiz.fr]
+question = "Dans WSOLA, que fait l'étape 'similarité de forme d'onde' ?"
+answers  = ["Calcule la STFT de chaque frame d'entrée", "Verrouille la phase des pics spectraux ensemble", "Cross-corrèle les frames candidates pour minimiser les discontinuités de phase aux jointures"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What does Laroche-Dolson phase locking solve in the phase vocoder?"
+answers  = ["Metallic/phasey artifacts on sustained tones caused by peaks rotating at different speeds", "Transient smearing at high stretch ratios", "High computational cost of the STFT"]
+[quiz.fr]
+question = "Que résout le phase locking de Laroche-Dolson dans le phase vocoder ?"
+answers  = ["Les artefacts métalliques/phasés sur les notes tenues causés par des pics tournant à des vitesses différentes", "L'étalement des transitoires aux forts ratios d'étirement", "Le coût de calcul élevé de la STFT"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "At 120 BPM, roughly what percentage of a beat does a 1 ms phase error represent?"
+answers  = ["0.02%", "0.2%", "2%"]
+[quiz.fr]
+question = "À 120 BPM, environ quel pourcentage d'un beat représente une erreur de phase de 1 ms ?"
+answers  = ["0,02%", "0,2%", "2%"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why does autocorrelation-based BPM detection misfire on half-time feels?"
+answers  = ["The spectral flux is too low to detect onsets", "Phase deviation is suppressed in half-time grooves", "The kick falls every 2 beats — the autocorrelation peak at 2× the true BPM is strong"]
+[quiz.fr]
+question = "Pourquoi la détection BPM par autocorrélation plante-t-elle sur les feels half-time ?"
+answers  = ["Le flux spectral est trop faible pour détecter les onsets", "La déviation de phase est supprimée dans les grooves half-time", "Le kick tombe tous les 2 beats — le pic d'autocorrélation à 2× le BPM réel est fort"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is the pitch change formula when changing playback rate by a ratio r?"
+answers  = ["12 × log₂(r) semitones", "r × 12 semitones", "log₁₀(r) × 100 cents"]
+[quiz.fr]
+question = "Quelle est la formule de changement de pitch quand on change le rate par un ratio r ?"
+answers  = ["12 × log₂(r) demi-tons", "r × 12 demi-tons", "log₁₀(r) × 100 cents"]
+
+[[sources]]
+label = "Driedger & Müller — A Review of Time-Scale Modification of Music Signals (2016)"
+url   = "https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/06_projects/90_siamus/2016_DriedgerMueller_TSMOverview_AppliedSciences_ePrint.pdf"
+
+[[sources]]
+label = "Laroche & Dolson — Improved Phase Vocoder Time-Scale Modification of Audio (1999)"
+url   = "https://ieeexplore.ieee.org/document/759041"
+
+[[sources]]
+label = "Dixon — Automatic Extraction of Tempo and Beat from Expressive Performances (2001)"
+url   = "https://www.tandfonline.com/doi/abs/10.1076/jnmr.30.1.39.7119"
+
+[[sources]]
+label = "Scheirer — Tempo and Beat Analysis of Acoustic Musical Signals (1998)"
+url   = "https://asa.scitation.org/doi/10.1121/1.421349"
+
+[[sources]]
+label = "Meinard Müller — Fundamentals of Music Processing, Chapter 6: Tempo and Beat Tracking"
+url   = "https://link.springer.com/book/10.1007/978-3-319-21945-5"
+
+[fr]
+title       = "BPM : DSP, modification temporelle, et les limites de la détection"
+short_desc  = "WSOLA, phase vocoders, algos de beat-tracking, et pourquoi les DJs vinyle ne font jamais totalement confiance à l'écran."
+description = "Derrière le chiffre BPM se cache une chaîne d'algorithmes DSP, de seuils perceptuels et de compromis d'ingénierie. Cette leçon va là."
+recap = [
+  "Le tempo en MAO est défini à la résolution des ticks (1/960e de noire dans Ableton) — les platines vinyle dérivent mécaniquement.",
+  "La détection BPM auto utilise détection d'onset + autocorrélation ou beat-tracking (Dixon, Scheirer). Précis à ±1 BPM sur du 4/4 propre, peu fiable sur swingué, live ou court.",
+  "Couplage pitch-rate : Δpitch (demi-tons) = 12 × log₂(nouveau_rate / ancien_rate). 6% ≈ 1 demi-ton.",
+  "WSOLA découpe l'audio en frames recouvrantes, maximise la cross-corrélation aux jointures, recolle au rate cible.",
+  "Le phase vocoder fait la même chose dans le domaine fréquentiel : resynth au nouveau rate par interpolation de phase des bins STFT.",
+  "Les deux dégradent au-delà de ±10–15% : étalement des transitoires (WSOLA) ou phasage métallique (phase vocoder). Le phase locking Laroche-Dolson réduit les artefacts au prix d'une complexité accrue.",
+  "À 120 BPM une erreur de phase de 1 ms = 0,2% d'un beat — l'audition humaine résout la phase à ~1 ms en interaural."
+]
+
+[[fr.pages]]
+title   = "Le tempo dans la machine : ticks, dérive et limites mécaniques"
+content = """
+Dans un DAW, le tempo n'est pas stocké en BPM mais en **microsecondes par beat** (standard MIDI : 480 000 μs = 120 BPM). Ableton travaille à la **résolution des ticks** : 1/960e de noire, soit environ 0,52 ms à 120 BPM. Cela permet un calage sub-millisecondes — bien en dessous des seuils de perception humaine.
+
+Les platines vinyle sont l'opposé : le plateau est entraîné par un moteur AC, et sa vitesse dérive avec la charge moteur, la friction du saphir et la distribution du poids du plateau. Une 1200 standard a un moteur à quartz, mais même les decks à quartz présentent ~±0,1 BPM de dérive sur la durée d'un disque. C'est pour ça que les DJs vinyle micro-nudgent constamment — ils compensent une vraie variation mécanique, pas seulement des erreurs de phase.
+
+Les CDJ résolvent ça avec un simulateur de moteur numérique (le plateau est un encodeur rotatif, pas un vrai moteur), mais les anciennes versions de firmware avaient une gigue temporelle similaire sur le buffer de lecture USB, surtout avec le rendu de forme d'onde haute résolution activé.
+
+**Implication** : quand on te dit qu'un morceau est à "120 BPM", c'est une *approximation*. Sur vinyle c'est une moyenne statistique. Dans une session MAO bien produite c'est précis à la microseconde. Sache dans quel monde tu opères.
+"""
+
+[[fr.pages]]
+title   = "Algorithmes de beat-tracking : comment la détection BPM fonctionne vraiment"
+content = """
+La détection BPM auto est un pipeline DSP en deux étapes :
+
+## 1. Détection d'onset
+
+Le but est de trouver les moments d'augmentation d'énergie — attaques de kick, hits de snare, transitoires de hi-hat. Méthodes :
+- **Flux spectral** : mesurer la différence entre frames STFT consécutives ; flux positif = candidat onset
+- **HFC (High Frequency Content)** : pondérer plus fortement les bins spectraux hauts — bon pour les attaques percussives
+- **Déviation de phase** : détecter où les phases des bins spectraux changent inopinément (utilisé par Brossier / aubio)
+
+## 2. Estimation du tempo
+
+Étant donné une liste de temps d'onset, estimer la période sous-jacente. Approches courantes :
+- **Autocorrélation** : convoluer la fonction d'onset avec elle-même à différents décalages ; les pics dans l'autocorrélation indiquent des périodes probables. Efficace, fonctionne bien pour des tempos stables
+- **Banc de filtres en peigne** : appliquer une banque de résonateurs accordés à différents BPMs ; celui qui résonne le plus fort gagne (utilisé dans les travaux Scheirer 1998)
+- **Beat-tracking par programmation dynamique** (Dixon 2001, Davies & Plumbley 2007) : tracker les positions de beat dans le temps avec une fonction de coût qui pénalise les grands écarts à l'intervalle inter-beat attendu
+
+**Modes d'échec** :
+- Grooves swingués : l'intervalle inter-onset est inégal — la période moyenne est le bon BPM mais l'autocorrélation montre deux périodes courtes distinctes
+- Half-time : le kick tombe tous les 2 beats — le pic d'autocorrélation à 2× le BPM réel est fort
+- Polyrythmie : la fonction d'onset a des périodes concurrentes ; la plus forte gagne, ce qui peut être faux
+- Textures denses (queues de reverb, accords denses) : la fonction d'onset est bruitée, beaucoup de faux positifs
+"""
+youtube = "x3ZqFBMTkE8"
+youtube_start = 0
+youtube_caption = "Juan Pablo Bello — Cours MIR : beat tracking (New York University)"
+
+[[fr.pages]]
+title   = "WSOLA et le phase vocoder : découpler le pitch du tempo"
+content = """
+**Key Lock / Master Tempo** nécessite de changer le rate de lecture sans changer le pitch perçu. C'est le problème de modification temporelle (TSM), et il y a deux solutions dominantes.
+
+## WSOLA (Waveform-Similarity Overlap-Add)
+
+Algorithme (Verhelst & Roelands 1993, affiné par Driedger & Müller 2016) :
+1. Découper l'audio d'entrée en frames recouvrantes de longueur *N* (typiquement 1024–4096 samples)
+2. Pour chaque position de frame de sortie, trouver la frame d'entrée dont la forme d'onde correspond le mieux à la queue de la frame de sortie précédente — mesurée par cross-corrélation dans une fenêtre de recherche de ±*Δmax* samples
+3. Overlap-add les frames sélectionnées dans la sortie au rate cible
+
+L'étape de recherche est ce qui rend WSOLA "waveform-similarity" — elle minimise les discontinuités de phase aux jointures. Fonctionne bien pour **contenu tonal stable** jusqu'à environ ±8–10% de changement de rate.
+
+**Artefacts au-delà de ±10%** : la cross-corrélation ne trouve plus de bonnes correspondances, les jointures deviennent audibles comme étalement des transitoires.
+
+## Phase Vocoder
+
+Algorithme (Flanagan & Golden 1966, amélioré par Laroche & Dolson 1999) :
+1. Calculer la STFT de l'entrée
+2. Mettre à l'échelle l'axe temporel de la STFT par le ratio de rate cible
+3. Resynthétiser par STFT inverse
+
+Le pitch est préservé car le contenu fréquentiel de chaque bin est inchangé ; seules les positions temporelles des frames changent.
+
+**Phase locking Laroche-Dolson** (1999) : dans le phase vocoder standard, les pics spectraux "tournent" à des vitesses différentes, causant des artefacts métalliques/phasés sur les notes tenues. Le phase locking groupe les bins autour des pics spectraux et les fait tourner comme une unité — réduit dramatiquement l'artefact au prix d'un calcul supplémentaire.
+
+## Comparaison
+
+| | WSOLA | Phase Vocoder |
+|---|---|---|
+| Qualité sur percussions | Bonne | Artefacts métalliques |
+| Qualité sur sons tenus | Correcte | Bonne (avec phase locking) |
+| Coût calcul | Faible | Plus élevé |
+| Latence | Faible | Plus élevée (frame STFT complète) |
+
+Le moteur audio de ce projet utilise WSOLA pour le Key Lock (cf. `src/audio/` — une implémentation AudioWorklet). Au-delà de ±8%, attend-toi à un étalement des transitoires.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In WSOLA, what does the 'waveform similarity' step do?"
+answers  = ["Computes the STFT of each input frame", "Locks the phase of spectral peaks together", "Cross-correlates candidate frames to minimize phase discontinuities at splice points"]
+[quiz.fr]
+question = "Dans WSOLA, que fait l'étape 'similarité de forme d'onde' ?"
+answers  = ["Calcule la STFT de chaque frame d'entrée", "Verrouille la phase des pics spectraux ensemble", "Cross-corrèle les frames candidates pour minimiser les discontinuités de phase aux jointures"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What does Laroche-Dolson phase locking solve in the phase vocoder?"
+answers  = ["Metallic/phasey artifacts on sustained tones caused by peaks rotating at different speeds", "Transient smearing at high stretch ratios", "High computational cost of the STFT"]
+[quiz.fr]
+question = "Que résout le phase locking de Laroche-Dolson dans le phase vocoder ?"
+answers  = ["Les artefacts métalliques/phasés sur les notes tenues causés par des pics tournant à des vitesses différentes", "L'étalement des transitoires aux forts ratios d'étirement", "Le coût de calcul élevé de la STFT"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "At 120 BPM, roughly what percentage of a beat does a 1 ms phase error represent?"
+answers  = ["0.02%", "0.2%", "2%"]
+[quiz.fr]
+question = "À 120 BPM, environ quel pourcentage d'un beat représente une erreur de phase de 1 ms ?"
+answers  = ["0,02%", "0,2%", "2%"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why does autocorrelation-based BPM detection misfire on half-time feels?"
+answers  = ["The spectral flux is too low to detect onsets", "Phase deviation is suppressed in half-time grooves", "The kick falls every 2 beats — the autocorrelation peak at 2× the true BPM is strong"]
+[quiz.fr]
+question = "Pourquoi la détection BPM par autocorrélation plante-t-elle sur les feels half-time ?"
+answers  = ["Le flux spectral est trop faible pour détecter les onsets", "La déviation de phase est supprimée dans les grooves half-time", "Le kick tombe tous les 2 beats — le pic d'autocorrélation à 2× le BPM réel est fort"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is the pitch change formula when changing playback rate by a ratio r?"
+answers  = ["12 × log₂(r) semitones", "r × 12 semitones", "log₁₀(r) × 100 cents"]
+[quiz.fr]
+question = "Quelle est la formule de changement de pitch quand on change le rate par un ratio r ?"
+answers  = ["12 × log₂(r) demi-tons", "r × 12 demi-tons", "log₁₀(r) × 100 cents"]
+
+[[sources]]
+label = "Driedger & Müller — A Review of Time-Scale Modification of Music Signals (2016)"
+url   = "https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/06_projects/90_siamus/2016_DriedgerMueller_TSMOverview_AppliedSciences_ePrint.pdf"
+
+[[sources]]
+label = "Laroche & Dolson — Improved Phase Vocoder Time-Scale Modification of Audio (1999)"
+url   = "https://ieeexplore.ieee.org/document/759041"
+
+[[sources]]
+label = "Dixon — Automatic Extraction of Tempo and Beat from Expressive Performances (2001)"
+url   = "https://www.tandfonline.com/doi/abs/10.1076/jnmr.30.1.39.7119"
+
+[[sources]]
+label = "Scheirer — Tempo and Beat Analysis of Acoustic Musical Signals (1998)"
+url   = "https://asa.scitation.org/doi/10.1121/1.421349"
+
+[[sources]]
+label = "Meinard Müller — Fundamentals of Music Processing, Chapter 6"
+url   = "https://link.springer.com/book/10.1007/978-3-319-21945-5"

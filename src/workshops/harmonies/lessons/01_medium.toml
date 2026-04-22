@@ -1,0 +1,258 @@
+id = "LESSON_HARMONIES_1_MEDIUM"
+order = 1
+
+[en]
+title      = "Keys, modes & the harmonic family"
+short_desc = "Major/minor, relative keys, the 7 modes in DJ context, and the pentatonic secret weapon."
+description = "You know notes are colors (EASY). Now we get more precise: the difference between major and minor, how relative keys share the same 7 notes, what the diatonic modes actually are, and why 90% of dance music sits in natural minor. No sheet music — just practical ear knowledge."
+recap = [
+  "Major vs minor: one semitone in the third decides everything. C major (C-D-E-F-G-A-B) vs C minor (C-D-E♭-F-G-A♭-B♭).",
+  "Relative keys share all 7 notes — Am and C major are siblings. On Camelot: 8A ↔ 8B. Same palette, different tonic.",
+  "~90% of dance music is in natural minor (Aeolian mode). Dorian adds a brighter 6th — common in deep house. Phrygian adds a dark 2nd — common in techno.",
+  "The pentatonic scale (5 notes) is found inside every major and minor key. It's why pitching an acapella up 2 semitones over a different track often still works.",
+  "Neighboring keys (a fifth or fourth apart) share 6 of 7 notes. That one different note is the 'color change' you hear in a step transition."
+]
+
+[[en.pages]]
+title   = "Major vs minor: the third decides"
+content = """
+You know a key is a family of 7 notes. What makes it feel **bright** (major) or **dark** (minor) is one note: the **third above the tonic**.
+
+| Scale | Tonic | Third | Semitones | Feel |
+|-------|-------|-------|-----------|------|
+| C major | C | E | +4 | Bright, open, energetic |
+| C minor | C | E♭ | +3 | Dark, intense, melancholic |
+| A major | A | C♯ | +4 | Bright |
+| A minor | A | C | +3 | Dark |
+
+**One semitone.** That's the entire emotional gap between Daft Punk's "Get Lucky" (major) and most of techno (minor).
+
+Practical stat: roughly **90% of dance music is in minor** — house, techno, drum & bass, dubstep, UK garage. Your Camelot library is mostly A-ring (minor). This is normal.
+"""
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "C major (white keys from C) vs C minor (same C, but E♭, A♭, B♭ instead)."
+
+[[en.pages]]
+title   = "Relative keys: same notes, different tonic"
+content = """
+Every minor key has a **relative major** that uses **exactly the same 7 notes**, just starting from a different tonic:
+
+| Minor | Relative Major | Shared notes |
+|-------|---------------|--------------|
+| A minor (Am) | C major | C D E F G A B |
+| E minor (Em) | G major | G A B C D E F♯ |
+| D minor (Dm) | F major | F G A B♭ C D E |
+| B minor (Bm) | D major | D E F♯ G A B C♯ |
+
+On the **Camelot wheel**, relatives share the same number — just switch the letter: **8A ↔ 8B, 5A ↔ 5B, 3A ↔ 3B**...
+
+This is the foundation of the **letter flip** move: zero new notes enter the palette, only the tonal center shifts. A minor (dark) flips to C major (bright) — same 7 notes, completely different mood. Use it to lift the energy mid-set without a hard transition.
+
+**Producers' trick**: bassline moves from A to C over the same chord palette = immediate mood lift, no key change.
+"""
+
+[[en.pages]]
+title   = "The 7 modes: minor is not just one thing"
+content = """
+Natural minor (Aeolian) is the most common mode in dance music — but it's not the only flavor of minor. The 7 **diatonic modes** all use the same 7-note pool as a major scale, starting from different degrees:
+
+| Mode | Character | DJ context | Camelot slot |
+|------|-----------|-----------|--------------|
+| **Ionian** (major) | Bright, open | Progressive house, pop, uplifting trance | B ring |
+| **Dorian** | Minor + raised 6th → slightly brighter | Deep house, Afrobeat, neo-soul | A ring |
+| **Phrygian** | Minor + flat 2nd → very dark, Spanish feel | Techno, flamenco, metal | A ring |
+| **Lydian** | Major + raised 4th → dreamy | Film scores, Vangelis, some ambient | B ring |
+| **Mixolydian** | Major + flat 7th → funky | Funk, classic rock, some trance | B ring |
+| **Aeolian** (natural minor) | Standard dark minor | **~90% of electronic dance music** | A ring |
+| **Locrian** | Unstable, diminished tonic | Extreme metal, avant-garde | A ring |
+
+**Camelot blind spot**: the wheel only distinguishes A (Aeolian) from B (Ionian). A Dorian track and an Aeolian track can share the same Camelot slot — but their raised-6 vs natural-6 may clash on sustained harmonic moments. Always ear-check.
+"""
+
+[[en.pages]]
+title   = "The pentatonic secret weapon"
+content = """
+Inside every major and minor key lives a **pentatonic scale** — just 5 of the 7 notes, chosen to remove the two most dissonant intervals.
+
+- **A minor pentatonic**: A · C · D · E · G (removes F and B from A natural minor)
+- **C major pentatonic**: C · D · E · G · A (removes F and B from C major)
+
+Notice: A minor pentatonic and C major pentatonic are the **same 5 notes**. They're relative pentatonics — just like their full-scale relatives.
+
+**Why this matters for DJs**:
+
+1. **Acapella pitching**: if a vocal is pentatonic (which most pop and soul hooks are), you can transpose it ±2–3 semitones and it'll still work over an unrelated instrumental — the dissonant notes don't exist in the vocal to clash with.
+
+2. **Key detection uncertainty**: Camelot analyzers sometimes tag a Dorian track as its relative major instead. If you hear a suspicious tag, ask: "does this track sound brighter or darker than its ring should?" Your ear disambiguates what the algorithm can't.
+
+3. **Safe territory**: if two tracks share the same 5-note pentatonic, they blend without any clashes, even if the Camelot codes differ. Trust your ear over the tag.
+"""
+
+[[en.quiz]]
+question = "What determines whether a key sounds major (bright) or minor (dark)?"
+answers  = ["The tempo of the track", "The third note above the tonic — 4 semitones = major, 3 semitones = minor", "The number of sharps or flats in the key signature"]
+correct  = 1
+
+[[en.quiz]]
+question = "On the Camelot wheel, 8A (A minor) and 8B (C major) are relative keys. What do they share?"
+answers  = ["The same BPM", "All 7 notes — same palette, different tonic", "Only 5 of 7 notes"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which mode dominates electronic dance music (house, techno, drum & bass)?"
+answers  = ["Ionian (major)", "Dorian (minor + raised 6th)", "Aeolian (natural minor)"]
+correct  = 2
+
+[[en.quiz]]
+question = "A Dorian track and an Aeolian track share the same Camelot slot. Can they clash?"
+answers  = ["No — same slot always means perfectly safe", "Yes — the raised 6th in Dorian can clash with the natural 6th in Aeolian on sustained harmonic moments", "Only if their BPMs are different"]
+correct  = 1
+
+[[en.quiz]]
+question = "A minor pentatonic and C major pentatonic contain..."
+answers  = ["Completely different notes", "The same 5 notes — they are relative pentatonics", "6 notes in common out of 7"]
+correct  = 1
+
+[[en.sources]]
+label = "Musictheory.net — Major and minor scales"
+url   = "https://www.musictheory.net/lessons/22"
+
+[[en.sources]]
+label = "Musictheory.net — Modes"
+url   = "https://www.musictheory.net/lessons/31"
+
+[[en.sources]]
+label = "Hooktheory — Relative major and minor"
+url   = "https://www.hooktheory.com/music-theory-for-beginners/relative-major-and-minor"
+
+[[en.sources]]
+label = "DJ TechTools — Harmonic Mixing Guide"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
+
+[fr]
+title      = "Tonalités, modes & famille harmonique"
+short_desc = "Majeur/mineur, clés relatives, les 7 modes en contexte DJ, et l'arme secrète pentatonique."
+description = "Tu sais que les notes sont des couleurs (EASY). Maintenant on devient plus précis : la différence entre majeur et mineur, comment les clés relatives partagent les mêmes 7 notes, ce que sont vraiment les modes diatoniques, et pourquoi 90% de la musique dance est en mineur naturel. Pas de solfège — juste de la connaissance d'oreille pratique."
+recap = [
+  "Majeur vs mineur : un seul demi-ton dans la tierce décide de tout. Do majeur (C-D-E-F-G-A-B) vs Do mineur (C-D-E♭-F-G-A♭-B♭).",
+  "Les clés relatives partagent les 7 mêmes notes — Am et Do majeur sont des frères. En Camelot : 8A ↔ 8B. Même palette, tonique différente.",
+  "~90% de la musique dance est en mineur naturel (mode éolien). Le dorien ajoute une 6e plus lumineuse — courant en deep house. Le phrygien ajoute une 2e sombre — courant en techno.",
+  "La gamme pentatonique (5 notes) se trouve dans chaque clé majeure et mineure. C'est pourquoi pitcher un acapella de 2 demi-tons sur un instrumental différent fonctionne souvent.",
+  "Les clés voisines (à une quinte ou quarte) partagent 6 des 7 notes. Cette note différente, c'est le 'changement de couleur' que tu entends dans une transition par pas."
+]
+
+[[fr.pages]]
+title   = "Majeur vs mineur : la tierce décide"
+content = """
+Tu sais qu'une tonalité = une famille de 7 notes. Ce qui la rend **lumineuse** (majeur) ou **sombre** (mineur), c'est une seule note : la **tierce au-dessus de la tonique**.
+
+| Gamme | Tonique | Tierce | Demi-tons | Feeling |
+|-------|---------|--------|-----------|---------|
+| Do majeur | Do | Mi | +4 | Lumineux, ouvert, énergique |
+| Do mineur | Do | Mi♭ | +3 | Sombre, intense, mélancolique |
+| La majeur | La | Do♯ | +4 | Lumineux |
+| La mineur | La | Do | +3 | Sombre |
+
+**Un seul demi-ton.** C'est tout l'écart émotionnel entre "Get Lucky" de Daft Punk (majeur) et la majorité de la techno (mineur).
+
+Stat pratique : environ **90% de la musique dance est en mineur** — house, techno, drum & bass, dubstep, UK garage. Ta bibliothèque Camelot est surtout en anneau A (mineur). C'est normal.
+"""
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "Do majeur (touches blanches depuis Do) vs Do mineur (même Do, mais Mi♭, La♭, Si♭)."
+
+[[fr.pages]]
+title   = "Les clés relatives : mêmes notes, tonique différente"
+content = """
+Chaque clé mineure a une **clé majeure relative** qui utilise **exactement les 7 mêmes notes**, juste en partant d'une tonique différente :
+
+| Mineur | Relatif majeur | Notes partagées |
+|--------|---------------|-----------------|
+| La mineur (Am) | Do majeur | Do Ré Mi Fa Sol La Si |
+| Mi mineur (Em) | Sol majeur | Sol La Si Do Ré Mi Fa♯ |
+| Ré mineur (Dm) | Fa majeur | Fa Sol La Si♭ Do Ré Mi |
+| Si mineur (Bm) | Ré majeur | Ré Mi Fa♯ Sol La Si Do♯ |
+
+Sur la **roue Camelot**, les relatifs partagent le même numéro — change juste la lettre : **8A ↔ 8B, 5A ↔ 5B, 3A ↔ 3B**...
+
+C'est la base du mouvement **flip de lettre** : zéro nouvelle note dans la palette, seulement le centre tonal qui change. La mineur (sombre) flip vers Do majeur (lumineux) — mêmes 7 notes, ambiance complètement différente. Utilise-le pour lifter l'énergie en plein set sans transition dure.
+
+**Astuce producer** : la ligne de basse passe de La à Do sur la même palette d'accords = lift immédiat, sans changement de clé.
+"""
+
+[[fr.pages]]
+title   = "Les 7 modes : le mineur n'est pas qu'une seule chose"
+content = """
+Le mineur naturel (éolien) est le mode le plus courant en musique dance — mais ce n'est pas la seule saveur de mineur. Les 7 **modes diatoniques** utilisent tous le même pool de 7 notes qu'une gamme majeure, en partant de degrés différents :
+
+| Mode | Caractère | Contexte DJ | Case Camelot |
+|------|-----------|-------------|--------------|
+| **Ionien** (majeur) | Lumineux, ouvert | Progressive house, pop, trance uplifting | Anneau B |
+| **Dorien** | Mineur + 6e haussée → légèrement plus lumineux | Deep house, Afrobeat, neo-soul | Anneau A |
+| **Phrygien** | Mineur + 2e bémol → très sombre, saveur espagnole | Techno, flamenco, metal | Anneau A |
+| **Lydien** | Majeur + 4e haussée → rêveur | Bandes originales, Vangelis, ambient | Anneau B |
+| **Mixolydien** | Majeur + 7e bémol → funky | Funk, rock classique, certaine trance | Anneau B |
+| **Éolien** (mineur naturel) | Mineur sombre standard | **~90% de la musique dance électronique** | Anneau A |
+| **Locrien** | Instable, tonique diminuée | Metal extrême, avant-garde | Anneau A |
+
+**Angle mort Camelot** : la roue distingue seulement A (éolien) de B (ionien). Un morceau dorien et un morceau éolien peuvent partager la même case Camelot — mais leur 6e haussée vs naturelle peut clasher sur les moments harmoniques soutenus. Vérifie toujours à l'oreille.
+"""
+
+[[fr.pages]]
+title   = "L'arme secrète pentatonique"
+content = """
+À l'intérieur de chaque clé majeure ou mineure vit une **gamme pentatonique** — juste 5 des 7 notes, choisies pour supprimer les deux intervalles les plus dissonants.
+
+- **La mineur pentatonique** : La · Do · Ré · Mi · Sol (supprime Fa et Si du La mineur naturel)
+- **Do majeur pentatonique** : Do · Ré · Mi · Sol · La (supprime Fa et Si du Do majeur)
+
+Remarque : La mineur pentatonique et Do majeur pentatonique contiennent **les 5 mêmes notes**. Ce sont des pentatoniques relatives — comme leurs gammes complètes relatives.
+
+**Pourquoi ça compte pour les DJs** :
+
+1. **Pitcher un acapella** : si une voix est pentatonique (la plupart des hooks pop et soul le sont), tu peux la transposer de ±2-3 demi-tons et elle fonctionnera toujours sur un instrumental sans rapport — les notes dissonantes n'existent pas dans la voix pour clasher.
+
+2. **Incertitude de détection de clé** : les analyseurs Camelot taguent parfois un morceau dorien comme son relatif majeur. Si tu vois un tag suspect, demande-toi : "ce morceau sonne-t-il plus lumineux ou sombre que son anneau devrait indiquer ?" Ton oreille désambiguïse ce que l'algo ne peut pas.
+
+3. **Territoire sûr** : si deux tracks partagent les mêmes 5 notes pentatoniques, elles blendent sans clash, même si les codes Camelot diffèrent. Fais confiance à ton oreille plus qu'au tag.
+"""
+
+[[fr.quiz]]
+question = "Qu'est-ce qui détermine si une clé sonne majeur (lumineux) ou mineur (sombre) ?"
+answers  = ["Le tempo du morceau", "La tierce au-dessus de la tonique — 4 demi-tons = majeur, 3 demi-tons = mineur", "Le nombre de dièses ou bémols dans l'armure"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Sur la roue Camelot, 8A (La mineur) et 8B (Do majeur) sont des clés relatives. Qu'est-ce qu'elles partagent ?"
+answers  = ["Le même BPM", "Les 7 mêmes notes — même palette, tonique différente", "Seulement 5 notes sur 7"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel mode domine la musique dance électronique (house, techno, drum & bass) ?"
+answers  = ["Ionien (majeur)", "Dorien (mineur + 6e haussée)", "Éolien (mineur naturel)"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Un morceau dorien et un morceau éolien partagent la même case Camelot. Peuvent-ils clasher ?"
+answers  = ["Non — même case signifie toujours parfaitement sûr", "Oui — la 6e haussée dorienne peut clasher avec la 6e naturelle éolienne sur les moments harmoniques soutenus", "Seulement si leurs BPM sont différents"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La mineur pentatonique et Do majeur pentatonique contiennent..."
+answers  = ["Des notes complètement différentes", "Les mêmes 5 notes — ce sont des pentatoniques relatives", "6 notes en commun sur 7"]
+correct  = 1
+
+[[fr.sources]]
+label = "Musictheory.net — Gammes majeures et mineures"
+url   = "https://www.musictheory.net/lessons/22"
+
+[[fr.sources]]
+label = "Musictheory.net — Les modes"
+url   = "https://www.musictheory.net/lessons/31"
+
+[[fr.sources]]
+label = "Hooktheory — Relatif majeur et mineur"
+url   = "https://www.hooktheory.com/music-theory-for-beginners/relative-major-and-minor"
+
+[[fr.sources]]
+label = "DJ TechTools — Guide du mix harmonique"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"

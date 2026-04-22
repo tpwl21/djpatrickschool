@@ -1,0 +1,26 @@
+id = "reading_crowd"
+order = 6
+color = "#D4A017"
+image = "coach_patrick.png"
+forthcoming = false
+kind = "reading_crowd"
+
+[en]
+title      = "READING THE CROWD"
+short_desc = "Read the dancefloor. Pick the right next move — not the right next track."
+long_desc  = "Pure psychology. No BPM, no Camelot fiches. Look at the crowd state (energy, density, moment), then choose the track that serves the floor. Each practice teaches a different moment of the night: warmup, recovering an afterpeak dip, and closing signature."
+objectives = [
+  "Read a dancefloor by its energy and density, not its numbers",
+  "Recognize when the crowd is asking for a build, a sustain, or a release",
+  "Pick closing tracks that become the signature of a night"
+]
+
+[fr]
+title      = "LECTURE DE FOULE"
+short_desc = "Lis le dancefloor. Choisis le bon move suivant — pas la bonne track suivante."
+long_desc  = "De la psychologie pure. Pas de BPM, pas de fiches Camelot. Regarde l'état de la foule (énergie, densité, moment), puis choisis la track qui sert le dancefloor. Chaque practice enseigne un moment de la nuit : le warmup, rattraper une baisse en afterpeak, et la signature de closing."
+objectives = [
+  "Lire un dancefloor par son énergie et sa densité, pas par ses chiffres",
+  "Reconnaître si la foule demande un build, un sustain, ou une résolution",
+  "Choisir des tracks de closing qui deviennent la signature d'une soirée"
+]

@@ -1,0 +1,172 @@
+id = "LESSON_FX_2_EASY"
+order = 2
+
+[en]
+title      = "Delay: The Echo in the Mountain"
+short_desc = "Shout across a valley, hear yourself come back. That's delay."
+description = "Delay is the simplest effect in the world: it plays your sound back, delayed. Understanding its three controls is all you need to start using it."
+recap = [
+  "Delay repeats your sound after a short wait — like an echo in a mountain valley.",
+  "Three controls: time (how long before the echo), feedback (how many echoes), mix (how loud the echo is).",
+  "BPM-sync keeps the echo on the beat — without it, the repeat fights the kick.",
+  "The echo-out move: delay the last bar, then pull the fader — the track vanishes in a tail.",
+  "BPM-synced delay is more musical than setting a time in milliseconds.",
+]
+
+[[en.pages]]
+title   = "The mountain echo"
+content = """
+Stand in a valley and shout. A second later, you hear yourself come back from the cliff. That's a **delay**: your sound, played back after a gap.
+
+A DJ delay does exactly this — but with three controls:
+
+- **Time**: how long is the gap before you hear the echo. On DJ gear, you set this in beats: 1/4 note, 1/2 note, 1 full beat, 2 beats.
+- **Feedback**: how many times the echo repeats. 0 = one echo and it's gone. 0.8 = the echo keeps repeating, getting quieter each time.
+- **Mix**: how loud the echo is compared to the original. 0% = you don't hear the echo at all. 100% = you hear only the echo.
+
+Most DJs leave mix at 30–50% and adjust time and feedback depending on the moment.
+"""
+
+[[en.pages]]
+title   = "Why BPM-sync matters"
+content = """
+Here's the problem with free-running delay: if the echo doesn't land on the beat, it fights with the kick.
+
+Imagine clapping along to a song. Now imagine someone else clapping — but half a beat late. Even if they're quiet, it's immediately distracting.
+
+**BPM-synced delay** locks the echo to the grid of the music. If you choose "1/4 note", every echo lands on a quarter note — always in rhythm, always musical.
+
+This is why modern DJ gear doesn't have a millisecond knob for delay: they give you **beat subdivisions** instead. You choose 1/4, 1/2, 1 beat, and the gear does the math.
+
+Try listening to a track with a synced delay at 1/4 note. Every echo hits exactly where you expect it. Remove sync, and the same setting becomes a mess.
+"""
+youtube = "https://www.youtube.com/watch?v=9dVMIdpNPAE"
+youtube_start = 0
+youtube_caption = "BPM-synced delay on a DJ mixer — hear the echo lock to the beat."
+
+[[en.pages]]
+title   = "The echo-out: a classic DJ move"
+content = """
+This is one of the most cinematic tricks in DJing, and it uses delay:
+
+1. You're at the end of a track. It has no good outro.
+2. Turn on delay: time = 1/2 beat, feedback = 0.65, mix = 50%.
+3. Slowly pull the volume fader of the track down.
+4. The music disappears — but the last beat keeps echoing for 5–10 seconds, getting quieter and quieter.
+
+That tail is the track saying goodbye. You can use that silence to bring in the next track, or just let it breathe.
+
+**Larry Heard**, creator of the deep house sound, was one of the first DJs to use this as a structural move in the late 1980s. It became a signature of thoughtful mixing.
+"""
+
+[[en.quiz]]
+question = "What does delay 'time' control?"
+answers  = ["The volume of the echo", "The gap before the echo plays back", "The pitch of the echo"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why use BPM-synced delay instead of milliseconds?"
+answers  = ["Synced delay is quieter", "The echo lands on the beat and stays musical", "Milliseconds are harder to hear"]
+correct  = 1
+
+[[en.quiz]]
+question = "In the echo-out move, what happens when you pull the fader down with delay on?"
+answers  = [
+  "The track cuts immediately",
+  "The music fades but the last beat keeps echoing in a tail",
+  "The delay turns off"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Delay effect explained — Sound On Sound"
+url   = "https://www.soundonsound.com/techniques/creative-use-delay"
+
+[[en.sources]]
+label = "Larry Heard interview — The Wire"
+url   = "https://www.thewire.co.uk/"
+
+[fr]
+title      = "Le Delay : L'Écho dans la Montagne"
+short_desc = "Crie dans une vallée, tu t'entends en écho. C'est le delay."
+description = "Le delay est l'effet le plus simple du monde : il rejoue ton son avec un léger retard. Comprendre ses trois réglages suffit pour commencer."
+recap = [
+  "Le delay répète ton son après un court délai — comme un écho dans la montagne.",
+  "Trois réglages : time (combien de temps avant l'écho), feedback (combien d'échos), mix (le volume de l'écho).",
+  "Le sync BPM garde l'écho sur le beat — sans lui, la répétition se bat avec le kick.",
+  "Le move echo-out : delay la dernière mesure, puis baisse le fader — la track disparaît en queue.",
+  "Le delay synced au BPM est plus musical que régler un temps en millisecondes.",
+]
+
+[[fr.pages]]
+title   = "L'écho dans la montagne"
+content = """
+Mets-toi dans une vallée et crie. Une seconde plus tard, tu t'entends revenir de la falaise. C'est un **delay** : ton son, rejoué après un délai.
+
+Un delay DJ fait exactement ça — avec trois réglages :
+
+- **Time** : combien de temps s'écoule avant d'entendre l'écho. Sur du matos DJ, ça se règle en beats : 1/4 de note, 1/2 note, 1 beat complet, 2 beats.
+- **Feedback** : combien de fois l'écho se répète. 0 = un seul écho et c'est parti. 0,8 = l'écho continue de se répéter, de plus en plus doux.
+- **Mix** : le volume de l'écho par rapport à l'original. 0% = tu n'entends pas l'écho. 100% = tu n'entends que l'écho.
+
+La plupart des DJs laissent le mix à 30–50% et ajustent time et feedback selon le moment.
+"""
+
+[[fr.pages]]
+title   = "Pourquoi le sync BPM est essentiel"
+content = """
+Le problème avec un delay libre : si l'écho ne tombe pas sur le beat, il se bat avec le kick.
+
+Imagine battre des mains en rythme sur une chanson. Maintenant imagine quelqu'un d'autre qui bat des mains — mais un demi-beat en retard. Même s'ils sont discrets, c'est immédiatement distrayant.
+
+**Le delay syncé au BPM** verrouille l'écho sur la grille de la musique. Si tu choisis "1/4 de note", chaque écho tombe sur une noire — toujours en rythme, toujours musical.
+
+C'est pour ça que le matos DJ moderne n'a pas de knob en millisecondes pour le delay : il te donne des **subdivisions de beat** à la place. Tu choisis 1/4, 1/2, 1 beat, et la machine fait le calcul.
+
+Écoute une track avec un delay syncé à 1/4 de note. Chaque écho tombe exactement où tu l'attends. Désactive le sync, et le même réglage devient du chaos.
+"""
+youtube = "https://www.youtube.com/watch?v=9dVMIdpNPAE"
+youtube_start = 0
+youtube_caption = "Delay syncé BPM sur une table DJ — écoute l'écho se verrouiller sur le beat."
+
+[[fr.pages]]
+title   = "L'echo-out : un grand classique DJ"
+content = """
+C'est un des moves les plus cinématographiques du DJing, et il utilise le delay :
+
+1. Tu es à la fin d'une track. Elle n'a pas de bon outro.
+2. Active le delay : time = 1/2 beat, feedback = 0,65, mix = 50%.
+3. Descends lentement le fader de volume de la track.
+4. La musique disparaît — mais le dernier beat continue de résonner 5 à 10 secondes, de plus en plus doux.
+
+Cette queue, c'est la track qui dit au revoir. Tu peux utiliser ce silence pour amener la prochaine track, ou juste laisser respirer.
+
+**Larry Heard**, créateur du son deep house, a été un des premiers DJs à utiliser ça comme geste structurel à la fin des années 1980. C'est devenu une signature du mix soigné.
+"""
+
+[[fr.quiz]]
+question = "Que contrôle le 'time' d'un delay ?"
+answers  = ["Le volume de l'écho", "Le délai avant que l'écho se joue", "La hauteur de l'écho"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi utiliser un delay syncé au BPM plutôt qu'en millisecondes ?"
+answers  = ["Le delay syncé est plus silencieux", "L'écho tombe sur le beat et reste musical", "Les millisecondes sont plus dures à entendre"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans le move echo-out, que se passe-t-il quand tu baisses le fader avec le delay activé ?"
+answers  = [
+  "La track coupe immédiatement",
+  "La musique disparaît mais le dernier beat continue de résonner en queue",
+  "Le delay s'éteint"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "L'effet delay expliqué — Sound On Sound"
+url   = "https://www.soundonsound.com/techniques/creative-use-delay"
+
+[[fr.sources]]
+label = "Interview Larry Heard — The Wire"
+url   = "https://www.thewire.co.uk/"

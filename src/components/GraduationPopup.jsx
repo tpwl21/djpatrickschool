@@ -1,0 +1,151 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import professorImg from '../assets/professor_patrick.png';
+
+const GraduationPopup = ({ difficulty, onBackHome }) => {
+  const diffNames = {
+    'EASY': 'Apprenti-DJ (Easy)',
+    'MEDIUM': 'Ninja du Tempo (Medium)',
+    'PRO': 'Maître du Vinyle (Pro)'
+  };
+
+  return (
+    <div className="graduation-container">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="graduation-backdrop"
+      />
+      
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.5, rotate: -5 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        className="graduation-card"
+      >
+        <div className="grad-header">
+          <div className="difficulty-stamp">{diffNames[difficulty] || difficulty}</div>
+          <h1>DIPLÔME DE BEATMATCHING</h1>
+        </div>
+
+        <div className="grad-content">
+          <div className="coach-pat-side">
+            <motion.img 
+              src={professorImg} 
+              alt="Professor Patrick"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            />
+          </div>
+          
+          <div className="message-side">
+            <h2>Félicitations !</h2>
+            
+            <button className="btn-crayon play-btn" style={{ width: '100%', fontSize: '1.8rem' }} onClick={onBackHome}>
+              Retour au Menu Principal
+            </button>
+          </div>
+        </div>
+      </motion.div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .graduation-container {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 10000;
+        }
+
+        .graduation-backdrop {
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(255, 250, 240, 0.98);
+          backdrop-filter: blur(15px);
+        }
+
+        .graduation-card {
+          position: relative;
+          background: white;
+          width: 95%;
+          max-width: 900px;
+          border: 10px double #333;
+          padding: 40px;
+          box-shadow: 0 10px 50px rgba(0,0,0,0.2), inset 0 0 100px rgba(0,0,0,0.02);
+          background-image: radial-gradient(#ddd 1px, transparent 1px);
+          background-size: 30px 30px;
+        }
+
+        .grad-header {
+          text-align: center;
+          margin-bottom: 30px;
+          border-bottom: 3px solid #333;
+          padding-bottom: 20px;
+        }
+
+        .difficulty-stamp {
+          display: inline-block;
+          border: 5px solid #ff6b6b;
+          color: #ff6b6b;
+          padding: 8px 25px;
+          font-weight: 900;
+          font-size: 1.2rem;
+          transform: rotate(-10deg);
+          margin-bottom: 15px;
+          border-radius: 5px;
+          text-transform: uppercase;
+        }
+
+        .grad-header h1 {
+          font-size: 3.5rem;
+          margin: 0;
+          letter-spacing: -1px;
+          color: #333;
+          font-family: inherit;
+          font-weight: 900;
+        }
+
+        .grad-content {
+          display: flex;
+          gap: 40px;
+          align-items: center;
+        }
+
+        .coach-pat-side img {
+          width: 320px;
+          filter: drop-shadow(15px 15px 0px rgba(0,0,0,0.05));
+        }
+
+        .message-side {
+          flex: 1;
+          text-align: center;
+        }
+
+        .message-side h2 {
+          font-size: 4rem;
+          margin-top: 0;
+          color: #2c3e50;
+          font-weight: 900;
+          margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+          .graduation-card { 
+            padding: 20px; 
+            width: 95%;
+            max-height: 95vh;
+            overflow-y: auto;
+            border-width: 5px;
+          }
+          .grad-header h1 { font-size: 1.8rem; }
+          .grad-content { flex-direction: column; text-align: center; gap: 20px; }
+          .coach-pat-side img { width: 150px; }
+          .message-side h2 { font-size: 2.2rem; margin-bottom: 20px; }
+          .btn-crayon.play-btn { font-size: 1.2rem !important; padding: 15px !important; }
+        }
+      `}} />
+    </div>
+  );
+};
+
+export default GraduationPopup;

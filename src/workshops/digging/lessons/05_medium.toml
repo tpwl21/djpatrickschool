@@ -1,0 +1,240 @@
+id = "LESSON_DIGGING_5_MEDIUM"
+order = 5
+
+[en]
+title      = "Building a Gig Crate — Three-Axis Sort & Rekordbox Discipline"
+short_desc = "The folder structure that saves a set: energy, moment, rescue category — and hot cue discipline."
+
+[[en.pages]]
+title   = "The three-axis sort"
+content = """
+Organise your gig crate along three axes:
+
+**1 — By energy (1–5):** separate folders per level. This is your primary filter — narrows 400 tracks to 60–80 in seconds.
+
+**2 — By moment:** Opening / Warmup / Peak / Afterpeak / Closing. Not the same as energy level — an Afterpeak track can be energy 3 but specifically designed for post-peak texture, different from a generic Warmup track at the same energy.
+
+**3 — By rescue category (colour-coded in Rekordbox):**
+- 🔴 Red: oh-shit tracks (5–10 max — the rescue folder)
+- 🟡 Yellow: safety bangers (solid crowd-pleasers, mid-high energy)
+- 🟢 Green: secret weapons (tracks nobody knows, your identity picks)
+
+A gig crate of **200–400 tracks** across this grid beats 10,000 unsorted every time. You need the right track in 60 seconds, not in 10 minutes of scrolling.
+"""
+
+[[en.pages]]
+title   = "Rekordbox workflow — playlists, hot cues, colour tags"
+content = """
+**Playlist hierarchy:**
+```
+Gig
+└── 2024-06-15
+    ├── Warmup (120–125)
+    ├── Main (126–130)
+    └── Peak (130–134)
+```
+
+Use nested playlists — not flat. A flat playlist of 200 tracks is 10 seconds to find anything. A nested playlist gets you to a 15-track folder in 2 seconds.
+
+**Hot cue standard (ABCD on CDJs):**
+- **Cue A (Green):** start of the clean intro (mix-in point)
+- **Cue B (Yellow):** first drop / peak moment
+- **Cue C (Blue):** start of the break (anticipate this)
+- **Cue D (Red):** start of the outro (mix-out point)
+
+Every track in your gig crate should have these 4 cues set before the gig. A track without hot cues is a track you're navigating blind.
+
+**Why hot cues beat winging it:** at any point in a live set, you know exactly where you are in the track relative to your mix windows. You can hold a conversation at the booth and still nail the transition — the geography is memorised, not improvised.
+
+**USB portability:** all metadata (playlists, cues, colour tags) travels with your USB stick and appears identically on any Pioneer CDJ. Analyse tracks in Rekordbox before loading to USB — on-the-fly analysis on the CDJ is slower and less accurate.
+"""
+
+[[en.pages]]
+title   = "The oh-shit folder — criteria and curation"
+content = """
+Every serious DJ keeps a private folder of 15–20 tracks that will land regardless of context. These are the rescue tracks. The dancefloor is crashing, the vibe is off — you drop one and buy 5 minutes to recover.
+
+**Criteria for an oh-shit track:**
+- **Recognisable within 8 bars** — instant dopamine, no setup required
+- **Universally accessible** — doesn't require the 'right' crowd to land
+- **Mid-to-high energy** — a rescue shouldn't lower the floor
+- **Mixable across a ±8 BPM window** — because the track you're rescuing from isn't always the same tempo
+- **Long clean intro** — 32–64 beats of drums only so you can mix in from anywhere
+
+**Critical distinction:**
+Your oh-shit folder is NOT your favourite tracks. It's your most *reliable* tracks. Reliability and excellence are different axes. A track that takes you 3 months to find and requires the perfect crowd context to land is excellent. A track that works at 11pm and at 3am, for any crowd, in any context, is reliable. The oh-shit folder contains the reliable ones.
+
+**Building the list:** it takes years. Note which tracks rescued you in actual sets — that's the empirical list, more trustworthy than the theoretical one. The classic French techno example: Laurent Garnier — "The Man With The Red Face". Yours will be different.
+"""
+
+[[en.pages]]
+title   = "The perfect next track paradox — when to let it go"
+content = """
+'The perfect next track existed for 10 minutes in your set and now it's gone.'
+
+Sometimes the ideal pick is a track that would have worked 5 minutes ago and won't work now. The energy has moved on. When you miss a window, don't force it — let it go and find a new pick for the new moment.
+
+**Practical corollary: plan the first 20 minutes, improvise the rest.**
+
+The first 20 minutes establish the tonality of the set: BPM range, key centre, texture. Past that, the crowd's response determines what you pull next. DJs who plan 3-hour sets minute-by-minute get destroyed by the first reality check (a full house of regulars when they planned for newcomers). A plan is a departure gate, not a train schedule.
+
+**Hot loops as insurance:** before any break in a track, set a 4-beat loop on the last phrase before the break. If the transition isn't ready, you can loop indefinitely without the break landing — buying you time without audibly stalling. This is the mechanical safety net for the moment you've missed the window.
+
+**The crate serves the moment, not the other way around.** A well-sorted crate matters precisely because it lets you pivot fast when the plan evaporates.
+"""
+
+[[en.quiz]]
+question = "The three axes of a well-organised gig crate are..."
+answers  = ["Alphabetical, release year, BPM", "Energy level, set moment, rescue category", "Key, BPM, genre label", "Artist name, track length, format"]
+correct  = 1
+
+[[en.quiz]]
+question = "In the standard 4-point hot cue setup, what does Cue D (Red) mark?"
+answers  = ["The start of the intro", "The first drop", "The start of the outro — your mix-out point", "A break in the middle"]
+correct  = 2
+
+[[en.quiz]]
+question = "An oh-shit track and a 'best' track are..."
+answers  = ["The same thing — your best tracks are always most reliable", "Different things — oh-shit = reliable regardless of context; best = excellent but context-dependent", "Only different by BPM range", "Identical if both are high-energy"]
+correct  = 1
+
+[[en.quiz]]
+question = "A hot loop set before a break lets you..."
+answers  = ["Increase the BPM of the track automatically", "Extend the track indefinitely without the break landing — buying time for a better transition", "Jump directly to the outro", "Change the key in real-time"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why is 'plan the first 20 minutes, improvise the rest' good advice?"
+answers  = ["Improvising is always better than planning", "The first 20 minutes establish the set's tonality and BPM range; after that the crowd's response should guide your picks", "The last 20 minutes are the most important", "Planning makes you forget your tracks"]
+correct  = 1
+
+[[en.sources]]
+label = "Rekordbox — hot cues, colour tags and playlist hierarchy manual"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
+url   = "https://www.discogs.com/release/8839"
+
+[[en.sources]]
+label = "Rekordbox — Smart Playlists for automated BPM filtering"
+url   = "https://rekordbox.com/en/plan/free/"
+
+[fr]
+title      = "Construire un Crate de Set — Tri à Trois Axes & Discipline Rekordbox"
+short_desc = "La structure de dossiers qui sauve un set : énergie, moment, catégorie de sauvetage — et discipline des hot cues."
+
+[[fr.pages]]
+title   = "Le tri à trois axes"
+content = """
+Organise ton crate de gig sur trois axes :
+
+**1 — Par énergie (1–5) :** dossiers séparés par niveau. C'est ton filtre principal — réduit 400 tracks à 60–80 en quelques secondes.
+
+**2 — Par moment :** Opening / Warmup / Peak / Afterpeak / Closing. Pas la même chose que le niveau d'énergie — une track Afterpeak peut être énergie 3 mais spécifiquement conçue pour la texture post-peak, différente d'une track Warmup générique au même niveau d'énergie.
+
+**3 — Par catégorie de sauvetage (code couleur dans Rekordbox) :**
+- 🔴 Rouge : tracks oh-shit (5–10 max — le dossier de sauvetage)
+- 🟡 Jaune : bangers safe (crowd-pleasers solides, énergie moyenne-haute)
+- 🟢 Vert : armes secrètes (tracks que personne ne connaît, tes picks d'identité)
+
+Un crate de gig de **200–400 tracks** sur cette grille bat 10 000 en vrac à chaque fois. Tu as besoin de la bonne track en 60 secondes, pas en 10 minutes de scroll.
+"""
+
+[[fr.pages]]
+title   = "Workflow Rekordbox — playlists, hot cues, tags couleur"
+content = """
+**Hiérarchie de playlists :**
+```
+Gig
+└── 2024-06-15
+    ├── Warmup (120–125)
+    ├── Cœur (126–130)
+    └── Peak (130–134)
+```
+
+Utilise des playlists imbriquées — pas plates. Une playlist plate de 200 tracks = 10 secondes pour trouver quoi que ce soit. Une playlist imbriquée t'amène à un dossier de 15 tracks en 2 secondes.
+
+**Standard hot cue (ABCD sur CDJs) :**
+- **Cue A (Vert) :** début de l'intro propre (point de mix en entrée)
+- **Cue B (Jaune) :** premier drop / moment de pic
+- **Cue C (Bleu) :** début du break (anticipe ça)
+- **Cue D (Rouge) :** début de l'outro (point de mix en sortie)
+
+Chaque track de ton crate de gig doit avoir ces 4 cues posés avant le gig. Une track sans hot cues, c'est une track que tu navigues à l'aveugle.
+
+**Pourquoi les hot cues battent l'improvisation :** à tout moment dans un live, tu sais exactement où tu en es dans la track par rapport à tes fenêtres de mix. Tu peux avoir une conversation à la cabine et quand même clouer la transition — la géographie est mémorisée, pas improvisée.
+
+**Portabilité USB :** toutes les métadonnées (playlists, cues, tags couleur) voyagent avec ta clé USB et apparaissent identiquement sur n'importe quel Pioneer CDJ. Analyse les tracks dans Rekordbox avant de les charger sur USB — l'analyse à la volée sur le CDJ est plus lente et moins précise.
+"""
+
+[[fr.pages]]
+title   = "Le dossier oh-shit — critères et curation"
+content = """
+Tout DJ sérieux garde un dossier privé de 15–20 tracks qui vont tomber quel que soit le contexte. Ce sont les tracks de sauvetage. Le dancefloor s'effondre, la vibe est à côté — tu en drop une et tu t'achètes 5 minutes pour te remettre.
+
+**Critères d'une track oh-shit :**
+- **Reconnaissable en 8 mesures** — dopamine instantanée, aucun setup requis
+- **Universellement accessible** — ne nécessite pas le 'bon' public pour tomber
+- **Énergie moyenne à haute** — un sauvetage ne devrait pas faire baisser le floor
+- **Mixable sur une fenêtre de ±8 BPM** — parce que la track à sauver n'est pas toujours au même tempo
+- **Long intro propre** — 32–64 beats de drums seuls pour que tu puisses mixer en entrée depuis n'importe où
+
+**Distinction critique :**
+Ton dossier oh-shit n'est PAS tes tracks préférées. C'est tes tracks les plus *fiables*. Fiabilité et excellence sont deux axes différents. Une track qui te prend 3 mois à trouver et qui nécessite le contexte de public parfait pour tomber est excellente. Une track qui marche à 23h et à 3h, pour n'importe quel public, dans n'importe quel contexte, est fiable. Le dossier oh-shit contient les fiables.
+
+**Construire la liste :** ça prend des années. Note quelles tracks t'ont sauvé dans de vrais sets — c'est la liste empirique, plus fiable que la théorique. L'exemple classique de techno française : Laurent Garnier — "The Man With The Red Face". La tienne sera différente.
+"""
+
+[[fr.pages]]
+title   = "Le paradoxe de la track parfaite suivante — quand la laisser partir"
+content = """
+'La track parfaite suivante a existé pendant 10 minutes dans ton set et maintenant elle est partie.'
+
+Parfois le pick idéal, c'est une track qui aurait marché il y a 5 minutes et ne marchera plus maintenant. L'énergie a bougé. Quand tu rates une fenêtre, ne force pas — laisse partir et trouve un nouveau pick pour le nouveau moment.
+
+**Corollaire pratique : planifie les 20 premières minutes, improvise le reste.**
+
+Les 20 premières minutes installent la tonalité du set : range de BPM, centre tonal, texture. Après ça, la réponse du public détermine ce que tu sors. Les DJs qui planifient des sets 3h minute-par-minute se font détruire au premier reality check (une salle pleine d'habitués quand ils prévoyaient des nouveaux venus). Un plan, c'est une porte d'embarquement, pas un horaire de train.
+
+**Hot loops comme assurance :** avant n'importe quel break dans une track, pose un loop de 4 beats sur la dernière phrase avant le break. Si la transition n'est pas prête, tu peux boucler indéfiniment sans que le break tombe — te donnant du temps sans stalles audibles. C'est le filet de sécurité mécanique pour le moment où tu as raté la fenêtre.
+
+**Le crate sert le moment, pas l'inverse.** Un crate bien trié compte précisément parce qu'il te permet de pivoter vite quand le plan s'évapore.
+"""
+
+[[fr.quiz]]
+question = "Les trois axes d'un crate de gig bien organisé sont..."
+answers  = ["Alphabétique, année de sortie, BPM", "Niveau d'énergie, moment du set, catégorie de sauvetage", "Clé, BPM, label de genre", "Nom d'artiste, durée de track, format"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans la configuration standard à 4 hot cues, que marque le Cue D (Rouge) ?"
+answers  = ["Le début de l'intro", "Le premier drop", "Le début de l'outro — ton point de mix en sortie", "Un break au milieu"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Une track oh-shit et une 'meilleure' track, c'est..."
+answers  = ["La même chose — tes meilleures tracks sont toujours les plus fiables", "Deux choses différentes — oh-shit = fiable quel que soit le contexte ; meilleure = excellente mais dépendante du contexte", "Seulement différentes par le range BPM", "Identiques si les deux sont haute énergie"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un hot loop posé avant un break te permet de..."
+answers  = ["Augmenter le BPM de la track automatiquement", "Étendre la track indéfiniment sans que le break tombe — te donnant du temps pour une meilleure transition", "Sauter directement à l'outro", "Changer la clé en temps réel"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi 'planifier les 20 premières minutes, improviser le reste' est-il un bon conseil ?"
+answers  = ["L'improvisation est toujours mieux que la planification", "Les 20 premières minutes installent la tonalité et le range BPM du set ; après ça la réponse du public doit guider tes picks", "Les 20 dernières minutes sont les plus importantes", "La planification te fait oublier tes tracks"]
+correct  = 1
+
+[[fr.sources]]
+label = "Rekordbox — hot cues, tags couleur et hiérarchie de playlists"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
+url   = "https://www.discogs.com/release/8839"
+
+[[fr.sources]]
+label = "Rekordbox — Smart Playlists pour filtrage BPM automatisé"
+url   = "https://rekordbox.com/en/plan/free/"

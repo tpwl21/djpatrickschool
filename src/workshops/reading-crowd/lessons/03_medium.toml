@@ -1,0 +1,242 @@
+id = "LESSON_RTC_3_MEDIUM"
+order = 3
+
+[en]
+title      = "Peak Timing — Medium"
+short_desc = "Slot economics, the hype-moment budget, and how promoters really score your set."
+description = "The 60% rule, hype-moment budgeting, early-bird vs core crowd chemistry, and the concrete tools to hold your best material until the arc has earned it."
+recap = [
+  "Your **3 strongest tracks** must never appear in the first 60% of your slot — no exceptions.",
+  "For a 90-minute set you have roughly **3 hype moments** budget — spend them after minute 45.",
+  "**Early birds** (first 30 min) and the **core** crowd (peak time) are different audiences. Don't burn your best on the early birds.",
+  "The promoter's internal scorecard: *filled / emptied / held / killed* — the delta decides everything.",
+  "Environment design beats willpower: **label the folder** with the earliest clock time you can open it.",
+]
+
+[[en.pages]]
+title   = "Slot economics: early birds vs the core crowd"
+content = """
+A 2-hour set has at least two distinct crowd populations — and your track economy has to account for both.
+
+**Early birds (first 30–40 min):** arrived early, often regulars, there for the whole night. They're not yet in the emotional state that makes a peak track hit hard — the room is half-full, the bass isn't turned up to full club volume, there's ambient conversation noise. Your best tracks are *wasted* on them — not because they're not good listeners, but because the physical and social conditions that make a peak track land don't exist yet.
+
+**The core crowd (from ~50% of your slot):** they've arrived during the build, the room is now at density, the system is loud, the social pressure to dance is at maximum. This is the environment your peak tracks were designed for. The same track that was *okay* at minute 20 is *enormous* at minute 70.
+
+The economic lesson: each hype moment (big drop, breakdown, anthem intro) is a currency spend. You get roughly 3 per 90-minute set. Spending them on the early-bird crowd buys nothing — they're not in the buying state. Spend them on the core crowd and they compound: each spent hype moment raises the bar for the next one.
+
+**Practical: count your hype moments** for each set you plan. Assign them a minimum clock time. Write it down.
+"""
+
+[[en.pages]]
+title   = "What promoters actually measure"
+content = """
+Promoters don't remember your DJ mix. They remember a number: the **density delta** of their room during your set.
+
+How they score it (whether they write it down or not):
+- **Filled**: more people on the floor when you finished than when you started. Strong rebook signal.
+- **Held**: roughly the same density. Neutral — usually means rebook if the fee was right.
+- **Emptied**: floor lost density during your set. One pass is forgivable; two is a pattern.
+- **Killed**: floor cleared during your set. One time and you're done at that venue.
+
+The density delta is *directly controlled* by your peak timing. If your best track drops at minute 20, the remaining 70 minutes trend downward — density falls, the promoter watches it happen, the score is *emptied*. If it drops at minute 70, the floor has been loading for 70 minutes and is at its highest density when the peak lands — the score is *filled*.
+
+Your best track timing is the **single biggest lever** on whether you get rebooked. Everything else — mixing quality, track selection depth, vibe — is secondary to this one variable.
+"""
+
+[[en.pages]]
+title   = "Environment design: building the folder system"
+content = """
+Willpower doesn't win against excitement in the booth. When you're nervous and the room is thin and your best track is right there in your library — willpower loses every time.
+
+The solution is **environment design**: structure your setup so the temptation isn't available.
+
+**The folder system:**
+1. Take your 5 best tracks for the night.
+2. Create a separate folder called *PEAK ONLY — after [clock time]*.
+3. Write the actual clock time — not "60% of the set" but "22:45" if your slot is 22:00–00:00.
+4. In Rekordbox: lock those tracks in a tagged playlist. Tag them RED or PEAK. Your default view doesn't show them.
+5. In the booth: keep the PEAK folder closed until the clock shows your target time.
+
+When your hand reaches for a peak track before the time, the closed folder creates a physical pause. That pause is enough to interrupt the impulse.
+
+**The three-folder setup (full version):**
+- *WARMUP* — tracks for the first 35–40% (groove, patience, no anthems)
+- *BUILD* — tracks for the middle 30–40% (tightening, transitional, building density)
+- *PEAK* — tracks for the last 25–30% (your best, your biggest, your most impactful)
+
+This is environment design, not willpower. The folder is doing the discipline work.
+"""
+
+[[en.pages]]
+title   = "The nervous-system delay: learning to recognize the false signal"
+content = """
+The urge to play your best track early is **not** a judgment about the right track for the moment. It's a nervous-system response to discomfort: thin room, no reaction, promoter not looking.
+
+The feeling says: *play something big and fix this.* The reality: playing something big in a thin room doesn't fix anything — it just uses up your ammo and confirms the promoter's fear that you can't handle the slow build.
+
+How to recognize the false signal:
+- It arrives in the first 40% of your set.
+- It's triggered by *discomfort*, not by crowd response (which is actually good — just patience-requiring).
+- It's accompanied by the thought "this will save the set."
+
+That last thought is the disqualifier. If a track feels like it would **save** the set, it's not time to play it. A track that saves a set is a track deployed in desperation — and the crowd can feel the desperation in the selection. The right peak tracks feel **earned**, not rescued.
+
+Practice: next home session, deliberately start with a thin sound and hold your best material for 60 minutes. Notice the urge arrive. Notice it pass. That's the rep.
+"""
+
+[[en.quiz]]
+question = "Why are peak tracks 'wasted' on the early-bird crowd?"
+answers  = ["Early birds don't like good music", "The physical and social conditions for a peak track to land don't exist yet — thin room, lower volume, ambient conversation", "Peak tracks are too loud for the start"]
+correct  = 1
+
+[[en.quiz]]
+question = "A promoter's internal score of 'emptied' means..."
+answers  = ["The venue emptied for the night", "The floor lost density during your set — a negative rebook signal", "You played great music but people needed a break"]
+correct  = 1
+
+[[en.quiz]]
+question = "The folder system works because..."
+answers  = ["It's a DJ tradition from the vinyl era", "Environment design creates a physical pause that interrupts the impulse — willpower alone doesn't", "Rekordbox requires it for large libraries"]
+correct  = 1
+
+[[en.quiz]]
+question = "The thought 'this track will save my set' is a signal to..."
+answers  = ["Play it immediately — that's what it's there for", "Wait — urgency is the disqualifier; the right peak track should feel earned, not rescued", "Scratch it from your USB"]
+correct  = 1
+
+[[en.quiz]]
+question = "For a 90-minute set, your hype-moment budget is roughly..."
+answers  = ["Unlimited — use as many as sound good", "3 hype moments — spend none before minute 45", "1 hype moment — save everything for the end"]
+correct  = 1
+
+[[en.sources]]
+label = "The Esoteric Art of the Opening DJ — Resident Advisor"
+url   = "https://ra.co/features/1095"
+
+[[en.sources]]
+label = "Subcultural Art of the Warm Up Set — Sub Club"
+url   = "https://subclub.co.uk/subcultural-art-of-the-warm-up-set/"
+
+[[en.sources]]
+label = "Peak-end rule (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
+
+[fr]
+title      = "Timing du peak — Medium"
+short_desc = "L'économie du slot, le budget hype-moments, et comment les promoteurs scorent vraiment ton set."
+description = "La règle des 60%, le budget des hype moments, la chimie early-bird vs core crowd, et les outils concrets pour tenir ton meilleur matériel jusqu'à ce que l'arc l'ait mérité."
+recap = [
+  "Tes **3 meilleures tracks** ne peuvent jamais apparaître dans les premiers 60% de ton slot — sans exception.",
+  "Pour un set de 90 minutes, tu as environ **3 hype moments** dans ton budget — dépense-les après la 45ème minute.",
+  "Les **early birds** (30 premières min) et la foule **core** (peak time) sont des publics différents. Ne crames pas ton meilleur sur les early birds.",
+  "Le carnet interne du promoteur : *rempli / vidé / tenu / tué* — le delta décide tout.",
+  "Le design d'environnement bat la volonté : **labellise le dossier** avec l'heure d'horloge la plus tôt à laquelle tu peux l'ouvrir.",
+]
+
+[[fr.pages]]
+title   = "L'économie du slot : early birds vs la core crowd"
+content = """
+Un set de 2h contient au moins deux populations de foule distinctes — et ton économie de tracks doit en tenir compte.
+
+**Early birds (30–40 premières minutes) :** arrivés tôt, souvent des habitués, là pour toute la soirée. Ils ne sont pas encore dans l'état émotionnel qui fait qu'une track de peak tape fort — la salle est à moitié vide, le bass n'est pas encore à plein volume club, il y a du bruit de conversation ambiant. Tes meilleures tracks sont *gaspillées* sur eux — pas parce qu'ils ne sont pas de bons auditeurs, mais parce que les conditions physiques et sociales qui font atterrir une track de peak n'existent pas encore.
+
+**La core crowd (à partir de ~50% de ton slot) :** arrivés pendant le build, la salle est maintenant à densité, le système est fort, la pression sociale de danser est au maximum. C'est l'environnement pour lequel tes tracks de peak ont été conçues. La même track qui était *sympa* à la 20ème minute est *énorme* à la 70ème.
+
+La leçon économique : chaque hype moment (gros drop, breakdown, intro d'anthem) est une dépense de currency. Tu en as environ 3 par set de 90 min. Les dépenser sur la early-bird crowd n'achète rien — ils ne sont pas dans l'état d'achat. Les dépenser sur la core crowd et ils se capitalisent : chaque hype moment dépensé élève la barre pour le suivant.
+
+**En pratique : compte tes hype moments** pour chaque set que tu prépares. Assigne-leur un temps d'horloge minimum. Écris-le.
+"""
+
+[[fr.pages]]
+title   = "Ce que les promoteurs mesurent vraiment"
+content = """
+Les promoteurs ne se souviennent pas de ton mix. Ils se souviennent d'un chiffre : le **delta de densité** de leur salle pendant ton set.
+
+Comment ils scorent (qu'ils l'écrivent ou non) :
+- **Rempli** : plus de gens sur la piste quand tu as fini qu'au départ. Signal fort de rebook.
+- **Tenu** : densité à peu près identique. Neutre — généralement rebook si le cachet était bon.
+- **Vidé** : la piste a perdu de la densité pendant ton set. Une fois pardonnable ; deux fois c'est un pattern.
+- **Tué** : la piste s'est vidée pendant ton set. Une fois et tu as fini dans cette salle.
+
+Le delta de densité est *directement contrôlé* par le timing de ton peak. Si ta meilleure track drop à la 20ème minute, les 70 minutes restantes trendent vers le bas — la densité baisse, le promoteur le regarde, le score c'est *vidé*. Si elle drop à la 70ème minute, la piste a chargé pendant 70 minutes et est à sa densité maximale quand le peak atterrit — le score c'est *rempli*.
+
+Le timing de ta meilleure track est **le plus gros levier unique** sur le fait d'être rebooké ou non. Tout le reste — qualité du mix, profondeur de sélection, vibe — est secondaire à cette variable.
+"""
+
+[[fr.pages]]
+title   = "Le design d'environnement : construire le système de dossiers"
+content = """
+La volonté ne gagne pas contre l'excitation dans le booth. Quand tu es nerveux, la salle est fine, et ta meilleure track est juste là dans ta librairie — la volonté perd à chaque fois.
+
+La solution c'est le **design d'environnement** : structure ton setup pour que la tentation ne soit pas disponible.
+
+**Le système de dossiers :**
+1. Prends tes 5 meilleures tracks pour la soirée.
+2. Crée un dossier séparé *PEAK ONLY — après [heure d'horloge]*.
+3. Écris l'heure réelle — pas "60% du set" mais "22h45" si ton slot est 22h–00h.
+4. Dans Rekordbox : verrouille ces tracks dans une playlist taguée. Tague-les ROUGE ou PEAK. Ta vue par défaut ne les montre pas.
+5. Dans le booth : garde le dossier PEAK fermé jusqu'à ce que l'horloge montre ton heure cible.
+
+Quand ta main va chercher une track de peak avant l'heure, le dossier fermé crée une pause physique. Cette pause suffit pour interrompre l'impulsion.
+
+**La configuration à trois dossiers (version complète) :**
+- *WARMUP* — tracks pour les premiers 35–40% (groove, patience, zéro anthem)
+- *BUILD* — tracks pour les 30–40% du milieu (resserrement, transitionnel, montée en densité)
+- *PEAK* — tracks pour les derniers 25–30% (tes meilleures, tes plus grosses, les plus impactantes)
+
+C'est du design d'environnement, pas de la volonté. Le dossier fait le travail de discipline.
+"""
+
+[[fr.pages]]
+title   = "Le délai du système nerveux : apprendre à reconnaître le faux signal"
+content = """
+L'envie de jouer ta meilleure track tôt n'est **pas** un jugement sur la bonne track pour le moment. C'est une réponse du système nerveux à l'inconfort : salle fine, pas de réaction, promoteur qui ne regarde pas.
+
+Le feeling dit : *joue quelque chose de gros et règle ça.* La réalité : jouer quelque chose de gros dans une salle fine ne règle rien — ça consume juste ta munition et confirme la peur du promoteur que tu ne sais pas gérer le slow build.
+
+Comment reconnaître le faux signal :
+- Il arrive dans les 40% initiaux de ton set.
+- Il est déclenché par l'*inconfort*, pas par la réponse de la foule (qui est en fait bonne — elle demande juste de la patience).
+- Il s'accompagne de la pensée "ça va sauver le set."
+
+Cette dernière pensée est le disqualifiant. Si une track donne l'impression qu'elle **sauverait** le set, c'est qu'il ne faut pas la jouer. Une track qui sauve un set est une track déployée dans le désespoir — et la foule ressent le désespoir dans la sélection. Les bonnes tracks de peak sonnent **méritées**, pas secourues.
+
+Pratique : prochaine session chez toi, commence délibérément avec un son fin et tiens ton meilleur matériel pendant 60 minutes. Remarque l'envie arriver. Remarque-la passer. C'est la répétition.
+"""
+
+[[fr.quiz]]
+question = "Pourquoi les tracks de peak sont-elles 'gaspillées' sur la early-bird crowd ?"
+answers  = ["Les early birds n'aiment pas la bonne musique", "Les conditions physiques et sociales pour qu'une track de peak atterrisse n'existent pas encore — salle fine, volume bas, conversations ambiantes", "Les tracks de peak sont trop fortes pour le début"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un score interne de promoteur 'vidé' signifie..."
+answers  = ["La salle s'est vidée pour la nuit entière", "La piste a perdu de la densité pendant ton set — signal négatif de rebook", "Tu as joué de bonne musique mais les gens avaient besoin d'une pause"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Le système de dossiers fonctionne parce que..."
+answers  = ["C'est une tradition DJ de l'ère vinyle", "Le design d'environnement crée une pause physique qui interrompt l'impulsion — la volonté seule ne suffit pas", "Rekordbox l'exige pour les grandes librairies"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La pensée 'cette track va sauver mon set' est un signal de..."
+answers  = ["La jouer immédiatement — c'est pour ça qu'elle est là", "Attendre — l'urgence est le disqualifiant ; la bonne track de peak doit sonner méritée, pas secourue", "La supprimer de ton USB"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pour un set de 90 minutes, ton budget de hype moments est d'environ..."
+answers  = ["Illimité — utilises-en autant que ça sonne bien", "3 hype moments — n'en dépense aucun avant la 45ème minute", "1 hype moment — garde tout pour la fin"]
+correct  = 1
+
+[[fr.sources]]
+label = "The Esoteric Art of the Opening DJ — Resident Advisor"
+url   = "https://ra.co/features/1095"
+
+[[fr.sources]]
+label = "Subcultural Art of the Warm Up Set — Sub Club"
+url   = "https://subclub.co.uk/subcultural-art-of-the-warm-up-set/"
+
+[[fr.sources]]
+label = "Peak-end rule (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"

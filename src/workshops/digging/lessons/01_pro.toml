@@ -1,0 +1,232 @@
+id = "LESSON_DIGGING_1_PRO"
+order = 1
+
+[en]
+title      = "What Is Digging? — Theory, Ethics & Cultural Archaeology"
+short_desc = "Japanese reissues, Madlib's ethics, speculative markets, and the algorithm problem."
+
+[[en.pages]]
+title   = "The cultural archaeology of crate-digging"
+content = """
+Crate-digging is not neutral. It is a form of cultural archaeology — and like all archaeology, it involves questions of who digs, what gets excavated, and who benefits.
+
+**Three lineages to understand:**
+
+**The Japanese reissue scene**: Labels like Light In The Attic (*Japan Archives* series), Music From Memory, and Mule Musiq spent decades excavating 1970s–80s Japanese jazz-funk, city-pop, and ambient — music largely unknown outside Japan. Their work professionalized a form of digging: identify lost catalogs, license from original artists or estates, remaster, reissue globally. The commercial success of "Japanese city-pop" on streaming (Mariya Takeuchi's "Plastic Love" viral arc, 2018–2022) is partly downstream of this archival labor. The tension: reissue labels profit; original artists may receive small royalties; streaming platforms profit most.
+
+**Awesome Tapes From Africa** (Brian Shimkovitz): started as a blog in 2006, evolved into a label releasing cassette-tape music from Ghana, Ethiopia, Senegal. Shimkovitz's approach blurs ethnography, journalism, and curation — each release comes with provenance research. Critics ask: who grants the right to reissue? Answers vary by case.
+
+**Hip-hop sampling ethics**: Madlib's *Beat Konducta* series and *Shades of Blue* treat the sample as compositional dialogue. The Bridgeport Music v. Dimension Films ruling (US, 2005) established that any recognizable sample of a sound recording requires clearance — even 3 seconds. Madlib and J Dilla-era producers often released beat tapes under aliases specifically to sidestep clearance requirements for non-commercial releases.
+"""
+
+[[en.pages]]
+title   = "The algorithm problem and why digging resists it"
+content = """
+Spotify, Apple Music, YouTube, and Beatport all run recommendation algorithms. Their goal is **session duration** — they optimize for the track most likely to keep you listening, not the track that expands your palette.
+
+**The structural problem**: recommendation algorithms are trained on engagement data. What gets engaged with most is what's already popular. This creates a feedback loop: popular → recommended → more popular. Obscure tracks that require multiple listens to understand are structurally disadvantaged. The algorithm will almost never surface a 1977 South African township jive record to a techno DJ — not because it wouldn't be relevant, but because its engagement signal is too weak.
+
+**Why digging matters**: human curation breaks the feedback loop. A DJ who heard a 1977 record from a specialist shop employee, or from a label deep-dive, or from a trusted friend's recommendation has a track the algorithm will never serve. This is the structural reason the best sets are unfollowable by algorithms: the signal path (digger → trusted human → digger) is off-algorithm.
+
+**Counter-move**: use algorithms as *discovery launchers*, not discovery destinations. Shazam a track in a set → find the label → deep-dive the label's full catalog manually. The algorithm gets you to the door; you walk through it yourself.
+"""
+
+[[en.pages]]
+title   = "Speculative markets and Discogs distortion"
+content = """
+The vinyl record market post-2020 exhibits classic speculative bubble characteristics. Understanding this protects you as a buyer.
+
+**The 2020–2023 vinyl bubble**: documented in *Rolling Stone* (2021) and *Resident Advisor* features. Pandemic-era homebound listening + nostalgia purchases drove vinyl sales to a 35-year high. Secondary market (Discogs, eBay) prices for 'collectible' records inflated 200–400% in some categories. New pressing plants were opened; established plants had 6–12 month backlogs.
+
+**Speculative distortion on Discogs Marketplace**:
+- Bots scrape releases flagged as 'rare' or 'in high demand' and relist at inflated prices within hours
+- A single DJ playing a track in a Boiler Room set can spike its Discogs Last Sold price by 300% within 24 hours
+- New pressings of previously rare records (when labels license for reissue) immediately crash the original pressing's speculative price
+
+**How to protect yourself**:
+1. Cross-check *Popsike* for the 2-year auction price history — speculative spikes are visible as sudden vertical jumps
+2. Check if a reissue exists or is announced — it collapses original pressing value
+3. The **Discogs Popularity metric** (how many users have it in their collection) is a better rarity signal than price
+4. Buy direct from Bandcamp when possible — you pay the artist, not a speculator
+"""
+youtube = "https://www.youtube.com/watch?v=G4E1ESfpFAc"
+youtube_caption = "Madlib on sampling, digging, and composition — the Beat Konducta approach."
+
+[[en.pages]]
+title   = "Eurocentric bias in music databases"
+content = """
+Discogs's coverage follows its contributor base. The community skew is Western, male, and oriented toward electronic, rock, and hip-hop from the US and Europe. This creates systematic blind spots:
+
+**Underrepresented in Discogs**:
+- Pre-2000 African popular music (highlife, afrobeat, soukous, mbalax)
+- South Asian and Middle Eastern popular music pre-1990
+- Self-released Bandcamp-only digital releases post-2010
+- Regional distribution-only releases (no international barcode)
+
+**Overrepresented**:
+- US and UK electronic music (house, techno, drum & bass) from 1985–2005
+- German techno, Belgian new beat, French house — all well-documented
+- Major-label catalog across all genres
+
+**What this means for diggers**: if you're digging outside Discogs's core competencies, you need complementary archives. Awesome Tapes From Africa, Ostinato Records (East African, Gulf), Analog Africa (West/Central African), Syliphone reissues (Guinean state label), Strut Records (African, Caribbean) each cover territory Discogs handles poorly. Don't mistake "absent from Discogs" for "doesn't exist" — it may just mean the contributors aren't there yet.
+"""
+
+[[en.quiz]]
+question = "Why did Bridgeport Music v. Dimension Films (2005) matter for hip-hop producers?"
+answers  = ["It banned all sampling", "It established that any recognizable sample requires clearance, regardless of length", "It made sampling free for non-commercial use", "It only applied to British music"]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the structural reason recommendation algorithms disfavor obscure tracks?"
+answers  = ["They are too long", "Obscure tracks have weak engagement signals — algorithms optimize for what's already popular", "Algorithms can't process old recordings", "Obscure tracks are too expensive to license"]
+correct  = 1
+
+[[en.quiz]]
+question = "The Discogs Popularity metric (collection count) vs price — which is the better rarity signal?"
+answers  = ["Price is always more reliable", "Collection count (Popularity) is a better rarity signal than price", "They are equivalent", "Neither is reliable"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which type of music is systematically underrepresented in Discogs compared to its actual volume?"
+answers  = ["US hip-hop", "German techno", "Pre-2000 African popular music", "French house"]
+correct  = 2
+
+[[en.quiz]]
+question = "What is the correct use of a streaming algorithm recommendation for a serious digger?"
+answers  = ["Follow recommendations blindly — algorithms are optimized", "Use it as a discovery launcher, then manually explore the label/catalog", "Ignore algorithms entirely", "Only use algorithms for BPM detection"]
+correct  = 1
+
+[[en.sources]]
+label = "Bridgeport Music v. Dimension Films — Wikipedia case summary"
+url   = "https://en.wikipedia.org/wiki/Bridgeport_Music,_Inc._v._Dimension_Films"
+
+[[en.sources]]
+label = "Awesome Tapes From Africa"
+url   = "https://awesometapes.com/"
+
+[[en.sources]]
+label = "Ostinato Records — Horn of Africa, Gulf music"
+url   = "https://ostinatorecords.com/"
+
+[[en.sources]]
+label = "Resident Advisor — Vinyl speculation feature"
+url   = "https://ra.co/features/3890"
+
+[[en.sources]]
+label = "Popsike — auction price history"
+url   = "https://www.popsike.com/"
+
+[fr]
+title      = "C'est quoi le digging ? — Théorie, éthique & archéologie culturelle"
+short_desc = "Reissues japonaises, éthique Madlib, marchés spéculatifs, et le problème algorithmique."
+
+[[fr.pages]]
+title   = "L'archéologie culturelle du crate-digging"
+content = """
+Le crate-digging n'est pas neutre. C'est une forme d'archéologie culturelle — et comme toute archéologie, elle soulève des questions sur qui creuse, ce qu'on exhume, et qui en bénéficie.
+
+**Trois lignées à comprendre :**
+
+**La scène reissue japonaise** : Des labels comme Light In The Attic (série *Japan Archives*), Music From Memory, et Mule Musiq ont passé des décennies à exhumer le jazz-funk, la city-pop et l'ambient japonais des années 70–80 — musique largement inconnue en dehors du Japon. Leur travail a professionnalisé une forme de digging : identifier des catalogues perdus, licencier auprès des artistes ou des ayants-droit, remastériser, rééditer globalement. Le succès commercial de la "Japanese city-pop" sur le streaming (l'arc viral de "Plastic Love" de Mariya Takeuchi, 2018–2022) est en partie en aval de ce travail d'archivage. La tension : les labels de reissue profitent ; les artistes originaux reçoivent parfois de maigres royalties ; les plateformes de streaming profitent le plus.
+
+**Awesome Tapes From Africa** (Brian Shimkovitz) : commencé comme blog en 2006, devenu un label qui sort de la musique sur cassette du Ghana, d'Éthiopie, du Sénégal. L'approche de Shimkovitz mêle ethnographie, journalisme et curation — chaque sortie est accompagnée d'une recherche de provenance. Les critiques interrogent : qui accorde le droit de rééditer ? Les réponses varient.
+
+**L'éthique du sampling hip-hop** : La série *Beat Konducta* de Madlib et *Shades of Blue* traitent le sample comme un dialogue compositionnel. L'arrêt Bridgeport Music v. Dimension Films (US, 2005) a établi que tout sample reconnaissable d'un enregistrement sonore nécessite une clearance — même 3 secondes. Les producteurs de l'ère Madlib et J Dilla sortaient souvent des beat tapes sous alias précisément pour contourner les clearances sur des sorties non commerciales.
+"""
+
+[[fr.pages]]
+title   = "Le problème algorithmique et pourquoi le digging y résiste"
+content = """
+Spotify, Apple Music, YouTube et Beatport font tous tourner des algorithmes de recommandation. Leur objectif : **la durée de session** — ils optimisent pour la track qui te fera rester, pas pour celle qui élargira ta palette.
+
+**Le problème structurel** : les algorithmes de recommandation sont entraînés sur des données d'engagement. Ce qui génère le plus d'engagement, c'est ce qui est déjà populaire. Ça crée une boucle de rétroaction : populaire → recommandé → encore plus populaire. Les tracks obscures qui demandent plusieurs écoutes pour être comprises sont structurellement désavantagées. L'algo ne te servira presque jamais un disque de township jive sud-africain de 1977 à un DJ techno — pas parce que ce n'est pas pertinent, mais parce que son signal d'engagement est trop faible.
+
+**Pourquoi le digging compte** : la curation humaine brise la boucle de rétroaction. Un DJ qui a entendu un disque de 1977 chez un disquaire spécialisé, ou lors d'un deep-dive label, ou par la recommandation d'un ami de confiance, a une track que l'algo ne servira jamais. C'est la raison structurelle pour laquelle les meilleurs sets sont inimitables par les algorithmes : le chemin du signal (digger → humain de confiance → digger) est hors-algo.
+
+**Contre-mesure** : utilise les algos comme *lanceurs de découverte*, pas comme destinations. Shazame une track dans un set → trouve le label → deep-dive manuellement tout le catalogue. L'algo t'amène à la porte ; tu la franchis toi-même.
+"""
+
+[[fr.pages]]
+title   = "Marchés spéculatifs et distorsion Discogs"
+content = """
+Le marché du vinyle post-2020 présente des caractéristiques classiques de bulle spéculative. Le comprendre te protège en tant qu'acheteur.
+
+**La bulle vinyle 2020–2023** : documentée dans *Rolling Stone* (2021) et des enquêtes *Resident Advisor*. L'écoute à domicile en pandémie + les achats nostalgie ont propulsé les ventes de vinyles à leur niveau le plus haut depuis 35 ans. Les prix du marché secondaire (Discogs, eBay) ont gonflé de 200–400% dans certaines catégories. De nouvelles usines de pressage ont ouvert ; les usines établies avaient 6 à 12 mois de backlog.
+
+**La distorsion spéculative sur Discogs Marketplace** :
+- Des bots scrapent les releases taguées 'rare' ou 'forte demande' et les remettent en vente à prix gonflés dans les heures qui suivent
+- Un seul DJ qui joue une track dans un Boiler Room peut faire flamber son prix Last Sold de 300% en 24 heures
+- Les nouveaux pressages de disques autrefois rares (quand les labels licencient pour une réédition) font immédiatement s'effondrer le prix spéculatif du pressage original
+
+**Comment se protéger** :
+1. Cross-check *Popsike* pour l'historique des enchères sur 2 ans — les pics spéculatifs sont visibles comme des sauts verticaux soudains
+2. Vérifie si une réédition existe ou est annoncée — ça effondre la valeur du pressage original
+3. La **métrique de Popularité Discogs** (combien d'utilisateurs l'ont dans leur collection) est un meilleur signal de rareté que le prix
+4. Achète direct sur Bandcamp quand c'est possible — tu paies l'artiste, pas un spéculateur
+"""
+youtube = "https://www.youtube.com/watch?v=G4E1ESfpFAc"
+youtube_caption = "Madlib sur le sampling, le digging et la composition — l'approche Beat Konducta."
+
+[[fr.pages]]
+title   = "Le biais eurocentriste dans les bases de données musicales"
+content = """
+La couverture de Discogs suit sa base de contributeurs. Le biais de la communauté est occidental, masculin, et orienté vers la musique électronique, le rock et le hip-hop américain et européen. Cela crée des angles morts systématiques.
+
+**Sous-représentés dans Discogs** :
+- La musique populaire africaine pré-2000 (highlife, afrobeat, soukous, mbalax)
+- La musique populaire sud-asiatique et moyen-orientale avant 1990
+- Les sorties digitales auto-éditées Bandcamp-only post-2010
+- Les sorties à distribution régionale uniquement (pas de code-barre international)
+
+**Surreprésentés** :
+- La musique électronique américaine et britannique (house, techno, drum & bass) de 1985–2005
+- La techno allemande, la new beat belge, la house française — toutes bien documentées
+- Le catalogue des majors dans tous les genres
+
+**Ce que ça signifie pour les diggers** : si tu digges en dehors des compétences principales de Discogs, tu as besoin d'archives complémentaires. Awesome Tapes From Africa, Ostinato Records (Afrique de l'Est, Golfe), Analog Africa (Afrique de l'Ouest/Centrale), les reissues Syliphone (label d'État guinéen), Strut Records (africain, caribéen) couvrent chacun des territoires que Discogs gère mal. Ne confonds pas "absent de Discogs" avec "n'existe pas" — ça peut juste vouloir dire que les contributeurs ne sont pas encore là.
+"""
+
+[[fr.quiz]]
+question = "Pourquoi l'arrêt Bridgeport Music v. Dimension Films (2005) a-t-il compté pour les producteurs hip-hop ?"
+answers  = ["Il a interdit tout sampling", "Il a établi que tout sample reconnaissable nécessite une clearance, quelle que soit sa longueur", "Il a rendu le sampling gratuit pour un usage non commercial", "Il ne s'appliquait qu'à la musique britannique"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle est la raison structurelle pour laquelle les algos de recommandation défavorisent les tracks obscures ?"
+answers  = ["Elles sont trop longues", "Les tracks obscures ont un faible signal d'engagement — les algos optimisent pour ce qui est déjà populaire", "Les algos ne peuvent pas traiter les vieux enregistrements", "Les tracks obscures sont trop chères à licencer"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Métrique de Popularité Discogs (nombre de collections) vs prix — lequel est le meilleur signal de rareté ?"
+answers  = ["Le prix est toujours plus fiable", "Le nombre de collections (Popularité) est un meilleur signal de rareté que le prix", "Ils sont équivalents", "Aucun n'est fiable"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel type de musique est systématiquement sous-représenté dans Discogs par rapport à son volume réel ?"
+answers  = ["Le hip-hop américain", "La techno allemande", "La musique populaire africaine pré-2000", "La house française"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Quel est l'usage correct d'une recommandation d'algo streaming pour un digger sérieux ?"
+answers  = ["Suivre les recommandations aveuglément — les algos sont optimisés", "L'utiliser comme lanceur de découverte, puis explorer manuellement le label/catalogue", "Ignorer complètement les algos", "N'utiliser les algos que pour la détection de BPM"]
+correct  = 1
+
+[[fr.sources]]
+label = "Bridgeport Music v. Dimension Films — résumé Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Bridgeport_Music,_Inc._v._Dimension_Films"
+
+[[fr.sources]]
+label = "Awesome Tapes From Africa"
+url   = "https://awesometapes.com/"
+
+[[fr.sources]]
+label = "Ostinato Records — musique Corne de l'Afrique, Golfe"
+url   = "https://ostinatorecords.com/"
+
+[[fr.sources]]
+label = "Resident Advisor — enquête sur la spéculation vinyle"
+url   = "https://ra.co/features/3890"
+
+[[fr.sources]]
+label = "Popsike — historique des enchères"
+url   = "https://www.popsike.com/"

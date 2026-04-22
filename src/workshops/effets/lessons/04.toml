@@ -1,0 +1,84 @@
+id = "LESSON_FX_4"
+order = 4
+
+[en]
+title       = "Loop Rolls: The Beat Repeat"
+short_desc  = "Controlled stutter. The signature glitch of modern DJing."
+description = "A loop roll holds a tiny slice of the track and loops it. Used well, it tightens tension; used badly, it's pure panic."
+recap = [
+  "A loop roll captures N beats and replays them until you release.",
+  "1/4 = machine-gun, 1/8 = edgy, 1/16–1/32 = glitch (loop perceived as pitch, not rhythm).",
+  "The track's real position keeps advancing — release jumps you to where you WOULD be.",
+  "Use on tension bars (pre-drop, outro), never to cover a bad beatmatch.",
+  "The craft is in the release: land on the 1 of the next bar or it's mush."
+]
+
+[[en.pages]]
+title   = "What a loop roll actually does"
+content = "A loop roll grabs a window of N beats and replays it until you release. 1/4 beat feels like a machine-gun stutter. 1/8 is edgier. 1/16 and 1/32 are pure glitch — the loop is so short the brain perceives it as pitch, not rhythm. The key technical detail: when you engage the roll, the track's 'real' position keeps moving in the background. When you release, the playhead jumps to where the track WOULD be — so the loop roll acts like pause + fast-forward baked into one gesture."
+medium_addendum = "Two interactions to know. **Loop roll + pitch bend**: while holding a 1/16 loop, push the jog wheel or nudge the pitch — you get a micro-sub-divide glitch that feels like a DnB edit. **Quantize setting**: if quantize is OFF, the loop starts wherever the playhead is — expect sloppy edges. If quantize is on 1 beat, the roll starts on the nearest beat even if you press between beats. Set quantize to 1/4 beat for fast glitch work, 1 beat for tension moments. **Master Tempo** matters too: with key-lock off, a pitched-up track changes the perceived tone of very short loops — some DJs exploit this deliberately."
+pro_deep_dive = "Mechanically, the deck keeps a **playback buffer** large enough to hold the longest loop (typically a few seconds pre-captured). When you engage ROLL, the read pointer is redirected to loop inside this buffer while the track clock keeps advancing underneath. Capture latency on modern CDJs is typically **under 10 ms** — the jump feels instant. The Pioneer DJM series distinguishes **ROLL** (a dedicated hold-to-loop mode, true beat-sized buffer) from **FX1 → STUTTER / SLIP ROLL** (loops the last 1/N beat of signal going through the FX send, sample-accurate but limited to the send bus). It's the same underlying DSP as **granular synthesis** — tiny grains triggered repeatedly — except the grain size is quantized to the beat grid instead of being sub-perceptual (1–50 ms). Push grain size below about 30 ms and the frequency of repetition becomes audible as a pitch (≈ 30 Hz threshold) — this is how 1/32 loop rolls start to sound tonal rather than rhythmic."
+
+[[en.pages]]
+title   = "When to use it, when not to"
+content = "Use it: on the last bar before a drop (tighten the tension), on an outro last phrase (signature exit), and during buildups to mechanize them. Don't use it: to 'cover' a bad beatmatch (the crowd hears the stutter and your mistake), or as ear-candy on every other phrase. Ean Golden (founder of DJTechTools) popularized the hold-to-stutter gesture around 2010 with MIDI controllers. Jack Beats and UK bass DJs took it to its extreme. Techno has always used it sparingly — on Dave Clarke, Chris Liebing sets, you'll hear one or two per hour, and they always land."
+
+[[en.pages]]
+title   = "The 'release' is where the craft lives"
+content = "Anyone can press a pad. The skill is in when you release. Release on the 1 of the next bar = tight. Release in the middle of a loop cycle = glitched mess. Practice: hold the loop, count the beats silently, release on the 1. Your brain must stay locked to the original grid even though your ears are hearing the stutter. That gap between what you see and what you hear is why this is a skill, not just a button."
+
+[fr]
+title       = "Loop Rolls : Le Beat Repeat"
+short_desc  = "Stutter contrôlé. Le glitch signature du DJ moderne."
+description = "Un loop roll tient un micro-bout de la track et le boucle. Bien utilisé, ça tend la tension ; mal utilisé, c'est de la panique."
+recap = [
+  "Un loop roll capture N beats et les rejoue jusqu'à ce que tu relâches.",
+  "1/4 = mitrailleuse, 1/8 = nerveux, 1/16–1/32 = glitch (boucle perçue comme hauteur, pas rythme).",
+  "La position réelle de la track continue d'avancer — le release saute où tu SERAIS.",
+  "À utiliser sur les mesures de tension (pré-drop, outro), jamais pour cacher un beatmatch raté.",
+  "Le craft est dans le release : tombe sur le 1 de la mesure suivante, sinon c'est de la bouillie."
+]
+
+[[fr.pages]]
+title   = "Ce que fait vraiment un loop roll"
+content = "Un loop roll prend une fenêtre de N beats et la rejoue jusqu'à ce que tu relâches. 1/4 beat ça fait mitrailleuse. 1/8 c'est plus nerveux. 1/16 et 1/32, pure glitch — la boucle est tellement courte que le cerveau la perçoit comme une hauteur, plus comme un rythme. Le détail technique clé : quand tu engages le roll, la position 'réelle' de la track continue d'avancer en arrière-plan. Quand tu relâches, la tête de lecture saute où la track SERAIT — donc un loop roll c'est pause + avance rapide dans un même geste."
+medium_addendum = "Deux interactions à connaître. **Loop roll + pitch bend** : pendant que tu tiens une boucle 1/16, pousse le jog ou nudge le pitch — tu obtiens un micro-sub-divide glitch qui sonne comme un edit DnB. **Réglage quantize** : si quantize est OFF, la boucle démarre là où est la tête de lecture — bords sales assurés. Quantize à 1 beat, le roll démarre sur le beat le plus proche même si tu appuies entre deux. Règle quantize sur 1/4 beat pour le glitch rapide, 1 beat pour les moments de tension. **Master Tempo** compte aussi : key-lock off, une track pitchée change le timbre perçu des très courtes boucles — certains DJs exploitent ça volontairement."
+pro_deep_dive = "Mécaniquement, la platine maintient un **buffer de relecture** assez grand pour tenir la plus longue boucle (quelques secondes pré-capturées). Quand tu engages ROLL, le pointeur de lecture est redirigé pour boucler dans ce buffer pendant que l'horloge track continue en-dessous. Sur les CDJ modernes, la latence de capture est **sous les 10 ms** — le saut paraît instantané. La gamme Pioneer DJM distingue **ROLL** (un mode hold-to-loop dédié, vrai buffer beat-sized) de **FX1 → STUTTER / SLIP ROLL** (boucle le dernier 1/N beat du signal qui passe par le send FX, sample-accurate mais limité au bus send). C'est le même DSP de fond que la **synthèse granulaire** — de minuscules grains déclenchés répétitivement — sauf que la taille du grain est quantifiée sur la grille beat au lieu d'être sub-perceptuelle (1–50 ms). Pousse la taille de grain sous 30 ms et la fréquence de répétition devient audible comme une hauteur (seuil ≈ 30 Hz) — c'est comme ça que les loops 1/32 commencent à sonner tonals plutôt que rythmiques."
+
+[[fr.pages]]
+title   = "Quand l'utiliser, quand ne pas"
+content = "À utiliser : sur la dernière mesure avant un drop (tendre la tension), sur la dernière phrase d'un outro (sortie signature), pendant les builds pour les mécaniser. À ne pas faire : pour 'cacher' un beatmatch raté (le public entend le stutter ET ta faute), ou comme bonbon sonore sur une phrase sur deux. Ean Golden (fondateur de DJTechTools) a popularisé le geste hold-to-stutter vers 2010 avec les contrôleurs MIDI. Jack Beats et la scène bass UK l'ont poussé à l'extrême. La techno l'a toujours utilisé avec parcimonie — sur un set de Dave Clarke ou Chris Liebing tu en entends un ou deux par heure, et ils tombent toujours juste."
+
+[[fr.pages]]
+title   = "Le 'release' est le cœur du geste"
+content = "N'importe qui peut appuyer sur un pad. Le skill c'est quand tu relâches. Release sur le 1 de la mesure suivante = net. Release au milieu d'un cycle = bouillie glitchée. Pratique : tiens la boucle, compte les beats dans ta tête, relâche sur le 1. Ton cerveau doit rester calé sur la grille d'origine même si tes oreilles entendent le stutter. Cet écart entre ce que tu vois et ce que tu entends, c'est ce qui fait du geste un skill, pas juste un bouton."
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What happens to the 'real' track position while a loop roll is held?"
+answers  = ["It stays frozen at the loop start", "It keeps moving — release jumps to where it WOULD be", "It resets to 0"]
+[quiz.fr]
+question = "Que fait la position 'réelle' de la track pendant qu'un loop roll est maintenu ?"
+answers  = ["Elle reste figée au début de la boucle", "Elle continue d'avancer — le release saute où la track SERAIT", "Elle revient à 0"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "The skill in loop rolls is mostly about..."
+answers  = ["Choosing the right size", "Pressing hard", "Releasing on the 1 of the next bar"]
+[quiz.fr]
+question = "Le skill du loop roll tient surtout à..."
+answers  = ["Choisir la bonne taille", "Appuyer fort", "Relâcher sur le 1 de la mesure suivante"]
+
+[[sources]]
+label = "Granular synthesis (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Granular_synthesis"
+
+[[sources]]
+label = "Pioneer DJM-900NXS2 — BEAT FX / ROLL reference"
+url   = "https://www.pioneerdj.com/en/product/mixer/djm-900nxs2/black/overview/"
+
+[[sources]]
+label = "DJTechTools — History of the Stutter Edit"
+url   = "https://djtechtools.com/"

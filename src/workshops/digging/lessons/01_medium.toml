@@ -1,0 +1,228 @@
+id = "LESSON_DIGGING_1_MEDIUM"
+order = 1
+
+[en]
+title      = "What Is Digging? — Curation as Discipline"
+short_desc = "Identity, filter logic, and why your crate is your brand."
+
+[[en.pages]]
+title   = "Curation is the job"
+content = """
+Every DJ has access to the same platforms. Beatport, Bandcamp, Spotify, YouTube — open to anyone. The differentiator isn't **access**, it's **filter**.
+
+Curation is the act of deciding what to *reject*. The 1% you keep after filtering is your voice. DJs like Theo Parrish or DJ Harvey don't stand out because they have better gear — they stand out because their *filter logic* is radically different from everyone else's.
+
+**What is your filter?** Here's an honest test:
+
+- Write down the last 10 tracks you bought or added to your library.
+- Open Beatport's current Top 100 for your genre.
+- Count how many of your 10 are in that Top 100.
+
+If more than 4 overlap, you're DJing other people's taste. That's not necessarily wrong, but it's worth knowing.
+"""
+
+[[en.pages]]
+title   = "Building a sustainable curation workflow"
+content = """
+A curation workflow is a repeatable system for discovery. Without one, you dig randomly and forget what you found.
+
+**The four-step workflow:**
+
+1. **Weekly listening session** (30 min): one new label, one Bandcamp tag you've never explored, one RA mix from an unfamiliar DJ. Flag candidates — don't buy yet.
+2. **Wantlist/cart discipline**: hold candidates for at least 48 hours before deciding. Half the tracks that excited you in the moment don't survive 48 hours of reflection.
+3. **Monthly batch review**: delete 60% of your Wantlist. Buy the remaining 40%.
+4. **Immediate tagging**: at import, tag Genre, Energy (1–5), and intro/outro length. A track you can't tag is one you don't understand yet — listen again.
+
+**Industry terms to know:**
+- **Mix**: the full club-length version (typically 6–8+ minutes)
+- **Extended**: same as Mix, label jargon variant
+- **Radio Edit**: short, vocal-forward version — almost never useful for DJs
+- **Dub**: instrumental, stripped-down version — extremely useful for mixing
+- **Acapella**: vocals only — useful for creative blending
+- **VIP** (Very Important Person): remix by the original artist of their own track
+"""
+
+[[en.pages]]
+title   = "Theo Parrish, DJ Harvey — what their filter logic teaches us"
+content = """
+Two DJs, two radically different filter logics:
+
+**Theo Parrish** digs for **emotional specificity**. His filter: "does this track say something that no other track says?" He'll pass on technically perfect productions in favor of a rough 1978 Chicago soul record that nails a specific feeling. His sets are long (6–8 hours), built as emotional narratives. He famously buys 2000+ records a year, which means his rejection rate is roughly 98%.
+
+**DJ Harvey** builds what he calls a **"big beautiful machine"** — sets connecting obscure disco, italo, rock-crossover, and yacht-rock over 8+ hours. His filter: glamour without obviousness. A 1981 roller-skating rink record next to a contemporary producer nobody's heard of. His crate isn't genre-sorted; it's *mood-sorted*.
+
+**The common thread**: neither curates by genre. Both curate by *coherence of feeling*. That's what gives their sets a recognizable identity — you know it's Harvey or Parrish 30 seconds in, before you know a single track.
+
+Your filter doesn't need to match theirs. It needs to be *yours* — specific, consistent, and built over time.
+"""
+youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
+youtube_caption = "Theo Parrish live — every track here represents a 98% rejection rate."
+
+[[en.pages]]
+title   = "The crate compounds over time"
+content = """
+Digging is not a session — it's a practice. The crate's value is not in any single track but in how tracks relate to each other over years.
+
+**How the compound works:**
+
+- Month 1: you have 50 tracks. You know most of them well. 5 are truly unique.
+- Year 1: 400 tracks. You've played 200 in sets. You know exactly which 30 work in which context.
+- Year 3: 1200 tracks. You have enough to build a 4-hour set on almost any style within your filter. The 1% that nobody else has? That's now 12 tracks — enough to make a set memorable.
+- Year 10: 4000 tracks. You can DJ for 8 hours without repeating yourself. Your crate IS your identity at this point.
+
+**The trap to avoid**: buying fast to feel the quantity grow. 10 deeply understood tracks are worth more than 100 impulse buys. When you buy a track, ask: "can I name two other tracks in my library that this bridges to?" If not, it's an orphan — hard to use in a set.
+"""
+
+[[en.quiz]]
+question = "What version of a track is most useful for DJs — long intro, no vocals?"
+answers  = ["Radio Edit", "Dub version", "Acapella", "VIP remix"]
+correct  = 1
+
+[[en.quiz]]
+question = "You have 200 tracks in your Wantlist. What's the right discipline?"
+answers  = ["Buy all of them — more is better", "Delete 60%, buy the remaining 40%", "Buy only tracks in the Top 100", "Buy randomly"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does a 'VIP' version mean?"
+answers  = ["A remix by a different artist", "A remix by the original artist of their own track", "A very long version (10+ min)", "A version for radio only"]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the key thing Theo Parrish and DJ Harvey have in common despite different styles?"
+answers  = ["They both play only vinyl", "They both sort by genre", "They both curate by coherence of feeling, not genre", "They both have 10,000+ track libraries"]
+correct  = 2
+
+[[en.quiz]]
+question = "An 'orphan track' in your crate is:"
+answers  = ["A white-label with no artist info", "A track you can't bridge to anything else in your library", "A track with no intro", "A track bought from a defunct label"]
+correct  = 1
+
+[[en.sources]]
+label = "Theo Parrish — RA interview on curation"
+url   = "https://ra.co/features/1948"
+
+[[en.sources]]
+label = "DJ Harvey — Fact Mag interview"
+url   = "https://www.factmag.com/2012/08/27/in-conversation-with-dj-harvey/"
+
+[[en.sources]]
+label = "Bandcamp — label pages"
+url   = "https://bandcamp.com/label"
+
+[[en.sources]]
+label = "Popsike — vinyl auction price history"
+url   = "https://www.popsike.com/"
+
+[fr]
+title      = "C'est quoi le digging ? — La curation comme discipline"
+short_desc = "Identité, logique de filtre, et pourquoi ton crate est ta marque."
+
+[[fr.pages]]
+title   = "La curation, c'est le boulot"
+content = """
+Tous les DJs ont accès aux mêmes plateformes. Beatport, Bandcamp, Spotify, YouTube — ouverts à tout le monde. La différence n'est pas l'**accès**, c'est le **filtre**.
+
+Curer, c'est décider ce qu'on *rejette*. Le 1% que tu gardes après le filtrage, c'est ta voix. Des DJs comme Theo Parrish ou DJ Harvey ne se démarquent pas parce qu'ils ont un meilleur matos — mais parce que leur *logique de filtre* est radicalement différente de celle des autres.
+
+**Quel est ton filtre ?** Voici un test honnête :
+
+- Note tes 10 derniers achats ou ajouts à ta librairie.
+- Ouvre le Top 100 Beatport actuel de ton genre.
+- Compte combien de tes 10 tracks s'y trouvent.
+
+Si plus de 4 sont dans ce Top 100, tu DJes le goût des autres. Ce n'est pas forcément mal, mais ça vaut la peine de le savoir.
+"""
+
+[[fr.pages]]
+title   = "Construire un workflow de curation durable"
+content = """
+Un workflow de curation, c'est un système répétable pour la découverte. Sans ça, tu digges au hasard et tu oublies ce que tu as trouvé.
+
+**Le workflow en quatre étapes :**
+
+1. **Session d'écoute hebdomadaire** (30 min) : un nouveau label, un tag Bandcamp que tu n'as jamais exploré, un mix RA d'un DJ inconnu. Flague les candidats — n'achète pas encore.
+2. **Discipline Wantlist/panier** : garde les candidats au moins 48 heures avant de décider. La moitié des tracks qui t'excitaient sur le moment ne survivent pas 48 heures de recul.
+3. **Révision mensuelle en lot** : supprime 60% de ta Wantlist. Achète les 40% restants.
+4. **Taguage immédiat** : à l'import, tague Genre, Énergie (1–5), et longueur intro/outro. Une track que tu ne sais pas taguer, c'est une track que tu ne comprends pas encore — réecoute.
+
+**Vocabulaire de l'industrie à connaître :**
+- **Mix** : la version complète pour les clubs (généralement 6–8+ minutes)
+- **Extended** : pareil, variante de jargon label
+- **Radio Edit** : courte, vocaux en avant — presque jamais utile pour les DJs
+- **Dub** : version instrumentale et épurée — extrêmement utile pour le mix
+- **Acapella** : vocaux seuls — utile pour le blending créatif
+- **VIP** (Very Important Person) : remix par l'artiste original de sa propre track
+"""
+
+[[fr.pages]]
+title   = "Theo Parrish, DJ Harvey — ce que leur logique de filtre enseigne"
+content = """
+Deux DJs, deux logiques de filtre radicalement différentes :
+
+**Theo Parrish** digge pour la **spécificité émotionnelle**. Son filtre : "est-ce que cette track dit quelque chose qu'aucune autre ne dit ?" Il passera sur des productions techniquement parfaites pour une soul de Chicago de 1978 qui cloue un sentiment précis. Ses sets sont longs (6–8h), construits comme des récits émotionnels. Il achète 2000+ disques par an — son taux de rejet est d'environ 98%.
+
+**DJ Harvey** construit ce qu'il appelle une **"belle grande machine"** — des sets qui connectent disco obscur, italo, crossover rock et yacht-rock sur 8+ heures. Son filtre : glamour sans évidence. Un disque de patinoire de 1981 à côté d'un producteur contemporain que personne ne connaît. Son crate n'est pas trié par genre — il est trié par *mood*.
+
+**Le fil conducteur** : aucun des deux ne cure par genre. Tous les deux curent par *cohérence de feeling*. C'est ce qui donne à leurs sets une identité reconnaissable — tu sais que c'est Harvey ou Parrish en 30 secondes, avant même de connaître une seule track.
+
+Ton filtre n'a pas besoin de ressembler au leur. Il doit être *le tien* — spécifique, cohérent, et construit dans le temps.
+"""
+youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
+youtube_caption = "Theo Parrish live — chaque track représente un taux de rejet de 98%."
+
+[[fr.pages]]
+title   = "Le crate se capitalise dans le temps"
+content = """
+Le digging n'est pas une session — c'est une pratique. La valeur du crate n'est pas dans une track mais dans la façon dont les tracks se relient entre elles sur des années.
+
+**Comment la capitalisation fonctionne :**
+
+- Mois 1 : 50 tracks. Tu les connais presque toutes. 5 sont vraiment uniques.
+- An 1 : 400 tracks. Tu en as joué 200 en set. Tu sais exactement lesquelles fonctionnent dans quel contexte.
+- An 3 : 1200 tracks. Tu peux construire un set de 4 heures sur presque n'importe quel style dans ton filtre. Le 1% que personne d'autre n'a ? C'est 12 tracks — assez pour rendre un set mémorable.
+- An 10 : 4000 tracks. Tu joues 8 heures sans te répéter. Ton crate EST ton identité à ce stade.
+
+**Le piège à éviter** : acheter vite pour sentir la quantité grossir. 10 tracks profondément comprises valent plus que 100 achats impulsifs. Quand tu achètes une track, demande-toi : "est-ce que je peux nommer deux autres tracks de ma librairie vers lesquelles celle-ci peut faire pont ?" Si non, c'est un orphelin — difficile à utiliser en set.
+"""
+
+[[fr.quiz]]
+question = "Quelle version d'une track est la plus utile pour un DJ — long intro, pas de vocaux ?"
+answers  = ["Radio Edit", "Version Dub", "Acapella", "VIP remix"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu as 200 tracks dans ta Wantlist. Quelle est la bonne discipline ?"
+answers  = ["Les acheter toutes — plus c'est mieux", "Supprimer 60%, acheter les 40% restants", "N'acheter que les tracks du Top 100", "Acheter aléatoirement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Qu'est-ce qu'une version 'VIP' ?"
+answers  = ["Un remix par un autre artiste", "Un remix par l'artiste original de sa propre track", "Une version très longue (10+ min)", "Une version pour la radio seulement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel est le point commun entre Theo Parrish et DJ Harvey malgré leurs styles différents ?"
+answers  = ["Ils ne jouent que du vinyle", "Ils trient par genre", "Ils curent tous les deux par cohérence de feeling, pas par genre", "Ils ont tous les deux 10 000+ tracks"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Une 'track orpheline' dans ton crate, c'est :"
+answers  = ["Un white-label sans info artiste", "Une track que tu ne peux pas connecter à autre chose dans ta librairie", "Une track sans intro", "Une track achetée chez un label disparu"]
+correct  = 1
+
+[[fr.sources]]
+label = "Theo Parrish — interview RA sur la curation"
+url   = "https://ra.co/features/1948"
+
+[[fr.sources]]
+label = "DJ Harvey — interview Fact Mag"
+url   = "https://www.factmag.com/2012/08/27/in-conversation-with-dj-harvey/"
+
+[[fr.sources]]
+label = "Bandcamp — pages label"
+url   = "https://bandcamp.com/label"
+
+[[fr.sources]]
+label = "Popsike — historique des prix aux enchères vinyle"
+url   = "https://www.popsike.com/"

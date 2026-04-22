@@ -1,0 +1,164 @@
+id = "LESSON_HARMONIES_3_PRO"
+order = 3
+
+[en]
+title      = "Camelot internals: circle of fifths remap, modal blind spots & harmonic crimes"
+short_desc = "Why the wheel encodes fifths, where it lies about modes, and how Villalobos, Koze and Parrish break it deliberately."
+description = "The Camelot wheel is a compressed circle of fifths. This lesson unpacks that compression: the group theory behind why fifths generate all 12 keys, what the A/B encoding loses (modes), how the ii-V-I cadence maps to wheel positions, and the technique-level analysis of how top DJs violate the rules on purpose."
+recap = [
+  "Each clockwise Camelot step = +7 semitones (perfect fifth). After 12 steps, you've visited all 12 keys — this is the Generator Theorem for Z₁₂.",
+  "Camelot encodes only Aeolian (A) vs Ionian (B). Dorian, Phrygian, Mixolydian tracks are mapped to the nearest slot and can cause unexpected clashes.",
+  "The ii-V-I cadence maps to Camelot as: ii = (N-2)A, V = (N+5)B, I = NB. Example in C: Dm (6A) → G (1A/1B boundary) → C (8B).",
+  "Modal interchange creates windows in tracks where an 'incompatible' blend suddenly works — Villalobos exploits these seams.",
+  "Harmonic crime toolkit: EQ-kill mid on clash, land on atonal break, short transitions (≤8 bars) tolerate more dissonance, filter sweep to re-anchor."
+]
+
+[[en.pages]]
+title   = "The circle of fifths remap: why each step = +7 semitones"
+content = "Camelot numbering follows the **circle of fifths** exactly. Why does moving one step clockwise equal a perfect fifth (+7 semitones)?\n\n**The Generator Theorem for Z₁₂**: the group of 12 chromatic pitches under addition modulo 12 is cyclic. A generator is any element coprime to 12. The coprime values of 12 are: 1, 5, 7, 11. In musical terms:\n- Generator 1 = chromatic scale (every semitone)\n- Generator 5 = circle of fourths (C → F → B♭ → ...)\n- **Generator 7** = **circle of fifths** (C → G → D → A → E → B → F♯ → C♯ → G♯ → D♯ → A♯ → F → C)\n- Generator 11 = circle of minor sevenths\n\nThe circle of fifths is chosen over fourths for intuitive harmonic closeness: keys a fifth apart share 6 of 7 notes. The wheel captures this: adjacent Camelot numbers always share 6/7 notes.\n\n**Wrap verification**: start at C (8B in Camelot). Apply +7 semitones 12 times. You visit: C→G→D→A→E→B→F♯→C♯→G♯→D♯→A♯→F→C. All 12 keys visited exactly once. This is why 12 steps closes the loop."
+image         = "lesson-images/camelot-wheel.png"
+image_caption = "Each clockwise step on the wheel = +7 semitones (perfect fifth). After 12 steps, all keys visited."
+
+[[en.pages]]
+title   = "Modal blind spots: what A/B doesn't capture"
+content = "The Camelot A/B distinction encodes only two of the seven diatonic modes:\n- **A** = Aeolian (natural minor)\n- **B** = Ionian (major)\n\nThe five remaining modes all get **forced into the nearest A or B slot**, losing their modal identity:\n\n| Mode | Forced slot | What gets lost |\n|------|------------|----------------|\n| **Dorian** (minor + raised 6) | A | The raised 6th creates a 'wrong' note when blending with a pure Aeolian track at the same code |\n| **Phrygian** (minor + flat 2) | A | The flat 2nd is a dissonance bomb against any Ionian/Aeolian neighbor |\n| **Lydian** (major + raised 4) | B | The raised 4th clashes with any adjacent B that uses the natural 4th |\n| **Mixolydian** (major + flat 7) | B | The flat 7th conflicts with the leading tone of Ionian neighbors |\n| **Locrian** (diminished tonic) | A | Rarely tonal enough to matter, but the ♭5 is an active dissonance |\n\nPractical consequence: a **Dorian deep house track** (e.g., Kerri Chandler's 'Bar A Thym') and a **Phrygian techno track** may share the same Camelot slot (8A), but their raised-6 vs flat-2 will clash on any sustained harmonic moment. Ear-check always wins over the wheel."
+
+[[en.pages]]
+title   = "The ii-V-I cadence mapped to the wheel"
+content = "The **ii-V-I cadence** is the most common harmonic resolution in Western music. In the key of C major:\n- **ii** = D minor (Dm)\n- **V** = G major (G)\n- **I** = C major (C)\n\nThis resolves tension (ii→V creates dominant tension, V→I releases it).\n\nOn the Camelot wheel in C-major world (8B = C, 8A = Am):\n- **ii** (Dm) = **6A** (two positions counter-clockwise from 8A, or think of Dm as the ii of C)\n- **V** (G) = **2B** (Camelot position of G major)\n- **I** (C) = **8B**\n\nPath: **6A → 2B → 8B**.\n\nFor DJs: teasing a track in 6A territory, then dropping a dominant-energy track at 2B, then resolving to 8B creates a **structural arc** listeners feel as satisfying tension-release. This works across tracks, not just inside one. A 20-minute set movement built on ii-V-I wheel navigation is advanced but fully intentional. Radioactive DJs (Magda, Ben Klock) do this over 30-40 minute arcs in their recorded mixes.\n\nNote: the cadence always maps relative to the resolution key. The +7 energy boost move is essentially the **dominant relationship** (V→I, N+5 → N)."
+youtube         = "https://www.youtube.com/watch?v=alXoELBRPao"
+youtube_caption = "Ben Klock live at Berghain — a 3-hour arc with a clear harmonic narrative; analyze the Camelot codes in Rekordbox."
+
+[[en.pages]]
+title   = "Harmonic crimes: Villalobos, Koze, Parrish"
+content = "The three most studied practitioners of deliberate harmonic rule-breaking:\n\n**Ricardo Villalobos** — Polyrhythmic layering as harmonic cover. He frequently overlays 3-4 tracks in unrelated keys for 30+ bars. The strategy: the polyrhythmic complexity (5-against-4 patterns, polymetric phrases) absorbs the ear's analytical bandwidth. By the time the listener's brain parses the rhythmic structure, it has stopped analyzing the harmonic one. The dissonance sits in the background as 'texture', not as 'wrong note'. Villalobos also hunts for **modal seams**: moments in a track where a borrowed chord creates a 2-4 bar window of ambiguity. He drops the incompatible next track exactly in that window.\n\n**DJ Koze** — Deliberate mismatch as production effect. Koze treats the key mismatch as a **color** in the mix, not a mistake. He'll pitch a loop 2-3 semitones outside Camelot to create harmonic unease, then resolve it via a **filter sweep** (high-pass sweep removes low harmonics where the clash is most audible) or an **EQ mid-kill** (gutting 500 Hz–2 kHz on one deck kills the harmonic content while preserving kick and hi-hat). The resolution releases the tension in the same way a V-to-I resolves in classical music.\n\n**Theo Parrish** — Emotional arc over harmonic correctness. Parrish's sets span disco, gospel, raw Chicago house, jazz, and R&B in clashing keys. His bridge technique: ride a track until a **percussive break** (a bar with no sustained harmonic content — just kick and clap) provides a 'white canvas'. Cut in the next record on beat 1 of that break. The ear's harmonic memory resets during the atonal bar. This is the DJ equivalent of a scene cut in film: the eye (ear) accepts the new context when the transition is at the right moment."
+
+[[en.pages]]
+title   = "Harmonic crime toolkit"
+content = "Tested techniques for crossing the Camelot rules intentionally:\n\n**1. Short transition window** — The ear's harmonic JND resets roughly every 4-8 bars. A mismatch of up to ~1.5 semitones (150 cents) is survivable in a 4-bar cut. Plan incompatible transitions to land and exit within 4 bars. Don't blend for 32 bars on a 2-semitone clash.\n\n**2. EQ mid-kill** — Before the clash, kill the mid-range (500 Hz–2 kHz) on one deck. Harmonics of melodic instruments live in this range; with them killed, only kick (sub) and hi-hat (presence) remain — both are largely atonal. Blend in this mid-killed state, then restore mids after the new track is established.\n\n**3. Filter sweep** — High-pass filter the incoming track from 2 kHz down to full range over 8 bars. The high frequencies first (cymbal textures, hi-hats) establish groove without harmonic content. The harmonic clash only arrives as the filter opens at bar 6-8, by which time the crowd has accepted the new groove.\n\n**4. Atonal landing** — Identify a percussive break in the outgoing track (label it in Rekordbox). Cut the new record in at that break. No harmonic content in the break = no harmonic clash to hear. The ear re-anchors to the new key from beat 1 of the new track.\n\n**5. Trust the energy** — In a high-energy room at peak decibel, above-threshold SPL (110+ dB) causes temporary threshold shift and spectral masking. The crowd literally cannot distinguish harmonic clashes as well as they could at 90 dB. This is not an excuse to be sloppy — but it explains why a harmonic crime that would be painful in a quiet room can pass unnoticed in a loud one."
+
+[[en.quiz]]
+question = "Why does each step on the Camelot wheel equal +7 semitones (a perfect fifth)?"
+answers  = ["It's an arbitrary convention chosen by Mark Davis", "Because 7 is coprime to 12, so adding 7 modulo 12 generates all 12 keys", "Because 7 semitones is the most popular interval in pop music"]
+correct  = 1
+
+[[en.quiz]]
+question = "A Dorian track and an Aeolian track share the same Camelot slot. What can go wrong?"
+answers  = ["Nothing — same Camelot slot always means perfectly compatible", "The Dorian raised 6th can clash with the Aeolian natural 6th on sustained harmonic moments", "The BPM will be different"]
+correct  = 1
+
+[[en.quiz]]
+question = "The ii-V-I cadence in C major maps to which Camelot path?"
+answers  = ["8A → 8B → 1B", "6A → 2B → 8B", "7A → 7B → 8B"]
+correct  = 1
+
+[[en.quiz]]
+question = "Villalobos uses polyrhythmic layering to mask harmonic dissonance because..."
+answers  = ["The audience can't hear pitch at all in polyrhythmic music", "Rhythmic complexity saturates the ear's analytical bandwidth, pushing harmonic analysis to the background", "He only plays in one key at a time"]
+correct  = 1
+
+[[en.quiz]]
+question = "The EQ mid-kill technique reduces harmonic clash by..."
+answers  = ["Reducing the volume of both tracks", "Removing 500 Hz–2 kHz, where melodic instrument harmonics live, leaving mostly atonal kick and hi-hat", "Boosting the bass to mask the mid-range clash"]
+correct  = 1
+
+[[en.sources]]
+label = "Mixed In Key — Camelot Wheel"
+url   = "https://mixedinkey.com/camelot-wheel/"
+
+[[en.sources]]
+label = "Circle of fifths — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Circle_of_fifths"
+
+[[en.sources]]
+label = "Resident Advisor — Ricardo Villalobos (on layering and harmonic mixing)"
+url   = "https://ra.co/features/1895"
+
+[[en.sources]]
+label = "Digital DJ Tips — Harmonic Mixing: Breaking The Rules"
+url   = "https://www.digitaldjtips.com/harmonic-mixing-breaking-rules/"
+
+[[en.sources]]
+label = "Adam Neely — Modal interchange (YouTube)"
+url   = "https://www.youtube.com/watch?v=1dRA28cdt5c"
+
+[fr]
+title      = "Camelot en profondeur : remappage du cercle des quintes, angles morts modaux & crimes harmoniques"
+short_desc = "Pourquoi la roue encode des quintes, ce qu'elle cache sur les modes, et comment Villalobos, Koze et Parrish la violent délibérément."
+description = "La roue Camelot est un cercle des quintes compressé. Cette leçon décortique cette compression : la théorie des groupes derrière pourquoi les quintes génèrent toutes les 12 tonalités, ce que l'encodage A/B perd (les modes), comment la cadence ii-V-I se mappe sur les positions de la roue, et l'analyse technique de comment les top DJs violent les règles exprès."
+recap = [
+  "Chaque pas horaire Camelot = +7 demi-tons (quinte juste). Après 12 pas, tu as visité toutes les 12 tonalités — c'est le Théorème du Générateur pour Z₁₂.",
+  "Camelot n'encode que l'Éolien (A) vs l'Ionien (B). Les morceaux doriens, phrygiens, mixolydiens sont mappés à la case la plus proche et peuvent créer des clashes inattendus.",
+  "La cadence ii-V-I se mappe en Camelot comme : ii = (N-2)A, V = (N+5)B, I = NB. Exemple en Do : Dm (6A) → G (frontière 1A/1B) → C (8B).",
+  "L'échange modal crée des fenêtres dans les morceaux où un blend 'incompatible' fonctionne soudainement — Villalobos exploite ces coutures.",
+  "Boîte à outils du crime harmonique : EQ-kill mid sur le clash, atterrir sur un break atonal, transitions courtes (≤8 mesures) tolèrent plus de dissonance, filter sweep pour re-ancrer."
+]
+
+[[fr.pages]]
+title   = "Le remappage du cercle des quintes : pourquoi chaque pas = +7 demi-tons"
+content = "La numérotation Camelot suit exactement le **cercle des quintes**. Pourquoi se déplacer d'un pas dans le sens horaire équivaut-il à une quinte juste (+7 demi-tons) ?\n\n**Le Théorème du Générateur pour Z₁₂** : le groupe des 12 hauteurs chromatiques sous addition modulo 12 est cyclique. Un générateur est tout élément premier avec 12. Les valeurs premières avec 12 sont : 1, 5, 7, 11. En termes musicaux :\n- Générateur 1 = gamme chromatique (chaque demi-ton)\n- Générateur 5 = cercle des quartes (Do → Fa → Si♭ → ...)\n- **Générateur 7** = **cercle des quintes** (Do → Sol → Ré → La → Mi → Si → Fa♯ → Do♯ → Sol♯ → Ré♯ → La♯ → Fa → Do)\n- Générateur 11 = cercle des septièmes mineures\n\nLe cercle des quintes est choisi plutôt que les quartes pour sa proximité harmonique intuitive : les tonalités à une quinte de distance partagent 6 des 7 notes. La roue capture ça : les numéros Camelot adjacents partagent toujours 6/7 notes.\n\n**Vérification du wrap** : commence à Do (8B en Camelot). Applique +7 demi-tons 12 fois. Tu visites : Do→Sol→Ré→La→Mi→Si→Fa♯→Do♯→Sol♯→Ré♯→La♯→Fa→Do. Les 12 tonalités visitées exactement une fois. C'est pourquoi 12 pas ferment la boucle."
+image         = "lesson-images/camelot-wheel.png"
+image_caption = "Chaque pas horaire sur la roue = +7 demi-tons (quinte juste). Après 12 pas, toutes les tonalités visitées."
+
+[[fr.pages]]
+title   = "Les angles morts modaux : ce que A/B ne capture pas"
+content = "La distinction A/B de Camelot n'encode que deux des sept modes diatoniques :\n- **A** = Éolien (mineur naturel)\n- **B** = Ionien (majeur)\n\nLes cinq modes restants sont tous **forcés dans la case A ou B la plus proche**, perdant leur identité modale :\n\n| Mode | Case forcée | Ce qui est perdu |\n|------|------------|------------------|\n| **Dorien** (mineur + 6e haussée) | A | La 6e haussée crée une 'mauvaise' note en blendant avec un morceau éolien pur à la même case |\n| **Phrygien** (mineur + 2e bémol) | A | La 2e bémol est une bombe de dissonance contre tout voisin ionien/éolien |\n| **Lydien** (majeur + 4e haussée) | B | La 4e haussée clashe avec tout B adjacent qui utilise la 4e naturelle |\n| **Mixolydien** (majeur + 7e bémol) | B | La 7e bémol entre en conflit avec la sensible des voisins ioniens |\n| **Locrien** (tonique diminuée) | A | Rarement assez tonal pour compter, mais la ♭5 est une dissonance active |\n\nConséquence pratique : un **morceau de deep house dorien** (ex. Kerri Chandler's 'Bar A Thym') et un **morceau de techno phrygien** peuvent partager la même case Camelot (8A), mais leur 6e haussée vs 2e bémol vont clasher sur tout moment harmonique soutenu. La vérification à l'oreille gagne toujours sur la roue."
+
+[[fr.pages]]
+title   = "La cadence ii-V-I mappée sur la roue"
+content = "La **cadence ii-V-I** est la résolution harmonique la plus courante en musique occidentale. En Do majeur :\n- **ii** = Ré mineur (Dm)\n- **V** = Sol majeur (G)\n- **I** = Do majeur (C)\n\nCela résout la tension (ii→V crée de la tension dominante, V→I la libère).\n\nSur la roue Camelot dans le monde du Do majeur (8B = Do, 8A = Am) :\n- **ii** (Dm) = **6A** (deux positions anti-horaires depuis 8A, ou pense à Dm comme le ii de Do)\n- **V** (Sol) = **2B** (position Camelot de Sol majeur)\n- **I** (Do) = **8B**\n\nChemin : **6A → 2B → 8B**.\n\nPour les DJs : teaser un morceau en territoire 6A, puis dropper un morceau à énergie dominante en 2B, puis résoudre en 8B crée un **arc structurel** que les auditeurs ressentent comme une tension-libération satisfaisante. Ça fonctionne entre les morceaux, pas seulement à l'intérieur d'un. Un mouvement de set de 20 minutes construit sur la navigation ii-V-I de la roue est avancé mais entièrement intentionnel. Les DJs comme Magda et Ben Klock font ça sur des arcs de 30-40 minutes dans leurs mixes enregistrés.\n\nNote : la cadence se mappe toujours par rapport à la tonalité de résolution. Le mouvement +7 d'energy boost est essentiellement la **relation dominante** (V→I, N+5 → N)."
+youtube         = "https://www.youtube.com/watch?v=alXoELBRPao"
+youtube_caption = "Ben Klock live au Berghain — un arc de 3 heures avec une narration harmonique claire ; analyse les codes Camelot dans Rekordbox."
+
+[[fr.pages]]
+title   = "Crimes harmoniques : Villalobos, Koze, Parrish"
+content = "Les trois praticiens les plus étudiés de la transgression délibérée des règles harmoniques :\n\n**Ricardo Villalobos** — Le layering polyrythmique comme couverture harmonique. Il superpose fréquemment 3-4 morceaux dans des tonalités sans rapport pendant 30 mesures et plus. La stratégie : la complexité polyrythmique (patterns 5-contre-4, phrases polymètriques) absorbe la bande passante analytique de l'oreille. Au moment où le cerveau de l'auditeur parse la structure rythmique, il a arrêté d'analyser la structure harmonique. La dissonance siège en arrière-plan comme 'texture', pas comme 'mauvaise note'. Villalobos chasse aussi les **coutures modales** : des moments dans un morceau où un accord emprunté crée une fenêtre d'ambiguïté de 2-4 mesures. Il pose le prochain morceau incompatible exactement dans cette fenêtre.\n\n**DJ Koze** — Le mismatch délibéré comme effet de production. Koze traite le mismatch de tonalité comme une **couleur** dans le mix, pas comme une erreur. Il va pitcher un loop 2-3 demi-tons hors Camelot pour créer un malaise harmonique, puis le résoudre via un **filter sweep** (high-pass sweep qui enlève les harmoniques basses où le clash est le plus audible) ou un **EQ mid-kill** (vider 500 Hz–2 kHz sur une platine tue le contenu harmonique tout en préservant kick et hi-hat). La résolution libère la tension de la même façon qu'un V-vers-I en musique classique.\n\n**Theo Parrish** — L'arc émotionnel au-dessus de la correction harmonique. Les sets de Parrish couvrent disco, gospel, house Chicago brute, jazz et R&B dans des tonalités qui clashent. Sa technique de pont : tenir un morceau jusqu'à ce qu'un **break percussif** (une mesure sans contenu harmonique soutenu — juste kick et clap) fournisse une 'toile blanche'. Couper le morceau suivant sur le temps 1 de ce break. La mémoire harmonique de l'oreille se réinitialise pendant la mesure atonale. C'est l'équivalent DJ d'un cut de scène au cinéma : l'œil (l'oreille) accepte le nouveau contexte quand la transition est au bon moment."
+
+[[fr.pages]]
+title   = "La boîte à outils du crime harmonique"
+content = "Techniques testées pour franchir les règles Camelot intentionnellement :\n\n**1. Fenêtre de transition courte** — Le JND harmonique de l'oreille se réinitialise environ toutes les 4-8 mesures. Un mismatch allant jusqu'à ~1,5 demi-ton (150 cents) est survivable dans une coupe de 4 mesures. Planifie les transitions incompatibles pour atterrir et sortir en moins de 4 mesures. Ne blende pas 32 mesures sur un clash de 2 demi-tons.\n\n**2. EQ mid-kill** — Avant le clash, coupe les médiums (500 Hz–2 kHz) sur une platine. Les harmoniques des instruments mélodiques vivent dans cette plage ; avec eux supprimés, il ne reste que kick (sub) et hi-hat (présence) — les deux étant largement atonaux. Blende dans cet état mid-tué, puis restaure les médiums une fois que la nouvelle track est établie.\n\n**3. Filter sweep** — Filtre passe-haut la track entrante depuis 2 kHz vers la plage complète sur 8 mesures. Les hautes fréquences d'abord (textures de cymbales, hi-hats) établissent le groove sans contenu harmonique. Le clash harmonique n'arrive qu'à mesure que le filtre s'ouvre à la mesure 6-8, au moment où le public a déjà accepté le nouveau groove.\n\n**4. Atterrissage atonal** — Identifie un break percussif dans le morceau sortant (étiquette-le dans Rekordbox). Coupe le nouveau morceau sur ce break. Pas de contenu harmonique dans le break = pas de clash harmonique à entendre. L'oreille se réancre à la nouvelle tonalité depuis le temps 1 du nouveau morceau.\n\n**5. Fais confiance à l'énergie** — Dans une salle à haute énergie et fort décibels, au-dessus du SPL seuil (110+ dB), le temporary threshold shift et le masking spectral signifient que le public ne peut littéralement pas distinguer les clashes harmoniques aussi bien qu'il le pourrait à 90 dB. Ce n'est pas une excuse pour être négligent — mais ça explique pourquoi un crime harmonique qui serait douloureux dans une pièce silencieuse peut passer inaperçu dans une salle forte."
+
+[[fr.quiz]]
+question = "Pourquoi chaque pas sur la roue Camelot est-il égal à +7 demi-tons (une quinte juste) ?"
+answers  = ["C'est une convention arbitraire choisie par Mark Davis", "Parce que 7 est premier avec 12, donc ajouter 7 modulo 12 génère toutes les 12 tonalités", "Parce que 7 demi-tons est l'intervalle le plus populaire en pop music"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un morceau dorien et un morceau éolien partagent la même case Camelot. Que peut-il se passer ?"
+answers  = ["Rien — même case Camelot signifie toujours parfaitement compatible", "La 6e haussée dorienne peut clasher avec la 6e naturelle éolienne sur les moments harmoniques soutenus", "Les BPM seront différents"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La cadence ii-V-I en Do majeur se mappe à quel chemin Camelot ?"
+answers  = ["8A → 8B → 1B", "6A → 2B → 8B", "7A → 7B → 8B"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Villalobos utilise le layering polyrythmique pour masquer la dissonance harmonique parce que..."
+answers  = ["Le public ne peut pas entendre le pitch du tout en musique polyrythmique", "La complexité rythmique sature la bande passante analytique de l'oreille, repoussant l'analyse harmonique à l'arrière-plan", "Il ne joue que dans une tonalité à la fois"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La technique EQ mid-kill réduit le clash harmonique en..."
+answers  = ["Réduisant le volume des deux platines", "Supprimant 500 Hz–2 kHz, où vivent les harmoniques des instruments mélodiques, ne laissant que kick et hi-hat largement atonaux", "Boostant la basse pour masquer le clash des médiums"]
+correct  = 1
+
+[[fr.sources]]
+label = "Mixed In Key — Roue Camelot"
+url   = "https://mixedinkey.com/camelot-wheel/"
+
+[[fr.sources]]
+label = "Cercle des quintes — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Circle_of_fifths"
+
+[[fr.sources]]
+label = "Resident Advisor — Ricardo Villalobos (sur le layering et le mix harmonique)"
+url   = "https://ra.co/features/1895"
+
+[[fr.sources]]
+label = "Digital DJ Tips — Mix harmonique : casser les règles"
+url   = "https://www.digitaldjtips.com/harmonic-mixing-breaking-rules/"
+
+[[fr.sources]]
+label = "Adam Neely — Échange modal (YouTube)"
+url   = "https://www.youtube.com/watch?v=1dRA28cdt5c"

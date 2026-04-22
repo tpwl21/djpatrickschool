@@ -1,0 +1,334 @@
+id = "LESSON_EQ_1_EASY"
+order = 1
+
+[en]
+title       = "What is EQ? Ears First"
+short_desc  = "Turn the knobs, listen to what changes. No Hz, no theory — just your ears."
+description = "Three knobs on the mixer change the bass, the middle, and the treble of a track. You already know what they do with your ears. This lesson puts names to what you already hear."
+recap = [
+  "Low = kick drum and bass. Mid = voices and instruments. High = hi-hats and cymbals.",
+  "The bass swap: kill the bass of the incoming track, wait for the right moment, then swap.",
+  "Full kill (knob all the way left) = the band disappears completely. Quick and clean.",
+  "Cutting the mids of a track creates space for the voice of the other track.",
+  "The CUE button lets you listen in your headphones without the crowd hearing."
+]
+
+[[en.pages]]
+title   = "The three knobs: what you already know"
+content = """
+## You already hear EQ every day
+
+When you turn the **bass** up on your phone speaker, you feel the music more in your chest.
+When you turn the **treble** down, the hi-hats get quieter and the sound gets warmer.
+When you turn the **mids** down, voices seem to step back.
+
+A DJ mixer just has these three, stacked on each channel:
+
+- **LOW** — the kick drum, the bass, everything that makes the floor shake
+- **MID** — instruments, voices, synth leads
+- **HIGH** — hi-hats, cymbals, the bright "air" above the music
+
+## Exercise: turn and listen
+
+Play any track. Turn the LOW knob all the way left — the kick disappears.
+Bring it back. Now turn MID all the way left — the voice or lead synth drops out.
+Bring it back. Turn HIGH left — hi-hats and brightness fade.
+
+That's EQ. You now know what each knob does.
+"""
+youtube = "3hnGMNMoYkU"
+youtube_start = 0
+youtube_caption = "The three EQ bands in action — a visual walkthrough."
+
+[[en.pages]]
+title   = "The bass swap: one kick at a time"
+content = """
+## Why you need this
+
+When two tracks play at the same time, you get **two kick drums at once**. The result is muddy, heavy, and messy. The floor sounds confused.
+
+The fix is simple: **only one bass at a time**.
+
+## How to do it
+
+1. Load Track B in your headphones (CUE on). Check the mix is ready.
+2. **Turn Track B's LOW all the way left** — kill the bass. Now B has no kick.
+3. Start the blend: bring Track B's volume up.
+4. Wait for a musical moment — usually the start of a phrase (every 8 or 16 bars).
+5. **Swap**: turn A's LOW left, and B's LOW back to noon. In one move.
+
+Two kicks before the swap? None. One kick after the swap? One. Clean.
+
+## What "noon" means
+
+The knob at the 12 o'clock position = no change. That's your default. Left = cut. Right = boost.
+"""
+
+[[en.pages]]
+title   = "Full kill vs slow fade: which sounds better?"
+content = """
+## Two ways to remove a frequency
+
+**Slow fade**: you gradually turn the LOW down over 2–4 bars.
+
+**Full kill**: you snap it all the way left in one quick move, right on the beat.
+
+## In practice
+
+Most DJs prefer the **quick kill** on the beat.
+Why? Because it lands on a musical boundary. The ear barely notices it.
+
+A slow fade often sounds like "something is wrong" — the music seems to be fading out accidentally.
+
+## Try it yourself
+
+Pick a transition. Try it slow, then try it quick on the beat drop.
+Most people hear that the quick kill sounds cleaner, even if it feels more "aggressive" to do.
+"""
+
+[[en.pages]]
+title   = "Cut the mids: making space for a voice"
+content = """
+## When two voices talk at the same time
+
+Voices sit in the **MID** range. When two tracks both have singing or rapping, they get in each other's way.
+
+## The trick
+
+While Track B's vocal is coming in, **turn Track A's MID down a little** — maybe halfway.
+You're not killing the track. You're just stepping back to let B's voice come forward.
+
+Once Track A is done, bring its mids back or fade it out.
+
+## What it sounds like
+
+Before: two voices competing, muddy, hard to understand either one.
+After: B's voice is clear, A is still present but in the background.
+
+This is the most musical EQ move you can make during a mix.
+"""
+
+[[en.pages]]
+title   = "The CUE button: your private headphone mix"
+content = """
+## What is CUE?
+
+Every channel on a DJ mixer has a **CUE button** (sometimes labeled PFL).
+When you press it, that track goes into **your headphones only**.
+The crowd hears nothing from it yet.
+
+## Why this matters
+
+You use CUE to:
+- Listen to Track B **before** bringing it in
+- Check your EQ moves before committing them to the main sound
+- Beatmatch — hear both tracks in your headphones at once
+
+## The split-cue trick
+
+Some mixers have a **split-cue mode**: Track A in your left ear, Track B in your right ear, at the same time.
+If the beats line up, they hit both ears together. If they drift, you hear them bounce left-right.
+Once you try it, you never go back.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What does the LOW knob control on a DJ mixer?"
+answers  = ["The kick drum and bass", "The hi-hats and cymbals", "The reverb level"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In a bass swap, what do you do to Track B's LOW before mixing it in?"
+answers  = ["Boost it to the max", "Leave it at noon", "Kill it — turn it all the way left"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Why does a quick kill on the beat usually sound cleaner than a slow fade?"
+answers  = ["Because it removes more bass", "Because it lands on a musical boundary and the ear barely notices", "Because it's louder"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What does the CUE button do?"
+answers  = ["It adds reverb to the track", "It mutes the track from the mixer", "It routes the track to your headphones only, before the main output"]
+
+[[sources]]
+label = "DJ Mixing 101: EQ Techniques — DJ TechTools"
+url   = "https://djtechtools.com/2014/02/19/dj-eq-techniques-that-sound-good/"
+
+[[sources]]
+label = "The Bass Swap Explained — Crossfader"
+url   = "https://www.crossfader.com.au/blog/the-bass-swap/"
+
+[[sources]]
+label = "Pre-Fader Listening — Sound On Sound"
+url   = "https://www.soundonsound.com/sound-advice/q-what-do-solo-pfl-and-afl-do"
+
+[fr]
+title       = "C'est quoi l'EQ ? Les oreilles d'abord"
+short_desc  = "Tourne les boutons, écoute ce qui change. Pas de Hz, pas de théorie — juste tes oreilles."
+description = "Trois boutons sur la table changent les graves, le milieu et les aigus d'un morceau. Tu sais déjà ce qu'ils font avec tes oreilles. Cette leçon met des noms sur ce que tu entends déjà."
+recap = [
+  "Low = grosse caisse et basse. Mid = voix et instruments. High = hi-hats et cymbales.",
+  "Le bass swap : coupe les basses du morceau entrant, attends le bon moment, puis swap.",
+  "Full kill (bouton complètement à gauche) = la bande disparaît complètement. Rapide et propre.",
+  "Couper les mids d'un morceau crée de la place pour la voix de l'autre morceau.",
+  "Le bouton CUE permet d'écouter dans le casque sans que le public n'entende."
+]
+
+[[fr.pages]]
+title   = "Les trois boutons : ce que tu sais déjà"
+content = """
+## Tu entends de l'EQ tous les jours
+
+Quand tu montes les **basses** sur l'enceinte de ton téléphone, tu sens la musique dans la poitrine.
+Quand tu baisses les **aigus**, les hi-hats s'effacent et le son devient plus chaud.
+Quand tu baisses les **médiums**, les voix semblent reculer.
+
+Une table DJ a exactement ces trois réglages, empilés sur chaque canal :
+
+- **LOW** — la grosse caisse, la basse, tout ce qui fait vibrer le sol
+- **MID** — les instruments, les voix, les leads de synthés
+- **HIGH** — les hi-hats, les cymbales, l'air brillant au-dessus de la musique
+
+## Exercice : tourne et écoute
+
+Lance un morceau. Tourne le LOW complètement à gauche — la grosse caisse disparaît.
+Remets-le. Maintenant tourne le MID complètement à gauche — la voix ou le lead synth s'efface.
+Remets-le. Tourne le HIGH à gauche — les hi-hats et la brillance s'éteignent.
+
+Voilà l'EQ. Tu sais maintenant ce que fait chaque bouton.
+"""
+youtube = "3hnGMNMoYkU"
+youtube_start = 0
+youtube_caption = "Les trois bandes EQ en action — une démonstration visuelle."
+
+[[fr.pages]]
+title   = "Le bass swap : une grosse caisse à la fois"
+content = """
+## Pourquoi tu en as besoin
+
+Quand deux morceaux jouent en même temps, tu as **deux grosses caisses en même temps**. Le résultat est boueux, lourd et confus. Le sol sonne brouillon.
+
+La solution est simple : **une seule basse à la fois**.
+
+## Comment faire
+
+1. Charge Track B dans ton casque (bouton CUE allumé). Vérifie que le mix est prêt.
+2. **Tourne le LOW de Track B complètement à gauche** — tue les basses. B n'a plus de grosse caisse.
+3. Commence le blend : monte le volume de Track B.
+4. Attends un moment musical — généralement le départ d'une phrase (toutes les 8 ou 16 mesures).
+5. **Swap** : tourne le LOW de A à gauche, et le LOW de B revient à midi. En un seul geste.
+
+Deux grosses caisses avant le swap ? Aucune. Une grosse caisse après le swap ? Une. Propre.
+
+## Ce que "midi" signifie
+
+Le bouton à la position 12h = pas de changement. C'est ton point de départ. Gauche = coupe. Droite = boost.
+"""
+
+[[fr.pages]]
+title   = "Full kill vs fondu lent : lequel sonne mieux ?"
+content = """
+## Deux façons de retirer une fréquence
+
+**Fondu lent** : tu baisses progressivement le LOW sur 2 à 4 mesures.
+
+**Full kill** : tu le claques complètement à gauche en un geste rapide, pile sur le temps.
+
+## En pratique
+
+La plupart des DJs préfèrent le **kill rapide sur le temps**.
+Pourquoi ? Parce que ça tombe sur une frontière musicale. L'oreille ne le remarque presque pas.
+
+Un fondu lent donne souvent l'impression que "quelque chose ne va pas" — la musique semble s'éteindre par accident.
+
+## Essaie toi-même
+
+Prends une transition. Essaie-la lentement, puis essaie-la avec un kill rapide sur le drop.
+La plupart des gens entendent que le kill rapide est plus propre, même si ça paraît plus "agressif" à faire.
+"""
+
+[[fr.pages]]
+title   = "Couper les mids : faire de la place pour une voix"
+content = """
+## Quand deux voix parlent en même temps
+
+Les voix se trouvent dans la plage **MID**. Quand deux morceaux ont tous les deux du chant ou du rap, ils se gênent mutuellement.
+
+## L'astuce
+
+Pendant que la voix de Track B entre, **baisse un peu le MID de Track A** — peut-être jusqu'à mi-chemin.
+Tu ne coupes pas le morceau. Tu lui demandes juste de reculer pour laisser la voix de B avancer.
+
+Une fois que Track A est terminée, remets ses mids ou fais-la sortir.
+
+## Ce que ça donne à l'oreille
+
+Avant : deux voix qui se battent, brouillon, difficile de comprendre l'une ou l'autre.
+Après : la voix de B est claire, A est toujours présente mais en fond.
+
+C'est le geste EQ le plus musical que tu puisses faire pendant un mix.
+"""
+
+[[fr.pages]]
+title   = "Le bouton CUE : ton mix casque privé"
+content = """
+## C'est quoi le CUE ?
+
+Chaque canal d'une table DJ a un **bouton CUE** (parfois écrit PFL).
+Quand tu l'appuies, ce morceau arrive **dans ton casque uniquement**.
+Le public n'entend rien de lui pour l'instant.
+
+## Pourquoi c'est important
+
+Tu utilises le CUE pour :
+- Écouter Track B **avant** de la faire rentrer
+- Vérifier tes gestes EQ avant de les envoyer sur le son principal
+- Beatmatcher — entendre les deux morceaux dans le casque en même temps
+
+## L'astuce du split-cue
+
+Certaines tables ont un mode **split-cue** : Track A dans ton oreille gauche, Track B dans ta droite, en même temps.
+Si les beats sont alignés, ils arrivent ensemble dans les deux oreilles. S'ils dérivent, tu les entends rebondir gauche-droite.
+Une fois que tu l'as essayé, tu ne reviens pas en arrière.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Que contrôle le bouton LOW sur une table DJ ?"
+answers  = ["La grosse caisse et la basse", "Les hi-hats et cymbales", "Le niveau de réverbe"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Dans un bass swap, que fais-tu au LOW de Track B avant de la mixer ?"
+answers  = ["Tu le montes au maximum", "Tu le laisses à midi", "Tu le tues — tu le tournes complètement à gauche"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Pourquoi un kill rapide sur le temps sonne-t-il généralement plus propre qu'un fondu lent ?"
+answers  = ["Parce qu'il enlève plus de basses", "Parce qu'il tombe sur une frontière musicale et l'oreille ne le remarque presque pas", "Parce qu'il est plus fort"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Que fait le bouton CUE ?"
+answers  = ["Il ajoute de la réverbe au morceau", "Il coupe le morceau de la table", "Il envoie le morceau dans le casque uniquement, avant la sortie principale"]
+
+[[sources]]
+label = "DJ Mixing 101: EQ Techniques — DJ TechTools"
+url   = "https://djtechtools.com/2014/02/19/dj-eq-techniques-that-sound-good/"
+
+[[sources]]
+label = "Le Bass Swap expliqué — Crossfader"
+url   = "https://www.crossfader.com.au/blog/the-bass-swap/"
+
+[[sources]]
+label = "Pre-Fader Listening — Sound On Sound"
+url   = "https://www.soundonsound.com/sound-advice/q-what-do-solo-pfl-and-afl-do"

@@ -1,0 +1,120 @@
+id = "EFFETS_LEVEL_1"
+order = 1
+
+[en]
+title       = "Filter Out / Filter In"
+short_desc  = "The filter transition. Close A, bring in B, open A, let go."
+description = "The most-used FX transition in the world. Learn the lowpass + bring-in + return."
+details     = "Focus: smooth filter sweeps, no jumps."
+success     = "Clean filter sweep! You just did what 95% of club DJs do every transition."
+coach_tips  = [
+  "Phrase 3: slowly turn Deck A's FILTER knob to the LEFT (lowpass). Lose the highs.",
+  "Phrase 4: B drops in. Bring up B's volume. Keep A filtered.",
+  "Phrase 5: open A's filter back to center. Both tracks breathe.",
+  "Phrase 6: fade A out."
+]
+recap = [
+  "The lowpass filter sweep is the most common FX move in club DJing.",
+  "Four-step dance: close A's filter → bring in B → reopen A → fade A out.",
+  "Filter movement creates tension and release without touching the EQ.",
+  "Smooth knob turns only — any sudden jump breaks the illusion."
+]
+
+[fr]
+title       = "Filter Out / Filter In"
+short_desc  = "La transition au filtre. On ferme A, on rentre B, on réouvre A, on lâche."
+description = "La transition FX la plus utilisée au monde. Apprends le passe-bas + intro B + retour."
+details     = "Focus : des sweeps propres, pas de saut."
+success     = "Filtre propre ! Tu viens de faire ce que 95% des DJs de club font à chaque transition."
+coach_tips  = [
+  "Phrase 3 : tourne doucement le FILTER du Deck A vers la GAUCHE (passe-bas). Les aigus disparaissent.",
+  "Phrase 4 : B arrive. Monte le volume de B. Garde A filtrée.",
+  "Phrase 5 : ouvre le filtre de A au centre. Les deux tracks respirent.",
+  "Phrase 6 : fade A."
+]
+recap = [
+  "Le sweep au filtre passe-bas est le move FX le plus utilisé en club.",
+  "Chorégraphie en 4 temps : fermer le filtre A → faire entrer B → rouvrir A → fade A.",
+  "Le mouvement du filtre crée tension et relâche sans toucher l'EQ.",
+  "Mouvements doux uniquement — le moindre saut casse l'illusion."
+]
+
+[track.A]
+url = "AUDIO/Trip.mp3"
+bpm = 122
+title = "Base"
+key = "4A"
+complexity = 3
+
+[track.B]
+url = "AUDIO/Tech.mp3"
+bpm = 127
+title = "Entrée"
+key = "8A"
+complexity = 3
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[[checks]]
+phrase = 0
+control = "filterA"
+value = 0
+tolerance = 0.15
+
+[[checks]]
+phrase = 0
+control = "volB_eff"
+value = 0
+tolerance = 0.15
+
+[[checks]]
+phrase = 3
+control = "filterA"
+value = -0.7
+tolerance = 0.25
+
+[[checks]]
+phrase = 4
+control = "filterA"
+value = -0.7
+tolerance = 0.3
+
+[[checks]]
+phrase = 4
+control = "volB_eff"
+value = 0.8
+tolerance = 0.2
+
+[[checks]]
+phrase = 5
+control = "filterA"
+value = 0
+tolerance = 0.2
+
+[[checks]]
+phrase = 6
+control = "volA_eff"
+value = 0
+tolerance = 0.2
+
+[[markers.A]]
+beat = 97
+label = "FILTER A ←"
+color = "#27AE60"
+
+[[markers.A]]
+beat = 129
+label = "B IN / A FILTER HOLD"
+color = "#e67e22"
+
+[[markers.A]]
+beat = 161
+label = "A FILTER RESET"
+color = "#27AE60"

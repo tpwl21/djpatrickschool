@@ -1,0 +1,78 @@
+id = "DIGGING_LEVEL_3"
+order = 3
+
+[en]
+title       = "Blind Ear"
+short_desc  = "No fiches. Just 4 previews. Pick with your ears."
+description = "All the technical info is hidden. You hear 8 seconds of each candidate, then choose. Reveals come AFTER the pick, as a debrief."
+details     = "This is how 90% of professional DJ digging actually works: listen, feel, decide. The numbers come after."
+coach_tips  = [
+  "Play each preview twice if you want. Listen for groove cousinage.",
+  "A match you 'feel' before you can explain is usually right.",
+  "If two candidates feel right, pick the one that carries you forward in energy."
+]
+recap = [
+  "Real digging is done by ear — the numbers only confirm the decision.",
+  "Groove cousinage is felt before it's explained.",
+  "A wrong pick shows up in the first 2 seconds of the preview if you listen honestly.",
+  "Between two 'right' options, pick the one that pushes energy forward."
+]
+
+[track.A]
+url = "AUDIO/SuperMarket.mp3"
+bpm = 130
+title = "Track A"
+key = "11A"
+complexity = 4
+
+[context]
+reveal_phrase = 2
+description_en = "You don't know exactly what A is. You hear it, you feel it. Now find the next one by ear."
+description_fr = "Tu ne sais pas exactement ce qu'est A. Tu l'entends, tu le sens. Maintenant, trouve la suivante à l'oreille."
+
+[ui]
+show_fiches = false
+
+[[candidates]]
+url = "AUDIO/Ensaios.mp3"
+title = "Ensaios"
+bpm = 130
+key = "1A"
+genre = "techno"
+energy = 5
+correct = true
+reason_en = "130 BPM lock. Camelot 1A is 2 steps from 11A (the most forgiving distance on the wheel's ring). Energy holds at 5. The texture feels like the same room."
+reason_fr = "130 BPM parfait. Camelot 1A est à 2 cases de 11A (la distance la plus indulgente du cercle). Énergie tenue à 5. Même salle, même texture."
+
+[[candidates]]
+url = "AUDIO/JazzMan_Doucheur.mp3"
+title = "JazzMan"
+bpm = 95
+key = "5B"
+genre = "nu-jazz"
+energy = 2
+correct = false
+reason_en = "BPM -27%, major key instead of minor, energy collapse. Even with the preview alone you should feel the difference in 2 seconds — the groove sits back instead of pushing forward."
+reason_fr = "BPM -27%, clé majeure au lieu de mineure, énergie qui s'écroule. Même en preview tu dois sentir la différence en 2 secondes — le groove recule au lieu de pousser."
+
+[[candidates]]
+url = "AUDIO/Electro_Static.mp3"
+title = "Electro Static"
+bpm = 128
+key = "3A"
+genre = "electro"
+energy = 4
+correct = false
+reason_en = "BPM close, energy OK, but the genre switch (peak-techno → electro) is a jarring texture change. On the dancefloor the bass pattern shift alone loses people."
+reason_fr = "BPM proche, énergie OK, mais le switch de genre (peak-techno → electro) est un changement de texture brutal. Juste la bascule du pattern de basse fait décrocher le public."
+
+[[candidates]]
+url = "AUDIO/Wake.mp3"
+title = "Wake"
+bpm = 120
+key = "9B"
+genre = "deep house"
+energy = 3
+correct = false
+reason_en = "BPM -8% and a genre drop from techno peak to deep house. Works as a closer, not as a peak-sustainer."
+reason_fr = "BPM -8% et genre qui tombe du peak techno vers la deep house. Ça marche en closing, pas en sustain de peak."

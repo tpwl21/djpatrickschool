@@ -1,0 +1,262 @@
+id = "LESSON_HARMONIES_2_MEDIUM"
+order = 2
+
+[en]
+title      = "Pitch shift, key drift & Master Tempo — the numbers that matter"
+short_desc = "The formula, the JND thresholds in practice, and the workflow decision: Key Lock on or off?"
+description = "EASY explained the tape-recorder effect by feel. Here we add the numbers: the semitone formula, the perception thresholds that determine when drift becomes a problem, and a clear decision framework for Master Tempo. No deep algorithm theory — that's PRO — but enough math to make informed choices mid-set."
+recap = [
+  "Pitch and tempo are coupled on vinyl: +6% BPM ≈ +1 semitone up. The formula: semitones = 12 × log₂(rate), where rate = new_BPM / native_BPM.",
+  "JND (just-noticeable difference): ~5-6 cents isolated, ~15-25 cents in a dense mix. Keys start clashing audibly around 50 cents (½ semitone).",
+  "Master Tempo (Key Lock) breaks the coupling via time-stretching. Clean within ±6-8%. Beyond that, metallic artifacts appear.",
+  "Rule: Master Tempo ON for blends over 30 seconds or with vocal tracks. OFF for tight transitions under 16 bars or deliberate peak-time pitch lifts.",
+  "Practical shortcut: +6% pitch ≈ 1 semitone = one step on a chromatic scale. +12% ≈ 2 semitones. Know your fader range."
+]
+
+[[en.pages]]
+title   = "The formula: semitones from pitch percentage"
+content = """
+When you drag the pitch fader, you're changing the **playback rate** — and that shifts the key. The relationship is logarithmic (base 2), because pitch perception is logarithmic:
+
+**semitones = 12 × log₂(rate)**
+**rate = 2^(semitones / 12)**
+
+Where `rate = new_BPM / native_BPM`.
+
+| Pitch fader | Approximate semitone shift | Key example (starting in Am) |
+|-------------|---------------------------|------------------------------|
+| +1% | +0.17 semitones | Still Am (barely) |
+| +3% | +0.51 semitones | ~Am (borderline) |
+| **+6%** | **+1.01 semitones** | **A♯m / B♭m** |
+| +8% | +1.38 semitones | Between A♯m and Bm |
+| +12% | +2.0 semitones | Bm |
+| +50% | +7.02 semitones | Em (a perfect fifth up) |
+
+**Takeaway**: a typical pitch fader range of ±8% means you can drift nearly **1.5 semitones** off your native key. That's well above the listening threshold in a long blend.
+"""
+
+[[en.pages]]
+title   = "JND: when does the audience notice?"
+content = """
+The **just-noticeable difference (JND)** for pitch tells you how much drift is "safe":
+
+| Context | JND | What it means for DJs |
+|---------|-----|----------------------|
+| Isolated pure tone | ~5-6 cents | Academic benchmark — not your real scenario |
+| Complex instrument/voice | ~8-10 cents | Solo instrument in a quiet room |
+| Dense mix (beat + bass + 2 tracks) | **15-25 cents** | Your real scenario — spectral masking helps |
+| Short transition (≤ 8 bars) | **~50 cents survivable** | The ear hasn't locked to a tonal center yet |
+| Long blend (2+ minutes) | **25-30 cents audible** | The ear calibrates over time and catches drift |
+
+**The 50-cent rule**: a half-semitone drift (50 cents) is survivable in a 4-8 bar cut. Stretched to 2 minutes, it becomes painful — the ear's temporal integration exposes what it initially tolerated.
+
+**Vocal tracks**: the human voice is the most pitch-sensitive sound the ear tracks. A 3-5% pitch drift on a recognizable vocal is immediately obvious — even at 3 cents on a clear voice. If your blend has vocals, treat the threshold as 2-3× stricter.
+"""
+youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
+youtube_caption = "Classic vinyl set — listen for how the crowd reacts when BPM jumps cause audible pitch drift on vocals."
+
+[[en.pages]]
+title   = "Master Tempo: the decision tree"
+content = """
+**Master Tempo (Key Lock)** digitally stretches or compresses the audio so tempo changes but pitch stays fixed. It works cleanly within ±6-8% — beyond that, artifacts appear (metallic quality, smeared transients).
+
+**Turn it ON when:**
+- Blend will last more than 30 seconds (long enough for the ear to catch drift)
+- Track has recognizable vocals or a well-known melodic hook
+- You've key-matched two tracks and a +5%+ pitch correction would break the Camelot match
+- Dropping an acapella over an instrumental at a different BPM
+
+**Leave it OFF when:**
+- Short, tight transition under 16 bars — the drift is below the JND for that duration
+- You *want* the natural energy lift: pitching a track up 1-2% at peak time creates a subtle excitement; Key Lock kills that
+- Vinyl-purist aesthetic — the pitch drift is part of the sound
+
+**Workflow habit**: most pros leave Master Tempo ON by default and switch it OFF only for specific moves. Audit your setup: do you know what state your Key Lock is in right now?
+"""
+image         = "lesson-images/pioneer-key-lock.png"
+image_caption = "Master Tempo button on a CDJ-2000NXS2. Usually labeled 'Key' or 'Master Tempo'."
+
+[[en.pages]]
+title   = "Practical test: hear the numbers"
+content = """
+Do this in any DJ software (Rekordbox, Serato, Traktor, VirtualDJ):
+
+1. Load the same track on both decks — identical file, identical key.
+2. Set deck B pitch to **+6%**. Play both simultaneously.
+3. You're hearing a ~1 semitone interval — the 'beating' or tension between the two decks.
+4. Now flip **Key Lock** on deck B. The keys snap back together, only BPMs differ.
+5. Try +3% (half a semitone). Then +12% (2 semitones). Hear the steps.
+
+**Advanced**: load two tracks from the same Camelot slot (e.g., both 8A). Pitch one by +7% — you've just drifted it to roughly A♯m. Play the blend. Does it still sound okay, or is there clash? That's your ear calibrating the 50-cent threshold in real time.
+"""
+
+[[en.quiz]]
+question = "A track is at 120 BPM natively. You pitch it to 127.2 BPM (+6%). Approximately how many semitones has its key shifted?"
+answers  = ["0.17 semitones (barely noticeable)", "1 semitone (one half-step)", "6 semitones (a tritone)"]
+correct  = 1
+
+[[en.quiz]]
+question = "In a dense mix, spectral masking raises the JND for pitch drift to approximately..."
+answers  = ["5-6 cents (same as an isolated tone)", "15-25 cents", "100 cents (1 full semitone)"]
+correct  = 1
+
+[[en.quiz]]
+question = "A 50-cent pitch drift is survivable in a 4-bar cut but painful after 2 minutes. Why?"
+answers  = ["Spectral masking increases over time", "The ear's temporal integration calibrates to the dominant pitch — what was hidden at bar 1 is exposed at bar 64", "The room acoustics change as the set progresses"]
+correct  = 1
+
+[[en.quiz]]
+question = "You're blending a 7-minute progressive house track with vocals into a new track at +5% pitch. Master Tempo should be..."
+answers  = ["OFF — the blend is in a club, nobody will notice", "ON — long blend with vocals exceeds both the time and vocal thresholds", "ON only if the tracks are in the same Camelot slot"]
+correct  = 1
+
+[[en.quiz]]
+question = "Master Tempo starts producing audible artifacts beyond approximately..."
+answers  = ["±2-3% pitch correction", "±6-8% pitch correction", "±20% pitch correction"]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — Master Tempo explained"
+url   = "https://support.pioneerdj.com/hc/en-us/articles/360008783711"
+
+[[en.sources]]
+label = "DJ TechTools — Key Lock: When to use it"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
+
+[[en.sources]]
+label = "Cent (music) — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Cent_(music)"
+
+[[en.sources]]
+label = "Equal temperament — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Equal_temperament"
+
+[fr]
+title      = "Pitch shift, dérive de clé & Master Tempo — les chiffres qui comptent"
+short_desc = "La formule, les seuils JND en pratique, et le choix workflow : Key Lock on ou off ?"
+description = "EASY a expliqué l'effet magnétophone par le ressenti. Ici on ajoute les chiffres : la formule en demi-tons, les seuils de perception qui déterminent quand la dérive devient un problème, et un cadre de décision clair pour Master Tempo. Pas de théorie d'algorithmes en profondeur — c'est pour le PRO — mais assez de maths pour faire des choix éclairés en plein set."
+recap = [
+  "Pitch et tempo sont couplés sur vinyle : +6% BPM ≈ +1 demi-ton vers le haut. La formule : demi-tons = 12 × log₂(taux), où taux = BPM_nouveau / BPM_natif.",
+  "JND (seuil perceptible) : ~5-6 cents isolé, ~15-25 cents en mix dense. Les clés commencent à clasher audiblement autour de 50 cents (½ demi-ton).",
+  "Master Tempo (Key Lock) casse le couplage par time-stretching. Propre dans ±6-8%. Au-delà, des artefacts métalliques apparaissent.",
+  "Règle : Master Tempo ON pour les blends de plus de 30 secondes ou avec des tracks vocales. OFF pour les transitions serrées sous 16 mesures ou les lifts de pitch en peak-time.",
+  "Raccourci pratique : +6% de pitch ≈ 1 demi-ton = un pas sur la gamme chromatique. +12% ≈ 2 demi-tons. Connais ta plage de fader."
+]
+
+[[fr.pages]]
+title   = "La formule : demi-tons depuis le pourcentage de pitch"
+content = """
+Quand tu déplaces le fader de pitch, tu changes le **taux de lecture** — et ça décale la clé. La relation est logarithmique (base 2), parce que la perception du pitch est logarithmique :
+
+**demi-tons = 12 × log₂(taux)**
+**taux = 2^(demi-tons / 12)**
+
+Où `taux = BPM_nouveau / BPM_natif`.
+
+| Fader de pitch | Décalage en demi-tons | Exemple de clé (départ en Am) |
+|----------------|----------------------|-------------------------------|
+| +1% | +0,17 demi-ton | Encore Am (à peine) |
+| +3% | +0,51 demi-ton | ~Am (limite) |
+| **+6%** | **+1,01 demi-ton** | **A♯m / Si♭m** |
+| +8% | +1,38 demi-ton | Entre A♯m et Bm |
+| +12% | +2,0 demi-tons | Bm |
+| +50% | +7,02 demi-tons | Em (une quinte juste plus haut) |
+
+**À retenir** : une plage de fader typique de ±8% signifie que tu peux dériver de presque **1,5 demi-ton** depuis ta clé native. C'est bien au-dessus du seuil d'écoute sur un blend long.
+"""
+
+[[fr.pages]]
+title   = "JND : quand le public le remarque-t-il ?"
+content = """
+Le **JND (just-noticeable difference)** en pitch te dit quelle dérive est "safe" :
+
+| Contexte | JND | Ce que ça signifie pour le DJ |
+|---------|-----|-------------------------------|
+| Ton pur isolé | ~5-6 cents | Référence académique — pas ton vrai scénario |
+| Instrument / voix complexe | ~8-10 cents | Instrument solo dans une salle calme |
+| Mix dense (beat + basse + 2 tracks) | **15-25 cents** | Ton vrai scénario — le masking spectral aide |
+| Transition courte (≤ 8 mesures) | **~50 cents survivable** | L'oreille n'a pas encore calé son centre tonal |
+| Blend long (2+ minutes) | **25-30 cents audible** | L'oreille calibre dans le temps et attrape la dérive |
+
+**La règle des 50 cents** : une dérive d'un demi-demi-ton (50 cents) est survivable dans une coupe de 4-8 mesures. Étirée à 2 minutes, elle devient douloureuse — l'intégration temporelle de l'oreille expose ce qu'elle avait d'abord toléré.
+
+**Tracks vocales** : la voix humaine est le son que l'oreille suit avec le plus de précision. Une dérive de 3-5% sur une voix reconnaissable est immédiatement évidente — même à 3 cents sur une voix claire. Si ton blend a des voix, traite le seuil comme 2-3× plus strict.
+"""
+youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
+youtube_caption = "Set vinyle classique — écoute comment la foule réagit quand des sauts de BPM causent une dérive de pitch audible sur les voix."
+
+[[fr.pages]]
+title   = "Master Tempo : l'arbre de décision"
+content = """
+**Master Tempo (Key Lock)** étire ou compresse numériquement l'audio pour que le tempo change mais le pitch reste fixe. Ça fonctionne proprement dans ±6-8% — au-delà, des artefacts apparaissent (qualité métallique, transitoires floues).
+
+**Active-le quand :**
+- Le blend durera plus de 30 secondes (assez longtemps pour que l'oreille capte la dérive)
+- Le morceau a des voix reconnaissables ou un hook mélodique connu
+- Tu as calé deux tracks en key-match et une correction de +5%+ casserait le match Camelot
+- Tu droppes un acapella sur un instrumental à un BPM différent
+
+**Laisse-le off quand :**
+- Transition courte et serrée sous 16 mesures — la dérive est sous le JND pour cette durée
+- Tu *veux* le lift d'énergie naturel : pitcher une track de 1-2% en peak time crée une excitation subtile ; Key Lock tue ça
+- Esthétique vinyl-puriste — la dérive de pitch fait partie du son
+
+**Habitude de workflow** : la plupart des pros laissent Master Tempo ON par défaut et le coupent uniquement pour des mouvements précis. Fais le point : tu sais dans quel état est ton Key Lock maintenant ?
+"""
+image         = "lesson-images/pioneer-key-lock.png"
+image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Key' ou 'Master Tempo'."
+
+[[fr.pages]]
+title   = "Test pratique : entends les chiffres"
+content = """
+Fais ça dans n'importe quel logiciel DJ (Rekordbox, Serato, Traktor, VirtualDJ) :
+
+1. Charge le même morceau sur les deux platines — fichier identique, clé identique.
+2. Met le pitch de la platine B à **+6%**. Joue les deux simultanément.
+3. Tu entends un intervalle d'environ 1 demi-ton — le 'battement' ou la tension entre les deux platines.
+4. Maintenant active **Key Lock** sur la platine B. Les clés se recalent, seuls les BPM diffèrent.
+5. Essaie +3% (un demi demi-ton). Puis +12% (2 demi-tons). Entends les étapes.
+
+**Avancé** : charge deux tracks de la même case Camelot (ex : toutes les deux en 8A). Pitche l'une de +7% — tu viens de la dériver vers environ A♯m. Joue le blend. Ça sonne encore bien, ou y a-t-il un clash ? Ton oreille calibre le seuil de 50 cents en temps réel.
+"""
+
+[[fr.quiz]]
+question = "Un morceau est à 120 BPM nativement. Tu le pitches à 127,2 BPM (+6%). Sa clé a décalé d'environ combien de demi-tons ?"
+answers  = ["0,17 demi-ton (à peine perceptible)", "1 demi-ton (un demi-ton chromatique)", "6 demi-tons (un triton)"]
+correct  = 1
+
+[[fr.quiz]]
+question = "En mix dense, le masking spectral monte le JND de dérive de pitch à environ..."
+answers  = ["5-6 cents (comme un ton isolé)", "15-25 cents", "100 cents (1 demi-ton complet)"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Une dérive de 50 cents est survivable dans une coupe de 4 mesures mais douloureuse après 2 minutes. Pourquoi ?"
+answers  = ["Le masking spectral augmente avec le temps", "L'intégration temporelle de l'oreille calibre vers le pitch dominant — ce qui était caché à la mesure 1 est exposé à la mesure 64", "L'acoustique de la salle change au fil du set"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu blends un morceau de progressive house de 7 minutes avec des voix dans une nouvelle track à +5% de pitch. Master Tempo devrait être..."
+answers  = ["OFF — le blend est en club, personne ne remarquera", "ON — blend long avec voix dépasse à la fois le seuil temporel et vocal", "ON uniquement si les tracks sont dans la même case Camelot"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Master Tempo commence à produire des artefacts audibles au-delà d'environ..."
+answers  = ["±2-3% de correction de pitch", "±6-8% de correction de pitch", "±20% de correction de pitch"]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — Master Tempo expliqué"
+url   = "https://support.pioneerdj.com/hc/en-us/articles/360008783711"
+
+[[fr.sources]]
+label = "DJ TechTools — Key Lock : quand l'utiliser"
+url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
+
+[[fr.sources]]
+label = "Cent (musique) — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Cent_(music)"
+
+[[fr.sources]]
+label = "Tempérament égal — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Equal_temperament"

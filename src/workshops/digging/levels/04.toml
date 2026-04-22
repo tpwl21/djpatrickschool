@@ -1,0 +1,107 @@
+id = "DIGGING_LEVEL_4"
+order = 4
+
+[en]
+title       = "Find It on Discogs"
+short_desc  = "Clues only. Four release cards. One matches the description — and reveals its Discogs link."
+description = "Patrick heard a track in a set. He remembers the year, the label, the country, the format. Four release candidates match some of the clues. Only one matches ALL of them. Pick it and Patrick hands you the Discogs link."
+details     = "This is what real digging looks like: you hear a clip, you reverse-engineer the release via partial clues."
+coach_tips  = [
+  "Read every field on every card. The trap cards match 3 clues out of 4.",
+  "A year range of one year off is fine in real life — in this exercise, assume the clue is exact.",
+  "When you pick right, open the Discogs link. That's your reward — the actual release on the real site."
+]
+recap = [
+  "Real digging = reverse-engineering a release from partial clues.",
+  "Read EVERY field — trap cards match 3 clues out of 4.",
+  "Year mismatch alone sends you to a completely different Discogs page.",
+  "Discogs is the DJ's investigative tool: label, year, country, format."
+]
+
+[fr]
+title       = "Trouve-la sur Discogs"
+short_desc  = "Que des indices. Quatre cartes de release. Une seule matche la description — et révèle son lien Discogs."
+description = "Patrick a entendu une track dans un set. Il se souvient de l'année, du label, du pays, du format. Quatre candidates matchent certains indices. Une seule matche TOUS les indices. Choisis-la et Patrick te donne le lien Discogs."
+details     = "C'est à ça que ressemble le vrai digging : tu entends un bout, tu reverse-engineer le release par indices partiels."
+coach_tips  = [
+  "Lis chaque champ de chaque carte. Les pièges matchent 3 indices sur 4.",
+  "Une année qui décale d'un an passe dans la vraie vie — ici, prends l'indice comme exact.",
+  "Quand tu tombes juste, ouvre le lien Discogs. C'est ton butin — la vraie release sur le vrai site."
+]
+recap = [
+  "Le vrai digging = reverse-engineerer une release à partir d'indices partiels.",
+  "Lis CHAQUE champ — les pièges matchent 3 indices sur 4.",
+  "Une seule année de décalage t'envoie sur une page Discogs totalement différente.",
+  "Discogs est l'outil d'enquête du DJ : label, année, pays, format."
+]
+
+[track.A]
+url = "AUDIO/Funkasteroid.mp3"
+bpm = 128
+title = "Clip A"
+key = "1A"
+complexity = 3
+
+[context]
+reveal_phrase = 1
+description_en = "Patrick's clues: 'Minimal techno, released in 1998, on a German label from Frankfurt, 12-inch vinyl. Funky, loopy, not peak-time.' Find the release."
+description_fr = "Les indices de Patrick : 'Techno minimale, sortie en 1998, label allemand de Francfort, vinyle 12 pouces. Funky, en boucle, pas peak-time.' Trouve la release."
+
+[ui]
+show_fiches = true
+
+[[candidates]]
+url = "AUDIO/Funkasteroid.mp3"
+title = "Losoul — Taste Not Waste"
+label = "Playhouse"
+year = 1998
+country = "Germany"
+format = "12\""
+style = "minimal, deep house"
+genre = "electronic"
+correct = true
+discogs_url = "https://www.discogs.com/release/7881-Losoul-Taste-Not-Waste"
+reason_en = "All four clues align: 1998, German label (Playhouse, Frankfurt-based), 12-inch, minimal/deep groove that's loopy and NOT peak-time. This is the classic Losoul minimal house blueprint."
+reason_fr = "Les quatre indices s'alignent : 1998, label allemand (Playhouse, basé à Francfort), 12 pouces, minimal/deep groove en boucle, PAS peak-time. Le blueprint minimal house de Losoul."
+
+[[candidates]]
+url = "AUDIO/Tech.mp3"
+title = "Robert Hood — Minimal Nation"
+label = "Axis"
+year = 1994
+country = "USA"
+format = "12\""
+style = "minimal techno"
+genre = "electronic"
+correct = false
+discogs_url = "https://www.discogs.com/release/18828-Robert-Hood-Minimal-Nation"
+reason_en = "Minimal techno ✓ and 12-inch ✓, but the year is 1994 (not 1998) and Axis is a Detroit label, not a Frankfurt one. Three out of four is a trap in digging — you'd have left wrong Discogs tabs open for an hour."
+reason_fr = "Minimal techno ✓ et 12 pouces ✓, mais l'année c'est 1994 (pas 1998) et Axis est un label de Détroit, pas de Francfort. 3 indices sur 4, c'est un piège en digging — tu aurais laissé les mauvais onglets Discogs ouverts pendant une heure."
+
+[[candidates]]
+url = "AUDIO/SuperMarket.mp3"
+title = "Isolée — Beau Mot Plage"
+label = "Playhouse"
+year = 2000
+country = "Germany"
+format = "12\""
+style = "deep house, minimal"
+genre = "electronic"
+correct = false
+discogs_url = "https://www.discogs.com/release/12611-Isole-Beau-Mot-Plage"
+reason_en = "Playhouse label ✓, German ✓, 12-inch ✓, minimal/deep ✓ — but the year is 2000, not 1998. In Discogs that year gap means completely different discography pages. Always verify year."
+reason_fr = "Label Playhouse ✓, allemand ✓, 12 pouces ✓, minimal/deep ✓ — mais l'année c'est 2000, pas 1998. Sur Discogs ce décalage d'année te balade dans des pages complètement différentes. Vérifie toujours l'année."
+
+[[candidates]]
+url = "AUDIO/Trip.mp3"
+title = "Herbert — 100 Lbs"
+label = "Phono"
+year = 1996
+country = "UK"
+format = "CD"
+style = "deep house, experimental"
+genre = "electronic"
+correct = false
+discogs_url = "https://www.discogs.com/release/3591-Herbert-100lbs"
+reason_en = "Wrong on multiple dimensions: year 1996, UK label, CD format. Only the style is vaguely adjacent. The format clue alone (12-inch expected, CD here) is an instant rule-out."
+reason_fr = "Faux sur plusieurs dimensions : année 1996, label UK, format CD. Seul le style est vaguement proche. L'indice de format seul (12 pouces attendu, CD ici) disqualifie direct."

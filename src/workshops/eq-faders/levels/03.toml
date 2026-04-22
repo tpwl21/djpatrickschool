@@ -1,0 +1,137 @@
+id = "EQ_LEVEL_3"
+order = 3
+
+[en]
+title       = "Gain Staging"
+short_desc  = "Match perceived loudness between a compressed track and a vintage one — no clip, no mush."
+description = "Track A is a modern loud master (brickwalled). Track B is a 90s pressing with lots of headroom. Your job: set each deck's TRIM so their peak meters stay around 0dB (the dotted line) and NEVER hit red. Then mix normally."
+details     = "Target: both VU needles hover at the green/yellow boundary through the whole set."
+success     = "Pro-level staging. The engineer at the venue just gave you a thumbs-up."
+coach_tips  = [
+  "Track A is loud by nature — turn TRIM A DOWN until its meter sits on the dotted line.",
+  "Track B is quiet — turn TRIM B UP until its meter sits on the dotted line.",
+  "If any meter hits red during the mix, you're clipping. The crowd will hear it as distortion."
+]
+recap = [
+  "Gain staging = matching perceived loudness BEFORE the fader or EQ.",
+  "Modern masters are loud — trim DOWN. Old pressings are quiet — trim UP.",
+  "Target: VU meters hover at the green/yellow edge, never in red.",
+  "A clipping deck destroys the mix no matter how good your EQ work is."
+]
+
+[fr]
+title       = "Gain Staging"
+short_desc  = "Égalise la loudness perçue entre une track compressée et une vintage — ni clip, ni bouillie."
+description = "Track A est un master moderne très compressé (brickwall). Track B est un pressing des années 90 avec beaucoup de headroom. Ton boulot : régler le TRIM de chaque deck pour que les meters piquent vers 0dB (la ligne pointillée) sans JAMAIS toucher le rouge. Puis mixer normalement."
+details     = "Cible : les deux aiguilles VU se tiennent à la frontière vert/jaune sur toute la transition."
+success     = "Staging niveau pro. L'ingé son du club vient de te faire un pouce."
+coach_tips  = [
+  "Track A est forte par nature — baisse TRIM A jusqu'à ce que son meter se cale sur la ligne pointillée.",
+  "Track B est faible — monte TRIM B jusqu'à ce que son meter se cale sur la pointillée.",
+  "Si un meter touche le rouge pendant le mix, tu clip. Le public entend de la distorsion."
+]
+recap = [
+  "Le gain staging = égaliser la loudness perçue AVANT le fader et l'EQ.",
+  "Master moderne = fort → baisse le trim. Pressage vintage = faible → monte le trim.",
+  "Objectif : VU à la frontière vert/jaune, jamais dans le rouge.",
+  "Une platine qui clipe pourrit le mix, peu importe la qualité de ton EQ derrière."
+]
+
+[track.A]
+url = "AUDIO/SCIFI.mp3"
+bpm = 128
+title = "Modern Loud"
+key = "12A"
+complexity = 4
+
+[track.B]
+url = "AUDIO/Bjork.mp3"
+bpm = 120
+title = "Vintage Quiet"
+key = "2A"
+complexity = 2
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+show_trim              = true
+
+# Trim targets: A needs to be turned down (~0.7), B up (~1.6).
+# These validate the TRIM values themselves, not peak — simpler and deterministic.
+
+[[checks]]
+phrase = 0
+control = "trimA"
+value = 0.7
+tolerance = 0.25
+
+[[checks]]
+phrase = 0
+control = "trimB"
+value = 1.6
+tolerance = 0.3
+
+# Phrase 4: bass swap — standard EQ validation to force a full-flow mix on top of gain staging.
+[[checks]]
+phrase = 4
+control = "eqA.low"
+value = -24
+tolerance = 5
+
+[[checks]]
+phrase = 4
+control = "eqB.low"
+value = 0
+tolerance = 5
+
+[[checks]]
+phrase = 4
+control = "volB_eff"
+value = 0.7
+tolerance = 0.2
+
+# Phrase 5-6: A fades out, B takes over
+[[checks]]
+phrase = 5
+control = "volA_eff"
+value = 0
+tolerance = 0.2
+
+[[checks]]
+phrase = 5
+control = "volB_eff"
+value = 0.9
+tolerance = 0.15
+
+# Keep trims throughout — if user undoes the staging, they fail.
+[[checks]]
+phrase = 5
+control = "trimA"
+value = 0.7
+tolerance = 0.3
+
+[[checks]]
+phrase = 5
+control = "trimB"
+value = 1.6
+tolerance = 0.3
+
+[[markers.A]]
+beat = 1
+label = "TRIM A DOWN / TRIM B UP"
+color = "#f1c40f"
+
+[[markers.A]]
+beat = 129
+label = "BASS SWAP"
+color = "#e67e22"
+
+[[markers.A]]
+beat = 161
+label = "A OUT / B HOLDS"
+color = "#27AE60"

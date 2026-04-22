@@ -1,0 +1,63 @@
+id = "LEVEL_1"
+order = 1
+
+[en]
+title       = "The Perfect Drop"
+short_desc  = "Both trains are rolling at the exact same speed. Just drop Train B dead on the beat!"
+description = "Both trains are rolling at the same speed. Drop Train B on time, and use Push/Drag if you need to adjust."
+details     = "Focus: Hitting that Play button right on time. Locked at 120 BPM."
+success     = "Incredible drop! You hit it right on the money. The rhythm is in your blood!"
+coach_tips  = [
+  "Yo rookie, let's start with the basics, just a fat kick drum! I already matched the tempo for you, your turn!",
+  "Wait for wagon A to hit the red line before dropping Train B.",
+  "If you didn't drop it exactly on time, no stress. Just use the Push and Drag buttons to nudge it into the pocket."
+]
+recap = [
+  "Drop Train B right as a wagon of Train A crosses the red line.",
+  "Same BPM on both decks = beats already lined up; only the start matters.",
+  "Push/Drag = micro-nudges to slide the beat back into the pocket.",
+  "CUE = bring Train B back to its start without stopping Train A."
+]
+
+[fr]
+title       = "Lancement Parfait"
+short_desc  = "Les deux trains roulent à la même vitesse. Lance le Train B au bon moment !"
+description = "Les deux trains roulent à la même vitesse. Lance le Train B au bon moment, et utilise les boutons Accélérer et Ralentir pour ajuster sa vitesse si besoin."
+details     = "Focus : Timing du bouton Play. Vitesse : 120 BPM."
+success     = "Incroyable ! Tu as lancé le train pile au bon moment. Le rythme est dans tes gènes !"
+coach_tips  = [
+  "Yoo nouvelle recrue, on commence la base, juste un bon vieux kick drum ! Je t'ai déjà réglé le bpm, à toi de jouer !",
+  "Attends que le wagon A passe sur la ligne rouge pour lâcher le Train B.",
+  "Si t'as pas lancé exactement au bon moment, c'est pas grave, tu peux ajuster avec les boutons Accélérer et Ralentir pour te caler au poil"
+]
+recap = [
+  "Lance le Train B pile quand un wagon du Train A croise la ligne rouge.",
+  "Même BPM sur les deux platines = les beats sont déjà alignés, seul le départ compte.",
+  "Accélérer/Ralentir = micro-poussettes pour recaler le beat dans la poche.",
+  "CUE = ramener le Train B à son début sans arrêter le Train A."
+]
+
+[track.A]
+url = ""
+bpm = 120
+title = "Train A"
+key = "8A"
+complexity = 1
+[track.B]
+url = ""
+bpm = 120
+title = "Train B"
+key = "8A"
+complexity = 1
+
+[ui]
+view_type              = "simple"
+show_bpm               = true
+allow_nudge            = true
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[validation.start_rule]
+tolerance_sec = 1.0

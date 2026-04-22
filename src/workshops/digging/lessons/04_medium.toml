@@ -1,0 +1,220 @@
+id = "LESSON_DIGGING_4_MEDIUM"
+order = 4
+
+[en]
+title      = "Energy vs Technical Compatibility — Practical Set Design"
+short_desc = "The energy vector, independent vibe and BPM transitions, and when to break the rules."
+
+[[en.pages]]
+title   = "Technical compatibility is a floor, not a ceiling"
+content = """
+BPM and Camelot tell you a track WON'T clash. They don't tell you it WILL work.
+
+Two techno tracks at 130 BPM in 1A can feel radically different: one tense and driving, one floating and ambient. Playing the ambient one right after a peak-time banger is technically clean — and a dancefloor disaster.
+
+**The energy curve of your set is a separate dimension from the numbers.**
+
+Great DJs feel this without thinking. Less-great DJs learn it through failures.
+
+**Useful distinction:**
+- **BPM transition:** changing tempo. The arithmetic of pitch-shift applies.
+- **Vibe transition:** changing energy / texture / emotion. Completely independent from BPM.
+
+You can go from 128 to 124 and keep the vibe identical. You can stay at 128 and completely flip the vibe (minimal → maximal, dry → reverbed, driving → floating). Most beginners conflate the two, which is why their sets feel one-dimensional.
+"""
+
+[[en.pages]]
+title   = "The energy vector — rating your tracks"
+content = """
+Energy is a **vector**: it has direction (rising / holding / falling) and intensity (1–5).
+
+A track's energy = product of:
+- BPM (higher = more activation)
+- Density (how many layers)
+- Textural brightness (how much high-end)
+- Rhythmic urgency (how insistent the pattern is)
+
+**Practical workflow:** rate every track in your gig crate on the 1–5 energy scale the first time you hear it. Write it in the **Comments field** (Rekordbox, Serato). During the set, you see energy numbers next to filenames.
+
+**Reading the numbers:**
+- Going from 3 → 5: a jump. Fine for peak-time, fatal 10 minutes into warmup.
+- Going from 4 → 2: a release. Works after sustained 4, not after 30 seconds at 4.
+- Holding at 4 for 30 minutes: habituation sets in — the crowd stops responding. Plan a valley.
+
+**The Rekordbox colour system:**
+Use the colour tag as a second dimension:
+- Red: high-energy / peak-time
+- Yellow: mid-energy / transitional
+- Green: low-energy / warmup-afterhours
+
+Colour tag visible at a glance during a set. Combine with energy number in Comments for a two-axis sort.
+"""
+
+[[en.pages]]
+title   = "When to break the rules"
+content = """
+Technical rules (BPM, key, energy matching) work 90% of the time. The other 10% is where artistic identity lives.
+
+**Safer rule-breaking — partial mismatch:**
+Change ONE axis at a time, keep the others intact.
+- Keep BPM and energy → change key (harmonic tension)
+- Keep BPM and key → change texture (dry → wet, mono → wide)
+- Keep key and energy → change BPM (±6 BPM jump)
+
+Full mismatch on all axes at once is for DJs with 15+ years of reading rooms. Partial mismatch is the path to productive tension for everyone else.
+
+**The commitment rule:**
+A deliberate mismatch only works if you hold it long enough for the crowd to accept it as intentional. Studies on dancefloor response show:
+- 32 beats of tension then release = reads as intentional
+- 4 beats then quick patch = reads as mistake
+
+**Villalobos at Berghain 8am:** a 3-minute energy crash that the crowd interpreted as a deliberate decompression, not a DJ mistake. The difference between the two: how long he held it.
+
+**The connection to closing (LESSON_RTC_5):** surprise only lands when it's committed to.
+"""
+
+[[en.quiz]]
+question = "What does BPM + Camelot key compatibility guarantee?"
+answers  = ["A great crowd reaction", "No technical clash — not that the mix will work energetically", "A seamless mix with no work needed", "Full energy compatibility"]
+correct  = 1
+
+[[en.quiz]]
+question = "Energy in a DJ set has two components. What are they?"
+answers  = ["Volume and BPM", "Direction (rising/holding/falling) and intensity (1–5 scale)", "Genre and key", "Tempo and reverb amount"]
+correct  = 1
+
+[[en.quiz]]
+question = "You want to change the emotional feel without changing the BPM. What should you target?"
+answers  = ["Pitch shift the incoming track significantly", "Change the texture and vibe — those are independent of BPM", "It's impossible without changing tempo", "Use only the EQ to change feel"]
+correct  = 1
+
+[[en.quiz]]
+question = "A deliberate energy mismatch works when..."
+answers  = ["Patched over in 4 beats", "Held for 32+ beats so the crowd reads it as intentional", "Done only at the start of a set", "Both tracks are at the same BPM"]
+correct  = 1
+
+[[en.quiz]]
+question = "What is 'partial mismatch' as a rule-breaking technique?"
+answers  = ["Breaking all technical rules simultaneously", "Changing one axis (key, BPM, or texture) while keeping the others intact", "Playing tracks in the wrong key intentionally", "Switching genres completely without warning"]
+correct  = 1
+
+[[en.sources]]
+label = "Ricardo Villalobos — RA artist page (Berghain sets)"
+url   = "https://ra.co/dj/ricardovillalobos"
+
+[[en.sources]]
+label = "Rekordbox — colour tags and Comments field workflow"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "RA — Club music energy and dancefloor response"
+url   = "https://ra.co/features/3890"
+
+[fr]
+title      = "Énergie vs Compatibilité Technique — Design de Set Pratique"
+short_desc = "Le vecteur énergie, transitions de vibe et BPM indépendantes, et quand casser les règles."
+
+[[fr.pages]]
+title   = "La compatibilité technique est un plancher, pas un plafond"
+content = """
+Le BPM et la Camelot te disent qu'une track NE clashera PAS. Ils ne te disent pas qu'elle VA marcher.
+
+Deux techno à 130 BPM en 1A peuvent sonner radicalement différent : l'une tendue et driving, l'autre flottante et ambient. Jouer l'ambient juste après un banger peak-time est techniquement propre — et un désastre sur le dancefloor.
+
+**La courbe d'énergie de ton set est une dimension séparée des chiffres.**
+
+Les grands DJs la sentent sans réfléchir. Les moins grands l'apprennent par leurs échecs.
+
+**Distinction utile :**
+- **Transition BPM :** changer le tempo. L'arithmétique du pitch-shift s'applique.
+- **Transition de vibe :** changer l'énergie / la texture / l'émotion. Complètement indépendant du BPM.
+
+Tu peux passer de 128 à 124 en gardant exactement la même vibe. Tu peux rester à 128 et retourner la vibe complètement (minimal → maximal, sec → reverbéré, driving → flottant). La plupart des débutants confondent les deux, d'où leurs sets à une seule dimension.
+"""
+
+[[fr.pages]]
+title   = "Le vecteur énergie — noter tes tracks"
+content = """
+L'énergie est un **vecteur** : elle a une direction (montante / tenue / descendante) et une intensité (1–5).
+
+L'énergie d'une track = produit de :
+- BPM (plus haut = plus d'activation)
+- Densité (nombre de couches)
+- Brillance texturale (quantité d'aigus)
+- Urgence rythmique (à quel point le pattern est insistant)
+
+**Workflow pratique :** note chaque track de ton crate de gig sur l'échelle 1–5 à la première écoute. Écris-la dans le **champ Comments** (Rekordbox, Serato). En set tu vois les chiffres d'énergie à côté des noms de fichier.
+
+**Lire les chiffres :**
+- Passer de 3 → 5 : un saut. Cool si c'est peak-time, fatal à 10 minutes de warmup.
+- Passer de 4 → 2 : une release. Marche après un sustain prolongé à 4, pas après 30 secondes à 4.
+- Tenir à 4 pendant 30 minutes : l'habituation s'installe — le public cesse de répondre. Prévois une vallée.
+
+**Le système de couleur Rekordbox :**
+Utilise le tag couleur comme deuxième dimension :
+- Rouge : haute énergie / peak-time
+- Jaune : énergie moyenne / transitionnel
+- Vert : basse énergie / warmup-afterhours
+
+Tag couleur visible d'un coup d'œil en set. Combine avec le chiffre d'énergie dans Comments pour un tri à deux axes.
+"""
+
+[[fr.pages]]
+title   = "Quand casser les règles"
+content = """
+Les règles techniques (BPM, clé, match d'énergie) marchent 90% du temps. Les 10% restants, c'est là que l'identité artistique vit.
+
+**Rule-breaking plus safe — mismatch partiel :**
+Change UN axe à la fois, garde les autres intacts.
+- Garde BPM et énergie → change la clé (tension harmonique)
+- Garde BPM et clé → change la texture (sec → reverb, mono → wide)
+- Garde clé et énergie → change le BPM (saut de ±6 BPM)
+
+Le mismatch total sur tous les axes d'un coup, c'est pour les DJs avec 15+ ans de lecture de salles. Le mismatch partiel, c'est la voie vers la tension productive pour tous les autres.
+
+**La règle de l'engagement :**
+Un mismatch délibéré ne marche que si tu le tiens assez longtemps pour que le public l'accepte comme intentionnel. Les études sur la réponse dancefloor montrent :
+- 32 beats de tension puis release = se lit comme intentionnel
+- 4 beats puis patch rapide = se lit comme erreur
+
+**Villalobos au Berghain à 8h :** un crash d'énergie de 3 minutes que le public a interprété comme une décompression délibérée, pas une erreur de DJ. La différence entre les deux : combien de temps il l'a tenu.
+
+**Le lien avec le closing (LESSON_RTC_5) :** la surprise ne tombe que si elle est assumée.
+"""
+
+[[fr.quiz]]
+question = "Que garantit la compatibilité BPM + clé Camelot ?"
+answers  = ["Une grande réaction du public", "Pas de clash technique — pas que le mix marchera énergétiquement", "Un mix parfaitement fluide sans effort", "Une compatibilité d'énergie complète"]
+correct  = 1
+
+[[fr.quiz]]
+question = "L'énergie dans un set DJ a deux composantes. Lesquelles ?"
+answers  = ["Le volume et le BPM", "La direction (montante/tenue/descendante) et l'intensité (échelle 1–5)", "Le genre et la clé", "Le tempo et la quantité de reverb"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu veux changer le feel émotionnel sans changer le BPM. Sur quoi dois-tu agir ?"
+answers  = ["Pitcher significativement la track entrante", "Changer la texture et la vibe — elles sont indépendantes du BPM", "C'est impossible sans changer le tempo", "Utiliser uniquement l'EQ pour changer le feel"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un mismatch d'énergie délibéré marche quand..."
+answers  = ["Patchié en 4 beats", "Tenu pendant 32+ beats pour que le public le lise comme intentionnel", "Fait uniquement au début d'un set", "Les deux tracks sont au même BPM"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Qu'est-ce que le 'mismatch partiel' comme technique de rule-breaking ?"
+answers  = ["Casser toutes les règles techniques simultanément", "Changer un axe (clé, BPM ou texture) en gardant les autres intacts", "Jouer des tracks dans la mauvaise clé intentionnellement", "Changer de genre complètement sans prévenir"]
+correct  = 1
+
+[[fr.sources]]
+label = "Ricardo Villalobos — page artiste RA (sets Berghain)"
+url   = "https://ra.co/dj/ricardovillalobos"
+
+[[fr.sources]]
+label = "Rekordbox — tags couleur et workflow champ Comments"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "RA — Énergie de la musique club et réponse dancefloor"
+url   = "https://ra.co/features/3890"

@@ -1,0 +1,430 @@
+id = "LESSON_EQ_2_MEDIUM"
+order = 2
+
+[en]
+title       = "Gain Staging: Signal Chain, LUFS, and Headroom"
+short_desc  = "LUFS vs dBFS, the DJ signal chain in order, -6 dB headroom, and Fletcher-Munson basics."
+description = "Understanding the signal chain from trim to master is the difference between sets that translate to any system and sets that fall apart. LUFS measures perceived loudness. dBFS measures peak. Both matter, for different reasons."
+recap = [
+  "Signal chain order: source → TRIM → EQ → volume fader → crossfader → master output.",
+  "LUFS measures perceived loudness (weighted like the ear). dBFS measures raw digital peak. A -8 LUFS track and a -14 LUFS track can both peak at -0.1 dBFS.",
+  "Streaming targets: Spotify -14 LUFS, Apple Music -16 LUFS, EBU R128 broadcast -23 LUFS.",
+  "Leave -6 dB headroom from peak to 0 dBFS: live transients, room acoustics, and speaker dynamics all add overshoot.",
+  "Fletcher-Munson: at low SPL your ears suppress lows and highs. At club SPL the response flattens — a mix calibrated at home will sound bass-heavy in the club."
+]
+
+[[en.pages]]
+title   = "The signal chain in order"
+content = """
+## Why order matters
+
+Every stage of the signal chain processes what the previous stage produced. Getting the order wrong propagates errors forward.
+
+**DJ mixer signal chain:**
+
+```
+Source (USB/CDJ/vinyl)
+  → TRIM (pre-amp gain — set first)
+  → EQ (3-band sculpting)
+  → Volume fader (dynamic mix riding)
+  → Crossfader (A/B blend)
+  → Master output (to PA amp)
+```
+
+## What each stage is responsible for
+
+**TRIM**: calibrates the incoming track to a reference level. Before anything else.
+**EQ**: shapes the frequency balance of that now-calibrated signal.
+**Volume fader**: controls dynamic mix behavior — you ride this during the mix.
+**Crossfader**: handles the A→B transition.
+**Master**: final level sent to the PA. Should remain fixed once set.
+
+## The common mistake
+
+Setting the master output high to compensate for a quiet mix. This amplifies noise and causes distortion downstream. The master should be set once (correctly, for the PA's input sensitivity) and never touched during the set.
+
+Any level management belongs at the TRIM, not the master.
+"""
+
+[[en.pages]]
+title   = "LUFS vs dBFS: two different measurements"
+content = """
+## dBFS: raw peak level
+
+**dBFS** (decibels relative to Full Scale) measures the amplitude of the peak sample in the digital signal. It doesn't care about content — a single full-scale transient and a sustained loud tone both read similarly.
+
+0 dBFS = the maximum digital value (clip point). Everything is below 0.
+
+## LUFS: perceived loudness
+
+**LUFS** (Loudness Units relative to Full Scale) applies frequency weighting (K-weighting) and time-integration before calculating the level. It models how the ear perceives loudness over time — not just peak amplitude.
+
+Two tracks can both peak at -0.1 dBFS and differ by 8 LUFS:
+- Track A: heavily compressed, no dynamic range → **-7 LUFS** (very loud perceptually)
+- Track B: dynamic, transient-heavy → **-15 LUFS** (same digital peak, quieter perceived)
+
+## Streaming platform targets
+
+Platforms normalize to integrated LUFS to create a consistent listening experience:
+- **Spotify**: -14 LUFS integrated
+- **Apple Music / Tidal**: -16 LUFS
+- **YouTube**: -14 LUFS
+- **EBU R128 broadcast**: -23 LUFS
+
+A heavily compressed track submitted at -7 LUFS to Spotify gets turned *down* to -14 LUFS during playback. Its peak is lowered proportionally. A dynamic track at -14 LUFS plays at reference level.
+
+## DJ relevance
+
+When you're mixing tracks from different eras or genres, the LUFS difference is what you're compensating with trim. Matching peaks isn't enough — match the perceived loudness.
+"""
+youtube = "If6d7HaMaBY"
+youtube_caption = "LUFS vs dBFS explained — why perceived loudness and peak level are different measurements."
+
+[[en.pages]]
+title   = "The -6 dB headroom rule"
+content = """
+## Why -6 dB and not 0 dBFS
+
+If you aim for 0 dBFS at the mixer output, the signal hitting the PA amplifier will clip. Here's why:
+
+**Three sources of overshoot stack:**
+1. **Live transient overshoot**: digital peaks measured by a sample-rate meter don't capture inter-sample peaks. A -1 dBFS digital reading can produce +1 dBTP (true peak) on reconstruction.
+2. **Room acoustics**: standing waves in the room cause frequency buildup — some bass notes add up instead of canceling, increasing the effective SPL by 3–6 dB at resonant nodes.
+3. **Speaker driver dynamics**: bass drivers overshoot mechanically on fast transients — the cone takes slightly longer to stop than the signal commands.
+
+These three additions can sum to **+5 to +8 dB** above what the meter shows.
+
+## The industry rule
+
+Leave **-6 dB** between your loudest peak and 0 dBFS. The corresponding VU meter marker is your calibration target.
+
+Why -6 specifically: +6 dB = 2× voltage amplitude, which is the standard safety factor for analog reconstruction circuits, PA amplifier headroom, and linear driver operation.
+
+## Practical implementation
+
+- Trim each track so peaks hit **-6 dB on the channel meter** during the drop.
+- Run your master output meter peaking at **-6 dBFS** during the loudest passages.
+- If your channel peaks hit -6 but the master is higher, something in the mix summation is adding gain — check your crossfader overlap or EQ boosts.
+"""
+
+[[en.pages]]
+title   = "Fletcher-Munson: why your home mix sounds different in the club"
+content = """
+## The equal-loudness phenomenon
+
+The human ear isn't equally sensitive across the frequency spectrum. At different volume levels, the balance of what you hear shifts.
+
+This was measured by Fletcher and Munson in 1933 (refined by ISO 226:2003 as the Robinson-Dadson curves):
+
+- At **40 dB SPL** (quiet conversation): the ear strongly suppresses lows and highs. Mids are dominant.
+- At **80 dB SPL** (loud conversation, monitor volume): moderate suppression of lows and highs.
+- At **100+ dB SPL** (club PA at the dancefloor): the response curve flattens significantly. Lows and highs are heard at closer to their true level.
+
+## The practical consequence for DJs
+
+A mix calibrated at **70 dB** in your bedroom will sound:
+- **Boomy / bass-heavy** at 103 dB in the club (bass is now perceived at full level, mids haven't changed).
+- **Harsh on highs** if you cut highs in your bedroom thinking they were "too bright" — the club's SPL reveals them again.
+
+## How to compensate
+
+Use a **fixed reference level** for booth monitors — typically 80–85 dB SPL (measured at the DJ position).
+Do NOT turn booth monitors up or down to chase the room sound. Keep them at a known reference level so your EQ decisions are made at a consistent point on the equal-loudness curve.
+
+Many well-equipped clubs fix the booth monitor level at the system-design stage. If yours has a booth monitor volume knob, ask the sound engineer for the reference level before you play.
+"""
+
+[[en.pages]]
+title   = "Trim discipline: a workflow that scales"
+content = """
+## The full workflow
+
+1. Load track into the CDJ/controller.
+2. CUE it (headphones only).
+3. Let it play through the loudest section (drop, chorus).
+4. Adjust TRIM until the **channel meter peaks at -6 dB**.
+5. Check: does it sound approximately as loud in your headphones as the current track sounds in the room?
+6. Start the mix.
+
+## What changes on different systems
+
+On **Serato/Traktor/rekordbox**: the software gain and channel gain work the same way — they're the digital equivalent of TRIM. Apply the same logic.
+
+On **vinyl**: the cartridge output varies by stylus and preamp. On a Rane or A&H with a proper phono stage, adjust the trim the same way. Don't assume vinyl is always quieter — direct-cut lacquers and modern 45s can be very loud.
+
+## A note on cumulative gain staging
+
+Each track you play shifts the running mix level. If you consistently trim tracks 3 dB hot, after 10 tracks the master output has drifted 3 dB into the danger zone. Trim consistency prevents this drift.
+
+If the room sound engineer is also riding the master output (common in live sound situations), communicate: agree on a reference level before the set, and don't override their system gain during your performance.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What does LUFS measure that dBFS does not?"
+answers  = ["Digital peak amplitude", "Perceived loudness over time, weighted for human hearing", "The frequency response of the track"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What is Spotify's integrated loudness target?"
+answers  = ["-6 LUFS", "-23 LUFS", "-14 LUFS"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Why does leaving -6 dB headroom matter on a live PA system?"
+answers  = ["Live transients, room acoustics, and speaker overshoot can add 5–8 dB above what the meter shows", "Because -6 dB sounds better perceptually", "Because it saves energy in the PA amplifier"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "According to Fletcher-Munson, what happens to perceived bass at very high SPL (100+ dB)?"
+answers  = ["It disappears below the noise floor", "It becomes less perceptible", "It is perceived at closer to its true level — the equal-loudness curve flattens"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Where in the signal chain should you make the primary level adjustment for each incoming track?"
+answers  = ["The master output", "The TRIM / GAIN knob", "The crossfader"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Two tracks both peak at -0.1 dBFS. One measures -7 LUFS and the other -15 LUFS. What explains the difference?"
+answers  = ["Different amounts of dynamic range compression — the -7 LUFS track is heavily compressed", "Different sample rates", "Different file formats (MP3 vs WAV)"]
+
+[[sources]]
+label = "EBU R 128 — Loudness normalisation standard (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/EBU_R_128"
+
+[[sources]]
+label = "Equal-loudness contour / Fletcher-Munson (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Equal-loudness_contour"
+
+[[sources]]
+label = "LUFS Explained — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-lufs"
+
+[[sources]]
+label = "Audio bit depth and dynamic range (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Audio_bit_depth"
+
+[[sources]]
+label = "Bob Katz — Mastering Audio: The Art and the Science"
+url   = "https://www.digido.com/portfolio-item/mastering-audio/"
+
+[fr]
+title       = "Gain Staging : Chaîne Signal, LUFS et Headroom"
+short_desc  = "LUFS vs dBFS, la chaîne de signal DJ dans l'ordre, headroom à -6 dB, et les bases de Fletcher-Munson."
+description = "Comprendre la chaîne de signal du trim au master, c'est la différence entre des sets qui s'adaptent à n'importe quel système et des sets qui s'effondrent. Le LUFS mesure la loudness perçue. Le dBFS mesure le pic brut. Les deux comptent, pour des raisons différentes."
+recap = [
+  "Ordre de la chaîne de signal : source → TRIM → EQ → fader de volume → crossfader → sortie master.",
+  "Le LUFS mesure la loudness perçue (pondérée comme l'oreille). Le dBFS mesure le pic numérique brut. Une track à -8 LUFS et une à -14 LUFS peuvent toutes les deux crêter à -0,1 dBFS.",
+  "Cibles streaming : Spotify -14 LUFS, Apple Music -16 LUFS, broadcast EBU R128 -23 LUFS.",
+  "Laisser -6 dB de headroom entre le pic et 0 dBFS : les transitoires live, l'acoustique de la salle et la dynamique des enceintes ajoutent tous de l'overshoot.",
+  "Fletcher-Munson : à bas SPL tes oreilles suppriment graves et aigus. À SPL de club la réponse s'aplatit — un mix calibré à la maison sonnera chargé en basses en club."
+]
+
+[[fr.pages]]
+title   = "La chaîne de signal dans l'ordre"
+content = """
+## Pourquoi l'ordre compte
+
+Chaque étage de la chaîne de signal traite ce que l'étage précédent a produit. Se tromper dans l'ordre propage les erreurs vers l'aval.
+
+**Chaîne de signal d'une table DJ :**
+
+```
+Source (USB/CDJ/vinyl)
+  → TRIM (gain pré-ampli — à régler en premier)
+  → EQ (sculpture 3 bandes)
+  → Fader de volume (gestion dynamique du mix)
+  → Crossfader (blend A/B)
+  → Sortie master (vers l'ampli PA)
+```
+
+## Ce dont chaque étage est responsable
+
+**TRIM** : calibre le morceau entrant à un niveau de référence. Avant toute autre chose.
+**EQ** : façonne l'équilibre fréquentiel de ce signal maintenant calibré.
+**Fader de volume** : contrôle le comportement dynamique du mix — tu le gères pendant le mix.
+**Crossfader** : gère la transition A→B.
+**Master** : niveau final envoyé à la PA. Doit rester fixe une fois réglé.
+
+## L'erreur courante
+
+Monter la sortie master pour compenser un mix trop calme. Ça amplifie le bruit et cause de la distorsion en aval. Le master doit être réglé une fois (correctement, pour la sensibilité d'entrée de la PA) et jamais touché pendant le set.
+
+Toute gestion de niveau appartient au TRIM, pas au master.
+"""
+
+[[fr.pages]]
+title   = "LUFS vs dBFS : deux mesures différentes"
+content = """
+## dBFS : niveau de pic brut
+
+Le **dBFS** (decibels relative to Full Scale) mesure l'amplitude du pic d'échantillon dans le signal numérique. Il ne tient pas compte du contenu — un seul transitoire plein échelle et une tonalité soutenue forte donnent des lectures similaires.
+
+0 dBFS = la valeur numérique maximale (point de clipping). Tout est en dessous de 0.
+
+## LUFS : loudness perçue
+
+Le **LUFS** (Loudness Units relative to Full Scale) applique une pondération fréquentielle (K-weighting) et une intégration temporelle avant de calculer le niveau. Il modèle la façon dont l'oreille perçoit la loudness dans le temps — pas seulement l'amplitude de pic.
+
+Deux tracks peuvent toutes les deux crêter à -0,1 dBFS et différer de 8 LUFS :
+- Track A : très compressée, sans dynamique → **-7 LUFS** (très forte perceptuellement)
+- Track B : dynamique, à transitoires → **-15 LUFS** (même pic numérique, plus calme perçue)
+
+## Cibles des plateformes streaming
+
+Les plateformes normalisent à un LUFS intégré pour créer une expérience d'écoute cohérente :
+- **Spotify** : -14 LUFS intégrés
+- **Apple Music / Tidal** : -16 LUFS
+- **YouTube** : -14 LUFS
+- **Broadcast EBU R128** : -23 LUFS
+
+Une track très compressée soumise à -7 LUFS sur Spotify est *baissée* à -14 LUFS lors de la lecture. Son pic est abaissé proportionnellement. Une track dynamique à -14 LUFS joue au niveau de référence.
+
+## Pertinence DJ
+
+Quand tu mixe des tracks d'époque ou de genre différents, la différence de LUFS est ce que tu compenses avec le trim. Matcher les pics ne suffit pas — matche la loudness perçue.
+"""
+youtube = "If6d7HaMaBY"
+youtube_caption = "LUFS vs dBFS expliqués — pourquoi la loudness perçue et le niveau de pic sont deux mesures différentes."
+
+[[fr.pages]]
+title   = "La règle des -6 dB de headroom"
+content = """
+## Pourquoi -6 dB et pas 0 dBFS
+
+Si tu vises 0 dBFS à la sortie de la table, le signal qui tape dans l'ampli PA clippe. Voici pourquoi :
+
+**Trois sources d'overshoot s'accumulent :**
+1. **Overshoot de transitoire live** : les pics numériques mesurés par un mètre à fréquence d'échantillonnage ne capturent pas les pics inter-échantillons. Une lecture numérique à -1 dBFS peut produire +1 dBTP (true peak) lors de la reconstruction.
+2. **Acoustique de la salle** : les ondes stationnaires dans la salle causent une accumulation de fréquences — certaines notes de basse s'additionnent au lieu de s'annuler, augmentant le SPL effectif de 3–6 dB aux noeuds de résonance.
+3. **Dynamique des drivers** : les drivers graves dépassent mécaniquement sur les transitoires rapides — le cône met légèrement plus de temps à s'arrêter que ce que le signal commande.
+
+Ces trois ajouts peuvent sommer à **+5 à +8 dB** au-dessus de ce que montre le mètre.
+
+## La règle de l'industrie
+
+Laisser **-6 dB** entre ton pic le plus fort et 0 dBFS. La marque correspondante sur le VU meter est ta cible de calibrage.
+
+Pourquoi -6 spécifiquement : +6 dB = 2× l'amplitude de tension, qui est le facteur de sécurité standard pour les circuits de reconstruction analogique, le headroom d'ampli PA, et le fonctionnement linéaire des drivers.
+
+## Implémentation pratique
+
+- Trime chaque track pour que les pics tapent à **-6 dB sur le mètre de canal** pendant le drop.
+- Fais tourner ton mètre de sortie master en crêtant à **-6 dBFS** pendant les passages les plus forts.
+- Si tes canaux crêtent à -6 mais que le master est plus haut, quelque chose dans la sommation du mix ajoute du gain — vérifie ton chevauchement de crossfader ou tes boosts EQ.
+"""
+
+[[fr.pages]]
+title   = "Fletcher-Munson : pourquoi ton mix maison sonne différemment en club"
+content = """
+## Le phénomène d'égale loudness
+
+L'oreille humaine n'est pas également sensible sur tout le spectre fréquentiel. À différents niveaux de volume, l'équilibre de ce que tu entends se déplace.
+
+Mesuré par Fletcher et Munson en 1933 (affiné par ISO 226:2003 comme courbes Robinson-Dadson) :
+
+- À **40 dB SPL** (conversation calme) : l'oreille supprime fortement graves et aigus. Les mids dominent.
+- À **80 dB SPL** (conversation forte, volume moniteur) : suppression modérée des graves et aigus.
+- À **100+ dB SPL** (PA de club sur le dancefloor) : la courbe de réponse s'aplatit significativement. Graves et aigus sont entendus plus près de leur niveau réel.
+
+## La conséquence pratique pour les DJs
+
+Un mix calibré à **70 dB** dans ta chambre sonnera :
+- **Boomy / chargé en basses** à 103 dB en club (les basses sont maintenant perçues à plein niveau, les mids n'ont pas changé).
+- **Agressif dans les aigus** si tu as coupé les aigus chez toi en pensant qu'ils étaient "trop brillants" — le SPL du club les révèle à nouveau.
+
+## Comment compenser
+
+Utilise un **niveau de référence fixe** pour les moniteurs du booth — typiquement 80–85 dB SPL (mesuré à la position DJ).
+Ne monte PAS et ne baisse PAS les moniteurs du booth pour chasser le son de la salle. Garde-les à un niveau de référence connu pour que tes décisions EQ se prennent à un point cohérent sur la courbe d'égale loudness.
+
+Beaucoup de clubs bien équipés fixent le niveau des moniteurs du booth au stade de la conception du système. Si le tien a un bouton de volume pour les moniteurs du booth, demande le niveau de référence à l'ingénieur son avant de jouer.
+"""
+
+[[fr.pages]]
+title   = "Discipline de trim : un workflow qui tient à l'échelle"
+content = """
+## Le workflow complet
+
+1. Charge la track dans le CDJ/contrôleur.
+2. Mets-la en CUE (casque uniquement).
+3. Laisse-la jouer sur la section la plus forte (drop, refrain).
+4. Ajuste le TRIM jusqu'à ce que le **mètre de canal crête à -6 dB**.
+5. Vérifie : ça sonne à peu près aussi fort dans ton casque que le morceau actuel dans la salle ?
+6. Lance le mix.
+
+## Ce qui change selon les systèmes
+
+Sur **Serato/Traktor/rekordbox** : le gain logiciel et le gain de canal fonctionnent de la même façon — ils sont l'équivalent numérique du TRIM. Applique la même logique.
+
+Sur **vinyle** : la sortie de la cellule varie selon le stylet et le préampli. Sur une Rane ou A&H avec un étage phono correct, ajuste le trim de la même façon. Ne suppose pas que le vinyle est toujours plus calme — les lacquers à coupe directe et les 45 modernes peuvent être très forts.
+
+## Note sur le gain staging cumulatif
+
+Chaque morceau que tu joues déplace le niveau de mix courant. Si tu trimes constamment les morceaux 3 dB trop fort, après 10 morceaux la sortie master a dérivé de 3 dB dans la zone danger. La cohérence du trim prévient cette dérive.
+
+Si l'ingénieur son de la salle gère aussi la sortie master (courant en son live), communique : mets-vous d'accord sur un niveau de référence avant le set, et ne touche pas à leur gain système pendant ta performance.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Que mesure le LUFS que le dBFS ne mesure pas ?"
+answers  = ["L'amplitude de pic numérique", "La loudness perçue dans le temps, pondérée pour l'oreille humaine", "La réponse fréquentielle du morceau"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Quelle est la cible de loudness intégrée de Spotify ?"
+answers  = ["-6 LUFS", "-23 LUFS", "-14 LUFS"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Pourquoi laisser -6 dB de headroom est-il important sur une PA live ?"
+answers  = ["Les transitoires live, l'acoustique de la salle et l'overshoot des enceintes peuvent ajouter 5–8 dB au-dessus de ce que montre le mètre", "Parce que -6 dB sonne mieux perceptuellement", "Parce que ça économise de l'énergie dans l'ampli PA"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Selon Fletcher-Munson, que se passe-t-il avec la perception des graves à très haut SPL (100+ dB) ?"
+answers  = ["Ils disparaissent sous le plancher de bruit", "Ils deviennent moins perceptibles", "Ils sont perçus plus près de leur niveau réel — la courbe d'égale loudness s'aplatit"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Où dans la chaîne de signal faut-il faire l'ajustement principal de niveau pour chaque morceau entrant ?"
+answers  = ["La sortie master", "Le bouton TRIM / GAIN", "Le crossfader"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Deux tracks crêtent toutes les deux à -0,1 dBFS. L'une mesure -7 LUFS, l'autre -15 LUFS. Qu'explique cette différence ?"
+answers  = ["Des niveaux différents de compression dynamique — la track à -7 LUFS est très compressée", "Des fréquences d'échantillonnage différentes", "Des formats de fichier différents (MP3 vs WAV)"]
+
+[[sources]]
+label = "EBU R 128 — Standard de normalisation de la loudness (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/EBU_R_128"
+
+[[sources]]
+label = "Courbes d'égale loudness / Fletcher-Munson (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Equal-loudness_contour"
+
+[[sources]]
+label = "LUFS expliqué — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-lufs"
+
+[[sources]]
+label = "Profondeur de bits audio et plage dynamique (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Audio_bit_depth"
+
+[[sources]]
+label = "Bob Katz — Mastering Audio: The Art and the Science"
+url   = "https://www.digido.com/portfolio-item/mastering-audio/"

@@ -1,0 +1,80 @@
+id = "LEVEL_7"
+order = 7
+
+[en]
+title       = "Blind Chief"
+short_desc  = "BPM readouts are gone. Sync the trains by sight and sound alone."
+description = "Ultimate Test. <strong>The BPM display is hidden.</strong> Beatmatch by sight and ear alone!"
+details     = "Focus: Mixing without relying on the digits."
+success     = "Mixing blind! Pure instinct. That's the real magic of DJing!"
+coach_tips  = [
+  "Thought you had a lot of time on your hands last level?",
+  "Yeah, because you had training wheels on! Everything was lined up waiting for the outro.",
+  "No training wheels here. You have to trust your ears to set the tempo, and you have to do it during the breakdown.",
+  "Start hitting CUE repeatedly while adjusting the pitch to test the waters.",
+  "If it drifts apart instantly, your pitch is way off.",
+  "You can still use the nudge buttons. If you constantly have to push it forward, it means your pitch is too slow!"
+]
+recap = [
+  "Without BPM numbers, your ear becomes the tempo reference — trust it.",
+  "Hit CUE repeatedly at different pitch settings to probe the right zone.",
+  "Fast drift = way off pitch. Slow drift = nearly locked.",
+  "If you keep pushing Forward, pitch is too slow. Keep pushing Back, too fast."
+]
+
+[fr]
+title       = "Blind Chief"
+short_desc  = "L'affichage du BPM a disparu. Aligne les trains visuellement et à l'oreille."
+description = "Expertise Ultime. <strong>L'affichage du BPM a disparu.</strong> Aligne les trains visuellement et aux oreilles !"
+details     = "Focus : Indépendance vis-à-vis des chiffres."
+success     = "À l'aveugle ! Tu maîtrises le mix à l'instinct. C'est ça, la vraie magie du DJing !"
+coach_tips  = [
+  "Tu trouvais le temps long au niveau d'avant ?",
+  "Et oui car tu avais l'assistance technique, tu avais tout de prêt en attendant l'outro.",
+  "Ici pas d'assistance, tu dois te fier uniquement à tes oreilles pour régler la vitesse et tu as justement ce temps mort pour le faire.",
+  "Commence à utiliser le CUE plusieurs fois sur le morceau à des bpm différents pour commencer à chercher.",
+  "Plus ça se désynchronise rapidement plus tu es loin du bon réglage.",
+  "Tu peux également utiliser les boutons accélérer et ralentir, tant que tu as besoin d'utiliser un des deux boutons c'est qu'il faut changer le bpm dans le sens opposé"
+]
+recap = [
+  "Sans chiffres de BPM, l'oreille devient ta référence de tempo — fais-lui confiance.",
+  "Tape CUE plusieurs fois à différents pitch pour sonder la bonne zone.",
+  "Dérive rapide = pitch très faux. Dérive lente = presque calé.",
+  "Si tu pousses constamment Avancer, le pitch est trop lent. Constamment Reculer, trop rapide."
+]
+
+[track.A]
+url = "AUDIO/before_palmos.mp3"
+bpm = 130
+title = "Boucle Ref"
+key = "11A"
+complexity = 4
+[track.B]
+url = "AUDIO/JazzMan_Doucheur.mp3"
+bpm = 130
+title = "Boucle à caler"
+key = "12A"
+complexity = 4
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = true
+randomize_bpm          = true
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[validation.start_rule]
+period           = 160
+target_in_period = 128
+tolerance_sec    = 1.0
+
+[[markers.A]]
+beat  = 129
+label = "OUTRO 🌙"
+color = "#a29bfe"
+[[markers.A]]
+beat  = 289
+label = "OUTRO 🌙"
+color = "#a29bfe"

@@ -1,0 +1,71 @@
+id = "LEVEL_5"
+order = 5
+
+[en]
+title       = "The Clap Master"
+short_desc  = "Start on the clap! Drop Train B exactly on the 162nd beat."
+description = "Start on the <strong>Clap</strong>! Do the math: you need to drop Train B exactly on the <strong>162nd beat</strong> (right after the drop). Note: Train B's CUE is on the 2nd beat!"
+details     = "Focus: Precision cueing on a specific beat (Beat 162)."
+success     = "The Clap Master! You handled that offset drop like a boss. Patrick is proud!"
+coach_tips  = [
+  "This one is sneaky. Your B2B partner just dropped a track with an endlessly long break.",
+  "No sweat, we'll mix it anyway. Just set your cue point on the second beat instead of the first, it gives you a split second to react.",
+  "Make sure you wait exactly one beat before launching your track, or you'll be horribly out of phase.",
+  "Your turn—launch your track precisely when Train A drops."
+]
+recap = [
+  "Setting a CUE point on beat 2 (not beat 1) gives you a reaction buffer.",
+  "If CUE is on beat 2, you must drop on beat 2 of Train A — or the phase flips.",
+  "Target a specific beat on Train A (here: beat 162) instead of any kick.",
+  "Great DJs pre-set their cue points during the previous track's playback."
+]
+
+[fr]
+title       = "Le Clap Master"
+short_desc  = "Démarre sur le Clap ! Calcule bien : tu dois lancer le Train B pile sur le 162ème temps."
+description = "Démarre sur le <strong>Clap</strong> ! Calcule bien : tu dois lancer le Train B pile au <strong>162ème temps</strong> (juste après le drop). Attention, ton Train B démarre déjà sur son second temps !"
+details     = "Focus : Précision du départ sur un temps spécifique (Beat 162)."
+success     = "Le Clap Master ! Tu as géré le décalage de départ comme un chef. Patrick est fier !"
+coach_tips  = [
+  "Celle-là elle est fourbe. Ton pote de B2B t'as joué un morceau avec un break interminable",
+  "Qu'a cela ne tienne, tu vas le caler quand même, tu place le cue non pas sur le premier temps mais sur le deuxieme pour te laisser le temps de réagir.",
+  "Attention de bien laisser passer un temps avant de lancer ton morceau, sinon tu va être inversé cf Lvl3.",
+  "Aller à toi de jouer, lance ton morceau au moment du drop du train A"
+]
+recap = [
+  "Poser le CUE sur le 2ème temps (pas le 1er) te laisse une marge de réaction.",
+  "Si ton CUE est sur le temps 2, tu lances sur le temps 2 du Train A — sinon phase inversée.",
+  "Vise un temps précis du Train A (ici beat 162), pas n'importe quel kick.",
+  "Les bons DJs préparent leurs cue points pendant la lecture du morceau précédent."
+]
+
+[track.A]
+url = "AUDIO/Funkasteroid.mp3"
+bpm = 126
+title = "Base Clap"
+key = "4A"
+complexity = 3
+[track.B]
+url = "AUDIO/SuperMarket.mp3"
+bpm = 130
+title = "Start on 2"
+key = "8A"
+complexity = 3
+
+[ui]
+view_type              = "loop"
+show_bpm               = true
+allow_nudge            = true
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 2
+
+[validation.start_rule]
+target_beats     = [161]
+tolerance_factor = 0.5
+
+[[markers.A]]
+beat  = 162
+label = "DROP CLAP 👏"
+color = "#f1c40f"

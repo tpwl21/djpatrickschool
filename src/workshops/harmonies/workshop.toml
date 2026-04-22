@@ -1,0 +1,26 @@
+id = "harmonies"
+order = 3
+color = "#8E44AD"
+image = "harmony_patrick.png"
+forthcoming = false
+kind = "harmonies"
+
+[en]
+title      = "HARMONIES"
+short_desc = "Harmonic mixing — key matching, Camelot wheel and friends."
+long_desc  = "Learn to match keys so tracks feel like they belong together. Each practice drills a different harmonic move: rotating the Camelot wheel by semitones, dragging B onto a compatible cell + mixing, and picking the right key from a shortlist."
+objectives = [
+  "Read the Camelot wheel and its compatibility rules",
+  "Rotate pitch-shift by semitones to land in a compatible slot",
+  "Pick tracks by key without second-guessing the rules"
+]
+
+[fr]
+title      = "HARMONIES"
+short_desc = "Mix harmonique — accords de tonalités, roue Camelot et compagnie."
+long_desc  = "Apprends à accorder les tonalités pour que tes morceaux sonnent comme s'ils étaient faits l'un pour l'autre. Chaque practice travaille un geste harmonique : tourner la roue Camelot en demi-tons, draguer B sur une case compatible + mixer, choisir la bonne clé dans une sélection."
+objectives = [
+  "Lire la roue Camelot et ses règles de compatibilité",
+  "Tourner le pitch-shift en demi-tons pour tomber sur une case compatible",
+  "Choisir les tracks par la clé sans hésiter sur les règles"
+]

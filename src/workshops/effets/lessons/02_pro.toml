@@ -1,0 +1,328 @@
+id = "LESSON_FX_2_PRO"
+order = 2
+
+[en]
+title      = "Delay: Circular Buffer, Interpolation & Tape Emulation"
+short_desc = "Ring buffer architecture, Hermite interpolation, and the physics of RE-201 wow/flutter."
+description = "A digital delay is trivially a ring buffer until you try to make it musical. Every design decision — interpolation order, feedback limiting, modulation depth — audibly changes the result."
+recap = [
+  "Ring buffer: write pointer advances 1/sample; read pointer lags by D samples (D = fs × delayTime).",
+  "Non-integer delay needs interpolation: linear is cheap but attenuates HF in feedback; Hermite/cubic preserves transients.",
+  "Feedback stability: |gain| < 1 for exponential decay. DJM soft-clips at ~0.95 to allow near-infinite decays without runaway.",
+  "Tape delay (RE-201): LP in feedback path (HF loss per pass), tanh saturation, pitch modulation (wow/flutter) from motor speed variation.",
+  "All-pass interpolation gives flat magnitude response at the cost of phase distortion — audible on sustained feedback.",
+]
+
+[[en.pages]]
+title   = "The ring buffer: architecture of a digital delay"
+content = """
+A digital delay line is a **ring buffer** (circular buffer) of audio samples. The core loop:
+
+```
+buffer[N]        — fixed-length float array
+writePtr         — advances by 1 each sample
+readPtr          — trails writePtr by D: readPtr = (writePtr - D + N) % N
+output[n]        = buffer[readPtr]
+buffer[writePtr] = input[n] + feedback * buffer[readPtr]
+writePtr         = (writePtr + 1) % N
+```
+
+This is the complete inner loop of most digital delays. N must be large enough for the max delay time: for 2 s at 44100 Hz, N = 88200 samples.
+
+**Why modular arithmetic:** the buffer wraps — when writePtr reaches N it returns to 0. This avoids per-sample allocation and keeps accesses cache-friendly.
+
+**Memory cost:** at 32-bit float, 2-second stereo delay at 44100 Hz = 2 × 88200 × 4 bytes = 705 KB. Trivial today, real hardware in 1972.
+"""
+
+[[en.pages]]
+title   = "Interpolation: the sound of the math"
+content = """
+The read position D = fs × delayTime is almost never an integer. A 1/4-note delay at 130 BPM gives D = 44100 × (60/130) = 20351.5 samples. You must read between two buffer positions.
+
+**Linear interpolation:**
+```
+frac   = D - floor(D)
+output = (1 - frac) * buffer[i] + frac * buffer[i+1]
+```
+Acts as a **first-order lowpass** on the delayed signal. In a feedback loop this HF attenuation compounds each repeat — after 8+ echoes, the tail sounds increasingly dull. Useful for tape emulation.
+
+**Hermite (4-point cubic) interpolation:**
+Fits a cubic polynomial to four adjacent buffer samples. Better HF preservation, more computation. Standard choice for pristine echo tails with high feedback.
+
+**All-pass interpolation:**
+Flat magnitude response (no HF rolloff) but introduces frequency-dependent phase shift. Excellent for read-pointer modulation (flutter, chorus) but can sound phasey on long feedback tails. Used in Lexicon 224 reverb algorithms.
+
+**Rule:** for clean studio delay → Hermite. For tape warmth → linear interpolation plus an explicit LP per feedback pass.
+"""
+
+[[en.pages]]
+title   = "Feedback stability and soft-clipping"
+content = """
+The feedback coefficient g must satisfy **|g| < 1** for an exponentially decaying tail:
+
+```
+Amplitude after n repeats = g^n × original
+g = 0.70:  n=10 → 0.028× original  (nearly gone)
+g = 0.95:  n=10 → 0.60×  original  (still loud)
+g = 1.00:  n=10 → 1.0×   original  (infinite sustain)
+g = 1.01:  n=10 → 1.11×  original  (growing — unstable)
+```
+
+The DJM-900 clamps g ≈ **0.95** and adds a tanh waveshaper in the feedback path. Result:
+1. Near-infinite decay without true infinite sustain.
+2. Loud transients cannot trigger exponential growth — the waveshaper limits the feedback amplitude.
+
+Without protection, g > 1.0 on a loud signal → exponential growth → digital clipping in seconds. The delay becomes a screeching oscillator.
+
+**Edge case:** g = 1.0 exactly with silent input after initial sound → perfect infinite sustain (frozen loop). Exposed deliberately in the Strymon delay "hold" function and the RE-201's sound-on-sound mode.
+"""
+image = "lesson-images/delay_feedback_stability.png"
+image_caption = "Feedback coefficient vs tail length: g=0.7, 0.85, 0.95, and the instability boundary at 1.0."
+
+[[en.pages]]
+title   = "Tape delay: RE-201 and the physics of imperfection"
+content = """
+The **Roland RE-201 Space Echo** (1974) records on a tape loop and plays back through heads at fixed positions (~50, 100, 300 ms and combinations). Four mechanisms separate it from digital delay:
+
+**1. HF loss per pass (LP in feedback path)**
+Tape has limited bandwidth. Each record/playback pass attenuates highs. Modeled as a one-pole LP (fc ≈ 6–8 kHz) in the feedback path. More repeats = progressively warmer echo.
+
+**2. Wow and flutter**
+The tape motor runs at slightly variable speed. Wow = slow modulation (0.1–1 Hz), flutter = faster (5–15 Hz). DSP model: D(t) = D₀ × (1 + depth × sin(2π·rate·t)). Each echo has a slightly different pitch — the characteristic "shimmer."
+
+**3. Tape saturation**
+Soft-knee (≈ tanh) magnetic saturation. Hot input → gentle compression + even-order harmonics. Same mechanism as the Moog ladder warmth.
+
+**4. Head bump**
+Record head resonance at ~60–80 Hz adds a subtle bass boost to recordings — the "fatness" in RE-201 echoes.
+
+**DSP recipe for faithful RE-201 emulation:** ring buffer + linear interpolation (HF rolloff intended) + one-pole LP in feedback path + tanh waveshaper + LFO modulating read pointer + static head-bump EQ. This is what the Boss RE-20 and Strymon Volante implement internally.
+"""
+
+[[en.quiz]]
+question = "In a ring buffer delay, what determines the delay time?"
+answers  = [
+  "The size of the buffer N",
+  "The distance D between read and write pointers: D = fs × delayTime",
+  "The sampling rate alone"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "Why does linear interpolation cause HF loss in a feedback delay?"
+answers  = [
+  "It compresses the signal",
+  "Each fractional read acts as a first-order lowpass, compounding over multiple feedback repeats",
+  "It changes the sample rate"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the purpose of soft-clipping in the feedback path of a DJ delay?"
+answers  = [
+  "To add distortion to the echoes",
+  "To prevent exponential growth and digital clipping when feedback approaches 1.0",
+  "To increase the delay time"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "In the RE-201, 'flutter' refers to:"
+answers  = [
+  "Slow (0.1–1 Hz) motor speed variation",
+  "Fast (5–15 Hz) motor speed variation causing pitch shimmer on echoes",
+  "The head bump resonance"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "All-pass interpolation differs from Hermite by:"
+answers  = [
+  "More aggressive HF attenuation",
+  "Flat magnitude response but frequency-dependent phase distortion",
+  "Using more buffer positions"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Digital delay line implementation — Julius O. Smith (CCRMA)"
+url   = "https://ccrma.stanford.edu/~jos/pasp/Delay_Lines.html"
+
+[[en.sources]]
+label = "Interpolated delay lines — CCRMA"
+url   = "https://ccrma.stanford.edu/~jos/pasp/Interpolated_Delay_Lines.html"
+
+[[en.sources]]
+label = "Roland RE-201 Space Echo — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Space_Echo"
+
+[[en.sources]]
+label = "Tape saturation modeling — Jatin Chowdhury (ChowDSP)"
+url   = "https://jatinchowdhury18.medium.com/tape-saturation-modelling-part-1-9905700bcef6"
+
+[[en.sources]]
+label = "Allpass interpolation for variable delay — Laakso et al."
+url   = "https://ccrma.stanford.edu/~jos/pasp/Allpass_Interpolation.html"
+
+[fr]
+title      = "Delay : Buffer Circulaire, Interpolation & Émulation Bande"
+short_desc = "Architecture ring buffer, interpolation Hermite, et la physique du wow/flutter du RE-201."
+description = "Un delay numérique est trivialement un ring buffer — jusqu'à ce que tu veuilles le rendre musical. Chaque décision de design change le résultat de façon audible."
+recap = [
+  "Ring buffer : le pointeur d'écriture avance de 1/échantillon ; le pointeur de lecture est en retard de D échantillons (D = fs × delayTime).",
+  "Un délai non-entier nécessite une interpolation : linéaire est peu coûteux mais atténue les HF en feedback ; Hermite/cubique préserve les transitoires.",
+  "Stabilité du feedback : |gain| < 1 pour un decay exponentiel. Le DJM soft-clip à ~0,95 pour des decays quasi-infinis sans runaway.",
+  "Tape delay (RE-201) : LP dans la boucle de feedback (perte HF par passage), saturation tanh, modulation de pitch (wow/flutter) par variation de vitesse moteur.",
+  "L'interpolation all-pass donne une amplitude plate au prix d'une distorsion de phase — audible sur le feedback long.",
+]
+
+[[fr.pages]]
+title   = "Le ring buffer : architecture d'un delay numérique"
+content = """
+Une ligne à delay numérique est un **ring buffer** (buffer circulaire) d'échantillons audio. La boucle centrale :
+
+```
+buffer[N]        — tableau de floats de longueur fixe
+writePtr         — avance de 1 par échantillon
+readPtr          — suit writePtr avec décalage D : readPtr = (writePtr - D + N) % N
+output[n]        = buffer[readPtr]
+buffer[writePtr] = input[n] + feedback * buffer[readPtr]
+writePtr         = (writePtr + 1) % N
+```
+
+C'est la boucle complète de la plupart des delays. N doit être assez grand pour le délai maximal : pour 2 s à 44100 Hz, N = 88200 échantillons.
+
+**Pourquoi l'arithmétique modulaire :** le buffer boucle — quand writePtr atteint N, il retourne à 0. Pas d'allocation par échantillon, accès cache-friendly.
+
+**Coût mémoire :** float 32 bits, delay stéréo 2 s à 44100 Hz = 2 × 88200 × 4 octets = 705 Ko. Trivial aujourd'hui, hardware réel en 1972.
+"""
+
+[[fr.pages]]
+title   = "L'interpolation : le son des maths"
+content = """
+La position de lecture D = fs × delayTime n'est presque jamais un entier. Un delay 1/4 de noire à 130 BPM donne D = 44100 × (60/130) = 20351,5 échantillons. Il faut lire entre deux positions.
+
+**Interpolation linéaire :**
+```
+frac   = D - floor(D)
+output = (1 - frac) * buffer[i] + frac * buffer[i+1]
+```
+Agit comme un **passe-bas du premier ordre** sur le signal retardé. Dans une boucle de feedback, cette atténuation HF s'accumule à chaque répétition — après 8+ échos, la queue sonne de plus en plus mat. Utile pour l'émulation bande.
+
+**Interpolation Hermite (cubique 4 points) :**
+Ajuste un polynôme cubique sur quatre échantillons adjacents. Meilleure préservation HF. Standard pour des queues propres à feedback élevé.
+
+**Interpolation all-pass :**
+Réponse en amplitude plate (pas d'atténuation HF) mais déphasage variable selon la fréquence. Excellente pour la modulation du pointeur (flutter, chorus) mais peut sonner phasé sur les longues queues. Utilisée dans les algorithmes Lexicon 224.
+
+**Règle :** delay studio propre → Hermite. Chaleur bande → interpolation linéaire + LP explicite par passage.
+"""
+
+[[fr.pages]]
+title   = "Stabilité du feedback et soft-clipping"
+content = """
+Le coefficient de feedback g doit satisfaire **|g| < 1** pour une queue décroissante :
+
+```
+Amplitude après n répétitions = g^n × original
+g = 0,70 :  n=10 → 0,028× original  (presque parti)
+g = 0,95 :  n=10 → 0,60×  original  (encore fort)
+g = 1,00 :  n=10 → 1,0×   original  (sustain infini)
+g = 1,01 :  n=10 → 1,11×  original  (croissance — instable)
+```
+
+Le DJM-900 clamp g ≈ **0,95** et ajoute un waveshaper tanh dans la boucle. Résultat :
+1. Decay quasi-infini sans sustain réellement infini.
+2. Les transitoires forts ne déclenchent pas de croissance exponentielle.
+
+Sans protection, g > 1,0 sur un signal fort → croissance exponentielle → clipping numérique en quelques secondes.
+
+**Cas limite :** g = 1,0 exactement avec entrée silencieuse → sustain parfaitement infini (boucle gelée). Exposé délibérément dans la fonction "hold" des delays Strymon et le mode "sound-on-sound" du RE-201.
+"""
+image = "lesson-images/delay_feedback_stability.png"
+image_caption = "Coefficient de feedback vs longueur de queue : g=0,7, 0,85, 0,95, seuil d'instabilité à 1,0."
+
+[[fr.pages]]
+title   = "Tape delay : RE-201 et la physique de l'imperfection"
+content = """
+Le **Roland RE-201 Space Echo** (1974) enregistre sur une boucle de bande et relit par des têtes à positions fixes (~50, 100, 300 ms et combinaisons). Quatre mécanismes le séparent d'un delay numérique :
+
+**1. Perte HF par passage (LP dans la boucle de feedback)**
+La bande a une bande passante finie. Chaque passage atténue les aigus. Modélisé comme un LP un-pôle (fc ≈ 6–8 kHz) dans la boucle. Plus de répétitions = queue progressivement plus chaude.
+
+**2. Wow et flutter**
+Le moteur bande tourne à vitesse légèrement variable. Wow = modulation lente (0,1–1 Hz), flutter = plus rapide (5–15 Hz). DSP : D(t) = D₀ × (1 + depth × sin(2π·rate·t)). Chaque écho a un pitch légèrement différent — le "shimmer" des delays vintage.
+
+**3. Saturation de bande**
+Saturation magnétique soft-knee (≈ tanh). Signal fort → légère compression + harmoniques d'ordre pair. Même mécanisme que la chaleur du ladder Moog.
+
+**4. Head bump**
+Résonance de la tête d'enregistrement à ~60–80 Hz → léger boost de graves → "graisse" des échos RE-201.
+
+**Recette DSP pour une émulation RE-201 fidèle :** ring buffer + interpolation linéaire (rolloff HF voulu) + LP un-pôle dans la boucle + waveshaper tanh + LFO modulant le pointeur + EQ statique head-bump. C'est exactement ce que le Boss RE-20 et le Strymon Volante implémentent.
+"""
+
+[[fr.quiz]]
+question = "Dans un delay à ring buffer, qu'est-ce qui détermine le temps de delay ?"
+answers  = [
+  "La taille du buffer N",
+  "La distance D entre les pointeurs de lecture et d'écriture : D = fs × delayTime",
+  "Le taux d'échantillonnage seul"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi l'interpolation linéaire cause-t-elle une perte HF dans un delay à feedback ?"
+answers  = [
+  "Elle compresse le signal",
+  "Chaque lecture fractionnaire agit comme un passe-bas d'ordre 1, s'accumulant sur plusieurs répétitions",
+  "Elle change le taux d'échantillonnage"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "À quoi sert le soft-clip dans la boucle de feedback d'un delay DJ ?"
+answers  = [
+  "Pour ajouter de la distorsion aux échos",
+  "Pour empêcher la croissance exponentielle et le clipping numérique quand le feedback approche 1,0",
+  "Pour augmenter le temps de delay"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans le RE-201, le 'flutter' désigne :"
+answers  = [
+  "Variation de vitesse lente (0,1–1 Hz) du moteur",
+  "Variation de vitesse rapide (5–15 Hz) du moteur — causant un shimmer de pitch sur les échos",
+  "La résonance head bump"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "L'interpolation all-pass diffère de Hermite par :"
+answers  = [
+  "Une atténuation HF plus agressive",
+  "Une réponse en amplitude plate mais une distorsion de phase variable selon la fréquence",
+  "L'utilisation de plus de positions du buffer"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Implémentation de ligne à delay numérique — Julius O. Smith (CCRMA)"
+url   = "https://ccrma.stanford.edu/~jos/pasp/Delay_Lines.html"
+
+[[fr.sources]]
+label = "Lignes à delay interpolées — CCRMA"
+url   = "https://ccrma.stanford.edu/~jos/pasp/Interpolated_Delay_Lines.html"
+
+[[fr.sources]]
+label = "Roland RE-201 Space Echo — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Space_Echo"
+
+[[fr.sources]]
+label = "Modélisation de la saturation bande — Jatin Chowdhury (ChowDSP)"
+url   = "https://jatinchowdhury18.medium.com/tape-saturation-modelling-part-1-9905700bcef6"
+
+[[fr.sources]]
+label = "Interpolation all-pass pour delay variable — Laakso et al."
+url   = "https://ccrma.stanford.edu/~jos/pasp/Allpass_Interpolation.html"

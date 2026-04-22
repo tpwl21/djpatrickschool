@@ -1,0 +1,262 @@
+id = "LESSON_DIGGING_5_PRO"
+order = 5
+
+[en]
+title      = "Gig Crate Architecture — Schema Design, Graph Theory & Optimal Stopping"
+short_desc = "Crate-as-database, track selection as graph traversal, and the secretary problem applied to live sets."
+
+[[en.pages]]
+title   = "Crate preparation as database schema design"
+content = """
+A gig crate is a **write-once, read-many database**. Every organisational decision made at prep-time is an investment in retrieval speed at set-time. Good index design is what separates a DJ who can recover from chaos from one who drowns in it.
+
+**The three index axes:**
+
+**1. Energy index (primary):** 1–5 scale rated at first listen, stored in the Comments field of Rekordbox/Serato. This is your highest-cardinality index — it narrows a 400-track crate to a 50–80 track subset in one filter.
+
+**2. Moment index (secondary):** folder-level classification — Warmup, Peak, Afterpeak, Closing. These map to temporal position in a set, not energy level. An Afterpeak track may be energy 3, but it's specifically designed for the post-peak cooldown — its harmonic and textural properties are different from a generic energy-3 Main track.
+
+**3. Rescue category (tertiary):** colour-coded in Rekordbox (Red = oh-shit, Yellow = safety banger, Green = secret weapon). This is a sparse index — 5–10 tracks per colour is correct. More than 20 tracks in the Red folder means you don't understand what a rescue actually is.
+
+**The retrieval query you're optimising for:** "Given that track X is playing at phrase boundary in 64 beats, I need a track with energy ≥ 3, BPM within ±5 of X, and compatible Camelot key, findable in under 10 seconds." If your crate can't answer this query in under 10 seconds, your schema is under-indexed.
+
+**Rekordbox implementation:**
+- Use hierarchical playlist nesting: `Gig → 2024-06 → Peak → 128-132`
+- Use Smart Playlists for BPM + energy combinations (e.g. BPM 126–132 AND Comments contains "E4")
+- Export to USB: all metadata travels with the stick, identical on any Pioneer CDJ
+"""
+
+[[en.pages]]
+title   = "Track selection as graph traversal"
+content = """
+Each track in your crate is a **node** in a directed graph. Edges between nodes are weighted by **transition cost** — a composite of BPM distance, key distance, energy delta, and texture compatibility.
+
+**Transition cost function (informal):**
+
+```
+cost(A, B) = w₁ × |BPM_A - BPM_B| / BPM_A
+           + w₂ × camelot_distance(key_A, key_B)
+           + w₃ × |energy_A - energy_B|
+           + w₄ × texture_mismatch(A, B)
+```
+
+Where w₁–w₄ are weights you tune based on your style (a techno DJ weights BPM mismatch highest; a house DJ weights key mismatch highest).
+
+**A set is a path through this graph.** A good set = a path with consistently low edge weights (smooth transitions). A great set = a path that visits distant nodes (different energy levels, genre families) while keeping the micro-hops low-cost (each individual transition is clean).
+
+**This is a constrained Traveling Salesman Problem.** You have N must-play tracks (commitments to the promoter, crowd-pleasers, personal anchors), a time budget of T minutes, and you need to minimise total transition cost while visiting all must-plays. No algorithm solves this optimally in real-time — which is why human DJs who know their crate AND the room outperform any automated playlist.
+
+**Mixed In Key's Mashup** attempts to automate this graph traversal by BPM and key compatibility. It finds low-cost edges reliably. It fails at valence-matching and temporal set-arc design — the w₃ and w₄ terms are beyond current automated systems.
+"""
+
+[[en.pages]]
+title   = "The oh-shit folder — reliability vs excellence"
+content = """
+The oh-shit folder is a distinct concept from "best tracks" — and confusing them is a common error.
+
+**Excellence** = artistic peak. The track that took you 3 months to find, that perfectly expresses what you want to say at 4am. High personal value. Requires crowd preparation to land.
+
+**Reliability** = guaranteed floor response regardless of context. The track that works at 11pm and at 3am, in a half-empty room and a packed one, for techno kids and casual dancers. Lower personal value. No preparation required.
+
+**Criteria for a rescue track:**
+- **Immediate recognisability:** identifiable within 8 bars, triggering dopamine before the listener consciously processes the track
+- **Genre-adjacent:** close enough to the surrounding context that the rescue doesn't feel like a format reset (a Laurent Garnier track rescuing a techno set, not an ABBA track)
+- **Wide BPM window:** mixable from a ±8 BPM range without key lock artifacts — so it can follow almost anything
+- **Long intro:** minimum 32 beats of drums-only, ideally 64, so you can mix in from any current track regardless of where you are in the phrase
+
+**Building the oh-shit folder:** it takes years. You build it by noting which tracks rescued you in actual sets. The theoretical pick and the empirical pick often diverge. A track that seems like an obvious oh-shit candidate frequently fails to land because it requires the right crowd context. Trust your set history over your intuition.
+
+**Classic oh-shit anchors:** Laurent Garnier — "The Man With The Red Face" (for techno/house context); Kerri Chandler — "Bar A Thym" (for deeper house); Romanthony — "Let Me Show You Love" (for crossover moments). Yours will be different and will take time to discover.
+"""
+
+[[en.pages]]
+title   = "The secretary problem and optimal stopping in live sets"
+content = """
+The "perfect next track paradox" from LESSON_DIGGING_5 has a mathematical analogue: the **secretary problem** (also known as optimal stopping theory).
+
+**The formal setup:** you must select the best candidate from a sequence of N candidates presented one at a time. You cannot go back to a previously seen candidate. When do you stop and commit?
+
+**The classical solution:** observe the first ⌊N/e⌋ ≈ 37% of the sequence without committing (observation window), then commit to the first candidate that is better than all candidates seen so far in the observation window. This maximises the probability of selecting the best candidate — at ~37%.
+
+**Applied to a live set:** the first 30–40 minutes of a set are your **observation window**. You're reading the room, testing responses, calibrating. The tracks that land in the first 30 minutes tell you which direction to commit. After that, your commitment threshold should drop — if a track worked 15 minutes ago on a similar crowd moment, the track in your hand now has a reasonable prior.
+
+**The failure mode:** DJs who never leave the observation window (constantly searching for the perfect next track, never committing) produce hesitant, directionless sets. Conversely, DJs who commit too early and can't adapt produce rigid sets that fail when the room shifts.
+
+**Practical rule:**
+- First 20 minutes: test freely. Try unexpected picks. Observe response.
+- Minutes 20–40: identify the 3–4 qualities the room responds to. Commit to those axes.
+- Past 40 minutes: pre-plan 2 tracks ahead. The cognitive load of real-time selection is now freed for reading the room.
+
+**The complementary tool:** hot cues on your CDJs are a partial solution to the optimal stopping problem. By pre-marking cue points on 200 tracks before the gig, you reduce the cost of each "candidate inspection" from 30 seconds of scrubbing to 2 seconds of visual recognition. Lower inspection cost = you can assess more candidates in the same time window.
+"""
+
+[[en.quiz]]
+question = "In the crate-as-database metaphor, what does the energy index (1–5 in Comments field) achieve?"
+answers  = ["It makes tracks sound better", "It narrows a 400-track crate to 50–80 candidates in one filter — the primary index", "It syncs with CDJ pitch faders automatically", "It sets the volume level"]
+correct  = 1
+
+[[en.quiz]]
+question = "In graph traversal terms, what is a 'great' set vs a 'good' set?"
+answers  = ["Great = only low-cost edges (smooth). Good = some high-cost edges (rough).", "Great = visits distant nodes while keeping micro-hops low-cost. Good = consistently low edge weights.", "They're identical in graph terms.", "Great = more tracks per hour."]
+correct  = 1
+
+[[en.quiz]]
+question = "Why do reliability and excellence diverge in the oh-shit folder?"
+answers  = ["They don't — the best tracks are always the most reliable", "Excellence requires crowd preparation to land; reliability works regardless of context", "Reliable tracks are always lower quality", "Only old tracks are reliable"]
+correct  = 1
+
+[[en.quiz]]
+question = "In the secretary problem applied to a live set, what is the observation window equivalent?"
+answers  = ["The last 10 minutes of the set", "The first 30–40 minutes — where you read the room without fully committing", "The time between tracks", "The sound check before the set"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does pre-marking hot cues on all gig-crate tracks accomplish in optimal stopping terms?"
+answers  = ["It automatically selects the next track", "It reduces the cost of each candidate inspection from 30s to 2s — allowing more candidates to be assessed per unit time", "It locks the BPM to 128", "It prevents the DJ from making mistakes"]
+correct  = 1
+
+[[en.sources]]
+label = "Secretary problem — optimal stopping theory (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Secretary_problem"
+
+[[en.sources]]
+label = "Rekordbox — hot cues, colour tags, and smart playlists manual"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
+url   = "https://www.discogs.com/release/8839"
+
+[[en.sources]]
+label = "Mixed In Key — Mashup automated harmonic mixing"
+url   = "https://mixedinkey.com/mashup/"
+
+[fr]
+title      = "Architecture du Crate de Set — Schéma de BDD, Théorie des Graphes & Arrêt Optimal"
+short_desc = "Crate-comme-base-de-données, sélection de tracks comme traversée de graphe, et le problème de la secrétaire appliqué aux sets."
+
+[[fr.pages]]
+title   = "La préparation du crate comme design de schéma de base de données"
+content = """
+Un crate de set est une **base de données write-once, read-many**. Chaque décision d'organisation faite au moment de la préparation est un investissement en vitesse de récupération au moment du set. Un bon design d'index, c'est ce qui sépare le DJ capable de se remettre du chaos de celui qui se noie dedans.
+
+**Les trois axes d'indexation :**
+
+**1. Index d'énergie (primaire) :** échelle 1–5 notée à la première écoute, stockée dans le champ Comments de Rekordbox/Serato. C'est ton index à la plus haute cardinalité — il réduit un crate de 400 tracks à un sous-ensemble de 50–80 en un filtre.
+
+**2. Index de moment (secondaire) :** classification au niveau dossier — Warmup, Peak, Afterpeak, Closing. Ça se mappe sur la position temporelle dans un set, pas le niveau d'énergie. Une track Afterpeak peut être énergie 3, mais elle est spécifiquement conçue pour le refroidissement post-peak — ses propriétés harmoniques et texturales diffèrent d'une track Main générique à énergie 3.
+
+**3. Catégorie de sauvetage (tertiaire) :** code couleur dans Rekordbox (Rouge = oh-shit, Jaune = banger safe, Vert = arme secrète). C'est un index sparse — 5–10 tracks par couleur, c'est correct. Plus de 20 tracks dans le dossier Rouge signifie que tu n'as pas compris ce qu'est un sauvetage.
+
+**La requête de récupération pour laquelle tu optimises :** "Étant donné que la track X joue à une frontière de phrase dans 64 beats, j'ai besoin d'une track avec énergie ≥ 3, BPM dans ±5 de X, et clé Camelot compatible, trouvable en moins de 10 secondes." Si ton crate ne peut pas répondre à cette requête en moins de 10 secondes, ton schéma est sous-indexé.
+
+**Implémentation Rekordbox :**
+- Utilise le nesting de playlists hiérarchiques : `Gig → 2024-06 → Peak → 128-132`
+- Utilise les Smart Playlists pour les combos BPM + énergie (ex. BPM 126–132 ET Comments contient "E4")
+- Export sur USB : toutes les métadonnées voyagent avec la clé, identiques sur n'importe quel Pioneer CDJ
+"""
+
+[[fr.pages]]
+title   = "Sélection de tracks comme traversée de graphe"
+content = """
+Chaque track de ton crate est un **nœud** dans un graphe dirigé. Les arêtes entre nœuds sont pondérées par le **coût de transition** — un composite de distance BPM, distance de clé, delta d'énergie et compatibilité de texture.
+
+**Fonction de coût de transition (informelle) :**
+
+```
+coût(A, B) = p₁ × |BPM_A - BPM_B| / BPM_A
+           + p₂ × camelot_distance(clé_A, clé_B)
+           + p₃ × |énergie_A - énergie_B|
+           + p₄ × mismatch_texture(A, B)
+```
+
+Où p₁–p₄ sont des poids que tu calibres selon ton style (un DJ techno pondère le mismatch BPM au max ; un DJ house pondère le mismatch de clé au max).
+
+**Un set est un chemin dans ce graphe.** Un bon set = un chemin aux arêtes constamment faibles (transitions fluides). Un grand set = un chemin qui visite des nœuds distants (niveaux d'énergie différents, familles de genres) tout en gardant les micro-sauts à faible coût (chaque transition individuelle est propre).
+
+**C'est un Problème du Voyageur de Commerce sous contraintes.** Tu as N tracks must-play (engagements envers le promoteur, crowd-pleasers, ancres personnelles), un budget de T minutes, et tu dois minimiser le coût de transition total tout en visitant tous les must-plays. Aucun algorithme ne résout ça optimalement en temps réel — raison pour laquelle les DJs humains qui connaissent leur crate ET la salle surpassent n'importe quelle playlist automatisée.
+
+**Mashup de Mixed In Key** tente d'automatiser cette traversée de graphe par BPM et compatibilité de clé. Il trouve les arêtes à faible coût de façon fiable. Il échoue sur le matching de valence et le design d'arc temporel du set — les termes p₃ et p₄ sont au-delà des systèmes automatisés actuels.
+"""
+
+[[fr.pages]]
+title   = "Le dossier oh-shit — fiabilité vs excellence"
+content = """
+Le dossier oh-shit est un concept distinct de "meilleures tracks" — et les confondre est une erreur courante.
+
+**Excellence** = pic artistique. La track qui t'a pris 3 mois à trouver, qui exprime parfaitement ce que tu veux dire à 4h du matin. Haute valeur personnelle. Nécessite une préparation du public pour tomber.
+
+**Fiabilité** = réponse floor garantie quelle que soit le contexte. La track qui marche à 23h et à 3h, dans une salle à moitié vide comme dans une salle comble, pour des fanas de techno comme pour des danseurs occasionnels. Valeur personnelle moindre. Aucune préparation nécessaire.
+
+**Critères d'une track de sauvetage :**
+- **Reconnaissabilité immédiate :** identifiable en 8 mesures, déclenchant la dopamine avant que l'auditeur la traite consciemment
+- **Adjacent au genre :** suffisamment proche du contexte ambiant pour que le sauvetage ne ressemble pas à un reset de format (une track de Laurent Garnier sauvant un set techno, pas une track d'ABBA)
+- **Fenêtre BPM large :** mixable depuis un range de ±8 BPM sans artefacts key lock — pour qu'elle puisse suivre presque n'importe quoi
+- **Long intro :** minimum 32 beats de drums-only, idéalement 64, pour que tu puisses mixer en entrée depuis n'importe quelle track peu importe où tu en es dans la phrase
+
+**Construire le dossier oh-shit :** ça prend des années. Tu le construis en notant quelles tracks t'ont sauvé dans de vrais sets. Le pick théorique et le pick empirique divergent souvent. Une track qui semble un candidat évident oh-shit échoue fréquemment parce qu'elle nécessite le bon contexte de public. Fais confiance à ton historique de sets plutôt qu'à ton intuition.
+
+**Ancres oh-shit classiques :** Laurent Garnier — "The Man With The Red Face" (contexte techno/house) ; Kerri Chandler — "Bar A Thym" (house plus profonde) ; Romanthony — "Let Me Show You Love" (moments de crossover). Les tiennes seront différentes et prendront du temps à découvrir.
+"""
+
+[[fr.pages]]
+title   = "Le problème de la secrétaire et l'arrêt optimal en set"
+content = """
+Le "paradoxe de la track parfaite suivante" de LESSON_DIGGING_5 a un analogue mathématique : le **problème de la secrétaire** (aussi connu sous arrêt optimal).
+
+**La mise en place formelle :** tu dois sélectionner le meilleur candidat parmi une séquence de N candidats présentés un par un. Tu ne peux pas revenir à un candidat vu précédemment. Quand t'arrêter et t'engager ?
+
+**La solution classique :** observer les premiers ⌊N/e⌋ ≈ 37% de la séquence sans s'engager (fenêtre d'observation), puis s'engager sur le premier candidat meilleur que tous les candidats vus jusqu'alors dans cette fenêtre. Ça maximise la probabilité de sélectionner le meilleur candidat — à ~37%.
+
+**Appliqué à un set live :** les 30–40 premières minutes d'un set sont ta **fenêtre d'observation**. Tu lis la salle, testes les réponses, te calibres. Les tracks qui tombent dans les 30 premières minutes te disent dans quelle direction t'engager. Après ça, ton seuil d'engagement doit baisser — si une track a marché il y a 15 minutes sur un moment de public similaire, la track en main maintenant a un prior raisonnable.
+
+**Le mode d'échec :** les DJs qui ne quittent jamais la fenêtre d'observation (cherchant constamment la track parfaite suivante, ne s'engageant jamais) produisent des sets hésitants et sans direction. À l'inverse, les DJs qui s'engagent trop tôt et ne peuvent pas s'adapter produisent des sets rigides qui échouent quand la salle change.
+
+**Règle pratique :**
+- 20 premières minutes : teste librement. Essaie des picks inattendus. Observe la réponse.
+- Minutes 20–40 : identifie les 3–4 qualités auxquelles la salle répond. Engage-toi sur ces axes.
+- Après 40 minutes : planifie 2 tracks à l'avance. La charge cognitive de la sélection en temps réel est libérée pour lire la salle.
+
+**L'outil complémentaire :** les hot cues sur tes CDJs sont une solution partielle au problème d'arrêt optimal. En pré-marquant les cue points sur 200 tracks avant le gig, tu réduis le coût de chaque "inspection de candidat" de 30 secondes de scrubbing à 2 secondes de reconnaissance visuelle. Coût d'inspection plus faible = tu peux évaluer plus de candidats dans la même fenêtre de temps.
+"""
+
+[[fr.quiz]]
+question = "Dans la métaphore crate-comme-base-de-données, que fait l'index d'énergie (1–5 dans le champ Comments) ?"
+answers  = ["Ça fait sonner les tracks mieux", "Ça réduit un crate de 400 tracks à 50–80 candidats en un filtre — l'index primaire", "Ça se synchronise automatiquement avec les faders de pitch des CDJ", "Ça règle le niveau de volume"]
+correct  = 1
+
+[[fr.quiz]]
+question = "En termes de traversée de graphe, quelle est la différence entre un 'grand' set et un 'bon' set ?"
+answers  = ["Grand = seulement des arêtes à faible coût (fluide). Bon = quelques arêtes à fort coût (rugueux).", "Grand = visite des nœuds distants tout en gardant les micro-sauts à faible coût. Bon = arêtes constamment faibles.", "Ils sont identiques en termes de graphe.", "Grand = plus de tracks par heure."]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi fiabilité et excellence divergent-elles dans le dossier oh-shit ?"
+answers  = ["Elles ne divergent pas — les meilleures tracks sont toujours les plus fiables", "L'excellence nécessite une préparation du public pour tomber ; la fiabilité marche quel que soit le contexte", "Les tracks fiables sont toujours de moindre qualité", "Seules les vieilles tracks sont fiables"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans le problème de la secrétaire appliqué à un set live, qu'est-ce qui correspond à la fenêtre d'observation ?"
+answers  = ["Les 10 dernières minutes du set", "Les 30–40 premières minutes — où tu lis la salle sans t'engager complètement", "Le temps entre les tracks", "Le soundcheck avant le set"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que fait le pré-marquage des hot cues sur toutes les tracks du crate en termes d'arrêt optimal ?"
+answers  = ["Ça sélectionne automatiquement la prochaine track", "Ça réduit le coût de chaque inspection de candidat de 30s à 2s — permettant d'évaluer plus de candidats par unité de temps", "Ça verrouille le BPM à 128", "Ça empêche le DJ de faire des erreurs"]
+correct  = 1
+
+[[fr.sources]]
+label = "Problème de la secrétaire — théorie de l'arrêt optimal (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Secretary_problem"
+
+[[fr.sources]]
+label = "Rekordbox — hot cues, tags couleur et smart playlists"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
+url   = "https://www.discogs.com/release/8839"
+
+[[fr.sources]]
+label = "Mixed In Key — Mashup mix harmonique automatisé"
+url   = "https://mixedinkey.com/mashup/"

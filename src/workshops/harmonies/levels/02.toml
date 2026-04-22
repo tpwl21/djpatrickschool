@@ -1,0 +1,102 @@
+id = "HARMONIES_LEVEL_2"
+order = 2
+
+[en]
+title       = "Same-Key, Different BPM"
+short_desc  = "Same key but BPM mismatch. Pitch, then discover Master Tempo."
+description = "Track A is in <b>Fm</b> at 122 BPM. The playlist has one Fm track at a different BPM. Load it, sync the BPMs by pitching — and watch the key drift. Then flip the MASTER TEMPO switch to lock the key back."
+details     = "Validation: BPMs synced · MASTER TEMPO ON · effective key matches A."
+success     = "Key-locked and tempo-matched. That's how CDJs mix long."
+coach_tips  = [
+  "Use the PITCH fader or SYNC button to align Deck B's BPM with A (122).",
+  "Without Master Tempo, pitching B will push its key off Fm. The HUD shows the drift in cents.",
+  "Flip the MASTER TEMPO switch — the key locks back to Fm while the BPM stays synced."
+]
+recap = [
+  "Pitching changes BPM AND key — they're coupled on traditional gear.",
+  "Master Tempo (key-lock) decouples them: tempo moves, pitch stays.",
+  "Without key-lock, a +5% pitch drifts about a semitone off key.",
+  "Always turn Master Tempo ON when mixing two tracks of different BPMs in the same key."
+]
+
+[fr]
+title       = "Même clé, BPM différent"
+short_desc  = "Même clé mais BPM décalé. Pitche, puis découvre le Master Tempo."
+description = "Track A est en <b>Fm</b> à 122 BPM. La playlist contient un morceau en Fm à un BPM différent. Charge-le, synchronise en pitchant — et regarde la clé dériver. Puis active MASTER TEMPO pour la reverrouiller."
+details     = "Validation : BPM sync · MASTER TEMPO ON · clé effective = Fm."
+success     = "Clé verrouillée, BPM matché. C'est comme ça que les CDJ mixent long."
+coach_tips  = [
+  "Utilise le fader PITCH ou le bouton SYNC pour aligner le BPM de B sur A (122).",
+  "Sans Master Tempo, pitcher B fait glisser sa clé hors de Fm. Le HUD affiche la dérive en cents.",
+  "Active l'interrupteur MASTER TEMPO — la clé revient à Fm, le BPM reste calé."
+]
+recap = [
+  "Pitcher change le BPM ET la clé — ils sont couplés sur le matériel traditionnel.",
+  "Le Master Tempo (key-lock) les découple : le tempo bouge, la hauteur reste.",
+  "Sans key-lock, un pitch +5% fait dériver d'environ un demi-ton.",
+  "Active toujours le Master Tempo pour mixer deux morceaux de BPM différents en même clé."
+]
+
+[track.A]
+url = "AUDIO/Trip.mp3"
+bpm = 122
+title = "Trip"
+key = "4A"
+complexity = 3
+
+[ui]
+mode = "same_key_master_tempo"
+key_format = "musical"
+show_wheel = false
+show_pitch = true
+show_master_tempo = true
+hold_match_sec = 2.0
+
+[[pool]]
+url = "AUDIO/Ensaios.mp3"
+title = "Ensaios"
+bpm = 130
+key = "4A"
+genre = "techno"
+
+[[pool]]
+url = "AUDIO/Tech.mp3"
+title = "Tech"
+bpm = 120
+key = "9A"
+genre = "tech house"
+
+[[pool]]
+url = "AUDIO/SuperMarket.mp3"
+title = "Market"
+bpm = 128
+key = "11B"
+genre = "peak techno"
+
+[[pool]]
+url = "AUDIO/SCIFI.mp3"
+title = "SciFi"
+bpm = 125
+key = "2A"
+genre = "electro"
+
+[[pool]]
+url = "AUDIO/Fulgulandio.mp3"
+title = "Fulgulandio"
+bpm = 132
+key = "8A"
+genre = "hard techno"
+
+[[pool]]
+url = "AUDIO/Bjork.mp3"
+title = "Bjork"
+bpm = 100
+key = "7A"
+genre = "downtempo"
+
+[[pool]]
+url = "AUDIO/Funkasteroid.mp3"
+title = "Funkasteroid"
+bpm = 118
+key = "12A"
+genre = "funk"

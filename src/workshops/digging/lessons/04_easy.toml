@@ -1,0 +1,162 @@
+id = "LESSON_DIGGING_4_EASY"
+order = 4
+
+[en]
+title      = "Energy — The Invisible Thread"
+short_desc = "Matching BPM is the floor. Energy is what the crowd actually feels."
+
+[[en.pages]]
+title   = "Two tracks can match and still clash"
+content = """
+Here's something that surprises a lot of beginners: **two tracks can have the same BPM and the same key, and still sound wrong together.**
+
+How? Because of **energy**.
+
+Imagine two people at a party. One is dancing hard and sweating. The other just walked in, relaxed, barely moving. You can put them in the same room — but the vibe is off.
+
+That's exactly what happens when you play a frantic, dense peak-time techno track after a slow, floaty ambient one. Technically correct. Socially wrong.
+
+**BPM and key = no clash guaranteed.**
+**Energy = whether it actually *works*.**
+"""
+
+[[en.pages]]
+title   = "What energy actually means"
+content = """
+Energy is made of two things: **direction** and **intensity**.
+
+**Direction:** is the energy going up, holding steady, or coming down?
+- A build track: rising energy
+- A banger at full force: holding energy high
+- An outro: falling energy
+
+**Intensity:** how much power does the track have? (think of a 1–5 scale)
+- 1 = quiet, sparse, barely there
+- 3 = groovy, solid, dancefloor-ready
+- 5 = full-on, overwhelming, every element at max
+
+**The rule:** when you pick your next track, match the energy direction and intensity to where you want the set to go. Going up? Pick something with rising intensity. Holding? Same level. Coming down? Drop one or two notches.
+
+**Simple exercise:** rate your 10 favorite tracks on the 1–5 scale. Which ones are 1s? Which are 5s? You've just mapped your energy palette.
+"""
+
+[[en.pages]]
+title   = "Changing vibe without changing BPM"
+content = """
+Here's a powerful trick: **you can completely flip the vibe without touching the BPM**.
+
+Example: both tracks at 128 BPM.
+- Track A: minimal techno — just a kick, a high-hat, and a dry bassline. Dark, hypnotic, 3 out of 5 energy.
+- Track B: deep house — warm chords, a vocal sample, lush reverb. Euphoric, emotional, 3 out of 5 energy.
+
+Same BPM. Same energy level. Totally different *feel*. Mixed well, this transition surprises the crowd in a good way — the tempo doesn't change, but the room suddenly feels warmer.
+
+**Two separate dials you control:**
+1. BPM dial — how fast
+2. Vibe dial — the emotion, the texture, the density
+
+Most beginners only turn the BPM dial. Great DJs turn both.
+"""
+
+[[en.quiz]]
+question = "Two tracks have the same BPM and key. Does that guarantee a good mix?"
+answers  = ["Yes — same BPM and key = perfect", "No — they also need compatible energy and vibe", "Yes, as long as the BPM matches, nothing else matters"]
+correct  = 1
+
+[[en.quiz]]
+question = "You're at the peak of your set (energy 4/5). What energy level should your next track have?"
+answers  = ["1/5 — sudden drop always works", "4–5/5 — sustain or push higher", "3/5 — always bring it down in the middle"]
+correct  = 1
+
+[[en.quiz]]
+question = "You want to change the vibe (dark → warm) without changing the BPM. Is that possible?"
+answers  = ["No — changing vibe always requires a BPM change", "Yes — vibe and BPM are independent dials", "Only if you use special effects"]
+correct  = 1
+
+[[en.sources]]
+label = "RA — Understanding set energy and flow"
+url   = "https://ra.co/features/3890"
+
+[[en.sources]]
+label = "Rekordbox — add energy notes to your tracks in Comments field"
+url   = "https://rekordbox.com/en/plan/free/"
+
+[fr]
+title      = "L'énergie — Le fil invisible"
+short_desc = "Matcher le BPM c'est le plancher. L'énergie, c'est ce que le public ressent vraiment."
+
+[[fr.pages]]
+title   = "Deux tracks peuvent matcher et quand même clasher"
+content = """
+Voilà quelque chose qui surprend beaucoup de débutants : **deux tracks peuvent avoir le même BPM et la même clé, et quand même sonner faux ensemble.**
+
+Comment ? À cause de l'**énergie**.
+
+Imagine deux personnes à une fête. L'une danse à fond, transpire. L'autre vient d'arriver, détendue, à peine en mouvement. Tu peux les mettre dans la même pièce — mais la vibe est décalée.
+
+C'est exactement ce qui se passe quand tu joues une techno frénétique et dense juste après un morceau ambient lent et flottant. Techniquement correct. Socialement faux.
+
+**BPM et clé = garantie de pas de clash.**
+**Énergie = si ça *marche* vraiment.**
+"""
+
+[[fr.pages]]
+title   = "Ce que l'énergie veut vraiment dire"
+content = """
+L'énergie se compose de deux choses : la **direction** et l'**intensité**.
+
+**Direction :** l'énergie monte, tient, ou descend ?
+- Une track de build : énergie montante
+- Un banger à pleine puissance : énergie tenue haute
+- Un outro : énergie descendante
+
+**Intensité :** quelle puissance a la track ? (pense à une échelle de 1 à 5)
+- 1 = calme, épuré, à peine présent
+- 3 = groovy, solide, dancefloor-ready
+- 5 = à fond, écrasant, chaque élément au max
+
+**La règle :** quand tu choisis ta prochaine track, fais correspondre direction et intensité à l'endroit où tu veux emmener le set. Tu montes ? Choisis quelque chose avec une intensité croissante. Tu tiens ? Même niveau. Tu descends ? Baisse d'un ou deux crans.
+
+**Exercice simple :** note tes 10 tracks préférées sur l'échelle 1–5. Lesquelles sont des 1 ? Des 5 ? Tu viens de cartographier ta palette d'énergie.
+"""
+
+[[fr.pages]]
+title   = "Changer la vibe sans changer le BPM"
+content = """
+Voilà une astuce puissante : **tu peux complètement retourner la vibe sans toucher au BPM**.
+
+Exemple : les deux tracks à 128 BPM.
+- Track A : techno minimale — juste un kick, un hi-hat, une bassline sèche. Sombre, hypnotique, énergie 3/5.
+- Track B : deep house — accords chauds, sample vocal, reverb lush. Euphorique, émotionnelle, énergie 3/5.
+
+Même BPM. Même niveau d'énergie. Feel totalement différent. Bien mixé, cette transition surprend le public dans le bon sens — le tempo ne change pas, mais la salle devient soudainement plus chaude.
+
+**Deux boutons séparés que tu contrôles :**
+1. Le bouton BPM — la vitesse
+2. Le bouton vibe — l'émotion, la texture, la densité
+
+La plupart des débutants ne tournent que le bouton BPM. Les grands DJs tournent les deux.
+"""
+
+[[fr.quiz]]
+question = "Deux tracks ont le même BPM et la même clé. Est-ce que ça garantit un bon mix ?"
+answers  = ["Oui — même BPM et clé = parfait", "Non — elles ont aussi besoin d'une énergie et d'une vibe compatibles", "Oui, du moment que le BPM matche, rien d'autre n'a d'importance"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu es au pic de ton set (énergie 4/5). Quel niveau d'énergie doit avoir ta prochaine track ?"
+answers  = ["1/5 — la chute brutale marche toujours", "4–5/5 — tenir ou pousser encore plus haut", "3/5 — toujours redescendre au milieu"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu veux changer la vibe (sombre → chaud) sans changer le BPM. C'est possible ?"
+answers  = ["Non — changer la vibe demande toujours un changement de BPM", "Oui — vibe et BPM sont deux boutons indépendants", "Seulement si tu utilises des effets spéciaux"]
+correct  = 1
+
+[[fr.sources]]
+label = "RA — Comprendre l'énergie et le flow d'un set"
+url   = "https://ra.co/features/3890"
+
+[[fr.sources]]
+label = "Rekordbox — ajouter des notes d'énergie dans le champ Comments"
+url   = "https://rekordbox.com/en/plan/free/"

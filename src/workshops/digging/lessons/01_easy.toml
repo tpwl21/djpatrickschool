@@ -1,0 +1,240 @@
+id = "LESSON_DIGGING_1_EASY"
+order = 1
+
+[en]
+title      = "What Is Digging? — Hands-On"
+short_desc = "Open Discogs right now. Your first 10 tracks start here."
+
+[[en.pages]]
+title   = "Your mission: find 10 tracks nobody plays"
+content = """
+Digging is simple: you hunt for tracks that nobody else in your scene has.
+
+**Why does that matter?** Because if you play the same Beatport Top 100 as every DJ at the party, nobody notices you. But when the room asks "what is THAT?" — that's your crate talking.
+
+Here's how it works in practice:
+
+1. Open **discogs.com** (free account, 2 minutes to sign up).
+2. Go to the Advanced Search.
+3. Pick a genre you like — let's say **Electronic, Style: Deep House**.
+4. Set Year range: **1995–2005**.
+5. Filter Format: **12"** (the DJ format).
+6. Hit search. You'll get hundreds of results.
+7. Click a cover that looks interesting. Listen to the preview. If it makes you curious — **Wantlist it**.
+
+Do this for 20 minutes. You'll Wantlist 10 things. That's your first crate.
+"""
+youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
+youtube_caption = "Theo Parrish — live set. Every track here came from hours of digging."
+
+[[en.pages]]
+title   = "Exercise: your first Discogs search"
+content = """
+Let's make this concrete. Follow these exact steps **right now**:
+
+**Step 1 — Create a free Discogs account** at discogs.com/register.
+
+**Step 2 — Go to Advanced Search** (top bar → "Search" → "Advanced").
+
+**Step 3 — Set these filters:**
+- Genre: Electronic
+- Style: (pick one: Deep House / Techno / Funk / Soul — your call)
+- Year: 1993–2003
+- Format: 12"
+- Country: (try US or Germany for starters)
+
+**Step 4 — Hit search. You should see 200–2000 results.** Scroll through covers for 10 minutes. Don't think too hard — if a sleeve catches your eye, click it.
+
+**Step 5 — Listen to any preview clips available.** Look at the tracklist. If the release has a "Club Mix" or "Dub" version — that's a good sign for DJs.
+
+**Step 6 — Add 5–10 items to your Wantlist.** This is your first crate.
+
+Congratulations. You've just done what DJs spend hours doing.
+"""
+
+[[en.pages]]
+title   = "What makes a track worth keeping?"
+content = """
+Not every track you find is worth keeping. Here's a quick filter:
+
+**Keep it if:**
+- The intro is 16+ beats of just drums/bass (easy to mix in)
+- The outro is the same (easy to mix out)
+- There's a clear "drop" or moment where the energy changes
+- You'd stop whatever you're doing to listen to it
+
+**Skip it if:**
+- It starts with vocals immediately (hard to mix)
+- It's under 5 minutes (not enough room to work with)
+- You feel "meh" — your gut knows
+
+**Practical tip:** When you find a track you love on Discogs, **click the label name**. Labels have aesthetics — if one track from a label is great, there are probably 10 more. Browse the full label catalog.
+
+Try it: find one track you like, click its label, and browse 20 more releases from that same label.
+"""
+
+[[en.pages]]
+title   = "BPM basics for digging"
+content = """
+When you're digging, you're building a collection for a specific kind of set. BPM matters — not to be exact, but to filter.
+
+**Simple rule:** if you play around 125–130 BPM, look for tracks between **120 and 135 BPM**. That gives you room to pitch things together without sounding weird.
+
+Discogs doesn't always show BPM. Here's what to do:
+- Check if the tracklist mentions BPM
+- Look at the Style tag: Techno is usually 130–145, Deep House 120–128, Funk/Soul 90–115
+- When in doubt, add it to your Wantlist and check the BPM in a DJ app later
+
+**Your action:** on your Discogs Wantlist from the previous exercise, write down what genre each track is. This tells you roughly where it lives BPM-wise.
+"""
+
+[[en.quiz]]
+question = "You find a track with an immediate vocal intro. What should you do?"
+answers  = ["Keep it — vocals are always good", "Skip it — hard to mix in", "Buy it immediately"]
+correct  = 1
+
+[[en.quiz]]
+question = "You love a track from label 'XYZ Records'. What's your next move?"
+answers  = ["Search randomly for more music", "Browse the full XYZ Records catalog on Discogs", "Buy all tracks by that artist only"]
+correct  = 1
+
+[[en.quiz]]
+question = "Your set is around 128 BPM. What's the safe range to dig in?"
+answers  = ["Exactly 128 BPM only", "120–135 BPM", "Any BPM — pitch fixes everything"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does adding a release to your Discogs Wantlist do?"
+answers  = ["Buys it automatically", "Notifies you when it's available in the Marketplace", "Sends it to your DJ software"]
+correct  = 1
+
+[[en.sources]]
+label = "Discogs — Advanced Search"
+url   = "https://www.discogs.com/search/?type=release&format_desc=12%22"
+
+[[en.sources]]
+label = "Discogs — How to use the Wantlist"
+url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
+
+[[en.sources]]
+label = "RA — The art of digging (beginner guide)"
+url   = "https://ra.co/features/3890"
+
+[fr]
+title      = "C'est quoi le digging ? — Pratique"
+short_desc = "Ouvre Discogs maintenant. Tes 10 premières tracks commencent ici."
+
+[[fr.pages]]
+title   = "Ta mission : trouver 10 tracks que personne ne joue"
+content = """
+Le digging, c'est simple : tu chasses des tracks que personne d'autre dans ta scène ne possède.
+
+**Pourquoi c'est important ?** Parce que si tu joues le même Top 100 Beatport que tous les DJs de la soirée, personne ne te remarque. Mais quand la salle demande "c'est quoi ÇA ?" — c'est ton crate qui parle.
+
+Voilà comment ça marche en pratique :
+
+1. Ouvre **discogs.com** (compte gratuit, 2 minutes pour s'inscrire).
+2. Va dans la Recherche Avancée.
+3. Choisis un genre que tu aimes — disons **Electronic, Style: Deep House**.
+4. Plage d'années : **1995–2005**.
+5. Format : **12"** (le format DJ).
+6. Lance la recherche. Tu vas avoir des centaines de résultats.
+7. Clique sur une pochette qui t'attire. Écoute le preview. Si ça t'intrigue — **Wantlist**.
+
+Fais ça 20 minutes. Tu vas Wantlister 10 trucs. C'est ton premier crate.
+"""
+youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
+youtube_caption = "Theo Parrish — live set. Chaque track vient de dizaines d'heures de dig."
+
+[[fr.pages]]
+title   = "Exercice : ta première recherche Discogs"
+content = """
+Concrètement. Suis ces étapes exactes **maintenant** :
+
+**Étape 1 — Crée un compte Discogs gratuit** sur discogs.com/register.
+
+**Étape 2 — Va dans la Recherche Avancée** (barre du haut → "Search" → "Advanced").
+
+**Étape 3 — Configure ces filtres :**
+- Genre : Electronic
+- Style : (choisis : Deep House / Techno / Funk / Soul — comme tu veux)
+- Year : 1993–2003
+- Format : 12"
+- Country : (essaie US ou Germany pour commencer)
+
+**Étape 4 — Lance la recherche. Tu devrais voir 200–2000 résultats.** Scrolle les pochettes pendant 10 minutes. Ne réfléchis pas trop — si une pochette t'accroche l'œil, clique dessus.
+
+**Étape 5 — Écoute les previews disponibles.** Regarde la tracklist. Si la release a un "Club Mix" ou un "Dub" — c'est bon signe pour un DJ.
+
+**Étape 6 — Ajoute 5–10 items à ta Wantlist.** C'est ton premier crate.
+
+Félicitations. Tu viens de faire ce que les DJs passent des heures à faire.
+"""
+
+[[fr.pages]]
+title   = "Ce qui mérite d'être gardé"
+content = """
+Toutes les tracks que tu trouves ne méritent pas de rester. Voici un filtre rapide :
+
+**Garde si :**
+- L'intro est 16+ beats de juste drums/basse (facile à mixer en entrée)
+- L'outro pareil (facile à sortir)
+- Il y a un "drop" clair ou un moment où l'énergie change
+- Tu t'arrêterais de faire quoi que ce soit pour écouter
+
+**Skip si :**
+- Ça commence avec des vocaux immédiats (dur à mixer)
+- Ça dure moins de 5 minutes (pas assez de place pour travailler)
+- Tu ressens un "bof" — ton instinct sait
+
+**Astuce pratique :** quand tu trouves une track que tu aimes sur Discogs, **clique le nom du label**. Les labels ont une esthétique — si une track d'un label est bien, il y en a probablement 10 de plus. Browse tout le catalogue du label.
+
+Essaie : trouve une track que tu aimes, clique son label, et browse 20 autres releases du même label.
+"""
+
+[[fr.pages]]
+title   = "BPM de base pour le digging"
+content = """
+Quand tu digges, tu construis une collection pour un certain type de set. Le BPM compte — pas pour être exact, mais pour filtrer.
+
+**Règle simple :** si tu joues autour de 125–130 BPM, cherche des tracks entre **120 et 135 BPM**. Ça te donne de la marge pour pitcher ensemble sans que ça sonne bizarre.
+
+Discogs n'affiche pas toujours le BPM. Voilà quoi faire :
+- Vérifie si la tracklist mentionne le BPM
+- Regarde le tag Style : Techno c'est en général 130–145, Deep House 120–128, Funk/Soul 90–115
+- Si tu as un doute, ajoute à ta Wantlist et vérifie le BPM dans une appli DJ plus tard
+
+**Ton action :** sur ta Wantlist Discogs de l'exercice précédent, note le genre de chaque track. Ça te dit à peu près où elle se situe en BPM.
+"""
+
+[[fr.quiz]]
+question = "Tu trouves une track avec des vocaux qui commencent immédiatement. Que fais-tu ?"
+answers  = ["Tu la gardes — les vocaux c'est toujours bien", "Tu la skippes — dur à mixer en entrée", "Tu l'achètes immédiatement"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu adores une track du label 'XYZ Records'. C'est quoi ton prochain move ?"
+answers  = ["Chercher aléatoirement d'autres musiques", "Browserd tout le catalogue XYZ Records sur Discogs", "N'acheter que des tracks de cet artiste"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Ton set tourne autour de 128 BPM. Quel est le range safe pour digger ?"
+answers  = ["Exactement 128 BPM seulement", "120–135 BPM", "N'importe quel BPM — le pitch arrange tout"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Qu'est-ce qu'ajouter une release à ta Wantlist Discogs fait ?"
+answers  = ["L'achète automatiquement", "Te notifie quand elle est disponible sur la Marketplace", "L'envoie dans ton logiciel DJ"]
+correct  = 1
+
+[[fr.sources]]
+label = "Discogs — Recherche Avancée"
+url   = "https://www.discogs.com/search/?type=release&format_desc=12%22"
+
+[[fr.sources]]
+label = "Discogs — Comment utiliser la Wantlist"
+url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
+
+[[fr.sources]]
+label = "RA — L'art du digging (guide débutant)"
+url   = "https://ra.co/features/3890"

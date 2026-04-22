@@ -1,0 +1,304 @@
+id = "LESSON_DIGGING_6_PRO"
+order = 6
+
+[en]
+title      = "Discogs — Database Architecture, Market Distortion & Archival Blind Spots"
+short_desc = "Community bias, speculative markets, Popsike cross-checking, and the archives Discogs doesn't cover."
+
+[[en.pages]]
+title   = "Discogs as a community-curated database — structural properties"
+content = """
+Discogs is not a neutral archive. It is a **community-curated database**, which means its coverage, accuracy, and depth are functions of its contributor demographics. Understanding the structural properties of that dataset is essential for using it effectively as a research tool.
+
+**Coverage patterns:**
+
+| Category | Coverage quality |
+|---|---|
+| US/UK electronic music 1985–2005 | Excellent — dense contributor base, multiple cross-verifications |
+| German techno 1988–2005 | Excellent — dedicated label collectors, comprehensive |
+| French house 1993–2003 | Very good |
+| Japanese city-pop / jazz-funk 1975–1990 | Improving since 2018 reissue wave, but gaps remain |
+| Pre-2000 African popular music (highlife, afrobeat, mbalax) | Sparse — major releases documented, regional/local pressing largely absent |
+| South Asian / Middle Eastern popular music pre-1990 | Very sparse |
+| Post-2010 Bandcamp-only digital | Often entirely absent |
+| Regional distribution-only releases (no international barcode) | Largely absent |
+
+**Implication for diggers:** "absent from Discogs" is not a data-backed signal. It's an artefact of who contributes to Discogs. A record can be historically significant, widely collected in its home market, and completely absent from the Discogs database.
+
+**The verification problem:** Discogs entries are user-created and user-moderated. For major releases, multiple users verify each other's data. For obscure pressings, a single user's entry may contain errors (incorrect year, wrong matrix number, misattributed label) that persist unchallenged. Always cross-reference critical metadata against physical evidence (matrix scratching, label typography, catalogue number conventions) before treating a Discogs entry as authoritative.
+"""
+
+[[en.pages]]
+title   = "The Marketplace as a price engine — speculative distortion"
+content = """
+The Discogs Marketplace is a secondary-market price aggregator, and like all such systems it exhibits **speculative distortion**. Understanding the distortion mechanisms protects you as a buyer and informs your research.
+
+**Distortion mechanism 1 — DJ mention spike:**
+A single DJ playing a track in a high-visibility Boiler Room or RA podcast set can cause a 200–400% price spike on Discogs Marketplace within 24–48 hours. The causal chain: DJ plays track → clip goes viral on social media → hundreds of people simultaneously search → bots and fast human sellers list at inflated prices → "Last Sold" chart shows the spike → late buyers pay the inflated price treating it as market rate.
+
+**Distortion mechanism 2 — Reissue collapse:**
+When a label licenses a rare record for reissue (common practice since 2015 with the vinyl revival), the original pressing's speculative price collapses within weeks of announcement. Buying an original pressing at peak speculative price, then having a reissue announced the following month, is a loss with no musical upside. Always check if a reissue exists or is in production before paying above €50 for anything.
+
+**Cross-checking tools:**
+- **Popsike** (popsike.com): aggregates auction results from eBay, Discogs Marketplace, and other platforms. Shows the 2-year price history as a chart — speculative spikes are visible as sudden vertical jumps. A record with a stable Popsike curve at €30 that now lists at €120 on Discogs = speculation. A record with a gradual upward curve = genuine appreciation.
+- **eBay Sold Listings:** filter by "Sold items only". Shows what the market actually cleared, not asking prices.
+- **Physical shop prices:** the price a specialist physical shop charges is usually the most reliable fair-market value — shops don't buy at inflated prices and typically have enough domain knowledge to resist speculation.
+
+**The Popularity metric as rarity signal:**
+The "Discogs Popularity" (how many users have a release in their collection) is a better rarity signal than price. A release with 12 copies in collections and a €200 price is genuinely rare. A release with 800 copies in collections and a €200 price is speculatively inflated — 800 collectors have it, meaning supply exists, meaning the price is a momentary distortion.
+"""
+
+[[en.pages]]
+title   = "The reverse-engineering research flow"
+content = """
+The advanced Discogs research methodology starts from a sonic description and triangulates toward a specific release.
+
+**The full reverse-engineering stack:**
+
+**Step 1 — Sonic identification (before Discogs):**
+- Shazam / SoundHound — catches ~60% of identifiable releases. Fails on: white labels, bootlegs, unreleased dubs, pre-digital recordings digitised without metadata.
+- **WhoSampled** — if you recognise a sample, traces both the sample source and all tracks that sample it. Extremely useful for hip-hop and soul digging.
+- **NoteMyMe / Moises** — hum or sing the melody; rough pitch/key estimate. Feeds into Discogs filter.
+
+**Step 2 — Discogs filter construction:**
+Combine all sonic clues into a filter stack:
+- Genre + Style (from sonic character)
+- Year range (from production aesthetics — e.g. "those 909 snare sounds and that specific reverb = 1989–1993")
+- Country (from label conventions, language of any vocals)
+- Format: 12" (DJ context) or LP (album track)
+- BPM-adjacent year: certain BPM ranges are genre-historically concentrated in specific windows
+
+**Step 3 — Visual confirmation:**
+Scroll covers. Certain eras have visual signatures (Chicago house 1987 = DIY Xerox sleeves; Berlin techno 1992 = monochrome industrial; French house 1999 = chrome/metallic aesthetics). If a cover from your sonic era looks right → click → examine tracklist for version names that match your memory.
+
+**Step 4 — Label deep-dive:**
+Found a candidate release? Click the label. Browse 20 releases adjacent in catalog number (e.g. if the release is PHK-007, look at PHK-001 through PHK-015). Labels sequence releases chronologically — adjacent catalog numbers are same era, same sound.
+
+**Step 5 — Matrix research (advanced):**
+For vinyl: the **matrix number** (scratched into the dead wax by the cutting engineer) identifies the specific pressing plant, year, and pressing engineer. Discogs entries include this under "Identifiers". Matrix codes decode the manufacturing history and can confirm that a listing is a first pressing vs. a later repress.
+"""
+
+[[en.pages]]
+title   = "Archives Discogs doesn't reach — complementary resources"
+content = """
+A research-grade digger uses Discogs as one node in a multi-archive research network, not as the sole source.
+
+**African popular music (pre-2000):**
+- **Awesome Tapes From Africa** (awesometapes.com): Ghana, Ethiopia, Senegal, Nigeria cassette-tape archives. Label catalog available for licensing inquiries.
+- **Analog Africa** (analogafrica.com): West and Central African highlife, afrobeat, funk compilations. Rigorous liner notes with historical provenance.
+- **Ostinato Records** (ostinatorecords.com): Horn of Africa (Somalia, Djibouti, Eritrea), Gulf (Bahrain, Yemen). Documents music largely absent from any Western database.
+- **Syliphone / Bolibana:** Guinea's state labels (1960s–1980s). Minimal Discogs coverage; specialist shops in West Africa and Paris are the primary market.
+
+**Japanese music:**
+- **Music From Memory** (musicfrommemory.com): Dutch label specialising in Japanese ambient, new age, city-pop excavation. Their liner notes are primary research documents.
+- **Light In The Attic** (lightintheattic.net): *Japan Archives* series — comprehensive, licensed, academically rigorous.
+
+**Folk, traditional, and regional:**
+- **Smithsonian Folkways** (folkways.si.edu): ethnomusicological recordings from every country. Full catalog with metadata.
+- **Global Jukebox / Cantometrics:** Alan Lomax's archive, now digitised.
+
+**Bandcamp for the contemporary gap:**
+Post-2010 self-released digital rarely has a Discogs entry. Bandcamp search by genre + location + year works as a discovery surface. The advantage: you buy directly from the artist, removing the re-sale layer entirely.
+
+**The research posture:** use each archive for its strength. Discogs for electronic/rock/hip-hop deep-dives. Analog Africa / Ostinato / Awesome Tapes for African music. Music From Memory / Light In The Attic for Japanese. Bandcamp for contemporary. Popsike/eBay for price validation. No single archive covers everything — the expert digger triangulates across all of them.
+"""
+
+[[en.quiz]]
+question = "A record has 800 copies in Discogs collections and a €200 Marketplace price. A second record has 12 copies in collections and €200. Which is more genuinely rare?"
+answers  = ["The first one — higher collection count means more demand", "The second one — 12 copies in collections means very few people have it; 800 copies means supply exists and the price is likely speculative", "They're equally rare — price is the only rarity signal", "Neither — rarity can't be measured"]
+correct  = 1
+
+[[en.quiz]]
+question = "A DJ plays a rare track in a Boiler Room set on Friday. What typically happens to its Discogs Marketplace price by Sunday?"
+answers  = ["It stays stable — prices don't change that fast", "It spikes 200–400% due to simultaneous demand surge and bot relisting", "It drops — more people sell their copies", "It becomes impossible to find"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which archive is best for finding pre-2000 West African highlife and afrobeat records absent from Discogs?"
+answers  = ["MusicBrainz — it covers everything", "Analog Africa — specialises in West/Central African music with rigorous liner notes", "Spotify — it has the largest catalog", "Billboard archives"]
+correct  = 1
+
+[[en.quiz]]
+question = "What does the matrix number (dead wax inscription) on a vinyl record tell you?"
+answers  = ["The retail price when released", "The pressing plant, year, and pressing engineer — confirming first pressing vs repress", "The DJ who first played the record", "The track's key and BPM"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why is 'absent from Discogs' NOT reliable evidence that a record doesn't exist?"
+answers  = ["Discogs is always complete", "Coverage reflects contributor demographics — music from underrepresented regions/communities is absent simply because those contributors aren't on Discogs", "Discogs removes entries over time", "Only records after 2000 are on Discogs"]
+correct  = 1
+
+[[en.sources]]
+label = "Discogs — Advanced Search documentation"
+url   = "https://support.discogs.com/hc/en-us/articles/360001605293"
+
+[[en.sources]]
+label = "Popsike — auction price history (2-year charts)"
+url   = "https://www.popsike.com/"
+
+[[en.sources]]
+label = "Analog Africa — West and Central African music archives"
+url   = "https://www.analogafrica.com/"
+
+[[en.sources]]
+label = "Ostinato Records — Horn of Africa and Gulf music"
+url   = "https://ostinatorecords.com/"
+
+[[en.sources]]
+label = "Awesome Tapes From Africa — cassette archive"
+url   = "https://awesometapes.com/"
+
+[[en.sources]]
+label = "Resident Advisor — vinyl speculation feature (2021)"
+url   = "https://ra.co/features/3890"
+
+[fr]
+title      = "Discogs — Architecture de Base de Données, Distorsion de Marché & Angles Morts Archivistiques"
+short_desc = "Biais communautaire, marchés spéculatifs, cross-check Popsike, et les archives que Discogs ne couvre pas."
+
+[[fr.pages]]
+title   = "Discogs comme base de données curatée par la communauté — propriétés structurelles"
+content = """
+Discogs n'est pas une archive neutre. C'est une **base de données curatée par la communauté**, ce qui veut dire que sa couverture, sa précision et sa profondeur sont des fonctions de la démographie de ses contributeurs. Comprendre les propriétés structurelles de ce dataset est essentiel pour l'utiliser efficacement comme outil de recherche.
+
+**Patterns de couverture :**
+
+| Catégorie | Qualité de couverture |
+|---|---|
+| Musique électronique US/UK 1985–2005 | Excellente — base de contributeurs dense, multiples vérifications croisées |
+| Techno allemande 1988–2005 | Excellente — collectionneurs de labels dédiés, exhaustive |
+| House française 1993–2003 | Très bonne |
+| City-pop / jazz-funk japonais 1975–1990 | S'améliore depuis la vague de rééditions 2018, mais lacunes persistantes |
+| Musique populaire africaine pré-2000 (highlife, afrobeat, mbalax) | Fragmentaire — grandes sorties documentées, pressages régionaux/locaux largement absents |
+| Musique populaire sud-asiatique / moyen-orientale avant 1990 | Très fragmentaire |
+| Digital Bandcamp-only post-2010 | Souvent totalement absent |
+| Sorties en distribution régionale uniquement (pas de code-barre international) | Largement absent |
+
+**Implication pour les diggers :** "absent de Discogs" n'est pas un signal étayé par des données. C'est un artefact de qui contribue à Discogs. Un disque peut être historiquement significatif, largement collectionné dans son marché d'origine, et complètement absent de la base de données Discogs.
+
+**Le problème de vérification :** les entrées Discogs sont créées et modérées par les utilisateurs. Pour les grandes sorties, plusieurs utilisateurs se vérifient mutuellement. Pour des pressages obscurs, l'entrée d'un seul utilisateur peut contenir des erreurs (mauvaise année, mauvais numéro de matrice, label mal attribué) qui persistent sans être contestées. Croise toujours les métadonnées critiques avec des preuves physiques (inscription de matrice, typographie du label, conventions de numéro de catalogue) avant de traiter une entrée Discogs comme faisant autorité.
+"""
+
+[[fr.pages]]
+title   = "La Marketplace comme moteur de prix — distorsion spéculative"
+content = """
+La Marketplace Discogs est un agrégateur de prix de marché secondaire, et comme tous ces systèmes elle présente une **distorsion spéculative**. Comprendre les mécanismes de distorsion te protège en tant qu'acheteur et éclaire ta recherche.
+
+**Mécanisme de distorsion 1 — le spike de mention DJ :**
+Un seul DJ jouant une track dans un Boiler Room ou un podcast RA à haute visibilité peut causer un spike de prix de 200–400% sur la Marketplace Discogs dans les 24–48 heures. La chaîne causale : DJ joue la track → clip devient viral sur les réseaux → des centaines de personnes cherchent simultanément → bots et vendeurs humains rapides la remettent en vente à prix gonflés → la courbe "Last Sold" montre le spike → les acheteurs tardifs paient le prix gonflé en le traitant comme le cours du marché.
+
+**Mécanisme de distorsion 2 — l'effondrement par réédition :**
+Quand un label licence un disque rare pour une réédition (pratique courante depuis 2015 avec le renouveau du vinyle), le prix spéculatif du pressage original s'effondre dans les semaines qui suivent l'annonce. Acheter un pressage original au pic du prix spéculatif, puis voir une réédition annoncée le mois suivant, c'est une perte sans bénéfice musical. Vérifie toujours si une réédition existe ou est en production avant de payer plus de 50€ pour quoi que ce soit.
+
+**Outils de cross-check :**
+- **Popsike** (popsike.com) : agrège les résultats d'enchères d'eBay, Discogs Marketplace et d'autres plateformes. Montre l'historique de prix sur 2 ans sous forme de graphe — les spikes spéculatifs sont visibles comme des sauts verticaux soudains. Un disque avec une courbe Popsike stable à 30€ qui se liste maintenant à 120€ sur Discogs = spéculation. Une courbe graduellement croissante = appréciation réelle.
+- **Ventes eBay closes :** filtre par "Objets vendus seulement". Montre ce que le marché a vraiment liquidé, pas les prix demandés.
+- **Prix des disquaires physiques spécialisés :** le prix qu'un disquaire spécialisé facture est en général la valeur marchande équitable la plus fiable — ils n'achètent pas à des prix gonflés et ont assez de connaissance du domaine pour résister à la spéculation.
+
+**La métrique Popularity comme signal de rareté :**
+La "Popularité Discogs" (combien d'utilisateurs ont une release dans leur collection) est un meilleur signal de rareté que le prix. Une release avec 12 copies en collections et un prix de 200€ est vraiment rare. Une release avec 800 copies en collections et 200€ est gonflée spéculativement — 800 collectionneurs l'ont, ce qui signifie que l'offre existe et que le prix est une distorsion momentanée.
+"""
+
+[[fr.pages]]
+title   = "Le flow de recherche par rétro-ingénierie"
+content = """
+La méthodologie de recherche Discogs avancée commence d'une description sonore et triangule vers une release spécifique.
+
+**La pile complète de rétro-ingénierie :**
+
+**Étape 1 — Identification sonore (avant Discogs) :**
+- Shazam / SoundHound — identifie ~60% des releases identifiables. Échoue sur : white labels, bootlegs, dubs non sortis, enregistrements pré-numériques digitisés sans métadonnées.
+- **WhoSampled** — si tu reconnais un sample, trace à la fois la source du sample et toutes les tracks qui le samplent. Extrêmement utile pour le digging hip-hop et soul.
+- **NoteMyMe / Moises** — fredonne ou chante la mélodie ; estimation grossière de hauteur/clé. Alimente le filtre Discogs.
+
+**Étape 2 — Construction du filtre Discogs :**
+Combine tous les indices sonores en une pile de filtres :
+- Genre + Style (du caractère sonore)
+- Plage d'années (des esthétiques de production — ex. "ces sons de snare 909 et cette reverb spécifique = 1989–1993")
+- Pays (des conventions de label, de la langue des éventuels vocaux)
+- Format : 12" (contexte DJ) ou LP (track d'album)
+- Année adjacent au BPM : certains ranges BPM sont historiquement concentrés dans des fenêtres spécifiques par genre
+
+**Étape 3 — Confirmation visuelle :**
+Scrolle les pochettes. Certaines époques ont des signatures visuelles (house Chicago 1987 = pochettes Xerox DIY ; techno Berlin 1992 = industriel monochrome ; house française 1999 = esthétiques chrome/métallique). Si une pochette de ton époque sonore a l'air juste → clique → examine la tracklist pour les noms de versions qui correspondent à ton souvenir.
+
+**Étape 4 — Deep-dive label :**
+Tu as trouvé une release candidate ? Clique le label. Browse 20 releases adjacentes en numéro de catalogue (ex. si la release est PHK-007, regarde PHK-001 à PHK-015). Les labels séquencent les releases chronologiquement — les numéros de catalogue adjacents = même époque, même son.
+
+**Étape 5 — Recherche de matrice (avancée) :**
+Pour le vinyle : le **numéro de matrice** (gravé dans le dead wax par l'ingénieur de gravure) identifie l'usine de pressage spécifique, l'année et l'ingénieur. Les entrées Discogs l'incluent sous "Identifiers". Les codes matriciels décodent l'historique de fabrication et peuvent confirmer qu'un listing est un premier pressage vs. un repressage ultérieur.
+"""
+
+[[fr.pages]]
+title   = "Les archives que Discogs n'atteint pas — ressources complémentaires"
+content = """
+Un digger de niveau recherche utilise Discogs comme un nœud dans un réseau multi-archive, pas comme source unique.
+
+**Musique populaire africaine (pré-2000) :**
+- **Awesome Tapes From Africa** (awesometapes.com) : archives de cassettes du Ghana, Éthiopie, Sénégal, Nigeria. Catalogue du label disponible pour les demandes de licence.
+- **Analog Africa** (analogafrica.com) : highlife, afrobeat, funk ouest et centre-africains. Notes de pochette rigoureuses avec provenance historique.
+- **Ostinato Records** (ostinatorecords.com) : Corne de l'Afrique (Somalie, Djibouti, Érythrée), Golfe (Bahreïn, Yémen). Documente une musique largement absente de toute base de données occidentale.
+- **Syliphone / Bolibana :** labels d'État guinéens (années 60–80). Couverture Discogs minimale ; les disquaires spécialisés en Afrique de l'Ouest et à Paris sont le marché principal.
+
+**Musique japonaise :**
+- **Music From Memory** (musicfrommemory.com) : label néerlandais spécialisé dans l'excavation ambient, new age, city-pop japonais. Leurs notes de pochette sont des documents de recherche primaires.
+- **Light In The Attic** (lightintheattic.net) : série *Japan Archives* — exhaustive, sous licence, rigoureuse académiquement.
+
+**Folk, traditions et régional :**
+- **Smithsonian Folkways** (folkways.si.edu) : enregistrements ethnomusicologiques de chaque pays. Catalogue complet avec métadonnées.
+- **Global Jukebox / Cantometrics :** archive d'Alan Lomax, maintenant digitisée.
+
+**Bandcamp pour le gap contemporain :**
+Le digital auto-édité post-2010 a rarement une entrée Discogs. La recherche Bandcamp par genre + lieu + année fonctionne comme surface de découverte. L'avantage : tu achètes directement à l'artiste, supprimant complètement la couche de revente.
+
+**La posture de recherche :** utilise chaque archive pour sa force. Discogs pour les deep-dives électronique/rock/hip-hop. Analog Africa / Ostinato / Awesome Tapes pour la musique africaine. Music From Memory / Light In The Attic pour le japonais. Bandcamp pour le contemporain. Popsike/eBay pour la validation des prix. Aucune archive ne couvre tout — le digger expert triangule entre toutes.
+"""
+
+[[fr.quiz]]
+question = "Un disque a 800 copies dans les collections Discogs et un prix Marketplace de 200€. Un deuxième en a 12 et 200€. Lequel est vraiment plus rare ?"
+answers  = ["Le premier — plus de copies en collection = plus de demande", "Le deuxième — 12 copies en collections veut dire très peu de personnes l'ont ; 800 copies veut dire que l'offre existe et que le prix est probablement spéculatif", "Ils sont également rares — le prix est le seul signal de rareté", "Aucun — la rareté ne peut pas se mesurer"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un DJ joue une track rare dans un Boiler Room vendredi. Que se passe-t-il typiquement sur la Marketplace Discogs d'ici dimanche ?"
+answers  = ["Le prix reste stable — les prix ne changent pas si vite", "Il spike de 200–400% à cause d'une montée simultanée de la demande et du relisting par des bots", "Il baisse — plus de personnes vendent leurs copies", "Ça devient impossible à trouver"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle archive est la mieux adaptée pour trouver des disques highlife et afrobeat ouest-africains pré-2000 absents de Discogs ?"
+answers  = ["MusicBrainz — elle couvre tout", "Analog Africa — spécialisée en musique ouest/centre-africaine avec des notes rigoureuses", "Spotify — le plus grand catalogue", "Les archives Billboard"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que te dit le numéro de matrice (inscription dans le dead wax) d'un disque vinyle ?"
+answers  = ["Le prix de vente à la sortie", "L'usine de pressage, l'année et l'ingénieur — confirme premier pressage vs repressage", "Le DJ qui a joué le disque en premier", "La clé et le BPM de la track"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi 'absent de Discogs' n'est-il PAS une preuve fiable qu'un disque n'existe pas ?"
+answers  = ["Discogs est toujours complet", "La couverture reflète la démographie des contributeurs — la musique de régions/communautés sous-représentées est absente simplement parce que ces contributeurs ne sont pas sur Discogs", "Discogs supprime les entrées au fil du temps", "Seuls les disques après 2000 sont sur Discogs"]
+correct  = 1
+
+[[fr.sources]]
+label = "Discogs — documentation Recherche Avancée"
+url   = "https://support.discogs.com/hc/en-us/articles/360001605293"
+
+[[fr.sources]]
+label = "Popsike — historique des prix d'enchères (graphes 2 ans)"
+url   = "https://www.popsike.com/"
+
+[[fr.sources]]
+label = "Analog Africa — archives musicales ouest et centre-africaines"
+url   = "https://www.analogafrica.com/"
+
+[[fr.sources]]
+label = "Ostinato Records — musique Corne de l'Afrique et Golfe"
+url   = "https://ostinatorecords.com/"
+
+[[fr.sources]]
+label = "Awesome Tapes From Africa — archive de cassettes"
+url   = "https://awesometapes.com/"
+
+[[fr.sources]]
+label = "Resident Advisor — enquête spéculation vinyle (2021)"
+url   = "https://ra.co/features/3890"

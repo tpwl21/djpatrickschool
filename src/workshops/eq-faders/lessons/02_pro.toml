@@ -1,0 +1,478 @@
+id = "LESSON_EQ_2_PRO"
+order = 2
+
+[en]
+title       = "Gain Staging Pro: EBU R128, PA System Design, and Calibration"
+short_desc  = "EBU R128 time windows, Funktion-One vs Void vs L-Acoustics, Sabine reverberation, Berghain calibration, and analog vs digital clipping."
+description = "Professional gain staging is a system-level discipline, not just a mixer setting. It requires understanding loudness measurement standards, PA system design philosophy, room acoustics, and the difference between analog saturation and digital destruction. This lesson covers the full chain from the music's origin to the dancefloor."
+recap = [
+  "EBU R128 defines three time windows: momentary (400 ms), short-term (3 s), and integrated (full program). Each serves a different purpose.",
+  "Funktion-One: horn-loaded, minimal crossovers, transient-forgiving. Void: clinical, high-SPL, reveals mix errors. L-Acoustics K2: pattern-controlled line array for large venues.",
+  "Sabine reverberation time: T60 = 0.161 × V / A. Room RT60 determines how much bass buildup occurs before the PA reaches steady state.",
+  "Analog clipping = musical harmonic distortion (odd and even harmonics, tape saturation). Digital clipping = flat-topped waveshaping = aliased square-wave harmonics.",
+  "Berghain: the Funktion-One rig is calibrated to a fixed reference SPL at the DJ booth. DJs receive a normalized gain structure — the venue absorbs the gain staging problem."
+]
+
+[[en.pages]]
+title   = "EBU R128: three time windows for loudness"
+content = """
+## Why one measurement isn't enough
+
+Loudness perception depends on duration. A very loud 100ms transient is processed differently by the ear than a sustained loud tone for 3 seconds. EBU R128 (2011) defines three distinct loudness measures to capture this:
+
+**Momentary loudness (M):**
+- Integration window: **400 ms**
+- Gate: no gating
+- Use: detecting transient loudness events. A kick drum's perceived impact shows up here.
+- Typical DJ relevance: does a sudden loud section of a track cause momentary overshoot?
+
+**Short-term loudness (S):**
+- Integration window: **3 seconds**
+- Gate: no gating
+- Use: section-level loudness. Useful for comparing verses vs choruses. In DJ context: evaluating the loudness of a drop vs an intro section.
+
+**Integrated loudness (I):**
+- Integration window: **full program** (from start to end)
+- Gate: relative gate -10 LU, absolute gate -70 LUFS
+- Use: overall loudness of the complete work. This is the value streaming platforms compare against their targets (-14 LUFS for Spotify).
+
+## True Peak (dBTP)
+
+EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, this uses oversampling (typically 4×) to detect inter-sample peaks that occur during digital-to-analog reconstruction. Spec: **≤ -1 dBTP** for broadcast. In DJ practice: trim so your channel output never exceeds **-1 dBTP** on the oversampled output.
+
+Most modern DJ mixers with dBTP meters (Pioneer DJM-A9, Allen & Heath V10) display this correctly. Older mixers with sample-rate VU only: assume 1–2 dB of headroom beyond your meter for inter-sample peaks.
+"""
+youtube = "If6d7HaMaBY"
+youtube_start = 120
+youtube_caption = "EBU R128 loudness standard — the three measurement windows explained."
+
+[[en.pages]]
+title   = "PA system design philosophies and their effect on DJ mixing"
+content = """
+## Funktion-One: transient forgiveness
+
+Used at: Fabric (London), Printworks (London), Panorama Bar/Berghain.
+
+**Design philosophy**: minimal crossover points, horn-loaded mid and high drivers, very low distortion at moderate SPL. The horn loading smooths fast transients — a sharp EQ kill or a slightly clipped transient gets "rounded" by the horn's impulse response.
+
+**DJ implication**: forgiving. You can make small gain staging errors and the room absorbs them. Tight, punchy low end. Not the loudest by raw SPL, but consistent across the room.
+
+## Void Acoustics: clinical accuracy
+
+Used at: Space Ibiza (historic), Awakenings (Amsterdam), many EDM venues.
+
+**Design philosophy**: high-SPL, wide dispersion, clinical accuracy. Engineered to reproduce the signal faithfully without coloration.
+
+**DJ implication**: unforgiving. Every dB over the headroom target is audible as distortion in the first three rows. Gain staging errors propagate without softening. Rewards precise trim discipline.
+
+## L-Acoustics K2 / K1: pattern-controlled line arrays
+
+Used at: Festival main stages (Glastonbury, Tomorrowland), large arenas, outdoor events.
+
+**Design philosophy**: controlled directivity, long-throw SPL, consistent coverage at large distances. DSP-controlled waveguides for precision pattern control.
+
+**DJ implication**: primarily used for large-scale events, not intimate clubs. Gain staging here involves coordination with the FOH engineer, who manages the full PA chain. DJs contribute input signal quality; the engineer manages the rest.
+
+## d&b audiotechnik: precision and predictability
+
+Used at: opera houses, theaters, some high-end clubs.
+
+**Design philosophy**: mathematically-predictable coverage, calibrated via manufacturer software (ArrayCalc/R1). Every box in the system is modeled before installation.
+
+**DJ implication**: extremely consistent from seat to seat / area to area. Easier to calibrate, harder to damage accidentally. Common in European venues with high acoustic standards.
+"""
+
+[[en.pages]]
+title   = "Room acoustics: Sabine, RT60, and bass buildup"
+content = """
+## Why the room is part of your gain staging
+
+A large room doesn't reproduce sound instantaneously — it accumulates energy. The reverberant field (energy reflecting off walls, ceiling, floor) adds to the direct sound from the PA and continues after the PA signal stops.
+
+## Sabine's reverberation time formula
+
+**T60** = reverberation time (time for the reverberant field to decay by 60 dB):
+
+```
+T60 = 0.161 × V / A
+```
+
+Where:
+- V = room volume in m³
+- A = total absorption in the room (sum of surface area × absorption coefficient for each material)
+
+A typical mid-size club: 2000 m³ volume, absorption A ≈ 300–500 m² (concrete, glass, bodies). T60 ≈ 0.9–1.1 seconds.
+
+## What RT60 means for bass
+
+Bass wavelengths are long (20 Hz = 17 meters). A 20 Hz standing wave in a 50m room reverberates long after the transient that caused it. The practical consequence:
+
+- In clubs with RT60 > 1.2 s at low frequencies, bass energy accumulates between kick drums. The room "builds up" bass.
+- A set that sounds perfectly gain-staged at the start of the night may feel bass-heavy 2 hours in, as the room warms up and acoustic absorption decreases slightly (the crowd absorbs less when densely packed and sweating).
+- Solution: trim tracks slightly lower in a reverberant room, or ask the engineer to engage the venue's sub-bass high-pass filter at the system level.
+
+## Sound engineers use this
+
+Before every show, the FOH engineer runs a **room equalization** pass using measurement software (Smaart, AudioTools) and a reference microphone at the mixing position. The PA EQ is adjusted to compensate for room resonances. What you play sounds different after EQ than what the PA outputs from the mixer — this is expected and by design.
+"""
+
+[[en.pages]]
+title   = "Analog clipping vs digital clipping: two different failure modes"
+content = """
+## Why this distinction matters
+
+Not all clipping sounds the same. The difference between a tube amp gently pushed into saturation and a digital processor clipping is the difference between a classic record and a ruined mix.
+
+## Analog clipping: soft saturation
+
+When an analog amplifier, tube, or tape is driven past its linear range:
+- The output waveform **rounds at the peaks** — the sharp transient edges are smoothed.
+- The distortion is primarily **2nd and 3rd harmonic** — octave and fifth overtones.
+- These harmonics are musically consonant with the fundamental.
+- Result: **harmonic richness**, "warmth", the signal sounds denser and sometimes louder.
+
+This is the principle behind tube amplifiers, tape saturation, and analog summing bus compression. Intentional, controlled, musical.
+
+## Digital clipping: hard truncation
+
+When a digital signal exceeds 0 dBFS (or the full-scale value of any fixed-point stage):
+- The waveform is **flat-topped** — amplitude is clamped at the maximum value.
+- The distortion is **high-order harmonics** — a truncated sine wave Fourier-decomposes into a square wave, with odd harmonics (3rd, 5th, 7th...) of equal amplitude that decay as 1/n.
+- These harmonics are **not musically consonant** with typical material.
+- The aliased components (frequencies above Nyquist, wrapped back into audible range) create dissonant intermodulation products.
+- Result: harsh, grating, "crispy" distortion — audible immediately at any clip level.
+
+## DJ mixer internal clipping
+
+Modern Pioneer and A&H mixers use **32-bit floating-point DSP** internally — over 1500 dB of headroom, practically unclippable. The failure point is the **fixed-point A/D converter at the analog input** (24-bit: 144 dB theoretical, ~118 dB practical). Drive the input too hot → ADC clips → you cannot fix it downstream.
+
+Likewise, the **D/A converter at the analog output** is fixed-point. If the master output signal exceeds 0 dBFS before D/A conversion, the output clips hard, regardless of how well the internal DSP is managed.
+
+## The practical rule
+
+- ADC input clip: set trim so the input doesn't clip. Use the clip LED as a hard limit.
+- DAC output clip: keep master output below 0 dBFS. The -6 dB target ensures you never touch this in practice.
+- There is no "mix hot and fix it later" in live DJ performance. The D/A is the last stage.
+"""
+
+[[en.pages]]
+title   = "Berghain: a case study in venue-level gain staging"
+content = """
+## The problem venues solve (or don't)
+
+Most clubs have a PA system with no consistent gain calibration across different DJs and events. The master output may drift. The system gain may vary depending on what the previous DJ set. Each artist arrives to an unknown starting state.
+
+## Berghain's approach
+
+Berghain (Berlin) calibrates the entire signal chain from the DJ mixer output to the final amplifier input to a **fixed, documented reference level**. The Funktion-One rig is optimized for that reference. The system operates at a known point on the equal-loudness curve.
+
+Every DJ who plays the main floor receives:
+- A verified trim-to-master chain at the correct level
+- Booth monitors at a fixed calibrated reference SPL
+- No control over the master gain (it's locked at the tech desk)
+
+The result: a DJ focused on music selection and EQ makes no decisions that can accidentally destroy the PA chain. The sound remains consistent as DJ lineups change — sometimes every 4–6 hours, without soundcheck.
+
+## What DJs should take from this
+
+1. **Normalize your personal DJ setup** — choose a reference trim level and stick to it. Your at-home gain structure should match your club setup as closely as possible.
+2. **Communicate with the venue engineer** before every gig. Ask: what is the nominal level at the booth output? Is there a clip LED I should watch?
+3. **Prefer fixed master outputs** — don't ride the master during the set. Ride the channels.
+4. **Budget 10 minutes after load-in** to calibrate trim against the system before the audience arrives.
+
+The DJ is the first node in a system. Clean input to that system protects every node downstream.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What is the integration window for EBU R128 Short-Term loudness measurement?"
+answers  = ["3 seconds", "400 ms", "30 seconds"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Which PA system design philosophy is described as 'forgiving' to DJ mixing errors due to horn-loaded transient smoothing?"
+answers  = ["Void Acoustics", "Funktion-One", "L-Acoustics K2"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In Sabine's formula T60 = 0.161 × V / A, what does A represent?"
+answers  = ["Amplitude of the PA output", "Area of the dancefloor", "Total acoustic absorption in the room (surface area × absorption coefficient)"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Why does digital clipping sound harsher than analog saturation?"
+answers  = ["Digital clipping truncates the waveform flat, producing high-order odd harmonics and aliased intermodulation. Analog saturation rounds the peaks, producing low-order consonant harmonics.", "Digital has more headroom", "Analog amplifiers always distort more"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In a 32-bit floating-point DJ mixer, where does hard clipping actually occur?"
+answers  = ["In the internal DSP during EQ processing", "In the crossfader electronics", "At the fixed-point ADC on the analog input and the DAC on the analog output"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What does dBTP (True Peak) measurement detect that standard dBFS does not?"
+answers  = ["Room reverberation", "Inter-sample peaks that occur during digital-to-analog reconstruction, detected via oversampling", "The LUFS integrated loudness"]
+
+[[sources]]
+label = "EBU R 128 — Loudness normalisation and permitted maximum level (EBU)"
+url   = "https://tech.ebu.ch/docs/r/r128.pdf"
+
+[[sources]]
+label = "Funktion-One — System Design Philosophy"
+url   = "https://www.funktion-one.com/sound-quality/"
+
+[[sources]]
+label = "Void Acoustics — System Overview"
+url   = "https://www.voidaudio.net/"
+
+[[sources]]
+label = "Sabine's Reverberation Equation — Hyperphysics (Georgia State)"
+url   = "http://hyperphysics.phy-astr.gsu.edu/hbase/Acoustic/sabine.html"
+
+[[sources]]
+label = "Audio bit depth, dynamic range, clipping (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Audio_bit_depth"
+
+[fr]
+title       = "Gain Staging Pro : EBU R128, Systèmes PA et Calibrage"
+short_desc  = "Fenêtres temporelles EBU R128, Funktion-One vs Void vs L-Acoustics, réverbération de Sabine, calibrage Berghain, et clipping analogique vs numérique."
+description = "Le gain staging professionnel est une discipline de niveau système, pas juste un réglage de table. Il requiert de comprendre les standards de mesure de loudness, la philosophie de conception des systèmes PA, l'acoustique des salles, et la différence entre saturation analogique et destruction numérique. Cette leçon couvre la chaîne complète de l'origine de la musique au dancefloor."
+recap = [
+  "EBU R128 définit trois fenêtres temporelles : momentanée (400 ms), court-terme (3 s) et intégrée (programme complet). Chacune a un usage différent.",
+  "Funktion-One : à pavillon, crossovers minimaux, transitoires pardonnants. Void : clinique, haut SPL, révèle les erreurs de mix. L-Acoustics K2 : line array à directivité contrôlée pour grandes salles.",
+  "Temps de réverbération de Sabine : T60 = 0,161 × V / A. Le RT60 de la salle détermine l'accumulation de basses avant que la PA atteigne l'état stable.",
+  "Clipping analogique = distorsion harmonique musicale (harmoniques pairs et impairs, saturation de bande). Clipping numérique = troncature à plat = harmoniques de carré aliasées.",
+  "Berghain : le rig Funktion-One est calibré à un SPL de référence fixe au booth DJ. Les DJs reçoivent une structure de gain normalisée — la salle absorbe le problème de gain staging."
+]
+
+[[fr.pages]]
+title   = "EBU R128 : trois fenêtres temporelles pour la loudness"
+content = """
+## Pourquoi une seule mesure ne suffit pas
+
+La perception de la loudness dépend de la durée. Un transitoire très fort de 100ms est traité différemment par l'oreille qu'un son fort soutenu pendant 3 secondes. EBU R128 (2011) définit trois mesures de loudness distinctes pour capturer ça :
+
+**Loudness momentanée (M) :**
+- Fenêtre d'intégration : **400 ms**
+- Gate : aucun
+- Usage : détecter les événements de loudness transitoire. L'impact perçu d'une grosse caisse apparaît ici.
+- Pertinence DJ : une section soudainement forte d'une track cause-t-elle un overshoot momentané ?
+
+**Loudness court-terme (S) :**
+- Fenêtre d'intégration : **3 secondes**
+- Gate : aucun
+- Usage : loudness au niveau de la section. Utile pour comparer couplets vs refrains. En contexte DJ : évaluer la loudness d'un drop vs une intro.
+
+**Loudness intégrée (I) :**
+- Fenêtre d'intégration : **programme complet** (du début à la fin)
+- Gate : gate relatif -10 LU, gate absolu -70 LUFS
+- Usage : loudness globale de l'œuvre complète. C'est la valeur que les plateformes streaming comparent à leurs cibles (-14 LUFS pour Spotify).
+
+## True Peak (dBTP)
+
+EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fréquence d'échantillonnage, ceci utilise un suréchantillonnage (typiquement 4×) pour détecter les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique. Spec : **≤ -1 dBTP** pour le broadcast. En pratique DJ : trime pour que ta sortie canal ne dépasse jamais **-1 dBTP** sur la sortie suréchantillonnée.
+
+La plupart des tables DJ modernes avec mètres dBTP (Pioneer DJM-A9, Allen & Heath V10) affichent ça correctement. Tables anciennes avec VU à fréquence d'échantillonnage seulement : suppose 1–2 dB de headroom au-delà de ton mètre pour les pics inter-échantillons.
+"""
+youtube = "If6d7HaMaBY"
+youtube_start = 120
+youtube_caption = "Standard EBU R128 — les trois fenêtres de mesure expliquées."
+
+[[fr.pages]]
+title   = "Philosophies de conception PA et leur effet sur le mix DJ"
+content = """
+## Funktion-One : tolérance aux transitoires
+
+Utilisé à : Fabric (Londres), Printworks (Londres), Panorama Bar/Berghain.
+
+**Philosophie de conception** : points de crossover minimaux, drivers mid et high à pavillon, très faible distorsion à SPL modéré. Le chargement à pavillon adoucit les transitoires rapides — un kill EQ brusque ou un transitoire légèrement clippé est "arrondi" par la réponse impulsionnelle du pavillon.
+
+**Implication DJ** : pardonnant. Tu peux faire de petites erreurs de gain staging et la salle les absorbe. Basse tendue et percutante. Pas le plus fort en SPL brut, mais cohérent dans toute la salle.
+
+## Void Acoustics : précision clinique
+
+Utilisé à : Space Ibiza (historique), Awakenings (Amsterdam), beaucoup de salles EDM.
+
+**Philosophie de conception** : haut SPL, dispersion large, précision clinique. Conçu pour reproduire fidèlement le signal sans coloration.
+
+**Implication DJ** : impitoyable. Chaque dB au-dessus de la cible de headroom est audible comme distorsion dans les trois premiers rangs. Les erreurs de gain staging se propagent sans adoucissement. Récompense une discipline de trim précise.
+
+## L-Acoustics K2 / K1 : line arrays à directivité contrôlée
+
+Utilisé à : main stages de festivals (Glastonbury, Tomorrowland), grandes arènes, événements outdoor.
+
+**Philosophie de conception** : directivité contrôlée, SPL longue portée, couverture cohérente sur de grandes distances. Guides d'ondes contrôlés par DSP pour un contrôle précis du rayonnement.
+
+**Implication DJ** : principalement utilisé pour les grands événements, pas les clubs intimistes. Le gain staging ici implique la coordination avec l'ingénieur FOH, qui gère toute la chaîne PA. Les DJs contribuent la qualité du signal d'entrée ; l'ingénieur gère le reste.
+
+## d&b audiotechnik : précision et prédictibilité
+
+Utilisé à : opéras, théâtres, certains clubs haut de gamme.
+
+**Philosophie de conception** : couverture mathématiquement prédictible, calibrée via logiciel fabricant (ArrayCalc/R1). Chaque enceinte du système est modélisée avant installation.
+
+**Implication DJ** : extrêmement cohérent de siège en siège / de zone en zone. Plus facile à calibrer, plus difficile à endommager accidentellement. Courant dans les salles européennes avec des standards acoustiques élevés.
+"""
+
+[[fr.pages]]
+title   = "Acoustique de salle : Sabine, RT60 et accumulation de basses"
+content = """
+## Pourquoi la salle fait partie de ton gain staging
+
+Une grande salle ne reproduit pas le son instantanément — elle accumule de l'énergie. Le champ réverbérant (énergie se réfléchissant sur murs, plafond, sol) s'ajoute au son direct de la PA et continue après l'arrêt du signal PA.
+
+## La formule de réverbération de Sabine
+
+**T60** = temps de réverbération (temps pour que le champ réverbérant décroisse de 60 dB) :
+
+```
+T60 = 0,161 × V / A
+```
+
+Où :
+- V = volume de la salle en m³
+- A = absorption totale dans la salle (somme de la surface × coefficient d'absorption pour chaque matériau)
+
+Un club de taille moyenne typique : volume 2000 m³, absorption A ≈ 300–500 m² (béton, verre, corps). T60 ≈ 0,9–1,1 secondes.
+
+## Ce que le RT60 signifie pour les basses
+
+Les longueurs d'onde graves sont longues (20 Hz = 17 mètres). Une onde stationnaire à 20 Hz dans une salle de 50m réverbère longtemps après le transitoire qui l'a causée. La conséquence pratique :
+
+- Dans les clubs avec RT60 > 1,2 s aux basses fréquences, l'énergie grave s'accumule entre les grosses caisses. La salle "charge" les basses.
+- Un set qui semble parfaitement stagé au début de la soirée peut paraître chargé en basses 2 heures plus tard, quand la salle se réchauffe et que l'absorption acoustique diminue légèrement (la foule absorbe moins quand elle est dense et transpirante).
+- Solution : trime les morceaux légèrement plus bas dans une salle réverbérante, ou demande à l'ingénieur d'engager le filtre passe-haut sub-graves du système au niveau système.
+
+## Les ingés son utilisent ça
+
+Avant chaque show, l'ingénieur FOH fait un passage d'**égalisation de salle** via logiciel de mesure (Smaart, AudioTools) et un micro de référence à la position de mixage. L'EQ de la PA est ajusté pour compenser les résonances de salle. Ce que tu joues sonne différent après EQ que ce que la PA sort de la table — c'est attendu et voulu.
+"""
+
+[[fr.pages]]
+title   = "Clipping analogique vs numérique : deux modes de défaillance différents"
+content = """
+## Pourquoi cette distinction compte
+
+Tous les clippings ne sonnent pas pareil. La différence entre un ampli à lampes poussé doucement en saturation et un processeur numérique qui clippe, c'est la différence entre un disque classique et un mix raté.
+
+## Clipping analogique : saturation douce
+
+Quand un amplificateur analogique, un tube, ou une bande est poussé au-delà de sa plage linéaire :
+- La forme d'onde de sortie **s'arrondit aux crêtes** — les bords vifs des transitoires sont adoucis.
+- La distorsion est principalement **2e et 3e harmoniques** — octave et quinte.
+- Ces harmoniques sont musicalement consonantes avec le fondamental.
+- Résultat : **richesse harmonique**, "chaleur", le signal semble plus dense et parfois plus fort.
+
+C'est le principe des amplis à lampes, de la saturation de bande, et de la compression par sommation analogique. Intentionnel, contrôlé, musical.
+
+## Clipping numérique : troncature dure
+
+Quand un signal numérique dépasse 0 dBFS (ou la valeur pleine échelle de n'importe quel étage fixed-point) :
+- La forme d'onde est **tronquée à plat** — l'amplitude est bloquée à la valeur maximale.
+- La distorsion est constituée **d'harmoniques d'ordre élevé** — une sinusoïde tronquée se décompose en Fourier comme un carré, avec des harmoniques impairs (3e, 5e, 7e...) d'amplitude égale décroissant en 1/n.
+- Ces harmoniques **ne sont pas musicalement consonants** avec le matériel typique.
+- Les composantes aliasées (fréquences au-dessus de Nyquist, repliées dans la plage audible) créent des produits d'intermodulation dissonants.
+- Résultat : distorsion dure, agressive, "crispée" — audible immédiatement à n'importe quel niveau de clip.
+
+## Clipping interne de table DJ
+
+Les tables Pioneer et A&H modernes utilisent du **DSP en virgule flottante 32-bit** en interne — plus de 1500 dB de headroom, pratiquement inclippable. Le point de défaillance est le **convertisseur A/N fixed-point à l'entrée analogique** (24-bit : 144 dB théorique, ~118 dB pratique). Pousse l'entrée trop fort → le CAN clippe → tu ne peux pas corriger en aval.
+
+De même, le **convertisseur N/A à la sortie analogique** est fixed-point. Si le signal de sortie master dépasse 0 dBFS avant la conversion N/A, la sortie clippe dur, peu importe la qualité de la gestion DSP interne.
+
+## La règle pratique
+
+- Clip CAN entrée : règle le trim pour que l'entrée ne clippe pas. Utilise le LED de clip comme limite absolue.
+- Clip CNA sortie : garde la sortie master sous 0 dBFS. La cible -6 dB assure que tu n'y touches jamais en pratique.
+- Il n'y a pas de "mixer chaud et réparer plus tard" en performance DJ live. Le CNA est le dernier étage.
+"""
+
+[[fr.pages]]
+title   = "Berghain : étude de cas en gain staging de niveau salle"
+content = """
+## Le problème que les salles résolvent (ou pas)
+
+La plupart des clubs ont un système PA sans calibrage de gain cohérent entre différents DJs et événements. La sortie master peut dériver. Le gain système peut varier selon ce que le DJ précédent a réglé. Chaque artiste arrive dans un état de départ inconnu.
+
+## L'approche Berghain
+
+Berghain (Berlin) calibre toute la chaîne de signal de la sortie table DJ jusqu'à l'entrée ampli final à un **niveau de référence fixe et documenté**. Le rig Funktion-One est optimisé pour cette référence. Le système fonctionne à un point connu sur la courbe d'égale loudness.
+
+Chaque DJ qui joue sur le dancefloor principal reçoit :
+- Une chaîne trim-to-master vérifiée au niveau correct
+- Des moniteurs de booth à un SPL de référence calibré fixe
+- Aucun contrôle sur le gain master (verrouillé à la régie technique)
+
+Résultat : un DJ concentré sur la sélection musicale et l'EQ ne prend aucune décision pouvant accidentellement détruire la chaîne PA. Le son reste cohérent au fil des changements de lineup — parfois toutes les 4–6 heures, sans soundcheck.
+
+## Ce que les DJs doivent en retenir
+
+1. **Normalise ton setup DJ personnel** — choisis un niveau de trim de référence et tiens-t'y. Ta structure de gain à la maison doit correspondre le plus possible à ton setup en club.
+2. **Communique avec l'ingénieur son de la salle** avant chaque gig. Demande : quel est le niveau nominal à la sortie du booth ? Y a-t-il un LED de clip à surveiller ?
+3. **Préfère des sorties master fixes** — ne gère pas le master pendant le set. Gère les canaux.
+4. **Prévois 10 minutes après l'installation** pour calibrer le trim par rapport au système avant l'arrivée du public.
+
+Le DJ est le premier noeud d'un système. Un signal d'entrée propre protège chaque noeud en aval.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Quelle est la fenêtre d'intégration de la mesure de loudness court-terme EBU R128 ?"
+answers  = ["3 secondes", "400 ms", "30 secondes"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Quelle philosophie de système PA est décrite comme 'pardonnante' aux erreurs de mix DJ grâce à l'adoucissement des transitoires par pavillon ?"
+answers  = ["Void Acoustics", "Funktion-One", "L-Acoustics K2"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Dans la formule de Sabine T60 = 0,161 × V / A, que représente A ?"
+answers  = ["L'amplitude de la sortie PA", "La surface du dancefloor", "L'absorption acoustique totale de la salle (surface × coefficient d'absorption)"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Pourquoi le clipping numérique sonne-t-il plus agressif que la saturation analogique ?"
+answers  = ["Le clipping numérique tronque la forme d'onde à plat, produisant des harmoniques impairs d'ordre élevé et des produits d'intermodulation aliasés. La saturation analogique arrondit les crêtes, produisant des harmoniques consonantes d'ordre bas.", "Le numérique a plus de headroom", "Les amplis analogiques distordent toujours davantage"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Dans une table DJ DSP 32-bit en virgule flottante, où le clipping dur se produit-il réellement ?"
+answers  = ["Dans le DSP interne pendant le traitement EQ", "Dans l'électronique du crossfader", "Au CAN fixed-point à l'entrée analogique et au CNA à la sortie analogique"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Que détecte la mesure dBTP (True Peak) que le dBFS standard ne détecte pas ?"
+answers  = ["La réverbération de salle", "Les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique, détectés par suréchantillonnage", "La loudness intégrée LUFS"]
+
+[[sources]]
+label = "EBU R 128 — Normalisation de la loudness (EBU)"
+url   = "https://tech.ebu.ch/docs/r/r128.pdf"
+
+[[sources]]
+label = "Funktion-One — Philosophie de conception du système"
+url   = "https://www.funktion-one.com/sound-quality/"
+
+[[sources]]
+label = "Void Acoustics — Présentation du système"
+url   = "https://www.voidaudio.net/"
+
+[[sources]]
+label = "Équation de réverbération de Sabine — Hyperphysics (Georgia State)"
+url   = "http://hyperphysics.phy-astr.gsu.edu/hbase/Acoustic/sabine.html"
+
+[[sources]]
+label = "Profondeur de bits audio, plage dynamique, clipping (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Audio_bit_depth"

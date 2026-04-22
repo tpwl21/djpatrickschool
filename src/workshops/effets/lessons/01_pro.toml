@@ -1,0 +1,324 @@
+id = "LESSON_FX_1_PRO"
+order = 1
+
+[en]
+title      = "The Filter: DSP Topology & Analog Nonlinearity"
+short_desc = "SVF vs biquad, Moog ladder, self-oscillation math, and 12/24 dB slopes."
+description = "The filter is a deceptively simple concept hiding rich DSP. Understanding the topology tells you why two filters with identical cutoff and Q settings can sound completely different."
+recap = [
+  "State-variable filter (SVF): simultaneous LP/BP/HP outputs, stable with high Q — most DJ mixer implementations.",
+  "Biquad: standard DSP workhorse, transfer function H(z), can model any 2nd-order filter, basis of the Audio EQ Cookbook.",
+  "Moog transistor ladder: 4 cascaded one-pole RC stages, 24 dB/oct, nonlinear coupling between resonance and cutoff.",
+  "Self-oscillation is a Barkhausen condition: loop gain ≥ 1 and total phase = 360° at the oscillation frequency.",
+  "Analog 'warmth' is soft-clip (tanh) saturation in the feedback path — absent in a pure biquad model.",
+]
+
+[[en.pages]]
+title   = "State-variable filter (SVF) vs biquad"
+content = """
+The two dominant digital filter topologies in DJ gear are the **state-variable filter** and the **biquad**.
+
+**Biquad (bi-quadratic filter):**
+The canonical 2nd-order IIR filter. Its transfer function in the Z-domain is:
+
+```
+H(z) = (b₀ + b₁z⁻¹ + b₂z⁻²) / (1 + a₁z⁻¹ + a₂z⁻²)
+```
+
+Coefficients (b₀, b₁, b₂, a₁, a₂) are computed from cutoff ω₀ and Q via the **Audio EQ Cookbook** (Robert Bristow-Johnson). Stable, cheap, direct form II implementation. One weakness: **numerical instability at very low cutoff frequencies** (close to 0 Hz), where the coefficients become poorly conditioned.
+
+**State-variable filter (SVF):**
+A topology with three simultaneous outputs — lowpass (LP), bandpass (BP), highpass (HP) — computed from the same differential equations:
+
+```
+LP_out[n] = LP_out[n-1] + F × BP_out[n-1]
+BP_out[n] = BP_out[n-1] + F × (in[n] - LP_out[n-1] - Q⁻¹ × BP_out[n-1])
+HP_out[n] = in[n] - LP_out[n-1] - Q⁻¹ × BP_out[n-1]
+```
+
+where F = 2·sin(π·fc/fs). The SVF remains numerically stable across the full frequency range and handles **high-Q sweeps** gracefully — which is why it's preferred for DJ filters that must be swept in real time.
+"""
+
+[[en.pages]]
+title   = "The Moog transistor ladder: nonlinearity as feature"
+content = """
+The **Moog transistor ladder** (Robert Moog, 1964) is not a biquad or SVF — it's a cascade of four one-pole RC lowpass stages with a **resonance feedback path**:
+
+```
+Stage gain: G = tanh(I_s · V_in / (2V_t))   ← soft-clip saturation
+Total slope: 4 × 6 dB/oct = 24 dB/oct
+Feedback: -k × output fed back to input (k = resonance coefficient)
+```
+
+What makes it special:
+1. **Nonlinear coupling**: as cutoff frequency changes, the input impedance of each stage changes, which cross-modulates the resonance. There is no clean separation of cutoff and Q — they bleed into each other. This is perceived as "organic" or "alive."
+2. **Soft saturation**: the tanh response of the transistors clips gently at high drive levels. The harmonics generated are predominantly even-order (2nd, 4th), which sound warm rather than harsh.
+3. **Self-oscillation**: when k > 1 (feedback exceeds unity), the ladder self-oscillates at the cutoff frequency. Bob Moog initially considered this a malfunction. It became a defining feature.
+
+No pure digital biquad chain reproduces this behavior without explicit nonlinear modeling — either waveshaping in the feedback path or numerical integration of the analog circuit (SPICE-level simulation or DASP).
+"""
+image = "lesson-images/moog_ladder_schematic.png"
+image_caption = "Moog transistor ladder: 4 one-pole stages with tanh-saturating feedback."
+
+[[en.pages]]
+title   = "Self-oscillation: the Barkhausen criterion"
+content = """
+A filter self-oscillates when its internal feedback loop meets the **Barkhausen stability criterion**:
+
+1. **Loop gain = 1** (or greater) at the oscillation frequency.
+2. **Total loop phase = 360°** (or equivalently 0°) at that frequency.
+
+For the Moog ladder, the four one-pole stages each contribute 90° of phase lag at cutoff, totaling 360°. When resonance feedback is strong enough to compensate the gain loss, the system oscillates.
+
+In the Z-domain, self-oscillation corresponds to a pair of poles sitting **on** (or outside) the unit circle. A stable filter keeps its poles strictly inside.
+
+For a 2nd-order SVF, the characteristic equation is:
+
+```
+z² - (2 - F²/2 - k·F)z + (1 - k·F/2 + F²/4) = 0
+```
+
+Self-oscillation begins when the poles reach the unit circle — at Q⁻¹ = 0 (no damping). In practice, filters clamp resonance to keep the poles just inside.
+
+**Practical consequence for DJs:** on a DJM, if you hear a ringing tone that sustains on its own when no music is playing, you've hit the self-oscillation threshold. Pull the resonance knob back. On analog hardware (Xone:92), intentional self-oscillation at a specific cutoff frequency is a deliberate musical technique — you're playing a tone generator.
+"""
+
+[[en.pages]]
+title   = "12 vs 24 dB/oct: poles, slope, and perception"
+content = """
+Filter order determines the slope:
+
+- **1st-order filter**: one pole, 6 dB/oct asymptotic slope. Used for very gentle shelving.
+- **2nd-order filter**: two poles, 12 dB/oct. The standard biquad, DJM default.
+- **4th-order filter**: four poles, 24 dB/oct. Two cascaded biquads, or the Moog ladder.
+
+The slope is an asymptotic approximation — it only applies well above the cutoff. In the transition band (within one octave of cutoff), both slopes are shaping the sound simultaneously with the resonance peak.
+
+Perceptual implications:
+- **12 dB/oct** at medium Q: the transition band is wide; the filter affects a whole octave of frequencies "on the way down." Smooth, musical.
+- **24 dB/oct** at medium Q: the transition band is narrow; frequencies drop off sharply. Sounds controlled, precise, technical. The resonance peak is more prominent relative to the stop band.
+
+For a DJ filter sweep, 12 dB/oct creates a slow gradual drain (cinematic); 24 dB/oct creates a sharp divide (surgical). The same BPM, the same track, the same movement — very different emotional result.
+"""
+
+[[en.quiz]]
+question = "Why is the SVF preferred over the biquad for real-time DJ filter sweeps?"
+answers  = [
+  "It uses less CPU",
+  "It remains numerically stable across the full frequency range and handles high-Q sweeps gracefully",
+  "It has more outputs"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the primary source of 'warmth' in the Moog ladder filter?"
+answers  = [
+  "The 24 dB/oct slope",
+  "tanh soft-clip saturation in the transistor feedback path generating predominantly even-order harmonics",
+  "The number of filter stages"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "The Barkhausen criterion for self-oscillation requires:"
+answers  = [
+  "Loop gain = 0 and phase = 180°",
+  "Loop gain ≥ 1 and total loop phase = 360° at the oscillation frequency",
+  "No feedback in the circuit"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "A 4th-order filter has an asymptotic slope of:"
+answers  = ["12 dB/oct", "24 dB/oct", "48 dB/oct"]
+correct  = 1
+
+[[en.quiz]]
+question = "In the Z-domain, self-oscillation corresponds to filter poles:"
+answers  = [
+  "At the origin",
+  "On or outside the unit circle",
+  "On the real axis"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Audio EQ Cookbook — Robert Bristow-Johnson"
+url   = "https://www.w3.org/TR/audio-eq-cookbook/"
+
+[[en.sources]]
+label = "Moog ladder filter — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Moog_ladder_filter"
+
+[[en.sources]]
+label = "State Variable Filter — EarLevel Engineering"
+url   = "https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/"
+
+[[en.sources]]
+label = "Barkhausen stability criterion — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Barkhausen_stability_criterion"
+
+[[en.sources]]
+label = "Nonlinear digital implementation of the Moog ladder — Välimäki & Pakarinen"
+url   = "https://aaltodoc.aalto.fi/handle/123456789/3484"
+
+[fr]
+title      = "Le Filtre : Topologie DSP & Non-Linéarité Analogique"
+short_desc = "SVF vs biquad, ladder Moog, maths de self-oscillation, pentes 12/24 dB."
+description = "Le filtre est un concept déceptivement simple qui cache un DSP riche. Comprendre la topologie explique pourquoi deux filtres avec le même cutoff et le même Q peuvent sonner complètement différemment."
+recap = [
+  "State-variable filter (SVF) : sorties simultanées LP/BP/HP, stable à Q élevé — la plupart des tables DJ.",
+  "Biquad : cheval de bataille DSP standard, fonction de transfert H(z), base de l'Audio EQ Cookbook.",
+  "Ladder transistors Moog : 4 cellules RC un-pôle en cascade, 24 dB/oct, couplage non-linéaire résonance/cutoff.",
+  "La self-oscillation est une condition de Barkhausen : gain de boucle ≥ 1 et phase totale = 360° à la fréquence d'oscillation.",
+  "La 'chaleur' analo est une saturation soft-clip (tanh) dans la boucle de feedback — absente d'un biquad pur.",
+]
+
+[[fr.pages]]
+title   = "State-variable filter (SVF) vs biquad"
+content = """
+Les deux topologies numériques dominantes dans les tables DJ sont le **state-variable filter** et le **biquad**.
+
+**Biquad (filtre bi-quadratique) :**
+Le filtre IIR du 2e ordre canonique. Sa fonction de transfert dans le domaine Z :
+
+```
+H(z) = (b₀ + b₁z⁻¹ + b₂z⁻²) / (1 + a₁z⁻¹ + a₂z⁻²)
+```
+
+Les coefficients (b₀, b₁, b₂, a₁, a₂) se calculent depuis la fréquence de coupure ω₀ et Q via l'**Audio EQ Cookbook** (Robert Bristow-Johnson). Stable, peu coûteux, implémentation en forme directe II. Un défaut : **instabilité numérique à très basse fréquence de coupure** (proche de 0 Hz), où les coefficients deviennent mal conditionnés.
+
+**State-variable filter (SVF) :**
+Une topologie avec trois sorties simultanées — passe-bas (LP), passe-bande (BP), passe-haut (HP) — calculées depuis les mêmes équations différentielles :
+
+```
+LP_out[n] = LP_out[n-1] + F × BP_out[n-1]
+BP_out[n] = BP_out[n-1] + F × (in[n] - LP_out[n-1] - Q⁻¹ × BP_out[n-1])
+HP_out[n] = in[n] - LP_out[n-1] - Q⁻¹ × BP_out[n-1]
+```
+
+où F = 2·sin(π·fc/fs). Le SVF reste numériquement stable sur toute la plage de fréquences et gère les **sweeps à Q élevé** en douceur — c'est pourquoi il est préféré pour les filtres DJ qui doivent être balayés en temps réel.
+"""
+
+[[fr.pages]]
+title   = "Le ladder à transistors Moog : la non-linéarité comme feature"
+content = """
+Le **ladder à transistors Moog** (Robert Moog, 1964) n'est ni un biquad ni un SVF — c'est une cascade de quatre cellules RC passe-bas un-pôle avec un **chemin de feedback de résonance** :
+
+```
+Gain de stage : G = tanh(I_s · V_in / (2V_t))   ← saturation soft-clip
+Pente totale : 4 × 6 dB/oct = 24 dB/oct
+Feedback : -k × sortie réinjectée à l'entrée (k = coefficient de résonance)
+```
+
+Ce qui le rend spécial :
+1. **Couplage non-linéaire** : quand la fréquence de coupure change, l'impédance d'entrée de chaque stage change, ce qui module en croisé la résonance. Il n'y a pas de séparation nette entre cutoff et Q — ils se contaminent mutuellement. C'est perçu comme "organique" ou "vivant."
+2. **Saturation douce** : la réponse tanh des transistors écrête doucement à fort signal. Les harmoniques générés sont surtout d'ordre pair (2e, 4e), qui sonnent chaud plutôt que dur.
+3. **Self-oscillation** : quand k > 1 (le feedback dépasse l'unité), le ladder s'auto-oscille à la fréquence de coupure. Bob Moog l'a d'abord considéré comme une panne. C'est devenu une feature définissante.
+
+Aucune chaîne biquad numérique pure ne reproduit ce comportement sans modélisation non-linéaire explicite — soit waveshaping dans la boucle de feedback, soit intégration numérique du circuit analogique (simulation SPICE ou DASP).
+"""
+image = "lesson-images/moog_ladder_schematic.png"
+image_caption = "Ladder transistors Moog : 4 cellules un-pôle avec feedback saturant (tanh)."
+
+[[fr.pages]]
+title   = "Self-oscillation : le critère de Barkhausen"
+content = """
+Un filtre s'auto-oscille quand sa boucle de feedback interne satisfait le **critère de stabilité de Barkhausen** :
+
+1. **Gain de boucle = 1** (ou plus) à la fréquence d'oscillation.
+2. **Phase totale de boucle = 360°** (ou équivalemment 0°) à cette fréquence.
+
+Pour le ladder Moog, les quatre cellules un-pôle contribuent chacune 90° de déphasage à la fréquence de coupure, soit 360° au total. Quand le feedback de résonance est assez fort pour compenser la perte de gain, le système oscille.
+
+Dans le domaine Z, la self-oscillation correspond à une paire de pôles **sur** (ou en dehors) du cercle unité. Un filtre stable garde ses pôles strictement à l'intérieur.
+
+Pour un SVF du 2e ordre, l'équation caractéristique est :
+
+```
+z² - (2 - F²/2 - k·F)z + (1 - k·F/2 + F²/4) = 0
+```
+
+La self-oscillation commence quand les pôles atteignent le cercle unité — à Q⁻¹ = 0 (pas d'amortissement). En pratique, les filtres clampent la résonance pour garder les pôles juste à l'intérieur.
+
+**Conséquence pratique pour les DJs :** sur un DJM, si tu entends un son qui tient tout seul sans musique, tu as atteint le seuil d'auto-oscillation. Recule le knob de résonance. Sur du matériel analogique (Xone:92), la self-oscillation intentionnelle à une fréquence de coupure précise est une technique musicale délibérée — tu joues un générateur de tonalité.
+"""
+
+[[fr.pages]]
+title   = "12 vs 24 dB/oct : pôles, pente et perception"
+content = """
+L'ordre du filtre détermine la pente :
+
+- **Filtre du 1er ordre** : un pôle, pente asymptotique de 6 dB/oct. Pour les shelving très doux.
+- **Filtre du 2e ordre** : deux pôles, 12 dB/oct. Le biquad standard, défaut DJM.
+- **Filtre du 4e ordre** : quatre pôles, 24 dB/oct. Deux biquads en cascade, ou le ladder Moog.
+
+La pente est une approximation asymptotique — elle ne s'applique vraiment qu'au-delà du cutoff. Dans la bande de transition (moins d'une octave du cutoff), les deux pentes sculptent le son simultanément avec le pic de résonance.
+
+Implications perceptuelles :
+- **12 dB/oct** à Q moyen : la bande de transition est large ; le filtre affecte une octave entière de fréquences "en descendant." Lisse, musical.
+- **24 dB/oct** à Q moyen : la bande de transition est étroite ; les fréquences chutent abruptement. Contrôlé, précis, technique. Le pic de résonance est plus proéminent par rapport à la bande atténuée.
+
+Pour un sweep de filtre DJ, 12 dB/oct crée une vidange lente et graduelle (cinématographique) ; 24 dB/oct crée une division nette (chirurgicale). Même BPM, même track, même mouvement — résultat émotionnel très différent.
+"""
+
+[[fr.quiz]]
+question = "Pourquoi le SVF est-il préféré au biquad pour les sweeps de filtre DJ en temps réel ?"
+answers  = [
+  "Il consomme moins de CPU",
+  "Il reste numériquement stable sur toute la plage de fréquences et gère les sweeps à Q élevé",
+  "Il a plus de sorties"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle est la source principale de la 'chaleur' du ladder transistors Moog ?"
+answers  = [
+  "La pente à 24 dB/oct",
+  "La saturation soft-clip tanh dans la boucle de feedback des transistors, générant des harmoniques d'ordre pair",
+  "Le nombre de stages du filtre"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Le critère de Barkhausen pour la self-oscillation exige :"
+answers  = [
+  "Gain de boucle = 0 et phase = 180°",
+  "Gain de boucle ≥ 1 et phase totale de boucle = 360° à la fréquence d'oscillation",
+  "Aucun feedback dans le circuit"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Un filtre du 4e ordre a une pente asymptotique de :"
+answers  = ["12 dB/oct", "24 dB/oct", "48 dB/oct"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans le domaine Z, la self-oscillation correspond à des pôles du filtre :"
+answers  = [
+  "À l'origine",
+  "Sur ou en dehors du cercle unité",
+  "Sur l'axe réel"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Audio EQ Cookbook — Robert Bristow-Johnson"
+url   = "https://www.w3.org/TR/audio-eq-cookbook/"
+
+[[fr.sources]]
+label = "Moog ladder filter — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Moog_ladder_filter"
+
+[[fr.sources]]
+label = "State Variable Filter — EarLevel Engineering"
+url   = "https://www.earlevel.com/main/2003/03/02/the-digital-state-variable-filter/"
+
+[[fr.sources]]
+label = "Critère de stabilité de Barkhausen — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Barkhausen_stability_criterion"
+
+[[fr.sources]]
+label = "Implémentation numérique non-linéaire du ladder Moog — Välimäki & Pakarinen"
+url   = "https://aaltodoc.aalto.fi/handle/123456789/3484"

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import './theme.css';
+
+* {
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --text-dark: #2d2d2d;
+  --coach-blue: #4a90e2;
+}
+
+body, html, #root {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base transitions for premium feel */
+button, a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+

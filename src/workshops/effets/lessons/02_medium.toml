@@ -1,0 +1,266 @@
+id = "LESSON_FX_2_MEDIUM"
+order = 2
+
+[en]
+title      = "Delay: Subdivisions, Genre DNA & the Echo-Out"
+short_desc = "1/4 dub, 1/8 dotted tech house, 1/16 triplet trance — and the Larry Heard move."
+description = "You know the three controls. Now learn which subdivision to reach for and why — because the rhythm of the echo carries genre memory before you've touched feedback."
+recap = [
+  "1/4 note straight = dub / reggae — wide, spacious, King Tubby territory.",
+  "1/8 dotted = syncopated bounce — the signature of tech house and 90s post-rock production.",
+  "1/16 triplet = blurring rapid fire — trance builds, big-room drops.",
+  "Echo-out: delay + pull fader = the track vanishes in a tail, giving you room to start track B.",
+  "Carl Cox on delays: reach for the subdivision first, feedback second — rhythm before length.",
+]
+
+[[en.pages]]
+title   = "Subdivision as genre signature"
+content = """
+The **time** setting of a delay isn't just rhythm — it carries genre DNA. Before you touch feedback or mix, the subdivision you choose already tells the crowd which world you're in.
+
+**1/4 note (straight quarter beat)**
+Wide, spacious, unhurried. Each repeat lands one quarter note after the last. This is the classic **dub/reggae** echo — the sound of King Tubby's studio in Kingston, Jamaica, in the 1970s. Think: "I'm spacious and I have all the time in the world."
+
+**1/8 note dotted (dotted eighth)**
+The dotted eighth is 3/16 of a beat — it creates a syncopated bounce that feels like it's pulling forward. This is the subdivision that defines **tech house** and appears constantly in productions from Jamie Jones to Disclosure. The echo always seems to land slightly "early", creating urgency.
+
+**1/16 note triplet**
+Very fast, blurring into texture. Three echos per beat. This is the **trance and big-room build** subdivision — it stacks until the track feels like it's about to explode. Very difficult to use cleanly outside that context.
+"""
+image = "lesson-images/delay_subdivisions_grid.png"
+image_caption = "1/4 straight, 1/8 dotted, and 1/16 triplet on a 4/4 grid — each creates a different feel."
+
+[[en.pages]]
+title   = "The echo-out: structural use of delay"
+content = """
+The **echo-out** is not a party trick — it's a structural technique. Here's the precise method:
+
+**Setup** (do this during the last phrase of track A):
+1. Time = 1/2 beat (one echo per half-beat — present but not fast).
+2. Feedback = 0.60–0.70 (4–6 repeats before it disappears).
+3. Mix = 40–50% (echo clearly audible but not louder than dry signal).
+
+**Execution:**
+4. On beat 1 of the last bar, smoothly pull track A's volume fader to zero over 4 beats.
+5. The music disappears but 6–8 seconds of echo tail remains.
+
+**Why this works:**
+The echo is a fingerprint of what was there — the crowd hears the track "leaving" rather than cutting. It creates a sense of space and breath. You can start track B during the tail (it sits behind it), or let silence happen briefly, which is even more powerful.
+
+**Larry Heard** (aka Mr. Fingers) used this technique in early deep house to create emotional pauses. When you hear "Can You Feel It" transitioning this way, you understand why it became a standard.
+"""
+
+[[en.pages]]
+title   = "Feedback and mix: dialing the right tail"
+content = """
+Once you've chosen the subdivision, feedback and mix define the character of the tail.
+
+**Feedback guidance:**
+- **0.0–0.3**: one or two clean repeats, then silence. Good for a punctuation echo on a vocal stab or drum hit.
+- **0.4–0.6**: 4–6 repeats, audible tail of ~3–5 seconds. The workhorse for transitions.
+- **0.7–0.85**: long tail, 8+ repeats. Useful for the echo-out. Keep mix below 40% or it washes the dry signal.
+- **0.9+**: danger zone on most digital gear — the tail may not fully decay. DJMs soft-clip at ~0.95, but the result can feel endless and muddy.
+
+**Mix guidance:**
+- The dry signal should almost always dominate (**mix below 50%**).
+- Exception: echo-out where you're intentionally pulling the dry signal to zero.
+- Exception: very sparse moments (a single piano note, an acapella) where a high-mix delay creates reverb-like space.
+
+One pro habit: set feedback to 0 before turning delay on, then raise it gradually so you hear the first echo before committing to a tail length.
+"""
+
+[[en.pages]]
+title   = "Pre-fader vs post-fader send"
+content = """
+On a Pioneer DJM, delay runs as a **post-fader send**: the delay receives signal *after* the channel volume fader. This means:
+
+- Pull the fader to zero → the delay input goes to zero → the tail fades naturally as the existing echoes decay.
+- The tail follows the fader, which is the default behavior for the echo-out.
+
+On some mixers (and external FX units), you can switch to **pre-fader**: the delay gets signal *before* the fader. Then:
+- Pull the fader → the dry track disappears but the delay keeps receiving new signal and generating echos.
+- This creates a "ghost mix" effect where the echo and the dry are completely independent.
+
+Knowing which mode you're in matters during the echo-out: post-fader gives you a clean natural decay; pre-fader can create runaway feedback if you forget to turn off delay after pulling the fader.
+"""
+
+[[en.quiz]]
+question = "What feel does a 1/8 dotted delay subdivision create?"
+answers  = [
+  "Wide, spacious, unhurried",
+  "A syncopated bounce that pulls forward — signature of tech house",
+  "Rapid blurring into texture"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What feedback range (approx.) is best for the echo-out move?"
+answers  = ["0.0–0.3", "0.6–0.75", "0.9+"]
+correct  = 1
+
+[[en.quiz]]
+question = "In the echo-out, why does the track seem to 'leave' rather than just cut?"
+answers  = [
+  "The BPM slows down",
+  "The echo tail is a fingerprint of the music — the crowd hears it fading away",
+  "The volume goes up before going down"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "Which delay subdivision is the signature of dub/reggae?"
+answers  = ["1/16 triplet", "1/8 dotted", "1/4 straight"]
+correct  = 2
+
+[[en.quiz]]
+question = "On a DJM with post-fader send, what happens when you pull the volume fader to zero?"
+answers  = [
+  "The delay keeps running and generates new echoes indefinitely",
+  "The delay input goes to zero and the existing tail decays naturally",
+  "The delay turns off immediately"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Dub delay history — Red Bull Music Academy"
+url   = "https://daily.redbullmusicacademy.com/2018/04/dub-the-music-of-bass"
+
+[[en.sources]]
+label = "Larry Heard / Mr. Fingers biography — Discogs"
+url   = "https://www.discogs.com/artist/6025-Mr-Fingers"
+
+[[en.sources]]
+label = "Tech house production: dotted eighth delay — Attack Magazine"
+url   = "https://www.attackmagazine.com/technique/tutorials/"
+
+[fr]
+title      = "Delay : Subdivisions, ADN de Genre & Echo-Out"
+short_desc = "1/4 dub, 1/8 pointée tech house, 1/16 triolet trance — et le move de Larry Heard."
+description = "Tu connais les trois réglages. Apprends maintenant quelle subdivision choisir et pourquoi — parce que le rythme de l'écho porte la mémoire de genre avant même que tu touches le feedback."
+recap = [
+  "1/4 noire droite = dub / reggae — large, aéré, le territoire King Tubby.",
+  "1/8 pointée = rebond syncopé — la signature de la tech house et des productions post-rock des 90s.",
+  "1/16 triolet = rapide et flou — builds de trance, drops big-room.",
+  "Echo-out : delay + baisser le fader = la track disparaît en queue, tu as la place de lancer la B.",
+  "Carl Cox sur les delays : choisis la subdivision en premier, le feedback ensuite — le rythme avant la longueur.",
+]
+
+[[fr.pages]]
+title   = "La subdivision comme signature de genre"
+content = """
+Le réglage **time** d'un delay n'est pas que du rythme — il porte l'ADN du genre. Avant de toucher feedback ou mix, la subdivision que tu choisis dit déjà au public dans quel univers tu es.
+
+**1/4 noire (noire droite)**
+Large, aéré, sans précipitation. Chaque répétition tombe une noire après la précédente. C'est l'écho **dub/reggae** classique — le son du studio de King Tubby à Kingston, Jamaïque, dans les années 1970. Traduction : "Je suis spacieux et j'ai tout mon temps."
+
+**1/8 pointée (croche pointée)**
+La croche pointée vaut 3/16 d'un beat — elle crée un rebond syncopé qui tire vers l'avant. C'est la subdivision qui définit la **tech house** et apparaît constamment dans les productions de Jamie Jones à Disclosure. L'écho semble toujours tomber légèrement "en avance", créant de l'urgence.
+
+**1/16 triolet**
+Très rapide, se fond en texture. Trois échos par beat. C'est la subdivision des **builds de trance et big-room** — elle s'empile jusqu'à ce que la track soit sur le point d'exploser. Très difficile à utiliser proprement hors de ce contexte.
+"""
+image = "lesson-images/delay_subdivisions_grid.png"
+image_caption = "1/4 droite, 1/8 pointée, 1/16 triolet sur une grille 4/4 — chacune crée un feel différent."
+
+[[fr.pages]]
+title   = "L'echo-out : usage structurel du delay"
+content = """
+L'**echo-out** n'est pas un tour de passe-passe — c'est une technique structurelle. Voici la méthode précise :
+
+**Mise en place** (pendant la dernière phrase de la track A) :
+1. Time = 1/2 beat (un écho par demi-beat — présent mais pas rapide).
+2. Feedback = 0,60–0,70 (4 à 6 répétitions avant de disparaître).
+3. Mix = 40–50% (écho clairement audible mais pas plus fort que le signal dry).
+
+**Exécution :**
+4. Sur le beat 1 de la dernière mesure, descends doucement le fader de volume de la track A à zéro sur 4 beats.
+5. La musique disparaît mais 6 à 8 secondes de queue d'écho restent.
+
+**Pourquoi ça marche :**
+L'écho est une empreinte de ce qui était là — le public entend la track "partir" plutôt que couper. Ça crée un espace et une respiration. Tu peux lancer la track B pendant la queue (elle s'assoit derrière), ou laisser un bref silence, ce qui est encore plus puissant.
+
+**Larry Heard** (aka Mr. Fingers) utilisait cette technique en deep house pour créer des pauses émotionnelles. En entendant "Can You Feel It" transitionner ainsi, tu comprends pourquoi c'est devenu un standard.
+"""
+
+[[fr.pages]]
+title   = "Feedback et mix : régler la queue parfaite"
+content = """
+Une fois la subdivision choisie, le feedback et le mix définissent le caractère de la queue.
+
+**Guide feedback :**
+- **0,0–0,3** : une ou deux répétitions propres, puis silence. Bon pour une ponctuation d'écho sur un stab vocal ou un coup de caisse.
+- **0,4–0,6** : 4 à 6 répétitions, queue audible de ~3–5 secondes. Le cheval de bataille pour les transitions.
+- **0,7–0,85** : longue queue, 8+ répétitions. Utile pour l'echo-out. Garde le mix sous 40% sinon ça noie le signal dry.
+- **0,9+** : zone dangereuse sur la plupart des matos numériques — la queue peut ne jamais vraiment s'éteindre. Les DJM soft-clip à ~0,95, mais le résultat peut être sans fin et boueux.
+
+**Guide mix :**
+- Le signal dry doit presque toujours dominer (**mix sous 50%**).
+- Exception : l'echo-out où tu baisses intentionnellement le dry à zéro.
+- Exception : moments très aérés (une seule note de piano, une acapella) où un mix élevé crée un espace de type reverb.
+
+Une habitude pro : règle le feedback à 0 avant d'activer le delay, puis monte-le graduellement pour entendre le premier écho avant de t'engager sur une longueur de queue.
+"""
+
+[[fr.pages]]
+title   = "Send pre-fader vs post-fader"
+content = """
+Sur un Pioneer DJM, le delay fonctionne en **send post-fader** : le delay reçoit le signal *après* le fader de volume du canal. Ce qui veut dire :
+
+- Baisse le fader à zéro → l'entrée du delay va à zéro → la queue s'éteint naturellement au fur et à mesure que les échos existants s'éteignent.
+- La queue suit le fader, c'est le comportement par défaut pour l'echo-out.
+
+Sur certaines tables (et unités FX externes), on peut passer en **pre-fader** : le delay reçoit le signal *avant* le fader. Alors :
+- Baisse le fader → la track dry disparaît mais le delay continue de recevoir du signal et de générer des échos.
+- Ça crée un effet "ghost mix" où l'écho et le dry sont complètement indépendants.
+
+Savoir dans quel mode tu es compte pendant l'echo-out : post-fader donne un decay naturel propre ; pre-fader peut créer un feedback incontrôlé si tu oublies de couper le delay après avoir baissé le fader.
+"""
+
+[[fr.quiz]]
+question = "Quel feel crée une subdivision 1/8 pointée ?"
+answers  = [
+  "Large, aéré, sans précipitation",
+  "Un rebond syncopé qui tire vers l'avant — signature de la tech house",
+  "Rapide et se fond en texture"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle plage de feedback (approximative) convient le mieux à l'echo-out ?"
+answers  = ["0,0–0,3", "0,6–0,75", "0,9+"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans l'echo-out, pourquoi la track semble-t-elle 'partir' plutôt que couper ?"
+answers  = [
+  "Le BPM ralentit",
+  "La queue d'écho est une empreinte de la musique — le public l'entend s'estomper",
+  "Le volume monte avant de descendre"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle subdivision de delay est la signature du dub/reggae ?"
+answers  = ["1/16 triolet", "1/8 pointée", "1/4 noire droite"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Sur un DJM avec send post-fader, que se passe-t-il quand tu baisses le fader à zéro ?"
+answers  = [
+  "Le delay continue de tourner et génère de nouveaux échos indéfiniment",
+  "L'entrée du delay va à zéro et la queue existante s'éteint naturellement",
+  "Le delay s'éteint immédiatement"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Histoire du delay dub — Red Bull Music Academy"
+url   = "https://daily.redbullmusicacademy.com/2018/04/dub-the-music-of-bass"
+
+[[fr.sources]]
+label = "Larry Heard / Mr. Fingers biographie — Discogs"
+url   = "https://www.discogs.com/artist/6025-Mr-Fingers"
+
+[[fr.sources]]
+label = "Production tech house : delay en croche pointée — Attack Magazine"
+url   = "https://www.attackmagazine.com/technique/tutorials/"

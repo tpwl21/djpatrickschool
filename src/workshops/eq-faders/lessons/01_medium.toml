@@ -1,0 +1,384 @@
+id = "LESSON_EQ_1_MEDIUM"
+order = 1
+
+[en]
+title       = "EQ in Practice: Bands, Masking, and Headphone Listening"
+short_desc  = "Frequency ranges in Hz, frequency masking, sweep vs kill, PFL and split-cue."
+description = "You know the three bands. Now you understand exactly which frequencies they target, why masking kills vocal clarity, why DJs kill rather than sweep on a club PA, and how to use your headphone cue properly."
+recap = [
+  "Pioneer DJM: Low–Mid crossover ~300 Hz, Mid–High ~4 kHz. Allen & Heath Xone: Mid centered ~1.2 kHz with narrower Q.",
+  "Frequency masking: a loud signal at 250 Hz can mask a softer one at 2 kHz (upward masking spread).",
+  "Kill (snap to -∞ dB on the downbeat) sounds cleaner than a slow sweep on a club PA because the PA's multiband compressor can't react in time.",
+  "PFL routes the channel signal to headphones — after EQ on most DJ mixers, so your EQ decisions are reflected in the cue.",
+  "Split-cue: A in left ear, B in right ear — beat drift is immediately audible as left-right bounce."
+]
+
+[[en.pages]]
+title   = "The exact frequencies: what each band covers"
+content = """
+## Not all EQs are equal
+
+The three bands aren't standardized across manufacturers. Knowing your gear matters.
+
+**Pioneer DJM series (DJM-900NXS2, DJM-A9):**
+- Low: 20 Hz – ~300 Hz (shelving)
+- Mid: ~300 Hz – ~4 kHz (peaking bell)
+- High: ~4 kHz – 20 kHz (shelving)
+
+**Allen & Heath Xone:96 / Xone:43:**
+- Low: similar floor, crossover ~200 Hz
+- Mid: centered ~1.2 kHz with a narrower bandwidth (higher Q)
+- High: crossover ~3.5 kHz
+
+## What this changes in practice
+
+The same mid-cut feels different on a Pioneer vs a Xone.
+On a Pioneer, cutting the Mid takes out a wide chunk from 300 Hz to 4 kHz — you're removing body AND presence AND vocal clarity at once.
+On a Xone, the narrower mid band cuts more surgically around the vocal fundamental.
+
+When you move between gear, spend two minutes identifying where each crossover sits by cutting one band and listening to what disappears.
+"""
+youtube = "MXzU3h77Gtc"
+youtube_caption = "EQ frequency ranges on DJ mixers — what each band actually cuts."
+
+[[en.pages]]
+title   = "Frequency masking: why two vocals always fight"
+content = """
+## The 800 Hz – 3 kHz problem
+
+Human voices — singing, rapping, DJing — sit primarily in the **800 Hz – 3 kHz** range.
+When two tracks with vocals overlap, both signals compete for the same frequency space.
+
+The ear can't cleanly separate them when the energy overlaps. This is **frequency masking**: the louder signal partially obscures the quieter one, even at the same pitch range.
+
+## The masking asymmetry
+
+Masking is not symmetric. A loud low-frequency signal can mask a softer high-frequency signal — this is called **upward spread of masking**.
+A 250 Hz kick can mask a 2 kHz snare hit if the level difference is large enough.
+
+This is the acoustic reason why a heavy kick makes the mix feel muddy at the top:
+the sub energy upward-masks the presence region.
+
+## Practical EQ response
+
+- Two vocal tracks: cut the Mid on the outgoing track 4–6 dB.
+- Heavy kick masking the snare: cut 2–3 dB around 250 Hz on the kick-heavy track.
+- You're not destroying — you're making room for what you want the ear to focus on.
+"""
+
+[[en.pages]]
+title   = "Sweep vs kill: why the PA has opinions"
+content = """
+## Two options for removing a band
+
+**Sweep**: gradually turn the knob from noon to full cut over 2–4 bars.
+**Kill**: snap to full cut (-∞ dB) in a single move, on the downbeat.
+
+## Why kills win on club PAs
+
+A large club PA includes a **multiband compressor** downstream of the mixer, protecting drivers across frequency ranges.
+
+When you sweep the low band over 4 bars, the compressor's sidechain in the mid band detects that the masking from the lows is decreasing. It releases gain — the mids get louder. Then as you continue, the mids feel "too loud," the compressor pulls them back. You hear this as **pumping** — a breathing artifact that sounds like the PA is tired.
+
+A hard kill lands in ~1ms. The compressor has no time to react. No pumping, no artifact.
+
+## When sweeping is intentional
+
+A long filter sweep is a compositional choice — Loco Dice, Ricardo Villalobos, Objekt all use it deliberately as a tension tool. But it requires the mix to support it structurally, not just a tool to clean up a transition.
+
+Routine transitions: kill. Intentional tension: sweep.
+"""
+
+[[en.pages]]
+title   = "PFL and split-cue: hearing before committing"
+content = """
+## The signal path for PFL
+
+On a DJ mixer, the CUE bus typically sits **after the EQ but before the volume fader**.
+
+This means:
+- Your EQ work is reflected in what you hear in the headphones.
+- Your volume fader movements don't affect the cue — you can listen to Track B at any volume without changing what the room hears.
+
+## Why this matters for EQ decisions
+
+If your gain staging (trim) is wrong, your PFL is a misleading reference.
+A track trimmed 6 dB too hot in the PFL will sound louder than it actually is in the room — you'll make unnecessary EQ boosts to "compete" with something that's already fine.
+
+Check the trim first. Then use PFL to make EQ decisions.
+
+## Split-cue: beat drift made visible to your ears
+
+Split-cue sends the cue signal to one ear and the master to the other.
+Beat drift becomes a left-right bounce: beats in sync land simultaneously in both ears; a late beat in Track B arrives noticeably after the one in Track A.
+
+Many DJs find this more intuitive than listening to both tracks blended, especially in noisy booths.
+"""
+
+[[en.pages]]
+title   = "Crossfader curve: blend vs battle"
+content = """
+## What the curve controls
+
+The crossfader curve determines how volume changes as the fader moves from A to B.
+
+**Linear (slow) curve:**
+- Both tracks at ~50% volume when the fader is in the center.
+- Smooth blend across the full travel.
+- Used for long house/techno mixes, anything where the transition takes 8+ bars.
+
+**Cut-in (fast / sharp) curve:**
+- Both tracks at full volume across most of the travel.
+- Volume snaps only in the last few millimeters at each end.
+- Used for scratching, hip-hop cuts, and any technique requiring instantaneous switching.
+
+## Practical setup
+
+On Pioneer DJM series: small **Curve** knob on the front panel.
+On Rane and scratch mixers: often a dedicated multi-position switch.
+On the DJM-S9/S11: adjustable curve per side plus a *hamster switch* (reverses the fader direction for scratch style).
+
+For mixing genres: slow curve. For DJing hip-hop or turntablism: fast curve.
+Most DJs never change it mid-set — pick one before you play.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "On a Pioneer DJM, approximately where is the Low–Mid crossover frequency?"
+answers  = ["100 Hz", "300 Hz", "1.2 kHz"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What is 'upward spread of masking'?"
+answers  = ["High frequencies masking low frequencies", "A DJ technique for boosting highs", "A loud low-frequency signal masking a softer higher-frequency signal"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Why does a slow EQ sweep cause pumping on a club PA but not on headphones?"
+answers  = ["Because headphones have better bass response", "Because the PA's multiband compressor reacts to the changing frequency balance and audibly re-balances the remaining bands", "Because club PAs are always too loud"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Where in the signal chain does the CUE bus typically sit on a DJ mixer?"
+answers  = ["After EQ, before the volume fader", "Before EQ and before the trim", "After the volume fader and crossfader"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "In split-cue mode, how does beat drift manifest?"
+answers  = ["As a pitch difference", "As a volume difference", "As beats arriving at different times in each ear"]
+
+[[sources]]
+label = "Pioneer DJM-900NXS2 — Owner's Manual (EQ specifications)"
+url   = "https://www.pioneerdj.com/en/product/mixer/djm-900nxs2/black/support/"
+
+[[sources]]
+label = "Allen & Heath Xone:96 — Technical Specifications"
+url   = "https://www.allen-heath.com/hardware/xone/xone96/"
+
+[[sources]]
+label = "Frequency Masking — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-frequency-masking"
+
+[[sources]]
+label = "Crossfader Curves and Formulas — Jupiter Science"
+url   = "https://jupiterscience.com/crossfader-curves-formulas-and-dj-techniques/"
+
+[[sources]]
+label = "Pre-Fader Listening — Sound On Sound"
+url   = "https://www.soundonsound.com/sound-advice/q-what-do-solo-pfl-and-afl-do"
+
+[fr]
+title       = "L'EQ en pratique : bandes, masquage, écoute casque"
+short_desc  = "Plages de fréquences en Hz, masquage fréquentiel, sweep vs kill, PFL et split-cue."
+description = "Tu connais les trois bandes. Maintenant tu comprends exactement quelles fréquences elles ciblent, pourquoi le masquage tue la clarté vocale, pourquoi on kill plutôt que sweeper sur une PA de club, et comment utiliser ton cue casque correctement."
+recap = [
+  "Pioneer DJM : crossover Low-Mid ~300 Hz, Mid-High ~4 kHz. Allen & Heath Xone : Mid centré ~1,2 kHz avec Q plus étroit.",
+  "Masquage fréquentiel : un signal fort à 250 Hz peut masquer un son plus doux à 2 kHz (upward masking spread).",
+  "Kill (claque à -∞ dB sur le downbeat) sonne plus propre qu'un sweep lent sur une PA de club car le compresseur multibande n'a pas le temps de réagir.",
+  "Le PFL route le signal du canal vers le casque — après l'EQ sur la plupart des tables DJ, donc tes décisions EQ se reflètent dans le cue.",
+  "Split-cue : A dans l'oreille gauche, B dans la droite — le drift de beat est immédiatement audible comme un rebond gauche-droite."
+]
+
+[[fr.pages]]
+title   = "Les fréquences exactes : ce que couvre chaque bande"
+content = """
+## Toutes les EQs ne sont pas pareilles
+
+Les trois bandes ne sont pas standardisées entre fabricants. Connaître ton matos compte.
+
+**Pioneer DJM (DJM-900NXS2, DJM-A9) :**
+- Low : 20 Hz – ~300 Hz (shelving)
+- Mid : ~300 Hz – ~4 kHz (peaking bell)
+- High : ~4 kHz – 20 kHz (shelving)
+
+**Allen & Heath Xone:96 / Xone:43 :**
+- Low : plancher similaire, crossover ~200 Hz
+- Mid : centré ~1,2 kHz avec une bande plus étroite (Q plus élevé)
+- High : crossover ~3,5 kHz
+
+## Ce que ça change en pratique
+
+Le même mid-cut donne un résultat différent sur une Pioneer vs une Xone.
+Sur une Pioneer, couper le Mid retire une large tranche de 300 Hz à 4 kHz — tu enlèves corps ET présence ET clarté vocale en même temps.
+Sur une Xone, la bande mid plus étroite coupe plus chirurgicalement autour du fondamental vocal.
+
+Quand tu changes de matos, prends deux minutes pour identifier où se trouve chaque crossover en coupant une bande et en écoutant ce qui disparaît.
+"""
+youtube = "MXzU3h77Gtc"
+youtube_caption = "Plages de fréquences EQ sur les tables DJ — ce que chaque bande coupe vraiment."
+
+[[fr.pages]]
+title   = "Masquage fréquentiel : pourquoi deux voix se battent toujours"
+content = """
+## Le problème 800 Hz – 3 kHz
+
+Les voix humaines — chant, rap, talk — se trouvent principalement dans la plage **800 Hz – 3 kHz**.
+Quand deux morceaux avec des voix se superposent, les deux signaux se disputent le même espace fréquentiel.
+
+L'oreille ne peut pas les séparer proprement quand l'énergie se chevauche. C'est le **masquage fréquentiel** : le signal le plus fort cache partiellement le plus faible, même dans la même plage de fréquences.
+
+## L'asymétrie du masquage
+
+Le masquage n'est pas symétrique. Un signal grave fort peut masquer un signal aigu plus doux — c'est l'**upward spread of masking**.
+Un kick à 250 Hz peut masquer une caisse claire à 2 kHz si la différence de niveau est suffisante.
+
+C'est la raison acoustique pour laquelle un kick très présent rend le mix boueux dans les hauts :
+l'énergie sub masque vers le haut la région de présence.
+
+## Réponse EQ pratique
+
+- Deux morceaux vocaux : coupe le Mid du morceau sortant de 4–6 dB.
+- Kick lourd qui masque la caisse claire : coupe 2–3 dB vers 250 Hz sur le morceau à kick chargé.
+- Tu ne détruis pas — tu fais de la place pour ce que tu veux que l'oreille perçoive.
+"""
+
+[[fr.pages]]
+title   = "Sweep vs kill : pourquoi la PA a son mot à dire"
+content = """
+## Deux options pour retirer une bande
+
+**Sweep** : tourne progressivement le bouton de midi vers le full cut sur 2–4 mesures.
+**Kill** : claque à fond (-∞ dB) en un seul geste, sur le downbeat.
+
+## Pourquoi les kills gagnent sur les PAs de club
+
+Une grosse PA de club inclut un **compresseur multibande** en aval de ta table, qui protège les drivers sur toutes les plages de fréquences.
+
+Quand tu sweeps le Low sur 4 mesures, la sidechain du compresseur sur la bande Mid détecte que le masquage des basses diminue. Il relâche son gain — les mids deviennent plus forts. Puis au fur et à mesure que tu continues, les mids semblent "trop forts", le compresseur les tire vers le bas. Tu entends ça comme du **pompage** — un artefact de respiration qui donne l'impression que la PA fatigue.
+
+Un hard kill prend ~1ms. Le compresseur n'a pas le temps de réagir. Pas de pompage, pas d'artefact.
+
+## Quand sweeper est intentionnel
+
+Un long sweep de filtre est un choix compositionnel — Loco Dice, Ricardo Villalobos, Objekt l'utilisent délibérément comme outil de tension. Mais ça demande que le mix le supporte structurellement, pas juste pour nettoyer une transition.
+
+Transitions courantes : kill. Tension intentionnelle : sweep.
+"""
+
+[[fr.pages]]
+title   = "PFL et split-cue : entendre avant de s'engager"
+content = """
+## La chaîne de signal pour le PFL
+
+Sur une table DJ, le bus CUE se trouve généralement **après l'EQ mais avant le fader de volume**.
+
+Ça veut dire :
+- Ton travail EQ se reflète dans ce que tu entends dans le casque.
+- Tes mouvements de fader ne touchent pas le cue — tu peux écouter Track B à n'importe quel volume sans changer ce que la salle entend.
+
+## Pourquoi ça compte pour les décisions EQ
+
+Si ton gain staging (trim) est faux, ton PFL est une référence trompeuse.
+Un morceau trimé 6 dB trop fort dans le PFL sonnera plus fort qu'il ne l'est réellement dans la salle — tu feras des boosts EQ inutiles pour "concurrencer" quelque chose qui va déjà bien.
+
+Vérifie le trim d'abord. Puis utilise le PFL pour prendre des décisions EQ.
+
+## Split-cue : le drift de beat rendu audible à tes oreilles
+
+Le split-cue envoie le signal cue dans une oreille et le master dans l'autre.
+Le drift de beat devient un rebond gauche-droite : les beats en sync arrivent simultanément dans les deux oreilles ; un beat en retard dans Track B arrive nettement après celui de Track A.
+
+Beaucoup de DJs trouvent ça plus intuitif qu'écouter les deux morceaux mélangés, surtout dans les booths bruyants.
+"""
+
+[[fr.pages]]
+title   = "Courbe de crossfader : blend vs battle"
+content = """
+## Ce que la courbe contrôle
+
+La courbe du crossfader détermine comment le volume change quand le fader se déplace d'A vers B.
+
+**Courbe linéaire (lente) :**
+- Les deux morceaux à ~50% du volume quand le fader est au centre.
+- Fondu doux sur toute la course.
+- Utilisée pour les longs mixes house/techno, toute transition qui prend 8+ mesures.
+
+**Courbe cut-in (rapide/sharp) :**
+- Les deux morceaux à plein volume sur presque toute la course.
+- Le volume claque seulement dans les derniers millimètres à chaque extrémité.
+- Utilisée pour le scratch, les cuts hip-hop, et toute technique nécessitant un basculement instantané.
+
+## Réglage pratique
+
+Sur Pioneer DJM : petit bouton **Curve** en façade.
+Sur Rane et tables de scratch : souvent un switch multi-positions dédié.
+Sur le DJM-S9/S11 : courbe réglable par côté plus un *hamster switch* (inverse la direction du fader pour le style scratch).
+
+Pour mixer des genres : courbe lente. Pour DJ hip-hop ou turntablism : courbe rapide.
+La plupart des DJs ne la changent jamais en plein set — choisis avant de jouer.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Sur une Pioneer DJM, où se situe approximativement la fréquence de crossover Low-Mid ?"
+answers  = ["100 Hz", "300 Hz", "1,2 kHz"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Qu'est-ce que l'upward spread of masking ?"
+answers  = ["Les hautes fréquences qui masquent les basses fréquences", "Une technique DJ pour booster les aigus", "Un signal grave fort qui masque un signal aigu plus doux"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Pourquoi un sweep EQ lent cause-t-il du pompage sur une PA de club mais pas dans le casque ?"
+answers  = ["Parce que le casque a une meilleure réponse dans les basses", "Parce que le compresseur multibande de la PA réagit au changement d'équilibre fréquentiel et rééquilibre audiblement les bandes restantes", "Parce que les PAs de club sont toujours trop fortes"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Où dans la chaîne de signal se trouve généralement le bus CUE sur une table DJ ?"
+answers  = ["Après l'EQ, avant le fader de volume", "Avant l'EQ et avant le trim", "Après le fader de volume et le crossfader"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "En mode split-cue, comment se manifeste un drift de beat ?"
+answers  = ["Comme une différence de hauteur", "Comme une différence de volume", "Comme des beats qui arrivent à des moments différents dans chaque oreille"]
+
+[[sources]]
+label = "Pioneer DJM-900NXS2 — Manuel du propriétaire (spécifications EQ)"
+url   = "https://www.pioneerdj.com/en/product/mixer/djm-900nxs2/black/support/"
+
+[[sources]]
+label = "Allen & Heath Xone:96 — Spécifications techniques"
+url   = "https://www.allen-heath.com/hardware/xone/xone96/"
+
+[[sources]]
+label = "Frequency Masking — iZotope"
+url   = "https://www.izotope.com/en/learn/what-is-frequency-masking"
+
+[[sources]]
+label = "Courbes de crossfader et formules — Jupiter Science"
+url   = "https://jupiterscience.com/crossfader-curves-formulas-and-dj-techniques/"
+
+[[sources]]
+label = "Pre-Fader Listening — Sound On Sound"
+url   = "https://www.soundonsound.com/sound-advice/q-what-do-solo-pfl-and-afl-do"

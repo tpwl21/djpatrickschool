@@ -1,0 +1,82 @@
+id = "RTC_LEVEL_1"
+order = 1
+
+[en]
+title       = "Don't Kill the Warmup"
+short_desc  = "22:15. Thirty people. A banger now would be the end."
+description = "Classic trap for the young DJ: the room is half-empty and slow, you panic, and you drop your best track. Result: the people already there leave, and the people arriving feel like they missed the peak."
+coach_tips  = [
+  "Energy 2 + density 2 = warmup territory. The room is still filling.",
+  "The right pick holds space for later. It grooves without crying out.",
+  "A banger here is a crime. Save it for 01:00."
+]
+recap = [
+  "Warmup isn't boring — it's future peak built patiently.",
+  "Energy +1 at a time: don't jump from 2 to 5.",
+  "Dropping an energy-1 track on an energy-2 crowd is regression.",
+  "The mistake that empties rooms: peaking too early."
+]
+
+[fr]
+title       = "Ne tue pas le warmup"
+short_desc  = "22h15. Trente personnes. Un banger maintenant, ce serait la fin."
+description = "Piège classique du jeune DJ : la salle est à moitié vide et lente, tu paniques, et tu drop ta meilleure track. Résultat : les early birds partent, et ceux qui arrivent ont l'impression d'avoir raté le peak."
+coach_tips  = [
+  "Énergie 2 + densité 2 = territoire warmup. La salle se remplit encore.",
+  "Le bon pick tient l'espace pour plus tard. Il groove sans crier.",
+  "Un banger ici est un crime. Garde-le pour 01h00."
+]
+recap = [
+  "Le warmup n'est pas ennuyeux — c'est le peak futur construit patiemment.",
+  "Énergie +1 à la fois : ne saute pas de 2 à 5.",
+  "Envoyer une énergie 1 sur une foule énergie 2, c'est régresser.",
+  "L'erreur qui vide les salles : peaker trop tôt."
+]
+
+[track.A]
+url = "AUDIO/Doucheur_Downtempo.mp3"
+bpm = 118
+title = "Warmup A"
+key = "4A"
+complexity = 2
+
+[crowd]
+energy = 2
+density = 2
+moment = "warmup"
+vibe_tags = ["early", "space_for_build", "patient"]
+description_en = "22:15. Thirty people in a room that fits 300. A few heads nodding, others still by the bar. Tonight's going to be long."
+description_fr = "22h15. Trente personnes dans une salle qui en tient 300. Quelques têtes qui dodelinent, d'autres encore au bar. La soirée va être longue."
+
+[ui]
+show_fiches = true
+
+[[candidates]]
+url = "AUDIO/Funkasteroid.mp3"
+title = "Funkasteroid"
+genre = "tech house"
+energy = 3
+vibe = "groovy, patient"
+correct = true
+reason_en = "Energy 3 builds on top of a warmup state without crying. Groovy + patient — early birds nod, late arrivals don't feel like they missed anything. Textbook warmup pick."
+reason_fr = "Énergie 3 qui construit sur un warmup sans crier. Groovy + patient — les early birds dodelinent, les retardataires n'ont pas l'impression d'avoir raté quoi que ce soit. Pick de manuel warmup."
+
+[[candidates]]
+url = "AUDIO/SCIFI.mp3"
+title = "SciFi"
+genre = "peak techno"
+energy = 5
+vibe = "banger"
+correct = false
+reason_en = "Dropping energy 5 at 22:15 is the classic newbie trap. You'll empty the room in 15 minutes and the peak will feel anticlimactic when it finally arrives. Save this for 01:00."
+reason_fr = "Claquer énergie 5 à 22h15 c'est le piège du débutant. Tu vides la salle en 15 min et le peak, quand il arrive, sonne creux. Garde ça pour 01h00."
+
+[[candidates]]
+url = "AUDIO/Bjork.mp3"
+title = "Bjork"
+genre = "ambient"
+energy = 1
+vibe = "background"
+correct = false
+reason_en = "Energy 1 is LOWER than the current crowd energy. You're telling the room 'time to sit down'. Warmup means build slowly, not regress."
+reason_fr = "Énergie 1, c'est PLUS BAS que l'énergie actuelle de la foule. Tu dis à la salle 'asseyez-vous'. Warmup = construire lentement, pas régresser."

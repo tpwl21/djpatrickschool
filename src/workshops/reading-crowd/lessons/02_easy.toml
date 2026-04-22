@@ -1,0 +1,230 @@
+id = "LESSON_RTC_2_EASY"
+order = 2
+
+[en]
+title      = "Reading a Dancefloor — Easy"
+short_desc = "What to look at when you look up from the decks."
+description = "Reading a crowd isn't a talent — it's a skill made of specific things to observe. This lesson gives you a checklist you can use from your first gig."
+recap = [
+  "Look at **hands, not faces** — hands tell you energy level faster than expressions.",
+  "The **back rows** are your truth signal — the front always dances.",
+  "**Locked in:** hands up, eyes closed, drinks abandoned, synchronized movement.",
+  "**Losing them:** phones out for taxi apps, people leaning to chat, bodies drifting to the bar.",
+  "**Try this:** at your next set, look up from the decks every 4 bars and check the back rows.",
+]
+
+[[en.pages]]
+title   = "The first thing to watch: hands"
+content = """
+When you look up from your decks, don't scan faces — **scan hands**.
+
+Hands tell you where the energy is:
+
+- **Hands in the air** — peak energy. Keep going.
+- **Hands on the bar** — people aren't dancing, they're resting.
+- **Hands holding phones (screen lit)** — they're checking time or texting "should we leave?". Bad signal.
+- **Hands loose, swinging at sides** — the groove is working, no need to escalate.
+
+**Try this at your next gig:** for the first 30 minutes, consciously ignore the front row and only watch hands in the back half of the room. Where are those hands? That's your real read.
+"""
+
+[[en.pages]]
+title   = "Locked in vs losing them — the two lists"
+content = """
+**Signs the crowd is locked in:**
+- Hands in the air (not phones — empty hands)
+- Eyes closed, heads down — people have gone internal with the music
+- Drinks abandoned on tables — they didn't want to stop dancing to go to the bar
+- People moving together in sync — the groove has the whole room
+- Bodies facing the booth — they're curious what you do next
+
+**Signs you're losing them:**
+- Phones out, screen lit — checking time, taxi, "should we leave"
+- Groups forming at the bar between tracks — the floor is emptying from the back
+- Friends leaning in to talk — the music isn't holding them
+- Bodies turned toward exits — mental pre-departure
+- Exodus to the smoking area every track change — the floor needs repair
+
+One bad signal = watch it. Two or three at once = **act now**.
+
+**Try this next time you DJ at home:** play a 30-minute set and after each track, say out loud which signals you'd be watching for. Build the habit before the real gig.
+"""
+
+[[en.pages]]
+title   = "The back-row rule"
+content = """
+Here's the single most useful habit experienced DJs have:
+
+After every drop, they **don't look at the mixer**. They lift their head and look at the far back of the room.
+
+Why?
+- The **front row** always dances — they came specifically for you.
+- The **middle section** dances when the track is good.
+- The **back rows** only dance when the track is REALLY hitting.
+
+The back rows are your honest signal. If they're moving, the whole room is yours.
+
+**Try this right now:** next home session, put a chair or a mark at the far end of the room representing the "back rows". After each track drop, force your eyes to that mark. Count 4 bars. Then decide your next move.
+"""
+image = "lesson-images/rtc-dancefloor-zones.png"
+image_caption = "Dancefloor zones: front (always engaged), middle (engaged when track is good), back (the honest signal)."
+
+[[en.pages]]
+title   = "What to do when you see bad signals"
+content = """
+You see two bad signals: phones out + people gathering at the bar. What do you do?
+
+**Not this:** escalate. Play a bigger track. Turn up the volume.
+
+**This:** pull back to something you *know* works. A reliable groove track. Drop the BPM by 1–2. Give the floor something to anchor on.
+
+The instinct when you're losing the crowd is to throw your best track at them. That's panic — and it almost always backfires. A drifting crowd doesn't need bigger; it needs **something to hold onto**.
+
+**Try this:** before your next set, choose one "rescue track" in advance — a groove tune you know works in any room. When you see two bad signals, go to it without overthinking.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why should you look at the back rows instead of the front?"
+answers  = ["The back has better lighting", "Front-row people don't count", "The front always dances — the back only moves when the track is really hitting"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Phones out on the dancefloor (screens lit) usually means..."
+answers  = ["People are filming because they love it", "They're checking time / taxi — a signal you may be losing them", "Nothing — everyone films now"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "When you see two or three bad signals at once, you should..."
+answers  = ["Pull back to a reliable groove track, drop BPM slightly", "Play your best track to shock them back", "Ignore it and wait it out"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Eyes closed on the dancefloor means..."
+answers  = ["They're bored", "They're tired", "They've gone internal with the music — a strong positive signal"]
+
+[[sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"
+
+[fr]
+title      = "Lire un dancefloor — Easy"
+short_desc = "Quoi regarder quand tu lèves les yeux des platines."
+description = "Lire une foule n'est pas un talent — c'est une compétence faite de choses précises à observer. Cette leçon te donne une checklist utilisable dès ton premier gig."
+recap = [
+  "Regarde les **mains, pas les visages** — les mains indiquent le niveau d'énergie plus vite que les expressions.",
+  "Les **rangs du fond** sont ton signal de vérité — le devant danse toujours.",
+  "**Accrochés :** mains en l'air, yeux fermés, verres abandonnés, mouvement synchronisé.",
+  "**Tu les perds :** téléphones sortis pour les apps de taxi, gens penchés pour parler, corps qui dérivent vers le bar.",
+  "**Try this :** à ton prochain set, lève les yeux des platines toutes les 4 mesures et regarde les rangs du fond.",
+]
+
+[[fr.pages]]
+title   = "La première chose à regarder : les mains"
+content = """
+Quand tu lèves les yeux de tes platines, ne scanne pas les visages — **scanne les mains**.
+
+Les mains te disent où est l'énergie :
+
+- **Mains en l'air** — peak energy. Continue.
+- **Mains sur le bar** — les gens ne dansent pas, ils se reposent.
+- **Mains tenant des téléphones (écran allumé)** — ils vérifient l'heure ou écrivent "on s'en va ?". Mauvais signal.
+- **Mains lâches, qui se balancent** — le groove marche, pas besoin d'escalader.
+
+**Try this à ton prochain gig :** pendant les 30 premières minutes, ignore consciemment le premier rang et observe uniquement les mains dans la moitié arrière de la salle. Où sont ces mains ? C'est ta vraie lecture.
+"""
+
+[[fr.pages]]
+title   = "Accrochés vs tu les perds — les deux listes"
+content = """
+**Signaux que la foule est accrochée :**
+- Mains en l'air (pas des téléphones — des mains nues)
+- Yeux fermés, têtes baissées — les gens sont entrés dans la musique
+- Verres abandonnés sur tables — ils n'ont pas voulu s'arrêter de danser pour aller au bar
+- Les gens bougent ensemble, synchronisés — le groove a toute la salle
+- Corps tournés vers le booth — ils sont curieux de ce que tu fais ensuite
+
+**Signaux que tu les perds :**
+- Téléphones sortis, écran allumé — ils vérifient l'heure, le taxi, "on s'en va ?"
+- Groupes qui se forment au bar entre les tracks — la piste se vide par l'arrière
+- Amis qui se penchent pour parler — la musique ne les retient plus
+- Corps tournés vers les sorties — pré-départ mental
+- Exodus au fumoir à chaque changement de track — la piste demande réparation
+
+Un mauvais signal = surveille. Deux ou trois en même temps = **agis maintenant**.
+
+**Try this la prochaine fois que tu DJs chez toi :** joue un set de 30 minutes et après chaque track, dis à voix haute quel signal tu serais en train de surveiller. Construis l'habitude avant le vrai gig.
+"""
+
+[[fr.pages]]
+title   = "La règle des rangs du fond"
+content = """
+Voici l'habitude la plus utile que les DJs expérimentés ont :
+
+Après chaque drop, ils **ne regardent pas le mixer**. Ils lèvent la tête et regardent le fond de la salle.
+
+Pourquoi ?
+- Le **premier rang** danse toujours — ils sont venus exprès pour toi.
+- La **section du milieu** danse quand la track est bonne.
+- Les **rangs du fond** ne bougent que quand la track tape VRAIMENT.
+
+Les rangs du fond sont ton signal honnête. S'ils bougent, toute la salle est à toi.
+
+**Try this maintenant :** à ta prochaine session chez toi, pose une chaise ou une marque au fond de la pièce représentant les "rangs du fond". Après chaque drop, force tes yeux vers cette marque. Compte 4 mesures. Puis décide ta prochaine track.
+"""
+image = "lesson-images/rtc-dancefloor-zones.png"
+image_caption = "Zones du dancefloor : devant (toujours engagé), milieu (engagé quand la track est bonne), fond (le signal honnête)."
+
+[[fr.pages]]
+title   = "Que faire quand tu vois des mauvais signaux"
+content = """
+Tu vois deux mauvais signaux : téléphones sortis + gens qui se regroupent au bar. Que fais-tu ?
+
+**Pas ça :** escalader. Jouer une track plus grosse. Monter le volume.
+
+**Ça :** revenir à quelque chose que tu *sais* fonctionner. Une track de groove fiable. Baisser le BPM de 1–2. Donne à la piste quelque chose à quoi s'accrocher.
+
+L'instinct quand tu perds la foule c'est de lui balancer ta meilleure track. C'est de la panique — et ça se retourne presque toujours contre toi. Une foule qui décroche n'a pas besoin de plus gros ; elle a besoin de **quelque chose sur quoi s'ancrer**.
+
+**Try this :** avant ton prochain set, choisis une "rescue track" à l'avance — une tune groove que tu sais marcher dans n'importe quelle salle. Quand tu vois deux mauvais signaux, va dessus sans réfléchir.
+"""
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Pourquoi regarder les rangs du fond plutôt que le devant ?"
+answers  = ["L'éclairage est meilleur au fond", "Le premier rang ne compte pas", "Le devant danse toujours — le fond ne bouge que quand la track tape vraiment"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Téléphones sortis sur le dancefloor (écrans allumés) veut généralement dire..."
+answers  = ["Les gens filment parce qu'ils adorent", "Ils vérifient l'heure / taxi — signal que tu les perds peut-être", "Rien — tout le monde filme maintenant"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Quand tu vois deux ou trois mauvais signaux en même temps, tu devrais..."
+answers  = ["Revenir à une track de groove fiable, baisser légèrement le BPM", "Jouer ta meilleure track pour les choper", "Ignorer et attendre"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Les yeux fermés sur le dancefloor veulent dire..."
+answers  = ["Ils s'ennuient", "Ils sont fatigués", "Ils sont entrés dans la musique — signal positif fort"]
+
+[[sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"

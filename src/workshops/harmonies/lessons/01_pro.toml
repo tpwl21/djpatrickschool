@@ -1,0 +1,164 @@
+id = "LESSON_HARMONIES_1_PRO"
+order = 1
+
+[en]
+title      = "12-TET, microtonality & modal theory"
+short_desc = "Equal temperament math, quarter tones, the 7 modes, and why 90% of techno is Aeolian."
+description = "Everything in lesson 1 MEDIUM assumed 12-TET. Here we break that assumption: equal temperament is a compromise, not a law of physics. We cover the math that defines it, the JND that governs why it 'works', the traditions that reject it, and the modal landscape that actually describes modern dance music."
+recap = [
+  "12-TET divides the octave into 12 mathematically equal steps of 100 cents. The reference: A = 440 Hz (ISO 16), f = 440 × 2^(n/12).",
+  "Just intonation uses pure integer ratios — a perfect fifth is 3/2 = 701.96¢, not 700¢. That 2-cent gap is why a fretless bass sounds 'warmer' than a piano.",
+  "The JND for a trained ear on an isolated tone is ~3 cents at 2 kHz — meaning 12-TET is perceptually near-perfect but physically impure.",
+  "Arabic maqam uses quarter tones (50¢ steps); Indian ragas use 22 shrutis. The Camelot wheel assumes 12-TET — mixing across these systems requires ear-checking.",
+  "The 7 diatonic modes (Ionian→Locrian) all derive from one major scale. Aeolian dominates dance music; Dorian colors deep house; Phrygian/Mixolydian appear in specific sub-genres."
+]
+
+[[en.pages]]
+title   = "12-TET: the math behind equal temperament"
+content = "Western music's 12-note grid is **not natural** — it's a deliberate mathematical compromise. The standard is called **12-TET** (12-Tone Equal Temperament): the octave is divided into 12 **geometrically equal** intervals.\n\nThe formula: if A4 = 440 Hz (the international standard, ISO 16-1975), then every other note is:\n\n  **f(n) = 440 × 2^(n/12)**\n\nwhere n is the number of semitones away from A4 (positive = up, negative = down). Examples: C4 (middle C) = 440 × 2^(−9/12) ≈ 261.63 Hz. G4 = 440 × 2^(2/12) ≈ 392.00 Hz.\n\nEach semitone = the **12th root of 2** ≈ 1.05946. This is irrational — it cannot be expressed as a fraction. That irrationality is the source of everything interesting and everything painful about Western tuning."
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "12-TET: the octave split into 12 equal geometric steps."
+
+[[en.pages]]
+title   = "Just intonation vs equal temperament"
+content = "Before 12-TET, musicians used **just intonation**: intervals defined by pure integer ratios that produce zero acoustic beating.\n\nKey comparisons (just vs tempered):\n| Interval | Just ratio | Just cents | Tempered cents | Error |\n|----------|-----------|------------|----------------|-------|\n| Perfect fifth | 3/2 | 701.96¢ | 700¢ | **−2¢** |\n| Major third | 5/4 | 386.31¢ | 400¢ | **+13.69¢** |\n| Minor third | 6/5 | 315.64¢ | 300¢ | **−15.64¢** |\n| Perfect fourth | 4/3 | 498.04¢ | 500¢ | **+2¢** |\n\nThe just major third is 13.69¢ flat compared to 12-TET — that's above the 10¢ threshold most listeners notice on an isolated tone. Yet we accept it because transposing a piece to another key with a fixed-fret/key instrument is only possible in 12-TET. **Just intonation cannot be transposed freely** — each key would require retuning every string.\n\nFor DJs: a fretless bass player or a choir naturally gravitates toward just intonation. A piano or CDJ at ±0 pitch plays 12-TET. These two playing simultaneously will produce a +13.69¢ 'warm beating' on every major third — this is often described as 'analog warmth' or 'organic feel'."
+
+[[en.pages]]
+title   = "Beyond 12-TET: quarter tones and shrutis"
+content = "The 12-TET grid is a Western convention, not a law of physics. Several major musical traditions use finer subdivisions:\n\n**Arabic maqam**: uses **24 tones per octave** — i.e., **quarter tones (50¢ each)**. The *rast* maqam includes a neutral third at ~350¢ (between the 300¢ minor and 400¢ major). The *bayati* maqam centers on a neutral second (~150¢). These intervals have no equivalent slot in 12-TET.\n\n**Indian classical**: the śruti system defines **22 unequal microtonal intervals** per octave derived from the harmonic series. The *raga* system selects specific śrutis to define a melodic/emotional mode.\n\n**Turkish makam**: between 24 and 53 equal divisions depending on the school.\n\nFor DJs: if you're blending a Turkish or Arabic track (increasingly common in global club music — Acid Arab, Deena Abdelwahed, Dj Boo) into a Western electronic track, the Camelot wheel gives you the closest 12-TET approximation, but **ear-check is mandatory**. The neutral third will cause a beating with any Western harmony — sometimes intentional, sometimes painful."
+youtube         = "https://www.youtube.com/watch?v=XhY_7LT8eTw"
+youtube_caption = "Acid Arab live at Berghain: 12-TET electronic with Arabic maqam melody — ear-check the blend moments."
+
+[[en.pages]]
+title   = "The 7 modes: more than just major and minor"
+content = "The 7 **diatonic modes** all derive from the same set of 7 notes as C major, but each starts from a different degree:\n\n| Mode | Starting note (in C) | Character | DJ context |\n|------|---------------------|-----------|------------|\n| **Ionian** | C | Bright major | Pop, progressive house |\n| **Dorian** | D | Minor + raised 6th | Deep house, Afrobeat, Stevie Wonder |\n| **Phrygian** | E | Dark minor, Spanish 2nd | Flamenco, metal, some techno |\n| **Lydian** | F | Major + raised 4th | Dreamy, Vangelis, film scores |\n| **Mixolydian** | G | Major + flat 7th | Funk, classic rock, some trance |\n| **Aeolian** | A | Natural minor | **90% of dance music** |\n| **Locrian** | B | Unstable, rarely tonal | Extreme metal, avant-garde |\n\nThe Camelot wheel only distinguishes A (minor/Aeolian) from B (major/Ionian). **Dorian, Phrygian, Lydian, Mixolydian are invisible to Camelot** — they map to the nearest A or B slot. If you're mixing a Dorian deep house track (8A slot) with a Phrygian techno track (also landing near 8A), Camelot says 'compatible', but your ear may hear a clash on the raised-6th vs natural-6th."
+
+[[en.pages]]
+title   = "Modal interchange: borrowing between relatives"
+content = "**Modal interchange** (or 'mode mixture') is the technique of briefly borrowing chords from a parallel mode. In DJ terms: a track can be 'mostly 8A' but contain a borrowed chord from 8B for one 8-bar phrase, then return to 8A.\n\nThe most common borrows in dance music:\n- **bVII chord** (Mixolydian borrow): a C major track playing a B♭ major chord. Immediately sounds like funk or modern pop.\n- **bVI chord** (Aeolian borrow): an Am track playing an F major chord that resolves differently than expected.\n- **iv chord** (Dorian borrow): replacing a minor iv with a minor iv in a major context — the 'James Bond' sound.\n\nFor harmonic mixing: a track with heavy modal interchange will **fool Camelot analyzers**. The analyzer reads the predominant tonal center, but the borrowed chords create a window where an incompatible blend becomes possible — and sometimes magical. Villalobos exploits this deliberately: he finds the modal seam in a track and drops the next record exactly there."
+
+[[en.quiz]]
+question = "In 12-TET, what is the frequency of the note exactly one octave above A4 (440 Hz)?"
+answers  = ["880 Hz", "480 Hz", "528 Hz"]
+correct  = 0
+
+[[en.quiz]]
+question = "The just-intonation major third (5/4 ratio) differs from the 12-TET major third by approximately..."
+answers  = ["2 cents", "14 cents", "50 cents"]
+correct  = 1
+
+[[en.quiz]]
+question = "Arabic maqam uses which subdivision below standard 12-TET?"
+answers  = ["Eighth tones (25¢)", "Quarter tones (50¢)", "Third tones (33¢)"]
+correct  = 1
+
+[[en.quiz]]
+question = "Which mode dominates electronic dance music?"
+answers  = ["Ionian (major)", "Lydian (raised 4th)", "Aeolian (natural minor)"]
+correct  = 2
+
+[[en.quiz]]
+question = "Camelot's A/B distinction maps to which two modes only?"
+answers  = ["Aeolian and Ionian", "Dorian and Lydian", "Phrygian and Mixolydian"]
+correct  = 0
+
+[[en.sources]]
+label = "Equal temperament — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Equal_temperament"
+
+[[en.sources]]
+label = "Just intonation vs equal temperament — Kyle Gann"
+url   = "https://www.kylegann.com/tuning.html"
+
+[[en.sources]]
+label = "Arabic maqam — Maqam World"
+url   = "https://www.maqamworld.com/en/maqam.php"
+
+[[en.sources]]
+label = "Diatonic modes — musictheory.net"
+url   = "https://www.musictheory.net/lessons/31"
+
+[[en.sources]]
+label = "Modal interchange — Adam Neely (YouTube)"
+url   = "https://www.youtube.com/watch?v=1dRA28cdt5c"
+
+[fr]
+title      = "12-TET, microtonalité & théorie modale"
+short_desc = "Les maths du tempérament égal, les quarts de ton, les 7 modes, et pourquoi 90% de la techno est éolien."
+description = "Tout ce que dit la leçon 1 MEDIUM suppose le 12-TET. Ici on casse cette hypothèse : le tempérament égal est un compromis, pas une loi de la physique. On couvre les maths qui le définissent, le JND qui explique pourquoi ça 'marche', les traditions qui le rejettent, et le paysage modal qui décrit vraiment la musique dance moderne."
+recap = [
+  "Le 12-TET divise l'octave en 12 pas mathématiquement égaux de 100 cents. Référence : La = 440 Hz (ISO 16), f = 440 × 2^(n/12).",
+  "La juste intonation utilise des ratios entiers purs — une quinte juste vaut 3/2 = 701,96¢, pas 700¢. Ces 2 cents d'écart expliquent pourquoi une basse fretless sonne plus 'chaude' qu'un piano.",
+  "Le JND d'une oreille entraînée sur une note isolée est ~3 cents à 2 kHz — le 12-TET est quasi-parfait perceptivement, mais physiquement impur.",
+  "Le maqam arabe utilise des quarts de ton (pas de 50¢) ; les ragas indiens utilisent 22 shrutis. La roue Camelot suppose le 12-TET — mixer entre ces systèmes nécessite de vérifier à l'oreille.",
+  "Les 7 modes diatoniques (Ionien→Locrien) découlent tous d'une gamme majeure. L'éolien domine la musique dance ; le dorien colore la deep house ; le phrygien/mixolydien apparaissent dans des sous-genres spécifiques."
+]
+
+[[fr.pages]]
+title   = "12-TET : les maths du tempérament égal"
+content = "La grille de 12 notes de la musique occidentale **n'est pas naturelle** — c'est un compromis mathématique délibéré. La norme s'appelle **12-TET** (12-Tone Equal Temperament) : l'octave est divisée en 12 intervalles **géométriquement égaux**.\n\nLa formule : si La4 = 440 Hz (norme internationale, ISO 16-1975), alors chaque autre note vaut :\n\n  **f(n) = 440 × 2^(n/12)**\n\noù n est le nombre de demi-tons par rapport à La4 (positif = aigu, négatif = grave). Exemples : Do4 (Do central) = 440 × 2^(−9/12) ≈ 261,63 Hz. Sol4 = 440 × 2^(2/12) ≈ 392,00 Hz.\n\nChaque demi-ton = la **12e racine de 2** ≈ 1,05946. C'est un nombre irrationnel — il ne peut pas s'exprimer comme une fraction. Cette irrationalité est la source de tout ce qui est intéressant, et de tout ce qui est douloureux, dans l'accordage occidental."
+image         = "lesson-images/piano-keyboard-12notes.png"
+image_caption = "12-TET : l'octave découpée en 12 pas géométriques égaux."
+
+[[fr.pages]]
+title   = "Juste intonation vs tempérament égal"
+content = "Avant le 12-TET, les musiciens utilisaient la **juste intonation** : des intervalles définis par des ratios entiers purs qui ne produisent aucun battement acoustique.\n\nComparaisons clés (juste vs tempéré) :\n| Intervalle | Ratio juste | Cents justes | Cents tempérés | Erreur |\n|-----------|------------|-------------|----------------|--------|\n| Quinte juste | 3/2 | 701,96¢ | 700¢ | **−2¢** |\n| Tierce majeure | 5/4 | 386,31¢ | 400¢ | **+13,69¢** |\n| Tierce mineure | 6/5 | 315,64¢ | 300¢ | **−15,64¢** |\n| Quarte juste | 4/3 | 498,04¢ | 500¢ | **+2¢** |\n\nLa tierce majeure juste est 13,69¢ plus basse que le 12-TET — au-dessus du seuil de 10¢ que la plupart des auditeurs détectent sur une note isolée. Pourtant on l'accepte parce que transposer librement n'est possible qu'en 12-TET. **La juste intonation ne se transpose pas** — chaque tonalité nécessiterait de réaccorder tous les cordes.\n\nPour les DJs : une basse fretless ou un chœur gravite naturellement vers la juste intonation. Un piano ou un CDJ à ±0 joue du 12-TET. Ces deux instruments simultanément produisent un battement de +13,69¢ sur chaque tierce majeure — souvent décrit comme 'chaleur analogique' ou 'feeling organique'."
+
+[[fr.pages]]
+title   = "Au-delà du 12-TET : quarts de ton et shrutis"
+content = "La grille 12-TET est une convention occidentale, pas une loi de la physique. Plusieurs traditions musicales majeures utilisent des subdivisions plus fines :\n\n**Maqam arabe** : utilise **24 tons par octave** — soit des **quarts de ton (50¢ chacun)**. Le maqam *rast* inclut une tierce neutre à ~350¢ (entre la mineure à 300¢ et la majeure à 400¢). Le maqam *bayati* est centré sur une seconde neutre (~150¢). Ces intervalles n'ont pas de case dans le 12-TET.\n\n**Musique classique indienne** : le système des śruti définit **22 intervalles microtonaux inégaux** par octave dérivés de la série harmonique. Le système des *raga* sélectionne des śrutis spécifiques pour définir un mode mélodique/émotionnel.\n\n**Makam turc** : entre 24 et 53 divisions égales selon l'école.\n\nPour les DJs : si tu mixes un morceau turc ou arabe (de plus en plus courant en club global — Acid Arab, Deena Abdelwahed, Dj Boo) dans un morceau électronique occidental, la roue Camelot te donne la meilleure approximation 12-TET, mais la **vérification à l'oreille est obligatoire**. La tierce neutre créera un battement avec toute harmonie occidentale — parfois intentionnel, parfois douloureux."
+youtube         = "https://www.youtube.com/watch?v=XhY_7LT8eTw"
+youtube_caption = "Acid Arab live au Berghain : électronique 12-TET avec mélodie maqam arabe — écoute les moments de blend."
+
+[[fr.pages]]
+title   = "Les 7 modes : plus que majeur et mineur"
+content = "Les 7 **modes diatoniques** dérivent tous du même ensemble de 7 notes que Do majeur, mais chacun part d'un degré différent :\n\n| Mode | Note de départ (en Do) | Caractère | Contexte DJ |\n|------|----------------------|-----------|-------------|\n| **Ionien** | Do | Majeur lumineux | Pop, progressive house |\n| **Dorien** | Ré | Mineur + 6e haussée | Deep house, Afrobeat, Stevie Wonder |\n| **Phrygien** | Mi | Mineur sombre, 2de espagnole | Flamenco, metal, certaine techno |\n| **Lydien** | Fa | Majeur + 4e haussée | Rêveur, Vangelis, bandes originales |\n| **Mixolydien** | Sol | Majeur + 7e abaissée | Funk, rock classique, certaine trance |\n| **Éolien** | La | Mineur naturel | **90% de la musique dance** |\n| **Locrien** | Si | Instable, rarement tonal | Metal extrême, avant-garde |\n\nLa roue Camelot distingue seulement A (mineur/Éolien) de B (majeur/Ionien). **Le dorien, phrygien, lydien, mixolydien sont invisibles à Camelot** — ils sont mappés à la case A ou B la plus proche. Si tu mixes un morceau de deep house dorien (case 8A) avec un morceau de techno phrygien (aussi en 8A), Camelot dit 'compatible', mais ton oreille peut entendre un clash sur la 6e haussée vs naturelle."
+
+[[fr.pages]]
+title   = "L'échange modal : emprunter entre relatifs"
+content = "L'**échange modal** (ou 'mode mixture') est la technique qui consiste à emprunter brièvement des accords à un mode parallèle. En termes DJ : un morceau peut être 'surtout 8A' mais contenir un accord emprunté à 8B pour une phrase de 8 mesures, puis revenir en 8A.\n\nLes emprunts les plus courants dans la musique dance :\n- **Accord bVII** (emprunt mixolydien) : un morceau en Do majeur qui joue un accord de Si♭ majeur. Sonne immédiatement comme du funk ou de la pop moderne.\n- **Accord bVI** (emprunt éolien) : un morceau en Am qui joue un accord de Fa majeur qui résout différemment de l'attendu.\n- **Accord iv** (emprunt dorien) : remplacer un iv mineur dans un contexte majeur — le son 'James Bond'.\n\nPour le mix harmonique : un morceau avec beaucoup d'échange modal **trompera les analyseurs Camelot**. L'analyseur lit le centre tonal prédominant, mais les accords empruntés créent une fenêtre où un blend incompatible devient possible — et parfois magique. Villalobos exploite ça délibérément : il trouve la couture modale dans un morceau et pose le suivant exactement à cet endroit."
+
+[[fr.quiz]]
+question = "En 12-TET, quelle est la fréquence de la note exactement une octave au-dessus de La4 (440 Hz) ?"
+answers  = ["880 Hz", "480 Hz", "528 Hz"]
+correct  = 0
+
+[[fr.quiz]]
+question = "La tierce majeure en juste intonation (ratio 5/4) diffère de la tierce 12-TET d'environ..."
+answers  = ["2 cents", "14 cents", "50 cents"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Le maqam arabe utilise quelle subdivision inférieure au 12-TET standard ?"
+answers  = ["Huitièmes de ton (25¢)", "Quarts de ton (50¢)", "Tiers de ton (33¢)"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel mode domine la musique dance électronique ?"
+answers  = ["Ionien (majeur)", "Lydien (4e haussée)", "Éolien (mineur naturel)"]
+correct  = 2
+
+[[fr.quiz]]
+question = "La distinction A/B de Camelot mappe uniquement à quels deux modes ?"
+answers  = ["Éolien et Ionien", "Dorien et Lydien", "Phrygien et Mixolydien"]
+correct  = 0
+
+[[fr.sources]]
+label = "Tempérament égal — Wikipedia"
+url   = "https://en.wikipedia.org/wiki/Equal_temperament"
+
+[[fr.sources]]
+label = "Juste intonation vs tempérament — Kyle Gann"
+url   = "https://www.kylegann.com/tuning.html"
+
+[[fr.sources]]
+label = "Maqam arabe — Maqam World"
+url   = "https://www.maqamworld.com/en/maqam.php"
+
+[[fr.sources]]
+label = "Modes diatoniques — musictheory.net"
+url   = "https://www.musictheory.net/lessons/31"
+
+[[fr.sources]]
+label = "Échange modal — Adam Neely (YouTube)"
+url   = "https://www.youtube.com/watch?v=1dRA28cdt5c"

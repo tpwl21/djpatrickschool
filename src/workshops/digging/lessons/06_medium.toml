@@ -1,0 +1,246 @@
+id = "LESSON_DIGGING_6_MEDIUM"
+order = 6
+
+[en]
+title      = "Discogs & Advanced Filters — The Research Toolkit"
+short_desc = "Advanced filter combinations, the reverse-engineering flow, and complementary platforms."
+
+[[en.pages]]
+title   = "Discogs is a tool, not a step — use it throughout the course"
+content = """
+A note on how this lesson sits in the course: **Discogs is the concrete tool you reach for whenever a previous lesson leaves you asking 'how do I FIND one of those?'**
+
+Stuck deciding which techno label from Germany in 1998 to chase (LESSON_DIGGING_3)? Discogs filter. Want to verify a track is a 'Club Mix' and not a 'Radio Edit' (LESSON_DIGGING_2)? Discogs tracklist. Hunting a rescue banger for your oh-shit folder (LESSON_DIGGING_5)? Discogs label pages.
+
+**Don't wait until lesson 6 to touch it.** The moment any other lesson feels abstract, come back here and put the tool to work.
+
+**General principle:** toolchain lessons (Discogs, Rekordbox, Bandcamp) are *skills* you reuse. Theory lessons (beat structure, energy, Camelot) are *concepts* you apply. Don't separate them — every theory gets tested against a tool, and every tool gets guided by a theory.
+"""
+
+[[en.pages]]
+title   = "What Discogs actually is — and what it isn't"
+content = """
+Discogs is a crowd-sourced database: over **16 million releases**, catalogued by collectors since 2000. Every entry has artist, label, year, country, format (vinyl/CD/digital), genre, style, catalog number, and tracklist. Users upload sleeve scans, verify pressing details, report discrepancies.
+
+**For DJs, it's THE reference to identify a record from partial clues** — 'that track with a blue sleeve on Warp from 1997' can become a real release in 30 seconds if you know the filters.
+
+**Cross-reference Discogs with:**
+- **Boomkat** — expert electronic retail, excellent editorial curation, good for finding what's relevant now
+- **Bleep** — Warp-adjacent, curated electronic releases
+- **Bandcamp** — direct-from-artist, label pages with full discography, buy without re-sale markup
+- **Juno** — dance-focused, strong for current releases, good BPM filtering
+
+Discogs is the archive; these are the active storefronts.
+
+**Use the Wantlist as a notification system:** when a Wantlisted item comes into the Marketplace, you get an email. Build your Wantlist as a long-term dig queue — don't just use it to track what you want to buy. Use it to track what you're researching.
+"""
+
+[[en.pages]]
+title   = "The advanced filter surface"
+content = """
+From the main search, click 'Advanced'. You get:
+
+| Filter | Options | DJ use |
+|---|---|---|
+| Format | 12\", LP, CD, FLAC, WAV | Always: 12\" for DJ vinyl |
+| Country | Every country code | Germany (DE), US, UK, France (FR) |
+| Year | Single or range | Era-specific digging |
+| Genre | Electronic, Hip Hop, Rock... | Top-level bracket |
+| Style | Deep House, Minimal Techno... | Actual genre filter |
+| Label | Text search | Label deep-dives |
+| Catalog Number | e.g. PHK001 | Finding adjacent releases |
+| Release Type | Album, Single, EP, Compilation | EP and 12\" for DJ use |
+
+**Two under-used filters:**
+
+**Label pages:** click a label name, browse their entire discography. The aesthetic of the house becomes visible — if one track from a label works for your set, 10 more probably do too. This is the single most efficient digging move on Discogs.
+
+**Wantlists collaboratively:** share a Wantlist with a trusted DJ friend. You both get notified when items come available, and you can see what they're hunting — crowd-sourcing your own research.
+
+**Combine 3–4 filters:** Genre + Style + Year range + Country. A search that returns 2,000 results on the surface collapses to 12 genuinely relevant ones.
+"""
+
+[[en.pages]]
+title   = "The reverse-engineering flow — from sonic memory to release"
+content = """
+You heard a track in a mix. You know: it sounds like minimal techno, probably 1998–2002, the DJ was playing lots of German labels.
+
+**Filters:** Genre=Electronic, Style=Minimal Techno, Year=1998–2002, Country=Germany.
+
+Now 800 releases instead of 16 million. Add: Format=12" → 400. Scroll covers until something rings a bell. Wantlist it. Keep going.
+
+**When Shazam fails — Discogs wins:**
+Shazam can't ID a track (white-label, bootleg, pre-digital, too obscure)? Try:
+1. **SoundHound** — hum or sing to get a rough key/rhythm estimate
+2. **WhoSampled** — if you recognise a sample in the track, trace the sample to find the track
+3. Feed clues into Discogs filter (Style + approx Year + suspected Label)
+
+This combination cracks most 'unidentifiable' DJ-set tracks within 10 minutes.
+
+**Bookmarking your most-used search:** build a Discogs Advanced Search URL with your regular filters pre-set (e.g. Electronic + Deep House + 1990–2000 + 12" + DE). Bookmark it. Jump directly into the search from your phone mid-set if inspiration strikes — copy the title into notes and research later.
+
+**Label adjacent search:** found a release you love? Note its catalog number. Browse 5 releases before and after it (same label, adjacent numbers = same era, same sound). This is how you exhaust a label's golden era in 30 minutes.
+"""
+
+[[en.quiz]]
+question = "You're digging for 90s German techno on vinyl. Which filter combination narrows fastest?"
+answers  = ["Artist + Year only", "Genre=Electronic + Style=Techno + Year=1990–1999 + Country=DE + Format=12\"", "Just Genre=Electronic", "Label name + Release Type=LP"]
+correct  = 1
+
+[[en.quiz]]
+question = "What's the strategic value of clicking a label name on a Discogs release page?"
+answers  = ["It's just information — not useful for digging", "It takes you to the full label discography — one great track suggests 10 more from the same aesthetic", "It shows you the price history of the label's records", "It filters by that label in the main search"]
+correct  = 1
+
+[[en.quiz]]
+question = "Shazam fails on a track you heard in a mix. What's the Discogs-based recovery workflow?"
+answers  = ["Give up — if Shazam can't ID it, nothing can", "Use SoundHound/WhoSampled for sonic clues, then filter Discogs by Style + approx Year + suspected Label", "Buy every record from that era until you find it", "Ask the DJ directly"]
+correct  = 1
+
+[[en.quiz]]
+question = "The difference between Discogs 'Genre' and 'Style' filters:"
+answers  = ["Genre is the label name, Style is the country", "Genre is top-level (e.g. Electronic), Style is the specific sub-genre (e.g. Minimal Techno)", "They're identical — both refer to the musical genre", "Style is only for vinyl releases"]
+correct  = 1
+
+[[en.quiz]]
+question = "You find a release at catalog number PHK-007. What's the efficient next move?"
+answers  = ["Search for the artist's other releases only", "Browse PHK-001 through PHK-015 — adjacent catalog numbers = same era and aesthetic", "Filter by the same style only", "Add PHK-007 to Wantlist and stop"]
+correct  = 1
+
+[[en.sources]]
+label = "Discogs — Advanced Search documentation"
+url   = "https://support.discogs.com/hc/en-us/articles/360001605293"
+
+[[en.sources]]
+label = "Boomkat — expert electronic music curation"
+url   = "https://boomkat.com/"
+
+[[en.sources]]
+label = "WhoSampled — sample lineage research"
+url   = "https://www.whosampled.com/"
+
+[[en.sources]]
+label = "Bandcamp — direct artist and label discovery"
+url   = "https://bandcamp.com/"
+
+[fr]
+title      = "Discogs & Filtres Avancés — La Boîte à Outils de Recherche"
+short_desc = "Combinaisons de filtres avancées, le flow de rétro-ingénierie, et les plateformes complémentaires."
+
+[[fr.pages]]
+title   = "Discogs est un outil, pas une étape — utilise-le tout au long du cours"
+content = """
+Une note sur où cette leçon se place dans le cours : **Discogs est l'outil concret que tu saisit dès qu'une leçon précédente te laisse avec la question 'comment je TROUVE une track comme ça ?'**
+
+Bloqué à choisir quel label techno allemand de 1998 viser (LESSON_DIGGING_3) ? Filtre Discogs. Tu veux vérifier qu'une track est un 'Club Mix' et pas un 'Radio Edit' (LESSON_DIGGING_2) ? Tracklist Discogs. Tu chasses un banger de sauvetage pour ton dossier oh-shit (LESSON_DIGGING_5) ? Pages label Discogs.
+
+**N'attends pas la leçon 6 pour y toucher.** Dès qu'une autre leçon devient abstraite, reviens ici et mets l'outil au travail.
+
+**Principe général :** les leçons 'outil' (Discogs, Rekordbox, Bandcamp) sont des *compétences* réutilisables. Les leçons 'théorie' (structure du rythme, énergie, Camelot) sont des *concepts* à appliquer. Ne les sépare pas dans ta tête — chaque théorie doit être testée contre un outil, chaque outil guidé par une théorie.
+"""
+
+[[fr.pages]]
+title   = "Ce qu'est vraiment Discogs — et ce qu'il n'est pas"
+content = """
+Discogs est une base crowd-sourcée : plus de **16 millions de releases**, cataloguées par des collectionneurs depuis 2000. Chaque entrée a l'artiste, le label, l'année, le pays, le format (vinyle/CD/numérique), le genre, le style, le numéro de catalogue, et la tracklist. Les utilisateurs uploadent les scans de pochettes, vérifient les détails de pressage, signalent les erreurs.
+
+**Pour un DJ, c'est LA référence pour identifier un disque à partir d'indices partiels** — 'cette track avec une pochette bleue sur Warp, 1997' peut devenir une vraie release en 30 secondes si tu connais les filtres.
+
+**Cross-référence Discogs avec :**
+- **Boomkat** — retail électronique expert, excellente curation éditoriale, bien pour trouver ce qui est pertinent maintenant
+- **Bleep** — Warp-adjacent, sorties électroniques curatées
+- **Bandcamp** — direct-depuis-l'artiste, pages label avec discographie complète, achète sans markup de revente
+- **Juno** — focus dance, fort pour les sorties actuelles, bon filtrage BPM
+
+Discogs c'est l'archive ; ces autres sont les storefronts actifs.
+
+**Utilise la Wantlist comme système de notification :** quand un item Wantlisté arrive sur la Marketplace, tu reçois un mail. Construis ta Wantlist comme une file de dig long terme — pas juste pour tracker ce que tu veux acheter. Utilise-la pour tracker ce que tu recherches.
+"""
+
+[[fr.pages]]
+title   = "La surface des filtres avancés"
+content = """
+Depuis la recherche principale, clique 'Advanced'. Tu as :
+
+| Filtre | Options | Usage DJ |
+|---|---|---|
+| Format | 12\", LP, CD, FLAC, WAV | Toujours : 12\" pour le vinyle DJ |
+| Country | Chaque code pays | Allemagne (DE), US, UK, France (FR) |
+| Year | Année unique ou range | Dig par époque |
+| Genre | Electronic, Hip Hop, Rock... | Encadrement niveau haut |
+| Style | Deep House, Minimal Techno... | Vrai filtre de genre |
+| Label | Recherche texte | Deep-dives label |
+| Catalog Number | ex. PHK001 | Trouver des releases adjacentes |
+| Release Type | Album, Single, EP, Compilation | EP et 12\" pour usage DJ |
+
+**Deux filtres sous-utilisés :**
+
+**Pages Label :** clique un nom de label, browse toute sa discographie. L'esthétique de la maison devient visible — si une track d'un label marche pour ton set, 10 autres probablement aussi. C'est le move de digging le plus efficace sur Discogs.
+
+**Wantlists collaboratives :** partage une Wantlist avec un DJ ami de confiance. Vous êtes tous les deux notifiés quand des items sont disponibles, et tu vois ce qu'il chasse — crowdsorc ton propre research.
+
+**Combine 3–4 filtres :** Genre + Style + Year range + Country. Une recherche qui renvoyait 2 000 résultats s'effondre à 12 vraiment pertinents.
+"""
+
+[[fr.pages]]
+title   = "Le flow de rétro-ingénierie — de la mémoire sonore à la release"
+content = """
+Tu as entendu une track dans un mix. Tu sais : ça sonne minimal techno, probablement 1998–2002, le DJ jouait beaucoup de labels allemands.
+
+**Filtres :** Genre=Electronic, Style=Minimal Techno, Year=1998–2002, Country=Germany.
+
+Tu passes à 800 releases au lieu de 16 millions. Ajoute : Format=12" → 400. Tu scrolles les pochettes jusqu'à ce qu'une te parle. Wantlist. Continue.
+
+**Quand Shazam échoue — Discogs gagne :**
+Shazam n'identifie pas une track (white-label, bootleg, pré-numérique, trop obscure) ? Essaie :
+1. **SoundHound** — fredonne ou chante pour une estimation grossière de clé/rythme
+2. **WhoSampled** — si tu reconnais un sample dans la track, trace le sample pour trouver la track
+3. Alimente les indices dans le filtre Discogs (Style + Year approx + Label suspecté)
+
+Cette combinaison craque la plupart des tracks 'inidentifiables' d'un set DJ en 10 minutes.
+
+**Bookmarker ta recherche la plus utilisée :** construis une URL de Recherche Avancée Discogs avec tes filtres habituels pré-réglés (ex. Electronic + Deep House + 1990–2000 + 12" + DE). Mets-la en favori. Plonge direct dans la recherche depuis ton téléphone en plein set si l'inspiration arrive — copie le titre dans tes notes et fais la recherche plus tard.
+
+**Recherche adjacente par label :** tu as trouvé une release que tu adores ? Note son numéro de catalogue. Browse les 5 releases avant et après (même label, numéros adjacents = même époque, même son). C'est comme ça qu'on épuise l'âge d'or d'un label en 30 minutes.
+"""
+
+[[fr.quiz]]
+question = "Tu digges de la techno allemande des années 90 en vinyle. Quelle combinaison de filtres réduit le plus vite ?"
+answers  = ["Artiste + Year seulement", "Genre=Electronic + Style=Techno + Year=1990–1999 + Country=DE + Format=12\"", "Juste Genre=Electronic", "Nom du label + Release Type=LP"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle est la valeur stratégique de cliquer un nom de label sur une fiche Discogs ?"
+answers  = ["C'est juste une information — pas utile pour le digging", "Ça t'emmène vers la discographie complète du label — une grande track suggère 10 autres de la même esthétique", "Ça te montre l'historique de prix des disques du label", "Ça filtre par ce label dans la recherche principale"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Shazam échoue sur une track que tu as entendue dans un mix. Quel est le workflow de récupération via Discogs ?"
+answers  = ["Abandonne — si Shazam ne l'identifie pas, rien ne peut", "Utilise SoundHound/WhoSampled pour des indices sonores, puis filtre Discogs par Style + Year approx + Label suspecté", "Achète tous les disques de cette époque jusqu'à le trouver", "Demande directement au DJ"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La différence entre les filtres 'Genre' et 'Style' de Discogs :"
+answers  = ["Genre c'est le nom du label, Style c'est le pays", "Genre est le niveau haut (ex. Electronic), Style est le sous-genre précis (ex. Minimal Techno)", "Ils sont identiques — les deux font référence au genre musical", "Style c'est seulement pour les sorties vinyle"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Tu trouves une release au numéro de catalogue PHK-007. Quel est le prochain move efficace ?"
+answers  = ["Chercher uniquement les autres sorties de l'artiste", "Browserd PHK-001 à PHK-015 — les numéros de catalogue adjacents = même époque et même esthétique", "Filtrer par le même style seulement", "Ajouter PHK-007 à la Wantlist et s'arrêter"]
+correct  = 1
+
+[[fr.sources]]
+label = "Discogs — documentation Recherche Avancée"
+url   = "https://support.discogs.com/hc/en-us/articles/360001605293"
+
+[[fr.sources]]
+label = "Boomkat — curation expert de musique électronique"
+url   = "https://boomkat.com/"
+
+[[fr.sources]]
+label = "WhoSampled — recherche de lignée de samples"
+url   = "https://www.whosampled.com/"
+
+[[fr.sources]]
+label = "Bandcamp — découverte directe artiste et label"
+url   = "https://bandcamp.com/"

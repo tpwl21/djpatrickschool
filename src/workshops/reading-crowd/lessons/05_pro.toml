@@ -1,0 +1,18 @@
+id = "LESSON_RTC_5_PRO"
+order = 5
+
+[en]
+title      = "Closing: The Signature Moment"
+short_desc = "Pro version coming soon."
+
+[[en.pages]]
+title   = "Coming Soon"
+content = "The Pro version of this lesson is being prepared. Check back soon!"
+
+[fr]
+title      = "Closing : le moment signature"
+short_desc = "Version Pro en préparation."
+
+[[fr.pages]]
+title   = "Bientôt disponible"
+content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"

@@ -1,0 +1,126 @@
+id = "EFFETS_LEVEL_2"
+order = 2
+
+[en]
+title       = "Echo Out + Reverb Tail"
+short_desc  = "End A with an echo-out, wash B's break with reverb."
+description = "The dramatic ending. Crank A's delay feedback, pull the fader, let the echo die. Then dress B's break with reverb."
+details     = "Focus: no dead air. The echo bridges the gap."
+success     = "Cinematic! The crowd didn't even notice A left."
+coach_tips  = [
+  "Phrase 3: turn Deck A's DELAY on (1/2 beat). The track starts repeating itself.",
+  "Phrase 4: pull A's volume fader DOWN. The echo keeps going on its own.",
+  "Phrase 5: B's break — turn Deck B's REVERB on. Let it wash over.",
+  "Phrase 6: reverb off. B drops."
+]
+recap = [
+  "Echo-out: crank the delay, pull the fader — the echo finishes the track for you.",
+  "Reverb wash covers the gap between A leaving and B's drop.",
+  "FX buy time: they hide transitions that would otherwise sound empty.",
+  "Always kill the FX before B's drop — reverb on a drop = mud."
+]
+
+[fr]
+title       = "Echo Out + Reverb Tail"
+short_desc  = "Termine A avec un echo-out, nappe le break de B avec la reverb."
+description = "La fin dramatique. Pousse le feedback du delay sur A, baisse le fader, laisse mourir l'écho. Puis habille le break de B avec de la reverb."
+details     = "Focus : pas de trou de son. L'écho fait le pont."
+success     = "Cinématique ! Le public n'a même pas vu A partir."
+coach_tips  = [
+  "Phrase 3 : active le DELAY du Deck A (1/2 beat). La track commence à se répéter.",
+  "Phrase 4 : baisse le volume de A. L'écho continue tout seul.",
+  "Phrase 5 : break de B — active la REVERB du Deck B. Laisse tout se noyer.",
+  "Phrase 6 : reverb off. B repart."
+]
+recap = [
+  "Echo-out : pousse le delay, baisse le fader — l'écho termine le morceau à ta place.",
+  "Un wash de reverb couvre l'espace entre le départ de A et le drop de B.",
+  "Les FX achètent du temps : ils cachent les transitions qui sonneraient vides sinon.",
+  "Coupe toujours les FX avant le drop de B — reverb sur un drop = boue."
+]
+
+[track.A]
+url = "AUDIO/Ensaios.mp3"
+bpm = 130
+title = "Sortant"
+key = "1A"
+complexity = 4
+
+[track.B]
+url = "AUDIO/SCIFI.mp3"
+bpm = 128
+title = "Entrant"
+key = "12A"
+complexity = 4
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[[checks]]
+phrase = 0
+control = "delayA_mix"
+value = 0
+tolerance = 0.15
+
+[[checks]]
+phrase = 0
+control = "reverbB_wet"
+value = 0
+tolerance = 0.15
+
+[[checks]]
+phrase = 3
+control = "delayA_mix"
+value = 0.6
+tolerance = 0.25
+
+[[checks]]
+phrase = 4
+control = "volA_eff"
+value = 0
+tolerance = 0.2
+
+[[checks]]
+phrase = 4
+control = "delayA_mix"
+value = 0.6
+tolerance = 0.3
+
+[[checks]]
+phrase = 5
+control = "reverbB_wet"
+value = 0.7
+tolerance = 0.25
+
+[[checks]]
+phrase = 6
+control = "reverbB_wet"
+value = 0
+tolerance = 0.2
+
+[[checks]]
+phrase = 6
+control = "volB_eff"
+value = 0.9
+tolerance = 0.15
+
+[[markers.A]]
+beat = 97
+label = "DELAY A ON"
+color = "#9b59b6"
+
+[[markers.A]]
+beat = 129
+label = "A FADER DOWN"
+color = "#e74c3c"
+
+[[markers.A]]
+beat = 161
+label = "REVERB B ON"
+color = "#3498db"

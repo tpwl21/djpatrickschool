@@ -1,0 +1,188 @@
+id = "LESSON_FX_3_EASY"
+order = 3
+
+[en]
+title      = "Reverb: Singing in the Bathroom"
+short_desc = "Why do you sound better singing in the shower? That's reverb."
+description = "Reverb adds the sense of a space around the sound. Small space, small reverb. Big cathedral, huge reverb. Understanding this one idea is all you need to start."
+recap = [
+  "Reverb adds a sense of space: small room = short, cathedral = long.",
+  "Works beautifully on breaks and vocals — destroys dense kick-heavy tracks.",
+  "Three controls: pre-delay (gap before reverb starts), decay (how long the tail lasts), wet/dry (how much space you hear).",
+  "Use it as a punctuation, not a wash — a two-bar tail then silence hits harder than two minutes of reverb.",
+  "The Keinemusik / Afro house sound = heavy reverb on sparse moments, then dry impact.",
+]
+
+[[en.pages]]
+title   = "The bathroom analogy"
+content = """
+Sing in an open field. Your voice sounds dry and close.
+
+Now sing in a bathroom. Your voice bounces off the tiles, the floor, the ceiling. You hear these bounces a fraction of a second after your voice — they pile on top of each other and create a **tail** of sound. That tail is **reverb**.
+
+Reverb simulates a space:
+- **Small room** (a bathroom): many quick bounces, short tail (~0.3–0.5 seconds).
+- **Large hall**: slower, more spacious bounces, medium tail (~1–2 seconds).
+- **Cathedral**: massive space, very long tail (3–8 seconds).
+
+In DJ gear, you add reverb to a track and it suddenly sounds like it's playing in a bigger room.
+"""
+
+[[en.pages]]
+title   = "Where it works — and where it destroys"
+content = """
+Reverb sounds wonderful on:
+- **A sparse vocal** — a single voice suddenly feels like it's singing in Notre-Dame.
+- **A break** — the stripped-down section between builds. Reverb adds size without adding noise.
+- **A synth pad** or a piano note.
+
+Reverb does NOT work on:
+- **A full dense track with lots of kick and bass**. The low end smears together, everything blurs, the rhythmic punch disappears. It sounds like mud.
+
+The rule: **the emptier the sound, the more space you can add**. A single note can handle a 4-second reverb. A full club track can handle maybe 0.5 seconds, and even that needs care.
+
+This is why you hear reverb so rarely in actual club mixes — most tracks are already dense.
+"""
+
+[[en.pages]]
+title   = "The Keinemusik move: reverb as punctuation"
+content = """
+Since around 2015, the Berlin collective **Keinemusik** (Adam Port, &ME, Rampa) popularized a specific reverb technique in Afro house and melodic techno:
+
+- Find a sparse moment — a single percussive hit, a vocal phrase, a chord stab.
+- Hit it with **heavy reverb**: long decay, high wet mix.
+- Let the tail bloom for 2–4 bars.
+- Then bring back a dry, punchy kick.
+
+The contrast between the drenched tail and the dry impact is the move. The crowd goes from "floating" to "grounded" in one beat.
+
+**The lesson:** reverb is a tool for contrast, not for atmosphere maintenance. Use it to punctuate, then get out. A two-bar reverb tail followed by a dry downbeat hits harder than two minutes of constant reverb wash.
+"""
+
+[[en.quiz]]
+question = "Why does a bathroom make your voice sound better?"
+answers  = [
+  "It changes the pitch",
+  "The bounces off walls create a reverb tail that makes the voice sound fuller",
+  "It amplifies the volume"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "Why does reverb destroy a dense kick-heavy track?"
+answers  = [
+  "It changes the BPM",
+  "The low end smears together and the rhythmic punch disappears",
+  "It makes the track too loud"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the Keinemusik reverb move?"
+answers  = [
+  "Constant reverb wash for the whole set",
+  "Heavy reverb on a sparse moment, then cut back to a dry punchy impact for contrast",
+  "Reverb only on the kick drum"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Keinemusik collective — RA feature"
+url   = "https://ra.co/features/3600"
+
+[[en.sources]]
+label = "Reverb explained — SoundOnSound"
+url   = "https://www.soundonsound.com/techniques/creative-reverb-techniques"
+
+[fr]
+title      = "Reverb : Chanter dans la Salle de Bain"
+short_desc = "Pourquoi tu sonnes mieux sous la douche ? C'est la reverb."
+description = "La reverb ajoute un sens de l'espace autour du son. Petite pièce, reverb courte. Grande cathédrale, reverb immense. Comprendre ça suffit pour commencer."
+recap = [
+  "La reverb ajoute un sens de l'espace : petite pièce = court, cathédrale = long.",
+  "Marche magnifiquement sur les breaks et voix — détruit les tracks denses avec beaucoup de kick.",
+  "Trois réglages : pre-delay (silence avant que ça commence), decay (durée de la queue), wet/dry (combien d'espace tu entends).",
+  "Utilise-la comme ponctuation, pas comme nappe — une queue de deux mesures puis le silence tape plus fort que deux minutes de reverb.",
+  "Le son Keinemusik / Afro house = reverb heavy sur moments aérés, puis impact dry.",
+]
+
+[[fr.pages]]
+title   = "L'analogie de la salle de bain"
+content = """
+Chante en plein air. Ta voix sonne sèche et proche.
+
+Maintenant chante dans une salle de bain. Ta voix rebondit sur les carreaux, le sol, le plafond. Tu entends ces rebonds une fraction de seconde après ta voix — ils se superposent et créent une **queue** sonore. Cette queue, c'est la **reverb**.
+
+La reverb simule un espace :
+- **Petite pièce** (une salle de bain) : beaucoup de rebonds rapides, queue courte (~0,3–0,5 seconde).
+- **Grande salle** : rebonds plus lents, plus aérés, queue moyenne (~1–2 secondes).
+- **Cathédrale** : espace immense, queue très longue (3–8 secondes).
+
+Sur du matos DJ, tu ajoutes de la reverb à une track et elle sonne soudain comme si elle jouait dans une plus grande pièce.
+"""
+
+[[fr.pages]]
+title   = "Où ça marche — et où ça détruit"
+content = """
+La reverb sonne magnifiquement sur :
+- **Une voix aérée** — une voix seule semble soudain chanter dans Notre-Dame.
+- **Un break** — la section épurée entre les builds. La reverb ajoute de la taille sans ajouter de bruit.
+- **Un pad de synthé** ou une note de piano.
+
+La reverb ne fonctionne PAS sur :
+- **Une track dense avec beaucoup de kick et de basses**. Les graves s'agglutinent, tout se floute, le punch rythmique disparaît. Ça sonne comme de la boue.
+
+La règle : **plus le son est vide, plus tu peux ajouter d'espace**. Une note seule peut tenir une reverb de 4 secondes. Un track de club peut tenir peut-être 0,5 seconde, et même ça demande du soin.
+
+C'est pour ça qu'on entend si peu de reverb dans les vrais mixes de club — la plupart des tracks sont déjà denses.
+"""
+
+[[fr.pages]]
+title   = "Le move Keinemusik : la reverb comme ponctuation"
+content = """
+Depuis environ 2015, le collectif berlinois **Keinemusik** (Adam Port, &ME, Rampa) a popularisé une technique de reverb spécifique dans l'Afro house et la melodic techno :
+
+- Trouve un moment aéré — un coup de percussion seul, une phrase vocale, un stab d'accord.
+- Balance une **reverb lourde** : decay long, mix wet élevé.
+- Laisse la queue s'épanouir sur 2 à 4 mesures.
+- Puis ramène un kick sec et puissant.
+
+Le contraste entre la queue noyée et l'impact dry, c'est le geste. Le public passe de "flottant" à "ancré" en un beat.
+
+**La leçon :** la reverb est un outil de contraste, pas de maintien d'atmosphère. Utilise-la pour ponctuer, puis retire-la. Une queue de deux mesures suivie d'un downbeat sec tape plus fort que deux minutes de nappe constante.
+"""
+
+[[fr.quiz]]
+question = "Pourquoi une salle de bain améliore-t-elle le son de ta voix ?"
+answers  = [
+  "Ça change la hauteur",
+  "Les rebonds sur les murs créent une queue de reverb qui rend la voix plus pleine",
+  "Ça amplifie le volume"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi la reverb détruit-elle une track dense avec beaucoup de kick ?"
+answers  = [
+  "Ça change le BPM",
+  "Les graves s'agglutinent et le punch rythmique disparaît",
+  "Ça rend la track trop forte"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel est le move reverb de Keinemusik ?"
+answers  = [
+  "Nappe de reverb constante sur tout le set",
+  "Reverb heavy sur un moment aéré, puis retour à un impact sec pour le contraste",
+  "Reverb uniquement sur la grosse caisse"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Collectif Keinemusik — dossier RA"
+url   = "https://ra.co/features/3600"
+
+[[fr.sources]]
+label = "La reverb expliquée — SoundOnSound"
+url   = "https://www.soundonsound.com/techniques/creative-reverb-techniques"

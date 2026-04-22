@@ -1,0 +1,244 @@
+id = "LESSON_DIGGING_2_MEDIUM"
+order = 2
+
+[en]
+title      = "Anatomy of a DJ-Friendly Track — Version Taxonomy & Waveform Craft"
+short_desc = "The full mix vocabulary, waveform pattern-reading, and Rekordbox cue discipline."
+
+[[en.pages]]
+title   = "The complete mix taxonomy"
+content = """
+Electronic labels have a precise vocabulary for different versions of the same track. Knowing it makes you faster and smarter when digging.
+
+| Version name | Length | Vocal? | DJ use |
+|---|---|---|---|
+| Club Mix | 6–8 min | Yes, mid-track | Primary DJ format |
+| Extended Mix | 8–12 min | Yes, mid-track | Maximum structural room |
+| 12" Mix | 6–10 min | Variable | Vinyl DJ format, often equals Extended |
+| Radio Edit | 2.5–4 min | Immediately | Not for DJ use |
+| Dub | 6–8 min | Effects/stems only | Excellent for blending |
+| Instrumental | 6–8 min | None | Similar to Dub |
+| Acapella | Variable | Only vocals | Creative layering |
+| VIP | Variable | Variable | Artist's own re-edit, often darker/clubbier |
+| Club Edit | 5–6 min | Mid-track | Compromise — less structural room than Extended |
+
+**Caution**: some labels invert conventions, especially in Italian disco (where "Dub" sometimes means the long version). Always verify by checking length — under 4 min = Radio Edit regardless of label.
+
+The **Extended Mix** is typically the DJ's best friend: it gives 8–12 minutes of structure with enough intro/outro to blend in either direction.
+"""
+
+[[en.pages]]
+title   = "Phrase structure and waveform reading"
+content = """
+Understanding phrase structure (covered in depth in Beatmatching LESSON_BM_2) gives you a specific lens for reading waveforms.
+
+**The 32-beat phrase skeleton:**
+Most electronic music is organized in 32-beat phrases (8 bars of 4/4). In a waveform, each phrase is roughly the same visual width. You can count:
+- **Intro**: 1–4 phrases of just drums/bass
+- **Build**: density increasing, phrase by phrase
+- **Drop**: sudden full energy arrival
+- **Break**: density valley (often 1–2 phrases)
+- **Outro**: symmetrical mirror of intro
+
+**What this means when digging**: if a track has a 1-phrase intro (8 bars = ~15 sec at 128 BPM), you have very little mixing room. 2-phrase intro (64 beats = ~30 sec) is workable. 4+ phrases is comfortable. Look for the visual plateau at the start of the waveform — how wide is it?
+
+**Practical in Rekordbox**: Phrase Analysis (available in Rekordbox 6+) auto-detects intro/outro and labels phrases. This is a starting point, not a ground truth — always verify by listening, especially on non-4/4 material.
+"""
+
+[[en.pages]]
+title   = "Cue point discipline"
+content = """
+A cue point is a bookmark you place on a track's timeline. On CDJs/controllers, you can instantly jump to a cue point with one button press.
+
+**Standard four-point setup:**
+- **Cue A (Green)**: start of the clean intro (your mix-in point)
+- **Cue B (Yellow)**: first drop / peak moment
+- **Cue C (Blue)**: start of the break (know where to brace)
+- **Cue D (Red)**: start of the outro (your mix-out point)
+
+This setup means: at any point in a live set, you can read at a glance where you are in the track relative to your mix windows.
+
+**Hot loop discipline**: before a break, set a 4-beat loop on the last phrase before the break. If you need more time (bad transition, crowd not ready), you can extend the track by looping indefinitely without the break landing.
+
+**Why this beats winging it**: a track you've cued properly is a track you *understand*. You know every structural moment. You can have a conversation with someone at the booth and still nail the transition because the geography is memorized.
+"""
+youtube = "https://www.youtube.com/watch?v=2rFnWABnBP8"
+youtube_caption = "Rekordbox Phrase Analysis — watch how it segments a club track into intro/build/drop/break/outro."
+
+[[en.pages]]
+title   = "The drop as genre signature"
+content = """
+The "drop" is the moment of maximum energy arrival — when all elements return after a stripped-down section. Its specific shape is a genre fingerprint:
+
+**House / Deep House**: gradual threshold crossing. Density rises phrase by phrase; the "drop" is less a moment than a sustained arrival. Jeff Mills described this as "one layer removed, one layer added every 32 beats."
+
+**Big-room EDM**: dramatic silence (1–4 beats), then full-energy impact on the downbeat. Dynamic range can exceed 20 dB (silence → kick + everything). Designed for a crowd to anticipate and respond physically.
+
+**Drum & Bass**: snare roll (16–32 beats building tension) → sub-bass drop precisely calibrated to room acoustics. The sub enters at a frequency that physically vibrates the crowd (typically 40–80 Hz in a properly tuned system).
+
+**Techno (minimal/Berlin)**: the "drop" is often structural — a moment where the arrangement floor rises or falls. There's rarely a complete silence; the texture shifts rather than drops.
+
+**Why this matters for digging**: if you're building a set that transitions between genres, knowing where each genre's drop lands (and what shape it takes) tells you which moments are safe transition windows and which are commitment points where you can't be mid-mix.
+"""
+
+[[en.quiz]]
+question = "A release shows versions: Club Mix (7:12), Radio Edit (3:30), Dub (6:45). You want maximum DJ utility. Which do you buy?"
+answers  = ["Radio Edit — shortest, easiest to mix", "Club Mix — standard DJ format at 7 minutes", "Dub — no vocals, maximum blending flexibility", "All three — always buy all versions"]
+correct  = 1
+
+[[en.quiz]]
+question = "In Rekordbox's four-point cue setup, what does Cue D (Red) typically mark?"
+answers  = ["The start of the intro", "The drop moment", "The start of the outro (mix-out point)", "A break in the middle"]
+correct  = 2
+
+[[en.quiz]]
+question = "A track has a 1-phrase intro (8 bars). What does this mean for mixing?"
+answers  = ["It's ideal — short intros are easier", "Very little mix-in room (~15 sec at 128 BPM)", "It means the track is a Radio Edit", "Nothing — phrase length doesn't affect mixing"]
+correct  = 1
+
+[[en.quiz]]
+question = "How does a big-room EDM drop differ from a deep house drop structurally?"
+answers  = ["They're identical", "EDM: sudden silence then full-energy impact; Deep House: gradual density threshold crossing", "Deep House is louder", "EDM has longer intros"]
+correct  = 1
+
+[[en.quiz]]
+question = "What's the purpose of setting a hot loop right before a break?"
+answers  = ["It sounds better", "It lets you extend the track without the break landing if you need more time", "It makes the break louder", "Breaks always need loops"]
+correct  = 1
+
+[[en.sources]]
+label = "Rekordbox — Phrase Analysis documentation"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "Beatport — Club Mix vs Extended Mix examples"
+url   = "https://www.beatport.com/"
+
+[[en.sources]]
+label = "Jeff Mills — RA interview on track structure"
+url   = "https://ra.co/features/2003"
+
+[[en.sources]]
+label = "Discogs — version label conventions"
+url   = "https://support.discogs.com/hc/en-us/articles/360001441454"
+
+[fr]
+title      = "Anatomie d'une track DJ-Friendly — Taxonomie des versions & lecture de waveform"
+short_desc = "Le vocabulaire complet des mixes, lire les waveforms, et la discipline des cue points Rekordbox."
+
+[[fr.pages]]
+title   = "La taxonomie complète des mixes"
+content = """
+Les labels électroniques ont un vocabulaire précis pour les différentes versions d'une même track. Le connaître te rend plus rapide et plus intelligent quand tu digges.
+
+| Nom de la version | Durée | Vocal ? | Usage DJ |
+|---|---|---|---|
+| Club Mix | 6–8 min | Oui, milieu de track | Format DJ principal |
+| Extended Mix | 8–12 min | Oui, milieu de track | Maximum de structure |
+| 12" Mix | 6–10 min | Variable | Format DJ vinyle, souvent = Extended |
+| Radio Edit | 2.5–4 min | Immédiatement | Pas pour usage DJ |
+| Dub | 6–8 min | Effets/stems seulement | Excellent pour le blend |
+| Instrumental | 6–8 min | Aucun | Similaire au Dub |
+| Acapella | Variable | Voix seulement | Layering créatif |
+| VIP | Variable | Variable | Re-edit de l'artiste, souvent plus sombre/club |
+| Club Edit | 5–6 min | Milieu de track | Compromis — moins de structure que l'Extended |
+
+**Attention** : certains labels inversent les conventions, notamment en disco italien (où "Dub" signifie parfois la version longue). Vérifie toujours la durée — moins de 4 min = Radio Edit quelle que soit l'étiquette.
+
+L'**Extended Mix** est en général le meilleur ami du DJ : 8–12 minutes de structure avec assez d'intro/outro pour blender dans les deux sens.
+"""
+
+[[fr.pages]]
+title   = "Structure des phrases et lecture de waveform"
+content = """
+Comprendre la structure par phrases (traitée en profondeur dans Beatmatching LESSON_BM_2) te donne un prisme pour lire les waveforms.
+
+**Le squelette de la phrase 32 beats :**
+La plupart de la musique électronique est organisée en phrases de 32 beats (8 mesures de 4/4). Sur une waveform, chaque phrase a à peu près la même largeur visuelle. Tu peux compter :
+- **Intro** : 1–4 phrases de juste drums/basse
+- **Build** : densité croissante, phrase après phrase
+- **Drop** : arrivée soudaine à pleine énergie
+- **Break** : vallée de densité (souvent 1–2 phrases)
+- **Outro** : miroir symétrique de l'intro
+
+**Ce que ça signifie en diggant** : si une track a une intro d'1 phrase (8 mesures = ~15 sec à 128 BPM), tu as très peu de marge de mix. 2 phrases d'intro (64 beats = ~30 sec) c'est utilisable. 4+ phrases c'est confortable. Cherche le plateau visuel au début de la waveform — quelle est sa largeur ?
+
+**Pratique dans Rekordbox** : la Phrase Analysis (disponible dans Rekordbox 6+) détecte automatiquement intro/outro et étiquette les phrases. C'est un point de départ, pas une vérité — vérifie toujours à l'écoute, notamment sur du matériel non 4/4.
+"""
+
+[[fr.pages]]
+title   = "Discipline des cue points"
+content = """
+Un cue point est un signet que tu poses sur la timeline d'une track. Sur CDJs/contrôleurs, tu peux sauter instantanément à un cue point d'une pression de bouton.
+
+**Configuration standard à quatre points :**
+- **Cue A (Vert)** : début de l'intro propre (ton point de mix en entrée)
+- **Cue B (Jaune)** : premier drop / moment de pic
+- **Cue C (Bleu)** : début du break (savoir quand se préparer)
+- **Cue D (Rouge)** : début de l'outro (ton point de mix en sortie)
+
+Cette configuration te permet : à tout moment dans un live, tu vois d'un coup d'œil où tu en es dans la track par rapport à tes fenêtres de mix.
+
+**Discipline hot loop** : avant un break, pose un loop de 4 beats sur la dernière phrase avant le break. Si tu as besoin de plus de temps (mauvaise transition, le public n'est pas prêt), tu peux étendre la track en bouclant indéfiniment sans que le break tombe.
+
+**Pourquoi ça bat l'improvisation totale** : une track que tu as proprement cuée est une track que tu *comprends*. Tu connais chaque moment structurel. Tu peux avoir une conversation avec quelqu'un à la cabine et quand même clouer la transition parce que la géographie est mémorisée.
+"""
+youtube = "https://www.youtube.com/watch?v=2rFnWABnBP8"
+youtube_caption = "Rekordbox Phrase Analysis — observe comment il segmente une track club en intro/build/drop/break/outro."
+
+[[fr.pages]]
+title   = "Le drop comme signature de genre"
+content = """
+Le "drop" est le moment d'arrivée à énergie maximale — quand tous les éléments reviennent après une section épurée. Sa forme précise est une empreinte de genre :
+
+**House / Deep House** : franchissement progressif d'un seuil. La densité monte phrase après phrase ; le "drop" est moins un moment qu'une arrivée soutenue. Jeff Mills a décrit ça comme "une couche enlevée, une couche ajoutée toutes les 32 beats."
+
+**Big-room EDM** : silence dramatique (1–4 beats), puis impact pleine énergie sur le premier temps. La dynamique peut dépasser 20 dB (silence → kick + tout). Conçu pour que le public anticipe et réponde physiquement.
+
+**Drum & Bass** : snare roll (16–32 beats qui construisent la tension) → drop de sub-bass précisément calibré à l'acoustique de la salle. Le sub entre à une fréquence qui vibre physiquement le public (typiquement 40–80 Hz dans un système bien réglé).
+
+**Techno (minimal/Berlin)** : le "drop" est souvent structurel — un moment où le plancher d'arrangement monte ou descend. Il y a rarement un silence complet ; la texture bascule plutôt qu'elle ne tombe.
+
+**Pourquoi ça compte pour le digging** : si tu construis un set qui transite entre genres, savoir où le drop de chaque genre tombe (et quelle forme il prend) te dit quels moments sont des fenêtres de transition sûres et lesquels sont des points de non-retour où tu ne peux pas être en plein mix.
+"""
+
+[[fr.quiz]]
+question = "Une release montre : Club Mix (7:12), Radio Edit (3:30), Dub (6:45). Tu veux le maximum d'utilité DJ. Laquelle tu achètes ?"
+answers  = ["Radio Edit — la plus courte, la plus simple", "Club Mix — format DJ standard à 7 minutes", "Dub — pas de voix, flexibilité de blend maximale", "Les trois — achète toujours toutes les versions"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Dans la configuration 4 cue points de Rekordbox, que marque typiquement le Cue D (Rouge) ?"
+answers  = ["Le début de l'intro", "Le moment du drop", "Le début de l'outro (point de mix en sortie)", "Un break au milieu"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Une track a une intro d'1 phrase (8 mesures). Qu'est-ce que ça signifie pour le mix ?"
+answers  = ["C'est idéal — les intros courts sont plus faciles", "Très peu de marge de mix (~15 sec à 128 BPM)", "Ça veut dire que la track est un Radio Edit", "Rien — la longueur de la phrase n'affecte pas le mix"]
+correct  = 1
+
+[[fr.quiz]]
+question = "En quoi le drop big-room EDM diffère-t-il structurellement d'un drop deep house ?"
+answers  = ["Ils sont identiques", "EDM : silence soudain puis impact pleine énergie ; Deep House : franchissement progressif de seuil de densité", "La Deep House est plus forte", "L'EDM a des intros plus longs"]
+correct  = 1
+
+[[fr.quiz]]
+question = "À quoi sert un hot loop posé juste avant un break ?"
+answers  = ["Ça sonne mieux", "Ça te permet d'étendre la track sans que le break tombe si tu as besoin de plus de temps", "Ça rend le break plus fort", "Les breaks ont toujours besoin de loops"]
+correct  = 1
+
+[[fr.sources]]
+label = "Rekordbox — documentation Phrase Analysis"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "Beatport — exemples Club Mix vs Extended Mix"
+url   = "https://www.beatport.com/"
+
+[[fr.sources]]
+label = "Jeff Mills — interview RA sur la structure de track"
+url   = "https://ra.co/features/2003"
+
+[[fr.sources]]
+label = "Discogs — conventions d'étiquetage des versions"
+url   = "https://support.discogs.com/hc/en-us/articles/360001441454"

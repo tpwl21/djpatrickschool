@@ -1,0 +1,65 @@
+id = "LEVEL_2"
+order = 2
+
+[en]
+title       = "Engine Control"
+short_desc  = "Train B is rolling at a different tempo. Pitch it up or down to match Train A."
+description = "Train B is playing at a different fixed tempo. Ride the pitch to match Train A perfectly!"
+details     = "Focus: Riding the pitch fader. 120 vs 135 BPM."
+success     = "Pitch master! Two different tempos and you locked them in. True pro vibes!"
+coach_tips  = [
+  "Same deal, drop Train B on the one.",
+  "Not working? Yeah, Train B is at the wrong tempo, I won't always be here to hold your hand.",
+  "Ride the Pitch fader to slow it down or speed it up. Hit CUE if you need to pull it back to the start.",
+  "PRO TIP: Save yourself a headache—match your BPM before you drop Train B, so you don't end up trainwrecking."
+]
+recap = [
+  "Different BPMs = drift. The pitch fader speeds up or slows down deck B.",
+  "Match the BPM first, THEN drop Train B — don't fight two problems at once.",
+  "CUE is your reset: adjust pitch, CUE, try again.",
+  "A stable BPM match is the foundation of every other beatmatching technique."
+]
+
+[fr]
+title       = "Contrôle du Moteur"
+short_desc  = "Le Train B roule à une vitesse différente. Ajuste-la pour qu'elle corresponde au Train A."
+description = "Le Train B roule à une vitesse fixe différente. Ajuste sa vitesse pour qu'elle corresponde parfaitement au Train A !"
+details     = "Focus : Utilisation du Pitch. 120 vs 135 BPM."
+success     = "Maître du pitch ! Tu as réussi à synchroniser deux vitesses différentes. Un vrai pro !"
+coach_tips  = [
+  "Même chose, lance le train B au bon moment.",
+  "Ça ne marche plus ? Et oui le train B ne roule pas à la bonne vitesse, je ne serai pas toujours là pour t'aider.",
+  "Utilise le Pitch pour le ralentir ou l'accélérer. Tu peux aussi utiliser le bouton CUE pour revenir au début du morceau.",
+  "PRO TIP : te casse pas la tête, règle ton bpm avant de lancer le train B, ça t'évitera de te perdre"
+]
+recap = [
+  "BPM différents = dérive. Le pitch accélère ou ralentit la platine B.",
+  "Règle le BPM d'abord, PUIS lance le Train B — ne te bats pas sur deux fronts.",
+  "Le CUE est ton reset : tu ajustes le pitch, CUE, tu retentes.",
+  "Un BPM stable est la fondation de toutes les autres techniques de beatmatching."
+]
+
+[track.A]
+url = ""
+bpm = 120
+title = "Reference"
+key = "5A"
+complexity = 1
+[track.B]
+url = ""
+bpm = 135
+title = "Vitesse à caler"
+key = "5A"
+complexity = 1
+
+[ui]
+view_type              = "simple"
+show_bpm               = true
+allow_nudge            = true
+randomize_bpm          = false
+is_blind_mode          = false
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[validation.start_rule]
+tolerance_sec = 1.0

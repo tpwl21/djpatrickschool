@@ -1,0 +1,196 @@
+id = "LESSON_RTC_2_MEDIUM"
+order = 2
+
+[en]
+title      = "Reading a Dancefloor — Medium"
+short_desc = "Nuanced crowd signals, sensorimotor entrainment, and the back-row verdict."
+description = "Beyond the obvious signals: how crowd physics, density migration, and the dance-leader effect give you a real-time diagnostic of the room's state."
+recap = [
+  "**Hands up vs phones up**: empty raised hands = body-music mode; phones = capture mode, then disengage.",
+  "**Central density** is the key spatial signal — floor spread toward walls = energy dropping.",
+  "The floor empties from the **back first**, then middle, then front. The back is your diagnostic zone.",
+  "**Density migration** gives you ~15 minutes to repair once the back has gone.",
+  "Watch your **dance leaders** — 3–5 high-energy dancers near the front who set the pace for the whole room.",
+]
+
+[[en.pages]]
+title   = "Hands up vs phones up: reading the difference"
+content = """
+Both look similar from the booth — arms in the air. But they carry opposite information.
+
+**Phones up**: someone is *capturing* a moment. Camera on, arm extended, brain partially out of the experience. They often stop moving to frame the shot. After posting, the attention dips. Phones-up clusters are a snapshot of engagement, not engagement itself — and they frequently mark the ceiling of a track's impact, not the continuation.
+
+**Hands up (empty)**: pure body-music mode. No cognitive load from filming. The arms go up because the body has nowhere else to take the energy. This is the highest-fidelity positive signal you'll read.
+
+In practice: if you see both — half the crowd filming, half dancing with empty hands — the filming half is your early-departure risk. The dancing half is your anchor. Don't play *for* the filming crowd; they'll leave regardless. Play *for* the dancers.
+
+**Central density** is the spatial corollary: when a track lands, dancers compress toward the central axis (between booth and back wall). When energy drops, they spread outward toward side walls and the bar. Watch the shape of the crowd, not just the volume.
+"""
+
+[[en.pages]]
+title   = "Density migration: the back-to-front diagnosis"
+content = """
+The floor doesn't empty randomly — it empties in a predictable sequence: **back → middle → front**.
+
+Why? The back-row crowd is the most *optional* — they're there to see what happens, not committed. The front-row crowd came for you specifically. So the back is the canary.
+
+**What this means in practice:**
+- If your back rows are still moving: you have full floor engagement. Push.
+- If the back is thinning but the middle is still solid: you have ~15 minutes to repair before the middle follows.
+- If the middle is gone: the front will hold for another 2–3 tracks maximum, then the floor is effectively empty.
+
+The 4-bar post-drop check is the critical moment: immediately after the drop lands, lift your head and scan the far wall. The verdict is in within those 4 bars — dancers commit or disengage within one phrase.
+
+**Practical drill:** during your next set (even a home session), force your eyes to the back of the room at every drop. Count 4 bars. Then decide your next move. Do this 20 times and it becomes automatic.
+"""
+
+[[en.pages]]
+title   = "Dance leaders and the social cascade"
+content = """
+Every room has **dance leaders**: 3–5 high-energy dancers, usually near the front or central zone, who move before everyone else and set the tempo and style of the room's movement.
+
+They're not always visible as a distinct group — but you can identify them by watching who *initiates* when a new track drops. Someone who immediately picks up the rhythm and starts dancing before anyone else commits: that's a dance leader.
+
+**Why they matter:**
+- When dance leaders move, the floor follows within 4–8 bars (social proof in action).
+- When dance leaders leave the floor, the room drops within 2–3 tracks.
+- When dance leaders are hesitating (moving but not committing), you're at a tipping point — the next track decides.
+
+**What to do:** before your set, identify the dance leaders during the previous DJ's last 20 minutes. Where are they? What makes them move? When you take over, your first 3 tracks are calibrated to them — not to the room average. Get the dance leaders moving and the cascade follows.
+
+The inverse is also true: a track that makes the dance leaders stop moving (too weird, wrong BPM register, jarring key shift) will empty the floor 2–3 tracks later, not immediately. Recognize the lag.
+"""
+
+[[en.quiz]]
+question = "A crowd raising empty hands (no phones) signals..."
+answers  = ["They want the DJ to stop", "Pure body-music engagement — the highest-fidelity positive signal", "They're about to leave"]
+correct  = 1
+
+[[en.quiz]]
+question = "The floor empties in what order?"
+answers  = ["Front first, then middle, then back", "Back first, then middle, then front", "Randomly — no pattern"]
+correct  = 1
+
+[[en.quiz]]
+question = "When your dance leaders are hesitating (moving but not committing), it means..."
+answers  = ["Everything is fine — they're just warming up", "You're at a tipping point — the next track decides whether they commit or leave", "The set is over"]
+correct  = 1
+
+[[en.quiz]]
+question = "Central density (crowd compressing toward the central axis) means..."
+answers  = ["Energy is dropping", "The fire exit is that way", "A track is landing — positive signal"]
+correct  = 2
+
+[[en.quiz]]
+question = "The 4-bar post-drop check works because..."
+answers  = ["Dancers take exactly 4 bars to hear a track", "Dancers commit or disengage within the first phrase — the verdict is already in", "It gives you time to find your next track"]
+correct  = 1
+
+[[en.sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[en.sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"
+
+[[en.sources]]
+label = "Moving Together in Music and Dance — Keller (Oxford)"
+url   = "https://academic.oup.com/book/56186/chapter/443056689"
+
+[fr]
+title      = "Lire un dancefloor — Medium"
+short_desc = "Signaux de foule nuancés, entraînement sensorimoteur, et le verdict du rang du fond."
+description = "Au-delà des signaux évidents : comment la physique de la foule, la migration de densité et l'effet dance-leader te donnent un diagnostic temps réel de l'état de la salle."
+recap = [
+  "**Mains en l'air vs téléphones en l'air** : mains nues = mode corps-musique ; téléphones = mode capture, puis désengage.",
+  "La **densité centrale** est le signal spatial clé — piste qui s'étale vers les murs = énergie qui baisse.",
+  "La piste se vide **du fond d'abord**, puis du milieu, puis du front. Le fond est ta zone de diagnostic.",
+  "La **migration de densité** te donne ~15 minutes pour réparer une fois que le fond est parti.",
+  "Surveille tes **dance leaders** — 3–5 danseurs haute énergie près du front qui donnent le rythme à toute la salle.",
+]
+
+[[fr.pages]]
+title   = "Mains en l'air vs téléphones en l'air : lire la différence"
+content = """
+Les deux se ressemblent depuis le booth — des bras en l'air. Mais ils portent des informations opposées.
+
+**Téléphones en l'air** : quelqu'un *capture* un moment. Caméra activée, bras tendu, cerveau partiellement sorti de l'expérience. Il arrête souvent de bouger pour cadrer. Après le post, l'attention chute. Les clusters de téléphones sont un snapshot d'engagement, pas l'engagement lui-même — et ils marquent fréquemment le plafond de l'impact d'une track, pas sa continuation.
+
+**Mains en l'air (nues)** : mode pur corps-musique. Aucune charge cognitive liée au filmage. Les bras montent parce que le corps n'a nulle part où mettre l'énergie. C'est le signal positif le plus haute fidélité que tu liras.
+
+En pratique : si tu vois les deux — la moitié de la foule filme, l'autre danse les mains nues — la moitié qui filme est ton risque de départ anticipé. La moitié qui danse est ton ancre. Ne joue pas *pour* la foule qui filme ; elle partira de toute façon. Joue *pour* les danseurs.
+
+La **densité centrale** est le corollaire spatial : quand une track atterrit, les danseurs se compactent vers l'axe central (entre booth et fond de salle). Quand l'énergie baisse, ils s'étalent vers les murs latéraux et le bar. Surveille la forme de la foule, pas juste son volume.
+"""
+
+[[fr.pages]]
+title   = "Migration de densité : le diagnostic fond-vers-front"
+content = """
+La piste ne se vide pas aléatoirement — elle se vide dans une séquence prévisible : **fond → milieu → front**.
+
+Pourquoi ? La foule du fond est la plus *optionnelle* — elle est là pour voir ce qui se passe, pas engagée. La foule du front est venue exprès pour toi. Donc le fond est le canari dans la mine.
+
+**Ce que ça signifie en pratique :**
+- Si tes rangs du fond bougent encore : tu as un engagement de toute la piste. Pousse.
+- Si le fond se raréfie mais le milieu tient : tu as ~15 minutes pour réparer avant que le milieu suive.
+- Si le milieu est parti : le front tiendra encore 2–3 tracks maximum, puis la piste est effectivement vide.
+
+Le check à 4 mesures post-drop est le moment critique : immédiatement après le drop, lève la tête et scanne le fond de la salle. Le verdict est rendu dans ces 4 mesures — les danseurs s'engagent ou se désengagent dans une première phrase.
+
+**Drill pratique :** lors de ton prochain set (même chez toi), force tes yeux vers le fond à chaque drop. Compte 4 mesures. Puis décide du move suivant. Fais ça 20 fois et ça devient automatique.
+"""
+
+[[fr.pages]]
+title   = "Les dance leaders et la cascade sociale"
+content = """
+Chaque salle a des **dance leaders** : 3–5 danseurs haute énergie, généralement près du front ou de la zone centrale, qui bougent avant tout le monde et donnent le tempo et le style du mouvement de la salle.
+
+Ils ne forment pas toujours un groupe distinct — mais tu peux les identifier en regardant qui *initie* quand une nouvelle track drop. Quelqu'un qui part immédiatement sur le rythme avant que quiconque s'engage : c'est un dance leader.
+
+**Pourquoi ils comptent :**
+- Quand les dance leaders bougent, la piste suit dans les 4–8 mesures (preuve sociale en action).
+- Quand les dance leaders quittent la piste, la salle tombe en 2–3 tracks.
+- Quand les dance leaders hésitent (bougent sans s'engager), tu es à un point de bascule — la prochaine track tranche.
+
+**Quoi faire :** avant ton set, identifie les dance leaders pendant les 20 dernières minutes du DJ précédent. Où sont-ils ? Qu'est-ce qui les fait bouger ? Quand tu prends le relais, tes 3 premières tracks sont calibrées pour eux — pas pour la moyenne de la salle. Fais bouger les dance leaders et la cascade suit.
+
+L'inverse est aussi vrai : une track qui stoppe les dance leaders (trop bizarre, mauvais registre BPM, shift de tonalité jarring) videra la piste 2–3 tracks plus tard, pas immédiatement. Reconnais le décalage.
+"""
+
+[[fr.quiz]]
+question = "Une foule qui lève les mains (sans téléphones) signale..."
+answers  = ["Elle veut que le DJ s'arrête", "Un engagement corps-musique pur — le signal positif haute fidélité", "Elle s'apprête à partir"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La piste se vide dans quel ordre ?"
+answers  = ["Le front d'abord, puis le milieu, puis le fond", "Le fond d'abord, puis le milieu, puis le front", "Aléatoirement — aucun pattern"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quand tes dance leaders hésitent (bougent sans s'engager), ça veut dire..."
+answers  = ["Tout va bien — ils se chauffent juste", "Tu es à un point de bascule — la prochaine track détermine s'ils s'engagent ou partent", "Le set est terminé"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La densité centrale (foule compactée vers l'axe central) signifie..."
+answers  = ["L'énergie baisse", "La sortie de secours est par là", "Une track atterrit — signal positif"]
+correct  = 2
+
+[[fr.quiz]]
+question = "Le check à 4 mesures post-drop fonctionne parce que..."
+answers  = ["Les danseurs mettent exactement 4 mesures à entendre une track", "Les danseurs s'engagent ou se désengagent dans la première phrase — le verdict est déjà rendu", "Ça te donne le temps de trouver ta prochaine track"]
+correct  = 1
+
+[[fr.sources]]
+label = "The groove hypothesis — sensorimotor synchronization (PLOS One)"
+url   = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328719"
+
+[[fr.sources]]
+label = "Syncopation, Body-Movement and Pleasure in Groove Music (PMC)"
+url   = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3989225/"
+
+[[fr.sources]]
+label = "Moving Together in Music and Dance — Keller (Oxford)"
+url   = "https://academic.oup.com/book/56186/chapter/443056689"

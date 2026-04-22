@@ -1,0 +1,66 @@
+id = "LEVEL_8"
+order = 8
+
+[en]
+title       = "The Purist"
+short_desc  = "No BPM, NO NUDGING allowed. Lock it all in with the pitch fader like a true vinyl head."
+description = "Total Mastery. <strong>No BPM display, NO NUDGING.</strong> Lock the tempos using only Play/CUE and Pitch!"
+details     = "Focus: Absolute mastery of the deck."
+success     = "DJ MASTER STATUS! Absolute deck control, nothing can stop you. Ready for the main stage?"
+coach_tips  = [
+  "This is it. No magic buttons, just you and the turntable.",
+  "Use the pitch fader ONLY. If it's lagging, push the pitch way up for a second so it catches up, then pull it back to the right tempo.",
+  "You're essentially 'riding the pitch' in waves to fix the phase.",
+  "Basically, the pitch fader replaces the nudge buttons. Imagine touching the vinyl or the platter is strictly forbidden."
+]
+recap = [
+  "The pitch fader can also do nudge's job — briefly push up, then back down.",
+  "\"Riding the pitch\" in small waves corrects phase without touching the jog.",
+  "Vinyl-style purism: no jog, no nudge — only Play, CUE, and Pitch.",
+  "This is the test that proves you truly hear the drift instead of seeing it."
+]
+
+[fr]
+title       = "Le Puriste"
+short_desc  = "Pas de BPM, et surtout PAS DE NUDGE. Aligne tout au Pitch, comme un vrai."
+description = "Expertise Totale. <strong>Pas de BPM, et surtout PAS DE NUDGE.</strong> Aligne tes trains uniquement avec le Play/CUE et le Pitch !"
+details     = "Focus : Maîtrise totale du plateau."
+success     = "DJ MASTER ! Le contrôle total, plus rien ne t'arrête. Prêt pour la scène ?"
+coach_tips  = [
+  "Ici, c'est du sérieux. Pas de bouton magique, juste toi et le disque.",
+  "Sers-toi du pitch uniquement, force un des trains à être plus rapide qu'il ne doit être, pour qu'il rattrape l'autre, ou dans l'autre sens",
+  "Tu peux faire des vagues avec le pitch, c'est-à-dire accélérer puis ralentir, pour corriger les petits décalages.",
+  "En gros le pitch remplace le bouton accélérer ou ralentir, c'est comme si tu n'avais pas le droit de toucher le vinyle ou ton jog"
+]
+recap = [
+  "Le pitch peut aussi faire le job du nudge — petit coup vers le haut, puis retour.",
+  "\"Rider le pitch\" en petites vagues corrige la phase sans toucher le jog.",
+  "Puriste vinyle : ni jog, ni nudge — juste Play, CUE et Pitch.",
+  "C'est le test qui prouve que tu entends la dérive au lieu de la voir."
+]
+
+[track.A]
+url = "AUDIO/Bjork.mp3"
+bpm = 132
+title = "Boucle Ref"
+key = "11A"
+complexity = 4
+[track.B]
+url = "AUDIO/Sourire.mp3"
+bpm = 128
+title = "Boucle à caler"
+key = "11A"
+complexity = 4
+
+[ui]
+view_type              = "phrase"
+show_bpm               = false
+allow_nudge            = false
+randomize_bpm          = true
+force_complex_wagons   = false
+start_position_b_beats = 0
+
+[validation.start_rule]
+beat_multiple = 32
+beat_offset   = 0
+tolerance_sec = 1.0
