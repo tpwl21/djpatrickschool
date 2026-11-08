@@ -46,7 +46,8 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [x] EQ : visualiseur et mixer côte à côte sur écran large → tient de 1280×720 à 1920×1080
 - [x] FX : fader à côté des modules (grille) → tient dès 1440×900 (reste ~160 px à défiler en 1280×720)
 - [x] Harmonies : la bibliothèque défile dans son cadre → la page tient à toutes les tailles
-- [ ] Tablette paysage 1024×768 : EQ et FX demandent encore un peu de défilement
+- [x] Tablette paysage 1024×768 : FX, Harmonies, Digging, Foule et EQ 1 tiennent (EQ côte à côte dès 1000 px)
+- [ ] EQ 2 (1024×768) et EQ 3 Gain Staging (≤ 1440×900) demandent encore un peu de défilement : niveau très chargé, à revoir avec la refonte EQ (phase 2)
 
 ### Côté ludique (fait)
 - [x] Patrick vivant dans les niveaux : il hoche la tête au BPM quand la musique joue ; son expression suit le jeu (EASY seulement pour le Beatmatching, pour ne pas tricher en MEDIUM/PRO)

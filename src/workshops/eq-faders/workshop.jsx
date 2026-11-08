@@ -51,7 +51,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
 
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
-  const isWide = !useMobileDetection(1099);
+  const isWide = !useMobileDetection(999);
   // divulgation progressive : un niveau n'affiche que ce qu'il enseigne (réglable dans [ui] du TOML)
   const showEq = level.ui?.show_eq !== false;
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
@@ -282,24 +282,24 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
       </LevelHeader>
 
       {level.ui?.show_trim && (
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 40, padding: '10px 0', alignItems: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 40, padding: isCompact ? '4px 0' : '10px 0', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: isCompact ? 'row' : 'column', alignItems: 'center', gap: isCompact ? 12 : 6 }}>
             <GainKnob
               value={eqState.trimA}
               onChange={(v) => setEqState((p) => ({ ...p, trimA: v }))}
               color="#4ecdc4"
               label="TRIM A"
             />
-            <VuMeter level={eqState.trimA_peak} label="A" height={120} />
+            <VuMeter level={eqState.trimA_peak} label="A" height={isCompact ? 72 : 120} />
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+          <div style={{ display: 'flex', flexDirection: isCompact ? 'row' : 'column', alignItems: 'center', gap: isCompact ? 12 : 6 }}>
             <GainKnob
               value={eqState.trimB}
               onChange={(v) => setEqState((p) => ({ ...p, trimB: v }))}
               color="#3498db"
               label="TRIM B"
             />
-            <VuMeter level={eqState.trimB_peak} label="B" height={120} />
+            <VuMeter level={eqState.trimB_peak} label="B" height={isCompact ? 72 : 120} />
           </div>
         </div>
       )}
@@ -319,7 +319,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
       </div>
 
       {/* Écran large : visualiseur et mixer côte à côte (empilés ils débordaient même en 1440×900) */}
-      <style>{`@media (min-width: 1100px) { .eq-stage .control-buttons { flex-wrap: nowrap; } .eq-stage .btn-crayon { padding: 8px 14px; font-size: 1rem; } }`}</style>
+      <style>{`@media (min-width: 1000px) { .eq-stage .control-buttons { flex-wrap: nowrap; } .eq-stage .btn-crayon { padding: 8px 14px; font-size: 1rem; } }`}</style>
       <div className="eq-stage" style={{ display: 'flex', flexDirection: isWide ? 'row' : 'column', alignItems: 'center', gap: isWide ? 24 : 0, padding: '0 20px', marginTop: isWide ? 12 : 0, flex: '0 0 auto' }}>
       <div style={{ flex: isWide ? '1 1 0' : 'none', width: '100%', minWidth: 0 }}>
         <ColorMixVisualizer
