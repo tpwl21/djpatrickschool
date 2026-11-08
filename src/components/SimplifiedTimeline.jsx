@@ -73,13 +73,13 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    opacity: isActive ? 1 : 0.35,
                     borderRight: '1px solid rgba(0,0,0,0.2)',
-                    transition: 'opacity 0.3s'
                 }}>
-                    {/* Top Layer: Volume / Mix */}
+                    {/* Top Layer: Volume / Mix (phase inactive : fond atténué, étiquette lisible) */}
                     <div style={{
                         flex: 1,
+                        opacity: isActive ? 1 : 0.35,
+                        transition: 'opacity 0.3s',
                         background: getBg(DEFAULT_A, DEFAULT_B),
                         boxShadow: isActive ? 'inset 0 0 10px rgba(255,255,255,0.2)' : 'none'
                     }} />
@@ -88,6 +88,8 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
                     {(isHybridLevel || isBassLevel) && (
                         <div style={{
                             flex: 1,
+                            opacity: isActive ? 1 : 0.35,
+                            transition: 'opacity 0.3s',
                             background: getBg(isHybridLevel ? BASS_A : COLOR_A, isHybridLevel ? BASS_B : COLOR_B),
                             borderTop: isHybridLevel ? '1px solid rgba(0,0,0,0.2)' : 'none',
                             boxShadow: isActive ? 'inset 0 0 10px rgba(255,255,255,0.2)' : 'none'
@@ -103,8 +105,8 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
                         justifyContent: 'center',
                         fontSize: '0.7rem',
                         fontWeight: '900',
-                        color: '#fff',
-                        textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+                        color: isActive ? '#fff' : 'rgba(255,255,255,0.88)',
+                        textShadow: '1px 1px 2px rgba(0,0,0,0.9)',
                         pointerEvents: 'none',
                         zIndex: 5
                     }}>

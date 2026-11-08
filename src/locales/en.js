@@ -1,5 +1,11 @@
 const en = {
   home: {
+    a11y: {
+      lesson: "lesson",
+      level: "level",
+      locked: "locked",
+      openWorkshop: "Open workshop"
+    },
     welcome: "Welcome to Patrick's DJ School! Pick your poison (difficulty) in the top right to start.",
     disclaimer: "The techniques taught here aren't absolute rules — just foundations to help you understand the craft. Creativity has no ceiling: find your own style, break the rules when it makes sense, and above all, have fun.",
     difficultyInfo: {

@@ -47,7 +47,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
   };
 
   return (
-    <div className="lesson-container" style={{ '--lesson-color': color, '--primary': color, '--wh-ink': inkOn(color) }}>
+    <div className="lesson-container" style={{ '--lesson-color': color, '--primary': color, '--wh-ink': inkOn(color), '--lesson-ink': 'color-mix(in srgb, var(--lesson-color) 20%, var(--text))' }}>
       <div className="lesson-top-bar">
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           <button className="btn-crayon lesson-back-btn" onClick={onBack}>
@@ -243,7 +243,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
         }
         .lesson-badge {
           background: var(--lesson-color);
-          color: #fff;
+          color: var(--wh-ink, #2b2b2b);
           padding: 6px 16px;
           border-radius: 20px;
           font-size: 0.75rem;
@@ -269,7 +269,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
         .lesson-title {
           font-size: clamp(2rem, 5vw, 3.2rem);
           margin: 0;
-          color: var(--lesson-color);
+          color: var(--lesson-ink, var(--text)); /* couleur d'atelier mêlée au texte : lisible sur tous les thèmes */
           font-weight: 900;
           letter-spacing: -1px;
           line-height: 1;
@@ -401,7 +401,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
         .lesson-success h2 {
           font-size: 2.2rem;
           margin: 0;
-          color: var(--lesson-color);
+          color: var(--lesson-ink, var(--text));
           font-weight: 900;
         }
         .lesson-success p {

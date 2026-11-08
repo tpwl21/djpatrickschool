@@ -356,7 +356,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
               color="#4ecdc4"
               size={isMobile ? 35 : (isCompact ? 46 : 55)}
               gap={isMobile ? 15 : (isCompact ? 12 : 25)}
-              labelFontSize={isMobile ? '0.6rem' : '0.8rem'}
+              labelFontSize={isMobile ? '0.7rem' : '0.8rem'}
             />
             <EqKnobs
               values={eqState.eqB}
@@ -364,7 +364,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
               color="#3498db"
               size={isMobile ? 35 : (isCompact ? 46 : 55)}
               gap={isMobile ? 15 : (isCompact ? 12 : 25)}
-              labelFontSize={isMobile ? '0.6rem' : '0.8rem'}
+              labelFontSize={isMobile ? '0.7rem' : '0.8rem'}
             />
           </div>
 

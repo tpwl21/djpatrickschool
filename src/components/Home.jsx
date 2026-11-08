@@ -54,6 +54,13 @@ const RESET_PASSWORDS = ['RESET', 'PASSWORD', 'TOTO', 'SECRET'];
 const VAULT_STORAGE_KEY = 'djPatrickVault';
 
 
+// Case du coffre : vrai bouton quand elle ouvre quelque chose (Booth), simple case sinon
+const VaultCell = ({ interactive, children, ...rest }) => (
+  interactive
+    ? <button type="button" {...rest} style={{ ...rest.style, font: 'inherit', color: 'inherit', textAlign: 'inherit' }}>{children}</button>
+    : <div {...rest}>{children}</div>
+);
+
 const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unlockedOrder = {}, onUnlockAll, onResetAll }) => {
   const { language, setLanguage, t } = useContext(LanguageContext);
   const [secretCode, setSecretCode] = useState('');
@@ -240,7 +247,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                   onClick={() => hasLevels && onWorkshopSelect(id)}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                    <h3 style={{ color: 'var(--text)', margin: 0, fontSize: '1.1rem', fontWeight: 900 }}>{title}</h3>
+                    <h3 style={{ color: 'var(--text)', margin: 0, fontSize: '1.1rem', fontWeight: 900 }}>
+                      {hasLevels ? (
+                        <button type="button" className="ws-title-btn" onClick={(e) => { e.stopPropagation(); onWorkshopSelect(id); }} aria-label={`${t('home.a11y.openWorkshop')} ${title}`}>{title}</button>
+                      ) : title}
+                    </h3>
                     {meta.forthcoming && <span className="tag-soon">{t('home.soon')}</span>}
                   </div>
                   {hasLevels || hasLessons ? (
@@ -259,8 +270,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                             const lesTitle = lesText?.title;
                             const lesDesc = lesText?.short_desc || lesText?.description;
                             return (
-                              <motion.div
+                              <motion.button
+                                type="button"
                                 key={les.id}
+                                disabled={isLocked}
+                                aria-label={isLocked ? `${title}, ${t('home.a11y.lesson')} ${les.order}, ${t('home.a11y.locked')}` : `${title}, ${t('home.a11y.lesson')} ${les.order} : ${lesTitle}`}
                                 whileHover={!isLocked ? { scale: 1.1, backgroundColor: color, color: '#fff' } : {}}
                                 onClick={(e) => {
                                   e.stopPropagation();
@@ -270,6 +284,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   e.stopPropagation();
                                   if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`);
                                 }}
+                                onFocus={() => { if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`); }}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
                                 style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative' }}
                               >
@@ -281,7 +296,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                     ))}
                                   </span>
                                 )}
-                              </motion.div>
+                              </motion.button>
                             );
                           })}
                         </div>
@@ -314,8 +329,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                             const lvlTitle = lvlText?.title;
                             const lvlDesc = lvlText?.short_desc || lvlText?.description;
                             return (
-                              <motion.div
+                              <motion.button
+                                type="button"
                                 key={lvl.id}
+                                disabled={isLocked}
+                                aria-label={isLocked ? `${title}, ${t('home.a11y.level')} ${lvl.order}, ${t('home.a11y.locked')}` : `${title}, ${t('home.a11y.level')} ${lvl.order} : ${lvlTitle}`}
                                 whileHover={!isLocked ? { scale: 1.1, backgroundColor: color, color: '#fff' } : {}}
                                 onClick={(e) => {
                                   e.stopPropagation();
@@ -325,6 +343,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   e.stopPropagation();
                                   if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`);
                                 }}
+                                onFocus={() => { if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`); }}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${diffs.length > 0 ? 'completed' : ''}`}
                                 style={{
                                   display: 'flex',
@@ -384,7 +403,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                     )}
                                   </>
                                 )}
-                              </motion.div>
+                              </motion.button>
                             );
                           })}
                         </div>
@@ -431,8 +450,9 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                 const label = language === 'fr' ? item.labelFr : item.labelEn;
                 const desc = language === 'fr' ? item.descFr : item.descEn;
                 return (
-                  <div
+                  <VaultCell
                     key={item.id}
+                    interactive={isUnlocked && item.isBooth}
                     className={`vault-square ${isUnlocked ? 'vault-unlocked' : 'vault-locked'}`}
                     onMouseEnter={() => setHoveredDescription(isUnlocked ? `${label} : ${desc}` : (language === 'fr' ? 'Entrez le code secret...' : 'Enter the secret code...'))}
                     onMouseLeave={() => setHoveredDescription(t('home.welcome'))}
@@ -454,7 +474,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                         <div className="vault-hatch" />
                       </>
                     )}
-                  </div>
+                  </VaultCell>
                 );
               })}
             </div>
@@ -645,7 +665,12 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           flex-wrap: wrap;
           margin-top: 6px;
         }
+        .ws-title-btn { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+        .ws-title-btn:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
         .level-btn {
+          font: inherit;
+          background-color: #fff;
+          padding: 0;
           width: 44px;
           height: 44px;
           border: 3px solid #333;

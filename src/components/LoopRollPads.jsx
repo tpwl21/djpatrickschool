@@ -22,7 +22,7 @@ const LoopRollPads = ({ onTrigger, color = '#f39c12' }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-      <span style={{ fontSize: '0.7rem', color: '#fff', fontWeight: 900, letterSpacing: 1 }}>LOOP ROLL</span>
+      <span style={{ fontSize: '0.7rem', color: 'currentColor', fontWeight: 900, letterSpacing: 1 }}>LOOP ROLL</span>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
         {SIZES.map((s) => {
           const isActive = activeSize === s.value;

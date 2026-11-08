@@ -1,5 +1,6 @@
 import React from 'react';
 import Glyph from './Glyph';
+import { inkOn } from '../utils/color';
 
 const MOMENT_LABELS = {
   opening:   { fr: 'OUVERTURE',   en: 'OPENING' },
@@ -57,7 +58,7 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
 
   return (
     <div style={{
-      background: '#fff', border: '3px solid #333', borderRadius: 10,
+      background: '#fff', color: '#2b2b2b', border: '3px solid #333', borderRadius: 10, // carte blanche : encre fixe
       padding: '14px 18px', maxWidth: 640, margin: '0 auto',
       boxShadow: '4px 4px 0 rgba(0,0,0,0.2)',
     }}>
@@ -70,7 +71,7 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 10 }}>
         <div style={{
-          background: color, color: '#fff', padding: '3px 10px',
+          background: color, color: inkOn(color), padding: '3px 10px',
           borderRadius: 6, fontSize: '0.75rem', fontWeight: 900, letterSpacing: 1,
           border: '2px solid #333',
         }}>
@@ -78,7 +79,11 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
         </div>
         <div style={{ display: 'flex', gap: 12, fontSize: '0.7rem', fontWeight: 700 }}>
           <span>Energy: <b style={{ color }} aria-label={`${energy}/5`}>{Array.from({ length: energy }, (_, i) => <Glyph key={i} name="bolt" size="1em" />)}</b></span>
-          <span>Density: <b style={{ color }}>{'●'.repeat(density)}</b></span>
+          <span>Density: <b aria-label={`${density}/5`} style={{ display: 'inline-flex', gap: 3, verticalAlign: 'middle' }}>
+            {Array.from({ length: density }, (_, i) => (
+              <span key={i} aria-hidden="true" style={{ width: 9, height: 9, borderRadius: '50%', background: color, border: '1.5px solid #333' }} />
+            ))}
+          </b></span>
         </div>
       </div>
 

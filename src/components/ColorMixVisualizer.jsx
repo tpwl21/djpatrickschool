@@ -173,8 +173,8 @@ const ColorMixVisualizer = ({
       </div>
 
       {/* STAGE LABELS */}
-      <div style={{ position: 'absolute', top: 30, left: 40, color: DEFAULT_A, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px', opacity: 0.5 }}>SOURCE</div>
-      <div style={{ position: 'absolute', top: 30, right: 40, color: DEFAULT_B, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px', opacity: 0.5 }}>TARGET</div>
+      <div style={{ position: 'absolute', top: 30, left: 40, color: DEFAULT_A, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>SOURCE</div>
+      <div style={{ position: 'absolute', top: 30, right: 40, color: DEFAULT_B, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>TARGET</div>
 
       {/* Bottom Meter Line */}
       <div style={{ position: 'absolute', bottom: 40, left: '15%', right: '15%', height: '2px', background: 'rgba(255,255,255,0.05)', borderRadius: '1px' }}>

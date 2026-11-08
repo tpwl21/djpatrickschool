@@ -211,7 +211,7 @@ const Md = ({ children, className = '' }) => {
 
         /* Bold & inline code */
         .md-b {
-          color: var(--lesson-color, #5DADE2);
+          color: var(--lesson-ink, var(--text, #2b2b2b));
           font-weight: 900;
         }
         .md-c {

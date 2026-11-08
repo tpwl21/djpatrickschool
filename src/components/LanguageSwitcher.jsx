@@ -9,23 +9,17 @@ const LanguageSwitcher = ({ style = {} }) => {
 
   return (
     <div className="language-switcher" style={{ display: 'flex', gap: '10px', ...style }}>
-      <motion.img
-        src={frFlagImg}
-        alt="FR"
-        className={`lang-flag ${language === 'fr' ? 'active' : ''}`}
-        style={{ width: '40px', height: 'auto', cursor: 'pointer', filter: language === 'fr' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }}
-        onClick={() => setLanguage('fr')}
-        whileHover={{ scale: 1.1 }}
-      />
-      <motion.img
-        src={ukFlagImg}
-        alt="EN"
-        className={`lang-flag ${language === 'en' ? 'active' : ''}`}
-        style={{ width: '40px', height: 'auto', cursor: 'pointer', filter: language === 'en' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }}
-        onClick={() => setLanguage('en')}
-        whileHover={{ scale: 1.1 }}
-      />
+      {/* vrais boutons (clavier + lecteur d'écran) ; l'image du drapeau est décorative */}
+      <motion.button type="button" className="lang-btn" onClick={() => setLanguage('fr')} aria-pressed={language === 'fr'} aria-label="Français" whileHover={{ scale: 1.1 }}>
+        <img src={frFlagImg} alt="" className={`lang-flag ${language === 'fr' ? 'active' : ''}`}
+          style={{ width: '40px', height: 'auto', display: 'block', filter: language === 'fr' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }} />
+      </motion.button>
+      <motion.button type="button" className="lang-btn" onClick={() => setLanguage('en')} aria-pressed={language === 'en'} aria-label="English" whileHover={{ scale: 1.1 }}>
+        <img src={ukFlagImg} alt="" className={`lang-flag ${language === 'en' ? 'active' : ''}`}
+          style={{ width: '40px', height: 'auto', display: 'block', filter: language === 'en' ? 'none' : 'grayscale(100%) opacity(0.5)', transition: 'all 0.3s' }} />
+      </motion.button>
       <style dangerouslySetInnerHTML={{ __html: `
+        .lang-btn { padding: 0; border: none; background: none; cursor: pointer; border-radius: 6px; }
         .lang-flag {
           border-radius: 4px;
           box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
