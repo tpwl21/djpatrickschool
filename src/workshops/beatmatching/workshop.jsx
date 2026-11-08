@@ -373,9 +373,10 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
           {isBlindMode && (
             <div className="blind-overlay" style={{
               position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-              background: '#fdfaf6', zIndex: 20, display: 'flex', alignItems: 'center',
-              justifyContent: 'center', color: '#333', fontSize: '3rem', fontWeight: '900',
-              pointerEvents: 'none', border: '10px solid #333',
+              // aux couleurs de la salle PRO (nuit) au lieu d'un carton crème éblouissant
+              background: 'var(--surface-elevated)', zIndex: 20, display: 'flex', alignItems: 'center',
+              justifyContent: 'center', color: 'var(--text)', fontSize: 'clamp(1.6rem, 5vw, 3rem)', fontWeight: '900',
+              pointerEvents: 'none', border: '10px solid var(--border-strong)', textWrap: 'balance',
               boxShadow: 'inset 0 0 100px rgba(0,0,0,0.05)', textAlign: 'center', padding: '40px',
               textTransform: 'uppercase', letterSpacing: '2px', fontFamily: 'inherit', opacity: 0.95,
             }}>

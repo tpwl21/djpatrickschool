@@ -57,7 +57,7 @@ const fr = {
       early: "TÔT",
       late: "TARD"
     },
-    blindModeWarning: "ÉCOUTE UNIQUEMENT...<br/>PAS DE TRICHE !",
+    blindModeWarning: "ÉCOUTE UNIQUEMENT...<br/>PAS DE TRICHE\u00a0!",
     trainA: "Train A",
     loading: "Le vinyle chauffe…",
     running: "En route...",
