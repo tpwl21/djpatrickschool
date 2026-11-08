@@ -38,6 +38,11 @@ const fr = {
     },
     menu: "Menu",
     status: {
+      eqOk: "Courbe EQ OK",
+      eqAdjust: "Ajuste les EQ / faders !",
+      fxOk: "FX OK",
+      fxAdjust: "Ajuste les FX !",
+      score: "Score",
       pitchOk: "PITCH OK",
       pitchPlus: "PITCH +",
       pitchMinus: "PITCH -",
@@ -68,6 +73,25 @@ const fr = {
   coach: {
     open: "Afficher le conseil de Patrick",
     close: "Masquer le conseil"
+  },
+  timeline: {
+    intro: "INTRO (A SEUL)",
+    mix: "LE MIX",
+    outro: "OUTRO (B SEUL)",
+    progress: "PROGRESSION",
+    volumeFdr: "FADER DE VOLUME",
+    bassEq: "EQ BASSES",
+    hybrid: "SWAP HYBRIDE : FADER + BASSES",
+    morphBass: "MORPHING DES BASSES…",
+    morphColors: "MORPHING DES COULEURS…"
+  },
+  visualizer: {
+    source: "SOURCE",
+    target: "CIBLE",
+    high: "AIGUS",
+    mid: "MÉDIUMS",
+    bass: "BASSES",
+    mix: "MIX"
   },
   cinematic: {
     hints: {

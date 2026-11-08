@@ -17,6 +17,7 @@ import { getAllTracks } from '../lib/levels/load';
 import Glyph from '../components/Glyph';
 import CoachPatrick from '../components/CoachPatrick';
 import { useMobileDetection } from '../hooks/useMobileDetection';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const THEMES = {
   light: {
@@ -270,6 +271,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
 
 const SecretBoothFull = ({ onBack }) => {
   const { language, t } = useContext(LanguageContext);
+  useDocumentTitle('Secret Booth');
   const [audioCtx, setAudioCtx] = useState(null);
   const [isReady, setIsReady] = useState(false);
 

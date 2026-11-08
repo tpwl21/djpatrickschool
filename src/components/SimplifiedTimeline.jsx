@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../hooks/LanguageContext';
 import { PHRASES, NUM_PHRASES } from '../utils/workshopUtils';
 
 const DEFAULT_A = "#3498db";
@@ -8,6 +9,7 @@ const BASS_A = "#2ecc71";
 const BASS_B = "#e67e22";
 
 const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases = 8 }) => {
+  const { t } = useContext(LanguageContext);
   const isBassLevel = levelId === 'EQ_LEVEL_2';
   const isHybridLevel = levelId === 'EQ_LEVEL_3';
 
@@ -26,16 +28,16 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
       {/* Category Labels (INTRO / MIX / OUTRO) */}
       {!isHybridLevel && (
         <div style={{ display: 'flex', width: '100%', marginBottom: '-4px' }}>
-            <div style={{ flex: 4, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: COLOR_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />INTRO (PURE A)</div>
-            <div style={{ flex: 1, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px', background: 'color-mix(in srgb, var(--text) 12%, transparent)', borderRadius: '4px' }}>THE MIX</div>
-            <div style={{ flex: 3, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: COLOR_B, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />OUTRO (PURE B)</div>
+            <div style={{ flex: 4, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: COLOR_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />{t('timeline.intro')}</div>
+            <div style={{ flex: 1, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px', background: 'color-mix(in srgb, var(--text) 12%, transparent)', borderRadius: '4px' }}>{t('timeline.mix')}</div>
+            <div style={{ flex: 3, textAlign: 'center', fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '2px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: COLOR_B, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />{t('timeline.outro')}</div>
         </div>
       )}
 
       {isHybridLevel && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '4px' }}>
-              <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '1px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: DEFAULT_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />VOLUME FDR</div>
-              <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '1px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: BASS_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />BASS EQ</div>
+              <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '1px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: DEFAULT_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />{t('timeline.volumeFdr')}</div>
+              <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--text)', letterSpacing: '1px' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, background: BASS_A, border: '2px solid #333', borderRadius: 2, marginRight: 6, verticalAlign: '-1px' }} />{t('timeline.bassEq')}</div>
           </div>
       )}
 
@@ -132,7 +134,7 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--text-muted)', letterSpacing: '1px' }}>
-              PROGRESS: {Math.round(((currentPhraseIdx + progress) / totalPhrases) * 100)}%
+              {t('timeline.progress')} : {Math.round(((currentPhraseIdx + progress) / totalPhrases) * 100)}%
           </div>
           {currentPhraseIdx === 4 && (
               <div style={{ 
@@ -144,7 +146,7 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
                   border: '1px solid rgba(255,255,255,0.3)',
                   textTransform: 'uppercase'
               }}>
-                  {isHybridLevel ? "HYBRID SWAP: FDR + BASS" : isBassLevel ? "MORPHING BASS..." : "MORPHING COLORS..."}
+                  {isHybridLevel ? t('timeline.hybrid') : isBassLevel ? t('timeline.morphBass') : t('timeline.morphColors')}
               </div>
           )}
       </div>

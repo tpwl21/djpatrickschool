@@ -78,8 +78,8 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
           {momentLabel}
         </div>
         <div style={{ display: 'flex', gap: 12, fontSize: '0.7rem', fontWeight: 700 }}>
-          <span>Energy: <b style={{ color }} aria-label={`${energy}/5`}>{Array.from({ length: energy }, (_, i) => <Glyph key={i} name="bolt" size="1em" />)}</b></span>
-          <span>Density: <b aria-label={`${density}/5`} style={{ display: 'inline-flex', gap: 3, verticalAlign: 'middle' }}>
+          <span>{language === 'fr' ? 'Énergie' : 'Energy'} : <b style={{ color }} aria-label={`${energy}/5`}>{Array.from({ length: energy }, (_, i) => <Glyph key={i} name="bolt" size="1em" />)}</b></span>
+          <span>{language === 'fr' ? 'Densité' : 'Density'} : <b aria-label={`${density}/5`} style={{ display: 'inline-flex', gap: 3, verticalAlign: 'middle' }}>
             {Array.from({ length: density }, (_, i) => (
               <span key={i} aria-hidden="true" style={{ width: 9, height: 9, borderRadius: '50%', background: color, border: '1.5px solid #333' }} />
             ))}

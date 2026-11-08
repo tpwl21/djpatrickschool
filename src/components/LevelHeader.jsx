@@ -5,6 +5,7 @@ import DifficultySwitcher from './DifficultySwitcher';
 import SoundOnIndicator from './SoundOnIndicator';
 import CoachPatrick from './CoachPatrick';
 import { inkOn } from '../utils/color';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 // En-tête commun des niveaux. Tout est dans le flux (plus rien de position: fixed/absolute) :
 //   barre 3 zones  [Menu] · titre · [difficulté + son]   (mobile : titre sur sa propre ligne)
@@ -23,6 +24,7 @@ const LevelHeader = ({
   children,
 }) => {
   const { t } = useContext(LanguageContext);
+  useDocumentTitle(title);
 
   return (
     <header className="level-header" style={{ '--primary': vizColor, '--wh-ink': inkOn(vizColor) }}>

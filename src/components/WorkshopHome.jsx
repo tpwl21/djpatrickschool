@@ -11,6 +11,7 @@ import DifficultySwitcher from './DifficultySwitcher';
 import LanguageSwitcher from './LanguageSwitcher';
 import Glyph from './Glyph';
 import { inkOn } from '../utils/color';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 
 const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 }, onStart, onStartLesson, onBack }) => {
@@ -18,6 +19,8 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
   const workshop = getWorkshop(workshopId);
   const [difficulty, setDifficulty] = useDifficulty();
   const [selectedLevel, setSelectedLevel] = useState(null);
+  // titre d'onglet (avant tout return anticipé : règle des hooks)
+  useDocumentTitle(workshop ? pickText(workshop.meta, language)?.title : t('notFound.title'));
 
   if (!workshop) {
     return (

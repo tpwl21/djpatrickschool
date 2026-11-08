@@ -36,8 +36,13 @@ const en = {
       text: "Check your internet connection, then try again.",
       retry: "Try again"
     },
-    menu: "Lobby",
+    menu: "Menu",
     status: {
+      eqOk: "EQ curve OK",
+      eqAdjust: "Adjust the EQs / faders!",
+      fxOk: "FX OK",
+      fxAdjust: "Adjust the FX!",
+      score: "Score",
       pitchOk: "PITCH LOCKED",
       pitchPlus: "PITCH +",
       pitchMinus: "PITCH -",
@@ -55,10 +60,10 @@ const en = {
     startTrainA: "Start Train A",
     startTrainB: "Start Train B",
     trainB: "Deck B",
-    play: "Drop",
+    play: "Play",
     cue: "CUE",
-    slowDown: "Drag",
-    speedUp: "Push"
+    slowDown: "Slow down",
+    speedUp: "Speed up"
   },
   notFound: {
     title: "Oops, this page doesn't exist",
@@ -68,6 +73,25 @@ const en = {
   coach: {
     open: "Show Patrick's tip",
     close: "Hide the tip"
+  },
+  timeline: {
+    intro: "INTRO (A ONLY)",
+    mix: "THE MIX",
+    outro: "OUTRO (B ONLY)",
+    progress: "PROGRESS",
+    volumeFdr: "VOLUME FADER",
+    bassEq: "BASS EQ",
+    hybrid: "HYBRID SWAP: FADER + BASS",
+    morphBass: "MORPHING THE BASS…",
+    morphColors: "MORPHING THE COLORS…"
+  },
+  visualizer: {
+    source: "SOURCE",
+    target: "TARGET",
+    high: "HIGH",
+    mid: "MID",
+    bass: "BASS",
+    mix: "MIX"
   },
   cinematic: {
     hints: {

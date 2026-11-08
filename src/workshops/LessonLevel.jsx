@@ -10,6 +10,7 @@ import LessonRecap from '../components/LessonRecap';
 import DifficultySwitcher from '../components/DifficultySwitcher';
 import Glyph from '../components/Glyph';
 import { inkOn } from '../utils/color';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const DIFF_LABELS = { EASY: 'Easy', MEDIUM: 'Medium', PRO: 'Pro' };
 
@@ -23,6 +24,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
 
   const color = workshop?.meta?.color || '#5DADE2';
   const lessonText = pickText(lesson, language);
+  useDocumentTitle(lessonText?.title);
   const pages = lessonText?.pages || [];
   const questions = lesson.quiz || [];
   const isQuizPhase = pageIndex >= pages.length;
@@ -51,7 +53,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
       <div className="lesson-top-bar">
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           <button className="btn-crayon lesson-back-btn" onClick={onBack}>
-            ← {t('workshop.menu')}
+            ← {t('lesson.backToWorkshop')}
           </button>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>

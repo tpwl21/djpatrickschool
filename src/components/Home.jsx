@@ -21,6 +21,7 @@ import FxIcon from './FxIcon';
 import CrateIcon from './CrateIcon';
 import HarmonyIcon from './HarmonyIcon';
 import CrowdIcon from './CrowdIcon';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const VAULT_ITEMS = [
   {
@@ -63,6 +64,7 @@ const VaultCell = ({ interactive, children, ...rest }) => (
 
 const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unlockedOrder = {}, onUnlockAll, onResetAll }) => {
   const { language, setLanguage, t } = useContext(LanguageContext);
+  useDocumentTitle(null);
   const [secretCode, setSecretCode] = useState('');
   const [vaultFeedback, setVaultFeedback] = useState('');
   const [vaultUnlocked, setVaultUnlocked] = useState(() => {

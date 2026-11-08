@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { LanguageContext } from '../hooks/LanguageContext';
 import { motion } from 'framer-motion';
 import Glyph from './Glyph';
 
@@ -91,6 +92,7 @@ const ColorMixVisualizer = ({
     beatsA,
     height = 'clamp(150px, 24vh, 300px)',
 }) => {
+  const { t } = useContext(LanguageContext);
   // Taille réelle du cadre : les bulles et leur dérive A↔B s'y adaptent (le cadre n'a plus 520px fixes)
   const boxRef = useRef(null);
   const [box, setBox] = useState({ k: 0.6, xRange: 300 });
@@ -109,10 +111,10 @@ const ColorMixVisualizer = ({
 
   // Spectral Bands Config
   const bands = [
-      { id: 'high', label: 'HIGH', colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: smoothImpact(eqState.eqA.high, eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.high, eqState.volB * eqState.crossfader), offset: '10%' },
-      { id: 'mid',  label: 'MID',  colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: smoothImpact(eqState.eqA.mid,  eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.mid,  eqState.volB * eqState.crossfader), offset: '35%' },
-      { id: 'low',  label: 'BASS', colorA: isAdvancedLevel ? BASS_A : DEFAULT_A, colorB: isAdvancedLevel ? BASS_B : DEFAULT_B, impactA: smoothImpact(eqState.eqA.low,  eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.low,  eqState.volB * eqState.crossfader), offset: '60%' },
-      { id: 'master', label: 'MIX',  colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: eqState.volA * (1 - eqState.crossfader), impactB: eqState.volB * eqState.crossfader, offset: '82%' }
+      { id: 'high', label: t('visualizer.high'), colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: smoothImpact(eqState.eqA.high, eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.high, eqState.volB * eqState.crossfader), offset: '10%' },
+      { id: 'mid',  label: t('visualizer.mid'),  colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: smoothImpact(eqState.eqA.mid,  eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.mid,  eqState.volB * eqState.crossfader), offset: '35%' },
+      { id: 'low',  label: t('visualizer.bass'), colorA: isAdvancedLevel ? BASS_A : DEFAULT_A, colorB: isAdvancedLevel ? BASS_B : DEFAULT_B, impactA: smoothImpact(eqState.eqA.low,  eqState.volA * (1 - eqState.crossfader)), impactB: smoothImpact(eqState.eqB.low,  eqState.volB * eqState.crossfader), offset: '60%' },
+      { id: 'master', label: t('visualizer.mix'),  colorA: DEFAULT_A, colorB: DEFAULT_B, impactA: eqState.volA * (1 - eqState.crossfader), impactB: eqState.volB * eqState.crossfader, offset: '82%' }
   ];
 
   return (
@@ -173,8 +175,8 @@ const ColorMixVisualizer = ({
       </div>
 
       {/* STAGE LABELS */}
-      <div style={{ position: 'absolute', top: 30, left: 40, color: DEFAULT_A, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>SOURCE</div>
-      <div style={{ position: 'absolute', top: 30, right: 40, color: DEFAULT_B, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>TARGET</div>
+      <div style={{ position: 'absolute', top: 30, left: 40, color: DEFAULT_A, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>{t('visualizer.source')}</div>
+      <div style={{ position: 'absolute', top: 30, right: 40, color: DEFAULT_B, fontSize: '0.8rem', fontWeight: '900', letterSpacing: '6px' }}>{t('visualizer.target')}</div>
 
       {/* Bottom Meter Line */}
       <div style={{ position: 'absolute', bottom: 40, left: '15%', right: '15%', height: '2px', background: 'rgba(255,255,255,0.05)', borderRadius: '1px' }}>

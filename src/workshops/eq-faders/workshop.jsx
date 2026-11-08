@@ -267,13 +267,13 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
         audioCtx={audioCtxRef.current}
         vizColor="#ff6b6b"
       >
-        {difficulty !== 'PRO' && (
+        {difficulty !== 'PRO' && (isPlayingA || isPlayingB) && (
           <div className="sync-hud-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
             <div style={{
               background: isEqOk ? '#1e8449' : '#c0392b', color: 'white', padding: '4px 12px',
               borderRadius: '12px', fontSize: '0.75rem', fontWeight: '900', border: '2px solid #333',
             }}>
-              {isEqOk ? 'EQ Curve OK' : 'Adjust EQs / Faders!'} (Score: {score})
+              {isEqOk ? t('workshop.status.eqOk') : t('workshop.status.eqAdjust')} · {t('workshop.status.score')} {score}
             </div>
           </div>
         )}

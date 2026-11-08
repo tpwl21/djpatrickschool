@@ -212,14 +212,14 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
         audioCtx={audioCtxRef.current}
         vizColor="#27AE60"
       >
-        <div className="sync-hud-container" style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+        {(isPlayingA || isPlayingB) && <div className="sync-hud-container" style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
           <div style={{
             background: isFxOk ? '#1e8449' : '#c0392b', color: 'white', padding: '4px 12px',
             borderRadius: 12, fontSize: '0.75rem', fontWeight: 900, border: '2px solid #333',
           }}>
-            {isFxOk ? 'FX OK' : 'Adjust FX!'} (Score: {score})
+            {isFxOk ? t('workshop.status.fxOk') : t('workshop.status.fxAdjust')} · {t('workshop.status.score')} {score}
           </div>
-        </div>
+        </div>}
       </LevelHeader>
 
       <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: 12 }}>
