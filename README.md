@@ -4,62 +4,62 @@
 
 <h1 align="center">DJ Patrick School</h1>
 
-<p align="center"><strong>Apprends à mixer comme un DJ, directement dans ton navigateur.</strong></p>
+<p align="center"><strong>Learn to mix like a DJ, right in your browser.</strong></p>
 
-<p align="center"><a href="https://tpwl21.github.io/djpatrickschool/"><strong>Jouer maintenant →</strong></a></p>
+<p align="center"><a href="https://tpwl21.github.io/djpatrickschool/"><strong>Play now →</strong></a></p>
 
 ---
 
-## C'est quoi ?
+## What is it?
 
-Une école de DJ en forme de jeu. Patrick, ton coach, t'explique chaque geste avec une courte leçon, puis tu t'entraînes **sur du vrai son**. Le jeu vérifie ce que tu fais vraiment : le tempo, le moment où tu lances le morceau, tes réglages.
+A DJ school shaped like a game. Patrick, your coach, explains each move in a short lesson, then you practice **on real music**. The game checks what you actually do: the tempo, when you drop the track, your settings.
 
-Gratuit, sans compte, sans installation.
+Free, no account, nothing to install.
 
-## Les ateliers
+## The workshops
 
-| Atelier | Tu apprends à… |
+| Workshop | You learn to… |
 |---|---|
-| **Beatmatching** | caler deux morceaux pour qu'ils sonnent comme un seul |
-| **EQ & Faders** | passer d'un morceau à l'autre proprement (crossfader, basses, volumes) |
-| **Harmonies** | choisir des morceaux qui vont bien ensemble (tonalités, roue Camelot) |
-| **Effets** | colorer tes transitions (filtre, écho, reverb, loop roll) |
-| **Digging** | trouver le bon morceau au bon moment |
-| **Lecture de foule** | sentir l'énergie de la piste et adapter ton mix |
+| **Beatmatching** | lock two tracks together so they sound like one |
+| **EQ & Faders** | move from one track to the next cleanly (crossfader, bass, volume) |
+| **Harmonies** | pick tracks that sound good together (keys, Camelot wheel) |
+| **FX** | color your transitions (filter, echo, reverb, loop roll) |
+| **Digging** | find the right track at the right moment |
+| **Reading the Crowd** | feel the dancefloor's energy and adapt your mix |
 
-Et pour les plus curieux, un **Secret Booth** pour mixer librement… si tu trouves le code.
+And for the curious, a **Secret Booth** to mix freely… if you find the code.
 
-## Trois niveaux de difficulté
+## Three difficulty levels
 
-- **Easy** : plein d'aides visuelles pour comprendre.
-- **Medium** : moins d'aides, tu commences à écouter.
-- **Pro** : à l'oreille, comme en club.
+- **Easy**: lots of visual help to understand what's going on.
+- **Medium**: less help, you start listening.
+- **Pro**: by ear only, like in a club.
 
-Plus c'est dur, plus la nuit tombe sur le club.
+The harder it gets, the darker the club.
 
-## Sur quoi jouer ?
+## What do I need?
 
-- Ordinateur, tablette ou téléphone (le Secret Booth demande un écran de tablette ou d'ordinateur).
-- **Mets un casque ou monte le son** : tout se joue à l'oreille.
-- Tu as une platine DJ USB (par exemple Pioneer DDJ-SR) ? Branche-la : elle fonctionne aussi.
+- A computer, tablet or phone (the Secret Booth needs a tablet or computer screen).
+- **Headphones or the sound turned up**: everything is played by ear.
+- Got a USB DJ controller (for example a Pioneer DDJ-SR)? Plug it in, it works too.
 
-Ta progression est enregistrée dans ton navigateur.
+The site is available in English and French. Your progress is saved in your browser.
 
 ---
 
 <details>
-<summary><strong>Pour les développeurs</strong></summary>
+<summary><strong>For developers</strong></summary>
 
-Site React + Vite, déployé automatiquement sur GitHub Pages à chaque mise à jour de `main`.
+React + Vite site, deployed automatically to GitHub Pages on every update to `main`.
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173/djpatrickschool/
-npm run build    # version de production dans dist/
+npm run build    # production build in dist/
 ```
 
-- Les ateliers, niveaux et leçons sont décrits en fichiers TOML dans `src/workshops/`.
-- Les textes de l'interface sont dans `src/locales/` (français et anglais).
-- La direction artistique est décrite dans `DESIGN.md`, le produit dans `PRODUCT.md`, et le plan d'action dans `TODO.md`.
+- Workshops, levels and lessons are described in TOML files under `src/workshops/`.
+- Interface text lives in `src/locales/` (English and French).
+- The art direction is described in `DESIGN.md`, the product in `PRODUCT.md`, and the action plan in `TODO.md`.
 
 </details>
