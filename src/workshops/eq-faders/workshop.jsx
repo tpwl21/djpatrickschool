@@ -52,6 +52,8 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
   const isWide = !useMobileDetection(1099);
+  // divulgation progressive : un niveau n'affiche que ce qu'il enseigne (réglable dans [ui] du TOML)
+  const showEq = level.ui?.show_eq !== false;
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -349,7 +351,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: isMobile ? '20px' : '50px', alignItems: 'flex-start', justifyContent: 'center', padding: isMobile ? '0' : '15px 0' }}>
+          {showEq && <div style={{ display: 'flex', gap: isMobile ? '20px' : '50px', alignItems: 'flex-start', justifyContent: 'center', padding: isMobile ? '0' : '15px 0' }}>
             <EqKnobs
               values={eqState.eqA}
               onChange={(band, v) => handleEqChange('A', band, v)}
@@ -366,7 +368,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
               gap={isMobile ? 15 : (isCompact ? 12 : 25)}
               labelFontSize={isMobile ? '0.7rem' : '0.8rem'}
             />
-          </div>
+          </div>}
 
           <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isMobile ? '10px' : '20px', alignItems: 'center' }}>
             <VolumeFader

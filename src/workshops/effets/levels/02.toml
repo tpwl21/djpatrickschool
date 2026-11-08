@@ -54,6 +54,8 @@ key = "12A"
 complexity = 4
 
 [ui]
+fx_modules             = ["delay", "reverb"]
+show_eq                = false
 view_type              = "phrase"
 show_bpm               = false
 allow_nudge            = false

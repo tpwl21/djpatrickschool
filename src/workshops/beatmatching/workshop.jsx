@@ -52,6 +52,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
     view_type: viewType = 'phrase',
     show_bpm: showBpm = true,
     allow_nudge: allowNudge = true,
+    show_pitch: showPitch = true, // niveau 1 : tempo déjà calé, pas de fader de pitch
     randomize_bpm: randomizeBpm = false,
 
     force_complex_wagons: forceComplexWagons = false,
@@ -401,7 +402,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
           </div>
         </div>
 
-        <div className="pitch-fader-container" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
+        {showPitch && <div className="pitch-fader-container" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
           <PitchBlock
             nativeBpm={configB.bpm}
             rate={pitch}
@@ -417,7 +418,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
             trackLength={isShort ? 90 : undefined}
             label=""
           />
-        </div>
+        </div>}
       </div>
 
       <div className="controls">

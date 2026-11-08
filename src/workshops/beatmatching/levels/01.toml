@@ -51,6 +51,7 @@ key = "8A"
 complexity = 1
 
 [ui]
+show_pitch             = false   # tempo déjà calé : on apprend le lancement + nudge
 view_type              = "simple"
 show_bpm               = true
 allow_nudge            = true

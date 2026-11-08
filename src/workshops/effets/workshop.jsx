@@ -48,6 +48,9 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
 
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
+  // divulgation progressive : seuls les modules enseignés par le niveau sont affichés ([ui] du TOML)
+  const fxModules = level.ui?.fx_modules || ['filter', 'delay', 'reverb', 'loopRoll'];
+  const showEq = level.ui?.show_eq !== false;
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -232,29 +235,29 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       </div>
 
       <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: 15, gap: isMobile ? 10 : 20 }}>
-        <div style={{ display: 'flex', width: '100%', maxWidth: '980px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
+        <div style={{ display: 'flex', width: '100%', maxWidth: '980px', margin: '0 auto', justifyContent: showEq ? 'space-between' : 'center', columnGap: showEq ? undefined : 'clamp(24px, 8vw, 120px)', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
           {/* Deck A FX column */}
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
+          <div className="control-group" style={{ display: 'flex', flex: showEq ? 1 : '0 0 auto', flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
             {/* fader à côté des modules FX (grille 2 colonnes) au lieu d'un empilement vertical */}
             <div className="fx-deck" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', flexDirection: isMobile ? 'column' : 'row' }}>
             <VolumeFader value={fxState.volA} onChange={(v) => handleFader('A', v)} trackLength={isCompact ? 130 : 180} />
             <div className="fx-modules" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, auto)', gap: 12, justifyItems: 'center', alignItems: 'start' }}>
-            <FilterKnob value={fxState.filterA} onChange={(v) => handleFilter('A', v)} size={isCompact ? 46 : 55} />
-            <DelayPad
+            {fxModules.includes('filter') && <FilterKnob value={fxState.filterA} onChange={(v) => handleFilter('A', v)} size={isCompact ? 46 : 55} />}
+            {fxModules.includes('delay') && <DelayPad
               active={fxState.delayA.mix > 0}
               mix={fxState.delayA.mix}
               timeBeats={fxState.delayA.timeBeats}
               onToggle={(a) => handleDelayToggle('A', a)}
               onMixChange={(m) => handleDelayMix('A', m)}
               onTimeChange={(tb) => handleDelayTime('A', tb)}
-            />
-            <ReverbPad
+            />}
+            {fxModules.includes('reverb') && <ReverbPad
               active={fxState.reverbA > 0}
               wet={fxState.reverbA}
               onToggle={(a) => handleReverbToggle('A', a)}
               onWetChange={(w) => handleReverbWet('A', w)}
-            />
-            <LoopRollPads onTrigger={(s, a) => handleLoopRoll('A', s, a)} />
+            />}
+            {fxModules.includes('loopRoll') && <LoopRollPads onTrigger={(s, a) => handleLoopRoll('A', s, a)} />}
             </div>
             </div>
             <div className="control-buttons">
@@ -266,32 +269,32 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
           </div>
 
           {/* EQ center column */}
-          <div style={{ display: 'flex', gap: isMobile ? 15 : 40, alignItems: 'flex-start', justifyContent: 'center', padding: '15px 0' }}>
+          {showEq && <div style={{ display: 'flex', gap: isMobile ? 15 : 40, alignItems: 'flex-start', justifyContent: 'center', padding: '15px 0' }}>
             <EqKnobs values={fxState.eqA} onChange={(b, v) => handleEqChange('A', b, v)} color="#4ecdc4" size={isMobile ? 35 : (isCompact ? 42 : 50)} gap={isCompact ? 8 : 12} />
             <EqKnobs values={fxState.eqB} onChange={(b, v) => handleEqChange('B', b, v)} color="#3498db" size={isMobile ? 35 : (isCompact ? 42 : 50)} gap={isCompact ? 8 : 12} />
-          </div>
+          </div>}
 
           {/* Deck B FX column */}
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
+          <div className="control-group" style={{ display: 'flex', flex: showEq ? 1 : '0 0 auto', flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
             <div className="fx-deck" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', flexDirection: isMobile ? 'column' : 'row-reverse' }}>
             <VolumeFader value={fxState.volB} onChange={(v) => handleFader('B', v)} trackLength={isCompact ? 130 : 180} />
             <div className="fx-modules" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, auto)', gap: 12, justifyItems: 'center', alignItems: 'start' }}>
-            <FilterKnob value={fxState.filterB} onChange={(v) => handleFilter('B', v)} size={isCompact ? 46 : 55} />
-            <DelayPad
+            {fxModules.includes('filter') && <FilterKnob value={fxState.filterB} onChange={(v) => handleFilter('B', v)} size={isCompact ? 46 : 55} />}
+            {fxModules.includes('delay') && <DelayPad
               active={fxState.delayB.mix > 0}
               mix={fxState.delayB.mix}
               timeBeats={fxState.delayB.timeBeats}
               onToggle={(a) => handleDelayToggle('B', a)}
               onMixChange={(m) => handleDelayMix('B', m)}
               onTimeChange={(tb) => handleDelayTime('B', tb)}
-            />
-            <ReverbPad
+            />}
+            {fxModules.includes('reverb') && <ReverbPad
               active={fxState.reverbB > 0}
               wet={fxState.reverbB}
               onToggle={(a) => handleReverbToggle('B', a)}
               onWetChange={(w) => handleReverbWet('B', w)}
-            />
-            <LoopRollPads onTrigger={(s, a) => handleLoopRoll('B', s, a)} />
+            />}
+            {fxModules.includes('loopRoll') && <LoopRollPads onTrigger={(s, a) => handleLoopRoll('B', s, a)} />}
             </div>
             </div>
             <div className="control-buttons">

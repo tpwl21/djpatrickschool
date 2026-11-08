@@ -54,6 +54,8 @@ key = "8A"
 complexity = 3
 
 [ui]
+fx_modules             = ["filter"]
+show_eq                = false
 view_type              = "phrase"
 show_bpm               = false
 allow_nudge            = false

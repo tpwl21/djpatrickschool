@@ -49,6 +49,7 @@ key = "8A"
 complexity = 3
 
 [ui]
+show_eq                = false   # niveau crossfader : pas de potards d'EQ
 view_type              = "phrase"
 show_bpm               = false
 allow_nudge            = false
