@@ -10,6 +10,7 @@ import ThemeTransition from './components/ThemeTransition';
 // import AmbientPlayer from './components/AmbientPlayer'; // TODO: re-enable once real loops are ready
 const SecretBooth = lazy(() => import('./workshops/SecretBooth'));
 import LessonLevel from './workshops/LessonLevel';
+import LoadingLabel from './components/LoadingLabel';
 import { useDifficulty } from './hooks/useDifficulty.jsx';
 import { workshops, getWorkshop, getLevelByOrder, getLessonByOrder, getLessonVariant } from './lib/levels/load';
 
@@ -121,6 +122,38 @@ function routeToHash(route) {
     default: return '/';
   }
 }
+
+// Charge le contenu de la leçon à la demande (il n'est plus embarqué au démarrage), puis l'affiche.
+// Remontée via `key` à chaque changement de leçon/difficulté : l'état part toujours de « chargement ».
+const LessonRoute = ({ workshop, workshopId, order, difficulty, retryKey, onNextLevel, onRetry, onBack, onUnlockNext }) => {
+  const [state, setState] = useState({ status: 'loading' });
+  useEffect(() => {
+    let alive = true;
+    getLessonVariant(workshopId, order, difficulty)
+      .then((r) => { if (alive) setState(r ? { status: 'ready', r } : { status: 'missing' }); })
+      .catch(() => { if (alive) setState({ status: 'missing' }); });
+    return () => { alive = false; };
+  }, [workshopId, order, difficulty]);
+
+  if (state.status === 'loading') {
+    return <div className="app-container" style={{ alignItems: 'center', justifyContent: 'center' }}><LoadingLabel /></div>;
+  }
+  if (state.status === 'missing') return <NotFound onBack={onBack} />;
+  const { lesson, servedDifficulty } = state.r;
+  return (
+    <LessonLevel
+      key={`${servedDifficulty}-${retryKey}`}
+      lesson={lesson}
+      workshop={workshop}
+      requestedDifficulty={difficulty}
+      servedDifficulty={servedDifficulty}
+      onNextLevel={onNextLevel}
+      onRetry={onRetry}
+      onBack={onBack}
+      onUnlockNext={() => onUnlockNext(servedDifficulty)}
+    />
+  );
+};
 
 // Page affichée quand une route pointe vers un atelier / niveau / leçon inexistant
 const NotFound = ({ onBack }) => {
@@ -332,23 +365,18 @@ function App() {
         <NotFound onBack={() => goWorkshop(route.workshopId)} />
       );
     }
-    const variantResult = getLessonVariant(route.workshopId, route.lessonOrder, difficulty);
-    if (!variantResult) {
-      return (
-        <NotFound onBack={() => goWorkshop(route.workshopId)} />
-      );
-    }
     return (
-      <LessonLevel
-        key={`${route.workshopId}-lesson-${route.lessonOrder}-${variantResult.servedDifficulty}-${retryKey}`}
-        lesson={variantResult.lesson}
+      <LessonRoute
+        key={`${route.workshopId}-lesson-${route.lessonOrder}-${difficulty}-${retryKey}`}
         workshop={workshop}
-        requestedDifficulty={difficulty}
-        servedDifficulty={variantResult.servedDifficulty}
+        workshopId={route.workshopId}
+        order={route.lessonOrder}
+        difficulty={difficulty}
+        retryKey={retryKey}
         onNextLevel={handleNextLesson}
         onRetry={handleRetry}
         onBack={() => goWorkshop(route.workshopId)}
-        onUnlockNext={() => unlockNextLesson(route.workshopId, route.lessonOrder, variantResult.servedDifficulty)}
+        onUnlockNext={(served) => unlockNextLesson(route.workshopId, route.lessonOrder, served)}
       />
     );
   };

@@ -69,7 +69,7 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [x] Audit automatique Chrome sur 10 écrans × 7 tailles : 377 chevauchements → 0, plus de défilement horizontal
 - [x] Même audit sur Firefox (Firefox système piloté via Puppeteer) : 0 chevauchement sur 90 pages, rendu identique à Chrome
 - [x] Gestes tactiles testés (événements touch simulés) : potards, faders, crossfader répondent sans faire défiler la page
-- [ ] Charger le texte des leçons à la demande (~1 Mo chargé dès l'accueil aujourd'hui)
+- [x] Texte des leçons chargé à la demande (métadonnées extraites à la build) : JS au démarrage 1,43 Mo → 594 Ko
 - [ ] Test sur vrai téléphone (le tactile simulé marche, reste la sensation réelle)
 
 ---

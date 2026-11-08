@@ -14,19 +14,17 @@ const rawLevels = import.meta.glob('/src/workshops/*/levels/*.toml', {
   eager: true,
 });
 
-// Lesson files: either NN_difficulty.toml (new) or NN.toml (legacy, treated as MEDIUM)
-const rawLessonVariants = import.meta.glob('/src/workshops/*/lessons/*_*.toml', {
-  query: '?raw',
+// Leçons : métadonnées (id, ordre, titres) calculées à la build par le plugin `lesson-meta`
+// (vite.config.js) ; le contenu complet (pages, quiz) n'est chargé qu'à l'ouverture de la leçon.
+// Fichiers : NN_difficulty.toml (variante) ou NN.toml (ancien format, traité comme MEDIUM).
+const lessonMetas = import.meta.glob('/src/workshops/*/lessons/*.toml', {
+  query: '?meta',
   import: 'default',
   eager: true,
 });
-
-// Legacy single-file lessons (NN.toml without difficulty suffix) — loaded as MEDIUM.
-// We glob all lessons and filter out variant files in the loop below.
-const rawLessonsLegacy = import.meta.glob('/src/workshops/*/lessons/*.toml', {
+const lessonRawLoaders = import.meta.glob('/src/workshops/*/lessons/*.toml', {
   query: '?raw',
   import: 'default',
-  eager: true,
 });
 
 // Chargés à la demande : chaque atelier devient un chunk séparé (React.lazy + Suspense dans App)
@@ -84,21 +82,20 @@ for (const [path, raw] of Object.entries(rawLevels)) {
 // Each lesson variant is keyed by (order, difficulty). The "canonical" lesson
 // object used for card display is taken from the MEDIUM variant when present,
 // then EASY, then PRO (first available wins for metadata).
-for (const [path, raw] of Object.entries(rawLessonVariants)) {
+for (const [path, lesson] of Object.entries(lessonMetas)) {
   const workshopDir = workshopIdFromPath(path);
   const id = dirToId[workshopDir];
   if (!registry[id]) continue;
   const difficulty = difficultyFromLessonPath(path);
   if (!difficulty) continue;
 
-  const lesson = parse(raw);
   validateLevel(lesson, path);
 
   const order = lesson.order;
   if (!registry[id].lessons[order]) {
     registry[id].lessons[order] = { _variants: {} };
   }
-  registry[id].lessons[order]._variants[difficulty] = lesson;
+  registry[id].lessons[order]._variants[difficulty] = path;
 
   // Use MEDIUM as canonical display data, fallback to first available
   const canonical = registry[id].lessons[order];
@@ -113,7 +110,7 @@ for (const [path, raw] of Object.entries(rawLessonVariants)) {
 }
 
 // Load legacy NN.toml files as MEDIUM variant (only if no _medium.toml already exists for that order)
-for (const [path, raw] of Object.entries(rawLessonsLegacy)) {
+for (const [path, lesson] of Object.entries(lessonMetas)) {
   // Skip files that have a difficulty suffix — those are already handled above
   if (difficultyFromLessonPath(path)) continue;
 
@@ -121,7 +118,6 @@ for (const [path, raw] of Object.entries(rawLessonsLegacy)) {
   const id = dirToId[workshopDir];
   if (!registry[id]) continue;
 
-  const lesson = parse(raw);
   validateLevel(lesson, path);
 
   const order = lesson.order;
@@ -130,7 +126,7 @@ for (const [path, raw] of Object.entries(rawLessonsLegacy)) {
   }
   // Only register as MEDIUM if no explicit _medium.toml variant exists yet
   if (!registry[id].lessons[order]._variants.MEDIUM) {
-    registry[id].lessons[order]._variants.MEDIUM = lesson;
+    registry[id].lessons[order]._variants.MEDIUM = path;
     // Use as canonical if no better one yet
     if (!registry[id].lessons[order].id) {
       Object.assign(registry[id].lessons[order], { ...lesson, _variants: registry[id].lessons[order]._variants });
@@ -197,13 +193,30 @@ export function getLessonByOrder(workshopId, order) {
 // when the requested variant doesn't exist.
 const FALLBACK_CHAIN = { PRO: ['PRO', 'MEDIUM', 'EASY'], MEDIUM: ['MEDIUM', 'EASY', 'PRO'], EASY: ['EASY', 'MEDIUM', 'PRO'] };
 
-export function getLessonVariant(workshopId, order, difficulty = 'EASY') {
+const lessonCache = new Map();
+
+// Charge (une fois) le contenu complet d'une variante de leçon.
+async function loadLessonContent(path) {
+  if (!lessonCache.has(path)) {
+    lessonCache.set(path, lessonRawLoaders[path]().then((raw) => {
+      const lesson = parse(raw);
+      validateLevel(lesson, path);
+      return lesson;
+    }).catch((err) => { lessonCache.delete(path); throw err; }));
+  }
+  return lessonCache.get(path);
+}
+
+// Async : résout la meilleure variante disponible pour la difficulté, contenu complet compris.
+export async function getLessonVariant(workshopId, order, difficulty = 'EASY') {
   const lesson = getLessonByOrder(workshopId, order);
   if (!lesson) return null;
   const variants = lesson._variants || {};
   const chain = FALLBACK_CHAIN[difficulty] || ['EASY', 'MEDIUM', 'PRO'];
   for (const d of chain) {
-    if (variants[d]) return { lesson: variants[d], servedDifficulty: d, requestedDifficulty: difficulty };
+    if (variants[d]) {
+      return { lesson: await loadLessonContent(variants[d]), servedDifficulty: d, requestedDifficulty: difficulty };
+    }
   }
   return null;
 }
