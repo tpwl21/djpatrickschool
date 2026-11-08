@@ -156,6 +156,10 @@ Cream paper and ink at rest, crayon fills on the controls, one saturated color p
 ### Named Rules
 **The Tinted-Active Rule.** An active state colored by the workshop (difficulty switcher) uses a 55% tint of the workshop color (`color-mix(in srgb, var(--primary) 55%, #fff)`) with ink text, so purple and red workshops stay readable. Solid workshop-colored fills that carry text get their text color from `inkOn()` (`src/utils/color.js`).
 
+**The White-Card Ink Rule.** Any panel that is always white or cream (end cards, crowd meter, deck cards, bubbles, phrase pills) sets its own ink text color (#2b2b2b). Never let it inherit the room text color, which is light at dusk and night.
+
+**The Workshop-Ink Rule.** When a workshop color must read as text (lesson bold terms, titles), use `--lesson-ink` = 20% workshop color mixed into the theme text color; bright workshop colors stay for lines, dots and fills.
+
 **The Ink-on-Crayon Rule.** Text on a crayon, coral, sky or bright-green fill is ink (#2b2b2b), never white. White text only sits on the status fills or on ink.
 
 **The Hour-of-the-Set Rule.** Difficulty never changes components, only the room. Anything that sits on the background must read from `--surface`, `--surface-elevated`, `--text`, `--text-muted`, `--border`, `--border-strong`, `--accent-env` (`src/theme.css`), never a hard-coded room color, so it survives the switch to dusk and night.
@@ -184,9 +188,16 @@ Cream paper and ink at rest, crayon fills on the controls, one saturated color p
 
 ## Layout
 
-Full-height game frame (`100dvh`) with the playfield taking all leftover space (`flex: 1`), the level header on top and the control row at the bottom. Desktop puts side tools (pitch fader, status chips) in a column beside the playfield; under **768px** the gameplay stacks vertically, paddings shrink to 5px, and the level description disappears to save height.
+Full-height game frame (`100dvh`). Everything sits in normal flow: nothing in a level is `position: fixed` or absolutely placed over the game. Order: level bar → instruction → coach strip + level status chips → playfield → controls. The playfield grows to fill the screen (`flex: 1 0 auto`) but never shrinks below its content: when space runs out the page scrolls instead of overlapping.
 
-The home is a three-column composition on desktop: coach Patrick and his speech bubble on the left, the workshop list in the middle, the "Mysteries of Patrick" vault on the right.
+- **Level bar**: 3-zone grid, Menu left · title center · difficulty E/M/P + sound pill right. Under 760px the title drops to its own row. Language is chosen on the home only.
+- **Short viewport (max-height 500px, phone in landscape)**: single-row bar, instruction hidden, coach bubble collapsed by default, gameplay stays in a row (rails | pitch fader), slimmer buttons.
+- **Compact desktop (max-height 820px)**: shorter faders and smaller pots in EQ/FX.
+- **Wide (≥1100px)**: EQ visualizer and mixer side by side; mixers capped at 820–980px and centered.
+- **Phones**: the Secret Booth shows a gate ("needs a bigger screen"); tablets get decks side by side with the mixer below.
+- **Progressive disclosure**: a level shows only what it teaches, via optional `[ui]` flags in its TOML (`show_eq`, `fx_modules`, `show_pitch`); default is everything visible.
+
+The home is a three-column composition on desktop: coach Patrick, his speech bubble and the **Start / Continue** sticker (next unfinished lesson or level) on the left, the workshop list in the middle, the "Mysteries of Patrick" vault on the right. On mobile the order is bubble → Patrick → sticker → workshops.
 
 Spacing is loose and fluid rather than strictly gridded: steps of 5 / 10 / 15 / 20px, with `clamp()` on gaps and paddings so touch targets grow with the viewport.
 
@@ -226,10 +237,18 @@ Chunky and rounded, like moulded plastic outlined in felt pen. Buttons and panel
 - **Border:** 3–4px ink, or `--border` for the quiet playfield frame.
 
 ### Navigation
-- Hash routes, no nav bar. The home's workshop list *is* the navigation: per workshop a colored rule, a lesson row (book icon + tiles L1…) and a practice row (workshop icon + tiles 1…). Unlocked tiles are white with ink border and shadow; locked ones are dashed "?" slots. Inside a level, a yellow "Menu" key top-left returns home; flag buttons switch FR / EN.
+- Hash routes, no nav bar. The home's workshop list *is* the navigation: per workshop a colored rule, a lesson row (book icon + tiles L1…) and a practice row (workshop icon + tiles 1…). Tiles are real buttons with a full accessible name ("Beatmatching, level 3: …"); locked ones are disabled dashed "?" slots. Focus shows the same description in Patrick's bubble as hover. Inside a level, a yellow "Menu" key top-left returns to the workshop. Every route sets the tab title "<page> · DJ Patrick School".
 
 ### Coach Patrick (signature)
-Polaroid-style illustration card (white, tilted feel, soft shadow) with a speech bubble: white, rounded, ink border, pointed tail toward Patrick. The "×" (44px target) folds the bubble away; Patrick stays on screen as a button that reopens it, and tip rotation never reopens a bubble the learner closed. On mobile the avatar shrinks to 72px so the playfield stays visible.
+In levels, an inline **tip strip** under the instruction: the vector `PatrickAvatar` (head crop, 64px, 44px on small screens) and a white bubble with an ink border whose tail points at him. The "×" (44px target) folds the bubble; tapping Patrick reopens it; tip rotation never reopens a closed bubble. On small screens the bubble is clamped to 2 lines and a tap expands it. Patrick bobs his head to the BPM while music plays and his expression follows the game (only where the game already shows that information: Beatmatching in EASY only).
+
+On the home and in narrative moments, Patrick appears as **die-cut stickers** (cut-out illustration, paper rim, ink outline, `--sticker-shadow`), produced from the originals by `scripts/make-sticker.sh`.
+
+### End screens
+White card with fixed ink text (never inherits the room color). Win: vector Patrick in victory pose dancing on the level tempo, the grade landing as a red ink stamp, a one-shot glyph burst. Lose: surprised Patrick plus one precise tip about what went wrong (pitch / too early / too late / sync / hold), never a generic "retry".
+
+### Loading
+Buttons waiting for audio show a spinning vinyl glyph and "Le vinyle chauffe…". If the audio engine fails to start, the level bar shows a red-bordered card with a retry button (a missing track is already replaced by a synthetic beat).
 
 ### Mixer hardware (signature)
 Pitch fader, EQ pots, volume faders and crossfader (`Potard`, `PitchFader`, `MixerControls`) drawn as toy versions of real gear: ink-outlined track, chunky colored cap (purple on the pitch fader), labels above in Label type. Every interactive one is a keyboard slider (`role="slider"`, arrows = 2% steps, Shift = 10%, Home/End) with an `ariaLabel` naming the control; purely decorative knobs (no `onChange`) are hidden from assistive tech.
@@ -250,8 +269,11 @@ A 3px dashed outline in `--border-strong`, offset 3px: a felt-pen dashed ring th
 - **Do** match the line and palette of the existing Patrick illustrations for any new visual.
 - **Do** ship illustrations as WebP at about 2× their displayed size (originals live in `src/assets/_originals_backup/`).
 - **Do** let `MotionConfig reducedMotion="user"` handle framer motion; never remove the trains' scrolling, it is the game information.
+- **Do** verify every UI change at 360, 390, 667×375, 844×390, 768, 1024, 1280×720, 1440 and 1920 wide, in Chrome and Firefox, with zero overlaps.
+- **Do** tell Train A (coral locomotive) and Train B (blue locomotive) apart by color, not only by lane.
 
 ### Don't:
+- **Don't** position anything over the playfield (`position: fixed/absolute` coach, chips or pills); put it in the level bar or the coach strip.
 - **Don't** use emoji or Unicode pictographs as icons. Draw it in `Glyph` (or a dedicated icon component) in the felt-pen style. Musical and typographic signs (♭ ♯ ↔ → ← ✓ inside sentences) are text, not icons, and stay.
 - **Don't** use blurred drop shadows, glassmorphism or gradients on game UI (the Secret Booth's night-club look is the only exception).
 - **Don't** add a second typeface for headings or body.

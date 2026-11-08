@@ -29,7 +29,7 @@ const TrackBrowser = ({
   tracks = [],
   columns: allColumns = DEFAULT_COLUMNS,
   onLoadToDeck,
-  selectedIndex = 0,
+  selectedIndex = -1, // rien de surligné par défaut (le 1er titre surligné passait pour la réponse)
   theme,
   title,
 }) => {

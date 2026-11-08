@@ -296,24 +296,10 @@
   overflow-x: hidden;
 }
 
-.back-home-btn {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  z-index: 100;
-}
 
 @media (max-width: 768px) {
   .home-container {
     padding: 20px;
-  }
-  
-  .back-home-btn {
-    position: static;
-    margin-bottom: 10px;
-    align-self: center;
   }
 }
 

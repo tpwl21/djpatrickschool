@@ -394,11 +394,11 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
           </div>
           <div className="track-container">
             {viewType === 'simple' ? (
-              <Train ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={trackPixelZoom} />
+              <Train ref={trackBRef} locoColor="#5DADE2" wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={trackPixelZoom} />
             ) : viewType === 'loop' ? (
-              <LoopTrackView ref={trackBRef} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} trackLengthSec={TRACK_LENGTH_SEC} zoomLevel={trackPixelZoom} markers={markersB} />
+              <LoopTrackView ref={trackBRef} locoColor="#5DADE2" wagons={wagonsB} bpm={configB.bpm} pitch={pitch} trackLengthSec={TRACK_LENGTH_SEC} zoomLevel={trackPixelZoom} markers={markersB} />
             ) : (
-              <PhraseTrackView ref={trackBRef} phraseBlocks={phraseBlocksB} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={trackPixelZoom} markers={markersB} />
+              <PhraseTrackView ref={trackBRef} locoColor="#5DADE2" phraseBlocks={phraseBlocksB} wagons={wagonsB} bpm={configB.bpm} pitch={pitch} zoomLevel={trackPixelZoom} markers={markersB} />
             )}
           </div>
         </div>

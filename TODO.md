@@ -55,6 +55,16 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [x] Chargement : vinyle qui tourne + « Le vinyle chauffe… »
 - [x] Bug corrigé : texte de l'écran de fin invisible en MEDIUM/PRO
 
+### Suite de la critique UX (22/40) — fait
+- [x] Accueil accessible au clavier et au lecteur d'écran (tuiles, drapeaux, coffre)
+- [x] Contrastes : couleur d'atelier en texte (leçons), frise et visualiseur EQ, compteur de foule ; étiquettes ≥ 11 px
+- [x] Textes : plus d'anglais en mode FR (EQ/FX/foule), Lobby/Menu, Drop/Play, titres d'onglet
+- [x] Bouton « Commencer / Continuer » vers la prochaine étape ; bulle d'accueil corrigée
+- [x] Chaque exercice n'affiche que ce qu'il enseigne (`show_eq`, `fx_modules`, `show_pitch` dans le TOML)
+- [x] Mode PRO : carton aux couleurs de la nuit, plus de « ! » orphelin (ton conservé)
+- [x] Trains A/B distingués par la couleur ; plus de 1re ligne surlignée en Harmonies
+- [ ] Relancer `/impeccable critique` pour mesurer le nouveau score
+
 ### Vérification & perf
 - [x] Audit automatique Chrome sur 10 écrans × 7 tailles : 377 chevauchements → 0, plus de défilement horizontal
 - [x] Même audit sur Firefox (Firefox système piloté via Puppeteer) : 0 chevauchement sur 90 pages, rendu identique à Chrome

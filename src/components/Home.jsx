@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useMemo } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
 import { LanguageContext } from '../hooks/LanguageContext';
@@ -67,7 +67,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
   useDocumentTitle(null);
 
   // Prochaine étape non terminée : ateliers dans l'ordre, leçons puis exercices (bouton « Continuer »)
-  const nextStep = useMemo(() => {
+  const nextStep = (() => {
     for (const ws of workshopsList) {
       if (ws.meta.forthcoming) continue;
       const p = unlockedOrder[ws.meta.id] || {};
@@ -82,7 +82,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
       if (lvl) return { kind: 'level', ws, item: lvl };
     }
     return null;
-  }, [unlockedOrder]);
+  })();
   const hasProgress = Object.values(unlockedOrder || {}).some((p) => p && typeof p === 'object'
     && (Object.keys(p.completedLessons || {}).length || Object.keys(p.completedPractice || {}).length));
   const startNext = () => {

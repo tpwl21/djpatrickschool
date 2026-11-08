@@ -74,7 +74,8 @@ export const Wagon = ({ w, scale, beatWidth }) => {
 };
 
 
-const Train = React.forwardRef(({ wagons, bpm, zoomLevel = 100, pitch = 1.0 }, ref) => {
+// locoColor : distingue le Train A (corail) du Train B (bleu) autrement que par le rail
+const Train = React.forwardRef(({ wagons, bpm, zoomLevel = 100, pitch = 1.0, locoColor = '#ff6b6b' }, ref) => {
   // To make sure trains map visually at the same scale when BPM is adjusted,
   // we scale the zoom by the inverse of the pitch.
   const effectiveZoom = zoomLevel / pitch;
@@ -100,7 +101,7 @@ const Train = React.forwardRef(({ wagons, bpm, zoomLevel = 100, pitch = 1.0 }, r
           transform: `scale(${scale})`,
           transformOrigin: 'left center'
         }}>
-          <Locomotive color="#ff6b6b" />
+          <Locomotive color={locoColor} />
         </div>
 
         {/* The Wagons */}

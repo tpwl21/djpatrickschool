@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-08T13:30:00Z",
+  "generatedAt": "2026-11-08T19:00:00Z",
   "title": "Design System: DJ Patrick School",
   "extensions": {
     "colorMeta": {
@@ -287,6 +287,16 @@
         "name": "The No-Emoji Rule",
         "body": "Every pictogram is drawn in the house felt-pen style (Glyph: 24-grid, ink stroke 2, crayon fill, no blur). Emoji never ship in the UI.",
         "section": "components"
+      },
+      {
+        "name": "The White-Card Ink Rule",
+        "body": "Any panel that is always white or cream (end cards, crowd meter, deck cards, bubbles, phrase pills) sets its own ink text color (#2b2b2b). Never let it inherit the room text color, which is light at dusk and night.",
+        "section": "colors"
+      },
+      {
+        "name": "The Workshop-Ink Rule",
+        "body": "When a workshop color must read as text (lesson bold terms, titles), use --lesson-ink = 20% workshop color mixed into the theme text color; bright workshop colors stay for lines, dots and fills.",
+        "section": "colors"
       }
     ],
     "dos": [
@@ -296,9 +306,12 @@
       "Do keep touch targets chunky; the same screen must play on a phone.",
       "Do match the line and palette of the existing Patrick illustrations for any new visual.",
       "Do ship illustrations as WebP at about 2× their displayed size (originals live in src/assets/_originals_backup/).",
-      "Do let MotionConfig reducedMotion=\"user\" handle framer motion; never remove the trains' scrolling, it is the game information."
+      "Do let MotionConfig reducedMotion=\"user\" handle framer motion; never remove the trains' scrolling, it is the game information.",
+      "Do verify every UI change at 360, 390, 667×375, 844×390, 768, 1024, 1280×720, 1440 and 1920 wide, in Chrome and Firefox, with zero overlaps.",
+      "Do tell Train A (coral locomotive) and Train B (blue locomotive) apart by color, not only by lane."
     ],
     "donts": [
+      "Don't position anything over the playfield (position: fixed/absolute coach, chips or pills); put it in the level bar or the coach strip.",
       "Don't use emoji or Unicode pictographs as icons. Draw it in Glyph (or a dedicated icon component) in the felt-pen style. Musical and typographic signs (♭ ♯ ↔ → ← ✓ inside sentences) are text, not icons, and stay.",
       "Don't use blurred drop shadows, glassmorphism or gradients on game UI (the Secret Booth's night-club look is the only exception).",
       "Don't add a second typeface for headings or body.",

@@ -13,7 +13,7 @@ import {
  * Colored loop bands + wagons on top.
  * Used primarily in Level 4.
  */
-export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomLevel = 100, trackLengthSec, markers = [] }, ref) => {
+export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomLevel = 100, trackLengthSec, markers = [], locoColor = '#ff6b6b' }, ref) => {
   const effectiveZoom = zoomLevel / pitch;
   const scale = zoomLevel / 100;
   const secPerBeat = 60 / bpm;
@@ -42,7 +42,7 @@ export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomL
           transform: `scale(${scale})`,
           transformOrigin: 'left center'
         }}>
-          <Locomotive color="#ff6b6b" />
+          <Locomotive color={locoColor} />
         </div>
         {/* Layer 1: Loop color bands */}
         {Array.from({ length: numLoops }).map((_, i) => (
@@ -122,7 +122,7 @@ export const LoopTrackView = React.forwardRef(({ wagons, bpm, pitch = 1.0, zoomL
  * Phrase blocks + loop dividers + wagons.
  * Used in Levels 5, 6, 7.
  */
-export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pitch = 1.0, zoomLevel = 100, markers = [] }, ref) => {
+export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pitch = 1.0, zoomLevel = 100, markers = [], locoColor = '#ff6b6b' }, ref) => {
   const effectiveZoom = zoomLevel / pitch;
   const scale = zoomLevel / 100;
   const secPerBeat = 60 / bpm;
@@ -142,7 +142,7 @@ export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pi
           transform: `scale(${scale})`,
           transformOrigin: 'left center'
         }}>
-          <Locomotive color="#ff6b6b" />
+          <Locomotive color={locoColor} />
         </div>
         {/* Layer 1: Phrase blocks + loops */}
         {phraseBlocks.map((block) => {
