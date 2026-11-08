@@ -93,6 +93,7 @@ const LevelHeader = ({
           color: var(--text-muted);
           max-width: 70ch;
           margin: 0 auto;
+          text-wrap: pretty;
         }
         @media (max-width: 760px) {
           .lh-bar {
