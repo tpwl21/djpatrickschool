@@ -145,7 +145,7 @@ const TrackBrowser = ({
                 <div style={{
                   display: isNarrow ? 'none' : 'flex',
                   flex: '0 0 44px', width: '44px', height: '44px', background: '#333',
-                  borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '10px', alignItems: 'center', justifyContent: 'center',
                   color: '#fff', fontSize: '1.1rem',
                 }}>
                   <Glyph name="vinyl" size="30px" />

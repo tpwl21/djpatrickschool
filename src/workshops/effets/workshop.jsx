@@ -8,7 +8,7 @@ import Cinematic from '../../components/Cinematic';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
 import { useWinSequence } from '../../hooks/useWinSequence';
-import { useMobileDetection } from '../../hooks/useMobileDetection';
+import { useMobileDetection, useShortViewport } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import { BEATS_PER_PHRASE, PHRASES, NUM_PHRASES } from '../../utils/workshopUtils';
 import { PhraseIndicator } from '../../components/TrackViews';
@@ -46,6 +46,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
   const checks = level.checks || [];
 
   const isMobile = useMobileDetection();
+  const isCompact = useShortViewport(820); // portables : mixer resserré
   const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -228,11 +229,14 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       </div>
 
       <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: 15, gap: isMobile ? 10 : 20 }}>
-        <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
+        <div style={{ display: 'flex', width: '100%', maxWidth: '980px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
           {/* Deck A FX column */}
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 15, alignItems: 'center' }}>
-            <VolumeFader value={fxState.volA} onChange={(v) => handleFader('A', v)} />
-            <FilterKnob value={fxState.filterA} onChange={(v) => handleFilter('A', v)} />
+          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
+            {/* fader à côté des modules FX (grille 2 colonnes) au lieu d'un empilement vertical */}
+            <div className="fx-deck" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', flexDirection: isMobile ? 'column' : 'row' }}>
+            <VolumeFader value={fxState.volA} onChange={(v) => handleFader('A', v)} trackLength={isCompact ? 130 : 180} />
+            <div className="fx-modules" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, auto)', gap: 12, justifyItems: 'center', alignItems: 'start' }}>
+            <FilterKnob value={fxState.filterA} onChange={(v) => handleFilter('A', v)} size={isCompact ? 46 : 55} />
             <DelayPad
               active={fxState.delayA.mix > 0}
               mix={fxState.delayA.mix}
@@ -248,6 +252,8 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
               onWetChange={(w) => handleReverbWet('A', w)}
             />
             <LoopRollPads onTrigger={(s, a) => handleLoopRoll('A', s, a)} />
+            </div>
+            </div>
             <div className="control-buttons">
               <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
                 {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
@@ -258,14 +264,16 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
 
           {/* EQ center column */}
           <div style={{ display: 'flex', gap: isMobile ? 15 : 40, alignItems: 'flex-start', justifyContent: 'center', padding: '15px 0' }}>
-            <EqKnobs values={fxState.eqA} onChange={(b, v) => handleEqChange('A', b, v)} color="#4ecdc4" size={isMobile ? 35 : 50} />
-            <EqKnobs values={fxState.eqB} onChange={(b, v) => handleEqChange('B', b, v)} color="#3498db" size={isMobile ? 35 : 50} />
+            <EqKnobs values={fxState.eqA} onChange={(b, v) => handleEqChange('A', b, v)} color="#4ecdc4" size={isMobile ? 35 : (isCompact ? 42 : 50)} gap={isCompact ? 8 : 12} />
+            <EqKnobs values={fxState.eqB} onChange={(b, v) => handleEqChange('B', b, v)} color="#3498db" size={isMobile ? 35 : (isCompact ? 42 : 50)} gap={isCompact ? 8 : 12} />
           </div>
 
           {/* Deck B FX column */}
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 15, alignItems: 'center' }}>
-            <VolumeFader value={fxState.volB} onChange={(v) => handleFader('B', v)} />
-            <FilterKnob value={fxState.filterB} onChange={(v) => handleFilter('B', v)} />
+          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 12, alignItems: 'center' }}>
+            <div className="fx-deck" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', flexDirection: isMobile ? 'column' : 'row-reverse' }}>
+            <VolumeFader value={fxState.volB} onChange={(v) => handleFader('B', v)} trackLength={isCompact ? 130 : 180} />
+            <div className="fx-modules" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, auto)', gap: 12, justifyItems: 'center', alignItems: 'start' }}>
+            <FilterKnob value={fxState.filterB} onChange={(v) => handleFilter('B', v)} size={isCompact ? 46 : 55} />
             <DelayPad
               active={fxState.delayB.mix > 0}
               mix={fxState.delayB.mix}
@@ -281,6 +289,8 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
               onWetChange={(w) => handleReverbWet('B', w)}
             />
             <LoopRollPads onTrigger={(s, a) => handleLoopRoll('B', s, a)} />
+            </div>
+            </div>
             <div className="control-buttons">
               <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>
                 {!isReady ? '...' : (isPlayingB ? t('workshop.running') : t('workshop.startTrainB'))}

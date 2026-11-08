@@ -5,7 +5,7 @@ import Cinematic from '../../components/Cinematic';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
 import { useWinSequence } from '../../hooks/useWinSequence';
-import { useMobileDetection } from '../../hooks/useMobileDetection';
+import { useMobileDetection, useShortViewport } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import { useMidiControl } from '../../hooks/useMidiControl';
 import { useMidiMapping } from '../../hooks/useMidiMapping';
@@ -49,6 +49,8 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
   const checks = level.checks || [];
 
   const isMobile = useMobileDetection();
+  const isCompact = useShortViewport(820); // portables : mixer resserré
+  const isWide = !useMobileDetection(1099);
   const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -302,28 +304,35 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
         <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
       </div>
 
-      <div className="main-gameplay" style={{ flexDirection: 'column', padding: '0 20px' }}>
+      <div className="main-gameplay" style={{ flex: '0 0 auto', flexDirection: 'column', padding: '0 20px' }}>
         <SimplifiedTimeline
           levelId={levelId}
           currentPhraseIdx={absolutePhraseIdxA}
           progress={phraseProgress}
           totalPhrases={8}
         />
+      </div>
+
+      {/* Écran large : visualiseur et mixer côte à côte (empilés ils débordaient même en 1440×900) */}
+      <style>{`@media (min-width: 1100px) { .eq-stage .control-buttons { flex-wrap: nowrap; } .eq-stage .btn-crayon { padding: 8px 14px; font-size: 1rem; } }`}</style>
+      <div className="eq-stage" style={{ display: 'flex', flexDirection: isWide ? 'row' : 'column', alignItems: 'center', gap: isWide ? 24 : 0, padding: '0 20px', marginTop: isWide ? 12 : 0, flex: '0 0 auto' }}>
+      <div style={{ flex: isWide ? '1 1 0' : 'none', width: '100%', minWidth: 0 }}>
         <ColorMixVisualizer
           levelId={levelId}
           eqState={eqState}
           beatsA={beatsA}
+          height={isWide ? 'clamp(240px, 46vh, 400px)' : undefined}
         />
       </div>
 
-      <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '15px', gap: isMobile ? '10px' : '20px' }}>
+      <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', flex: isWide ? '1 1 0' : 'none', minWidth: 0, marginTop: isWide ? 0 : '15px', gap: isMobile ? '10px' : (isCompact ? '12px' : '20px') }}>
         <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? '5px' : '20px', flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
           <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isMobile ? '10px' : '20px', alignItems: 'center' }}>
             <VolumeFader
               value={eqState.volA}
               onChange={(v) => handleFaderChange('A', v)}
               trackWidth={isMobile ? 30 : 40}
-              trackLength={isMobile ? 120 : 180}
+              trackLength={isMobile ? 120 : (isCompact ? 130 : 180)}
               handleSize={isMobile ? 45 : 55}
               labelSize={isMobile ? '0.9rem' : '1.2rem'}
             />
@@ -342,16 +351,16 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
               values={eqState.eqA}
               onChange={(band, v) => handleEqChange('A', band, v)}
               color="#4ecdc4"
-              size={isMobile ? 35 : 55}
-              gap={isMobile ? 15 : 25}
+              size={isMobile ? 35 : (isCompact ? 46 : 55)}
+              gap={isMobile ? 15 : (isCompact ? 12 : 25)}
               labelFontSize={isMobile ? '0.6rem' : '0.8rem'}
             />
             <EqKnobs
               values={eqState.eqB}
               onChange={(band, v) => handleEqChange('B', band, v)}
               color="#3498db"
-              size={isMobile ? 35 : 55}
-              gap={isMobile ? 15 : 25}
+              size={isMobile ? 35 : (isCompact ? 46 : 55)}
+              gap={isMobile ? 15 : (isCompact ? 12 : 25)}
               labelFontSize={isMobile ? '0.6rem' : '0.8rem'}
             />
           </div>
@@ -361,7 +370,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
               value={eqState.volB}
               onChange={(v) => handleFaderChange('B', v)}
               trackWidth={isMobile ? 30 : 40}
-              trackLength={isMobile ? 120 : 180}
+              trackLength={isMobile ? 120 : (isCompact ? 130 : 180)}
               handleSize={isMobile ? 45 : 55}
               labelSize={isMobile ? '0.9rem' : '1.2rem'}
             />
@@ -384,6 +393,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
             handleSize={isMobile ? 45 : 60}
           />
         </div>
+      </div>
       </div>
 
       {isWinSequence && (

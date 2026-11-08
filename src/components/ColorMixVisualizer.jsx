@@ -89,6 +89,7 @@ const ColorMixVisualizer = ({
     levelId,
     eqState,
     beatsA,
+    height = 'clamp(150px, 24vh, 300px)',
 }) => {
   // Taille réelle du cadre : les bulles et leur dérive A↔B s'y adaptent (le cadre n'a plus 520px fixes)
   const boxRef = useRef(null);
@@ -117,16 +118,16 @@ const ColorMixVisualizer = ({
   return (
     <div ref={boxRef} style={{
       width: '100%',
-      height: 'clamp(180px, 26vh, 300px)',
+      height,
       flexShrink: 0,
       background: '#020202',
       borderRadius: '50px',
       overflow: 'hidden',
       position: 'relative',
-      boxShadow: 'inset 0 0 150px #000, 0 30px 100px rgba(0,0,0,1)',
+      boxShadow: 'inset 0 0 150px #000, 6px 6px 0 rgba(0,0,0,0.25)', // ombre décalée (Drawn Shadow) au lieu d'un halo de 100px
       display: 'flex',
       flexDirection: 'column',
-      margin: '12px 0',
+      margin: '6px 0',
       border: '10px solid #151515'
     }}>
       {/* Background Stage - Subtle Center Line */}

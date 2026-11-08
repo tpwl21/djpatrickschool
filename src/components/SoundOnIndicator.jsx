@@ -56,7 +56,7 @@ const SoundOnIndicator = () => {
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
       </motion.svg>
       <span className="sound-on-label" style={{ fontSize: '0.85rem', letterSpacing: '1px', whiteSpace: 'nowrap' }}>{text}</span>
-      <style>{`@media (max-width: 420px) { .sound-on { padding: 4px 8px !important; } .sound-on-label { display: none; } }`}</style>
+      <style>{`@media (max-width: 420px), (max-height: 500px) and (max-width: 900px) { .sound-on { padding: 4px 8px !important; } .sound-on-label { display: none; } }`}</style>
     </motion.div>
   );
 };

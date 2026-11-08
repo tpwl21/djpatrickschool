@@ -4,7 +4,7 @@ import Cinematic from '../../components/Cinematic';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
 import { useWinSequence } from '../../hooks/useWinSequence';
-import { useMobileDetection } from '../../hooks/useMobileDetection';
+import { useMobileDetection, useShortViewport } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import { useMidiControl } from '../../hooks/useMidiControl';
 import Train, { generateWagons } from '../../components/Train';
@@ -72,6 +72,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   const bpmA = configA?.bpm ?? 120;
 
   const isMobile = useMobileDetection();
+  const isShort = useShortViewport();
   const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -409,7 +410,8 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
             percentBaseline={initialBpmB / configB.bpm}
             bpmColor={showBpm && difficulty === 'EASY' ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#ffffff'}
             percentColor={pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4'}
-            orientation={isMobile ? 'horizontal' : 'vertical'}
+            orientation={isMobile && !isShort ? 'horizontal' : 'vertical'}
+            trackLength={isShort ? 90 : undefined}
             label=""
           />
         </div>

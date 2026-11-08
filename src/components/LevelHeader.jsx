@@ -41,9 +41,10 @@ const LevelHeader = ({
 
       {description && <p className="lh-desc" dangerouslySetInnerHTML={{ __html: description }} />}
 
-      {coachTips?.length > 0 && <CoachPatrick tips={coachTips} />}
-
-      {children}
+      <div className="lh-sub">
+        {coachTips?.length > 0 && <CoachPatrick tips={coachTips} />}
+        {children}
+      </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
         .level-header {
@@ -66,6 +67,10 @@ const LevelHeader = ({
         .lh-right { grid-area: right; justify-self: end; display: flex; align-items: center; gap: 12px; }
         .lh-title { grid-area: title; margin: 0; }
         .lh-menu { padding: 8px 16px; font-size: 0.95rem; }
+        /* coach (pleine largeur) + statuts du niveau ; coach replié = juste Patrick, à côté des statuts */
+        .lh-sub { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+        .lh-sub > .coach-strip { flex: 1 1 100%; }
+        .lh-sub > .coach-strip:not(.is-open) { flex: 0 0 auto; width: auto; margin: 0; }
         .level-header .lh-desc {
           color: var(--text-muted);
           max-width: 70ch;
@@ -77,6 +82,14 @@ const LevelHeader = ({
             grid-template-areas: "left right" "title title";
             row-gap: 6px;
           }
+        }
+        /* Écran bas (téléphone en paysage) : on garde le jeu visible, l'en-tête se fait discret */
+        @media (max-height: 500px) {
+          .lh-bar { grid-template-columns: auto 1fr auto; grid-template-areas: "left title right"; }
+          .level-header { gap: 4px; margin-bottom: 6px; }
+          .level-header .lh-desc { display: none; }
+          .level-header h1.lh-title { font-size: 1.3rem; margin: 0; }
+          .lh-menu { padding: 5px 12px; font-size: 0.85rem; }
         }
       `}} />
     </header>

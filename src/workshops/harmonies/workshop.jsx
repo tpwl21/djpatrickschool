@@ -298,8 +298,8 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
         </div>
       )}
 
-      {/* Playlist */}
-      <div style={{ padding: '10px 20px', maxWidth: 1000, margin: '0 auto', width: '100%' }}>
+      {/* Playlist : prend la place restante de l'écran, la liste défile dans son cadre (la page reste fixe) */}
+      <div style={{ padding: '10px 20px', maxWidth: 1000, margin: '0 auto', width: '100%', flex: '1 1 0', minHeight: 260, display: 'flex', flexDirection: 'column' }}>
         <TrackBrowser
           tracks={pool}
           columns={['title', 'bpm', 'key', 'camelot', 'genre']}

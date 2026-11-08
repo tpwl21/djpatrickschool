@@ -38,13 +38,19 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [ ] Zone de jeu : largeur max + centrage, moins de vide en haut/bas (Beatmatching)
 - [ ] Digging : centre presque vide, à réorganiser (lié au design du niveau → phase 2)
 - [x] Mixer EQ / FX : contrôles regroupés (largeur max 820 px)
-- [ ] Beatmatching mobile (360×740) : les commandes demandent de défiler, à faire tenir dans l'écran
+- [x] Beatmatching : tient dans l'écran en portrait mobile, en paysage (844×390, 667×375) et sur portable 1280×720
+- [x] Mode « écran bas » (téléphone couché) : en-tête compact, bulle du coach repliée, zone de jeu en ligne
+- [x] EQ : visualiseur et mixer côte à côte sur écran large → tient de 1280×720 à 1920×1080
+- [x] FX : fader à côté des modules (grille) → tient dès 1440×900 (reste ~160 px à défiler en 1280×720)
+- [x] Harmonies : la bibliothèque défile dans son cadre → la page tient à toutes les tailles
+- [ ] Tablette paysage 1024×768 : EQ et FX demandent encore un peu de défilement
 
 ### Vérification & perf
 - [x] Audit automatique Chrome sur 10 écrans × 7 tailles : 377 chevauchements → 0, plus de défilement horizontal
-- [ ] Même audit sur Firefox (l'installation du Firefox de test bloque, à relancer)
+- [x] Même audit sur Firefox (Firefox système piloté via Puppeteer) : 0 chevauchement sur 90 pages, rendu identique à Chrome
+- [x] Gestes tactiles testés (événements touch simulés) : potards, faders, crossfader répondent sans faire défiler la page
 - [ ] Charger le texte des leçons à la demande (~1 Mo chargé dès l'accueil aujourd'hui)
-- [ ] Test sur vrai téléphone (tactile : faders, potards, pads)
+- [ ] Test sur vrai téléphone (le tactile simulé marche, reste la sensation réelle)
 
 ---
 

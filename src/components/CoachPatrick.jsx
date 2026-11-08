@@ -12,8 +12,11 @@ const CoachPatrick = ({ tips = [] }) => {
   const isPro = difficulty === 'PRO';
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   // isOpen = choix de l'utilisateur ; isBubbleVisible = fondu entre deux conseils
-  const [isOpen, setIsOpen] = useState(true);
+  // écran bas (téléphone couché) : bulle repliée au départ pour laisser le jeu visible
+  const [isOpen, setIsOpen] = useState(() => !window.matchMedia('(max-height: 500px)').matches);
   const [isBubbleVisible, setIsBubbleVisible] = useState(true);
+  // petit écran : la bulle est limitée à 2 lignes, un tap l'affiche en entier
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     if (tips.length <= 1) return undefined;
@@ -21,6 +24,7 @@ const CoachPatrick = ({ tips = [] }) => {
       setIsBubbleVisible(false);
       setTimeout(() => {
         setCurrentTipIndex((prev) => (prev + 1) % tips.length);
+        setExpanded(false);
         setIsBubbleVisible(true);
       }, 300);
     }, 15000);
@@ -49,14 +53,14 @@ const CoachPatrick = ({ tips = [] }) => {
       <AnimatePresence initial={false}>
         {isOpen && isBubbleVisible && (
           <motion.div
-            className="coach-bubble"
+            className={`coach-bubble ${expanded ? 'is-expanded' : ''}`}
             role="status"
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p>{tips[currentTipIndex]}</p>
+            <p onClick={() => setExpanded((e) => !e)}>{tips[currentTipIndex]}</p>
             <button className="coach-close" onClick={() => setIsOpen(false)} aria-label={t('coach.close')}>×</button>
           </motion.div>
         )}
@@ -131,11 +135,20 @@ const CoachPatrick = ({ tips = [] }) => {
           cursor: pointer;
         }
         .coach-close:hover { color: #2b2b2b; }
-        @media (max-width: 760px) {
-          .coach-strip { gap: 10px; min-height: 52px; }
-          .coach-avatar { width: 48px; }
-          .coach-bubble { padding: 8px 40px 8px 12px; }
-          .coach-bubble p { font-size: 0.85rem; }
+        @media (max-width: 760px), (max-height: 500px) {
+          .coach-strip { gap: 10px; min-height: 0; }
+          .coach-avatar { width: 44px; }
+          .coach-bubble { padding: 6px 40px 6px 12px; }
+          /* 2 lignes max : le texte complet reste lisible en touchant Patrick (bulle repliable) */
+          .coach-bubble p {
+            font-size: 0.85rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .coach-bubble.is-expanded p { -webkit-line-clamp: unset; }
+          .coach-close { width: 40px; height: 40px; }
         }
       `}} />
     </div>
