@@ -253,28 +253,65 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
 
 
 
-        @media (max-width: 768px) {
+        /* la recap hérite sinon de --text (clair en MEDIUM/PRO) alors que la carte reste blanche */
+        .cinematic-card .lesson-recap { background: #faf7f0; }
+        .cinematic-card .lesson-recap-label { color: #555; }
+        .cinematic-card .lesson-recap-list li { color: #2b2b2b; }
+
+        /* Téléphone et écrans bas : tout doit tenir sans scroller, le bouton toujours visible.
+           La carte devient une colonne de hauteur max = écran ; seule la recap peut défiler en dernier recours. */
+        @media (max-width: 768px), (max-height: 560px) {
+          .cinematic-container { padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom)); }
           .cinematic-card {
-            padding: 20px;
-            width: 95%;
-            max-height: 90vh;
-            overflow-y: auto;
+            width: 100%;
+            max-height: 100%;
+            padding: 16px;
             border-width: 4px;
+            border-radius: 28px;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
           }
-          .win-layout { 
-            flex-direction: column; 
-            text-align: center; 
-            gap: 20px;
+          .cinematic-content, .win-layout, .success-text, .lose-layout {
+            display: flex; flex-direction: column; min-height: 0; flex: 1 1 auto;
           }
-          .win-title { font-size: 2rem; }
-          .win-subtitle { font-size: 1rem; margin: 10px 0 20px 0; }
-          .celebration-avatar { width: 150px; }
-          .grade-stamp { position: static; width: 72px; height: 72px; font-size: 2.2rem; margin: 0 auto 10px; }
-          .lose-avatar { width: 120px; }
-          .speech-bubble-large { padding: 15px; margin-top: -10px; }
-          .speech-bubble-large p { font-size: 1rem; }
+          .win-layout { gap: 10px; text-align: center; }
+          /* Patrick à gauche, bulle à droite : une ligne au lieu de deux étages */
+          .coach-celebration { flex: 0 0 auto; flex-direction: row; align-items: center; gap: 10px; }
+          .celebration-avatar { width: 84px; flex: 0 0 auto; }
+          .burst-glyph { transform-origin: center; }
+          .speech-bubble-large { flex: 1; margin: 0; padding: 10px 12px; border-width: 3px; border-radius: 18px; box-shadow: 4px 4px 0 rgba(0,0,0,0.1); text-align: left; }
+          .speech-bubble-large p { font-size: 0.95rem; line-height: 1.3; }
+          .bubble-tail-large {
+            top: 50%; left: -14px; transform: translateY(-50%);
+            border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+            border-right: 14px solid #333; border-left: 0;
+          }
           .success-text { text-align: center; }
-          .btn-crayon.large { font-size: 1.2rem; padding: 15px 30px; width: 100%; }
+          .grade-stamp { top: -4px; right: 0; width: 54px; height: 54px; font-size: 1.7rem; border-width: 4px; box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px #c0392b; }
+          .win-title { font-size: 1.9rem; padding: 0 58px; }
+          .win-subtitle { font-size: 1rem; margin: 6px 0 0; }
+          .lesson-recap { flex: 0 1 auto; min-height: 0; overflow-y: auto; margin: 10px 0 0; padding: 10px 14px; text-align: left; }
+          .lesson-recap-label { font-size: 0.75rem; margin-bottom: 6px; }
+          .lesson-recap-list { padding-left: 18px; }
+          .lesson-recap-list li { font-size: 0.92rem; line-height: 1.35; margin-bottom: 4px; }
+          /* App.css force les boutons à 0.75rem en !important sur mobile : le bouton de fin doit rester gros */
+          .cinematic-card .btn-crayon.large { flex: 0 0 auto; font-size: 1.2rem !important; padding: 12px 20px !important; width: 100%; margin-top: 12px; }
+          .lose-layout { align-items: center; justify-content: center; }
+          .lose-avatar { width: 96px; flex: 0 0 auto; margin-bottom: 6px; }
+          .lose-layout h2 { font-size: 1.5rem; }
+          .lose-layout > p:not(.lose-hint) { margin-bottom: 8px; }
+          .lose-hint { margin: 0 auto 4px; padding: 8px 12px; font-size: 0.95rem; }
+        }
+        /* paysage bas : Patrick et le texte côte à côte, avatar réduit */
+        @media (max-height: 560px) and (min-width: 600px) {
+          .win-layout { flex-direction: row; align-items: stretch; gap: 16px; }
+          .coach-celebration { flex: 0 0 38%; flex-direction: column; justify-content: center; }
+          .celebration-avatar { width: 110px; }
+          .bubble-tail-large { top: -14px; left: 50%; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 14px solid #333; border-top: 0; }
+          .speech-bubble-large { flex: 0 0 auto; margin-top: 8px; }
+          .lose-layout { flex-direction: column; }
+          .lose-avatar { width: 72px; }
         }
       `}} />
     </div>
