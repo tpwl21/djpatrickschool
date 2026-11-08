@@ -122,4 +122,5 @@ On peut combiner (par exemple A + B). À trancher avant la phase 3, pour ne ré�
 ## Plus tard / idées
 
 - [ ] Vraie DA vectorielle : planche de personnage de Patrick (poses, expressions, accessoires par atelier) → Recraft ou illustrateur (Figma) → animations Rive
-- [ ] Ménage : `CLAUDE.md` en partie périmé (ateliers maintenant en TOML), dossier `patricks-school/` (copie du dépôt ?) à trier
+- [x] Dossier `patricks-school/` (ancienne copie du dépôt) supprimé
+- [ ] `CLAUDE.md` en partie périmé (ateliers maintenant en TOML, `src/constants/workshops.js` n'existe plus)
