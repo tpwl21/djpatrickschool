@@ -1,12 +1,16 @@
 const fr = {
   home: {
+    continue: {
+      start: "Commencer",
+      resume: "Continuer"
+    },
     a11y: {
       lesson: "leçon",
       level: "niveau",
       locked: "verrouillé",
       openWorkshop: "Ouvrir l'atelier"
     },
-    welcome: "Bienvenue à l'école de DJing ! Choisis d'abord ta difficulté en haut à droite.",
+    welcome: "Bienvenue à l'école de DJing ! Choisis ta difficulté juste au-dessus des ateliers (tu peux la changer à tout moment), puis lance-toi avec le bouton sous moi.",
     disclaimer: "Les techniques présentées ici ne sont pas des règles absolues — juste des bases pour t'aider à comprendre le métier. Pas de limite à la créativité : trouve ton propre style, casse les codes quand ça a du sens, et surtout, amuse-toi.",
     difficultyInfo: {
       EASY: "Parfait pour débuter. Tolérance généreuse, feedback visuel complet et maintien court (3s).",

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
 import { LanguageContext } from '../hooks/LanguageContext';
@@ -65,6 +65,31 @@ const VaultCell = ({ interactive, children, ...rest }) => (
 const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unlockedOrder = {}, onUnlockAll, onResetAll }) => {
   const { language, setLanguage, t } = useContext(LanguageContext);
   useDocumentTitle(null);
+
+  // Prochaine étape non terminée : ateliers dans l'ordre, leçons puis exercices (bouton « Continuer »)
+  const nextStep = useMemo(() => {
+    for (const ws of workshopsList) {
+      if (ws.meta.forthcoming) continue;
+      const p = unlockedOrder[ws.meta.id] || {};
+      const lessonsUnlock = typeof p === 'object' ? (p.lessons || 1) : 1;
+      const practiceUnlock = typeof p === 'object' ? (p.practice || 1) : p;
+      const doneLessons = p.completedLessons || {};
+      const donePractice = p.completedPractice || {};
+      const lessonDone = (o) => (Array.isArray(doneLessons) ? doneLessons.includes(o) : (doneLessons[o] || []).length > 0);
+      const les = (ws.lessonsList || []).find((l) => l.order <= lessonsUnlock && !lessonDone(l.order));
+      if (les) return { kind: 'lesson', ws, item: les };
+      const lvl = (ws.levelsList || []).find((l) => l.order <= practiceUnlock && !(donePractice[l.order] || []).length);
+      if (lvl) return { kind: 'level', ws, item: lvl };
+    }
+    return null;
+  }, [unlockedOrder]);
+  const hasProgress = Object.values(unlockedOrder || {}).some((p) => p && typeof p === 'object'
+    && (Object.keys(p.completedLessons || {}).length || Object.keys(p.completedPractice || {}).length));
+  const startNext = () => {
+    if (!nextStep) return;
+    if (nextStep.kind === 'lesson') onStartLesson(nextStep.ws.meta.id, nextStep.item.order);
+    else onStartLevel(nextStep.ws.meta.id, nextStep.item.order, difficulty);
+  };
   const [secretCode, setSecretCode] = useState('');
   const [vaultFeedback, setVaultFeedback] = useState('');
   const [vaultUnlocked, setVaultUnlocked] = useState(() => {
@@ -193,6 +218,21 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
             transition={{ duration: 0.35, ease: 'easeOut' }}
             whileHover={{ scale: 1.04, transition: { duration: 0.25 } }}
           />
+          {nextStep && (
+            <motion.button
+              type="button"
+              className="btn-crayon play-btn continue-cta"
+              onClick={startNext}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="continue-cta-label">{hasProgress ? t('home.continue.resume') : t('home.continue.start')} →</span>
+              <span className="continue-cta-sub">
+                {pickText(nextStep.ws.meta, language)?.title} · {nextStep.kind === 'lesson' ? `${t('lesson.lessonLabel')} ${nextStep.item.order}` : `${t('home.popup.level')} ${nextStep.item.order}`} : {pickText(nextStep.item, language)?.title}
+              </span>
+            </motion.button>
+          )}
         </div>
 
         <div className="nav-section">
@@ -287,6 +327,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`);
                                 }}
                                 onFocus={() => { if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`); }}
+                                title={isLocked ? undefined : lesTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
                                 style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative' }}
                               >
@@ -346,6 +387,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`);
                                 }}
                                 onFocus={() => { if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`); }}
+                                title={isLocked ? undefined : lvlTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${diffs.length > 0 ? 'completed' : ''}`}
                                 style={{
                                   display: 'flex',
@@ -582,6 +624,20 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           filter: var(--sticker-shadow);
           will-change: transform;
         }
+        .continue-cta {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+          margin-top: 14px;
+          max-width: 280px;
+          white-space: normal;
+          text-align: center;
+          transform: rotate(-1.5deg);
+        }
+        .continue-cta:hover { transform: rotate(0deg) translateY(-2px); }
+        .continue-cta-label { font-size: 1.25rem; }
+        .continue-cta-sub { font-size: 0.8rem; font-weight: 700; opacity: 0.85; line-height: 1.25; }
         .coach-bubble-home {
           background: #fff;
           color: #333;
@@ -979,6 +1035,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
             border-top: 15px solid #333;
             border-bottom: none;
           }
+          .continue-cta { order: 3; }
           .coach-img-home {
             order: 2;
             max-width: 140px;

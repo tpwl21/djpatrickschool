@@ -1,12 +1,16 @@
 const en = {
   home: {
+    continue: {
+      start: "Start here",
+      resume: "Continue"
+    },
     a11y: {
       lesson: "lesson",
       level: "level",
       locked: "locked",
       openWorkshop: "Open workshop"
     },
-    welcome: "Welcome to Patrick's DJ School! Pick your poison (difficulty) in the top right to start.",
+    welcome: "Welcome to Patrick's DJ School! Pick your difficulty just above the workshops (you can change it anytime), then jump in with the button below me.",
     disclaimer: "The techniques taught here aren't absolute rules — just foundations to help you understand the craft. Creativity has no ceiling: find your own style, break the rules when it makes sense, and above all, have fun.",
     difficultyInfo: {
       EASY: "Perfect for bedroom beginners. Generous tolerance, full visual feedback, and short hold (3s).",
