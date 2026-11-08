@@ -19,7 +19,6 @@ import {
   PhraseTrackView,
   PhraseIndicator,
 } from '../../components/TrackViews';
-import CoachPatrick from '../../components/CoachPatrick';
 import AudioVisualizer from '../../components/AudioVisualizer';
 import { getLevel, workshops } from '../../lib/levels/load';
 import { applyDefaults, matchesStartRule } from '../../lib/levels/rules';
@@ -306,7 +305,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   if (!resolvedLevel) {
     return (
       <div className="app-container">
-        <LevelHeader title="Unknown level" onBack={onBack} />
+        <LevelHeader title={t('notFound.title')} onBack={onBack} />
       </div>
     );
   }
@@ -314,6 +313,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   return (
     <div className="app-container">
       <LevelHeader
+        coachTips={coachTips}
         title={title}
         description={description}
         onBack={onBack}
@@ -322,13 +322,10 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
       >
         {difficulty === 'EASY' && (
           <div className="sync-hud-container" style={{
-            display: 'flex', flexDirection: isMobile ? 'row' : 'column',
-            gap: isMobile ? '5px' : '8px', justifyContent: 'center', alignItems: 'center',
-            marginTop: '15px', position: isMobile ? 'relative' : 'absolute',
-            top: isMobile ? '0' : '20px', right: isMobile ? '40px' : '20px', zIndex: 100,
+            display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', alignItems: 'center',
           }}>
             <div style={{
-              background: isPerfectPitch ? '#27ae60' : (currentBpmBDisplay < configA.bpm * (audioCtxRef.current?.decks.A.rate || 1) ? '#3498db' : '#e74c3c'),
+              background: isPerfectPitch ? '#1e8449' : (currentBpmBDisplay < configA.bpm * (audioCtxRef.current?.decks.A.rate || 1) ? '#2471a3' : '#c0392b'),
               color: 'white', padding: '4px 12px', borderRadius: '12px', fontSize: '0.75rem',
               fontWeight: '900', border: '2px solid #333', boxShadow: '3px 3px 0 rgba(0,0,0,0.1)',
               fontFamily: 'inherit', whiteSpace: 'nowrap',
@@ -336,7 +333,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
               {isPerfectPitch ? t('workshop.status.pitchOk') : (currentBpmBDisplay < configA.bpm * (audioCtxRef.current?.decks.A.rate || 1) ? t('workshop.status.pitchPlus') : t('workshop.status.pitchMinus'))}
             </div>
             <div style={{
-              background: isPerfectSync ? '#27ae60' : '#fff',
+              background: isPerfectSync ? '#1e8449' : '#fff',
               color: isPerfectSync ? 'white' : '#333', padding: '4px 12px', borderRadius: '12px',
               fontSize: '0.75rem', fontWeight: '900', border: '2px solid #333',
               boxShadow: '3px 3px 0 rgba(0,0,0,0.1)', fontFamily: 'inherit', whiteSpace: 'nowrap',
@@ -344,7 +341,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
               {isPerfectSync ? t('workshop.status.syncOk') : t('workshop.status.toSync')}
             </div>
             <div style={{
-              background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#27ae60' : '#e74c3c'),
+              background: startStatus === null ? '#fff' : (startStatus === 'ok' ? '#1e8449' : '#c0392b'),
               color: startStatus === null ? '#333' : 'white', padding: '4px 12px',
               borderRadius: '12px', fontSize: '0.75rem', fontWeight: '900', border: '2px solid #333',
               boxShadow: '3px 3px 0 rgba(0,0,0,0.1)', fontFamily: 'inherit', whiteSpace: 'nowrap',
@@ -410,7 +407,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
             showBpm={showBpm}
             showPercent={true}
             percentBaseline={initialBpmB / configB.bpm}
-            bpmColor={showBpm && difficulty === 'EASY' ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#333'}
+            bpmColor={showBpm && difficulty === 'EASY' ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#ffffff'}
             percentColor={pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4'}
             orientation={isMobile ? 'horizontal' : 'vertical'}
             label=""
@@ -420,13 +417,13 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
 
       <div className="controls">
         <div className="control-group">
-          <h3>{t('workshop.trainA')}</h3>
+          <h2>{t('workshop.trainA')}</h2>
           <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
             {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
           </button>
         </div>
         <div className="control-group">
-          <h3>{t('workshop.trainB')}</h3>
+          <h2>{t('workshop.trainB')}</h2>
           <div className="control-buttons">
             <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : t('workshop.play')}</button>
             <button className="btn-crayon nudge-btn" onClick={cueB}>{t('workshop.cue')}</button>
@@ -466,8 +463,6 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
         />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
-
-      <CoachPatrick tips={coachTips} />
     </div>
   );
 };

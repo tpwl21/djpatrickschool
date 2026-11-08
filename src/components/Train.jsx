@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Locomotive from './Locomotive';
+import Glyph from './Glyph';
 
 // Generates an array of wagons based on song length and BPM.
 export const generateWagons = (bpm, lengthInSeconds = 60, isComplex = false) => {
@@ -34,20 +35,20 @@ export const generateWagons = (bpm, lengthInSeconds = 60, isComplex = false) => 
 export const Wagon = ({ w, scale, beatWidth }) => {
   let wagonWidth = 40 * scale;
   let bgColor = '#4ecdc4';
-  let icon = w.isKick ? '🔥' : '🎵'; // Default to Kick simple style if nothing is true
+  let icon = w.isKick ? 'kick' : 'note';
   let top = `${-20 * scale}px`;
   let height = `${40 * scale}px`;
 
   if (w.isKick) {
-     bgColor = '#ff9f43'; icon = '🔥';
+     bgColor = '#ff9f43'; icon = 'kick';
   } else if (w.isSnare) {
-     bgColor = '#3498db'; icon = '👏';
+     bgColor = '#3498db'; icon = 'clap';
   } else if (w.isHat) {
-     wagonWidth = 20 * scale; bgColor = '#f1c40f'; icon = '✨'; top = `${-10 * scale}px`; height = `${20 * scale}px`;
+     wagonWidth = 20 * scale; bgColor = '#f1c40f'; icon = 'hat'; top = `${-10 * scale}px`; height = `${20 * scale}px`;
   }
 
   if (!w.isKick && !w.isSnare && !w.isHat) {
-     bgColor = '#4ecdc4'; icon = '🎵'; 
+     bgColor = '#4ecdc4'; icon = 'note';
   }
 
   return (
@@ -67,7 +68,7 @@ export const Wagon = ({ w, scale, beatWidth }) => {
       boxShadow: `${3 * scale}px ${3 * scale}px 0px #333`,
       zIndex: 2,
     }}>
-       {icon}
+       <Glyph name={icon} size={w.isHat ? '72%' : '62%'} />
     </div>
   );
 };

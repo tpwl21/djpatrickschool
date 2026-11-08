@@ -8,7 +8,8 @@ import CamelotMappingTable from '../components/CamelotMappingTable';
 import Md from '../components/Md';
 import LessonRecap from '../components/LessonRecap';
 import DifficultySwitcher from '../components/DifficultySwitcher';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import Glyph from '../components/Glyph';
+import { inkOn } from '../utils/color';
 
 const DIFF_LABELS = { EASY: 'Easy', MEDIUM: 'Medium', PRO: 'Pro' };
 
@@ -46,13 +47,12 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
   };
 
   return (
-    <div className="lesson-container" style={{ '--lesson-color': color, '--primary': color }}>
+    <div className="lesson-container" style={{ '--lesson-color': color, '--primary': color, '--wh-ink': inkOn(color) }}>
       <div className="lesson-top-bar">
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           <button className="btn-crayon lesson-back-btn" onClick={onBack}>
             ← {t('workshop.menu')}
           </button>
-          <LanguageSwitcher />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <DifficultySwitcher mini={true} />
@@ -81,7 +81,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
           />
         ))}
         {questions.length > 0 && (
-          <div className={`lesson-dot quiz-dot ${isQuizPhase ? 'active' : ''} ${passed ? 'done' : ''}`}>✎</div>
+          <div className={`lesson-dot quiz-dot ${isQuizPhase ? 'active' : ''} ${passed ? 'done' : ''}`}><Glyph name="pencil" size="1.1em" /></div>
         )}
       </div>
 
@@ -191,7 +191,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
           >
-            <div className="lesson-success-icon">🎉</div>
+            <div className="lesson-success-icon"><Glyph name="star" size="4.5rem" shadow /></div>
             <h2>{t('lesson.successTitle')}</h2>
             <p>{t('lesson.successText')}</p>
             <LessonRecap recap={lessonText?.recap} />
@@ -221,8 +221,10 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
         }
         .lesson-top-bar {
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
+          gap: 10px;
         }
         .lesson-back-btn {
           background: #fff;
@@ -395,7 +397,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
           text-align: center;
           gap: 16px;
         }
-        .lesson-success-icon { font-size: 4rem; }
+        .lesson-success-icon { line-height: 1; }
         .lesson-success h2 {
           font-size: 2.2rem;
           margin: 0;

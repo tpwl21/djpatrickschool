@@ -9,9 +9,11 @@ const ReverbPad = ({
   color = '#3498db',
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-    <span style={{ fontSize: '0.7rem', color: '#fff', fontWeight: 900, letterSpacing: 1 }}>REVERB</span>
+    <span style={{ fontSize: '0.7rem', color: 'currentColor', fontWeight: 900, letterSpacing: 1 }}>REVERB</span>
     <button
       onClick={() => onToggle(!active)}
+      aria-pressed={active}
+      aria-label="Reverb"
       style={{
         width: 70, height: 50, border: '3px solid #333',
         background: active ? color : '#444', color: '#fff',
@@ -23,8 +25,8 @@ const ReverbPad = ({
     >
       {active ? 'ON' : 'OFF'}
     </button>
-    <Potard size={32} min={0} max={1} value={wet} onChange={onWetChange} color={color} />
-    <span style={{ fontSize: '0.55rem', color: '#fff', opacity: 0.7 }}>WET</span>
+    <Potard size={32} min={0} max={1} value={wet} onChange={onWetChange} color={color} ariaLabel="Reverb wet" />
+    <span style={{ fontSize: '0.7rem', color: 'currentColor', opacity: 0.8 }}>WET</span>
   </div>
 );
 

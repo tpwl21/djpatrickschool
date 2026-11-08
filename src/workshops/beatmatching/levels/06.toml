@@ -4,7 +4,7 @@ order = 6
 [en]
 title       = "The Transition"
 short_desc  = "The critical moment. Drop Train B's intro exactly when Train A's outro hits."
-description = "Drop Train B's <strong>Intro 🌅</strong> exactly over Train A's <strong>Outro 🌙</strong>!"
+description = "Drop Train B's <strong>Intro</strong> exactly over Train A's <strong>Outro</strong>!"
 details     = "Focus: Musical phrasing and anticipation."
 success     = "Butter smooth! That transition was magical, you couldn't even see the seams!"
 coach_tips  = [
@@ -23,7 +23,7 @@ recap = [
 [fr]
 title       = "La Transition"
 short_desc  = "Le moment critique. Démarre l'Intro du Train B exactement sur l'Outro du Train A."
-description = "Démarre l'<strong>Intro 🌅</strong> du Train B sur l'<strong>Outro 🌙</strong> du Train A !"
+description = "Démarre l'<strong>Intro</strong> du Train B sur l'<strong>Outro</strong> du Train A !"
 details     = "Focus : Phrasé musical et anticipation."
 success     = "Quelle fluidité ! Ta transition entre les morceaux était magique. On ne voit plus la couture !"
 coach_tips  = [

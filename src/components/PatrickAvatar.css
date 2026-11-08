@@ -1,0 +1,48 @@
+/* Patrick vectoriel — voir PatrickAvatar.jsx */
+.pa-root {
+  --pa-ink: #262626;
+  --pa-hoodie: #4f86d6;
+  --pa-band: #f39a4c;
+  --pa-dome: #8fae64;
+  --pa-lens: rgba(255, 255, 255, 0.18);
+  overflow: visible;
+  display: block;
+}
+.pa-root .line { stroke: var(--pa-ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.pa-root .line:not([fill]) { fill: none; }
+.pa-root .thin { stroke-width: 1.3; }
+.pa-root .brow path { fill: none; stroke: var(--pa-ink); stroke-width: 4.6; stroke-linecap: round; }
+.pa-root .stubble path { fill: none; stroke: var(--pa-ink); stroke-width: 1.05; stroke-linecap: round; }
+
+/* Expressions : un seul jeu visible à la fois */
+.pa-root [data-expr] { display: none; }
+.pa-root[data-expr="content"] [data-expr~="content"],
+.pa-root[data-expr="focus"] [data-expr~="focus"],
+.pa-root[data-expr="surpris"] [data-expr~="surpris"],
+.pa-root[data-expr="victoire"] [data-expr~="victoire"] { display: inline; }
+
+/* Accessoires */
+.pa-root:not([data-casque]) .casque,
+.pa-root:not([data-bonnet]) .bonnet,
+.pa-root[data-shades] .lunettes-vue,
+.pa-root:not([data-shades]) .lunettes-soleil { display: none; }
+.pa-root[data-frame="rect"] .frame-round,
+.pa-root[data-frame="round"] .frame-rect { display: none; }
+
+/* Hochement au tempo (si bpm fourni) + clignement */
+.pa-root[data-bob] .head {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: pa-bob calc(60s / var(--pa-bpm, 120)) ease-in-out infinite;
+}
+@keyframes pa-bob {
+  0%, 50%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(3px) rotate(-2deg); }
+  75% { transform: translateY(3px) rotate(2deg); }
+}
+.pa-root .eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: pa-blink 4.2s infinite; }
+@keyframes pa-blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pa-root[data-bob] .head, .pa-root .eyes { animation: none; }
+}

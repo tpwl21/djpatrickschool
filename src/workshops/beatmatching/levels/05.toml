@@ -67,5 +67,5 @@ tolerance_factor = 0.5
 
 [[markers.A]]
 beat  = 162
-label = "DROP CLAP 👏"
+label = "DROP CLAP"
 color = "#f1c40f"

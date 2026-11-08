@@ -6,7 +6,6 @@ import { useAudioDeck } from '../../hooks/useAudioDeck';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import { BEATS_PER_PHRASE, PHRASES, NUM_PHRASES } from '../../utils/workshopUtils';
 import { PhraseIndicator } from '../../components/TrackViews';
-import CoachPatrick from '../../components/CoachPatrick';
 import AudioVisualizer from '../../components/AudioVisualizer';
 import SimplifiedTimeline from '../../components/SimplifiedTimeline';
 import { getLevel } from '../../lib/levels/load';
@@ -149,7 +148,7 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
   if (!resolvedLevel) {
     return (
       <div className="app-container">
-        <div className="level-header"><h1>Unknown level</h1></div>
+        <div className="level-header"><h1>{t('notFound.title')}</h1><p>{t('notFound.text')}</p></div>
         <button className="btn-crayon" onClick={onBack}>{t('workshop.menu')}</button>
       </div>
     );
@@ -160,6 +159,7 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
   return (
     <div className="app-container">
       <LevelHeader
+        coachTips={coachTips}
         title={title}
         description={description}
         onBack={onBack}
@@ -222,8 +222,6 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
           onNext={handleResultNext}
         />
       )}
-
-      <CoachPatrick tips={coachTips} />
     </div>
   );
 };

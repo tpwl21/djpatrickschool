@@ -43,15 +43,19 @@ const DifficultySwitcher = ({ style = {}, mini = false }) => {
           background: var(--surface-elevated);
         }
         .difficulty-switcher .diff-btn.active {
-          background: var(--primary, #5DADE2);
-          color: #fff;
+          /* teinte éclaircie de la couleur d'atelier : texte encre lisible quelle que soit la couleur (rouge, violet…) */
+          background: color-mix(in srgb, var(--primary, #5DADE2) 55%, #fff);
+          color: #2b2b2b;
           border-color: #333;
           transform: translate(2px, 2px);
           box-shadow: 0px 0px 0 rgba(0,0,0,0);
         }
+        /* version compacte (barre des niveaux) : cible tactile 32px minimum */
         .difficulty-switcher.mini .diff-btn {
+          min-width: 32px;
+          min-height: 32px;
           padding: 4px 8px;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
         }
       `}} />
     </div>

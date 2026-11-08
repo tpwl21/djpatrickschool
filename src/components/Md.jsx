@@ -155,7 +155,7 @@ const Md = ({ children, className = '' }) => {
           border: 1.5px solid color-mix(in srgb, var(--text, #333) 15%, transparent);
           padding: 1px 6px;
           border-radius: 5px;
-          font-family: 'Courier New', Courier, monospace;
+          font-family: ui-monospace, Menlo, Consolas, monospace;
           font-size: 0.88em;
           font-weight: 700;
           color: var(--text, #333);
@@ -218,8 +218,8 @@ const Md = ({ children, className = '' }) => {
           background: #1c1c2e;
           color: #c8d8ff;
           border-radius: 14px;
-          border-left: 4px solid var(--lesson-color, #5DADE2);
-          font-family: 'Courier New', Courier, monospace;
+          border: 3px solid var(--lesson-color, #5DADE2);
+          font-family: ui-monospace, Menlo, Consolas, monospace;
           font-size: 0.95rem;
           line-height: 1.8;
           white-space: pre;

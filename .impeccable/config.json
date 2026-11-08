@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "public/__proto/vectorisation.html"
+        ],
+        "createdAt": "2026-11-08T15:16:05.502Z",
+        "reason": "DESIGN.md: #f1ece3 is the documented EASY room token (Daytime Paper); prototypes reuse the project palette on purpose"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "public/__proto/patrick-avatar.html"
+        ],
+        "createdAt": "2026-11-08T15:16:05.539Z",
+        "reason": "DESIGN.md: #f1ece3 is the documented EASY room token (Daytime Paper); prototypes reuse the project palette on purpose"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "public/__proto/logo.html"
+        ],
+        "createdAt": "2026-11-08T15:33:00.939Z",
+        "reason": "DESIGN.md: #f1ece3 is the documented EASY room token (Daytime Paper); prototype reuses the project palette on purpose"
+      }
+    ]
+  }
+}

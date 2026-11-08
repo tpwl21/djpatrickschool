@@ -11,10 +11,12 @@ import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { useMidiControl } from '../hooks/useMidiControl';
 import MidiSelector from '../components/MidiSelector';
 import { DIFFICULTY_SETTINGS, CURRENT_DIFFICULTY } from '../constants/difficulty';
-import professorImg from '../assets/professor_patrick.png';
-import agentImg from '../assets/angry_soundguy_patrick.png';
+import agentImg from '../assets/angry_soundguy_patrick.webp';
 import { HARMONY_POOL } from '../constants/tracks';
 import { getAllTracks } from '../lib/levels/load';
+import Glyph from '../components/Glyph';
+import CoachPatrick from '../components/CoachPatrick';
+import { useMobileDetection } from '../hooks/useMobileDetection';
 
 const THEMES = {
   light: {
@@ -25,7 +27,7 @@ const THEMES = {
     mixerBg: '#dedede',
     mixerText: '#333',
     shadow: '15px 15px 0 rgba(0,0,0,0.05)',
-    accent: '#2ecc71',
+    accent: '#1e8449', // vert foncé : lisible en texte sur fond blanc
     play: '#2ecc71',
     pause: '#ff6b6b',
     sync: '#9b59b6',
@@ -34,7 +36,7 @@ const THEMES = {
     btnBg: '#f0f0f0',
     btnText: '#333',
     btnBorder: '#333',
-    coachFilter: 'drop-shadow(0 10px 10px rgba(0,0,0,0.2))'
+    coachFilter: 'var(--sticker-shadow)'
   },
   dark: {
     bg: '#002b36',
@@ -42,9 +44,9 @@ const THEMES = {
     border: '#586e75',
     text: '#93a1a1',
     mixerBg: '#002b36',
-    mixerText: '#268bd2',
+    mixerText: '#5aaeea', // éclairci pour ≥4.5:1 sur le fond nuit
     shadow: '0 10px 30px rgba(0,0,0,0.5)',
-    accent: '#859900',
+    accent: '#9db300',
     play: '#859900',
     pause: '#dc322f',
     sync: '#6c71c4',
@@ -53,7 +55,7 @@ const THEMES = {
     btnBg: '#073642',
     btnText: '#93a1a1',
     btnBorder: '#586e75',
-    coachFilter: 'drop-shadow(0 0 20px rgba(38,139,210,0.3))'
+    coachFilter: 'var(--sticker-shadow)'
   }
 };
 
@@ -126,13 +128,13 @@ const VUMeter = ({ audioCtx, deckId, theme }) => {
         flexDirection: 'column', 
         justifyContent: 'space-between', 
         height: '90px', 
-        fontSize: '0.45rem', 
-        color: 'rgba(255,255,255,0.4)', 
+        fontSize: '0.7rem', 
+        color: theme.mixerText, 
         fontWeight: 900,
         padding: '2px 0'
       }}>
-        <span style={{ color: '#e74c3c' }}>+3</span>
-        <span style={{ color: '#f1c40f' }}>0</span>
+        <span style={{ color: theme === THEMES.dark ? '#f2645f' : '#a93226' }}>+3</span>
+        <span style={{ color: theme === THEMES.dark ? '#b58900' : '#8a4a07' }}>0</span>
         <span>-6</span>
         <span>-12</span>
         <span>-20</span>
@@ -175,7 +177,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
           backdropFilter: 'blur(2px)'
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-            <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 2, ease: "linear" }} style={{ fontSize: '2rem' }}>💿</motion.div>
+            <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 2, ease: "linear" }} style={{ lineHeight: 0 }}><Glyph name="vinyl" size="2.2rem" shadow /></motion.div>
             <div style={{ fontWeight: 900, fontSize: '0.8rem', color: '#333' }}>LOADING...</div>
           </div>
         </div>
@@ -194,7 +196,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
           }}>
             {state.config && state.config.url ? state.config.title : t('booth.status.noTrackShort')}
           </div>
-          <div style={{ fontSize: '0.7rem', fontWeight: 'bold', color: theme.sync, letterSpacing: '1px' }}>
+          <div style={{ fontSize: '0.7rem', fontWeight: 'bold', color: theme.text, letterSpacing: '1px' }}>
             {state.config ? state.config.bpm : 120} BPM <span style={{ opacity: 0.5 }}>→</span> <span style={{ color: theme.accent }}>{( (state.config ? state.config.bpm : 120) * state.pitch ).toFixed(1)} BPM</span> • {state.config ? state.config.key : "-"}
           </div>
         </div>
@@ -211,7 +213,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
 
       <div style={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span style={{ fontSize: '0.6rem', fontWeight: 900, opacity: 0.4, marginBottom: '5px' }}>{t('booth.controls.pitch')}</span>
+          <span style={{ fontSize: '0.7rem', fontWeight: 900, opacity: 0.4, marginBottom: '5px' }}>{t('booth.controls.pitch')}</span>
           <PitchBlock
             nativeBpm={state.config.bpm}
             rate={state.pitch}
@@ -249,7 +251,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
           style={{ 
             flex: 1, 
             background: state.isLoading ? '#95a5a6' : '#f1c40f', 
-            color: '#fff',
+            color: '#2b2b2b',
             opacity: state.isLoading ? 0.5 : 1,
             cursor: state.isLoading ? 'not-allowed' : 'pointer'
           }}
@@ -266,7 +268,7 @@ const DeckUI = ({ deckId, state, setState, onPlay, onCue, onSync, onLoad, audioC
   );
 };
 
-const SecretBooth = ({ onBack }) => {
+const SecretBoothFull = ({ onBack }) => {
   const { language, t } = useContext(LanguageContext);
   const [audioCtx, setAudioCtx] = useState(null);
   const [isReady, setIsReady] = useState(false);
@@ -316,7 +318,6 @@ const SecretBooth = ({ onBack }) => {
   const [isAgentAngry, setIsAgentAngry] = useState(false);
   const [agentTip, setAgentTip] = useState("");
   const [isAgentDismissed, setIsAgentDismissed] = useState(false);
-  const [isProfDismissed, setIsProfDismissed] = useState(false);
   const [saturationIntensity, setSaturationIntensity] = useState(0);
   const [crossfader, setCrossfader] = useState(0.5);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -761,7 +762,7 @@ const SecretBooth = ({ onBack }) => {
       display: 'flex',
       flexDirection: 'column',
       gap: '8px',
-      overflow: 'hidden',
+      overflowY: 'auto',
       color: theme.text,
       transition: 'background 0.3s, color 0.3s'
     }}>
@@ -820,12 +821,12 @@ const SecretBooth = ({ onBack }) => {
             </motion.div>
           )}
           {!isRecording ? (
-            <button className="btn-crayon" style={{ background: '#ff6b6b', color: '#fff' }} onClick={startRec}>{t('booth.recording.start')}</button>
+            <button className="btn-crayon" style={{ background: '#ff6b6b', color: '#2b2b2b' }} onClick={startRec}>{t('booth.recording.start')}</button>
           ) : (
             <button className="btn-crayon" style={{ background: '#333', color: '#fff' }} onClick={stopRec}>{t('booth.recording.stop')}</button>
           )}
           {recordingResult && (
-            <a href={recordingResult.url} download="patrick_mix.ogg" className="btn-crayon" style={{ background: '#2ecc71', color: '#fff', textDecoration: 'none' }}>
+            <a href={recordingResult.url} download="patrick_mix.ogg" className="btn-crayon" style={{ background: '#2ecc71', color: '#2b2b2b', textDecoration: 'none' }}>
               {t('booth.recording.download')}
             </a>
           )}
@@ -838,12 +839,18 @@ const SecretBooth = ({ onBack }) => {
         </div>
       )}
 
+      {/* Coach en bandeau dans le flux (comme dans les niveaux) : ne recouvre plus les decks */}
+      <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}>
+        <CoachPatrick tips={[profTip]} />
+      </div>
+
       <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}>
         <SpectrumVisualizer audioCtx={audioCtx} deckA={deckA} deckB={deckB} configA={deckA.config} configB={deckB.config} theme={theme} />
       </div>
 
-      <div style={{
+      <div className="booth-main" style={{
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'stretch',
         gap: '12px',
@@ -854,6 +861,8 @@ const SecretBooth = ({ onBack }) => {
         minHeight: 0,
         paddingBottom: '10px'
       }}>
+        {/* Tablette (< 1024px) : decks côte à côte, mixer + bibliothèque en dessous sur toute la largeur */}
+        <style>{`@media (max-width: 1023px) { .booth-main .center-booth-column { order: 3; flex-basis: 100% !important; min-width: 0 !important; } }`}</style>
         {/* DECK A at the Left */}
         <DeckUI deckId="A" state={deckA} setState={setDeckA} onPlay={togglePlay} onCue={handleCue} onSync={handleSync} audioCtxRef={audioCtxRef} theme={theme} />
 
@@ -893,7 +902,7 @@ const SecretBooth = ({ onBack }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '0.6rem',
+              fontSize: '0.7rem',
               fontWeight: 900,
               color: '#333',
               boxShadow: theme.shadow,
@@ -916,13 +925,14 @@ const SecretBooth = ({ onBack }) => {
                
                {/* Channel A (Left) */}
                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 900, color: '#4ecdc4', opacity: 0.6 }}>CH A</div>
+                  <div style={{ fontSize: '0.7rem', fontWeight: 900, color: theme.mixerText }}>CH A</div>
 
                   <GainKnob
                     value={deckA.gain}
                     onChange={v => setDeckA(prev => ({ ...prev, gain: v }))}
                     color="#4ecdc4"
                     size={22}
+                    labelColor={theme.mixerText}
                   />
 
                   <EqKnobs
@@ -931,6 +941,7 @@ const SecretBooth = ({ onBack }) => {
                     color="#4ecdc4"
                     size={38}
                     gap={6}
+                    labelColor={theme.mixerText}
                   />
 
                   <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', marginTop: '4px' }}>
@@ -939,8 +950,8 @@ const SecretBooth = ({ onBack }) => {
                       value={deckA.volume}
                       onChange={v => setDeckA(prev => ({ ...prev, volume: v }))}
                       handleColor={theme.vol}
-                      labelColor={theme.vol}
-                      labelSize="0.6rem"
+                      labelColor={theme.mixerText}
+                      labelSize="0.7rem"
                       trackLength={90}
                       handleSize={40}
                     />
@@ -952,13 +963,14 @@ const SecretBooth = ({ onBack }) => {
 
                {/* Channel B (Right) */}
                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 900, color: '#5DADE2', opacity: 0.6 }}>CH B</div>
+                  <div style={{ fontSize: '0.7rem', fontWeight: 900, color: theme.mixerText }}>CH B</div>
 
                   <GainKnob
                     value={deckB.gain}
                     onChange={v => setDeckB(prev => ({ ...prev, gain: v }))}
                     color="#5DADE2"
                     size={22}
+                    labelColor={theme.mixerText}
                   />
 
                   <EqKnobs
@@ -967,6 +979,7 @@ const SecretBooth = ({ onBack }) => {
                     color="#5DADE2"
                     size={38}
                     gap={6}
+                    labelColor={theme.mixerText}
                   />
 
                   <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', marginTop: '4px' }}>
@@ -974,8 +987,8 @@ const SecretBooth = ({ onBack }) => {
                       value={deckB.volume}
                       onChange={v => setDeckB(prev => ({ ...prev, volume: v }))}
                       handleColor={theme.vol}
-                      labelColor={theme.vol}
-                      labelSize="0.6rem"
+                      labelColor={theme.mixerText}
+                      labelSize="0.7rem"
                       trackLength={90}
                       handleSize={40}
                     />
@@ -1022,56 +1035,6 @@ const SecretBooth = ({ onBack }) => {
 
       {/* Characters Layer */}
       <div className="booth-coach-layer" style={{ pointerEvents: 'none' }}>
-          {/* Professor Patrick - Top Left */}
-          {!isProfDismissed && (
-            <div className="professor-booth" style={{ 
-              position: 'absolute', 
-              top: '80px', 
-              left: '20px', 
-              display: 'flex', 
-              alignItems: 'center', 
-              pointerEvents: 'auto',
-              zIndex: 100
-            }}>
-               <img src={professorImg} style={{ filter: theme.coachFilter }} />
-               <div className="speech-bubble-magic" style={{ 
-                 background: '#fff', 
-                 border: '4px solid #333', 
-                 borderRadius: '20px', 
-                 padding: '10px 15px', 
-                 maxWidth: '220px',
-                 marginLeft: '-10px',
-                 marginTop: '-100px',
-                 position: 'relative',
-                 boxShadow: '8px 8px 0 rgba(0,0,0,0.05)',
-                 fontWeight: 900,
-                 fontSize: '0.85rem'
-               }}>
-                 <button 
-                  onClick={() => setIsProfDismissed(true)}
-                  style={{
-                    position: 'absolute',
-                    top: '5px',
-                    right: '10px',
-                    background: 'none',
-                    border: 'none',
-                    color: '#333',
-                    fontSize: '1.2rem',
-                    cursor: 'pointer',
-                    fontWeight: 900,
-                    lineHeight: 1,
-                    opacity: 0.3
-                  }}
-                  className="dismiss-prof"
-                 >
-                  ×
-                 </button>
-                 {profTip}
-                 <div style={{ position: 'absolute', bottom: '-15px', left: '20px', width: 0, height: 0, borderTop: '15px solid #333', borderRight: '15px solid transparent' }} />
-               </div>
-            </div>
-          )}
-
           {/* Angry Sound Guy - Center Overlay */}
           <AnimatePresence>
             {isAgentAngry && (
@@ -1130,7 +1093,7 @@ const SecretBooth = ({ onBack }) => {
                       {agentTip}
                       <div style={{ position: 'absolute', bottom: '-20px', left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderTop: '20px solid #333', borderLeft: '20px solid transparent', borderRight: '20px solid transparent' }} />
                     </div>
-                    <img src={agentImg} style={{ width: '320px', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.4))' }} />
+                    <img src={agentImg} alt="Agent Patrick" style={{ width: '320px', filter: 'var(--sticker-shadow)' }} />
                  </div>
               </motion.div>
             )}
@@ -1157,6 +1120,33 @@ const SecretBooth = ({ onBack }) => {
       `}} />
     </div>
   );
+};
+
+// Sur téléphone, le booth complet (2 decks + mixer) ne tient pas : écran de garde avec Patrick.
+const BoothPhoneGate = ({ onBack }) => {
+  const { t } = useContext(LanguageContext);
+  return (
+    <div className="app-container booth-gate">
+      <img src={agentImg} alt="" className="booth-gate-img" />
+      <div className="booth-gate-bubble">
+        <h1>{t('booth.mobileGate.title')}</h1>
+        <p>{t('booth.mobileGate.text')}</p>
+      </div>
+      <button className="btn-crayon nudge-btn" onClick={onBack}>{t('booth.mobileGate.back')}</button>
+      <style>{`
+        .booth-gate { align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 24px 16px; }
+        .booth-gate-img { width: min(70vw, 260px); filter: var(--sticker-shadow); }
+        .booth-gate-bubble { background: #fff; color: #2b2b2b; border: 3px solid #333; border-radius: 20px; padding: 14px 18px; max-width: 34ch; box-shadow: 4px 4px 0 rgba(0,0,0,0.12); }
+        .booth-gate-bubble h1 { font-size: 1.4rem; margin: 0 0 6px; }
+        .booth-gate-bubble p { margin: 0; line-height: 1.45; }
+      `}</style>
+    </div>
+  );
+};
+
+const SecretBooth = (props) => {
+  const isPhone = useMobileDetection(699);
+  return isPhone ? <BoothPhoneGate {...props} /> : <SecretBoothFull {...props} />;
 };
 
 export default SecretBooth;

@@ -45,7 +45,7 @@ const VuMeter = ({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
       {showLabel && (
-        <span style={{ fontSize: '0.65rem', fontWeight: 900, color: '#fff', letterSpacing: 1 }}>{label}</span>
+        <span style={{ fontSize: '0.7rem', fontWeight: 900, color: '#fff', letterSpacing: 1 }}>{label}</span>
       )}
       <svg width={width} height={height} style={{ overflow: 'visible' }}>
         {/* Track background — full 3-zone gradient greyed out */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackPreviewPlayer from './TrackPreviewPlayer';
+import Glyph from './Glyph';
 
 const Fiche = ({ candidate }) => (
   <div style={{
@@ -14,7 +15,7 @@ const Fiche = ({ candidate }) => (
     {candidate.year != null && (<><b>Year</b><span>{candidate.year}</span></>)}
     {candidate.country && (<><b>Country</b><span>{candidate.country}</span></>)}
     {candidate.format && (<><b>Format</b><span>{candidate.format}</span></>)}
-    {candidate.energy != null && (<><b>Energy</b><span>{'⚡'.repeat(Math.max(1, candidate.energy))}</span></>)}
+    {candidate.energy != null && (<><b>Energy</b><span aria-label={`${candidate.energy}/5`}>{Array.from({ length: Math.max(1, candidate.energy) }, (_, i) => <Glyph key={i} name="bolt" size="1em" />)}</span></>)}
   </div>
 );
 

@@ -3,6 +3,7 @@ import { LanguageContext } from '../hooks/LanguageContext';
 import PitchFader from './PitchFader';
 import MasterTempoSwitch from './MasterTempoSwitch';
 import { rateToSemitones } from '../lib/keys';
+import { inkOn } from '../utils/color';
 
 // Shared pitch control block: optional master-tempo switch on top, optional target-BPM badge,
 // a vertical (or horizontal) PitchFader, and a user-toggleable readout (BPM / % / semitones).
@@ -59,6 +60,13 @@ const PitchBlock = ({
   const resolvedPercentColor = typeof percentColor === 'function' ? percentColor(rate)
     : percentColor ?? color;
 
+  // Pastille de lecture : fond = couleur de signal, texte encre ou blanc selon la luminance (lisible sur tous les thèmes)
+  const readoutStyle = (bg) => ({
+    fontWeight: 900, fontSize: '1rem', padding: '2px 10px', borderRadius: 10,
+    border: '2px solid #333', background: bg, color: inkOn(bg),
+    fontVariantNumeric: 'tabular-nums',
+  });
+
   const availableModes = [
     showBpm && 'bpm',
     showPercent && 'percent',
@@ -109,21 +117,22 @@ const PitchBlock = ({
         trackLength={trackLength}
         handleColor={color}
         label={label}
+        ariaLabel={label || 'Pitch'}
       />
       {activeMode && (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 4, gap: 4 }}>
           {activeMode === 'bpm' && (
-            <div style={{ fontWeight: 900, color: resolvedBpmColor, fontSize: '1rem' }}>
+            <div style={readoutStyle(resolvedBpmColor)}>
               {effBpm.toFixed(1)} BPM
             </div>
           )}
           {activeMode === 'percent' && (
-            <div style={{ fontWeight: 900, color: resolvedPercentColor, fontSize: '1rem' }}>
+            <div style={readoutStyle(resolvedPercentColor)}>
               {pctFromBaseline >= 0 ? '+' : ''}{pctFromBaseline.toFixed(1)}%
             </div>
           )}
           {activeMode === 'semitones' && (
-            <div style={{ fontWeight: 900, color: resolvedPercentColor, fontSize: '1rem' }}>
+            <div style={readoutStyle(resolvedPercentColor)}>
               {rateToSemitones(rate) >= 0 ? '+' : ''}{rateToSemitones(rate).toFixed(2)} st
             </div>
           )}
@@ -135,12 +144,13 @@ const PitchBlock = ({
                   onClick={() => setActiveMode(mode)}
                   style={{
                     background: mode === activeMode ? color : 'transparent',
-                    border: `1px solid ${mode === activeMode ? color : '#ccc'}`,
+                    border: `1px solid ${mode === activeMode ? color : 'currentColor'}`,
                     borderRadius: 4,
                     cursor: 'pointer',
-                    fontSize: '0.55rem',
+                    fontSize: '0.7rem',
                     fontWeight: 700,
-                    color: mode === activeMode ? '#fff' : '#999',
+                    color: mode === activeMode ? inkOn(color) : 'inherit', // hérite du conteneur : carte claire ou fond du thème
+                    opacity: mode === activeMode ? 1 : 0.75,
                     padding: '1px 5px',
                     lineHeight: 1.4,
                   }}

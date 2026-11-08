@@ -121,7 +121,7 @@ Grid of track cards with cover-art placeholder, preview button, and fiche (BPM/K
 Re-exports `EqKnobs`, `GainKnob`, `VolumeFader`, `Crossfader`. Used by EQ workshop and Secret Booth.
 
 ### Other primitives
-`NudgeButton`, `Potard`, `TrackPreviewPlayer`, `SpectrumVisualizer`, `AudioVisualizer`, `Cinematic`, `CoachPatrick`, `LessonMedia`, `PhraseIndicator`, `SimplifiedTimeline`. Check the file for its prop contract.
+`NudgeButton`, `Potard`, `TrackPreviewPlayer`, `SpectrumVisualizer`, `AudioVisualizer`, `Cinematic`, `CoachPatrick`, `LessonMedia`, `PhraseIndicator`, `SimplifiedTimeline`, `Glyph` (house pictograms — use it instead of emoji). Check the file for its prop contract.
 
 ## Anti-patterns
 

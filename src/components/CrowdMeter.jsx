@@ -1,4 +1,5 @@
 import React from 'react';
+import Glyph from './Glyph';
 
 const MOMENT_LABELS = {
   opening:   { fr: 'OUVERTURE',   en: 'OPENING' },
@@ -76,7 +77,7 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
           {momentLabel}
         </div>
         <div style={{ display: 'flex', gap: 12, fontSize: '0.7rem', fontWeight: 700 }}>
-          <span>Energy: <b style={{ color }}>{'⚡'.repeat(energy)}</b></span>
+          <span>Energy: <b style={{ color }} aria-label={`${energy}/5`}>{Array.from({ length: energy }, (_, i) => <Glyph key={i} name="bolt" size="1em" />)}</b></span>
           <span>Density: <b style={{ color }}>{'●'.repeat(density)}</b></span>
         </div>
       </div>
@@ -86,7 +87,7 @@ const CrowdMeter = ({ crowd = {}, language = 'fr', color = '#D4A017' }) => {
           {tags.map((tag) => (
             <span key={tag} style={{
               background: '#f5f5f5', border: '2px solid #333', padding: '2px 8px',
-              borderRadius: 10, fontSize: '0.65rem', fontWeight: 700, color: '#333',
+              borderRadius: 10, fontSize: '0.7rem', fontWeight: 700, color: '#333',
             }}>
               #{tag}
             </span>

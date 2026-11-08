@@ -8,7 +8,7 @@ const FilterKnob = ({
   size = 55,
   label = 'FILTER',
   showLabel = true,
-  labelColor = '#fff',
+  labelColor = 'currentColor',
   labelFontSize = '0.7rem',
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
@@ -25,8 +25,9 @@ const FilterKnob = ({
       value={value}
       onChange={onChange}
       color={color}
+      ariaLabel={label}
     />
-    <div style={{ display: 'flex', gap: 18, fontSize: '0.55rem', color: labelColor, opacity: 0.7, marginTop: 2 }}>
+    <div style={{ display: 'flex', gap: 18, fontSize: '0.7rem', color: labelColor, opacity: 0.7, marginTop: 2 }}>
       <span>LO</span><span>HI</span>
     </div>
   </div>

@@ -10,6 +10,8 @@
 }
 
 :root {
+  /* ombre des autocollants Patrick : décalage net, pas de flou (Drawn Shadow Rule) */
+  --sticker-shadow: drop-shadow(4px 5px 0 rgba(51, 51, 51, 0.3));
   --text-dark: #2d2d2d;
   --coach-blue: #4a90e2;
 }
@@ -32,3 +34,40 @@ button, a {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+/* Focus clavier visible partout, à l'encre du thème courant */
+:focus-visible {
+  outline: 3px dashed var(--border-strong);
+  outline-offset: 3px;
+}
+
+/* Moins d'animations : les pulsations en boucle jouent une seule fois, les rebonds deviennent de simples fondus.
+   Le défilement des trains (piloté en JS) reste : c'est l'information de jeu elle-même. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .theme-transition-content {
+    animation-name: theme-fade !important;
+  }
+}
+@keyframes theme-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Pas de sélection de texte ni de glisser d'image : ça gêne les gestes (faders, potards, pads) et le tap long mobile.
+   Les champs de saisie restent sélectionnables. */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+img {
+  -webkit-user-drag: none;
+}

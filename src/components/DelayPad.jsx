@@ -17,9 +17,11 @@ const DelayPad = ({
   color = '#9b59b6',
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-    <span style={{ fontSize: '0.7rem', color: '#fff', fontWeight: 900, letterSpacing: 1 }}>DELAY</span>
+    <span style={{ fontSize: '0.7rem', color: 'currentColor', fontWeight: 900, letterSpacing: 1 }}>DELAY</span>
     <button
       onClick={() => onToggle(!active)}
+      aria-pressed={active}
+      aria-label="Delay"
       style={{
         width: 70, height: 50, border: '3px solid #333',
         background: active ? color : '#444', color: '#fff',
@@ -37,7 +39,7 @@ const DelayPad = ({
           key={opt.label}
           onClick={() => onTimeChange(opt.value)}
           style={{
-            padding: '4px 8px', fontSize: '0.65rem', fontWeight: 900,
+            padding: '4px 8px', fontSize: '0.7rem', fontWeight: 900,
             background: Math.abs(timeBeats - opt.value) < 0.01 ? color : '#333',
             color: '#fff', border: '2px solid #222', borderRadius: 4, cursor: 'pointer',
           }}
@@ -46,8 +48,8 @@ const DelayPad = ({
         </button>
       ))}
     </div>
-    <Potard size={32} min={0} max={1} value={mix} onChange={onMixChange} color={color} />
-    <span style={{ fontSize: '0.55rem', color: '#fff', opacity: 0.7 }}>WET</span>
+    <Potard size={32} min={0} max={1} value={mix} onChange={onMixChange} color={color} ariaLabel="Delay wet" />
+    <span style={{ fontSize: '0.7rem', color: 'currentColor', opacity: 0.8 }}>WET</span>
   </div>
 );
 

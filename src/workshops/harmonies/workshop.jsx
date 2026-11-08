@@ -7,7 +7,6 @@ import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
 import { useWinSequence } from '../../hooks/useWinSequence';
 import { LanguageContext } from '../../hooks/LanguageContext';
-import CoachPatrick from '../../components/CoachPatrick';
 import AudioVisualizer from '../../components/AudioVisualizer';
 import { getLevel } from '../../lib/levels/load';
 import { t as pickText } from '../../lib/levels/schema';
@@ -213,7 +212,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
   if (!resolvedLevel) {
     return (
       <div className="app-container">
-        <div className="level-header"><h1>Unknown level</h1></div>
+        <div className="level-header"><h1>{t('notFound.title')}</h1><p>{t('notFound.text')}</p></div>
         <button className="btn-crayon" onClick={onBack}>{t('workshop.menu')}</button>
       </div>
     );
@@ -235,6 +234,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
   return (
     <div className="app-container">
       <LevelHeader
+        coachTips={coachTips}
         title={title}
         description={description}
         onBack={onBack}
@@ -244,7 +244,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
         {/* Status HUD */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
           <div style={{
-            background: isOk ? '#27ae60' : '#e74c3c', color: 'white',
+            background: isOk ? '#1e8449' : '#c0392b', color: 'white',
             padding: '6px 16px', borderRadius: 12, fontSize: '0.8rem',
             fontWeight: 900, border: '2px solid #333',
             maxWidth: 560, textAlign: 'center',
@@ -312,8 +312,6 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
         <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'Harmonie parfaite !'} title={title} grade={grade} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
-
-      <CoachPatrick tips={coachTips} />
     </div>
   );
 };

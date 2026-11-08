@@ -29,3 +29,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Captures et scripts de test locaux (Playwright MCP)
+.playwright-mcp/
+# Prototypes locaux (non déployés)
+public/__proto/
+# Cache local du hook Impeccable
+.impeccable/hook.cache.json

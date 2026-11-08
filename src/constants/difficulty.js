@@ -24,3 +24,6 @@ export const DIFFICULTY_SETTINGS = {
 
 // Global config - Change this to switch difficulty across all levels
 export const CURRENT_DIFFICULTY = 'EASY'; 
+
+// Couleurs de difficulté (pastilles, badges E/M/P). Assez foncées pour porter du texte blanc (≥4.5:1).
+export const DIFF_COLORS = { EASY: '#1e8449', MEDIUM: '#b45309', PRO: '#c0392b' };

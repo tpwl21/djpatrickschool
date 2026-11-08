@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import professorImg from '../assets/professor_patrick.png';
+import professorImg from '../assets/professor_patrick.webp';
 
 const GraduationPopup = ({ difficulty, onBackHome }) => {
   const diffNames = {

@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LevelPopup from './LevelPopup';
 import BookIcon from './BookIcon';
 import { LanguageContext } from '../hooks/LanguageContext';
-import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
+import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
 import { useDifficulty } from '../hooks/useDifficulty.jsx';
 import { getWorkshop } from '../lib/levels/load';
 import { t as pickText } from '../lib/levels/schema';
 import DifficultySwitcher from './DifficultySwitcher';
 import LanguageSwitcher from './LanguageSwitcher';
+import Glyph from './Glyph';
+import { inkOn } from '../utils/color';
 
-const DIFF_COLORS = { EASY: '#27ae60', MEDIUM: '#e67e22', PRO: '#e74c3c' };
 
 const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 }, onStart, onStartLesson, onBack }) => {
   const { language, t } = useContext(LanguageContext);
@@ -21,8 +22,8 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
   if (!workshop) {
     return (
       <div className="workshop-home-container">
-        <h1>Unknown workshop: {workshopId}</h1>
-        <button className="btn-crayon" onClick={onBack}>{t('home.popup.cancel')}</button>
+        <h1>{t('notFound.title')}</h1>
+        <button className="btn-crayon" onClick={onBack}>{t('notFound.back')}</button>
       </div>
     );
   }
@@ -42,7 +43,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
   const completedPractice = unlockedOrder.completedPractice || {};
 
   return (
-    <div className="workshop-home-container" style={{ '--wh-color': color, '--primary': color }}>
+    <div className="workshop-home-container" style={{ '--wh-color': color, '--wh-ink': inkOn(color), '--primary': color }}>
       <div className="wh-top-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', gap: '15px' }}>
           <button className="btn-crayon wh-back-btn" onClick={onBack}>← {t('workshop.menu')}</button>
@@ -71,7 +72,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
 
         {objectives.length > 0 && (
           <div className="wh-objectives">
-            <h3>{language === 'fr' ? 'OBJECTIFS' : 'OBJECTIVES'}</h3>
+            <h2>{language === 'fr' ? 'OBJECTIFS' : 'OBJECTIVES'}</h2>
             <ul>
               {objectives.map((obj, i) => (
                 <li key={i}>{obj}</li>
@@ -106,7 +107,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
                     onClick={() => !isLocked && onStartLesson(workshopId, lesson.order)}
                     disabled={isLocked}
                   >
-                    <div className="wh-level-num">{isLocked ? '🔒' : `L${lesson.order}`}</div>
+                    <div className="wh-level-num">{isLocked ? <Glyph name="lock" label={language === 'fr' ? 'Verrouillé' : 'Locked'} /> : `L${lesson.order}`}</div>
                     <div className="wh-level-body">
                       <div className="wh-level-title">{isLocked ? '???' : lessonTitle}</div>
                       {!isLocked && <div className="wh-level-desc">{lessonDesc}</div>}
@@ -149,7 +150,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
                   onClick={() => !isLocked && setSelectedLevel(level)}
                   disabled={isLocked}
                 >
-                  <div className="wh-level-num">{isLocked ? '🔒' : level.order}</div>
+                  <div className="wh-level-num">{isLocked ? <Glyph name="lock" label={language === 'fr' ? 'Verrouillé' : 'Locked'} /> : level.order}</div>
                   <div className="wh-level-body">
                     <div className="wh-level-title">{isLocked ? '???' : levelTitle}</div>
                     {!isLocked && <div className="wh-level-desc">{levelDesc}</div>}
@@ -235,7 +236,12 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
         .wh-title {
           font-size: clamp(2.5rem, 6vw, 4rem);
           margin: 0 0 10px 0;
-          color: var(--wh-color);
+          color: var(--text);
+          /* la couleur de l'atelier passe en trait de feutre sous le titre (lisible sur tous les thèmes) */
+          text-decoration: underline;
+          text-decoration-color: var(--wh-color);
+          text-decoration-thickness: 6px;
+          text-underline-offset: 8px;
           letter-spacing: -1px;
           font-weight: 900;
         }
@@ -249,6 +255,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           flex: 1;
           max-width: 220px;
           height: auto;
+          filter: var(--sticker-shadow);
           mix-blend-mode: multiply;
         }
         .wh-body {
@@ -268,7 +275,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           border-radius: 20px;
           padding: 20px 30px;
         }
-        .wh-objectives h3 {
+        .wh-objectives h2 {
           font-size: 0.8rem;
           letter-spacing: 2px;
           color: var(--text-muted, #888);
@@ -349,8 +356,8 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           height: 50px;
           border-radius: 50%;
           background: var(--wh-color);
-          color: #fff;
-          font-size: 1.1rem;
+          color: var(--wh-ink, #2b2b2b);
+          font-size: 1.2rem;
           font-weight: 900;
           display: flex;
           align-items: center;
@@ -401,7 +408,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           height: 18px;
           border-radius: 4px;
           color: #fff;
-          font-size: 0.65rem;
+          font-size: 0.7rem;
           font-weight: 900;
           letter-spacing: 0;
         }

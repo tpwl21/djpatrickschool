@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDifficulty } from '../hooks/useDifficulty.jsx';
-import easyImg from '../assets/easy_patrick.png';
-import mediumImg from '../assets/medium_patrick.png';
-import proImg from '../assets/pro_patrick.png';
+import easyImg from '../assets/easy_patrick.webp';
+import mediumImg from '../assets/medium_patrick.webp';
+import proImg from '../assets/pro_patrick.webp';
 
 const ASSETS = { 
   EASY: easyImg, 
@@ -68,7 +68,7 @@ export default function ThemeTransition() {
         .theme-transition-logo {
           width: clamp(200px, 40vw, 400px);
           height: auto;
-          filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+          filter: var(--sticker-shadow);
         }
 
         .theme-transition-label {

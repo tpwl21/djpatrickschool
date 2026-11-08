@@ -20,10 +20,11 @@ const MasterTempoSwitch = ({ value, onChange, color = '#8E44AD', highlight = fal
       style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
         background: 'transparent', border: 'none', cursor: 'pointer', padding: 4,
+        color: 'inherit', // un <button> n'hérite pas la couleur par défaut
         animation: highlight ? 'mtPulse 1s infinite' : 'none',
       }}
     >
-      <span style={{ fontSize: '0.6rem', fontWeight: 900, letterSpacing: '1px', color: value ? color : '#888' }}>
+      <span style={{ fontSize: '0.7rem', fontWeight: 900, letterSpacing: '1px', color: value ? color : 'inherit', opacity: value ? 1 : 0.8 }}>
         {label}
       </span>
       <span style={{
@@ -40,7 +41,7 @@ const MasterTempoSwitch = ({ value, onChange, color = '#8E44AD', highlight = fal
           transition: 'left 0.18s',
         }} />
       </span>
-      <span style={{ fontSize: '0.55rem', fontWeight: 700, opacity: 0.6 }}>{sub}</span>
+      <span style={{ fontSize: '0.7rem', fontWeight: 700, opacity: 0.8 }}>{sub}</span>
       <style>{`@keyframes mtPulse {0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}`}</style>
     </button>
   );

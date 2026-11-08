@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T13:30:00Z",
+  "title": "Design System: DJ Patrick School",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Felt Ink",
+        "tonalRamp": [
+          "#111111",
+          "#222222",
+          "#333333",
+          "#555555",
+          "#777777",
+          "#999999",
+          "#cccccc",
+          "#eeeeee"
+        ]
+      },
+      "crayon-teal": {
+        "role": "primary",
+        "displayName": "Crayon Teal",
+        "tonalRamp": [
+          "#14403d",
+          "#1f6560",
+          "#2b8c85",
+          "#4ecdc4",
+          "#7ad9d2",
+          "#a3e5e0",
+          "#ccf2ef",
+          "#ebfaf9"
+        ]
+      },
+      "crayon-mint": {
+        "role": "primary",
+        "displayName": "Crayon Mint",
+        "tonalRamp": [
+          "#2a4a39",
+          "#3f6f56",
+          "#5b9b78",
+          "#96ceb4",
+          "#b0dbc7",
+          "#c9e7d9",
+          "#e1f2ea",
+          "#f3faf7"
+        ]
+      },
+      "crayon-yellow": {
+        "role": "primary",
+        "displayName": "Crayon Butter",
+        "tonalRamp": [
+          "#6b4a12",
+          "#a06e1f",
+          "#d99a38",
+          "#f5d36e",
+          "#ffeead",
+          "#fff3c4",
+          "#fff8dc",
+          "#fffcf0"
+        ]
+      },
+      "signal-coral": {
+        "role": "tertiary",
+        "displayName": "Signal Coral"
+      },
+      "booth-orange": {
+        "role": "tertiary",
+        "displayName": "Booth Orange"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Daytime Paper (EASY room)"
+      },
+      "dusk": {
+        "role": "neutral",
+        "displayName": "Dusk Taupe (MEDIUM room)"
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Club Night (PRO room)"
+      },
+      "workshop-beatmatching": {
+        "role": "secondary",
+        "displayName": "Beatmatching Sky"
+      },
+      "workshop-eq": {
+        "role": "secondary",
+        "displayName": "EQ Orange"
+      },
+      "workshop-harmonies": {
+        "role": "secondary",
+        "displayName": "Harmonies Purple"
+      },
+      "workshop-fx": {
+        "role": "secondary",
+        "displayName": "FX Green"
+      },
+      "workshop-digging": {
+        "role": "secondary",
+        "displayName": "Digging Red"
+      },
+      "workshop-crowd": {
+        "role": "secondary",
+        "displayName": "Crowd Mustard"
+      },
+      "status-ok": {
+        "role": "tertiary",
+        "displayName": "Status Green"
+      },
+      "status-error": {
+        "role": "tertiary",
+        "displayName": "Status Red"
+      },
+      "status-info": {
+        "role": "tertiary",
+        "displayName": "Status Blue"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Level titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Control group labels, workshop names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, coach bubbles, lessons."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every chunky action key."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Status chips, BPM readouts, tags."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Inline code, formulas, MIDI specs only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "toy-key",
+        "value": "5px 5px 0 #333",
+        "purpose": "Chunky action buttons at rest."
+      },
+      {
+        "name": "small-key",
+        "value": "3px 3px 0 #333",
+        "purpose": "Chips, small buttons, level tiles."
+      },
+      {
+        "name": "pressed",
+        "value": "1px 1px 0 #2b8c85",
+        "purpose": "Active / disabled state, with translate(2px, 2px)."
+      },
+      {
+        "name": "sketch-wash",
+        "value": "3px 3px 0 rgba(0,0,0,0.1)",
+        "purpose": "Large panels and cards."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1) 200ms",
+        "purpose": "Buttons and links."
+      },
+      {
+        "name": "room-dimmer",
+        "value": "ease 400ms",
+        "purpose": "Background/text shift when difficulty changes the room."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Crayon Key",
+      "kind": "button",
+      "refersTo": "button-crayon",
+      "description": "Default chunky action key.",
+      "html": "<button class=\"ds-key\">Démarrer Train A</button>",
+      "css": ".ds-key { font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-weight: 900; font-size: 1.2rem; padding: 14px 24px; background: #4ecdc4; color: #2b2b2b; border: 4px solid #333; border-radius: 20px; box-shadow: 5px 5px 0 #333; cursor: pointer; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-key:hover { filter: brightness(1.05); } .ds-key:focus-visible { outline: 3px dashed #333; outline-offset: 4px; } .ds-key:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 #2b8c85; }"
+    },
+    {
+      "name": "Play Key",
+      "kind": "button",
+      "refersTo": "button-crayon-play",
+      "description": "Transport go action (Play, Start).",
+      "html": "<button class=\"ds-key-play\">Play</button>",
+      "css": ".ds-key-play { font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-weight: 900; font-size: 1.2rem; padding: 14px 24px; background: #96ceb4; color: #2b2b2b; border: 4px solid #333; border-radius: 20px; box-shadow: 5px 5px 0 #333; cursor: pointer; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-key-play:focus-visible { outline: 3px dashed #333; outline-offset: 4px; } .ds-key-play:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 #5b9b78; }"
+    },
+    {
+      "name": "Nudge / CUE Key",
+      "kind": "button",
+      "refersTo": "button-crayon-nudge",
+      "description": "Secondary hardware actions: CUE, Slower, Faster, Menu.",
+      "html": "<button class=\"ds-key-nudge\">CUE</button>",
+      "css": ".ds-key-nudge { font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-weight: 900; font-size: 1.2rem; padding: 14px 24px; background: #ffeead; color: #2b2b2b; border: 4px solid #333; border-radius: 20px; box-shadow: 5px 5px 0 #333; cursor: pointer; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-key-nudge:focus-visible { outline: 3px dashed #333; outline-offset: 4px; } .ds-key-nudge:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 #d99a38; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Validation status; turns green when OK.",
+      "html": "<span class=\"ds-chip ds-chip-ok\">PITCH OK</span> <span class=\"ds-chip\">À CALER</span>",
+      "css": ".ds-chip { display: inline-block; font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; padding: 6px 12px; background: #fff; color: #2b2b2b; border: 2px solid #333; border-radius: 12px; box-shadow: 2px 2px 0 #333; } .ds-chip-ok { background: #1e8449; color: #fff; }"
+    },
+    {
+      "name": "Level Tile",
+      "kind": "nav",
+      "refersTo": "panel",
+      "description": "Home navigation tile: unlocked vs locked slot.",
+      "html": "<a class=\"ds-tile\" href=\"#\">L1</a> <span class=\"ds-tile ds-tile-locked\">?</span>",
+      "css": ".ds-tile { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-weight: 700; color: #2b2b2b; text-decoration: none; background: #fff; border: 3px solid #333; border-radius: 10px; box-shadow: 3px 3px 0 #333; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-tile:hover { transform: translateY(-2px); } .ds-tile:focus-visible { outline: 3px dashed #333; outline-offset: 3px; } .ds-tile-locked { background: transparent; color: #bbb; border: 2px dashed #ddd; box-shadow: none; }"
+    },
+    {
+      "name": "Coach Speech Bubble",
+      "kind": "custom",
+      "refersTo": "speech-bubble",
+      "description": "Patrick's coaching tips.",
+      "html": "<div class=\"ds-bubble\">Yoo nouvelle recrue, on commence la base !</div>",
+      "css": ".ds-bubble { position: relative; max-width: 260px; font-family: 'Patrick Hand', 'Comic Sans MS', cursive; font-size: 1rem; line-height: 1.4; padding: 16px 20px; background: #fff; color: #2b2b2b; border: 3px solid #333; border-radius: 20px; box-shadow: 3px 3px 0 rgba(0,0,0,0.1); } .ds-bubble::after { content: ''; position: absolute; left: 40px; top: -12px; border: 10px solid transparent; border-bottom-color: #333; border-top: 0; }"
+    },
+    {
+      "name": "Glyph",
+      "kind": "custom",
+      "refersTo": "glyph",
+      "description": "House felt-pen pictograms replacing emoji (phrases, wagons, feedback).",
+      "html": "<span class=\"ds-glyphs\"><svg viewBox=\"0 0 24 24\" width=\"32\" height=\"32\" stroke=\"#333\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.8c.8 3.6 6 5.8 6 11a6 6 0 0 1-12 0c0-2.6 1.6-3.9 2.7-5.6.2 1.8 1 2.8 2.1 2.9-.4-3.2.2-5.7 1.2-8.3Z\" fill=\"#ff9f43\"/><path d=\"M12 19.6a2.4 2.4 0 0 1-2.4-2.4c0-1.5 1.4-2.4 2.4-3.9 1 1.5 2.4 2.4 2.4 3.9a2.4 2.4 0 0 1-2.4 2.4Z\" fill=\"#ffeead\"/></svg><svg viewBox=\"0 0 24 24\" width=\"32\" height=\"32\" stroke=\"#333\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.6 3a8.6 8.6 0 1 0 6.6 13.6A7.2 7.2 0 0 1 14.6 3Z\" fill=\"#a29bfe\"/></svg><svg viewBox=\"0 0 24 24\" width=\"32\" height=\"32\" stroke=\"#333\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13.6 2.5 4.5 13.8h6.6l-1.2 7.7 9.6-12h-6.8Z\" fill=\"#ffbb44\"/></svg></span>",
+      "css": ".ds-glyphs { display: inline-flex; gap: 12px; } .ds-glyphs svg { filter: drop-shadow(2px 2px 0 #333); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Felt-Pen Booth",
+    "overview": "A real DJ booth redrawn in felt pen. Every control the learner touches (pitch fader, nudge, EQ pots, crossfader, CUE / Play) exists on real hardware, and the interface keeps that function intact while drawing it like a toy console: thick ink outlines, chunky rounded shapes, flat crayon fills, and a hard offset shadow that makes each control look like a plastic part you could slap. The cartoon Patrick illustrations (src/assets/*_patrick.png) set the line quality; the UI is drawn in the same hand.\n\nThe world changes with the hour of the set. Night falls on the club as difficulty rises: EASY is daytime practice on cream paper, MEDIUM is dusk in warm taupe, PRO is night in deep slate. The ink, crayon fills and workshop colors stay constant; only the room around them dims. The Secret Booth is the one place already inside the club at full dark, with a warm orange glow.\n\nDensity is game-like rather than app-like: few controls per screen, each large enough to hit with a thumb, with the gameplay area (trains, track lanes, mixer) given most of the viewport.",
+    "keyCharacteristics": [
+      "One handwritten face (Patrick Hand) everywhere, set heavy for anything you press.",
+      "Ink-gray outlines (#333) of 2–4px on every interactive part.",
+      "Hard, unblurred offset shadows instead of soft elevation.",
+      "One color per workshop, used as its thread from home to practice.",
+      "Ambient theme switches by difficulty via data-theme on the root; components only read tokens."
+    ],
+    "rules": [
+      {
+        "name": "The Ink-on-Crayon Rule",
+        "body": "Text on a crayon, coral, sky or bright-green fill is ink (#2b2b2b), never white. White text only sits on the status fills or on ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hour-of-the-Set Rule",
+        "body": "Difficulty never changes components, only the room. Anything that sits on the background must read from --surface, --surface-elevated, --text, --text-muted, --border, --border-strong, --accent-env (src/theme.css), never a hard-coded room color, so it survives the switch to dusk and night.",
+        "section": "colors"
+      },
+      {
+        "name": "The Constant Crayon Rule",
+        "body": "The crayon fills, the ink, and the workshop colors are Patrick's identity and do not shift with the theme.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Hand Rule",
+        "body": "Patrick Hand everywhere. Monospace exists only for code, formulas and MIDI data; it is never a display or body voice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Drawn Shadow Rule",
+        "body": "A shadow is an offset, not a blur. If it needs a blur radius, it doesn't belong outside the Secret Booth.",
+        "section": "elevation"
+      },
+      {
+        "name": "The 11px Floor Rule",
+        "body": "Nothing functional below 0.7rem (11.2px), including chips, BPM mode toggles and knob labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Emoji Rule",
+        "body": "Every pictogram is drawn in the house felt-pen style (Glyph: 24-grid, ink stroke 2, crayon fill, no blur). Emoji never ship in the UI.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do outline every pressable thing in ink (#333) and give it a hard offset shadow.",
+      "Do read room colors from the theme variables so EASY / MEDIUM / PRO all work.",
+      "Do keep a workshop's own color as its thread (rule line, icons, accents).",
+      "Do keep touch targets chunky; the same screen must play on a phone.",
+      "Do match the line and palette of the existing Patrick illustrations for any new visual.",
+      "Do ship illustrations as WebP at about 2× their displayed size (originals live in src/assets/_originals_backup/).",
+      "Do let MotionConfig reducedMotion=\"user\" handle framer motion; never remove the trains' scrolling, it is the game information."
+    ],
+    "donts": [
+      "Don't use emoji or Unicode pictographs as icons. Draw it in Glyph (or a dedicated icon component) in the felt-pen style. Musical and typographic signs (♭ ♯ ↔ → ← ✓ inside sentences) are text, not icons, and stay.",
+      "Don't use blurred drop shadows, glassmorphism or gradients on game UI (the Secret Booth's night-club look is the only exception).",
+      "Don't add a second typeface for headings or body.",
+      "Don't hard-code cream or white backgrounds on components that sit on the room: they break at dusk and night.",
+      "Don't change crayon or workshop colors per difficulty.",
+      "Don't redraw or restyle Patrick himself; the illustration set is canon."
+    ]
+  }
+}

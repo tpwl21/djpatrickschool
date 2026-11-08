@@ -1,157 +1,141 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import professorImg from '../assets/professor_patrick.png';
+import { LanguageContext } from '../hooks/LanguageContext.jsx';
+import PatrickAvatar from './PatrickAvatar';
+import { useDifficulty } from '../hooks/useDifficulty.jsx';
 
+// Bandeau du coach sous le titre du niveau : petit Patrick + sa bulle, dans le flux de la page
+// (ne recouvre jamais le jeu). Le × replie la bulle ; toucher Patrick la rouvre.
 const CoachPatrick = ({ tips = [] }) => {
+  const { t } = useContext(LanguageContext);
+  const [difficulty] = useDifficulty();
+  const isPro = difficulty === 'PRO';
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  // isOpen = choix de l'utilisateur ; isBubbleVisible = fondu entre deux conseils
+  const [isOpen, setIsOpen] = useState(true);
   const [isBubbleVisible, setIsBubbleVisible] = useState(true);
 
   useEffect(() => {
-    // Change tip every 15 seconds if there are multiple
-    if (tips.length > 1) {
-      const interval = setInterval(() => {
-        setIsBubbleVisible(false);
-        setTimeout(() => {
-          setCurrentTipIndex((prev) => (prev + 1) % tips.length);
-          setIsBubbleVisible(true);
-        }, 500);
-      }, 15000);
-      return () => clearInterval(interval);
-    }
+    if (tips.length <= 1) return undefined;
+    const interval = setInterval(() => {
+      setIsBubbleVisible(false);
+      setTimeout(() => {
+        setCurrentTipIndex((prev) => (prev + 1) % tips.length);
+        setIsBubbleVisible(true);
+      }, 300);
+    }, 15000);
+    return () => clearInterval(interval);
   }, [tips]);
 
-  if (!isVisible) return null;
-
   return (
-    <div className="coach-patrick-container">
-      <AnimatePresence>
-        {isBubbleVisible && (
-          <motion.div 
-            className="speech-bubble"
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1, 
-              y: 0,
-              rotate: [0, -1, 1, -1, 0] // Subtle wobble
-            }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            transition={{ 
-              rotate: { repeat: Infinity, duration: 5, ease: "easeInOut" },
-              default: { duration: 0.4 }
-            }}
+    <div className={`coach-strip ${isOpen ? 'is-open' : ''}`}>
+      <button
+        type="button"
+        className="coach-avatar"
+        onClick={() => setIsOpen((o) => !o)}
+        aria-expanded={isOpen}
+        aria-label={isOpen ? t('coach.close') : t('coach.open')}
+      >
+        <PatrickAvatar
+          size="100%"
+          viewBox="46 10 148 190"
+          expression={isPro ? 'focus' : 'content'}
+          casque={!isPro}
+          hoodieText={isPro ? 'PRO' : 'COACH'}
+          label=""
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && isBubbleVisible && (
+          <motion.div
+            className="coach-bubble"
+            role="status"
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -8 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <p>{tips[currentTipIndex]}</p>
-            <button className="close-bubble" onClick={() => setIsVisible(false)}>×</button>
-            <div className="bubble-tail" />
+            <button className="coach-close" onClick={() => setIsOpen(false)} aria-label={t('coach.close')}>×</button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <motion.div 
-        className="coach-character"
-        initial={{ y: 200 }}
-        animate={{ y: 0 }}
-        whileHover={{ scale: 1.05 }}
-      >
-        <img src={professorImg} alt="Professor Patrick" />
-      </motion.div>
-
       <style dangerouslySetInnerHTML={{ __html: `
-        .coach-patrick-container {
-          position: fixed;
-          top: 80px;
-          left: 20px;
+        .coach-strip {
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          z-index: 2000;
-          pointer-events: none;
-        }
-
-        .coach-character {
-          width: 250px;
-          height: auto;
-          pointer-events: auto;
-          cursor: pointer;
-          order: 1;
-        }
-
-        .coach-character img {
+          align-items: center;
+          gap: 14px;
           width: 100%;
-          filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+          max-width: 760px;
+          margin: 0 auto;
+          text-align: left;
+          min-height: 64px;
         }
-
-        .speech-bubble {
-          background: white;
-          border: 3px solid #333;
-          border-radius: 20px;
-          padding: 15px 40px 15px 20px;
-          max-width: 250px;
+        .coach-avatar {
+          flex: 0 0 auto;
+          width: 64px;
+          padding: 0;
+          border: none;
+          background: none;
+          cursor: pointer;
+          filter: var(--sticker-shadow);
+          transition: transform 0.15s ease;
+        }
+        .coach-avatar:hover { transform: translateY(-2px) rotate(-2deg); }
+        .coach-avatar svg { width: 100%; height: auto; }
+        .coach-bubble {
           position: relative;
-          margin-top: 15px;
-          box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
-          pointer-events: auto;
-          order: 2;
+          flex: 1 1 auto;
+          min-width: 0;
+          background: #fff;
+          color: #2b2b2b;
+          border: 3px solid #333;
+          border-radius: 18px;
+          padding: 10px 44px 10px 16px;
+          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
         }
-
-        .speech-bubble p {
+        /* pointe de la bulle vers Patrick */
+        .coach-bubble::before,
+        .coach-bubble::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          border-style: solid;
+          border-color: transparent;
+        }
+        .coach-bubble::before { left: -14px; border-width: 10px 14px 10px 0; border-right-color: #333; }
+        .coach-bubble::after { left: -9px; border-width: 7px 10px 7px 0; border-right-color: #fff; }
+        .coach-bubble p {
           margin: 0;
-          color: #333;
-          font-family: 'Patrick Hand', cursive;
           font-weight: bold;
           font-size: 0.95rem;
           line-height: 1.4;
         }
-
-        .bubble-tail {
+        .coach-close {
           position: absolute;
-          top: -15px;
-          left: 30px;
-          width: 0;
-          height: 0;
-          border-left: 15px solid transparent;
-          border-right: 15px solid transparent;
-          border-bottom: 15px solid #333;
-        }
-
-        .bubble-tail::after {
-          content: '';
-          position: absolute;
-          top: -12px;
-          left: -12px;
-          width: 0;
-          height: 0;
-          border-left: 12px solid transparent;
-          border-right: 12px solid transparent;
-          border-bottom: 12px solid white;
-        }
-
-        .close-bubble {
-          position: absolute;
-          top: 5px;
-          right: 10px;
+          top: 0;
+          right: 0;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background: none;
           border: none;
-          font-size: 20px;
-          cursor: pointer;
-          color: #999;
+          font-size: 22px;
           line-height: 1;
+          color: #6b6b6b;
+          cursor: pointer;
         }
-
-        .close-bubble:hover {
-          color: #333;
-        }
-
-        @media (max-width: 768px) {
-          .coach-character {
-            width: 100px;
-          }
-          .speech-bubble {
-            max-width: 180px;
-            font-size: 0.8rem;
-          }
+        .coach-close:hover { color: #2b2b2b; }
+        @media (max-width: 760px) {
+          .coach-strip { gap: 10px; min-height: 52px; }
+          .coach-avatar { width: 48px; }
+          .coach-bubble { padding: 8px 40px 8px 12px; }
+          .coach-bubble p { font-size: 0.85rem; }
         }
       `}} />
     </div>

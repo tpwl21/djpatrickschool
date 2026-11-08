@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { parse } from 'smol-toml';
 import { validateLevel, validateWorkshop } from './schema.js';
 
@@ -28,11 +29,10 @@ const rawLessonsLegacy = import.meta.glob('/src/workshops/*/lessons/*.toml', {
   eager: true,
 });
 
-const workshopComponents = import.meta.glob('/src/workshops/*/workshop.jsx', {
-  eager: true,
-});
+// Chargés à la demande : chaque atelier devient un chunk séparé (React.lazy + Suspense dans App)
+const workshopComponents = import.meta.glob('/src/workshops/*/workshop.jsx');
 
-const assetImages = import.meta.glob('/src/assets/*.png', {
+const assetImages = import.meta.glob('/src/assets/*.{png,webp}', {
   eager: true,
   import: 'default',
 });
@@ -138,10 +138,10 @@ for (const [path, raw] of Object.entries(rawLessonsLegacy)) {
   }
 }
 
-for (const [path, mod] of Object.entries(workshopComponents)) {
+for (const [path, loader] of Object.entries(workshopComponents)) {
   const id = dirToId[workshopIdFromPath(path)];
   if (!registry[id]) continue;
-  registry[id].Component = mod.default;
+  registry[id].Component = lazy(loader);
 }
 
 for (const id of Object.keys(registry)) {

@@ -42,7 +42,7 @@ const DeckCard = ({
     <div style={{
       minWidth: 220, padding: '12px 16px',
       border: '4px solid #333', borderRadius: 20,
-      background: '#fafafa', boxShadow: '6px 6px 0 rgba(0,0,0,0.08)',
+      background: '#fafafa', color: '#2b2b2b', boxShadow: '6px 6px 0 rgba(0,0,0,0.08)',
       display: 'flex', flexDirection: 'column', gap: 6,
       opacity: isLoading ? 0.7 : 1,
     }}>
@@ -89,7 +89,7 @@ const DeckCard = ({
           className="btn-crayon play-btn"
           onClick={onPlay}
           disabled={isPlaying || isLoading || disabled}
-          style={{ flex: 2, background: isPlaying ? '#95a5a6' : '#2ecc71', color: '#fff', fontSize: '0.8rem', padding: '6px 10px' }}
+          style={{ flex: 2, background: isPlaying ? '#95a5a6' : '#2ecc71', color: '#2b2b2b', fontSize: '0.8rem', padding: '6px 10px' }}
         >
           {isLoading ? '...' : (isPlaying ? (t('booth.controls.pause') || 'PLAYING') : (t('booth.controls.play') || 'PLAY'))}
         </button>
@@ -97,7 +97,7 @@ const DeckCard = ({
           className="btn-crayon"
           onClick={onCue}
           disabled={isLoading || disabled}
-          style={{ flex: 1, background: '#f1c40f', color: '#fff', fontSize: '0.8rem', padding: '6px 10px' }}
+          style={{ flex: 1, background: '#f1c40f', color: '#2b2b2b', fontSize: '0.8rem', padding: '6px 10px' }}
         >
           {t('booth.controls.cue') || 'CUE'}
         </button>

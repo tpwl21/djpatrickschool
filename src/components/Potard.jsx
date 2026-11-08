@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-const Potard = ({ min = 0, max = 1, value = 0, centerValue = null, onChange, color = '#E67E22', size = 40, style = {} }) => {
+const Potard = ({ min = 0, max = 1, value = 0, centerValue = null, onChange, color = '#E67E22', size = 40, style = {}, ariaLabel }) => {
   const [isDragging, setIsDragging] = useState(false);
   const startYRef = useRef(0);
   const startPRef = useRef(0);
@@ -46,8 +46,24 @@ const Potard = ({ min = 0, max = 1, value = 0, centerValue = null, onChange, col
     if (onChange) onChange(newValue);
   };
 
-  const handlePointerUp = (e) => {
+  const handlePointerUp = () => {
     setIsDragging(false);
+  };
+
+  // Clavier : flèches = 1/50e de course (Shift = 5x), PageUp/Down = 1/10e, Home/End = bornes
+  const handleKeyDown = (e) => {
+    if (!onChange) return;
+    const step = e.shiftKey ? 0.1 : 0.02;
+    const cur = valToPercent(value);
+    const next = {
+      ArrowUp: cur + step, ArrowRight: cur + step,
+      ArrowDown: cur - step, ArrowLeft: cur - step,
+      PageUp: cur + 0.1, PageDown: cur - 0.1,
+      Home: 0, End: 1,
+    }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    onChange(percentToVal(Math.max(0, Math.min(1, next))));
   };
 
   const handleDoubleClick = (e) => {
@@ -86,7 +102,20 @@ const Potard = ({ min = 0, max = 1, value = 0, centerValue = null, onChange, col
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+      onLostPointerCapture={handlePointerUp}
       onDoubleClick={handleDoubleClick}
+      {...(onChange
+        ? {
+            role: 'slider',
+            tabIndex: 0,
+            'aria-label': ariaLabel,
+            'aria-valuemin': min,
+            'aria-valuemax': max,
+            'aria-valuenow': Math.round(value * 100) / 100,
+            onKeyDown: handleKeyDown,
+          }
+        : { 'aria-hidden': true })}
     >
       {/* Outer Circle that rotates */}
       <div style={{

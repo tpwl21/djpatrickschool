@@ -72,9 +72,9 @@ tolerance_sec    = 1.0
 
 [[markers.A]]
 beat  = 129
-label = "OUTRO 🌙"
+label = "OUTRO"
 color = "#a29bfe"
 [[markers.A]]
 beat  = 289
-label = "OUTRO 🌙"
+label = "OUTRO"
 color = "#a29bfe"

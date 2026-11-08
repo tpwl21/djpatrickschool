@@ -49,6 +49,15 @@ const en = {
     slowDown: "Drag",
     speedUp: "Push"
   },
+  notFound: {
+    title: "Oops, this page doesn't exist",
+    text: "This level or lesson can't be found. Head back to the workshop to pick another one.",
+    back: "Back"
+  },
+  coach: {
+    open: "Show Patrick's tip",
+    close: "Hide the tip"
+  },
   cinematic: {
     win: {
       title: "LEVEL CLEARED!",
@@ -79,6 +88,11 @@ const en = {
     fallbackBanner: "{requested} version coming soon — showing {served} content."
   },
   booth: {
+    mobileGate: {
+      title: "The booth needs room!",
+      text: "Two decks and a mixer won't fit on a phone. Grab a tablet or come back on a computer to mix freely.",
+      back: "Back to home"
+    },
     title: "SECRET BOOTH",
     subtitle: "BY PATRICK",
     monitors: {

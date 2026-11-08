@@ -12,7 +12,7 @@ Ce fichier est destiné au modèle Gemini qui prend en charge la partie **géné
 
 Les images existantes sont le **canon visuel** du projet. Tout nouveau visuel doit être stylistiquement indiscernable.
 
-Références dans [src/assets/](src/assets/) :
+Références (originaux pleine résolution ; le site sert des copies WebP 640 px dans `src/assets/`) dans [src/assets/_originals_backup/](src/assets/_originals_backup/) :
 - `beatmatching_patrick.png`, `eq_patrick.png`, `digging_patrick.png`, `effects_patrick.png`, `harmony_patrick.png`, `reading_crowd` / `coach_patrick.png`
 - `professor_patrick.png`, `angry_soundguy_patrick.png`, `secret_agent_patrick.png`
 - `easy_patrick.png`, `medium_patrick.png`, `pro_patrick.png`

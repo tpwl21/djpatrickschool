@@ -47,7 +47,7 @@ export default function NudgeButton({
   return (
     <button
       className={`btn-crayon nudge-btn${active ? ' active' : ''} ${className}`.trim()}
-      style={active ? { background: '#ff6b6b', color: 'white', ...style } : style}
+      style={active ? { background: '#ff6b6b', color: '#2b2b2b', ...style } : style}
       onPointerDown={start}
       onPointerUp={stop}
       onPointerLeave={stop}

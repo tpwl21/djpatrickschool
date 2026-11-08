@@ -49,6 +49,15 @@ const fr = {
     slowDown: "Ralentir",
     speedUp: "Accélérer"
   },
+  notFound: {
+    title: "Oups, cette page n'existe pas",
+    text: "Ce niveau ou cette leçon est introuvable. Retourne à l'atelier pour en choisir un autre.",
+    back: "Retour"
+  },
+  coach: {
+    open: "Afficher le conseil de Patrick",
+    close: "Masquer le conseil"
+  },
   cinematic: {
     win: {
       title: "NIVEAU RÉUSSI !",
@@ -79,6 +88,11 @@ const fr = {
     fallbackBanner: "Version {requested} en préparation — contenu {served} affiché."
   },
   booth: {
+    mobileGate: {
+      title: "Le booth a besoin de place !",
+      text: "Deux platines et une table de mixage, ça ne tient pas sur un téléphone. Tourne ta tablette ou reviens sur un ordi pour mixer librement.",
+      back: "Retour à l'accueil"
+    },
     title: "SECRET BOOTH",
     subtitle: "DE PATRICK",
     monitors: {

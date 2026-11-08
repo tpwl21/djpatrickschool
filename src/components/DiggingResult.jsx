@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Glyph from './Glyph';
 
 const DiggingResult = ({ correct, reason, title, discogsUrl, onRetry, onNext }) => (
   <motion.div
@@ -17,7 +18,7 @@ const DiggingResult = ({ correct, reason, title, discogsUrl, onRetry, onNext }) 
       boxShadow: '6px 6px 0px rgba(0,0,0,0.3)',
     }}>
       <div style={{ fontSize: '3rem', marginBottom: 12 }}>
-        {correct ? '🎯' : '💥'}
+        <Glyph name={correct ? 'target' : 'burst'} size="3.5rem" shadow />
       </div>
       <h2 style={{
         fontSize: '1.8rem', margin: '0 0 8px 0',

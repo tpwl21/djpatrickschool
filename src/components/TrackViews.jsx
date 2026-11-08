@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Wagon } from './Train';
 import Locomotive from './Locomotive';
+import Glyph from './Glyph';
 import { 
   BEATS_PER_LOOP, 
   LOOP_COLORS 
@@ -202,7 +203,7 @@ export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pi
               whiteSpace: 'nowrap',
               pointerEvents: 'none'
             }}>
-              {block.phrase.emoji} {block.phrase.name}
+              <Glyph name={block.phrase.glyph} /> {block.phrase.name}
             </div>
           );
         })}
@@ -253,10 +254,11 @@ export const PhraseIndicator = ({ label, currentPhrase, isOutro = false }) => (
     display: 'inline-flex', alignItems: 'center', gap: '8px',
     padding: '6px 14px', borderRadius: '20px',
     backgroundColor: isOutro ? '#a29bfe' : '#e9ecef',
-    border: `2px solid ${isOutro ? '#6c5ce7' : '#ccc'}`,
+    border: '2px solid #333',
+    color: '#2b2b2b', // fond toujours clair : texte encre, quel que soit le thème
     fontWeight: 'bold', fontSize: '0.9rem',
     transition: 'all 0.3s ease',
   }}>
-    {label}: {currentPhrase ? `${currentPhrase.emoji} ${currentPhrase.name}` : '—'}
+    {label}: {currentPhrase ? <><Glyph name={currentPhrase.glyph} /> {currentPhrase.name}</> : '—'}
   </div>
 );

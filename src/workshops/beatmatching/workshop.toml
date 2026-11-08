@@ -1,7 +1,7 @@
 id = "beatmatching"
 order = 1
 color = "#5DADE2"
-image = "beatmatching_patrick.png"
+image = "beatmatching_patrick.webp"
 forthcoming = false
 kind = "beatmatching"
 

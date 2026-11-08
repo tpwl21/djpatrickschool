@@ -12,7 +12,6 @@ import { useMobileDetection } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import { BEATS_PER_PHRASE, PHRASES, NUM_PHRASES } from '../../utils/workshopUtils';
 import { PhraseIndicator } from '../../components/TrackViews';
-import CoachPatrick from '../../components/CoachPatrick';
 import AudioVisualizer from '../../components/AudioVisualizer';
 import SimplifiedTimeline from '../../components/SimplifiedTimeline';
 import { getLevel } from '../../lib/levels/load';
@@ -193,7 +192,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
   if (!resolvedLevel) {
     return (
       <div className="app-container">
-        <div className="level-header"><h1>Unknown level</h1></div>
+        <div className="level-header"><h1>{t('notFound.title')}</h1><p>{t('notFound.text')}</p></div>
         <button className="btn-crayon" onClick={onBack}>{t('workshop.menu')}</button>
       </div>
     );
@@ -202,6 +201,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
   return (
     <div className="app-container">
       <LevelHeader
+        coachTips={coachTips}
         title={title}
         description={description}
         onBack={onBack}
@@ -210,7 +210,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       >
         <div className="sync-hud-container" style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
           <div style={{
-            background: isFxOk ? '#27ae60' : '#e74c3c', color: 'white', padding: '4px 12px',
+            background: isFxOk ? '#1e8449' : '#c0392b', color: 'white', padding: '4px 12px',
             borderRadius: 12, fontSize: '0.75rem', fontWeight: 900, border: '2px solid #333',
           }}>
             {isFxOk ? 'FX OK' : 'Adjust FX!'} (Score: {score})
@@ -228,7 +228,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       </div>
 
       <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: 15, gap: isMobile ? 10 : 20 }}>
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
+        <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? 5 : 20, flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
           {/* Deck A FX column */}
           <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: isMobile ? 10 : 15, alignItems: 'center' }}>
             <VolumeFader value={fxState.volA} onChange={(v) => handleFader('A', v)} />
@@ -299,8 +299,6 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
         <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'FX propre !'} title={title} grade={grade} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
-
-      <CoachPatrick tips={coachTips} />
     </div>
   );
 };

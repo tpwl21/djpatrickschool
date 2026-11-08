@@ -7,11 +7,11 @@ export const LOOPS_PER_PHRASE = 4;
 export const BEATS_PER_PHRASE = BEATS_PER_LOOP * LOOPS_PER_PHRASE; // 32 beats
 
 export const PHRASES = [
-  { name: 'Intro',  emoji: '🌅', color: 'rgba(168, 216, 185, 0.5)', index: 0 },
-  { name: 'Build',  emoji: '⛰️', color: 'rgba(246, 211, 101, 0.5)', index: 1 },
-  { name: 'Drop',   emoji: '🔥', color: 'rgba(255, 107, 107, 0.5)', index: 2 },
-  { name: 'Break',  emoji: '🌊', color: 'rgba(116, 185, 255, 0.5)', index: 3 },
-  { name: 'Outro',  emoji: '🌙', color: 'rgba(162, 155, 254, 0.5)', index: 4 },
+  { name: 'Intro',  glyph: 'intro', color: 'rgba(168, 216, 185, 0.5)', index: 0 },
+  { name: 'Build',  glyph: 'build', color: 'rgba(246, 211, 101, 0.5)', index: 1 },
+  { name: 'Drop',   glyph: 'drop', color: 'rgba(255, 107, 107, 0.5)', index: 2 },
+  { name: 'Break',  glyph: 'break', color: 'rgba(116, 185, 255, 0.5)', index: 3 },
+  { name: 'Outro',  glyph: 'outro', color: 'rgba(162, 155, 254, 0.5)', index: 4 },
 ];
 
 export const NUM_PHRASES = PHRASES.length;

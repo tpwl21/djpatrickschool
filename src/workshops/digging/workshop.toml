@@ -1,7 +1,7 @@
 id = "digging"
 order = 5
 color = "#E74C3C"
-image = "digging_patrick.png"
+image = "digging_patrick.webp"
 forthcoming = false
 kind = "digging"
 

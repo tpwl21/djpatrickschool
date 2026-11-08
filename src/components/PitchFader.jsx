@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const PitchFaderLabel = ({ label, value }) => (
   <div style={{
@@ -23,7 +23,7 @@ const PitchFaderLabel = ({ label, value }) => (
 const PitchFader = ({ 
   min, max, value, onChange, label = "PITCH", orientation = "vertical",
   trackWidth = 44, trackLength = 260, handleSize = 60, handleColor = '#ffbb44',
-  invertVertical = false, hideRail = false, resetValue = null
+  invertVertical = false, hideRail = false, resetValue = null, ariaLabel
 }) => {
   const faderRef = useRef(null);
   const dragRectRef = useRef(null);
@@ -73,9 +73,27 @@ const PitchFader = ({
     onChange(newValue);
   };
 
-  const handlePointerUp = (e) => {
+  const handlePointerUp = () => {
     setIsDragging(false);
     dragRectRef.current = null;
+  };
+
+  // Clavier : la flèche déplace la poignée dans le sens visuel (haut = vers le haut, droite = vers la droite)
+  const handleKeyDown = (e) => {
+    const step = (e.shiftKey ? 0.1 : 0.02) * (max - min);
+    const upIsPlus = orientation !== 'vertical' || invertVertical;
+    const delta = {
+      ArrowRight: step, ArrowLeft: -step,
+      ArrowUp: upIsPlus ? step : -step, ArrowDown: upIsPlus ? -step : step,
+      PageUp: (max - min) / 10, PageDown: -(max - min) / 10,
+    }[e.key];
+    let next;
+    if (e.key === 'Home') next = min;
+    else if (e.key === 'End') next = max;
+    else if (delta !== undefined) next = value + delta;
+    else return;
+    e.preventDefault();
+    onChange(Math.max(min, Math.min(max, next)));
   };
 
   const isVertical = orientation === 'vertical';
@@ -100,6 +118,16 @@ const PitchFader = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+        onLostPointerCapture={handlePointerUp}
+        onKeyDown={handleKeyDown}
+        role="slider"
+        tabIndex={0}
+        aria-label={ariaLabel || label || undefined}
+        aria-orientation={orientation}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={Math.round(value * 100) / 100}
         style={{
           width: isVertical ? (typeof trackWidth === 'string' ? trackWidth : `${trackWidth}px`) : (typeof trackLength === 'string' ? trackLength : `${trackLength}px`),
           height: isVertical ? (typeof trackLength === 'string' ? trackLength : `${trackLength}px`) : (typeof trackWidth === 'string' ? trackWidth : `${trackWidth}px`),

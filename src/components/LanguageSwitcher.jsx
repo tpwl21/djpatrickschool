@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { LanguageContext } from '../hooks/LanguageContext';
-import frFlagImg from '../assets/fr_flag.png';
-import ukFlagImg from '../assets/uk_flag.png';
+import frFlagImg from '../assets/fr_flag.webp';
+import ukFlagImg from '../assets/uk_flag.webp';
 
 const LanguageSwitcher = ({ style = {} }) => {
   const { language, setLanguage } = useContext(LanguageContext);
@@ -31,7 +31,7 @@ const LanguageSwitcher = ({ style = {} }) => {
           box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
         }
         .lang-flag.active {
-          box-shadow: 0 0 10px var(--primary, #5DADE2);
+          box-shadow: 2px 2px 0 #333;
           border: 2px solid var(--primary, #5DADE2);
         }
       `}} />

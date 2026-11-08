@@ -8,6 +8,7 @@ import {
   clearAllSmartBindings,
 } from '../constants/midiMappings';
 import { useMidiMapping } from '../hooks/useMidiMapping';
+import Glyph from './Glyph';
 
 // Minimal MIDI config UI: lists detected input devices, lets the user pick a
 // mapping preset. When the active preset is 'smart', a learning table appears —
@@ -99,7 +100,7 @@ export default function MidiSelector() {
     <div className="midi-selector">
       <h3>MIDI</h3>
 
-      {error && <p className="midi-err">⚠ {error}</p>}
+      {error && <p className="midi-err"><Glyph name="warning" /> {error}</p>}
 
       <div className="midi-devices">
         <div className="midi-label">Contrôleurs détectés</div>

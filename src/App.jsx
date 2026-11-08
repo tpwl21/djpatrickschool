@@ -1,14 +1,14 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useContext, lazy, Suspense } from 'react';
+import { LanguageContext } from './hooks/LanguageContext.jsx';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
 import Home from './components/Home';
 import WorkshopHome from './components/WorkshopHome';
 import GraduationPopup from './components/GraduationPopup';
 import LevelPopup from './components/LevelPopup';
-import SoundOnIndicator from './components/SoundOnIndicator';
 import ThemeTransition from './components/ThemeTransition';
 // import AmbientPlayer from './components/AmbientPlayer'; // TODO: re-enable once real loops are ready
-import SecretBooth from './workshops/SecretBooth';
+const SecretBooth = lazy(() => import('./workshops/SecretBooth'));
 import LessonLevel from './workshops/LessonLevel';
 import { useDifficulty } from './hooks/useDifficulty.jsx';
 import { workshops, getWorkshop, getLevelByOrder, getLessonByOrder, getLessonVariant } from './lib/levels/load';
@@ -121,6 +121,18 @@ function routeToHash(route) {
     default: return '/';
   }
 }
+
+// Page affichée quand une route pointe vers un atelier / niveau / leçon inexistant
+const NotFound = ({ onBack }) => {
+  const { t } = useContext(LanguageContext);
+  return (
+    <div className="app-container not-found">
+      <h1>{t('notFound.title')}</h1>
+      <p>{t('notFound.text')}</p>
+      <button className="btn-crayon" onClick={onBack}>{t('notFound.back')}</button>
+    </div>
+  );
+};
 
 function App() {
   const [route, setRoute] = useState(() => parseHash());
@@ -289,19 +301,13 @@ function App() {
     const workshop = getWorkshop(route.workshopId);
     if (!workshop || !workshop.Component) {
       return (
-        <div className="app-container">
-          <h1>Unknown workshop: {route.workshopId}</h1>
-          <button className="btn-crayon" onClick={goHome}>Home</button>
-        </div>
+        <NotFound onBack={goHome} />
       );
     }
     const level = getLevelByOrder(route.workshopId, route.levelOrder);
     if (!level) {
       return (
-        <div className="app-container">
-          <h1>Unknown level {route.levelOrder} in {route.workshopId}</h1>
-          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
-        </div>
+        <NotFound onBack={() => goWorkshop(route.workshopId)} />
       );
     }
     const Component = workshop.Component;
@@ -323,19 +329,13 @@ function App() {
     const lesson = getLessonByOrder(route.workshopId, route.lessonOrder);
     if (!workshop || !lesson) {
       return (
-        <div className="app-container">
-          <h1>Unknown lesson</h1>
-          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
-        </div>
+        <NotFound onBack={() => goWorkshop(route.workshopId)} />
       );
     }
     const variantResult = getLessonVariant(route.workshopId, route.lessonOrder, difficulty);
     if (!variantResult) {
       return (
-        <div className="app-container">
-          <h1>No content for lesson {route.lessonOrder}</h1>
-          <button className="btn-crayon" onClick={() => goWorkshop(route.workshopId)}>Back</button>
-        </div>
+        <NotFound onBack={() => goWorkshop(route.workshopId)} />
       );
     }
     return (
@@ -382,11 +382,13 @@ function App() {
         />
       )}
 
-      {route.view === 'booth' && (
-        <SecretBooth onBack={goHome} />
-      )}
+      <Suspense fallback={<div className="app-container" />}>
+        {route.view === 'booth' && (
+          <SecretBooth onBack={goHome} />
+        )}
 
-      {route.view === 'level' && renderLevel()}
+        {route.view === 'level' && renderLevel()}
+      </Suspense>
       {route.view === 'lesson' && renderLesson()}
 
       {isGraduated && (
@@ -406,7 +408,6 @@ function App() {
         )}
       </AnimatePresence>
 
-      {route.view === 'level' && <SoundOnIndicator />}
     </>
   );
 }

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import Glyph from './Glyph';
 
 // Palette Configuration
 const DEFAULT_A = "#3498db"; // Electric Blue
@@ -32,18 +33,19 @@ const lerpColor = (colorA, colorB, factor) => {
     return `rgb(${r}, ${g}, ${b})`;
 };
 
-const SpectralOrb = ({ label, impactA, impactB, offset, beats, colorA, colorB }) => {
+const SpectralOrb = ({ label, impactA, impactB, offset, beats, colorA, colorB, k = 1, xRange = 440 }) => {
     const total = impactA + impactB;
     const mixRatio = total > 0.05 ? impactB / total : 0.5;
     
     // Smooth horizontal drift with center magnetism
-    const xBase = (mixRatio - 0.5) * 440;
+    const xBase = (mixRatio - 0.5) * xRange;
     const xPos = Math.abs(xBase) < 30 ? 0 : xBase; // Stick to center
     
     const currentColor = lerpColor(colorA, colorB, mixRatio);
     
     // Size logic: Teach "Clipping"
-    const sizeBase = 20 + Math.min(220, total * 180);
+    // tailles mises à l'échelle de la hauteur réelle du visualiseur (k = h / 520)
+    const sizeBase = (20 + Math.min(220, total * 180)) * k;
     const isClipping = total > 1.3;
     const pulseIntensity = isClipping ? 0.15 : 0.06;
     const pulse = 1 + Math.sin(beats * Math.PI) * pulseIntensity;
@@ -77,7 +79,7 @@ const SpectralOrb = ({ label, impactA, impactB, offset, beats, colorA, colorB })
                 textShadow: '0 0 5px #000', pointerEvents: 'none', transform: 'translateY(15px)',
                 opacity: total > 0.1 ? 1 : 0
             }}>
-                {label} {isClipping && "💥"}
+                {label} {isClipping && <Glyph name="burst" label="clip" />}
             </div>
         </motion.div>
     );
@@ -88,6 +90,19 @@ const ColorMixVisualizer = ({
     eqState,
     beatsA,
 }) => {
+  // Taille réelle du cadre : les bulles et leur dérive A↔B s'y adaptent (le cadre n'a plus 520px fixes)
+  const boxRef = useRef(null);
+  const [box, setBox] = useState({ k: 0.6, xRange: 300 });
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el) return undefined;
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setBox({ k: Math.min(1, height / 520), xRange: Math.min(440, width * 0.42) });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   // Identify if we should use Isolated colors (Level 2+)
   const isAdvancedLevel = !["EQ_LEVEL_1"].includes(levelId);
 
@@ -100,9 +115,10 @@ const ColorMixVisualizer = ({
   ];
 
   return (
-    <div style={{
+    <div ref={boxRef} style={{
       width: '100%',
-      height: '520px',
+      height: 'clamp(180px, 26vh, 300px)',
+      flexShrink: 0,
       background: '#020202',
       borderRadius: '50px',
       overflow: 'hidden',
@@ -110,7 +126,7 @@ const ColorMixVisualizer = ({
       boxShadow: 'inset 0 0 150px #000, 0 30px 100px rgba(0,0,0,1)',
       display: 'flex',
       flexDirection: 'column',
-      margin: '20px 0',
+      margin: '12px 0',
       border: '10px solid #151515'
     }}>
       {/* Background Stage - Subtle Center Line */}
@@ -131,7 +147,7 @@ const ColorMixVisualizer = ({
           {bands.map((b, i) => (
               <div key={`target-${b.id}`} style={{ 
                   position: 'absolute', right: '12%', top: b.offset, 
-                  width: 80 + i*10, height: 80 + i*10, borderRadius: '50%', 
+                  width: (80 + i*10) * box.k, height: (80 + i*10) * box.k, borderRadius: '50%', 
                   border: `2px dashed ${b.colorB}`, transform: 'translateY(10px)' 
               }} />
           ))}
@@ -149,6 +165,8 @@ const ColorMixVisualizer = ({
                   beats={beatsA}
                   colorA={b.colorA}
                   colorB={b.colorB}
+                  k={box.k}
+                  xRange={box.xRange}
               />
           ))}
       </div>

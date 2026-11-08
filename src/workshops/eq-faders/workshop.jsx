@@ -12,7 +12,6 @@ import { useMidiMapping } from '../../hooks/useMidiMapping';
 import { matchControl } from '../../constants/midiMappings';
 import { BEATS_PER_PHRASE, PHRASES, NUM_PHRASES } from '../../utils/workshopUtils';
 import { PhraseIndicator } from '../../components/TrackViews';
-import CoachPatrick from '../../components/CoachPatrick';
 import AudioVisualizer from '../../components/AudioVisualizer';
 import ColorMixVisualizer from '../../components/ColorMixVisualizer';
 import SimplifiedTimeline from '../../components/SimplifiedTimeline';
@@ -247,7 +246,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
   if (!resolvedLevel) {
     return (
       <div className="app-container">
-        <div className="level-header"><h1>Unknown level</h1></div>
+        <div className="level-header"><h1>{t('notFound.title')}</h1><p>{t('notFound.text')}</p></div>
         <button className="btn-crayon" onClick={onBack}>{t('workshop.menu')}</button>
       </div>
     );
@@ -256,6 +255,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
   return (
     <div className="app-container">
       <LevelHeader
+        coachTips={coachTips}
         title={title}
         description={description}
         onBack={onBack}
@@ -265,7 +265,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
         {difficulty !== 'PRO' && (
           <div className="sync-hud-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
             <div style={{
-              background: isEqOk ? '#27ae60' : '#e74c3c', color: 'white', padding: '4px 12px',
+              background: isEqOk ? '#1e8449' : '#c0392b', color: 'white', padding: '4px 12px',
               borderRadius: '12px', fontSize: '0.75rem', fontWeight: '900', border: '2px solid #333',
             }}>
               {isEqOk ? 'EQ Curve OK' : 'Adjust EQs / Faders!'} (Score: {score})
@@ -317,7 +317,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
       </div>
 
       <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '15px', gap: isMobile ? '10px' : '20px' }}>
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? '5px' : '20px', flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
+        <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? '5px' : '20px', flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
           <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isMobile ? '10px' : '20px', alignItems: 'center' }}>
             <VolumeFader
               value={eqState.volA}
@@ -390,8 +390,6 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
         <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'Great EQ Transition!'} title={title} grade={grade} recap={levelText?.recap} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
-
-      <CoachPatrick tips={coachTips} />
     </div>
   );
 };

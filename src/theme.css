@@ -24,18 +24,18 @@
 
 /* === MEDIUM — warm taupe / dusk === */
 :root[data-theme="medium"] {
-  --surface: #6e5a4a;
-  --surface-solid: #6e5a4a;
-  --surface-elevated: #8a7463;
+  --surface: #5f4d40;
+  --surface-solid: #5f4d40;
+  --surface-elevated: #6e5a4a;
   --text: #f3ece1;
-  --text-muted: #c8b8a6;
+  --text-muted: #e3d7c9; /* ≥4.5:1 sur surface et surface-elevated */
   --text-inv: #2b2b2b;
   --border: rgba(243, 236, 225, 0.14);
   --border-strong: #f3ece1;
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   --glow: 0 0 0 rgba(0, 0, 0, 0);
   --accent-env: #d89464;
-  --overlay: rgba(110, 90, 74, 0.9);
+  --overlay: rgba(95, 77, 64, 0.9);
   --header-color: #ffffff;
 }
 

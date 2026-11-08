@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { LanguageContext } from '../hooks/LanguageContext';
 
@@ -6,33 +6,25 @@ const SoundOnIndicator = () => {
   const { language } = useContext(LanguageContext);
   const text = language === 'en' ? 'SOUND ON!' : 'SON ACTIVÉ !';
   
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
+      className="sound-on"
+      role="img"
+      aria-label={text}
+      // Rappel "monte le son" : pastille dans la barre du niveau (plus de position fixe qui chevauche le reste)
       style={{
-        position: 'fixed',
-        top: '20px',
-        right: isMobile ? '20px' : '180px',
-        zIndex: 9999,
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
         background: '#ff6b6b',
-        color: 'white',
-        padding: '6px 14px',
+        color: '#2b2b2b',
+        padding: '5px 12px',
         border: '3px solid #333',
         borderRadius: '20px',
-        boxShadow: '4px 4px 0 #333',
+        boxShadow: '3px 3px 0 #333',
         fontWeight: '900',
         fontFamily: 'inherit',
         transform: 'rotate(2deg)',
@@ -63,7 +55,8 @@ const SoundOnIndicator = () => {
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
       </motion.svg>
-      <span style={{ fontSize: '0.9rem', letterSpacing: '1px' }}>{text}</span>
+      <span className="sound-on-label" style={{ fontSize: '0.85rem', letterSpacing: '1px', whiteSpace: 'nowrap' }}>{text}</span>
+      <style>{`@media (max-width: 420px) { .sound-on { padding: 4px 8px !important; } .sound-on-label { display: none; } }`}</style>
     </motion.div>
   );
 };

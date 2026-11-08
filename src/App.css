@@ -36,28 +36,28 @@
   font-weight: 900;
 }
 
-.level-header p {
+.level-header .lh-desc {
   font-size: clamp(0.9rem, 3vw, 1.1rem);
   max-width: 800px;
   margin: 0 auto;
   font-weight: bold;
-  opacity: 0.8;
   color: var(--text-muted);
 }
 
 .main-gameplay {
-  flex: 1;
+  /* grandit pour remplir l'écran, mais ne se tasse jamais sous son contenu :
+     si ça ne tient pas, la page défile au lieu de faire chevaucher les commandes */
+  flex: 1 0 auto;
   display: flex;
   flex-direction: row;
   gap: clamp(10px, 2vw, 20px);
   align-items: stretch;
-  min-height: 0; 
 }
 
 @media (max-width: 768px) {
   .app-container {
     padding: 5px 5px;
-    overflow: hidden;
+    overflow-y: auto;
     height: 100dvh;
   }
 
@@ -70,7 +70,7 @@
     margin: 0;
   }
   
-  .level-header p {
+  .level-header .lh-desc {
     display: none; /* Hide description on mobile to save massive space */
   }
 
@@ -187,7 +187,7 @@
   text-align: center;
 }
 
-.control-group h3 {
+.control-group h2 {
   font-size: clamp(0.85rem, 2.5vw, 1.1rem);
   margin-bottom: 2px;
 }
@@ -204,7 +204,7 @@
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   font-family: inherit;
   background-color: var(--crayon-teal);
-  color: white;
+  color: #2b2b2b; /* encre : les fonds crayon sont clairs (constant crayon rule) */
   border: 4px solid var(--border-strong);
   border-radius: 20px;
   cursor: pointer;
@@ -266,7 +266,7 @@
     gap: 3px;
   }
 
-  .control-group h3 {
+  .control-group h2 {
     font-size: 0.75rem;
   }
 
@@ -291,119 +291,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text);
   padding: clamp(20px, 5vw, 60px);
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
-}
-
-.home-header {
-  text-align: center;
-  margin-bottom: clamp(30px, 8vh, 60px);
-}
-
-.home-header h1 {
-  font-size: clamp(2.5rem, 12vw, 5rem);
-  margin: 0;
-  background: linear-gradient(to right, #ff9f43, #ee5253);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 10px 30px rgba(255,159,67,0.3);
-}
-
-.home-header p {
-  font-size: clamp(1rem, 4vw, 1.5rem);
-  color: #aaa;
-  margin-top: 10px;
-}
-
-.workshop-grid {
-  display: flex;
-  flex-direction: row;
-  gap: clamp(20px, 4vw, 40px);
-  max-width: 1000px;
-  width: 100%;
-  perspective: 1000px;
-}
-
-@media (max-width: 768px) {
-  .workshop-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.workshop-card {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: clamp(20px, 5vw, 40px);
-  border-radius: 30px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.workshop-card.locked {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: none;
-  filter: grayscale(0.8) opacity(0.5);
-  cursor: not-allowed;
-}
-
-.workshop-card.locked:hover {
-  transform: none !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-}
-
-.difficulty-selector {
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.difficulty-card {
-  width: 180px;
-  padding: 24px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.difficulty-card.selected {
-  background: rgba(255, 159, 67, 0.15);
-  border-color: #ff9f43;
-  box-shadow: 0 0 20px rgba(255, 159, 67, 0.2);
-  transform: translateY(-5px);
-}
-
-.difficulty-card h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
-}
-
-.difficulty-card p {
-  font-size: 0.75rem;
-  opacity: 0.6;
-  margin: 0;
-}
-
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  width: 100%;
 }
 
 .back-home-btn {
@@ -426,3 +316,13 @@
     align-self: center;
   }
 }
+
+/* Page introuvable : laisse la place à la pastille son fixée en haut à droite */
+.not-found {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding-top: 80px;
+}
+.not-found p { color: var(--text-muted); max-width: 40ch; }

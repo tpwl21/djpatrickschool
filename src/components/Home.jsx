@@ -1,16 +1,16 @@
 import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
+import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
 import { LanguageContext } from '../hooks/LanguageContext';
 import { useDifficulty } from '../hooks/useDifficulty.jsx';
 import { workshopsList } from '../lib/levels/load';
 import { t as pickText } from '../lib/levels/schema';
-import coachImg from '../assets/coach_patrick.png';
-import mysteryImg from '../assets/secret_agent_patrick.png';
-import easyImg from '../assets/easy_patrick.png';
-import mediumImg from '../assets/medium_patrick.png';
-import proImg from '../assets/pro_patrick.png';
-import bannerImg from '../assets/banner.png';
+import coachImg from '../assets/coach_patrick.webp';
+import mysteryImg from '../assets/secret_agent_patrick.webp';
+import easyImg from '../assets/easy_patrick.webp';
+import mediumImg from '../assets/medium_patrick.webp';
+import proImg from '../assets/pro_patrick.webp';
+import logoUrl from '../assets/logo.svg';
 import LanguageSwitcher from './LanguageSwitcher';
 import AudioVisualizer from './AudioVisualizer';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
@@ -53,7 +53,6 @@ const VAULT_ITEMS = [
 const RESET_PASSWORDS = ['RESET', 'PASSWORD', 'TOTO', 'SECRET'];
 const VAULT_STORAGE_KEY = 'djPatrickVault';
 
-const DIFF_COLORS = { EASY: '#27ae60', MEDIUM: '#e67e22', PRO: '#e74c3c' };
 
 const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unlockedOrder = {}, onUnlockAll, onResetAll }) => {
   const { language, setLanguage, t } = useContext(LanguageContext);
@@ -132,7 +131,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
       <LanguageSwitcher style={{ position: 'absolute', top: 20, left: 20, zIndex: 100 }} />
 
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100vh', zIndex: -1, opacity: 0.15, pointerEvents: 'none', overflow: 'hidden' }}>
-        <h1 style={{
+        <div aria-hidden="true" style={{
           fontSize: '25vw',
           position: 'absolute',
           top: '50%',
@@ -145,7 +144,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           fontWeight: 900
         }}>
           DJ PATRICK
-        </h1>
+        </div>
         <AudioVisualizer audioCtx={audioCtx} color="#4ecdc4" />
       </div>
 
@@ -155,9 +154,9 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         className="home-banner"
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <div className="banner-logo-container">
-          <img src={bannerImg} alt="DJ Patrick School Banner" className="banner-logo" />
-        </div>
+        <h1 className="banner-logo-container">
+          <span className="banner-logo" role="img" aria-label="DJ Patrick School" style={{ '--logo-url': `url(${logoUrl})` }} />
+        </h1>
         <div className="banner-accent-line" />
       </motion.div>
 
@@ -209,7 +208,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           </div>
 
           <div className="categories-container">
-            <h3>{t('home.workshopsTitle')}</h3>
+            <h2>{t('home.workshopsTitle')}</h2>
             {workshopsList.map((ws) => {
               const { meta, imageUrl, levelsList } = ws;
               const id = meta.id;
@@ -241,7 +240,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                   onClick={() => hasLevels && onWorkshopSelect(id)}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                    <h4 style={{ color: 'var(--text)', margin: 0, fontSize: '1.1rem', fontWeight: 900 }}>{title}</h4>
+                    <h3 style={{ color: 'var(--text)', margin: 0, fontSize: '1.1rem', fontWeight: 900 }}>{title}</h3>
                     {meta.forthcoming && <span className="tag-soon">{t('home.soon')}</span>}
                   </div>
                   {hasLevels || hasLessons ? (
@@ -404,6 +403,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           <img
             src={mysteryImg}
             alt="Agent Patrick"
+            loading="lazy"
             className="safe-agent-reveal"
             aria-hidden="true"
           />
@@ -528,11 +528,16 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           margin: 0 auto;
           position: relative;
         }
+        /* Logo vectoriel (src/assets/logo.svg) utilisé comme masque : il prend la couleur de texte
+           de l'ambiance (encre le jour, craie le soir et la nuit), net à toutes les tailles */
         .banner-logo {
-          width: 100%;
           display: block;
-          filter: contrast(1.05);
-          opacity: 0.92;
+          width: 100%;
+          aspect-ratio: 3516 / 2000;
+          background-color: var(--text);
+          -webkit-mask: var(--logo-url) center / contain no-repeat;
+          mask: var(--logo-url) center / contain no-repeat;
+          transition: background-color 400ms ease;
         }
         .banner-accent-line {
           height: 2px;
@@ -552,7 +557,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         .coach-img-home {
           width: 100%;
           max-width: 220px;
-          filter: drop-shadow(0 10px 14px rgba(0,0,0,0.18)) drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+          filter: var(--sticker-shadow);
           will-change: transform;
         }
         .coach-bubble-home {
@@ -611,7 +616,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         }
         .diff-btn.active {
           background: #5DADE2;
-          color: #fff;
+          color: #2b2b2b;
           border-color: #5DADE2;
           transform: translate(2px, 2px);
           box-shadow: 0px 0px 0 rgba(0,0,0,0);
@@ -621,7 +626,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           flex-direction: column;
           gap: 12px;
         }
-        .categories-container h3 {
+        .categories-container h2 {
           font-size: 0.7rem;
           letter-spacing: 2px;
           margin-bottom: 2px;
@@ -631,7 +636,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         .category-block {
           padding-top: 10px !important;
         }
-        .category-block h4 {
+        .category-block h3 {
           font-size: 0.95rem !important;
         }
         .levels-row {
@@ -694,7 +699,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         .tag-soon {
           background: #f0f0f0;
           color: #aaa;
-          font-size: 0.5rem;
+          font-size: 0.7rem;
           padding: 2px 6px;
           border-radius: 4px;
           font-weight: bold;
@@ -728,7 +733,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.35s ease, transform 0.35s ease;
-          filter: drop-shadow(0 10px 14px rgba(0,0,0,0.25));
+          filter: var(--sticker-shadow);
           z-index: 2;
         }
         .mystery-box.safe-box:hover .safe-agent-reveal {
@@ -804,7 +809,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           position: relative;
         }
         .vault-title-text {
-          font-size: 0.65rem;
+          font-size: 0.7rem;
           font-weight: 900;
           letter-spacing: 3px;
           text-transform: uppercase;
@@ -857,7 +862,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         .vault-square-lock {
           font-size: 1.4rem;
           font-weight: 900;
-          color: #555;
+          color: var(--text-muted);
           font-family: 'Patrick Hand', cursive;
           line-height: 1;
           position: relative;
@@ -886,7 +891,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         }
 
         .vault-booth-cta {
-          font-size: 0.6rem;
+          font-size: 0.7rem;
           font-weight: 900;
           background: #0d0d0d;
           color: #D4AF37;
@@ -993,8 +998,8 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           pointer-events: none;
         }
         .secret-input {
-          background: rgba(0,0,0,0.35);
-          border: 1px solid rgba(212,175,55,0.35);
+          background: rgba(0,0,0,0.75);
+          border: 1px solid rgba(212,175,55,0.5);
           border-radius: 6px;
           padding: 10px 12px 10px 38px;
           outline: none;
@@ -1007,12 +1012,15 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           letter-spacing: 2px;
         }
         .secret-input::placeholder {
-          color: rgba(212,175,55,0.5);
+          color: rgba(212,175,55,0.9);
         }
         .secret-input:focus {
           border-color: #D4AF37;
-          background: rgba(0,0,0,0.5);
-          box-shadow: 0 0 0 2px rgba(212,175,55,0.15);
+          background: rgba(0,0,0,0.85);
+        }
+        .secret-input:focus-visible {
+          outline: 2px solid #D4AF37;
+          outline-offset: 2px;
         }
         .secret-input-line {
           height: 1px;
@@ -1027,12 +1035,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           max-width: 900px;
           margin: 24px auto 8px auto;
           padding: 10px 18px;
-          font-size: 0.75rem;
+          font-size: 0.85rem;
           line-height: 1.5;
           text-align: center;
-          color: var(--text-muted, #888);
+          color: var(--text-muted, #6b6b6b);
           font-style: italic;
-          opacity: 0.7;
         }
       `}} />
     </div>

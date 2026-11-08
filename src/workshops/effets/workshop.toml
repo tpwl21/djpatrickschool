@@ -1,7 +1,7 @@
 id = "effets"
 order = 4
 color = "#27AE60"
-image = "effects_patrick.png"
+image = "effects_patrick.webp"
 forthcoming = false
 kind = "effets"
 

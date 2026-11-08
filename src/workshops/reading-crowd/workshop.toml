@@ -1,7 +1,7 @@
 id = "reading_crowd"
 order = 6
 color = "#D4A017"
-image = "coach_patrick.png"
+image = "coach_patrick.webp"
 forthcoming = false
 kind = "reading_crowd"
 

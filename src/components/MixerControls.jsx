@@ -14,13 +14,14 @@ export const EqKnobs = ({
   labels = DEFAULT_EQ_LABELS,
   showLabels = true,
   labelFontSize = '0.7rem',
+  labelColor = 'currentColor', // hérite du texte du conteneur (thème) ; le Booth passe sa propre couleur
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap, alignItems: 'center' }}>
     {EQ_BANDS.map((band) => (
       <div key={band} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {showLabels && (
           <span style={{
-            fontSize: labelFontSize, fontWeight: 900, color: '#fff',
+            fontSize: labelFontSize, fontWeight: 900, color: labelColor,
             marginBottom: '4px', letterSpacing: '1px',
           }}>
             {labels[band]}
@@ -34,23 +35,24 @@ export const EqKnobs = ({
           value={values[band]}
           onChange={(v) => onChange(band, v)}
           color={color}
+          ariaLabel={`EQ ${labels[band]}`}
         />
       </div>
     ))}
   </div>
 );
 
-export const GainKnob = ({ value, onChange, color, size = 35, label = 'TRIM', showLabel = true }) => (
+export const GainKnob = ({ value, onChange, color, size = 35, label = 'TRIM', showLabel = true, labelColor }) => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     {showLabel && (
       <span style={{
-        fontSize: '0.55rem', color, fontWeight: 900,
-        marginBottom: '2px', opacity: 0.85, letterSpacing: '1px',
+        fontSize: '0.7rem', color: labelColor || color, fontWeight: 900,
+        marginBottom: '2px', letterSpacing: '1px',
       }}>
         {label}
       </span>
     )}
-    <Potard size={size} min={0} max={2} value={value} onChange={onChange} color={color} />
+    <Potard size={size} min={0} max={2} value={value} onChange={onChange} color={color} ariaLabel={label} />
   </div>
 );
 
@@ -63,14 +65,14 @@ export const VolumeFader = ({
   handleSize = 55,
   label = 'VOL',
   showLabel = true,
-  labelColor = '#ffbb44',
+  labelColor = 'currentColor',
   labelSize = '1.2rem',
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     {showLabel && (
       <span style={{
         fontSize: labelSize, fontWeight: 900, color: labelColor,
-        marginBottom: '8px', textShadow: '1px 1px 0 #000',
+        marginBottom: '8px',
       }}>
         {label}
       </span>
@@ -88,6 +90,7 @@ export const VolumeFader = ({
       handleColor={handleColor}
       resetValue={1}
       label=""
+      ariaLabel={label || 'Volume'}
     />
   </div>
 );
@@ -112,5 +115,6 @@ export const Crossfader = ({
     handleColor={handleColor}
     resetValue={0.5}
     label=""
+    ariaLabel="Crossfader"
   />
 );

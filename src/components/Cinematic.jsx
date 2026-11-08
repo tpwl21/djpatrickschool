@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import professorImg from '../assets/professor_patrick.png';
+import professorImg from '../assets/professor_patrick.webp';
 import { LanguageContext } from '../hooks/LanguageContext';
 import LessonRecap from './LessonRecap';
 
@@ -112,7 +112,7 @@ const Cinematic = ({ onNextLevel, onRetry, type = 'win', message = "", title = "
         .coach-celebration img {
           width: 300px;
           height: auto;
-          filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+          filter: var(--sticker-shadow);
         }
 
         .speech-bubble-large {
