@@ -52,9 +52,6 @@ Given a list of onset times, estimate the underlying period. Common approaches:
 - Polyrhythm: onset function has competing periods; the strongest wins, which may be wrong
 - High-density textures (reverb tails, dense chords): onset function is noisy, many false positives
 """
-youtube = "x3ZqFBMTkE8"
-youtube_start = 0
-youtube_caption = "Juan Pablo Bello — Music Information Retrieval lecture: beat tracking (New York University)"
 
 [[en.pages]]
 title   = "WSOLA and the phase vocoder: decoupling pitch from tempo"
@@ -211,9 +208,6 @@ Le but est de trouver les moments d'augmentation d'énergie — attaques de kick
 - Polyrythmie : la fonction d'onset a des périodes concurrentes ; la plus forte gagne, ce qui peut être faux
 - Textures denses (queues de reverb, accords denses) : la fonction d'onset est bruitée, beaucoup de faux positifs
 """
-youtube = "x3ZqFBMTkE8"
-youtube_start = 0
-youtube_caption = "Juan Pablo Bello — Cours MIR : beat tracking (New York University)"
 
 [[fr.pages]]
 title   = "WSOLA et le phase vocoder : découpler le pitch du tempo"

@@ -77,8 +77,6 @@ A heavily compressed track submitted at -7 LUFS to Spotify gets turned *down* to
 
 When you're mixing tracks from different eras or genres, the LUFS difference is what you're compensating with trim. Matching peaks isn't enough — match the perceived loudness.
 """
-youtube = "If6d7HaMaBY"
-youtube_caption = "LUFS vs dBFS explained — why perceived loudness and peak level are different measurements."
 
 [[en.pages]]
 title   = "The -6 dB headroom rule"
@@ -291,8 +289,6 @@ Une track très compressée soumise à -7 LUFS sur Spotify est *baissée* à -14
 
 Quand tu mixe des tracks d'époque ou de genre différents, la différence de LUFS est ce que tu compenses avec le trim. Matcher les pics ne suffit pas — matche la loudness perçue.
 """
-youtube = "If6d7HaMaBY"
-youtube_caption = "LUFS vs dBFS expliqués — pourquoi la loudness perçue et le niveau de pic sont deux mesures différentes."
 
 [[fr.pages]]
 title   = "La règle des -6 dB de headroom"

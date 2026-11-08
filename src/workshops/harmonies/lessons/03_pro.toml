@@ -26,8 +26,6 @@ content = "The Camelot A/B distinction encodes only two of the seven diatonic mo
 [[en.pages]]
 title   = "The ii-V-I cadence mapped to the wheel"
 content = "The **ii-V-I cadence** is the most common harmonic resolution in Western music. In the key of C major:\n- **ii** = D minor (Dm)\n- **V** = G major (G)\n- **I** = C major (C)\n\nThis resolves tension (ii→V creates dominant tension, V→I releases it).\n\nOn the Camelot wheel in C-major world (8B = C, 8A = Am):\n- **ii** (Dm) = **6A** (two positions counter-clockwise from 8A, or think of Dm as the ii of C)\n- **V** (G) = **2B** (Camelot position of G major)\n- **I** (C) = **8B**\n\nPath: **6A → 2B → 8B**.\n\nFor DJs: teasing a track in 6A territory, then dropping a dominant-energy track at 2B, then resolving to 8B creates a **structural arc** listeners feel as satisfying tension-release. This works across tracks, not just inside one. A 20-minute set movement built on ii-V-I wheel navigation is advanced but fully intentional. Radioactive DJs (Magda, Ben Klock) do this over 30-40 minute arcs in their recorded mixes.\n\nNote: the cadence always maps relative to the resolution key. The +7 energy boost move is essentially the **dominant relationship** (V→I, N+5 → N)."
-youtube         = "https://www.youtube.com/watch?v=alXoELBRPao"
-youtube_caption = "Ben Klock live at Berghain — a 3-hour arc with a clear harmonic narrative; analyze the Camelot codes in Rekordbox."
 
 [[en.pages]]
 title   = "Harmonic crimes: Villalobos, Koze, Parrish"
@@ -107,8 +105,6 @@ content = "La distinction A/B de Camelot n'encode que deux des sept modes diaton
 [[fr.pages]]
 title   = "La cadence ii-V-I mappée sur la roue"
 content = "La **cadence ii-V-I** est la résolution harmonique la plus courante en musique occidentale. En Do majeur :\n- **ii** = Ré mineur (Dm)\n- **V** = Sol majeur (G)\n- **I** = Do majeur (C)\n\nCela résout la tension (ii→V crée de la tension dominante, V→I la libère).\n\nSur la roue Camelot dans le monde du Do majeur (8B = Do, 8A = Am) :\n- **ii** (Dm) = **6A** (deux positions anti-horaires depuis 8A, ou pense à Dm comme le ii de Do)\n- **V** (Sol) = **2B** (position Camelot de Sol majeur)\n- **I** (Do) = **8B**\n\nChemin : **6A → 2B → 8B**.\n\nPour les DJs : teaser un morceau en territoire 6A, puis dropper un morceau à énergie dominante en 2B, puis résoudre en 8B crée un **arc structurel** que les auditeurs ressentent comme une tension-libération satisfaisante. Ça fonctionne entre les morceaux, pas seulement à l'intérieur d'un. Un mouvement de set de 20 minutes construit sur la navigation ii-V-I de la roue est avancé mais entièrement intentionnel. Les DJs comme Magda et Ben Klock font ça sur des arcs de 30-40 minutes dans leurs mixes enregistrés.\n\nNote : la cadence se mappe toujours par rapport à la tonalité de résolution. Le mouvement +7 d'energy boost est essentiellement la **relation dominante** (V→I, N+5 → N)."
-youtube         = "https://www.youtube.com/watch?v=alXoELBRPao"
-youtube_caption = "Ben Klock live au Berghain — un arc de 3 heures avec une narration harmonique claire ; analyse les codes Camelot dans Rekordbox."
 
 [[fr.pages]]
 title   = "Crimes harmoniques : Villalobos, Koze, Parrish"

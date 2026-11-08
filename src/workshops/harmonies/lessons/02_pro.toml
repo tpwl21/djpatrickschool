@@ -20,8 +20,6 @@ content = "Why is the pitch-shift formula logarithmic?\n\n**Pitch perception is 
 [[en.pages]]
 title   = "JND: where the ear gives up"
 content = "The **Just-Noticeable Difference (JND)** for pitch varies by context:\n\n| Context | JND | Explanation |\n|---------|-----|-------------|\n| Isolated pure tone, 2 kHz | **~3 cents** | Peak cochlear sensitivity. Trained musicians detect the just-tempered fifth difference here (702 − 700 = 2¢). |\n| Isolated tone (average listener) | **5-6 cents** | Standard psychoacoustic measurement (Zwicker & Fastl, 1990). |\n| Complex tone (instrument, voice) | **8-10 cents** | Harmonics and timbre add uncertainty. |\n| Dense mix (beat + bass + two tracks) | **15-25 cents** | **Spectral masking**: cochlear frequency channels are saturated; overlapping signals mask each other. |\n| Short transition (≤ 8 bars) | **~50 cents threshold for 'clash'** | The ear hasn't had time to calibrate a tonal center. A 50-cent mismatch in 4 bars goes largely unnoticed. |\n| Long blend (2+ minutes) | **25-30 cents** | The ear calibrates to the dominant pitch over time; mismatches audible at bar 1 become obvious at bar 64. |\n\nThe implication: a 3 % pitch drift (~50 cents) is manageable in a short 8-bar transition but will inevitably reveal itself in a 2-minute blend — the ear's temporal integration catches it."
-youtube         = "https://www.youtube.com/watch?v=RB7upq8nzIU"
-youtube_caption = "David Dunn — psychoacoustics lecture: spectral masking and critical bands explained."
 
 [[en.pages]]
 title   = "WSOLA: time-stretching in the time domain"
@@ -99,8 +97,6 @@ content = "Pourquoi la formule de décalage de pitch est-elle logarithmique ?\n\
 [[fr.pages]]
 title   = "JND : là où l'oreille abandonne"
 content = "Le **Just-Noticeable Difference (JND)** en hauteur varie selon le contexte :\n\n| Contexte | JND | Explication |\n|---------|-----|-------------|\n| Ton pur isolé, 2 kHz | **~3 cents** | Pic de sensibilité cochléaire. Les musiciens entraînés détectent l'écart juste-tempéré de la quinte (702 − 700 = 2¢). |\n| Ton isolé (auditeur moyen) | **5-6 cents** | Mesure psychoacoustique standard (Zwicker & Fastl, 1990). |\n| Ton complexe (instrument, voix) | **8-10 cents** | Les harmoniques et le timbre ajoutent de l'incertitude. |\n| Mix dense (beat + basse + deux tracks) | **15-25 cents** | **Masking spectral** : canaux fréquentiels cochléaires saturés ; signaux chevauchants se masquent mutuellement. |\n| Transition courte (≤ 8 mesures) | **~50 cents seuil de 'clash'** | L'oreille n'a pas eu le temps de calibrer un centre tonal. Un mismatch de 50 cents en 4 mesures passe presque inaperçu. |\n| Blend long (2+ minutes) | **25-30 cents** | L'oreille calibre vers le pitch dominant dans le temps ; mismatches inaudibles à la mesure 1 deviennent évidents à la mesure 64. |\n\nL'implication : une dérive de 3 % (~50 cents) est gérable dans une courte transition de 8 mesures, mais se révèlera dans un blend de 2 minutes — l'intégration temporelle de l'oreille la rattrape."
-youtube         = "https://www.youtube.com/watch?v=RB7upq8nzIU"
-youtube_caption = "David Dunn — cours de psychoacoustique : masking spectral et bandes critiques expliqués."
 
 [[fr.pages]]
 title   = "WSOLA : time-stretching dans le domaine temporel"

@@ -28,9 +28,6 @@ That's it. No formula needed.
 
 Load a house track. Tap your foot to it. That tap is 1 beat. Count how many taps happen in 10 seconds and multiply by 6 — you've just measured the BPM yourself.
 """
-youtube = "E2-hMqNmOoE"
-youtube_start = 0
-youtube_caption = "DJ Jazzy Jeff shows how tempo feels before numbers. Watch the first 2 minutes."
 
 [[en.pages]]
 title   = "Why speed matters when you mix"
@@ -132,9 +129,6 @@ C'est tout. Pas de formule nécessaire.
 
 Charge un morceau house. Tape du pied. Ce tap, c'est 1 beat. Compte combien de taps en 10 secondes et multiplie par 6 — tu viens de mesurer le BPM toi-même.
 """
-youtube = "E2-hMqNmOoE"
-youtube_start = 0
-youtube_caption = "DJ Jazzy Jeff montre comment le tempo se ressent avant les chiffres. Regarde les 2 premières minutes."
 
 [[fr.pages]]
 title   = "Pourquoi la vitesse compte quand tu mixes"

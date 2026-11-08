@@ -62,8 +62,6 @@ This setup means: at any point in a live set, you can read at a glance where you
 
 **Why this beats winging it**: a track you've cued properly is a track you *understand*. You know every structural moment. You can have a conversation with someone at the booth and still nail the transition because the geography is memorized.
 """
-youtube = "https://www.youtube.com/watch?v=2rFnWABnBP8"
-youtube_caption = "Rekordbox Phrase Analysis — watch how it segments a club track into intro/build/drop/break/outro."
 
 [[en.pages]]
 title   = "The drop as genre signature"
@@ -183,8 +181,6 @@ Cette configuration te permet : à tout moment dans un live, tu vois d'un coup d
 
 **Pourquoi ça bat l'improvisation totale** : une track que tu as proprement cuée est une track que tu *comprends*. Tu connais chaque moment structurel. Tu peux avoir une conversation avec quelqu'un à la cabine et quand même clouer la transition parce que la géographie est mémorisée.
 """
-youtube = "https://www.youtube.com/watch?v=2rFnWABnBP8"
-youtube_caption = "Rekordbox Phrase Analysis — observe comment il segmente une track club en intro/build/drop/break/outro."
 
 [[fr.pages]]
 title   = "Le drop comme signature de genre"

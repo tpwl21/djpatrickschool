@@ -52,9 +52,6 @@ At 120 BPM, 1 beat = 500 ms. The 5 ms threshold = **1% of a beat**. In beats-per
 
 Human interaural time discrimination (detecting which ear a sound arrives at first) resolves to ~10–20 μs. Monaural flutter detection (what you hear in a DJ booth) is coarser: ~1–2 ms for trained listeners. DJ software with real-time phase meters can show this, but the final judge is always the ear.
 """
-youtube = "Zn_BZkVxzFU"
-youtube_start = 0
-youtube_caption = "Haas effect demonstration — listen with headphones to hear the directional bias at different delay times."
 
 [[en.pages]]
 title   = "Hypermeter, anacrusis, AABA, and structural edge cases"
@@ -212,9 +209,6 @@ Pour des transitoires **non spatialisés, monauraux** (écoute enceinte club, so
 
 La discrimination temporelle interaurale humaine (détecter quelle oreille reçoit un son en premier) résout à ~10–20 μs. La détection de flottement monaural (ce qu'on entend dans une cabine DJ) est plus grossière : ~1–2 ms pour les auditeurs entraînés. Les logiciels DJ avec mètres de phase en temps réel peuvent montrer ça, mais le juge final reste toujours l'oreille.
 """
-youtube = "Zn_BZkVxzFU"
-youtube_start = 0
-youtube_caption = "Démonstration de l'effet Haas — écouter au casque pour entendre le biais directionnel à différents temps de délai."
 
 [[fr.pages]]
 title   = "Hypermètre, anacrouse, AABA et cas limites structurels"

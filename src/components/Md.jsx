@@ -1,15 +1,17 @@
 import React from 'react';
 
-// Tokenise a single line for **bold** and `code` spans.
+// Tokenise a single line for **bold**, *italic* and `code` spans.
 const parseInline = (text) => {
   const tokens = [];
-  const re = /(\*\*[^*]+\*\*|`[^`]+`)/g;
+  const re = /(\*\*[^*]+\*\*|\*[^*\s][^*]*?\*|`[^`]+`)/g;
   let last = 0, m;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) tokens.push({ t: 'txt', v: text.slice(last, m.index) });
     tokens.push(m[0].startsWith('**')
       ? { t: 'b', v: m[0].slice(2, -2) }
-      : { t: 'c', v: m[0].slice(1, -1) });
+      : m[0].startsWith('*')
+        ? { t: 'i', v: m[0].slice(1, -1) }
+        : { t: 'c', v: m[0].slice(1, -1) });
     last = m.index + m[0].length;
   }
   if (last < text.length) tokens.push({ t: 'txt', v: text.slice(last) });
@@ -20,12 +22,15 @@ const Inline = ({ text }) =>
   parseInline(text).map((tok, i) => {
     if (tok.t === 'b') return <strong key={i} className="md-b">{tok.v}</strong>;
     if (tok.t === 'c') return <code key={i} className="md-c">{tok.v}</code>;
+    if (tok.t === 'i') return <em key={i}>{tok.v}</em>;
     return tok.v;
   });
 
 // Classify a line into a block type.
 const lineType = (line) => {
   if (line.trim() === '') return 'empty';
+  if (/^#{1,4} /.test(line)) return 'heading';
+  if (/^\s*\|.*\|\s*$/.test(line)) return 'table';
   if (/^- /.test(line)) return 'bullet';
   if (/^\d+(?:-\d+)?[.)]\s/.test(line)) return 'numbered';
   if (/^ {2,}\S/.test(line)) return 'formula';
@@ -52,7 +57,16 @@ const parseBlocks = (src) => {
       const t = lineType(line);
       if (t === 'empty') continue;
 
-      if (t === 'bullet') {
+      if (t === 'heading') {
+        // un titre est toujours un bloc à part
+        const m = line.match(/^(#{1,4}) +(.*)/);
+        blocks.push({ type: 'heading', items: [{ level: m[1].length, text: m[2] }] });
+        current = null;
+      } else if (t === 'table') {
+        // ligne de séparation |---|:--:| ignorée
+        if (/^\s*\|?[\s:|-]+\|?\s*$/.test(line) && line.includes('-')) continue;
+        push('table', line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim()));
+      } else if (t === 'bullet') {
         push('bullet', line.replace(/^- /, ''));
       } else if (t === 'numbered') {
         const m = line.match(/^(\d+(?:-\d+)?[.)]) +(.*)/);
@@ -91,6 +105,25 @@ const Md = ({ children, className = '' }) => {
             );
           }
 
+          if (block.type === 'heading') {
+            const { level, text } = block.items[0];
+            return <h3 key={bi} className={`md-h md-h${Math.min(level, 3)}`}><Inline text={text} /></h3>;
+          }
+          if (block.type === 'table') {
+            const [head, ...rows] = block.items;
+            return (
+              <div key={bi} className="md-table-wrap">
+                <table className="md-table">
+                  <thead><tr>{head.map((c, ci) => <th key={ci}><Inline text={c} /></th>)}</tr></thead>
+                  <tbody>
+                    {rows.map((r, ri) => (
+                      <tr key={ri}>{r.map((c, ci) => <td key={ci}><Inline text={c} /></td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
           if (block.type === 'bullet') {
             return (
               <ul key={bi} className="md-ul">
@@ -135,6 +168,37 @@ const Md = ({ children, className = '' }) => {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
+.md-h {
+          margin: 1.2em 0 0.4em;
+          font-size: 1.3rem;
+          font-weight: 900;
+          line-height: 1.25;
+          color: var(--text, #2b2b2b);
+        }
+        .md-h3 { font-size: 1.15rem; }
+        .md-h:first-child { margin-top: 0; }
+        .md-table-wrap { overflow-x: auto; margin: 0.6em 0 1em; }
+        .md-table {
+          border-collapse: separate;
+          border-spacing: 0;
+          min-width: 100%;
+          font-size: 0.95rem;
+          line-height: 1.4;
+          border: 3px solid #333;
+          border-radius: 12px;
+          overflow: hidden;
+          background: #fff;
+          color: #2b2b2b;
+          font-variant-numeric: tabular-nums;
+        }
+        .md-table th, .md-table td { padding: 7px 12px; text-align: left; vertical-align: top; }
+        .md-table th {
+          background: color-mix(in srgb, var(--lesson-color, #5DADE2) 22%, #fff);
+          font-weight: 900;
+          border-bottom: 2px solid #333;
+          white-space: nowrap;
+        }
+        .md-table tbody tr + tr td { border-top: 1px solid #e3ddd2; }
         .md-content {
           font-size: 1.1rem;
           line-height: 1.75;

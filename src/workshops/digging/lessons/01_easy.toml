@@ -24,8 +24,6 @@ Here's how it works in practice:
 
 Do this for 20 minutes. You'll Wantlist 10 things. That's your first crate.
 """
-youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
-youtube_caption = "Theo Parrish — live set. Every track here came from hours of digging."
 
 [[en.pages]]
 title   = "Exercise: your first Discogs search"
@@ -143,8 +141,6 @@ Voilà comment ça marche en pratique :
 
 Fais ça 20 minutes. Tu vas Wantlister 10 trucs. C'est ton premier crate.
 """
-youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
-youtube_caption = "Theo Parrish — live set. Chaque track vient de dizaines d'heures de dig."
 
 [[fr.pages]]
 title   = "Exercice : ta première recherche Discogs"

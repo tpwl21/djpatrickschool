@@ -25,6 +25,11 @@ const fr = {
     }
   },
   workshop: {
+    audioError: {
+      title: "Impossible de charger le son.",
+      text: "Vérifie ta connexion internet, puis réessaie.",
+      retry: "Réessayer"
+    },
     menu: "Menu",
     status: {
       pitchOk: "PITCH OK",

@@ -49,8 +49,6 @@ The vinyl record market post-2020 exhibits classic speculative bubble characteri
 3. The **Discogs Popularity metric** (how many users have it in their collection) is a better rarity signal than price
 4. Buy direct from Bandcamp when possible — you pay the artist, not a speculator
 """
-youtube = "https://www.youtube.com/watch?v=G4E1ESfpFAc"
-youtube_caption = "Madlib on sampling, digging, and composition — the Beat Konducta approach."
 
 [[en.pages]]
 title   = "Eurocentric bias in music databases"
@@ -164,8 +162,6 @@ Le marché du vinyle post-2020 présente des caractéristiques classiques de bul
 3. La **métrique de Popularité Discogs** (combien d'utilisateurs l'ont dans leur collection) est un meilleur signal de rareté que le prix
 4. Achète direct sur Bandcamp quand c'est possible — tu paies l'artiste, pas un spéculateur
 """
-youtube = "https://www.youtube.com/watch?v=G4E1ESfpFAc"
-youtube_caption = "Madlib sur le sampling, le digging et la composition — l'approche Beat Konducta."
 
 [[fr.pages]]
 title   = "Le biais eurocentriste dans les bases de données musicales"

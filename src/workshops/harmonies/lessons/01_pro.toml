@@ -26,8 +26,6 @@ content = "Before 12-TET, musicians used **just intonation**: intervals defined 
 [[en.pages]]
 title   = "Beyond 12-TET: quarter tones and shrutis"
 content = "The 12-TET grid is a Western convention, not a law of physics. Several major musical traditions use finer subdivisions:\n\n**Arabic maqam**: uses **24 tones per octave** — i.e., **quarter tones (50¢ each)**. The *rast* maqam includes a neutral third at ~350¢ (between the 300¢ minor and 400¢ major). The *bayati* maqam centers on a neutral second (~150¢). These intervals have no equivalent slot in 12-TET.\n\n**Indian classical**: the śruti system defines **22 unequal microtonal intervals** per octave derived from the harmonic series. The *raga* system selects specific śrutis to define a melodic/emotional mode.\n\n**Turkish makam**: between 24 and 53 equal divisions depending on the school.\n\nFor DJs: if you're blending a Turkish or Arabic track (increasingly common in global club music — Acid Arab, Deena Abdelwahed, Dj Boo) into a Western electronic track, the Camelot wheel gives you the closest 12-TET approximation, but **ear-check is mandatory**. The neutral third will cause a beating with any Western harmony — sometimes intentional, sometimes painful."
-youtube         = "https://www.youtube.com/watch?v=XhY_7LT8eTw"
-youtube_caption = "Acid Arab live at Berghain: 12-TET electronic with Arabic maqam melody — ear-check the blend moments."
 
 [[en.pages]]
 title   = "The 7 modes: more than just major and minor"
@@ -107,8 +105,6 @@ content = "Avant le 12-TET, les musiciens utilisaient la **juste intonation** : 
 [[fr.pages]]
 title   = "Au-delà du 12-TET : quarts de ton et shrutis"
 content = "La grille 12-TET est une convention occidentale, pas une loi de la physique. Plusieurs traditions musicales majeures utilisent des subdivisions plus fines :\n\n**Maqam arabe** : utilise **24 tons par octave** — soit des **quarts de ton (50¢ chacun)**. Le maqam *rast* inclut une tierce neutre à ~350¢ (entre la mineure à 300¢ et la majeure à 400¢). Le maqam *bayati* est centré sur une seconde neutre (~150¢). Ces intervalles n'ont pas de case dans le 12-TET.\n\n**Musique classique indienne** : le système des śruti définit **22 intervalles microtonaux inégaux** par octave dérivés de la série harmonique. Le système des *raga* sélectionne des śrutis spécifiques pour définir un mode mélodique/émotionnel.\n\n**Makam turc** : entre 24 et 53 divisions égales selon l'école.\n\nPour les DJs : si tu mixes un morceau turc ou arabe (de plus en plus courant en club global — Acid Arab, Deena Abdelwahed, Dj Boo) dans un morceau électronique occidental, la roue Camelot te donne la meilleure approximation 12-TET, mais la **vérification à l'oreille est obligatoire**. La tierce neutre créera un battement avec toute harmonie occidentale — parfois intentionnel, parfois douloureux."
-youtube         = "https://www.youtube.com/watch?v=XhY_7LT8eTw"
-youtube_caption = "Acid Arab live au Berghain : électronique 12-TET avec mélodie maqam arabe — écoute les moments de blend."
 
 [[fr.pages]]
 title   = "Les 7 modes : plus que majeur et mineur"

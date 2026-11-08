@@ -40,9 +40,6 @@ This is why modern DJ gear doesn't have a millisecond knob for delay: they give 
 
 Try listening to a track with a synced delay at 1/4 note. Every echo hits exactly where you expect it. Remove sync, and the same setting becomes a mess.
 """
-youtube = "https://www.youtube.com/watch?v=9dVMIdpNPAE"
-youtube_start = 0
-youtube_caption = "BPM-synced delay on a DJ mixer — hear the echo lock to the beat."
 
 [[en.pages]]
 title   = "The echo-out: a classic DJ move"
@@ -125,9 +122,6 @@ C'est pour ça que le matos DJ moderne n'a pas de knob en millisecondes pour le 
 
 Écoute une track avec un delay syncé à 1/4 de note. Chaque écho tombe exactement où tu l'attends. Désactive le sync, et le même réglage devient du chaos.
 """
-youtube = "https://www.youtube.com/watch?v=9dVMIdpNPAE"
-youtube_start = 0
-youtube_caption = "Delay syncé BPM sur une table DJ — écoute l'écho se verrouiller sur le beat."
 
 [[fr.pages]]
 title   = "L'echo-out : un grand classique DJ"

@@ -47,7 +47,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
 
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
-  const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
+  const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
 
@@ -203,6 +203,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
     <div className="app-container">
       <LevelHeader
         coachTips={coachTips}
+        audioError={loadError}
         title={title}
         description={description}
         onBack={onBack}

@@ -42,9 +42,6 @@ Then the DJ opens the filter quickly. The full track floods back in. The crowd f
 
 **That contrast is free. That's the power of the filter.**
 """
-youtube = "https://www.youtube.com/watch?v=4a9aB-rFbZ8"
-youtube_start = 30
-youtube_caption = "Watch a DJ perform a classic lowpass filter sweep — notice when the crowd reacts."
 
 [[en.pages]]
 title   = "One rule to start"
@@ -122,9 +119,6 @@ Puis le DJ ouvre le filtre d'un coup. Le son complet revient. Le public ressent 
 
 **Ce contraste est gratuit. Voilà le pouvoir du filtre.**
 """
-youtube = "https://www.youtube.com/watch?v=4a9aB-rFbZ8"
-youtube_start = 30
-youtube_caption = "Un DJ fait un sweep passe-bas classique — remarque quand le public réagit."
 
 [[fr.pages]]
 title   = "Une règle pour commencer"

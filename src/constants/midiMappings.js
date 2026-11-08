@@ -89,7 +89,7 @@ export function getMapping(id) {
 export function setSmartBinding(controlName, spec) {
   const current = readSmartControls();
   const next = { ...current, [controlName]: spec };
-  localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(next));
+  try { localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
   window.dispatchEvent(new StorageEvent('storage', { key: SMART_STORAGE_KEY, newValue: JSON.stringify(next) }));
 }
 
@@ -98,12 +98,12 @@ export function clearSmartBinding(controlName) {
   if (!(controlName in current)) return;
   const next = { ...current };
   delete next[controlName];
-  localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(next));
+  try { localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
   window.dispatchEvent(new StorageEvent('storage', { key: SMART_STORAGE_KEY, newValue: JSON.stringify(next) }));
 }
 
 export function clearAllSmartBindings() {
-  localStorage.removeItem(SMART_STORAGE_KEY);
+  try { localStorage.removeItem(SMART_STORAGE_KEY); } catch { /* ignore */ }
   window.dispatchEvent(new StorageEvent('storage', { key: SMART_STORAGE_KEY, newValue: '{}' }));
 }
 

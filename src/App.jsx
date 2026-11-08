@@ -67,12 +67,12 @@ function loadProgression() {
     }
   } catch { /* ignore */ }
 
-  localStorage.setItem(PROGRESSION_KEY, JSON.stringify(base));
+  try { localStorage.setItem(PROGRESSION_KEY, JSON.stringify(base)); } catch { /* stockage bloqué : on joue sans sauvegarde */ }
   return base;
 }
 
 function saveProgression(map) {
-  localStorage.setItem(PROGRESSION_KEY, JSON.stringify(map));
+  try { localStorage.setItem(PROGRESSION_KEY, JSON.stringify(map)); } catch { /* stockage bloqué : on joue sans sauvegarde */ }
 }
 
 function parseHash() {

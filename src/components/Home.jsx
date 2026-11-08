@@ -64,7 +64,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
 
   const saveVault = (ids) => {
     setVaultUnlocked(ids);
-    localStorage.setItem(VAULT_STORAGE_KEY, JSON.stringify(ids));
+    try { localStorage.setItem(VAULT_STORAGE_KEY, JSON.stringify(ids)); } catch { /* ignore */ }
   };
 
   const handleSecretCode = (val) => {
@@ -101,7 +101,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
 
   const [audioCtx] = useState(() => {
     const ctx = new MagicAudioContext();
-    ctx.init();
+    ctx.init().catch((e) => console.warn('Audio accueil indisponible', e));
     return ctx;
   });
   const [difficulty, setDifficulty] = useDifficulty();

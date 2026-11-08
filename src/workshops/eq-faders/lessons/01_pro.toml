@@ -38,8 +38,6 @@ Five coefficients (b0, b1, b2, a1, a2) define the filter entirely. From these yo
 
 This project implements exactly this: three `BiquadFilterNode` instances per deck — `lowshelf`, `peaking`, `highshelf` — connected in series. See `src/audio/MagicAudioContext.js`. The coefficients are computed by the browser's audio engine from the `frequency`, `gain`, and `Q` parameters you set.
 """
-youtube = "FnpkBE4kJ6Q"
-youtube_caption = "Biquad filter topology — visualization of shelving vs peaking responses."
 
 [[en.pages]]
 title   = "Isolator topology: why a Rane kill sounds different from a Pioneer kill"
@@ -110,8 +108,6 @@ This is why experienced DJs use **booth monitors at a calibrated SPL** — typic
 
 At Berghain and other well-calibrated venues, the entire gain structure from DJ mixer output to amplifier input is pre-set. DJs receive a normalized interface. This solves the Fletcher-Munson problem for the mixer operator: all decisions are made at a known SPL, referenced to the same point on the equal-loudness curve.
 """
-youtube = "jFnVVFPJaGo"
-youtube_caption = "Fletcher-Munson equal-loudness curves — hearing at different SPL levels."
 
 [[en.pages]]
 title   = "Split-cue routing: pre-EQ or post-EQ?"
@@ -231,8 +227,6 @@ Cinq coefficients (b0, b1, b2, a1, a2) définissent entièrement le filtre. Avec
 
 Ce projet implémente exactement ça : trois instances de `BiquadFilterNode` par deck — `lowshelf`, `peaking`, `highshelf` — connectées en série. Cf. `src/audio/MagicAudioContext.js`. Les coefficients sont calculés par le moteur audio du navigateur à partir des paramètres `frequency`, `gain` et `Q` que tu règles.
 """
-youtube = "FnpkBE4kJ6Q"
-youtube_caption = "Topologie de filtre biquad — visualisation des réponses shelving vs peaking."
 
 [[fr.pages]]
 title   = "Topologie isolator : pourquoi un kill Rane sonne différent d'un kill Pioneer"
@@ -303,8 +297,6 @@ C'est pour ça que les DJs expérimentés utilisent des **moniteurs de booth à 
 
 Au Berghain et dans d'autres salles bien calibrées, toute la structure de gain de la sortie table DJ jusqu'à l'entrée ampli est pré-réglée. Les DJs reçoivent une interface normalisée. Ça résout le problème Fletcher-Munson pour l'opérateur table : toutes les décisions se prennent à un SPL connu, référencé au même point sur la courbe d'égale loudness.
 """
-youtube = "jFnVVFPJaGo"
-youtube_caption = "Courbes d'égale loudness Fletcher-Munson — audition à différents SPL."
 
 [[fr.pages]]
 title   = "Routing split-cue : pré-EQ ou post-EQ ?"

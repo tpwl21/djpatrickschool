@@ -6,12 +6,16 @@ export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    const saved = localStorage.getItem('djPatrickLanguage');
-    return saved ? saved : 'fr';
+    try {
+      const saved = localStorage.getItem('djPatrickLanguage');
+      return saved === 'en' || saved === 'fr' ? saved : 'fr';
+    } catch {
+      return 'fr';
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem('djPatrickLanguage', language);
+    try { localStorage.setItem('djPatrickLanguage', language); } catch { /* ignore */ }
   }, [language]);
 
   const dictionary = language === 'en' ? en : fr;

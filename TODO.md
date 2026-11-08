@@ -28,11 +28,14 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 ### Corrections relevées par l'audit (7 tailles × 10 écrans)
 - [x] Accueil mobile : les drapeaux chevauchent le logo
 - [x] Leçon : badge « LEÇON 1 » hors écran à 360 px
-- [ ] Leçon : un `## titre` s'affiche en brut (rendu Markdown)
+- [x] Leçons : titres (`##`, 226 lignes), tableaux (14 fichiers) et *italique* affichés en brut → rendus correctement
 - [x] Harmonies mobile : colonnes de la bibliothèque coupées
 - [x] EQ : visualiseur écrasé (étiquettes HIGH / MID / BASS empilées), étiquettes de mixer invisibles en EASY
 - [x] FX : étiquettes du mixer sur la frise
-- [ ] Retirer les 19 vidéos YouTube inexistantes des leçons (voir phase 3)
+- [x] Retirer les vidéos YouTube inexistantes des leçons (48 champs, 23 fichiers ; la seule « vraie » vidéo avait une légende qui ne correspondait pas → retirée aussi)
+- [x] Images de leçon manquantes (les 10 prévues pour Gemini) : masquées proprement au lieu d'une icône cassée
+- [x] Stockage local bloqué (navigation privée) : le site ne plante plus, il ne mémorise juste rien
+- [x] Moteur audio qui ne démarre pas : bandeau « Impossible de charger le son » + Réessayer (un morceau manquant est déjà remplacé par un beat synthétique)
 
 ### Proportions et vides
 - [ ] Zone de jeu : largeur max + centrage, moins de vide en haut/bas (Beatmatching)
@@ -77,10 +80,12 @@ Les leçons ont été écrites par un LLM et pas toutes relues. Objectif : du co
 - [ ] Inventaire des leçons et de leur volume de texte
 - [ ] Relecture guidée, étape par étape, à partir de ce que tu as en tête (on avance leçon par leçon)
 - [ ] Alléger : moins de texte, plus de démonstrations, de visuels et de pratique
+- [ ] Coquilles repérées : « Apprend à utiliser le fader » → « Apprends » (consigne EQ 1, FR)
+- [ ] Produire les 10 illustrations de leçons manquantes (`public/lesson-images/`, voir `GEMINI.md`)
 - [ ] **Vidéos YouTube** : l'intégration marche techniquement (pas de blocage sur une page statique), mais **19 des 21 vidéos des leçons n'existent pas** : identifiants inventés par le LLM (vérifié via oEmbed le 2026-11-08). Les 2 vidéos réelles sont dans `harmonies/lessons/01_pro.toml` et `02_pro.toml`, dont une hors sujet.
-  - court terme (phase 1) : retirer les champs `youtube` invalides pour ne plus afficher de lecteurs cassés
+  - [x] court terme : champs `youtube` invalides retirés
   - pendant la relecture : choisir ensemble de vraies vidéos, et vérifier chaque lien avant de l'ajouter
-  - option technique : passer par `youtube-nocookie.com` (pas de cookies tant qu'on ne lance pas la vidéo) avec un lien « Voir sur YouTube » en secours
+  - [x] option technique : lecteur via `youtube-nocookie.com`, chargement différé, lien « YouTube ↗ » en secours
 
 ---
 

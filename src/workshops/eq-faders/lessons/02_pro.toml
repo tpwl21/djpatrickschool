@@ -42,9 +42,6 @@ EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, t
 
 Most modern DJ mixers with dBTP meters (Pioneer DJM-A9, Allen & Heath V10) display this correctly. Older mixers with sample-rate VU only: assume 1–2 dB of headroom beyond your meter for inter-sample peaks.
 """
-youtube = "If6d7HaMaBY"
-youtube_start = 120
-youtube_caption = "EBU R128 loudness standard — the three measurement windows explained."
 
 [[en.pages]]
 title   = "PA system design philosophies and their effect on DJ mixing"
@@ -280,9 +277,6 @@ EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fr
 
 La plupart des tables DJ modernes avec mètres dBTP (Pioneer DJM-A9, Allen & Heath V10) affichent ça correctement. Tables anciennes avec VU à fréquence d'échantillonnage seulement : suppose 1–2 dB de headroom au-delà de ton mètre pour les pics inter-échantillons.
 """
-youtube = "If6d7HaMaBY"
-youtube_start = 120
-youtube_caption = "Standard EBU R128 — les trois fenêtres de mesure expliquées."
 
 [[fr.pages]]
 title   = "Philosophies de conception PA et leur effet sur le mix DJ"

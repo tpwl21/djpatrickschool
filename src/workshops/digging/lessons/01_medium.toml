@@ -55,8 +55,6 @@ Two DJs, two radically different filter logics:
 
 Your filter doesn't need to match theirs. It needs to be *yours* — specific, consistent, and built over time.
 """
-youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
-youtube_caption = "Theo Parrish live — every track here represents a 98% rejection rate."
 
 [[en.pages]]
 title   = "The crate compounds over time"
@@ -168,8 +166,6 @@ Deux DJs, deux logiques de filtre radicalement différentes :
 
 Ton filtre n'a pas besoin de ressembler au leur. Il doit être *le tien* — spécifique, cohérent, et construit dans le temps.
 """
-youtube = "https://www.youtube.com/watch?v=0QXK-3HVbpY"
-youtube_caption = "Theo Parrish live — chaque track représente un taux de rejet de 98%."
 
 [[fr.pages]]
 title   = "Le crate se capitalise dans le temps"

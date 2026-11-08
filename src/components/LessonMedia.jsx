@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const assetPrefix = () => {
   const base = import.meta.env.BASE_URL || '/';
@@ -27,14 +27,17 @@ const extractYoutubeId = (ref) => {
 const LessonMedia = ({ image, imageCaption, youtube, youtubeStart, youtubeCaption }) => {
   const imgSrc = image ? resolveImageUrl(image) : '';
   const ytId = youtube ? extractYoutubeId(youtube) : '';
+  // image introuvable (ex. pas encore produite) : on masque la figure plutôt qu'afficher une icône cassée
+  const [failedSrc, setFailedSrc] = useState(null);
+  const showImg = imgSrc && failedSrc !== imgSrc;
 
-  if (!imgSrc && !ytId) return null;
+  if (!showImg && !ytId) return null;
 
   return (
     <div className="lesson-media">
-      {imgSrc && (
+      {showImg && (
         <figure className="lesson-media-figure">
-          <img src={imgSrc} alt={imageCaption || ''} className="lesson-media-image" />
+          <img src={imgSrc} alt={imageCaption || ''} className="lesson-media-image" loading="lazy" onError={() => setFailedSrc(imgSrc)} />
           {imageCaption && <figcaption className="lesson-media-caption">{imageCaption}</figcaption>}
         </figure>
       )}
@@ -42,13 +45,17 @@ const LessonMedia = ({ image, imageCaption, youtube, youtubeStart, youtubeCaptio
         <figure className="lesson-media-figure">
           <div className="lesson-media-youtube">
             <iframe
-              src={`https://www.youtube.com/embed/${ytId}?rel=0${youtubeStart ? `&start=${youtubeStart}` : ''}`}
-              title="YouTube video"
+              src={`https://www.youtube-nocookie.com/embed/${ytId}?rel=0${youtubeStart ? `&start=${youtubeStart}` : ''}`}
+              title={youtubeCaption || 'YouTube'}
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
-          {youtubeCaption && <figcaption className="lesson-media-caption">{youtubeCaption}</figcaption>}
+          <figcaption className="lesson-media-caption">
+            {youtubeCaption}{youtubeCaption && ' · '}
+            <a href={`https://www.youtube.com/watch?v=${ytId}${youtubeStart ? `&t=${youtubeStart}s` : ''}`} target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          </figcaption>
         </figure>
       )}
 

@@ -54,7 +54,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
   // Dummy B config so the audio engine boots; real track loaded on user pick.
   // Must be memoized — a new object every render would cause useAudioDeck to re-init in a loop.
   const configBPlaceholder = useMemo(() => ({ url: null, bpm: bpmA, complexity: 1, title: '—' }), [bpmA]);
-  const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configBPlaceholder, TRACK_LENGTH_SEC);
+  const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configBPlaceholder, TRACK_LENGTH_SEC);
 
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
@@ -235,6 +235,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
     <div className="app-container">
       <LevelHeader
         coachTips={coachTips}
+        audioError={loadError}
         title={title}
         description={description}
         onBack={onBack}

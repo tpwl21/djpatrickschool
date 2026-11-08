@@ -9,6 +9,8 @@ import { MagicAudioContext } from '../audio/MagicAudioContext';
 export const useAudioDeck = (configA, configB, trackLengthSec) => {
   const [audioCtx, setAudioCtx] = useState(null);
   const [isReady, setIsReady] = useState(false);
+  // échec réel de chargement (réseau, fichier) : affiché au joueur au lieu d'un « Chargement… » infini
+  const [loadError, setLoadError] = useState(false);
   const audioCtxRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +18,7 @@ export const useAudioDeck = (configA, configB, trackLengthSec) => {
 
     const ctx = new MagicAudioContext();
     audioCtxRef.current = ctx;
+    let cancelled = false;
 
     (async () => {
       try {
@@ -27,14 +30,19 @@ export const useAudioDeck = (configA, configB, trackLengthSec) => {
         setAudioCtx(ctx);
         setIsReady(true);
       } catch (e) {
-        console.error('Audio init failed', e);
+        // un démontage en cours de chargement n'est pas une erreur pour le joueur
+        if (!cancelled) {
+          console.error('Audio init failed', e);
+          setLoadError(true);
+        }
       }
     })();
 
     return () => {
+      cancelled = true;
       if (ctx && ctx.ctx) ctx.ctx.close().catch(() => {});
     };
   }, [configA, configB, trackLengthSec]);
 
-  return { audioCtx, audioCtxRef, isReady };
+  return { audioCtx, audioCtxRef, isReady, loadError };
 };

@@ -353,7 +353,7 @@ const SecretBoothFull = ({ onBack }) => {
     ctx.init().then(() => {
       setAudioCtx(ctx);
       setIsReady(true);
-    });
+    }).catch((e) => console.warn('Audio booth indisponible', e));
     return () => {
       if (ctx && ctx.ctx) ctx.ctx.close().catch(() => {});
     };

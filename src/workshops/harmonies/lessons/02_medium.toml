@@ -52,8 +52,6 @@ The **just-noticeable difference (JND)** for pitch tells you how much drift is "
 
 **Vocal tracks**: the human voice is the most pitch-sensitive sound the ear tracks. A 3-5% pitch drift on a recognizable vocal is immediately obvious — even at 3 cents on a clear voice. If your blend has vocals, treat the threshold as 2-3× stricter.
 """
-youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
-youtube_caption = "Classic vinyl set — listen for how the crowd reacts when BPM jumps cause audible pitch drift on vocals."
 
 [[en.pages]]
 title   = "Master Tempo: the decision tree"
@@ -182,8 +180,6 @@ Le **JND (just-noticeable difference)** en pitch te dit quelle dérive est "safe
 
 **Tracks vocales** : la voix humaine est le son que l'oreille suit avec le plus de précision. Une dérive de 3-5% sur une voix reconnaissable est immédiatement évidente — même à 3 cents sur une voix claire. Si ton blend a des voix, traite le seuil comme 2-3× plus strict.
 """
-youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
-youtube_caption = "Set vinyle classique — écoute comment la foule réagit quand des sauts de BPM causent une dérive de pitch audible sur les voix."
 
 [[fr.pages]]
 title   = "Master Tempo : l'arbre de décision"

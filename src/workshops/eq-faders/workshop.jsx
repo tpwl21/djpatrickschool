@@ -51,7 +51,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
   const isWide = !useMobileDetection(1099);
-  const { audioCtx, audioCtxRef, isReady } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
+  const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
   const [isPlayingB, setIsPlayingB] = useState(false);
 
@@ -258,6 +258,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
     <div className="app-container">
       <LevelHeader
         coachTips={coachTips}
+        audioError={loadError}
         title={title}
         description={description}
         onBack={onBack}

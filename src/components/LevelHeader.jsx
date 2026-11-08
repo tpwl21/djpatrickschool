@@ -18,6 +18,7 @@ const LevelHeader = ({
   audioCtx,
   vizColor = '#ff6b6b',
   coachTips,
+  audioError = false,
   children,
 }) => {
   const { t } = useContext(LanguageContext);
@@ -40,6 +41,13 @@ const LevelHeader = ({
       </div>
 
       {description && <p className="lh-desc" dangerouslySetInnerHTML={{ __html: description }} />}
+
+      {audioError && (
+        <div className="lh-audio-error" role="alert">
+          <span><strong>{t('workshop.audioError.title')}</strong> {t('workshop.audioError.text')}</span>
+          <button className="btn-crayon nudge-btn" onClick={() => window.location.reload()}>{t('workshop.audioError.retry')}</button>
+        </div>
+      )}
 
       <div className="lh-sub">
         {coachTips?.length > 0 && <CoachPatrick tips={coachTips} />}
@@ -67,6 +75,13 @@ const LevelHeader = ({
         .lh-right { grid-area: right; justify-self: end; display: flex; align-items: center; gap: 12px; }
         .lh-title { grid-area: title; margin: 0; }
         .lh-menu { padding: 8px 16px; font-size: 0.95rem; }
+        .lh-audio-error {
+          display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px;
+          max-width: 760px; margin: 0 auto; padding: 10px 14px;
+          background: #fff; color: #2b2b2b; border: 3px solid #c0392b; border-radius: 16px;
+          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+        }
+        .lh-audio-error .btn-crayon { padding: 6px 14px; font-size: 0.95rem; }
         /* coach (pleine largeur) + statuts du niveau ; coach replié = juste Patrick, à côté des statuts */
         .lh-sub { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
         .lh-sub > .coach-strip { flex: 1 1 100%; }

@@ -16,8 +16,6 @@ recap = [
 [[en.pages]]
 title   = "The tape recorder effect"
 content = "Think of an old tape recorder. You've probably seen it in movies: when the tape runs fast, everyone sounds like Alvin and the Chipmunks. When it runs slow, they sound like a monster.\n\nDJ decks work the same way. When you drag the **pitch fader up** to match a faster track, you're speeding up the tape. Every instrument rises in pitch — the kick sounds lighter, the bass goes up, the vocals (if any) start to drift sharp.\n\nThis is not a flaw. It's physics. The question is: **how much drift can the crowd tolerate before it sounds wrong?**\n\nThe answer depends on the track and how long the blend lasts."
-youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
-youtube_caption = "Classic vinyl DJ set: hear how vocals shift when the pitch fader moves."
 
 [[en.pages]]
 title   = "What drifts first: the voice"
@@ -71,8 +69,6 @@ recap = [
 [[fr.pages]]
 title   = "L'effet magnétophone"
 content = "Pense à un vieux magnétophone. Tu l'as probablement vu dans des films : quand la bande tourne vite, tout le monde ressemble à Alvin et les Chipmunks. Quand elle tourne lentement, ça ressemble à un monstre.\n\nLes tables de mixage DJ fonctionnent pareil. Quand tu montes le **fader de pitch** pour matcher un morceau plus rapide, tu accélères la bande. Tous les instruments montent en hauteur — le kick sonne plus léger, la basse remonte, et les voix (s'il y en a) commencent à dériver vers le haut.\n\nCe n'est pas un défaut. C'est de la physique. La question est : **combien de dérive le public peut-il tolérer avant que ça sonne faux ?**\n\nLa réponse dépend du morceau et de la durée du blend."
-youtube         = "https://www.youtube.com/watch?v=e-5IvBopM7Y"
-youtube_caption = "Set vinyl classique : écoute comment les voix dérivent quand le fader de pitch bouge."
 
 [[fr.pages]]
 title   = "Ce qui dérive en premier : la voix"

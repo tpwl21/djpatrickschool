@@ -25,6 +25,11 @@ const en = {
     }
   },
   workshop: {
+    audioError: {
+      title: "Couldn't load the audio.",
+      text: "Check your internet connection, then try again.",
+      retry: "Try again"
+    },
     menu: "Lobby",
     status: {
       pitchOk: "PITCH LOCKED",
