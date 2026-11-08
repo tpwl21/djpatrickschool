@@ -225,7 +225,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
         </div>}
       </LevelHeader>
 
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: 12 }}>
+      <div className="phrase-row" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: 12 }}>
         <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
         <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
       </div>

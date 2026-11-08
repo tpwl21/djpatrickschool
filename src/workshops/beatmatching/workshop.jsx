@@ -361,7 +361,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
       </LevelHeader>
 
       {viewType === 'phrase' && (
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
+        <div className="phrase-row" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
           <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
           <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
         </div>

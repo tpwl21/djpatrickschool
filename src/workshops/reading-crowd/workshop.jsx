@@ -160,7 +160,7 @@ const ReadingCrowdLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext
         <CrowdMeter crowd={crowd} language={language} color="#D4A017" />
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '4px 20px' }}>
+      <div className="phrase-row" style={{ display: 'flex', justifyContent: 'center', padding: '4px 20px' }}>
         <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} />
       </div>
 

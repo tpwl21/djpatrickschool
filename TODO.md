@@ -79,6 +79,10 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 
 La jouabilité du Beatmatching est bonne ; les autres ateliers ont de bonnes idées mais sont bâclés. Pour chaque famille : séance d'idées → mécanique de jeu → représentation visuelle → niveaux.
 
+- [ ] **Pour toutes les familles** (critique du 8 nov., 26/40) :
+  - le coach doit suivre l'état réel du jeu (drop fait, pitch calé, phrase en cours) au lieu de conseils figés ou prématurés
+  - progression visible vers la victoire (jauge « tiens 2 s » près des commandes)
+  - **zéro scroll sur téléphone** : déjà OK pour Beatmatching (portrait), EQ 1-2, Digging, Lecture de foule ; restent EQ 3, FX, Harmonies (portrait et paysage) et Beatmatching 3/6 en paysage
 - [ ] **Beatmatching** : petits détails de synchro à corriger (à lister ensemble)
 - [ ] **EQ & Faders**
 - [ ] **Harmonies**
@@ -114,6 +118,8 @@ Constat : EASY / MEDIUM / PRO, c'est bien pour le jeu (surtout en Beatmatching),
 - **A. La difficulté ne touche que la pratique** (tolérance, aides visuelles, temps de maintien, comme en Beatmatching). Une seule version des leçons pour tout le monde.
 - **B. Leçon unique + encarts « Pour aller plus loin »** dépliables pour les curieux, au lieu de 3 fichiers.
 - **C. Difficulté par niveau** : on réussit un niveau, puis on débloque son « mode défi » (étoiles / badges), au lieu de choisir une difficulté globale au départ.
+
+- En PRO (« à l'oreille »), l'EQ et les FX affichent encore le visualiseur SOURCE/TARGET complet : à trancher avec le reste.
 
 On peut combiner (par exemple A + B). À trancher avant la phase 3, pour ne réécrire le contenu qu'une fois.
 

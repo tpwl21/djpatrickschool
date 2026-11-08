@@ -18,7 +18,7 @@ const SimplifiedTimeline = ({ levelId, currentPhraseIdx, progress, totalPhrases 
   const COLOR_B = isBassLevel ? BASS_B : DEFAULT_B;
 
   return (
-    <div style={{
+    <div className="simplified-timeline" style={{
       width: '100%',
       padding: '10px 0',
       display: 'flex',

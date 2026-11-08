@@ -120,7 +120,7 @@ const PitchBlock = ({
         ariaLabel={label || 'Pitch'}
       />
       {activeMode && (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 4, gap: 4 }}>
+        <div style={{ display: 'flex', flexDirection: orientation === 'horizontal' ? 'row' : 'column', alignItems: 'center', marginTop: 4, gap: orientation === 'horizontal' ? 8 : 4 }}>
           {activeMode === 'bpm' && (
             <div style={readoutStyle(resolvedBpmColor)}>
               {effBpm.toFixed(1)} BPM

@@ -152,6 +152,10 @@ const CoachPatrick = ({ tips = [], bpm, mood }) => {
           .coach-bubble.is-expanded p { -webkit-line-clamp: unset; }
           .coach-close { width: 40px; height: 40px; }
         }
+        /* paysage téléphone : Patrick replié tout petit, pour laisser la hauteur au jeu */
+        @media (max-height: 500px) {
+          .coach-strip:not(.is-open) .coach-avatar { width: 34px; }
+        }
       `}} />
     </div>
   );

@@ -180,7 +180,7 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
         )}
       </LevelHeader>
 
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 20px' }}>
+      <div className="phrase-row" style={{ display: 'flex', justifyContent: 'center', padding: '8px 20px' }}>
         <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} />
       </div>
 

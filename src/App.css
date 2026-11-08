@@ -74,18 +74,15 @@
     display: none; /* Hide description on mobile to save massive space */
   }
 
-  .railway-container {
-    flex: 1;
-    min-height: 120px; /* Even smaller to fit buttons */
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-
   .main-gameplay {
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px; /* Force space before controls */
+    gap: 10px;
+    margin-bottom: 10px;
   }
+  /* pastilles « Train A : Intro » : compactes sur téléphone (styles inline → !important) */
+  .phrase-row { padding: 2px 8px !important; gap: 6px !important; }
+  .phrase-pill { padding: 3px 10px !important; font-size: 0.8rem !important; gap: 6px !important; }
+  .level-header { margin-bottom: 6px !important; gap: 6px !important; }
 }
 
 .railway-container {
@@ -112,9 +109,15 @@
   border-bottom: 2px dashed #8b4513;
 }
 
+/* après la règle de base, sinon elle l'écrase (même spécificité) */
 @media (max-width: 768px) {
   .track-container {
-    height: clamp(70px, 10vh, 90px);
+    height: clamp(60px, 9vh, 90px);
+  }
+  .railway-container {
+    min-height: 120px;
+    padding: 8px;
+    gap: 8px;
   }
 }
 
@@ -329,4 +332,9 @@
 @media (max-width: 768px) and (max-height: 500px) {
   .main-gameplay { flex-direction: row; gap: 10px; margin-bottom: 6px; }
   .pitch-fader-container { width: auto; flex: 0 0 auto; padding: 4px 6px; }
+}
+
+/* paysage téléphone : frise de phrases resserrée */
+@media (max-height: 500px) {
+  .simplified-timeline { padding: 2px 0 !important; gap: 4px !important; }
 }

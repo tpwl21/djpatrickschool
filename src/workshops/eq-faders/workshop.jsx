@@ -51,7 +51,9 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
 
   const isMobile = useMobileDetection();
   const isCompact = useShortViewport(820); // portables : mixer resserré
-  const isWide = !useMobileDetection(999);
+  const isShort = useShortViewport(500); // téléphone en paysage
+  const isWide = !useMobileDetection(999) || isShort; // en paysage : visualiseur et mixer côte à côte
+  const isSmall = isMobile || isShort; // commandes en taille téléphone
   // divulgation progressive : un niveau n'affiche que ce qu'il enseigne (réglable dans [ui] du TOML)
   const showEq = level.ui?.show_eq !== false;
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
@@ -304,10 +306,13 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
         </div>
       )}
 
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
-        <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
-        <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
-      </div>
+      {/* téléphone : la frise de phrases juste dessous donne déjà la phrase en cours */}
+      {!isSmall && (
+        <div className="phrase-row" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '8px 20px', gap: '12px' }}>
+          <PhraseIndicator label={t('workshop.trainA')} currentPhrase={currentPhraseA} isOutro={[3, 4].includes(currentPhraseA?.index)} />
+          <PhraseIndicator label={t('workshop.trainB')} currentPhrase={currentPhraseB} />
+        </div>
+      )}
 
       <div className="main-gameplay" style={{ flex: '0 0 auto', flexDirection: 'column', padding: '0 20px' }}>
         <SimplifiedTimeline
@@ -320,82 +325,82 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
 
       {/* Écran large : visualiseur et mixer côte à côte (empilés ils débordaient même en 1440×900) */}
       <style>{`@media (min-width: 1000px) { .eq-stage .control-buttons { flex-wrap: nowrap; } .eq-stage .btn-crayon { padding: 8px 14px; font-size: 1rem; } }`}</style>
-      <div className="eq-stage" style={{ display: 'flex', flexDirection: isWide ? 'row' : 'column', alignItems: 'center', gap: isWide ? 24 : 0, padding: '0 20px', marginTop: isWide ? 12 : 0, flex: '0 0 auto' }}>
+      <div className="eq-stage" style={{ display: 'flex', flexDirection: isWide ? 'row' : 'column', alignItems: isShort ? 'flex-start' : 'center', gap: isWide ? 24 : 0, padding: '0 20px', marginTop: isShort ? 4 : isWide ? 12 : 0, flex: '0 0 auto' }}>
       <div style={{ flex: isWide ? '1 1 0' : 'none', width: '100%', minWidth: 0 }}>
         <ColorMixVisualizer
           levelId={levelId}
           eqState={eqState}
           beatsA={beatsA}
-          height={isWide ? 'clamp(240px, 46vh, 400px)' : undefined}
+          height={isShort ? 'clamp(110px, 42vh, 200px)' : isWide ? 'clamp(240px, 46vh, 400px)' : (isSmall ? 'clamp(90px, 15vh, 130px)' : undefined)}
         />
       </div>
 
-      <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', flex: isWide ? '1 1 0' : 'none', minWidth: 0, marginTop: isWide ? 0 : '15px', gap: isMobile ? '10px' : (isCompact ? '12px' : '20px') }}>
-        <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isMobile ? '5px' : '20px', flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isMobile ? '10px' : '20px', alignItems: 'center' }}>
+      <div className="controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', flex: isWide ? '1 1 0' : 'none', minWidth: 0, marginTop: isWide ? 0 : (isSmall ? '8px' : '15px'), gap: isSmall ? '8px' : (isCompact ? '12px' : '20px') }}>
+        <div style={{ display: 'flex', width: '100%', maxWidth: '820px', margin: '0 auto', justifyContent: 'space-between', alignItems: 'flex-start', gap: isSmall ? '5px' : '20px', flexWrap: isSmall ? 'nowrap' : 'wrap' }}>
+          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isSmall ? '10px' : '20px', alignItems: 'center' }}>
             <VolumeFader
               value={eqState.volA}
               onChange={(v) => handleFaderChange('A', v)}
-              trackWidth={isMobile ? 30 : 40}
-              trackLength={isMobile ? 120 : (isCompact ? 130 : 180)}
-              handleSize={isMobile ? 45 : 55}
-              labelSize={isMobile ? '0.9rem' : '1.2rem'}
+              trackWidth={isSmall ? 30 : 40}
+              trackLength={isShort ? 90 : isSmall ? 120 : (isCompact ? 130 : 180)}
+              handleSize={isSmall ? 45 : 55}
+              labelSize={isSmall ? '0.9rem' : '1.2rem'}
             />
-            <div className="control-buttons">
-              <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
-                {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
+            <div className="control-buttons" style={isSmall ? { flexWrap: 'nowrap', gap: 4 } : undefined}>
+              <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
+                {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t(isSmall ? 'workshop.play' : 'workshop.startTrainA'))}
               </button>
-              <button className="btn-crayon nudge-btn" onClick={cueA} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
+              <button className="btn-crayon nudge-btn" onClick={cueA} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
                 {t('workshop.cue')}
               </button>
             </div>
           </div>
 
-          {showEq && <div style={{ display: 'flex', gap: isMobile ? '20px' : '50px', alignItems: 'flex-start', justifyContent: 'center', padding: isMobile ? '0' : '15px 0' }}>
+          {showEq && <div style={{ display: 'flex', gap: isSmall ? '20px' : '50px', alignItems: 'flex-start', justifyContent: 'center', padding: isSmall ? '0' : '15px 0' }}>
             <EqKnobs
               values={eqState.eqA}
               onChange={(band, v) => handleEqChange('A', band, v)}
               color="#4ecdc4"
-              size={isMobile ? 35 : (isCompact ? 46 : 55)}
-              gap={isMobile ? 15 : (isCompact ? 12 : 25)}
-              labelFontSize={isMobile ? '0.7rem' : '0.8rem'}
+              size={isSmall ? 35 : (isCompact ? 46 : 55)}
+              gap={isShort ? 6 : isSmall ? 15 : (isCompact ? 12 : 25)}
+              labelFontSize={isSmall ? '0.7rem' : '0.8rem'}
             />
             <EqKnobs
               values={eqState.eqB}
               onChange={(band, v) => handleEqChange('B', band, v)}
               color="#3498db"
-              size={isMobile ? 35 : (isCompact ? 46 : 55)}
-              gap={isMobile ? 15 : (isCompact ? 12 : 25)}
-              labelFontSize={isMobile ? '0.7rem' : '0.8rem'}
+              size={isSmall ? 35 : (isCompact ? 46 : 55)}
+              gap={isShort ? 6 : isSmall ? 15 : (isCompact ? 12 : 25)}
+              labelFontSize={isSmall ? '0.7rem' : '0.8rem'}
             />
           </div>}
 
-          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isMobile ? '10px' : '20px', alignItems: 'center' }}>
+          <div className="control-group" style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'flex-start', gap: isSmall ? '10px' : '20px', alignItems: 'center' }}>
             <VolumeFader
               value={eqState.volB}
               onChange={(v) => handleFaderChange('B', v)}
-              trackWidth={isMobile ? 30 : 40}
-              trackLength={isMobile ? 120 : (isCompact ? 130 : 180)}
-              handleSize={isMobile ? 45 : 55}
-              labelSize={isMobile ? '0.9rem' : '1.2rem'}
+              trackWidth={isSmall ? 30 : 40}
+              trackLength={isShort ? 90 : isSmall ? 120 : (isCompact ? 130 : 180)}
+              handleSize={isSmall ? 45 : 55}
+              labelSize={isSmall ? '0.9rem' : '1.2rem'}
             />
-            <div className="control-buttons">
-              <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
-                {!isReady ? '...' : (isPlayingB ? t('workshop.running') : t('workshop.startTrainB'))}
+            <div className="control-buttons" style={isSmall ? { flexWrap: 'nowrap', gap: 4 } : undefined}>
+              <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
+                {!isReady ? '...' : (isPlayingB ? t('workshop.running') : t(isSmall ? 'workshop.play' : 'workshop.startTrainB'))}
               </button>
-              <button className="btn-crayon nudge-btn" onClick={cueB} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
+              <button className="btn-crayon nudge-btn" onClick={cueB} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
                 {t('workshop.cue')}
               </button>
             </div>
           </div>
         </div>
 
-        <div className="crossfader-group" style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+        <div className="crossfader-group" style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: isSmall ? '2px' : '20px' }}>
           <Crossfader
             value={eqState.crossfader}
             onChange={handleCrossfaderChange}
-            trackWidth={isMobile ? 30 : 40}
-            handleSize={isMobile ? 45 : 60}
+            trackWidth={isSmall ? 30 : 40}
+            handleSize={isSmall ? 45 : 60}
           />
         </div>
       </div>

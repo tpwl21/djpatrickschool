@@ -109,6 +109,9 @@ const LevelHeader = ({
           .level-header .lh-desc { display: none; }
           .level-header h1.lh-title { font-size: 1.3rem; margin: 0; }
           .lh-menu { padding: 5px 12px; font-size: 0.85rem; }
+          /* Patrick replié, seul dans sa ligne : on le remonte dans la barre, à côté de Menu */
+          .lh-sub:has(> .coach-strip:not(.is-open):only-child) { position: absolute; top: 0; left: 96px; }
+          .level-header:has(> .lh-sub > .coach-strip:not(.is-open):only-child) .lh-left { min-width: 136px; } /* place réservée à Patrick */
         }
       `}} />
     </header>

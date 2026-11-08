@@ -250,7 +250,7 @@ export const PhraseTrackView = React.forwardRef(({ phraseBlocks, wagons, bpm, pi
  * Text indicator showing current phrase.
  */
 export const PhraseIndicator = ({ label, currentPhrase, isOutro = false }) => (
-  <div style={{
+  <div className="phrase-pill" style={{
     display: 'inline-flex', alignItems: 'center', gap: '8px',
     padding: '6px 14px', borderRadius: '20px',
     backgroundColor: isOutro ? '#a29bfe' : '#e9ecef',
