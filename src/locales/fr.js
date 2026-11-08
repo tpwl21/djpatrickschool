@@ -44,7 +44,7 @@ const fr = {
     },
     blindModeWarning: "ÉCOUTE UNIQUEMENT...<br/>PAS DE TRICHE !",
     trainA: "Train A",
-    loading: "Chargement...",
+    loading: "Le vinyle chauffe…",
     running: "En route...",
     startTrainA: "Démarrer Train A",
     startTrainB: "Démarrer Train B",
@@ -64,6 +64,14 @@ const fr = {
     close: "Masquer le conseil"
   },
   cinematic: {
+    hints: {
+      pitch: "Le pitch n'était pas calé : écoute si le Train B accélère ou ralentit par rapport au A, et corrige au fader avant de chercher la synchro.",
+      early: "Tu as lancé le Train B trop tôt : attends le début de la phrase (le « 1 ») avant d'appuyer sur Play.",
+      late: "Tu as lancé le Train B trop tard : prépare-toi un temps avant et lance pile sur le « 1 ».",
+      sync: "Le tempo était bon mais les kicks n'étaient pas alignés : donne de petits coups de nudge jusqu'à ce que les deux grosses caisses tapent ensemble.",
+      hold: "Presque ! Tu étais calé, mais il faut tenir la synchro un peu plus longtemps sans y toucher.",
+      generic: "Relis le conseil de Patrick en haut, et vise la phrase indiquée sur la frise."
+    },
     win: {
       title: "NIVEAU RÉUSSI !",
       subtitle: "Ta maîtrise du mix est impressionnante.",

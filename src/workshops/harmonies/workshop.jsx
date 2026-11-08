@@ -236,6 +236,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
       <LevelHeader
         coachTips={coachTips}
         audioError={loadError}
+        coach={{ bpm: (isPlayingA || isPlayingB) ? bpmA : undefined }}
         title={title}
         description={description}
         onBack={onBack}
@@ -310,7 +311,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
       </div>
 
       {isWinSequence && (
-        <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'Harmonie parfaite !'} title={title} grade={grade} />
+        <Cinematic type="win" bpm={bpmA} onNextLevel={onNextLevel} message={successMessage || 'Harmonie parfaite !'} title={title} grade={grade} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
     </div>

@@ -19,6 +19,7 @@ import { resolveActiveChecks, checkControl } from '../../lib/levels/rules';
 import { t as pickText } from '../../lib/levels/schema';
 import LevelHeader from '../../components/LevelHeader';
 import { useDifficulty } from '../../hooks/useDifficulty.jsx';
+import LoadingLabel from '../../components/LoadingLabel';
 
 const TRACK_LENGTH_SEC = 160;
 
@@ -204,6 +205,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       <LevelHeader
         coachTips={coachTips}
         audioError={loadError}
+        coach={{ bpm: (isPlayingA || isPlayingB) ? bpmA : undefined, mood: (isPlayingA || isPlayingB) ? (isFxOk ? 'content' : 'focus') : undefined }}
         title={title}
         description={description}
         onBack={onBack}
@@ -257,7 +259,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
             </div>
             <div className="control-buttons">
               <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
-                {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
+                {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
               </button>
               <button className="btn-crayon nudge-btn" onClick={cueA}>{t('workshop.cue')}</button>
             </div>
@@ -307,7 +309,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
       </div>
 
       {isWinSequence && (
-        <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'FX propre !'} title={title} grade={grade} />
+        <Cinematic type="win" bpm={bpmA} onNextLevel={onNextLevel} message={successMessage || 'FX propre !'} title={title} grade={grade} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
     </div>

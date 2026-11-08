@@ -19,6 +19,7 @@ const LevelHeader = ({
   vizColor = '#ff6b6b',
   coachTips,
   audioError = false,
+  coach = {}, // { bpm, mood } : Patrick vivant (tempo + humeur selon le jeu)
   children,
 }) => {
   const { t } = useContext(LanguageContext);
@@ -50,7 +51,7 @@ const LevelHeader = ({
       )}
 
       <div className="lh-sub">
-        {coachTips?.length > 0 && <CoachPatrick tips={coachTips} />}
+        {coachTips?.length > 0 && <CoachPatrick tips={coachTips} bpm={coach.bpm} mood={coach.mood} />}
         {children}
       </div>
 

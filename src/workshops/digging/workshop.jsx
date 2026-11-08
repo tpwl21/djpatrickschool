@@ -12,6 +12,7 @@ import { getLevel } from '../../lib/levels/load';
 import { t as pickText } from '../../lib/levels/schema';
 import LevelHeader from '../../components/LevelHeader';
 import { useDifficulty } from '../../hooks/useDifficulty.jsx';
+import LoadingLabel from '../../components/LoadingLabel';
 
 const TRACK_LENGTH_SEC = 160;
 const FALLBACK_LEVEL = {
@@ -161,6 +162,7 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
       <LevelHeader
         coachTips={coachTips}
         audioError={loadError}
+        coach={{ bpm: isPlayingA ? bpmA : undefined }}
         title={title}
         description={description}
         onBack={onBack}
@@ -194,7 +196,7 @@ const DiggingLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =
       {!isPlayingA && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
           <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={!isReady}>
-            {!isReady ? t('workshop.loading') : t('workshop.startTrainA')}
+            {!isReady ? <LoadingLabel /> : t('workshop.startTrainA')}
           </button>
         </div>
       )}

@@ -6,7 +6,8 @@ import { useDifficulty } from '../hooks/useDifficulty.jsx';
 
 // Bandeau du coach sous le titre du niveau : petit Patrick + sa bulle, dans le flux de la page
 // (ne recouvre jamais le jeu). Le × replie la bulle ; toucher Patrick la rouvre.
-const CoachPatrick = ({ tips = [] }) => {
+// bpm : Patrick hoche la tête au tempo quand un morceau joue ; mood : son expression suit le jeu
+const CoachPatrick = ({ tips = [], bpm, mood }) => {
   const { t } = useContext(LanguageContext);
   const [difficulty] = useDifficulty();
   const isPro = difficulty === 'PRO';
@@ -43,7 +44,8 @@ const CoachPatrick = ({ tips = [] }) => {
         <PatrickAvatar
           size="100%"
           viewBox="46 10 148 190"
-          expression={isPro ? 'focus' : 'content'}
+          expression={mood || (isPro ? 'focus' : 'content')}
+          bpm={bpm}
           casque={!isPro}
           hoodieText={isPro ? 'PRO' : 'COACH'}
           label=""

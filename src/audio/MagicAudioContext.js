@@ -36,7 +36,8 @@ export class MagicAudioContext {
         await registerWsolaWorklet(this.ctx, workletUrl);
         console.log('[WSOLA] worklet registered at', workletUrl);
       } catch (err) {
-        console.error('[WSOLA] failed to register worklet at', workletUrl, err);
+        // AbortError = contexte fermé pendant le chargement (démontage) : pas une panne
+        if (err?.name !== 'AbortError') console.error('[WSOLA] failed to register worklet at', workletUrl, err);
         throw err;
       }
     }

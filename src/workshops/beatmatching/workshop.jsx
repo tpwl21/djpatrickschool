@@ -26,6 +26,7 @@ import { t as pickText } from '../../lib/levels/schema';
 import NudgeButton from '../../components/NudgeButton';
 import LevelHeader from '../../components/LevelHeader';
 import { useDifficulty } from '../../hooks/useDifficulty.jsx';
+import LoadingLabel from '../../components/LoadingLabel';
 
 const TRACK_LENGTH_SEC = 160;
 
@@ -316,6 +317,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
       <LevelHeader
         coachTips={coachTips}
         audioError={loadError}
+        coach={{ bpm: (isPlayingA || isPlayingB) ? bpmA : undefined, mood: difficulty === 'EASY' && (isPlayingA && isPlayingB) ? (isPerfectPitch && isPerfectSync ? 'content' : 'focus') : undefined }}
         title={title}
         description={description}
         onBack={onBack}
@@ -422,7 +424,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
         <div className="control-group">
           <h2>{t('workshop.trainA')}</h2>
           <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
-            {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
+            {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
           </button>
         </div>
         <div className="control-group">
@@ -457,6 +459,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
 
       {isWinSequence && (
         <Cinematic
+          bpm={bpmA}
           type="win"
           onNextLevel={onNextLevel}
           message={successMessage}
@@ -465,7 +468,14 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
           recap={levelText?.recap}
         />
       )}
-      {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
+      {isGameOver && (
+        <Cinematic
+          type="lose"
+          onRetry={onRetry}
+          // conseil précis selon le dernier état du joueur
+          hint={!isPerfectPitch ? 'pitch' : startStatus === 'early' ? 'early' : startStatus === 'late' ? 'late' : !isPerfectSync ? 'sync' : 'hold'}
+        />
+      )}
     </div>
   );
 };

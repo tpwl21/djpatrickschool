@@ -20,6 +20,7 @@ import { resolveActiveChecks, checkControl } from '../../lib/levels/rules';
 import { t as pickText } from '../../lib/levels/schema';
 import LevelHeader from '../../components/LevelHeader';
 import { useDifficulty } from '../../hooks/useDifficulty.jsx';
+import LoadingLabel from '../../components/LoadingLabel';
 
 const TRACK_LENGTH_SEC = 160;
 
@@ -259,6 +260,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
       <LevelHeader
         coachTips={coachTips}
         audioError={loadError}
+        coach={{ bpm: (isPlayingA || isPlayingB) ? bpmA : undefined, mood: (isPlayingA || isPlayingB) ? (isEqOk ? 'content' : 'focus') : undefined }}
         title={title}
         description={description}
         onBack={onBack}
@@ -339,7 +341,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
             />
             <div className="control-buttons">
               <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
-                {!isReady ? t('workshop.loading') : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
+                {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
               </button>
               <button className="btn-crayon nudge-btn" onClick={cueA} style={{ padding: isMobile ? '10px 15px' : undefined, fontSize: isMobile ? '0.9rem' : undefined }}>
                 {t('workshop.cue')}
@@ -398,7 +400,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
       </div>
 
       {isWinSequence && (
-        <Cinematic type="win" onNextLevel={onNextLevel} message={successMessage || 'Great EQ Transition!'} title={title} grade={grade} recap={levelText?.recap} />
+        <Cinematic type="win" bpm={bpmA} onNextLevel={onNextLevel} message={successMessage || 'Great EQ Transition!'} title={title} grade={grade} recap={levelText?.recap} />
       )}
       {isGameOver && <Cinematic type="lose" onRetry={onRetry} />}
     </div>

@@ -44,7 +44,7 @@ const en = {
     },
     blindModeWarning: "EARS ONLY...<br/>NO CHEATING!",
     trainA: "Deck A",
-    loading: "Loading vibes...",
+    loading: "Warming up the vinyl…",
     running: "Rolling...",
     startTrainA: "Start Train A",
     startTrainB: "Start Train B",
@@ -64,6 +64,14 @@ const en = {
     close: "Hide the tip"
   },
   cinematic: {
+    hints: {
+      pitch: "The pitch wasn't matched: listen whether Train B speeds up or slows down against A, and fix it on the fader before chasing the sync.",
+      early: "You launched Train B too early: wait for the start of the phrase (the \"1\") before hitting Play.",
+      late: "You launched Train B too late: get ready one beat before and drop it right on the \"1\".",
+      sync: "The tempo was right but the kicks weren't aligned: tap the nudge buttons until both kick drums hit together.",
+      hold: "So close! You were locked in, just hold the sync a little longer without touching anything.",
+      generic: "Read Patrick's tip at the top again, and aim for the phrase shown on the timeline."
+    },
     win: {
       title: "LEVEL CLEARED!",
       subtitle: "Your mix is absolutely seamless, DJ.",

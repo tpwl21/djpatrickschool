@@ -48,6 +48,13 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [x] Harmonies : la bibliothèque défile dans son cadre → la page tient à toutes les tailles
 - [ ] Tablette paysage 1024×768 : EQ et FX demandent encore un peu de défilement
 
+### Côté ludique (fait)
+- [x] Patrick vivant dans les niveaux : il hoche la tête au BPM quand la musique joue ; son expression suit le jeu (EASY seulement pour le Beatmatching, pour ne pas tricher en MEDIUM/PRO)
+- [x] Victoire : Patrick vectoriel en pose victoire qui danse au tempo, note en coup de tampon, gerbe de pictos
+- [x] Échec bienveillant : Patrick surpris + conseil précis (pitch / trop tôt / trop tard / synchro / tenir), au lieu de « RETRY »
+- [x] Chargement : vinyle qui tourne + « Le vinyle chauffe… »
+- [x] Bug corrigé : texte de l'écran de fin invisible en MEDIUM/PRO
+
 ### Vérification & perf
 - [x] Audit automatique Chrome sur 10 écrans × 7 tailles : 377 chevauchements → 0, plus de défilement horizontal
 - [x] Même audit sur Firefox (Firefox système piloté via Puppeteer) : 0 chevauchement sur 90 pages, rendu identique à Chrome
