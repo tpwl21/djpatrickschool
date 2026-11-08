@@ -11,8 +11,9 @@ function lessonMeta() {
     name: 'lesson-meta',
     enforce: 'pre',
     load(id) {
-      if (!id.endsWith('.toml?meta')) return null
-      const file = id.slice(0, -'?meta'.length)
+      // en dev Vite réécrit `?meta` en `?import&meta` : on lit les paramètres au lieu de comparer la fin de l'id
+      const [file, query = ''] = id.split('?')
+      if (!file.endsWith('.toml') || !new URLSearchParams(query).has('meta')) return null
       this.addWatchFile(file)
       const data = parse(fs.readFileSync(file, 'utf8'))
       const pick = (l) => l && { title: l.title, short_desc: l.short_desc, description: l.description }
