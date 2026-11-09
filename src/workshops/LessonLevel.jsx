@@ -15,6 +15,37 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const DIFF_LABELS = { EASY: 'Easy', MEDIUM: 'Medium', PRO: 'Pro' };
 
+// Trois formats de quiz cohabitent dans les leçons TOML : [[quiz]] avec en/fr dans chaque question,
+// [[quiz]] scindé (une entrée par langue) et [[fr.quiz]] / [[en.quiz]]. On ramène tout à
+// { question, answers, correct } dans la langue affichée, sans doublons.
+function quizFor(lesson, lessonText, language) {
+  const root = lesson.quiz || [];
+  const items = lessonText?.quiz?.length
+    ? lessonText.quiz
+    : root
+      .filter((q) => q[language] || !root.some((x) => x[language]))
+      .map((q) => ({ correct: q.correct, ...(q[language] || q.en || q.fr) }));
+  const seen = new Set();
+  return items
+    .filter((q) => q?.question && !seen.has(q.question) && seen.add(q.question))
+    .map(shuffleAnswers);
+}
+
+// La bonne réponse est en 1re position dans ~2/3 des questions écrites : on mélange à l'affichage.
+// Mélange déterministe (graine = texte de la question) : stable d'un rendu à l'autre, sans état.
+function shuffleAnswers(q) {
+  const answers = q.answers || [];
+  let seed = 0;
+  for (const c of q.question) seed = (seed * 31 + c.charCodeAt(0)) >>> 0;
+  const order = answers.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    seed = (Math.imul(seed ^ (seed >>> 15), 2246822507) + 0x9e3779b9) >>> 0; // mélange des bits (les bits faibles d'un LCG cyclent)
+    const j = Math.floor((seed / 2 ** 32) * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return { ...q, answers: order.map((i) => answers[i]), correct: order.indexOf(q.correct) };
+}
+
 const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, onNextLevel, onBack, onUnlockNext }) => {
   const { language, t } = useContext(LanguageContext);
   const [pageIndex, setPageIndex] = useState(0);
@@ -27,7 +58,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
   const lessonText = pickText(lesson, language);
   useDocumentTitle(lessonText?.title);
   const pages = lessonText?.pages || [];
-  const questions = lesson.quiz || [];
+  const questions = quizFor(lesson, lessonText, language);
   const isQuizPhase = pageIndex >= pages.length;
   const currentPage = pages[pageIndex];
 
@@ -137,13 +168,12 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
             <h2 className="lesson-quiz-title">{t('lesson.quiz')}</h2>
             {questions.map((q, qi) => {
               const selected = quizAnswers[qi];
-              const qText = pickText(q, language);
               const isWrong = submitted && selected !== q.correct;
               return (
                 <div key={qi} className={`quiz-question ${submitted && isWrong ? 'wrong' : ''}`}>
-                  <p className="quiz-q-text">{qText?.question}</p>
+                  <p className="quiz-q-text">{q.question}</p>
                   <div className="quiz-answers">
-                    {(qText?.answers || []).map((ansText, ai) => {
+                    {(q.answers || []).map((ansText, ai) => {
                       const isSelected = selected === ai;
                       const showCorrect = submitted && ai === q.correct;
                       const showWrong = submitted && isSelected && ai !== q.correct;
