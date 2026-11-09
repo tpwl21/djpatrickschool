@@ -395,48 +395,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   justifyContent: 'center',
                                   alignItems: 'center',
                                   gap: '2px',
-                                  paddingTop: id === 'beatmatching' && !isLocked ? '10px' : '0',
                                   position: 'relative',
                                 }}
                               >
                                 {isLocked ? '?' : (
                                   <>
-                                    {id === 'beatmatching' && (
-                                      <Locomotive
-                                        color={color}
-                                        style={{ transform: 'scale(0.35)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
-                                    {id === 'eq' && (
-                                      <Potard
-                                        color={color}
-                                        style={{ transform: 'scale(0.35)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
-                                    {id === 'effets' && (
-                                      <FxIcon
-                                        color={color}
-                                        style={{ transform: 'scale(0.35)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
-                                    {id === 'digging' && (
-                                      <CrateIcon
-                                        color={color}
-                                        style={{ transform: 'scale(0.35)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
-                                    {id === 'harmonies' && (
-                                      <HarmonyIcon
-                                        color={color}
-                                        style={{ transform: 'scale(0.55)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
-                                    {id === 'reading_crowd' && (
-                                      <CrowdIcon
-                                        color={color}
-                                        style={{ transform: 'scale(0.55)', height: '0px', width: '0px', marginBottom: '15px' }}
-                                      />
-                                    )}
                                     <span style={{ fontSize: '1.1rem' }}>{lvl.order}</span>
                                     {diffs.length > 0 && (
                                       <span className="level-btn-diffs">
