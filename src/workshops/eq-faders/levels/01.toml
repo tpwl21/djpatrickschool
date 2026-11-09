@@ -4,35 +4,35 @@ order = 1
 [en]
 title       = "Crossfader"
 short_desc  = "Ride the crossfader. Bring B in while A fades out."
-description = "Learn to ride the crossfader. Slowly bring up B during phrase 4 (A's outro)."
-details     = "Focus: smooth energy transfer with the fader only."
-success     = "Clean fader transition! Perfect energy match."
+description = "Learn to ride the crossfader. Slowly slide it toward B during phrase 4 (A's outro)."
+details     = "Focus: smooth energy transfer with the crossfader only."
+success     = "Clean crossfader transition! Perfect energy match."
 coach_tips  = [
-  "Ready to mix? Slowly bring up Train B's volume while Train A fades out.",
+  "Ready to mix? Slowly slide the crossfader toward Deck B while Deck A finishes.",
   "The goal is to avoid any drop in energy during the transition."
 ]
 recap = [
   "The crossfader blends deck A and deck B — center = both, edges = one only.",
   "Ride it slowly to preserve energy; a sudden slam creates a dip.",
   "Bring B in during A's outro, not in the middle of A's drop.",
-  "A fader-only transition is the simplest intro-outro move in the DJ toolkit."
+  "A crossfader-only transition is the simplest intro-outro move in the DJ toolkit."
 ]
 
 [fr]
 title       = "Crossfader"
-short_desc  = "Utilise le fader. Monte B pendant que A se termine."
-description = "Apprends à utiliser le fader. Monte le son de B lentement pendant la phrase 4 (Outro de A)."
-details     = "Focus : transfert d'énergie avec le fader uniquement."
-success     = "Fader ultra propre ! Une transition d'énergie parfaite."
+short_desc  = "Utilise le crossfader. Fais entrer B pendant que A se termine."
+description = "Apprends à utiliser le crossfader. Glisse-le lentement vers B pendant la phrase 4 (Outro de A)."
+details     = "Focus : transfert d'énergie avec le crossfader uniquement."
+success     = "Crossfader ultra propre ! Une transition d'énergie parfaite."
 coach_tips  = [
-  "Prêt pour le mix ? Monte doucement le volume du Train B pendant que le Train A se termine.",
+  "Prêt pour le mix ? Glisse doucement le crossfader vers le Deck B pendant que le Deck A se termine.",
   "Le but est de ne pas avoir de coupure de son pendant la transition."
 ]
 recap = [
   "Le crossfader mélange A et B — centre = les deux, bords = un seul.",
   "Manipule-le lentement pour garder l'énergie ; un coup sec crée un trou.",
   "Fais entrer B pendant l'outro de A, pas au milieu du drop de A.",
-  "Une transition au fader seul reste le mouvement intro-outro le plus simple du DJ."
+  "Une transition au crossfader seul reste le mouvement intro-outro le plus simple du DJ."
 ]
 
 [track.A]

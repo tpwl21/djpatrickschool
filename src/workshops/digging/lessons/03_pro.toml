@@ -16,7 +16,7 @@ A playback rate change of r% shifts perceived pitch by log₂(1+r/100) octaves, 
 **Just-Noticeable Difference (JND) for pitch:**
 For trained ears on sustained tones, the JND for pitch is approximately 10 cents (0.5%) in controlled laboratory conditions. In practice, kick drums and transient-heavy material mask pitch shifts up to 3%: the percussive envelope dominates the spectral content, hiding sub-semitone deviations. Melodic material (sustained pads, vocals, piano) has a JND closer to 20–30 cents in club acoustic conditions — meaning ~1.7% becomes audible on melodic tracks.
 
-**Practical consequence:** the safe pitch-shift ceiling is not universal — it's track-dependent. A percussive minimal techno loop: ±6% transparent. A choral vocal pad: ±2% before artifacts. Learn to classify tracks on this axis before buying.
+**Practical consequence:** the safe pitch-shift ceiling is not universal — it's track-dependent. A percussive minimal techno loop: up to ±6% usually passes. A choral vocal pad: ±2% before artifacts. Learn to classify tracks on this axis before buying.
 
 **The ±10% territory:** at ±10%, playback rate shift causes formant distortion (helium/gravel effect) regardless of material. This is where key lock becomes mandatory if you still want to proceed — and even then, TSM artifacts become audible on most software.
 """
@@ -27,14 +27,14 @@ content = """
 Key lock (master tempo) is **time-scale modification (TSM)** — rescaling duration without rescaling spectrum. Two dominant algorithms:
 
 **WSOLA (Waveform Similarity Overlap-Add):**
-Works in the time domain. Slices the signal into overlapping frames (~20–40 ms), finds the splice offset that maximizes cross-correlation (waveform similarity), and reassembles at the new rate. Cheap CPU-wise, good on percussive material (drums, transient-heavy). Smears transients past ±8–10% due to averaging artifacts. Used in many budget DJ controllers and Serato's core engine.
+Works in the time domain. Slices the signal into overlapping frames (~20–40 ms), finds the splice offset that maximizes cross-correlation (waveform similarity), and reassembles at the new rate. Cheap CPU-wise, good on percussive material (drums, transient-heavy). Smears transients past ±8–10% due to averaging artifacts.
 
 **Phase vocoder:**
-Works in the frequency domain. STFT → unwrap instantaneous phase → time-stretch by scaling phase increments → iSTFT. Cleaner on sustained tones and harmonic content. Introduces "phasiness" (metallic flanging) on transients unless phase-locking refinements are applied (Laroche-Dolson, 1999 — the standard reference for practical improvements). Used in Ableton's warping engine and Rekordbox's Elastic mode.
+Works in the frequency domain. STFT → unwrap instantaneous phase → time-stretch by scaling phase increments → iSTFT. Cleaner on sustained tones and harmonic content. Introduces "phasiness" (metallic flanging) on transients unless phase-locking refinements are applied (Laroche-Dolson, 1999 — the standard reference for practical improvements).
 
-**Formant shift:** both algorithms shift formants along with pitch when key lock is off, causing the helium/gravel effect on vocals. Advanced TSM engines (Elastique by zplane, used in Traktor) add formant preservation as a separate DSP stage. This is why Traktor sounds cleaner on vocals at large pitch shifts than Serato.
+**Formant shift:** both algorithms shift formants along with pitch when key lock is off, causing the helium/gravel effect on vocals. Advanced TSM engines (Elastique by zplane, used in Traktor) add formant preservation as a separate DSP stage.
 
-**This project's implementation:** `src/audio/wsola-worklet.js` — an in-house WSOLA AudioWorklet developed after the soundtouchjs migration. Tunable frame size (default 40 ms) and overlap factor (0.5).
+**This project's implementation:** `public/audio-worklets/wsola-processor.js` — an in-house WSOLA AudioWorklet developed after the soundtouchjs migration. Tunable frame size (default 40 ms) and overlap factor (0.5).
 
 **Rule:** ±2% or under → key lock is a free win on any algorithm. ±3–6% → listen carefully, especially on melodic material. Past ±6% → consider whether the BPM match is worth the TSM cost.
 """
@@ -61,7 +61,7 @@ Each neighborhood is a separate folder in Rekordbox. Transitions between neighbo
 
 Tracks near the edges of your neighborhoods are the *riskiest* to pitch — calculate the actual percentage before committing.
 
-**Beatport/Bandcamp filter discipline:** use the BPM range slider as a ±5% bracket around your target, not a ±10%. The extra margin exists in the pitch fader; it's not a recommendation.
+**Beatport/Bandcamp filter discipline:** use the BPM range slider as a ±6% bracket around your target, not a ±10%. The extra margin exists in the pitch fader; it's not a recommendation.
 """
 
 [[en.pages]]
@@ -81,16 +81,17 @@ At certain BPM values, multiple genre families converge. Knowing these hubs turn
 - Peak techno / industrial
 - Grime (140 = standard)
 - Dubstep (140, half-time = 70 BPM feel)
-- Trap (140, with snare on 3 or as half-time)
-- DnB approach zone (174 → 87 bridge via half-time)
+- Trap (often felt at half-time, ~70, with the snare on beat 3)
 
 **174 BPM:**
-- Drum & bass / jungle
-- 87 BPM broken-beat / UKG (double-time feel)
+- Drum & bass / jungle (roughly 170–175 — not four-on-the-floor: syncopated kick and snare)
+- 87 BPM half-time companions (slow hip-hop, downtempo): the 174 is their double-time
+
+**UK garage / 2-step** is not here: it sits around 130–135 BPM, next to the 130 hub.
 
 **The practical use:** when a track sits at a hub BPM, it can be programmed into sets from multiple genre families — the kick placement and bass tone determine which family it *reads as*. A 140 BPM track with a rolling techno kick reads as techno. The same BPM with a wobble bass and half-time snare reads as dubstep. The BPM is shared; the genre identity is in the arrangement.
 
-**Cross-programming rule:** when you cross a genre family (e.g. techno → grime at 140), use a 64-beat overlap minimum. The crowd needs time to re-contextualize the tempo before the genre shift fully registers.
+**Cross-programming rule:** when you cross a genre family (e.g. techno → grime at 140), use a long overlap (a couple of phrases). The crowd needs time to re-contextualize the tempo before the genre shift fully registers.
 """
 
 [[en.pages]]
@@ -98,23 +99,23 @@ title   = "Double-time and half-time as transition mechanics"
 content = """
 Half-time / double-time transitions are among the hardest technique in DJing — but they're the only way to cross certain genre gaps cleanly.
 
-**Mechanics of a half-time transition (174 DnB → 87 broken-beat):**
+**Mechanics of a half-time transition (174 DnB → ~87 BPM hip-hop or downtempo):**
 
-1. DnB track plays at 174 BPM. Kick on every beat.
-2. Load the 87 BPM broken-beat track. Cue it to its first beat.
-3. Set playback rate to match pitch only — do NOT pitch to 174. The tracks play at different BPMs.
+1. DnB track plays at 174 BPM.
+2. Load the 87 BPM track. Cue it to its first beat.
+3. Pitch the 87 BPM track so it sits at exactly half the DnB's tempo (87.0 for a 174 DnB) — do NOT speed it up to 174. The tracks play at different BPMs, locked in a 1:2 ratio.
 4. Bring in the 87 BPM track subtly under the DnB, in the break or outro of the DnB track.
 5. Use EQ — cut the DnB low end, let the 87 BPM sub come in. The crowd re-hears the pulse at half speed.
 6. Over 32–64 beats, completely replace the DnB. The room exhales.
 
-**Why this works:** the shared pulse (the 174 BPM kick = every other beat of the 87 BPM pulse) creates continuity while the texture shifts dramatically. The crowd's perception snaps from fast → slow; done correctly, this reads as a deliberate decompression — one of the most effective set-management tools.
+**Why this works:** the shared pulse (each beat of the 87 BPM track lands on every other beat of the 174 BPM one) creates continuity while the texture shifts dramatically. The crowd's perception snaps from fast → slow; done correctly, this reads as a deliberate decompression — one of the most effective set-management tools.
 
 **Failure modes:**
 - Rushing the EQ swap (under 16 beats) → sounds like a mistake
 - Wrong cue point on the incoming track → the beats don't align on the shared pulse
 - Misidentifying the half-time relationship → rhythms fight instead of sharing
 
-This is a move to rehearse at home before deploying live. At home with headphones: align, crossfade slowly, check if the kick lands on every other beat of the DnB. If it does, you have the right cue point.
+This is a move to rehearse at home before deploying live. At home with headphones: align, crossfade slowly, check that each beat of the 87 lands on every other beat of the DnB. If it does, you have the right cue point.
 """
 
 [[en.quiz]]
@@ -138,8 +139,8 @@ answers  = ["Only techno", "Techno, grime, dubstep, trap — all share 140 BPM",
 correct  = 1
 
 [[en.quiz]]
-question = "In a half-time transition (174 DnB → 87 broken-beat), what creates the perception of continuity?"
-answers  = ["Both tracks are at the same BPM", "The 174 BPM kick lands on every other beat of the 87 BPM pulse — shared underlying pulse", "The key is the same in both tracks", "The DJ uses a sync button"]
+question = "In a half-time transition (174 DnB → 87 BPM track), what creates the perception of continuity?"
+answers  = ["Both tracks are at the same BPM", "Each beat of the 87 BPM track lands on every other beat of the 174 BPM one — shared underlying pulse", "The key is the same in both tracks", "The DJ uses a sync button"]
 correct  = 1
 
 [[en.sources]]
@@ -173,7 +174,7 @@ Un changement de rate de r% décale la hauteur perçue de log₂(1+r/100) octave
 **Just-Noticeable Difference (JND) pour la hauteur :**
 Pour des oreilles entraînées sur des notes tenues, le JND de hauteur est d'environ 10 cents (0.5%) en conditions de laboratoire. En pratique, les kicks et les transitoires masquent les shifts jusqu'à 3% : l'enveloppe percussive domine le contenu spectral, cachant les déviations sub-demi-ton. Le matériel mélodique (pads tenus, voix, piano) a un JND d'environ 20–30 cents en conditions acoustiques club — soit ~1.7% devient audible sur des tracks mélodiques.
 
-**Conséquence pratique :** le plafond de pitch shift sûr n'est pas universel — il dépend de la track. Une loop de techno minimale percussive : ±6% transparent. Un pad vocal choral : ±2% avant artefacts. Apprends à classer tes tracks sur cet axe avant d'acheter.
+**Conséquence pratique :** le plafond de pitch shift sûr n'est pas universel — il dépend de la track. Une loop de techno minimale percussive : jusqu'à ±6% passe en général. Un pad vocal choral : ±2% avant artefacts. Apprends à classer tes tracks sur cet axe avant d'acheter.
 
 **Le territoire ±10% :** au-delà, le pitch shift cause une distorsion de formants (effet hélium/gravier) quelle que soit la matière. C'est là que le key lock devient obligatoire — et même là, les artefacts TSM deviennent audibles sur la plupart des logiciels.
 """
@@ -184,14 +185,14 @@ content = """
 Le key lock (master tempo) est du **time-scale modification (TSM)** — redimensionner la durée sans redimensionner le spectre. Deux algorithmes dominants :
 
 **WSOLA (Waveform Similarity Overlap-Add) :**
-Travaille en temporel. Tranche le signal en fenêtres recouvrantes (~20–40 ms), trouve le décalage de splice qui maximise la corrélation de forme d'onde (similarité), et recolle au nouveau rate. Peu coûteux en CPU, bon sur du percussif (drums, transitoires). Étale les transitoires au-delà de ±8–10% à cause des artefacts de moyennage. Utilisé dans beaucoup de contrôleurs d'entrée de gamme et dans le moteur principal de Serato.
+Travaille en temporel. Tranche le signal en fenêtres recouvrantes (~20–40 ms), trouve le décalage de splice qui maximise la corrélation de forme d'onde (similarité), et recolle au nouveau rate. Peu coûteux en CPU, bon sur du percussif (drums, transitoires). Étale les transitoires au-delà de ±8–10% à cause des artefacts de moyennage.
 
 **Phase vocoder :**
-Travaille en fréquentiel. STFT → déroulement de la phase instantanée → étirement temporel par mise à l'échelle des incréments de phase → iSTFT. Plus propre sur les notes tenues et le contenu harmonique. Introduit une "phasiness" (flanging métallique) sur les transitoires sauf avec des raffinements de phase-locking (Laroche-Dolson, 1999 — la référence standard pour les améliorations pratiques). Utilisé dans le moteur de warping d'Ableton et le mode Elastic de Rekordbox.
+Travaille en fréquentiel. STFT → déroulement de la phase instantanée → étirement temporel par mise à l'échelle des incréments de phase → iSTFT. Plus propre sur les notes tenues et le contenu harmonique. Introduit une "phasiness" (flanging métallique) sur les transitoires sauf avec des raffinements de phase-locking (Laroche-Dolson, 1999 — la référence standard pour les améliorations pratiques).
 
-**Shift de formants :** les deux algos shiftent les formants avec la hauteur quand le key lock est off, d'où l'effet hélium/gravier sur les voix. Les moteurs TSM avancés (Elastique de zplane, utilisé dans Traktor) ajoutent la préservation de formants comme étape DSP séparée. C'est pour ça que Traktor sonne plus propre que Serato sur les voix à grands shifts de pitch.
+**Shift de formants :** les deux algos shiftent les formants avec la hauteur quand le key lock est off, d'où l'effet hélium/gravier sur les voix. Les moteurs TSM avancés (Elastique de zplane, utilisé dans Traktor) ajoutent la préservation de formants comme étape DSP séparée.
 
-**L'implémentation de ce projet :** `src/audio/wsola-worklet.js` — un WSOLA AudioWorklet maison développé après la migration depuis soundtouchjs. Taille de fenêtre configurable (défaut 40 ms) et facteur de recouvrement (0.5).
+**L'implémentation de ce projet :** `public/audio-worklets/wsola-processor.js` — un WSOLA AudioWorklet maison développé après la migration depuis soundtouchjs. Taille de fenêtre configurable (défaut 40 ms) et facteur de recouvrement (0.5).
 
 **Règle :** ±2% ou moins → key lock = victoire gratuite sur n'importe quel algo. ±3–6% → écoute attentivement, surtout sur du matériel mélodique. Au-delà de ±6% → demande-toi si le match BPM vaut le coût TSM.
 """
@@ -218,7 +219,7 @@ Chaque quartier est un dossier séparé dans Rekordbox. Les transitions entre qu
 
 Les tracks en bordure de quartier sont les plus risquées à pitcher — calcule le pourcentage réel avant de t'engager.
 
-**Discipline filtre Beatport/Bandcamp :** utilise le slider de range BPM comme un encadrement ±5% autour de ta cible, pas ±10%. La marge supplémentaire existe dans le fader de pitch ; ce n'est pas une recommandation.
+**Discipline filtre Beatport/Bandcamp :** utilise le slider de range BPM comme un encadrement ±6% autour de ta cible, pas ±10%. La marge supplémentaire existe dans le fader de pitch ; ce n'est pas une recommandation.
 """
 
 [[fr.pages]]
@@ -238,16 +239,17 @@ content = """
 - Techno peak / industrielle
 - Grime (140 = standard)
 - Dubstep (140, half-time = feel 70 BPM)
-- Trap (140, avec snare sur le 3 ou en half-time)
-- Zone d'approche DnB (174 → 87 via pont half-time)
+- Trap (souvent ressenti en half-time, ~70, avec la snare sur le temps 3)
 
 **174 BPM :**
-- Drum & bass / jungle
-- 87 BPM broken-beat / UKG (feel double-time)
+- Drum & bass / jungle (environ 170–175 — pas du four-on-the-floor : kick et snare syncopés)
+- 87 BPM, compagnons half-time (hip-hop lent, downtempo) : le 174 est leur double-time
+
+**Le UK garage / 2-step** n'est pas ici : il se situe vers 130–135 BPM, à côté du hub 130.
 
 **L'usage pratique :** quand une track est à un hub BPM, elle peut être programmée dans des sets de plusieurs familles de genres — le placement du kick et le timbre de la basse déterminent dans quelle famille elle se *lit*. Une track 140 BPM avec un kick techno rolling se lit comme techno. Le même BPM avec une wobble bass et une snare half-time se lit comme dubstep. Le BPM est partagé ; l'identité de genre est dans l'arrangement.
 
-**Règle de cross-programming :** quand tu croises une famille de genres (ex. techno → grime à 140), utilise un overlap d'au moins 64 beats. Le public a besoin de temps pour re-contextualiser le tempo avant que le shift de genre soit pleinement enregistré.
+**Règle de cross-programming :** quand tu croises une famille de genres (ex. techno → grime à 140), utilise un long overlap (deux phrases environ). Le public a besoin de temps pour re-contextualiser le tempo avant que le shift de genre soit pleinement enregistré.
 """
 
 [[fr.pages]]
@@ -255,23 +257,23 @@ title   = "Double-time et half-time comme mécanique de transition"
 content = """
 Les transitions half-time / double-time sont parmi les techniques les plus difficiles en DJing — mais ce sont les seules qui permettent de franchir certains gaps de genre proprement.
 
-**Mécanique d'une transition half-time (174 DnB → 87 broken-beat) :**
+**Mécanique d'une transition half-time (174 DnB → track hip-hop ou downtempo à ~87 BPM) :**
 
-1. La track DnB joue à 174 BPM. Kick sur chaque beat.
-2. Charge la track broken-beat à 87 BPM. Cue sur son premier beat.
-3. Règle le rate de lecture pour le pitch seulement — ne la pitche PAS à 174. Les deux tracks jouent à des BPM différents.
+1. La track DnB joue à 174 BPM.
+2. Charge la track à 87 BPM. Cue sur son premier beat.
+3. Pitche la track à 87 BPM pour qu'elle soit pile à la moitié du tempo de la DnB (87.0 pour une DnB à 174) — ne l'accélère PAS à 174. Les deux tracks jouent à des BPM différents, calées dans un rapport 1:2.
 4. Amène la track 87 BPM subtilement sous la DnB, dans le break ou l'outro de la DnB.
 5. EQ — coupe les bas de la DnB, laisse entrer le sub à 87 BPM. Le public réentend la pulsation à mi-vitesse.
 6. Sur 32–64 beats, remplace complètement la DnB. La salle expire.
 
-**Pourquoi ça marche :** la pulsation partagée (le kick DnB à 174 = un beat sur deux de la pulsation à 87) crée de la continuité pendant que la texture change radicalement. La perception du public bascule de rapide → lent ; bien exécuté, ça se lit comme une décompression délibérée — un des outils de gestion de set les plus efficaces.
+**Pourquoi ça marche :** la pulsation partagée (chaque temps de la track à 87 BPM tombe sur un temps sur deux de celle à 174) crée de la continuité pendant que la texture change radicalement. La perception du public bascule de rapide → lent ; bien exécuté, ça se lit comme une décompression délibérée — un des outils de gestion de set les plus efficaces.
 
 **Modes d'échec :**
 - Trop précipiter l'EQ swap (sous 16 beats) → ça sonne comme une erreur
 - Mauvais cue point sur la track entrante → les beats ne s'alignent pas sur la pulsation partagée
 - Mal identifier la relation half-time → les rythmes se battent au lieu de se partager
 
-C'est un move à répéter chez toi avant de le déployer en live. Au casque : aligne, crossfade lentement, vérifie si le kick tombe sur un beat sur deux de la DnB. Si oui, tu as le bon cue point.
+C'est un move à répéter chez toi avant de le déployer en live. Au casque : aligne, crossfade lentement, vérifie que chaque temps du 87 tombe sur un temps sur deux de la DnB. Si oui, tu as le bon cue point.
 """
 
 [[fr.quiz]]
@@ -295,8 +297,8 @@ answers  = ["La techno uniquement", "Techno, grime, dubstep, trap — tous parta
 correct  = 1
 
 [[fr.quiz]]
-question = "Dans une transition half-time (174 DnB → 87 broken-beat), qu'est-ce qui crée la perception de continuité ?"
-answers  = ["Les deux tracks sont au même BPM", "Le kick à 174 BPM tombe sur un beat sur deux de la pulsation à 87 — pulsation partagée", "La clé est la même dans les deux tracks", "Le DJ utilise le bouton sync"]
+question = "Dans une transition half-time (174 DnB → track à 87 BPM), qu'est-ce qui crée la perception de continuité ?"
+answers  = ["Les deux tracks sont au même BPM", "Chaque temps de la track à 87 BPM tombe sur un temps sur deux de celle à 174 — pulsation partagée", "La clé est la même dans les deux tracks", "Le DJ utilise le bouton sync"]
 correct  = 1
 
 [[fr.sources]]

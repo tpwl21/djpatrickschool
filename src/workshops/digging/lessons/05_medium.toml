@@ -15,9 +15,11 @@ Organise your gig crate along three axes:
 **2 — By moment:** Opening / Warmup / Peak / Afterpeak / Closing. Not the same as energy level — an Afterpeak track can be energy 3 but specifically designed for post-peak texture, different from a generic Warmup track at the same energy.
 
 **3 — By rescue category (colour-coded in Rekordbox):**
-- **Red**: oh-shit tracks (5–10 max — the rescue folder)
-- **Yellow**: safety bangers (solid crowd-pleasers, mid-high energy)
-- **Green**: secret weapons (tracks nobody knows, your identity picks)
+- **Purple**: oh-shit tracks (10–15 max — the rescue folder)
+- **Aqua**: safety bangers (solid crowd-pleasers, mid-high energy)
+- **Pink**: secret weapons (tracks nobody knows, your identity picks)
+
+Red / yellow / green stay reserved for energy (previous lesson), so the two systems never collide.
 
 A gig crate of **200–400 tracks** across this grid beats 10,000 unsorted every time. You need the right track in 60 seconds, not in 10 minutes of scrolling.
 """
@@ -31,20 +33,12 @@ Gig
 └── 2024-06-15
     ├── Warmup (120–125)
     ├── Main (126–130)
-    └── Peak (130–134)
+    └── Peak (131–136)
 ```
 
 Use nested playlists — not flat. A flat playlist of 200 tracks is 10 seconds to find anything. A nested playlist gets you to a 15-track folder in 2 seconds.
 
-**Hot cue standard (ABCD on CDJs):**
-- **Cue A (Green):** start of the clean intro (mix-in point)
-- **Cue B (Yellow):** first drop / peak moment
-- **Cue C (Blue):** start of the break (anticipate this)
-- **Cue D (Red):** start of the outro (mix-out point)
-
-Every track in your gig crate should have these 4 cues set before the gig. A track without hot cues is a track you're navigating blind.
-
-**Why hot cues beat winging it:** at any point in a live set, you know exactly where you are in the track relative to your mix windows. You can hold a conversation at the booth and still nail the transition — the geography is memorised, not improvised.
+**Hot cues:** use the four-point ABCD standard from lesson 2 (A = mix-in, B = first drop, C = break, D = outro / mix-out, the red one). Every track in your gig crate should have these 4 cues set before the gig. A track without hot cues is a track you're navigating blind.
 
 **USB portability:** all metadata (playlists, cues, colour tags) travels with your USB stick and appears identically on any Pioneer CDJ. Analyse tracks in Rekordbox before loading to USB — on-the-fly analysis on the CDJ is slower and less accurate.
 """
@@ -52,7 +46,7 @@ Every track in your gig crate should have these 4 cues set before the gig. A tra
 [[en.pages]]
 title   = "The oh-shit folder — criteria and curation"
 content = """
-Every serious DJ keeps a private folder of 15–20 tracks that will land regardless of context. These are the rescue tracks. The dancefloor is crashing, the vibe is off — you drop one and buy 5 minutes to recover.
+Every serious DJ keeps a private folder of 10–15 tracks that will land regardless of context. These are the rescue tracks. The dancefloor is crashing, the vibe is off — you drop one and buy 5 minutes to recover.
 
 **Criteria for an oh-shit track:**
 - **Recognisable within 8 bars** — instant dopamine, no setup required
@@ -78,7 +72,7 @@ Sometimes the ideal pick is a track that would have worked 5 minutes ago and won
 
 The first 20 minutes establish the tonality of the set: BPM range, key centre, texture. Past that, the crowd's response determines what you pull next. DJs who plan 3-hour sets minute-by-minute get destroyed by the first reality check (a full house of regulars when they planned for newcomers). A plan is a departure gate, not a train schedule.
 
-**Hot loops as insurance:** before any break in a track, set a 4-beat loop on the last phrase before the break. If the transition isn't ready, you can loop indefinitely without the break landing — buying you time without audibly stalling. This is the mechanical safety net for the moment you've missed the window.
+**Hot loops as insurance:** a 4-beat loop set on the last phrase before a break (details in lesson 2) lets you extend the track indefinitely without the break landing. It's the mechanical safety net for the moment you've missed the window — you buy time without audibly stalling.
 
 **The crate serves the moment, not the other way around.** A well-sorted crate matters precisely because it lets you pivot fast when the plan evaporates.
 """
@@ -114,7 +108,7 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[en.sources]]
 label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"
 
 [[en.sources]]
 label = "Rekordbox — Smart Playlists for automated BPM filtering"
@@ -134,9 +128,11 @@ Organise ton crate de gig sur trois axes :
 **2 — Par moment :** Opening / Warmup / Peak / Afterpeak / Closing. Pas la même chose que le niveau d'énergie — une track Afterpeak peut être énergie 3 mais spécifiquement conçue pour la texture post-peak, différente d'une track Warmup générique au même niveau d'énergie.
 
 **3 — Par catégorie de sauvetage (code couleur dans Rekordbox) :**
-- **Rouge** : tracks oh-shit (5–10 max — le dossier de sauvetage)
-- **Jaune** : bangers safe (crowd-pleasers solides, énergie moyenne-haute)
-- **Vert** : armes secrètes (tracks que personne ne connaît, tes picks d'identité)
+- **Violet** : tracks oh-shit (10–15 max — le dossier de sauvetage)
+- **Turquoise** : bangers safe (crowd-pleasers solides, énergie moyenne-haute)
+- **Rose** : armes secrètes (tracks que personne ne connaît, tes picks d'identité)
+
+Rouge / jaune / vert restent réservés à l'énergie (leçon précédente), pour que les deux systèmes ne se télescopent jamais.
 
 Un crate de gig de **200–400 tracks** sur cette grille bat 10 000 en vrac à chaque fois. Tu as besoin de la bonne track en 60 secondes, pas en 10 minutes de scroll.
 """
@@ -150,20 +146,12 @@ Gig
 └── 2024-06-15
     ├── Warmup (120–125)
     ├── Cœur (126–130)
-    └── Peak (130–134)
+    └── Peak (131–136)
 ```
 
 Utilise des playlists imbriquées — pas plates. Une playlist plate de 200 tracks = 10 secondes pour trouver quoi que ce soit. Une playlist imbriquée t'amène à un dossier de 15 tracks en 2 secondes.
 
-**Standard hot cue (ABCD sur CDJs) :**
-- **Cue A (Vert) :** début de l'intro propre (point de mix en entrée)
-- **Cue B (Jaune) :** premier drop / moment de pic
-- **Cue C (Bleu) :** début du break (anticipe ça)
-- **Cue D (Rouge) :** début de l'outro (point de mix en sortie)
-
-Chaque track de ton crate de gig doit avoir ces 4 cues posés avant le gig. Une track sans hot cues, c'est une track que tu navigues à l'aveugle.
-
-**Pourquoi les hot cues battent l'improvisation :** à tout moment dans un live, tu sais exactement où tu en es dans la track par rapport à tes fenêtres de mix. Tu peux avoir une conversation à la cabine et quand même clouer la transition — la géographie est mémorisée, pas improvisée.
+**Hot cues :** utilise le standard ABCD à quatre points de la leçon 2 (A = mix en entrée, B = premier drop, C = break, D = outro / mix en sortie, le rouge). Chaque track de ton crate de gig doit avoir ces 4 cues posés avant le gig. Une track sans hot cues, c'est une track que tu navigues à l'aveugle.
 
 **Portabilité USB :** toutes les métadonnées (playlists, cues, tags couleur) voyagent avec ta clé USB et apparaissent identiquement sur n'importe quel Pioneer CDJ. Analyse les tracks dans Rekordbox avant de les charger sur USB — l'analyse à la volée sur le CDJ est plus lente et moins précise.
 """
@@ -171,7 +159,7 @@ Chaque track de ton crate de gig doit avoir ces 4 cues posés avant le gig. Une 
 [[fr.pages]]
 title   = "Le dossier oh-shit — critères et curation"
 content = """
-Tout DJ sérieux garde un dossier privé de 15–20 tracks qui vont tomber quel que soit le contexte. Ce sont les tracks de sauvetage. Le dancefloor s'effondre, la vibe est à côté — tu en drop une et tu t'achètes 5 minutes pour te remettre.
+Tout DJ sérieux garde un dossier privé de 10–15 tracks qui vont tomber quel que soit le contexte. Ce sont les tracks de sauvetage. Le dancefloor s'effondre, la vibe est à côté — tu en drop une et tu t'achètes 5 minutes pour te remettre.
 
 **Critères d'une track oh-shit :**
 - **Reconnaissable en 8 mesures** — dopamine instantanée, aucun setup requis
@@ -197,7 +185,7 @@ Parfois le pick idéal, c'est une track qui aurait marché il y a 5 minutes et n
 
 Les 20 premières minutes installent la tonalité du set : range de BPM, centre tonal, texture. Après ça, la réponse du public détermine ce que tu sors. Les DJs qui planifient des sets 3h minute-par-minute se font détruire au premier reality check (une salle pleine d'habitués quand ils prévoyaient des nouveaux venus). Un plan, c'est une porte d'embarquement, pas un horaire de train.
 
-**Hot loops comme assurance :** avant n'importe quel break dans une track, pose un loop de 4 beats sur la dernière phrase avant le break. Si la transition n'est pas prête, tu peux boucler indéfiniment sans que le break tombe — te donnant du temps sans stalles audibles. C'est le filet de sécurité mécanique pour le moment où tu as raté la fenêtre.
+**Hot loops comme assurance :** un loop de 4 beats posé sur la dernière phrase avant un break (détails dans la leçon 2) te permet d'étendre la track indéfiniment sans que le break tombe. C'est le filet de sécurité mécanique pour le moment où tu as raté la fenêtre — tu gagnes du temps sans trou audible.
 
 **Le crate sert le moment, pas l'inverse.** Un crate bien trié compte précisément parce qu'il te permet de pivoter vite quand le plan s'évapore.
 """
@@ -233,7 +221,7 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[fr.sources]]
 label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"
 
 [[fr.sources]]
 label = "Rekordbox — Smart Playlists pour filtrage BPM automatisé"

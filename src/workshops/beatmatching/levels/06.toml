@@ -42,13 +42,13 @@ recap = [
 [track.A]
 url = "AUDIO/Ensaios.mp3"
 bpm = 130
-title = "Intro"
+title = "Outro"
 key = "1A"
 complexity = 5
 [track.B]
 url = "AUDIO/SuperMarket.mp3"
 bpm = 130
-title = "Outro"
+title = "Intro"
 key = "12A"
 complexity = 5
 

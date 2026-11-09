@@ -97,8 +97,8 @@ answers  = ["A white-label with no artist info", "A track you can't bridge to an
 correct  = 1
 
 [[en.sources]]
-label = "Theo Parrish — RA interview on curation"
-url   = "https://ra.co/features/1948"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "DJ Harvey — Fact Mag interview"
@@ -208,8 +208,8 @@ answers  = ["Un white-label sans info artiste", "Une track que tu ne peux pas co
 correct  = 1
 
 [[fr.sources]]
-label = "Theo Parrish — interview RA sur la curation"
-url   = "https://ra.co/features/1948"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "DJ Harvey — interview Fact Mag"

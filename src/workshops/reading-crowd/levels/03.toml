@@ -4,32 +4,32 @@ order = 3
 [en]
 title       = "Closing Signature"
 short_desc  = "05:50. The last 10 minutes. Pick the track they'll remember."
-description = "The moment every DJ fights for: the closing. Energy is down from peak but still present. The crowd is tired, in love with you, and ready to remember one track forever. Not the biggest — the most YOU."
+description = "The moment every DJ fights for: the closing. Energy is down from peak but still present. The crowd is tired, in love with you, and ready to remember one track forever. Not the biggest — the most YOU. Density = how full the floor is (the higher the number, the fuller the room)."
 coach_tips  = [
-  "Closing ≠ warmdown. Energy is still 4. People are still dancing. They'll go home on this.",
-  "Surprise beats familiarity. The track they didn't know was the perfect close IS the perfect close.",
-  "Too new, too obscure, or too fresh can backfire — the closer should feel inevitable in hindsight."
+  "Closing ≠ cool-down. Energy is still 4. People are still dancing. They'll go home on this.",
+  "A well-chosen surprise often beats a familiar pick.",
+  "Too new or too obscure can backfire — the closer should feel inevitable in hindsight."
 ]
 recap = [
   "The closing is not a second peak — it's memory-making.",
   "Hold energy, don't spike it. The lights are up; the bodies are tired.",
-  "Safe picks are forgotten in 24 hours; surprises are remembered forever.",
+  "Safe picks are quickly forgotten; a well-chosen surprise sticks.",
   "The right closer feels inevitable only in hindsight."
 ]
 
 [fr]
 title       = "Signature de closing"
 short_desc  = "05h50. Les dix dernières minutes. Choisis la track dont ils se souviendront."
-description = "Le moment que tout DJ veut : le closing. L'énergie est redescendue du peak mais tient. La foule est fatiguée, amoureuse de toi, et prête à retenir une track pour toujours. Pas la plus grosse — la plus TOI."
+description = "Le moment que tout DJ veut : le closing. L'énergie est redescendue du peak mais tient. La foule est fatiguée, amoureuse de toi, et prête à retenir une track pour toujours. Pas la plus grosse — la plus TOI. Densité = à quel point la piste est remplie (plus le chiffre est haut, plus la salle est pleine)."
 coach_tips  = [
-  "Closing ≠ warmdown. L'énergie est encore à 4. Les gens dansent encore. Ils rentrent chez eux là-dessus.",
-  "La surprise bat la familiarité. La track qu'ils ne connaissaient pas comme parfait closing EST le parfait closing.",
-  "Trop neuf, trop obscur, trop frais peut se retourner — la closer doit sembler évidente avec du recul."
+  "Closing ≠ descente. L'énergie est encore à 4. Les gens dansent encore. Ils rentrent chez eux là-dessus.",
+  "Une surprise bien choisie bat souvent un choix familier.",
+  "Trop neuf ou trop obscur peut se retourner — la closer doit sembler évidente avec du recul."
 ]
 recap = [
-  "Le closing n'est pas un second peak — c'est de la fabrication de souvenir.",
+  "Le closing n'est pas un second moment fort — c'est la fabrication d'un souvenir.",
   "Tiens l'énergie, ne la pique pas. Les lumières sont remontées ; les corps sont fatigués.",
-  "Les picks safe sont oubliés en 24h ; les surprises restent gravées.",
+  "Les choix trop sûrs s'oublient vite ; une surprise bien choisie reste.",
   "La bonne closer paraît évidente seulement après coup."
 ]
 
@@ -45,8 +45,8 @@ energy = 4
 density = 3
 moment = "closing"
 vibe_tags = ["tired_but_loyal", "memory_making", "almost_dawn"]
-description_en = "05:50. The lights are slightly up. Half the room has thinned but the 40% left are the ones that stayed through everything. They're yours. Ten minutes left. They'll go home on whatever you play next."
-description_fr = "05h50. Les lumières sont légèrement remontées. La moitié de la salle a filé mais les 40% restants sont ceux qui ont tenu. Ils sont à toi. Il reste 10 min. Ils rentreront chez eux sur ce que tu joues après."
+description_en = "05:50. The lights are slightly up. Half the room has thinned but the people left are the ones that stayed through everything. They're yours. Ten minutes left. They'll go home on whatever you play next."
+description_fr = "05h50. Les lumières sont légèrement remontées. La moitié de la salle a filé mais ceux qui restent sont ceux qui ont tenu. Ils sont à toi. Il reste 10 min. Ils rentreront chez eux sur ce que tu joues après."
 
 [ui]
 show_fiches = true
@@ -58,18 +58,18 @@ genre = "emotional house"
 energy = 4
 vibe = "unexpected, melodic, personal"
 correct = true
-reason_en = "Energy holds at 4. Melodic, warm, a track nobody expected you to close with. This is the signature move: the unlikely choice that suddenly feels inevitable. Six months later, someone tags you asking 'what was that closer?'"
-reason_fr = "Énergie maintenue à 4. Mélodique, chaude, une track que personne n'attendait de toi en closing. C'est le move signature : le choix improbable qui devient évident. Six mois plus tard, quelqu'un te tague 'c'était quoi le closer ?'"
+reason_en = "Energy holds at 4. Melodic, warm, a track nobody expected you to close with. This is the signature move: the unlikely choice that suddenly feels inevitable. Weeks later, someone still asks you 'what was that closer?'"
+reason_fr = "Énergie maintenue à 4. Mélodique, chaude, une track que personne n'attendait de toi en closing. C'est le move signature : le choix improbable qui devient évident. Des semaines plus tard, quelqu'un te demande encore « c'était quoi, ce dernier morceau ? »"
 
 [[candidates]]
 url = "AUDIO/SCIFI.mp3"
-title = "SciFi (Banger Reprise)"
+title = "SciFi (Peak Reprise)"
 genre = "peak techno"
 energy = 5
 vibe = "returning to peak"
 correct = false
 reason_en = "Pushing back to energy 5 at 05:50 is treating the closing like a second peak. The lights are UP. The crowd is TIRED. You're fighting their body, not serving their memory."
-reason_fr = "Repousser à énergie 5 à 05h50, c'est traiter le closing comme un second peak. Les lumières sont REMONTÉES. La foule est FATIGUÉE. Tu te bats contre leur corps, tu ne sers pas leur mémoire."
+reason_fr = "Repousser à énergie 5 à 05h50, c'est traiter le closing comme un second peak. Les lumières sont REMONTÉES. La foule est FATIGUÉE. Tu te bats contre leur corps, tu ne sers pas leur souvenir."
 
 [[candidates]]
 url = "AUDIO/Trip.mp3"
@@ -78,5 +78,5 @@ genre = "tech house (same vibe as earlier)"
 energy = 4
 vibe = "safe, familiar, no surprise"
 correct = false
-reason_en = "Energy and genre are both fine — but it's a track you already played tonight's flavor of. The crowd forgets safe closings in 24 hours. They remember surprises forever."
-reason_fr = "Énergie et genre OK — mais c'est une track du même univers que celles de la soirée. La foule oublie les closings safe en 24h. Elle se souvient des surprises pour toujours."
+reason_en = "Energy and genre are both fine — but it's a track you already played tonight's flavor of. The crowd forgets safe closings quickly. A well-chosen surprise sticks."
+reason_fr = "Énergie et genre OK — mais c'est une track du même univers que celles de la soirée. La foule oublie vite les closings trop sûrs. Une surprise bien choisie reste."

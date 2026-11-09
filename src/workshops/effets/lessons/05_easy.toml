@@ -3,16 +3,142 @@ order = 5
 
 [en]
 title      = "FX Chain: Order Matters"
-short_desc = "Easy version coming soon."
+short_desc = "Same effects, different order, different sound."
+description = "Effects are like steps in a recipe: change the order and you get something else. Knowing the usual order on a DJ mixer saves you from surprises."
+recap = [
+  "The order of effects changes the sound, just like the order of ingredients in a recipe.",
+  "A common order on a DJ mixer: EQ, then filter, then delay or reverb, then the volume fader.",
+  "Delay and reverb usually work on a copy of the sound (a send), mixed back with the original.",
+  "Pulling the volume fader does not always cut the echo tail the same way on every mixer.",
+  "Test your own mixer with a loop before the gig.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Easy version of this lesson is being prepared. Check back soon!"
+title   = "Socks, then shoes"
+content = """
+Put on socks, then shoes: fine. Shoes, then socks: not the same result at all.
+
+Effects work the same way. The sound goes through them one after the other, and each one works on what the previous one gave it. So **the order changes the sound**.
+
+Example: a delay that comes **after** a filter repeats the filtered sound (dull, with no highs). A delay that comes **before** the filter repeats the original sound, and then the filter dims the echoes too.
+"""
+
+[[en.pages]]
+title   = "The usual road through the mixer"
+content = """
+On many DJ mixers, the sound follows this road for each channel:
+
+1. **EQ** (low, mid, high): you shape the track.
+2. **Filter**: you remove highs or lows with one knob.
+3. **Delay or reverb**: you add echoes or space.
+4. **Volume fader**: you decide how much goes to the speakers.
+
+Delay and reverb are special: they work on a **copy** of the sound (called a **send**). The original keeps playing, and you mix the effect copy back in with the "wet / dry" or "level" knob. That's why you can turn the effect up without losing your kick.
+"""
+
+[[en.pages]]
+title   = "Test it before the gig"
+content = """
+Every mixer is a little different. A quick test, 2 minutes, saves a lot of stress:
+
+1. Start a loop on a deck.
+2. Turn on an echo (delay).
+3. Turn the filter knob and listen: do the echoes change with the filter, or stay the same?
+4. Pull the volume fader down: does the echo tail stay or vanish?
+
+If you know the answers, you can use the echo as a tool and not as a surprise. Write them down in your head: "my mixer does this".
+"""
+
+[[en.quiz]]
+question = "Why does the order of effects matter?"
+answers  = ["Each effect works on what the previous one gave it, so the sound changes", "Because the mixer breaks otherwise", "It doesn't matter"]
+correct  = 0
+
+[[en.quiz]]
+question = "What is a send?"
+answers  = ["A copy of the sound that goes through an effect and gets mixed back in", "The master volume", "A cable"]
+correct  = 0
+
+[[en.quiz]]
+question = "What is a good habit before playing on a mixer you don't know?"
+answers  = ["Test the effects with a loop to see how they behave", "Turn every knob to maximum", "Never use effects"]
+correct  = 0
+
+[[en.sources]]
+label = "Sound On Sound — techniques articles"
+url   = "https://www.soundonsound.com/techniques"
+
+[[en.sources]]
+label = "Pioneer DJ — mixer product pages (effects section)"
+url   = "https://www.pioneerdj.com/"
 
 [fr]
 title      = "FX Chain : L'Ordre Change Tout"
-short_desc = "Version Easy en préparation."
+short_desc = "Mêmes effets, ordre différent, son différent."
+description = "Les effets sont comme les étapes d'une recette : change l'ordre et tu obtiens autre chose. Connaître l'ordre habituel d'une table DJ t'évite les mauvaises surprises."
+recap = [
+  "L'ordre des effets change le son, comme l'ordre des ingrédients dans une recette.",
+  "Un ordre courant sur une table DJ : EQ, puis filtre, puis delay ou reverb, puis fader de volume.",
+  "Delay et reverb travaillent en général sur une copie du son (un send), remixée avec l'original.",
+  "Baisser le fader de volume ne coupe pas toujours la queue d'écho de la même façon selon la table.",
+  "Teste ta table avec une boucle avant le gig.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Easy de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Les chaussettes, puis les chaussures"
+content = """
+Chaussettes puis chaussures : ça va. Chaussures puis chaussettes : pas du tout le même résultat.
+
+Les effets, c'est pareil. Le son les traverse l'un après l'autre, et chacun travaille sur ce que le précédent lui donne. Donc **l'ordre change le son**.
+
+Exemple : un delay placé **après** un filtre répète le son filtré (sourd, sans aigus). Un delay placé **avant** le filtre répète le son d'origine, et ensuite le filtre assombrit aussi les échos.
+"""
+
+[[fr.pages]]
+title   = "Le chemin habituel dans la table"
+content = """
+Sur beaucoup de tables DJ, le son suit ce chemin pour chaque canal :
+
+1. **EQ** (graves, médiums, aigus) : tu façonnes la track.
+2. **Filtre** : tu retires les aigus ou les graves avec un seul potard.
+3. **Delay ou reverb** : tu ajoutes des échos ou de l'espace.
+4. **Fader de volume** : tu décides ce qui part vers les enceintes.
+
+Delay et reverb sont particuliers : ils travaillent sur une **copie** du son (qu'on appelle un **send**). L'original continue de jouer, et tu remixes la copie avec le potard « wet / dry » ou « level ». C'est pour ça que tu peux monter l'effet sans perdre ton kick.
+"""
+
+[[fr.pages]]
+title   = "Teste avant le gig"
+content = """
+Chaque table est un peu différente. Un petit test de 2 minutes évite beaucoup de stress :
+
+1. Lance une boucle sur une platine.
+2. Active un écho (delay).
+3. Tourne le potard de filtre et écoute : est-ce que les échos changent avec le filtre, ou restent pareils ?
+4. Baisse le fader de volume : la queue d'écho reste-t-elle ou disparaît-elle ?
+
+Si tu connais les réponses, tu peux utiliser l'écho comme un outil et pas comme une surprise. Retiens-le : « ma table fait ça ».
+"""
+
+[[fr.quiz]]
+question = "Pourquoi l'ordre des effets compte-t-il ?"
+answers  = ["Chaque effet travaille sur ce que le précédent lui donne, donc le son change", "Parce que la table plante sinon", "Il ne compte pas"]
+correct  = 0
+
+[[fr.quiz]]
+question = "Qu'est-ce qu'un send ?"
+answers  = ["Une copie du son qui passe dans un effet et qu'on remixe", "Le volume master", "Un câble"]
+correct  = 0
+
+[[fr.quiz]]
+question = "Quelle bonne habitude avoir avant de jouer sur une table que tu ne connais pas ?"
+answers  = ["Tester les effets avec une boucle pour voir comment ils se comportent", "Mettre tous les potards au maximum", "Ne jamais utiliser d'effets"]
+correct  = 0
+
+[[fr.sources]]
+label = "Sound On Sound — articles de techniques"
+url   = "https://www.soundonsound.com/techniques"
+
+[[fr.sources]]
+label = "Pioneer DJ — pages produits des tables (section effets)"
+url   = "https://www.pioneerdj.com/"

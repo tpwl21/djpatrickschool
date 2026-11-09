@@ -4,37 +4,37 @@ order = 2
 [en]
 title       = "Same-Key, Different BPM"
 short_desc  = "Same key but BPM mismatch. Pitch, then discover Master Tempo."
-description = "Track A is in <b>Fm</b> at 122 BPM. The playlist has one Fm track at a different BPM. Load it, sync the BPMs by pitching — and watch the key drift. Then flip the MASTER TEMPO switch to lock the key back."
-details     = "Validation: BPMs synced · MASTER TEMPO ON · effective key matches A."
+description = "Track A is in <b>Fm</b> (F minor; in English notation F = Fa, m = minor) at 122 BPM. The playlist has one Fm track at a different BPM. Load it, sync the BPMs by pitching — and watch the key drift. Then flip the MASTER TEMPO switch to lock the key back."
+details     = "Validation: BPMs synced · MASTER TEMPO ON · effective key = Fm."
 success     = "Key-locked and tempo-matched. That's how CDJs mix long."
 coach_tips  = [
-  "Use the PITCH fader or SYNC button to align Deck B's BPM with A (122).",
-  "Without Master Tempo, pitching B will push its key off Fm. The HUD shows the drift in cents.",
+  "Use the PITCH fader, or the SYNC button (it sets the BPM for you), to align Deck B's BPM with A (122).",
+  "Without Master Tempo, pitching B will push its key off Fm. The on-screen display shows how far the key has drifted, in cents (1 cent = 1/100 of a semitone).",
   "Flip the MASTER TEMPO switch — the key locks back to Fm while the BPM stays synced."
 ]
 recap = [
   "Pitching changes BPM AND key — they're coupled on traditional gear.",
   "Master Tempo (key-lock) decouples them: tempo moves, pitch stays.",
-  "Without key-lock, a +5% pitch drifts about a semitone off key.",
-  "Always turn Master Tempo ON when mixing two tracks of different BPMs in the same key."
+  "Without key-lock, a +6% pitch drifts about a semitone off key.",
+  "Turn Master Tempo ON when you pitch clearly (beyond a few %) to keep the key. On a tiny correction, leave it off if that sounds better."
 ]
 
 [fr]
 title       = "Même clé, BPM différent"
 short_desc  = "Même clé mais BPM décalé. Pitche, puis découvre le Master Tempo."
-description = "Track A est en <b>Fm</b> à 122 BPM. La playlist contient un morceau en Fm à un BPM différent. Charge-le, synchronise en pitchant — et regarde la clé dériver. Puis active MASTER TEMPO pour la reverrouiller."
+description = "Track A est en <b>Fm</b> (Fa mineur ; en notation anglaise F = Fa, m = mineur) à 122 BPM. La playlist contient un morceau en Fm à un BPM différent. Charge-le, synchronise en pitchant — et regarde la clé dériver. Puis active MASTER TEMPO pour la reverrouiller."
 details     = "Validation : BPM sync · MASTER TEMPO ON · clé effective = Fm."
 success     = "Clé verrouillée, BPM matché. C'est comme ça que les CDJ mixent long."
 coach_tips  = [
-  "Utilise le fader PITCH ou le bouton SYNC pour aligner le BPM de B sur A (122).",
-  "Sans Master Tempo, pitcher B fait glisser sa clé hors de Fm. Le HUD affiche la dérive en cents.",
+  "Utilise le fader PITCH, ou le bouton SYNC (il cale le BPM à ta place), pour aligner le BPM de B sur A (122).",
+  "Sans Master Tempo, pitcher B fait glisser sa clé hors de Fm. L'affichage à l'écran montre de combien la clé a dérivé, en cents (1 cent = 1/100 de demi-ton).",
   "Active l'interrupteur MASTER TEMPO — la clé revient à Fm, le BPM reste calé."
 ]
 recap = [
   "Pitcher change le BPM ET la clé — ils sont couplés sur le matériel traditionnel.",
   "Le Master Tempo (key-lock) les découple : le tempo bouge, la hauteur reste.",
-  "Sans key-lock, un pitch +5% fait dériver d'environ un demi-ton.",
-  "Active toujours le Master Tempo pour mixer deux morceaux de BPM différents en même clé."
+  "Sans key-lock, un pitch +6% fait dériver d'environ un demi-ton.",
+  "Active le Master Tempo quand tu pitches nettement (au-delà de quelques %) pour garder la clé. Sur une toute petite correction, laisse-le off si ça sonne mieux."
 ]
 
 [track.A]

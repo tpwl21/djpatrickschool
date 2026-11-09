@@ -2,15 +2,15 @@ id = "LESSON_EQ_1_PRO"
 order = 1
 
 [en]
-title       = "EQ Architecture: Biquad IIR, Isolators, and PA Physics"
-short_desc  = "Biquad IIR filters, Linkwitz-Riley crossovers, SVF topology, psychoacoustics, and why a club PA is not your monitor."
-description = "The EQ knob on a DJM is the visible control over a complex DSP chain. Understanding the filter topology underneath — biquad IIR, shelves vs bells, isolator vs traditional — explains why full kills sound different from sweeps, why two simultaneous kicks can blow a subwoofer, and why crossover architecture determines what a system can forgive."
+title       = "EQ Architecture: Biquad IIR, Isolators, and Bass Phase"
+short_desc  = "Biquad IIR filters, Linkwitz-Riley crossovers, EQ vs isolator, bass phase cancellation, and where the PFL taps the signal."
+description = "The EQ knob on a mixer is the visible control over a DSP chain. Understanding the filter topology underneath — biquad IIR, shelves vs bells, classic EQ vs isolator — explains why a full kill is not always a true kill, why two simultaneous basses turn to mud and cancel each other, and why the cue is not always what the room hears."
 recap = [
-  "DJ mixer EQs use 2nd-order biquad IIR filters: shelving (Low/High) and peaking bell (Mid). Q factor controls bandwidth.",
-  "Isolator topology (Rane, some A&H) uses Linkwitz-Riley crossovers for true -∞ dB kills without phase artifacts at adjacent bands.",
-  "Two simultaneous kicks drive subwoofer voice coils past their linear excursion (Xmax) — a physical limit, not just an aesthetic one.",
-  "Fletcher-Munson: at low SPL the ear suppresses lows and highs; at club SPL (100+ dB) the equal-loudness curve flattens toward 0 dBFS-aligned hearing.",
-  "Split-cue routing in high-end mixers (Xone:96) can be configured pre-EQ or post-EQ — affects whether your cue monitors your own EQ work."
+  "DJ mixer EQs are commonly built from 2nd-order biquad IIR filters: shelving (Low/High) and peaking bell (Mid). Q controls the bandwidth of the bell.",
+  "Recent Pioneer DJ mixers (900NXS2, A9, V10) kill to -∞ and offer an EQ / Isolator selector. Older models such as the DJM-800 stop around -26 dB.",
+  "Isolator topology splits the signal with Linkwitz-Riley crossovers: a band at zero means nothing is routed.",
+  "One bass at a time: two kicks offset by 10 ms cancel a 50 Hz tone completely. Bass swap = mud and phase avoidance, not hardware protection (PA processors have limiters).",
+  "PFL is pre-fader and, in general, post-EQ: your EQ work shows up in the cue. Check your manual."
 ]
 
 [[en.pages]]
@@ -30,9 +30,9 @@ Five coefficients (b0, b1, b2, a1, a2) define the filter entirely. From these yo
 
 ## How DJ EQ bands are implemented
 
-- **Low band**: 2nd-order **low shelving** filter. Boost/cut below the shelf frequency (typically ~300 Hz on a DJM). Slope: 12 dB/octave at the knee.
-- **High band**: 2nd-order **high shelving** filter. Same principle, mirrored above ~4 kHz.
-- **Mid band**: 2nd-order **peaking (bell) filter**. Symmetric boost/cut centered at the mid frequency. The **Q factor** (quality factor) controls bandwidth: high Q = narrow notch, low Q = wide bell. On a DJM the mid Q is ~1.5–2; on a Xone the mid is narrower (Q ~2.5–3).
+- **Low band**: 2nd-order **low shelving** filter. Boost/cut below the shelf frequency (chosen by the manufacturer). Slope: 12 dB/octave at the knee.
+- **High band**: 2nd-order **high shelving** filter. Same principle, mirrored above its own shelf frequency.
+- **Mid band**: 2nd-order **peaking (bell) filter**. Symmetric boost/cut centered at the mid frequency. The **Q factor** (quality factor) controls bandwidth: high Q = narrow notch, low Q = wide bell. The values differ from one mixer to the next and manufacturers rarely publish them.
 
 ## Web Audio context
 
@@ -40,48 +40,45 @@ This project implements exactly this: three `BiquadFilterNode` instances per dec
 """
 
 [[en.pages]]
-title   = "Isolator topology: why a Rane kill sounds different from a Pioneer kill"
+title   = "EQ vs isolator: what \"full kill\" really means"
 content = """
-## Traditional EQ: the attenuation problem
+## Classic EQ: a kill that may not be total
 
-On a standard 3-band DJ EQ (Pioneer DJM), turning a band to full cut doesn't actually produce -∞ dB. It produces approximately **-26 dB** (the mechanical detent at the end of travel). That's a 20:1 attenuation — substantial, but a beat with a very loud kick will still leave residual sub energy audible in the room.
+On a classic EQ, turning a band all the way down does not necessarily give -∞ dB. Older Pioneer models such as the **DJM-800** stop at about **-26 dB** at the end of the knob: a big cut (a factor of 20 in amplitude), but a loud kick still leaves a faint trace in the room.
 
-To get a *true kill* on a Pioneer, you need to also pull the channel fader momentarily, or the track's gain is so low that the residual is below audibility.
+Recent Pioneer DJ mixers (**DJM-900NXS2, DJM-A9, DJM-V10**) cut to **-∞** and have an **EQ / Isolator** selector: the same knobs, two behaviors. Check the manual of the mixer in front of you rather than assuming.
 
-## Isolator topology: true -∞ dB kills
+## Isolator topology: a band at zero routes nothing
 
-An **isolator** splits the signal into frequency bands using **Linkwitz-Riley (L-R) crossover filters** — a cascaded pair of Butterworth filters designed to sum to flat at the crossover frequency with no phase discontinuity. Each band is then independently amplified and recombined.
+An **isolator** splits the signal into bands with **Linkwitz-Riley (L-R) crossover filters** — cascaded Butterworth pairs designed to sum flat at the crossover frequency. Each band then gets its own level control and the bands are recombined.
 
-The key property: because the bands are truly separated before they reach the amplitude control, turning a band to zero means **routing nothing** — genuine -∞ dB with a clean crossover region. No bleed from adjacent bands.
+Because the bands are separated *before* the level control, a band at zero means **nothing is routed**: a true -∞ dB with a clean crossover region.
 
-Rane (TTM57, MP2015), early A&H Xone models, and specialist mixers (Vestax) used isolator topology. The Urei/Bozak rotary mixers at Berghain use a variation of this principle.
+The side effect: an isolator is not a gentle tone control. It is a cutting tool. That is why it is loved for kills and swaps, and why a boost is rarely the point.
 
 ## SVF (State Variable Filter) variant
 
-High-end mixers also use **SVF topology** — the state variable filter simultaneously outputs lowpass, highpass, bandpass, and notch responses from a single filter structure. It has superior frequency stability and can be swept smoothly without instability. Used in modular synthesis and some boutique mixer designs.
+The **state variable filter** outputs lowpass, highpass, bandpass and notch responses from one structure. It is stable under fast parameter changes, which makes it a common choice for filters that are swept by hand. It is a staple of synthesis.
 """
 
 [[en.pages]]
-title   = "PA physics: why simultaneous kicks damage systems"
+title   = "Why one bass at a time: mud and phase"
 content = """
-## The Xmax problem
+## Two basses are not twice the bass
 
-A subwoofer driver has a physical cone excursion limit called **Xmax** — the distance the voice coil can travel linearly before the magnetic gap force becomes nonlinear (the coil starts to leave the gap).
+When two basses play together, three things happen:
 
-Typical 18" sub drivers used in club PAs have Xmax values of **10–25mm** depending on design. The rated SPL assumes the cone stays within this range.
+1. **Beating and mud**: notes that are close but not identical in pitch interfere and make the low end swell and wobble.
+2. **Phase cancellation**: low frequencies have long periods. A **50 Hz** tone has a period of **20 ms**, so two kicks offset by only **10 ms** are in opposite phase and cancel that 50 Hz component. At **100 Hz** (period 10 ms) a **5 ms** offset does the same. A beatmatch that is a few milliseconds off is normal, and it is enough to thin out the lows.
+3. **Summing**: two identical signals in phase add **+6 dB**. Two different ones add unpredictably, and the result lands on your master level.
 
-## What two simultaneous kicks do
+## So is the bass swap a hardware protection?
 
-A bass transient draws a sharp current spike that commands the voice coil to move rapidly to its excursion limit and return. When two kick transients arrive simultaneously (two tracks, both basses active, within the same beat):
+No. Club PAs have **processors with limiters** that protect the drivers, so a bass overlap is not what stands between the system and a broken speaker. The bass swap exists for **the sound**: no mud, no cancellation, one clear kick at a time.
 
-1. The combined current demand can be **2× the rated peak current**.
-2. The voice coil is driven past Xmax — into the **non-linear region**.
-3. The result: **mechanical distortion** (harmonic and intermodulation) from the driver's non-linear force-displacement curve.
-4. On protection-equipped amplifiers: the protection circuit triggers, the system briefly clips or cuts — audible as a "crunch" or momentary loss.
+## The workflow
 
-## Why the bass swap is a physical requirement
-
-The bass swap is not a stylistic tradition. It's a **physical constraint of the transducer**. No amount of well-tuned DSP can un-do voice coil excursion beyond Xmax. The DJ is the last line of control before the mechanical limits of the PA.
+Kill the incoming Low, let the track blend in, then swap on the **first beat of a phrase** (32 beats): A's Low down, B's Low up, in one gesture. This is what level 2 of this workshop validates.
 """
 
 [[en.pages]]
@@ -89,49 +86,39 @@ title   = "Fletcher-Munson and the DJ's calibration problem"
 content = """
 ## Equal-loudness contours
 
-The **Fletcher-Munson curves** (1933, refined by ISO 226:2003 as the Robinson-Dadson curves) map human hearing sensitivity across the frequency spectrum at equal perceived loudness.
+Equal-loudness contours map how sensitive the ear is across frequencies at a given perceived loudness. Fletcher and Munson published them in 1933, Robinson and Dadson redid the measurement in 1956, and **ISO 226:2003** is the standard that replaced the Robinson-Dadson curves.
 
 Key observations:
-- At **low SPL (~40 phons)**, the ear is significantly less sensitive to lows (<200 Hz) and very highs (>10 kHz). Mids dominate perception.
-- At **high SPL (~90–100 phons)**, the curve flattens — the ear hears the full spectrum more uniformly.
-- At **extreme club SPL (>100 dB)**, there's slight enhancement of lows and very highs compared to mids.
+- At **low levels**, the ear is much less sensitive to lows and very highs. Mids dominate perception.
+- At **high levels**, the contours flatten: the spectrum is perceived more evenly.
 
 ## The DJ calibration consequence
 
-A mix that sounds "balanced" at 75 dB monitor volume in the booth will typically sound:
-- **Bass-heavy** at 103 dB on the main floor (bass amplification from the curve flattening).
-- **Harsh on the highs** if the mix was calibrated below the ears-flattening threshold.
+A mix that sounds balanced at a low monitor level in the bedroom will usually feel **heavier in the bass** once it is played loud on a club system, because the low end is now perceived at a larger fraction of its true level.
 
-This is why experienced DJs use **booth monitors at a calibrated SPL** — typically kept at a fixed reference level — and don't constantly ride booth volume as a proxy for what the room hears.
+This is why experienced DJs keep booth monitors at a **fixed, known level** instead of riding the booth volume to follow what the room does. The EQ decisions then happen at the same point on the equal-loudness curve every time.
 
-## Pre-amp gain vs system gain calibration
+## What to do about it
 
-At Berghain and other well-calibrated venues, the entire gain structure from DJ mixer output to amplifier input is pre-set. DJs receive a normalized interface. This solves the Fletcher-Munson problem for the mixer operator: all decisions are made at a known SPL, referenced to the same point on the equal-loudness curve.
+Fix your reference. Check your EQ against the room at the real playing level, and ask the sound engineer how the booth is set up before the first track. The contours tell you why the same mix feels different at 70 dB and at 100 dB; they do not give you a magic number to set.
 """
 
 [[en.pages]]
-title   = "Split-cue routing: pre-EQ or post-EQ?"
+title   = "PFL routing: pre-fader, and usually post-EQ"
 content = """
-## The CUE bus location is mixer-specific
+## Where the cue taps the signal
 
-On most DJ mixers, the CUE bus taps the signal **after the EQ**, so your PFL reflects your EQ work.
-This is useful: you hear what the room will get.
+**PFL** means **Pre-Fader Listen**: the cue is taken **before** the channel fader, so you can listen to a deck at any fader position without the room hearing it.
 
-On broadcast desks, PFL is **always pre-fader and pre-EQ** — the architectural definition.
-
-On the Allen & Heath Xone:96, the cue routing is configurable: a jumper setting on the PCB allows tapping the CUE bus either pre-EQ or post-EQ per channel. This is an installation-time decision, not a runtime control.
+Whether it is taken before or after the EQ depends on the design. On most DJ mixers the PFL is **post-EQ**: your EQ work is reflected in the headphones, so you hear what the room will get. Read the manual of your mixer to be sure.
 
 ## Why this matters in the booth
 
-If your mixer's CUE is pre-EQ, any mid-cut you make in the cue will NOT appear in your headphone monitoring — you'll hear the uncut version. This can lead to under-cutting in the room because your reference doesn't reflect the intervention.
-
-If your mixer's CUE is post-EQ (common on most modern DJMs), you hear exactly what you're sending.
+If a mixer's cue were taken before the EQ, a mid-cut you make would not appear in the headphones and you could under-cut in the room, because your reference would not reflect your move. With a post-EQ cue you hear exactly what you are about to send.
 
 ## Headphone amplifier gain staging
 
-The headphone amplifier inside a DJ mixer is a separate signal path. On high-end mixers it has its own gain structure with a separate headphone trim. If the headphone amp is overdriven by a too-hot trim, the cue clips before the main out clips — another reason to trim first.
-
-Always verify: what's clipping? The master VU or the headphone output? They're different stages.
+The headphone amplifier is a separate signal path with its own gain. If it is overdriven by a too-hot trim or a too-high headphone level, the cue can distort while the main output is fine. Always ask yourself: what is clipping, the channel, the master meter, or the headphone output? They are different stages.
 """
 
 [[quiz]]
@@ -143,26 +130,26 @@ answers  = ["Low shelving", "2nd-order peaking (bell) filter", "Butterworth high
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "What makes isolator topology (e.g. Rane TTM) produce true -∞ dB kills?"
-answers  = ["It uses higher-order filters", "It clips the output at the analog stage", "It routes bands through separate amplifiers via Linkwitz-Riley crossovers, so turning a band to zero means routing nothing"]
+question = "What makes an isolator-type EQ give a true -∞ dB kill?"
+answers  = ["It uses higher-order filters", "It clips the output at the analog stage", "It splits the signal into bands with Linkwitz-Riley crossovers before the level control, so a band at zero means nothing is routed"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "What is Xmax in a subwoofer driver?"
-answers  = ["The maximum linear cone excursion before the voice coil leaves the magnetic gap", "The maximum SPL output", "The maximum input voltage"]
+question = "Two kicks are offset by 10 ms. What happens to their 50 Hz component?"
+answers  = ["It cancels (opposite phase, since the period is 20 ms)", "It adds +6 dB", "Nothing changes"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "According to Fletcher-Munson equal-loudness contours, what happens to bass perception at high SPL (100+ dB)?"
-answers  = ["Bass is perceived less, mids dominate", "Perception is unchanged compared to 60 dB", "The equal-loudness curve flattens, bass is perceived more equally relative to mids"]
+question = "Which standard replaced the Robinson-Dadson equal-loudness curves?"
+answers  = ["EBU R128", "AES17", "ISO 226:2003"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "On which mixer is CUE bus routing (pre-EQ vs post-EQ) configurable via a PCB jumper?"
-answers  = ["Allen & Heath Xone:96", "Pioneer DJM-900NXS2", "Rane TTM57"]
+question = "Where does the PFL usually tap the signal on a DJ mixer?"
+answers  = ["Before the fader and, in general, after the EQ", "After the crossfader and before the trim", "After the master output"]
 
 [[quiz]]
 correct = 1
@@ -183,23 +170,23 @@ label = "ISO 226:2003 — Equal-loudness contours (Fletcher-Munson)"
 url   = "https://www.iso.org/standard/34222.html"
 
 [[sources]]
-label = "Loudspeaker Xmax and Mechanical Limits — Eminence Speaker"
-url   = "https://www.eminence.com/2016/04/loudspeaker-parameters/"
+label = "Pioneer DJ — product manuals (DJM series: EQ / Isolator selector)"
+url   = "https://www.pioneerdj.com/"
 
 [[sources]]
 label = "State Variable Filter — Chamberlin (Music Applications of Microprocessors)"
 url   = "https://ccrma.stanford.edu/~jos/filters/State_Variable_Filters.html"
 
 [fr]
-title       = "Architecture EQ : Biquad IIR, Isolateurs et Physique PA"
-short_desc  = "Filtres biquad IIR, crossovers Linkwitz-Riley, topologie SVF, psychoacoustique, et pourquoi une PA de club n'est pas ton moniteur."
-description = "Le bouton EQ sur une DJM est l'interface visible d'une chaîne DSP complexe. Comprendre la topologie de filtre en dessous — biquad IIR, shelves vs bells, isolator vs traditionnel — explique pourquoi les kills sonnent différents des sweeps, pourquoi deux kicks simultanés peuvent griller un subwoofer, et pourquoi l'architecture du crossover détermine ce qu'un système peut pardonner."
+title       = "Architecture EQ : Biquad IIR, Isolateurs et phase des basses"
+short_desc  = "Filtres biquad IIR, crossovers Linkwitz-Riley, EQ vs isolator, annulation de phase des basses, et où le PFL prélève le signal."
+description = "Le bouton EQ d'une table est l'interface visible d'une chaîne DSP. Comprendre la topologie de filtre en dessous — biquad IIR, shelves vs bells, EQ classique vs isolator — explique pourquoi un full kill n'est pas toujours un vrai kill, pourquoi deux basses simultanées virent à la boue et s'annulent, et pourquoi le cue n'est pas toujours ce que la salle entend."
 recap = [
-  "Les EQs de tables DJ utilisent des filtres biquad IIR du 2e ordre : shelving (Low/High) et peaking bell (Mid). Le facteur Q contrôle la bande passante.",
-  "La topologie isolator (Rane, certains A&H) utilise des crossovers Linkwitz-Riley pour de vrais kills à -∞ dB sans artefacts de phase sur les bandes adjacentes.",
-  "Deux kicks simultanés poussent les bobines de subwoofer au-delà de leur excursion linéaire (Xmax) — une limite physique, pas seulement esthétique.",
-  "Fletcher-Munson : à bas SPL l'oreille supprime graves et aigus ; à SPL de club (100+ dB) la courbe d'égale loudness s'aplatit.",
-  "Le routing split-cue sur les tables haut de gamme (Xone:96) est configurable pré-EQ ou post-EQ — affecte si ton cue reflète ton propre travail EQ."
+  "Les EQ de tables DJ sont couramment construits à partir de filtres biquad IIR du 2e ordre : shelving (Low/High) et cloche (Mid). Le Q règle la largeur de la cloche.",
+  "Les tables Pioneer DJ récentes (900NXS2, A9, V10) coupent à -∞ et proposent un sélecteur EQ / Isolator. Les anciens modèles comme la DJM-800 s'arrêtent vers -26 dB.",
+  "La topologie isolator sépare le signal avec des crossovers Linkwitz-Riley : une bande à zéro = rien n'est routé.",
+  "Une seule basse à la fois : deux kicks décalés de 10 ms annulent complètement une sinusoïde à 50 Hz. Le bass swap sert à éviter la boue et la phase, pas à protéger le matériel (les processeurs de PA ont des limiteurs).",
+  "Le PFL est pré-fader et, en général, post-EQ : ton travail EQ se retrouve dans le cue. Vérifie ton manuel."
 ]
 
 [[fr.pages]]
@@ -219,9 +206,9 @@ Cinq coefficients (b0, b1, b2, a1, a2) définissent entièrement le filtre. Avec
 
 ## Comment les bandes EQ DJ sont implémentées
 
-- **Bande Low** : filtre **low shelving** du 2e ordre. Boost/cut sous la fréquence de shelf (~300 Hz sur une DJM). Pente : 12 dB/octave au genou.
-- **Bande High** : filtre **high shelving** du 2e ordre. Même principe, miroir au-dessus de ~4 kHz.
-- **Bande Mid** : filtre **peaking (bell) du 2e ordre**. Boost/cut symétrique centré sur la fréquence mid. Le **facteur Q** contrôle la bande passante : Q élevé = notch étroit, Q faible = cloche large. Sur une DJM le Q mid est ~1,5–2 ; sur une Xone le mid est plus étroit (Q ~2,5–3).
+- **Bande Low** : filtre **low shelving** du 2e ordre. Boost/cut sous la fréquence de shelf (choisie par le fabricant). Pente : 12 dB/octave au genou.
+- **Bande High** : filtre **high shelving** du 2e ordre. Même principe, en miroir au-dessus de sa propre fréquence de shelf.
+- **Bande Mid** : filtre **peaking (bell) du 2e ordre**. Boost/cut symétrique centré sur la fréquence mid. Le **facteur Q** contrôle la bande passante : Q élevé = notch étroit, Q faible = cloche large. Les valeurs changent d'une table à l'autre et les fabricants les publient rarement.
 
 ## Contexte Web Audio
 
@@ -229,48 +216,45 @@ Ce projet implémente exactement ça : trois instances de `BiquadFilterNode` par
 """
 
 [[fr.pages]]
-title   = "Topologie isolator : pourquoi un kill Rane sonne différent d'un kill Pioneer"
+title   = "EQ vs isolator : ce que « full kill » veut vraiment dire"
 content = """
-## EQ traditionnel : le problème d'atténuation
+## EQ classique : un kill pas forcément total
 
-Sur un EQ DJ 3-bandes standard (Pioneer DJM), tourner une bande à fond ne produit pas vraiment -∞ dB. Ça produit environ **-26 dB** (le cran mécanique en bout de course). C'est une atténuation de 20:1 — substantielle, mais un beat avec un kick très fort laissera quand même une énergie sub résiduelle audible dans la salle.
+Sur un EQ classique, tourner une bande à fond ne donne pas forcément -∞ dB. Des modèles Pioneer plus anciens comme la **DJM-800** s'arrêtent vers **-26 dB** en bout de course : une grosse coupe (un facteur 20 en amplitude), mais une grosse caisse très forte laisse quand même une trace dans la salle.
 
-Pour obtenir un *vrai kill* sur une Pioneer, il faut aussi baisser momentanément le fader de canal, ou le gain de la track est si bas que le résiduel est sous le seuil d'audibilité.
+Les tables Pioneer DJ récentes (**DJM-900NXS2, DJM-A9, DJM-V10**) coupent à **-∞** et ont un sélecteur **EQ / Isolator** : les mêmes boutons, deux comportements. Vérifie le manuel de la table que tu as devant toi plutôt que de supposer.
 
-## Topologie isolator : vrais kills à -∞ dB
+## Topologie isolator : une bande à zéro ne route rien
 
-Un **isolateur** divise le signal en bandes de fréquences via des **filtres de crossover Linkwitz-Riley (L-R)** — une paire de filtres Butterworth cascadés conçus pour se sommer à plat à la fréquence de crossover sans discontinuité de phase. Chaque bande est ensuite amplifiée indépendamment et recombinée.
+Un **isolateur** divise le signal en bandes avec des **filtres de crossover Linkwitz-Riley (L-R)** — des paires de Butterworth en cascade conçues pour se sommer à plat à la fréquence de crossover. Chaque bande a ensuite son propre contrôle de niveau et les bandes sont recombinées.
 
-La propriété clé : les bandes étant vraiment séparées avant d'atteindre le contrôle d'amplitude, tourner une bande à zéro = **router zéro signal** — vrai -∞ dB avec une région de crossover propre. Pas de fuite des bandes adjacentes.
+Comme les bandes sont séparées *avant* le contrôle de niveau, une bande à zéro = **rien n'est routé** : un vrai -∞ dB avec une zone de crossover propre.
 
-Rane (TTM57, MP2015), les anciens modèles A&H Xone, et les tables spécialisées (Vestax) utilisaient la topologie isolator. Les tables rotatives Urei/Bozak au Berghain utilisent une variation de ce principe.
+L'effet secondaire : un isolator n'est pas un doux réglage de tonalité. C'est un outil de coupe. C'est pour ça qu'on l'aime pour les kills et les swaps, et qu'un boost est rarement le but.
 
 ## Variante SVF (State Variable Filter)
 
-Les tables haut de gamme utilisent aussi la **topologie SVF** — le filtre à variable d'état sort simultanément des réponses passe-bas, passe-haut, passe-bande et coupe-bande depuis une seule structure de filtre. Il a une meilleure stabilité fréquentielle et peut être sweepé sans instabilité. Utilisé en synthèse modulaire et dans certains designs de tables boutique.
+Le **filtre à variable d'état** sort des réponses passe-bas, passe-haut, passe-bande et coupe-bande depuis une seule structure. Il reste stable quand on change vite ses paramètres, ce qui en fait un choix courant pour les filtres que l'on balaie à la main. C'est un classique de la synthèse.
 """
 
 [[fr.pages]]
-title   = "Physique de la PA : pourquoi les kicks simultanés endommagent les systèmes"
+title   = "Pourquoi une seule basse à la fois : boue et phase"
 content = """
-## Le problème Xmax
+## Deux basses, ce n'est pas deux fois plus de basse
 
-Un driver de subwoofer a une limite d'excursion de cône physique appelée **Xmax** — la distance que la bobine peut parcourir linéairement avant que la force du gap magnétique devienne non-linéaire (la bobine commence à quitter le gap).
+Quand deux basses jouent ensemble, trois choses se passent :
 
-Les drivers de sub 18" typiques utilisés dans les PAs de club ont des valeurs Xmax de **10–25mm** selon la conception. Le SPL nominal assume que le cône reste dans cette plage.
+1. **Battements et boue** : des notes proches mais pas identiques en hauteur interfèrent et font gonfler et trembler le grave.
+2. **Annulation de phase** : les basses fréquences ont de longues périodes. Une sinusoïde à **50 Hz** a une période de **20 ms**, donc deux grosses caisses décalées de seulement **10 ms** sont en opposition de phase et annulent cette composante à 50 Hz. À **100 Hz** (période 10 ms), un décalage de **5 ms** fait pareil. Un beatmatch décalé de quelques millisecondes est normal, et ça suffit à amincir le grave.
+3. **Sommation** : deux signaux identiques en phase s'additionnent de **+6 dB**. Deux signaux différents s'additionnent de façon imprévisible, et le résultat arrive sur ton niveau master.
 
-## Ce que font deux kicks simultanés
+## Le bass swap protège-t-il le matériel ?
 
-Un transitoire de basse tire un pic de courant qui commande à la bobine de se déplacer rapidement vers sa limite d'excursion et de revenir. Quand deux transitoires de kick arrivent simultanément (deux tracks, les deux basses actives, dans le même temps) :
+Non. Les PA de club ont des **processeurs avec limiteurs** qui protègent les haut-parleurs : un chevauchement de basses n'est pas ce qui sépare le système d'une enceinte cassée. Le bass swap existe pour **le son** : pas de boue, pas d'annulation, une seule grosse caisse nette à la fois.
 
-1. La demande de courant combinée peut être **2× le courant de pic nominal**.
-2. La bobine est poussée au-delà de Xmax — dans la **région non-linéaire**.
-3. Résultat : **distorsion mécanique** (harmonique et d'intermodulation) depuis la courbe force-déplacement non-linéaire du driver.
-4. Sur les amplis équipés de protection : le circuit de protection se déclenche, le système clippe brièvement ou coupe — audible comme un "crunch" ou une perte momentanée.
+## Le workflow
 
-## Pourquoi le bass swap est une contrainte physique
-
-Le bass swap n'est pas une tradition stylistique. C'est une **contrainte physique du transducteur**. Aucun DSP bien réglé ne peut annuler l'excursion de bobine au-delà de Xmax. Le DJ est le dernier maillon de contrôle avant les limites mécaniques de la PA.
+Kill le Low entrant, laisse le morceau se fondre, puis swap sur le **premier temps d'une phrase** (32 temps) : le Low de A descend, le Low de B monte, en un seul geste. C'est ce que valide le niveau 2 de cet atelier.
 """
 
 [[fr.pages]]
@@ -278,49 +262,39 @@ title   = "Fletcher-Munson et le problème de calibrage du DJ"
 content = """
 ## Courbes d'égale loudness
 
-Les **courbes Fletcher-Munson** (1933, affinées par ISO 226:2003 comme courbes Robinson-Dadson) cartographient la sensibilité auditive humaine sur le spectre fréquentiel à loudness perçue égale.
+Les courbes d'égale loudness cartographient la sensibilité de l'oreille selon les fréquences pour une loudness perçue donnée. Fletcher et Munson les ont publiées en 1933, Robinson et Dadson ont refait la mesure en 1956, et **l'ISO 226:2003** est la norme qui a remplacé les courbes Robinson-Dadson.
 
 Observations clés :
-- À **bas SPL (~40 phons)**, l'oreille est nettement moins sensible aux graves (<200 Hz) et aux très aigus (>10 kHz). Les mids dominent la perception.
-- À **haut SPL (~90–100 phons)**, la courbe s'aplatit — l'oreille entend tout le spectre plus uniformément.
-- À **SPL de club extrême (>100 dB)**, il y a une légère amplification des graves et des très aigus par rapport aux mids.
+- À **bas niveau**, l'oreille est bien moins sensible aux graves et aux très aigus. Les mids dominent la perception.
+- À **haut niveau**, les courbes s'aplatissent : le spectre est perçu plus uniformément.
 
 ## La conséquence pour le calibrage DJ
 
-Un mix qui sonne "équilibré" à 75 dB sur les moniteurs du booth sonnera typiquement :
-- **Chargé en basses** à 103 dB sur le dancefloor (amplification des graves depuis l'aplatissement de la courbe).
-- **Agressif dans les aigus** si le mix a été calibré sous le seuil d'aplatissement de l'oreille.
+Un mix qui sonne équilibré à bas niveau dans la chambre paraîtra en général **plus lourd dans les basses** une fois joué fort sur un système de club, parce que le grave est maintenant perçu à une fraction plus grande de son niveau réel.
 
-C'est pour ça que les DJs expérimentés utilisent des **moniteurs de booth à un SPL calibré** — généralement maintenu à un niveau de référence fixe — et ne bougent pas constamment le volume du booth comme proxy de ce que la salle entend.
+C'est pour ça que les DJs expérimentés gardent les moniteurs du booth à un **niveau fixe et connu** au lieu de bouger le volume du booth pour suivre la salle. Tes décisions EQ se prennent alors au même point de la courbe d'égale loudness à chaque fois.
 
-## Gain de pré-ampli vs calibrage système
+## Que faire
 
-Au Berghain et dans d'autres salles bien calibrées, toute la structure de gain de la sortie table DJ jusqu'à l'entrée ampli est pré-réglée. Les DJs reçoivent une interface normalisée. Ça résout le problème Fletcher-Munson pour l'opérateur table : toutes les décisions se prennent à un SPL connu, référencé au même point sur la courbe d'égale loudness.
+Fixe ta référence. Vérifie ton EQ dans la salle au vrai niveau de jeu, et demande à l'ingé son comment le booth est réglé avant le premier morceau. Les courbes t'expliquent pourquoi le même mix ne se ressent pas pareil à 70 dB et à 100 dB ; elles ne te donnent pas un chiffre magique à régler.
 """
 
 [[fr.pages]]
-title   = "Routing split-cue : pré-EQ ou post-EQ ?"
+title   = "Routing du PFL : pré-fader, et en général post-EQ"
 content = """
-## La position du bus CUE dépend de la table
+## Où le cue prélève le signal
 
-Sur la plupart des tables DJ, le bus CUE tape le signal **après l'EQ**, donc ton PFL reflète ton travail EQ.
-C'est utile : tu entends ce que la salle va recevoir.
+**PFL** veut dire **Pre-Fader Listen** : le cue est pris **avant** le fader de canal, donc tu peux écouter un deck à n'importe quelle position de fader sans que la salle l'entende.
 
-Sur les consoles broadcast, le PFL est **toujours pré-fader et pré-EQ** — la définition architecturale.
-
-Sur l'Allen & Heath Xone:96, le routing du cue est configurable : un jumper sur le PCB permet de taper le bus CUE soit pré-EQ soit post-EQ par canal. C'est une décision au moment de l'installation, pas un contrôle en temps réel.
+Qu'il soit pris avant ou après l'EQ dépend de la conception. Sur la plupart des tables DJ, le PFL est **post-EQ** : ton travail EQ se reflète dans le casque, donc tu entends ce que la salle va recevoir. Lis le manuel de ta table pour être sûr.
 
 ## Pourquoi ça compte dans le booth
 
-Si le CUE de ta table est pré-EQ, tout mid-cut que tu fais dans le cue n'apparaîtra PAS dans ton monitoring casque — tu entendras la version sans coupe. Ça peut mener à sous-couper dans la salle parce que ta référence ne reflète pas l'intervention.
-
-Si le CUE de ta table est post-EQ (courant sur la plupart des DJM modernes), tu entends exactement ce que tu envoies.
+Si le cue d'une table était pris avant l'EQ, un mid-cut que tu fais n'apparaîtrait pas dans le casque et tu pourrais sous-couper dans la salle, parce que ta référence ne reflèterait pas ton geste. Avec un cue post-EQ, tu entends exactement ce que tu vas envoyer.
 
 ## Gain staging de l'ampli casque
 
-L'ampli casque à l'intérieur d'une table DJ est une chaîne de signal séparée. Sur les tables haut de gamme, il a sa propre structure de gain avec un trim casque séparé. Si l'ampli casque est surpiloté par un trim trop hot, le cue clippe avant que la sortie master ne clippe — une raison de plus de régler le trim d'abord.
-
-Toujours vérifier : qu'est-ce qui clippe ? Le VU master ou la sortie casque ? Ce sont des étages différents.
+L'ampli casque est une chaîne de signal séparée avec son propre gain. S'il est surpiloté par un trim trop chaud ou un volume casque trop haut, le cue peut distordre alors que la sortie principale va bien. Demande-toi toujours : qu'est-ce qui sature, le canal, le mètre master ou la sortie casque ? Ce sont des étages différents.
 """
 
 [[quiz]]
@@ -332,26 +306,26 @@ answers  = ["Low shelving", "Filtre peaking (bell) du 2e ordre", "Passe-haut But
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Qu'est-ce qui permet à la topologie isolator (ex. Rane TTM) de produire de vrais kills à -∞ dB ?"
-answers  = ["Elle utilise des filtres d'ordre plus élevé", "Elle clippe la sortie à l'étage analogique", "Elle route les bandes via des amplificateurs séparés avec crossovers Linkwitz-Riley, donc mettre une bande à zéro = router zéro signal"]
+question = "Qu'est-ce qui permet à un EQ de type isolator de produire un vrai kill à -∞ dB ?"
+answers  = ["Il utilise des filtres d'ordre plus élevé", "Il clippe la sortie à l'étage analogique", "Il sépare le signal en bandes avec des crossovers Linkwitz-Riley avant le contrôle de niveau, donc une bande à zéro = rien n'est routé"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "Qu'est-ce que le Xmax dans un driver de subwoofer ?"
-answers  = ["L'excursion de cône linéaire maximale avant que la bobine quitte le gap magnétique", "Le SPL de sortie maximum", "La tension d'entrée maximale"]
+question = "Deux grosses caisses sont décalées de 10 ms. Que devient leur composante à 50 Hz ?"
+answers  = ["Elle s'annule (opposition de phase, puisque la période est de 20 ms)", "Elle s'additionne de +6 dB", "Rien ne change"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Selon les courbes d'égale loudness Fletcher-Munson, que se passe-t-il pour la perception des graves à haut SPL (100+ dB) ?"
-answers  = ["Les graves sont moins perçus, les mids dominent", "La perception ne change pas par rapport à 60 dB", "La courbe d'égale loudness s'aplatit, les graves sont perçus plus uniformément par rapport aux mids"]
+question = "Quelle norme a remplacé les courbes d'égale loudness de Robinson-Dadson ?"
+answers  = ["EBU R128", "AES17", "ISO 226:2003"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "Sur quelle table le routing du bus CUE (pré-EQ vs post-EQ) est-il configurable via un jumper PCB ?"
-answers  = ["Allen & Heath Xone:96", "Pioneer DJM-900NXS2", "Rane TTM57"]
+question = "Où le PFL prélève-t-il généralement le signal sur une table DJ ?"
+answers  = ["Avant le fader et, en général, après l'EQ", "Après le crossfader et avant le trim", "Après la sortie master"]
 
 [[quiz]]
 correct = 1
@@ -372,8 +346,8 @@ label = "ISO 226:2003 — Courbes d'égale loudness (Fletcher-Munson)"
 url   = "https://www.iso.org/standard/34222.html"
 
 [[sources]]
-label = "Xmax et limites mécaniques des haut-parleurs — Eminence Speaker"
-url   = "https://www.eminence.com/2016/04/loudspeaker-parameters/"
+label = "Pioneer DJ — manuels des produits (série DJM : sélecteur EQ / Isolator)"
+url   = "https://www.pioneerdj.com/"
 
 [[sources]]
 label = "State Variable Filter — Chamberlin (Music Applications of Microprocessors)"

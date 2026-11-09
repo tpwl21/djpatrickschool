@@ -3,16 +3,230 @@ order = 5
 
 [en]
 title      = "FX Chain: Order Matters"
-short_desc = "Pro version coming soon."
+short_desc = "The echo-out on the 1, send/return routing, Beat FX vs Color FX, and when to use no effect."
+description = "Knowing the theory of effect order is not enough in the booth. This lesson turns it into a routine: a timed echo-out, a clean send/return, one effect at a time, and the discipline to leave effects off."
+recap = [
+  "Echo-out: engage on the 1 of the last bar, drop the fader over the next bar, cut the effect on the following 1.",
+  "At 128 BPM and feedback 0.65 with a half-beat delay, the tail takes about 2.5 s to fall by 40 dB.",
+  "Send/return: external unit at 100% wet, level on the mixer return, high-pass the return.",
+  "Beat FX are synced and precise; Color FX are fast and approximate. Use one at a time on a transition.",
+  "When there is nothing to say with an effect, say nothing.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "The echo-out on the 1"
+content = """
+Timing at **128 BPM**: one beat is 469 ms, one bar is 1.875 s.
+
+**Before:** set the delay to 1/2 beat (234 ms), feedback around 0.65, mix at 40 to 50%. The effect is ready but **off**.
+
+**Execution:**
+1. On the **1** of the last bar of track A, engage the effect.
+2. Over the next bar (1.875 s), bring the fader of A down.
+3. Let the tail ring. With 0.65 feedback, each repeat is about 3.7 dB lower; to fall by 40 dB takes about 11 repeats, which at 234 ms is about **2.5 s** (about a bar and a third).
+4. On the **1** after, cut the effect, and let track B land on that 1.
+
+**Why on the 1:** the tail starts on the grid, so the echoes stay on the beat. B enters on a downbeat, so the crowd hears a clean new phrase, not an echo drifting into it.
+
+**Check on your gear:** does pulling the fader cut the tail or not? It depends on the routing. If the tail is cut, set the effect to a send or a mode that lets it ring.
+"""
+
+[[en.pages]]
+title   = "Send/return and one effect at a time"
+content = """
+**External effect through send/return.** Send out from the mixer to the unit, return in on a free channel or return:
+- unit at **100% wet**, so you don't double the dry signal;
+- the amount is set with the **return level** on the mixer;
+- a **high-pass** on the return (about 200 to 300 Hz) keeps the low end tight;
+- set the unit's tap tempo to the BPM (128 BPM = 469 ms per beat). Retap after each tempo change.
+
+**Beat FX and Color FX together.** Beat FX are synced to the tempo and routed on a send or master; Color FX are on the channel. On the same channel, check their order (see the medium lesson): a filter after an echo makes the tail follow the knob, a filter before makes echoes that don't change.
+
+**One at a time.** During a transition use one effect at a time: a filter *or* an echo *or* a reverb. Two sweeps and a delay together turn a transition into noise, and you can no longer tell what is doing what. Set up what you want, move one knob at a time, and put everything back to neutral at the end.
+"""
+
+[[en.pages]]
+title   = "When to use no effect"
+content = """
+The best transition is often a clean blend with EQ and fader only. Leave effects off when:
+
+- the two tracks already fit (same key, similar energy): the effect adds nothing;
+- the dancefloor is locked in: don't break the groove for your own entertainment;
+- you are not sure where the effect will land: practise first, don't test on the crowd;
+- you used one on the previous transition: a repeated trick loses its power;
+- the low end is already dense: no reverb, no long delay.
+
+A useful question before each effect: **what does it do for the people dancing?** If the answer is "nothing", leave it off. The skill is not in knowing more effects but in knowing when silence in the FX section is the right move.
+"""
+
+[[en.quiz]]
+question = "At 128 BPM, how long does one bar last?"
+answers  = ["0.469 s", "1.875 s", "3.75 s", "7.5 s"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why start the echo-out on the 1 of the bar?"
+answers  = [
+  "So the tail stays on the grid and track B can land on a downbeat",
+  "Because the delay only works on the 1",
+  "To make the tail longer",
+  "To change the key"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "What should you do on the return of an external reverb?"
+answers  = [
+  "Set the unit to 100% wet and high-pass the return to keep the low end tight",
+  "Put the unit at 100% dry",
+  "Turn the BPM down",
+  "Nothing"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "Which is a good reason to use no effect on a transition?"
+answers  = [
+  "The tracks already fit together and the floor is locked in",
+  "You have not used an effect for ten minutes",
+  "The mixer has many effects",
+  "You want to impress other DJs"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "What is the safest way to use effects during a transition?"
+answers  = [
+  "Stack several effects at once for more impact",
+  "One effect at a time, moved on purpose, then back to neutral",
+  "Leave every effect on for the whole set",
+  "Only use Color FX"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — mixer product pages (Beat FX, Color FX, send/return)"
+url   = "https://www.pioneerdj.com/"
+
+[[en.sources]]
+label = "Sound On Sound — techniques articles (sends, returns, delay)"
+url   = "https://www.soundonsound.com/techniques"
+
+[[en.sources]]
+label = "Resident Advisor — features and DJ interviews"
+url   = "https://ra.co/"
 
 [fr]
 title      = "FX Chain : L'Ordre Change Tout"
-short_desc = "Version Pro en préparation."
+short_desc = "L'echo-out sur le 1, le send/return, Beat FX vs Color FX, et quand ne pas mettre d'effet."
+description = "Connaître la théorie de l'ordre des effets ne suffit pas en cabine. Cette leçon en fait une routine : un echo-out chronométré, un send/return propre, un effet à la fois, et la discipline de laisser les effets éteints."
+recap = [
+  "Echo-out : active sur le 1 de la dernière mesure, baisse le fader sur la mesure suivante, coupe l'effet sur le 1 d'après.",
+  "À 128 BPM, feedback 0,65 et delay d'un demi-temps, la traîne met environ 2,5 s à baisser de 40 dB.",
+  "Send/return : unité externe à 100% wet, niveau sur le return de la table, passe-haut sur le retour.",
+  "Les Beat FX sont synchro et précis ; les Color FX sont rapides et approximatifs. Un seul à la fois sur une transition.",
+  "Quand tu n'as rien à dire avec un effet, ne dis rien.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "L'echo-out sur le 1"
+content = """
+Chronométrage à **128 BPM** : un temps dure 469 ms, une mesure 1,875 s.
+
+**Avant :** règle le delay à 1/2 temps (234 ms), feedback autour de 0,65, mix à 40–50%. L'effet est prêt mais **éteint**.
+
+**Exécution :**
+1. Sur le **1** de la dernière mesure de la track A, active l'effet.
+2. Pendant la mesure suivante (1,875 s), baisse le fader de A.
+3. Laisse sonner la traîne. Avec 0,65 de feedback, chaque répétition est environ 3,7 dB plus basse ; pour baisser de 40 dB il faut environ 11 répétitions, soit à 234 ms environ **2,5 s** (environ une mesure et un tiers).
+4. Sur le **1** suivant, coupe l'effet, et laisse la track B atterrir sur ce 1.
+
+**Pourquoi sur le 1 :** la traîne démarre sur la grille, donc les échos restent sur le temps. B entre sur un temps fort, donc le public entend une phrase neuve et propre, pas un écho qui dérive dedans.
+
+**À vérifier sur ton matériel :** baisser le fader coupe-t-il la traîne ou pas ? Ça dépend du routing. Si la traîne est coupée, passe l'effet en send ou dans un mode qui la laisse sonner.
+"""
+
+[[fr.pages]]
+title   = "Send/return et un effet à la fois"
+content = """
+**Effet externe via send/return.** Send out de la table vers l'unité, return in sur un canal libre ou un return :
+- unité à **100% wet**, pour ne pas doubler le signal dry ;
+- la quantité se règle avec le **niveau du return** sur la table ;
+- un **passe-haut** sur le retour (environ 200 à 300 Hz) garde le grave serré ;
+- cale le tap tempo de l'unité sur le BPM (128 BPM = 469 ms par temps). Retape après chaque changement de tempo.
+
+**Beat FX et Color FX ensemble.** Les Beat FX sont synchro au tempo et routés en send ou sur le master ; les Color FX sont sur le canal. Sur le même canal, vérifie leur ordre (voir la leçon medium) : un filtre après un écho fait suivre la traîne au potard, un filtre avant donne des échos qui ne changent plus.
+
+**Un à la fois.** Pendant une transition, utilise un seul effet à la fois : un filtre *ou* un écho *ou* une reverb. Deux sweeps et un delay ensemble transforment une transition en bruit, et tu ne sais plus ce qui fait quoi. Prépare ce que tu veux, bouge un potard à la fois, et remets tout à neutre à la fin.
+"""
+
+[[fr.pages]]
+title   = "Quand ne pas mettre d'effet"
+content = """
+La meilleure transition est souvent un fondu propre avec seulement l'EQ et le fader. Laisse les effets éteints quand :
+
+- les deux tracks vont déjà ensemble (même tonalité, énergie proche) : l'effet n'ajoute rien ;
+- le dancefloor est calé : ne casse pas le groove pour ton propre plaisir ;
+- tu n'es pas sûr de là où l'effet va atterrir : entraîne-toi d'abord, ne teste pas sur le public ;
+- tu en as déjà utilisé un sur la transition précédente : un truc répété perd son pouvoir ;
+- le grave est déjà dense : pas de reverb, pas de long delay.
+
+Une question utile avant chaque effet : **qu'est-ce que ça apporte aux gens qui dansent ?** Si la réponse est « rien », laisse-le éteint. Le skill n'est pas de connaître plus d'effets, mais de savoir quand le silence dans la section FX est le bon geste.
+"""
+
+[[fr.quiz]]
+question = "À 128 BPM, combien de temps dure une mesure ?"
+answers  = ["0,469 s", "1,875 s", "3,75 s", "7,5 s"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi démarrer l'echo-out sur le 1 de la mesure ?"
+answers  = [
+  "Pour que la traîne reste sur la grille et que la track B atterrisse sur un temps fort",
+  "Parce que le delay ne marche que sur le 1",
+  "Pour allonger la traîne",
+  "Pour changer la tonalité"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Que faire sur le retour d'une reverb externe ?"
+answers  = [
+  "Régler l'unité à 100% wet et passer le retour en passe-haut pour garder le grave serré",
+  "Mettre l'unité à 100% dry",
+  "Baisser le BPM",
+  "Rien"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Quelle est une bonne raison de ne pas mettre d'effet sur une transition ?"
+answers  = [
+  "Les tracks vont déjà bien ensemble et le dancefloor est calé",
+  "Tu n'as pas utilisé d'effet depuis dix minutes",
+  "La table a beaucoup d'effets",
+  "Tu veux impressionner d'autres DJs"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Quelle est la façon la plus sûre d'utiliser des effets pendant une transition ?"
+answers  = [
+  "Empiler plusieurs effets à la fois pour plus d'impact",
+  "Un effet à la fois, bougé volontairement, puis retour à neutre",
+  "Laisser tous les effets actifs pendant tout le set",
+  "Utiliser uniquement les Color FX"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — pages produits des tables (Beat FX, Color FX, send/return)"
+url   = "https://www.pioneerdj.com/"
+
+[[fr.sources]]
+label = "Sound On Sound — articles de techniques (sends, returns, delay)"
+url   = "https://www.soundonsound.com/techniques"
+
+[[fr.sources]]
+label = "Resident Advisor — dossiers et interviews DJ"
+url   = "https://ra.co/"

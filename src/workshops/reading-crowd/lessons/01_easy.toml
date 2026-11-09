@@ -2,14 +2,15 @@ id = "LESSON_RTC_1_EASY"
 order = 1
 
 [en]
-title      = "The Energy Curve — Easy"
+title      = "The Energy Curve"
 short_desc = "Your set has a shape. Here's how to see it."
-description = "Every DJ set has a natural curve — warmup, build, peak, afterpeak, closing. This lesson makes it visible and gives you your first actionable exercises."
+description = "Every DJ set has a natural curve — warmup, build, peak, afterpeak, closing. This lesson makes it visible and gives you your first exercises."
 recap = [
   "A set has five zones: warmup → build → peak → afterpeak → closing.",
   "The **order** of those zones matters more than how good any single track is.",
-  "Your biggest track should live in the **last 40%** of your set, not the first.",
-  "**Try this:** next time you DJ at home, name each track you play by zone — warmup, build, or peak.",
+  "**Density** = how full the dancefloor is. **Energy** = how intense the music feels. You watch both.",
+  "As a rule of thumb, keep your biggest tracks for the second half of your set, not the start.",
+  "**Try this:** when you practise at home, name each track you play by zone — warmup, build or peak.",
 ]
 
 [[en.pages]]
@@ -17,27 +18,32 @@ title   = "Five zones, one curve"
 content = """
 Think of your set like a **movie**. It has a beginning, a middle, and an end.
 
-The five zones of any DJ set:
+The five zones of a DJ set:
 
-- **Warmup** — low energy. People are arriving, getting drinks. Your tracks fill the room without demanding attention.
+- **Warmup** — low energy. People are arriving and chatting. Your tracks fill the room without demanding attention.
 - **Build** — energy rises. The groove tightens. People start moving.
-- **Peak** — full energy. Your strongest tracks. Everyone is on the floor.
-- **Afterpeak** — coming down, but still dancing. Crowd catches its breath.
-- **Closing** — the signature moment. Fewer people, but yours.
+- **Peak** — full energy. Your strongest tracks. The floor is packed.
+- **Afterpeak** — coming down a little, but still dancing. The crowd catches its breath.
+- **Closing** — the memorable ending. Fewer people, but they're yours.
 
-**Try this at your next home session:** put a piece of tape on your mixer labelled W / B / P / AP / C. Each time you play a track, tap the zone you think you're in. After 30 tracks, look at the sequence — did you stay too long in peak? Did you skip build entirely?
+Two words you'll hear in this workshop:
+
+- **Energy** — how intense the music feels, from calm (1) to explosive (5).
+- **Density** — how full the dancefloor is. Low density = a few people dotted around. High density = shoulder to shoulder.
+
+**Try this when you practise at home:** write W / B / P / AP / C on a sheet of paper. Each time you play a track, tick the zone you think you're in. After 30 tracks, look at the sequence — did you stay too long in peak? Did you skip the build entirely?
 """
 
 [[en.pages]]
-title   = "Why going peak too early breaks everything"
+title   = "Why peaking too early breaks everything"
 content = """
 Imagine eating dessert before your starter. It ruins your appetite for the rest.
 
-If you play your **biggest track at minute 20** of a 2-hour set, the next 100 minutes will feel like a descent. The crowd has nowhere to go but down.
+If you play your **biggest track at minute 20** of a 2-hour set, the next 100 minutes can feel like a descent. The crowd has nowhere to go but down.
 
-The curve only works when you **earn the peak**. The warmup and build are what make the peak feel massive.
+The curve works best when you **earn the peak**. The warmup and build are what make the peak feel massive.
 
-**Try this next time you DJ at home:** pick your 3 strongest tracks and put them in a separate folder called *"not before minute 60"*. Force yourself to wait. When you finally play one, notice how much harder it hits after a 60-minute build.
+**Try this at home:** pick your 3 strongest tracks and put them in a separate folder called *"not before the second half"*. Force yourself to wait. When you finally play one, notice how much harder it hits after a long build.
 """
 image = "lesson-images/rtc-energy-curve.png"
 image_caption = "A healthy set curve: slow rise, short sharp peak, controlled descent."
@@ -45,7 +51,7 @@ image_caption = "A healthy set curve: slow rise, short sharp peak, controlled de
 [[en.pages]]
 title   = "Reading your own curve in real time"
 content = """
-You don't need charts or spreadsheets. You need **one simple check every 15 minutes**:
+You don't need charts or spreadsheets. You need **one simple check every 15 minutes or so**:
 
 1. Look at the dancefloor — is it fuller or emptier than 15 minutes ago?
 2. Think: *what zone am I in right now?*
@@ -53,45 +59,39 @@ You don't need charts or spreadsheets. You need **one simple check every 15 minu
 
 That's the whole system at this level.
 
-**Try this at your next gig (or home session):** set a timer every 15 minutes. When it rings, stop and do the three-step check above before choosing your next track. Do it 5 gigs in a row, and it becomes automatic.
+**Try this:** set a timer for 15 minutes during a practice session. When it rings, stop and do the three-step check before choosing your next track. Repeat for a few sessions and it becomes automatic. The day you play for a real crowd, you'll already have the habit.
 """
 
 [[en.pages]]
 title   = "One-hour set vs four-hour set"
 content = """
-The zones stay the same, but the **time budget** changes radically.
+The zones stay the same, but the **time budget** changes. These numbers are rough landmarks, not rules:
 
-- **1-hour set:** warmup = 20 min, build = 20 min, peak = 15 min, afterpeak = 5 min. (Almost no real closing — hand off high.)
-- **4-hour set:** warmup = 60 min, build = 60 min, peak = 90 min, afterpeak = 30 min, closing = 20 min.
+- **1-hour set:** about 20 min warmup, 20 min build, 15 min peak, a few minutes of afterpeak. (Almost no real closing — you hand over with energy still up.)
+- **4-hour set:** about an hour of warmup, an hour of build, a long peak, then afterpeak and a closing.
 
-The most common beginner mistake: **trying to do a 4-hour arc in 1 hour**. If your slot is 60 minutes, your peak should be modest and late — not massive and early.
+A common beginner mistake: **trying to do a 4-hour arc in 1 hour**. If your slot is short, keep your peak modest and late — not massive and early.
 
-**Try this:** before your next set, write the clock time when you want to hit peak. If your slot starts at 21:00 and ends at 22:00, write *peak at 21:45*. Then stick to it.
+**Try this:** before a practice set, write the clock time when you want to reach your peak. If your slot runs 21:00 to 22:00, write *peak around 21:45*. Then stick to it.
 """
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "In a healthy set curve, your strongest track should live in..."
-answers  = ["The first 20% of your set", "The last 40% of your set", "The very middle"]
+question = "As a rule of thumb, where do your strongest tracks belong in a set?"
+answers  = ["In the first minutes", "In the second half, once the crowd is warmed up", "Nowhere — never play them"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "Playing your best track at minute 15 of a 2-hour set causes..."
-answers  = ["The crowd to go wild the whole night", "Nothing — tracks are just tracks", "A 100-minute descent with nowhere to go"]
+question = "Playing your best track at minute 15 of a 2-hour set can cause..."
+answers  = ["The crowd to go wild the whole night", "Nothing — tracks are just tracks", "A long descent with nowhere to go afterwards"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "The simple 15-minute check is: look at the floor, name your zone, then..."
-answers  = ["Ask if this track moves you toward or away from your planned peak", "Play louder", "Check your phone"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "A 1-hour festival opening slot should mostly be..."
-answers  = ["Peak tracks to impress quickly", "Closing tracks to stand out", "Warmup and early build — hand off high to the next DJ"]
+question = "What does 'density' mean on a dancefloor?"
+answers  = ["How full the floor is", "How loud the music is", "How fast the tempo is"]
 
 [[sources]]
 label = "Chmiel & Schubert — Back to the inverted-U for music preference"
@@ -102,42 +102,48 @@ label = "Berlyne Revisited — Hedonic Tone in Music Appreciation (Frontiers)"
 url   = "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00536/full"
 
 [fr]
-title      = "La courbe d'énergie — Easy"
+title      = "La courbe d'énergie"
 short_desc = "Ton set a une forme. Voici comment la voir."
-description = "Tout set DJ a une courbe naturelle — warmup, build, peak, afterpeak, closing. Cette leçon la rend visible et te donne tes premiers exercices concrets."
+description = "Tout set de DJ a une courbe naturelle : warmup, montée, moment fort, afterpeak, closing. Cette leçon la rend visible et te donne tes premiers exercices."
 recap = [
-  "Un set a cinq zones : warmup → build → peak → afterpeak → closing.",
-  "L'**ordre** de ces zones compte plus que la qualité de chaque track individuelle.",
-  "Ta track la plus grosse doit vivre dans les **40% finaux** de ton set, pas au début.",
-  "**Try this :** la prochaine fois que tu DJs chez toi, nomme chaque track par zone — warmup, build ou peak.",
+  "Un set a cinq zones : warmup → montée → moment fort (peak) → afterpeak → closing.",
+  "L'**ordre** de ces zones compte plus que la qualité de chaque track prise seule.",
+  "**Densité** = à quel point la piste est remplie. **Énergie** = l'intensité que la musique dégage. Tu surveilles les deux.",
+  "Repère : garde tes plus grosses tracks pour la seconde moitié de ton set, pas pour le début.",
+  "**À toi de jouer :** quand tu t'entraînes chez toi, nomme chaque track par zone : warmup, montée ou peak.",
 ]
 
 [[fr.pages]]
 title   = "Cinq zones, une courbe"
 content = """
-Pense à ton set comme à un **film**. Il a un début, un milieu, et une fin.
+Pense à ton set comme à un **film**. Il a un début, un milieu et une fin.
 
-Les cinq zones de tout set DJ :
+Les cinq zones d'un set :
 
-- **Warmup** — énergie basse. Les gens arrivent, prennent un verre. Tes tracks remplissent la salle sans exiger d'attention.
-- **Build** — l'énergie monte. Le groove se resserre. Les gens commencent à bouger.
-- **Peak** — pleine énergie. Tes tracks les plus fortes. Tout le monde est sur la piste.
-- **Afterpeak** — on redescend, mais on danse encore. La foule reprend son souffle.
-- **Closing** — le moment signature. Moins de monde, mais ils sont à toi.
+- **Warmup** (la mise en route) : énergie basse. Les gens arrivent et discutent. Tes tracks remplissent la salle sans exiger d'attention.
+- **Montée** (build) : l'énergie monte. Le groove se resserre. Les gens commencent à bouger.
+- **Peak** (le moment fort) : pleine énergie. Tes tracks les plus fortes. La piste est pleine.
+- **Afterpeak** : on redescend un peu, mais on danse encore. La foule reprend son souffle.
+- **Closing** : la fin dont on se souvient. Moins de monde, mais ceux qui restent sont à toi.
 
-**Try this à ta prochaine session chez toi :** colle un bout de scotch sur ton mixer avec W / B / P / AP / C. À chaque track, tape la zone où tu penses être. Après 30 tracks, regarde la séquence — t'es-tu éternisé en peak ? As-tu sauté le build entièrement ?
+Deux mots que tu vas rencontrer dans cet atelier :
+
+- **Énergie** : l'intensité que la musique dégage, de calme (1) à explosive (5).
+- **Densité** : à quel point la piste est remplie. Densité basse = quelques personnes éparpillées. Densité haute = on est coude à coude.
+
+**À toi de jouer, chez toi :** note W / B / P / AP / C sur une feuille (warmup, build, peak, afterpeak, closing). À chaque track, coche la zone où tu penses être. Après 30 tracks, regarde la suite : es-tu resté trop longtemps en peak ? As-tu sauté la montée ?
 """
 
 [[fr.pages]]
-title   = "Pourquoi peaker trop tôt casse tout"
+title   = "Pourquoi jouer le moment fort trop tôt casse tout"
 content = """
-Imagine manger le dessert avant l'entrée. Ça coupe l'appétit pour le reste.
+Imagine manger le dessert avant l'entrée. Ça coupe l'appétit pour la suite.
 
-Si tu joues ta **track la plus grosse à la 20ème minute** d'un set de 2h, les 100 minutes suivantes sonneront comme une descente. La foule n'a nulle part où aller qu'en bas.
+Si tu joues ta **track la plus forte à la 20ᵉ minute** d'un set de 2 h, les 100 minutes suivantes peuvent ressembler à une descente. La foule n'a nulle part où aller, sauf vers le bas.
 
-La courbe ne fonctionne que si tu **mérites le peak**. Le warmup et le build sont ce qui rend le peak massif.
+La courbe marche mieux quand tu **mérites le peak**. Le warmup et la montée sont ce qui rend le peak énorme.
 
-**Try this la prochaine fois que tu DJs chez toi :** choisis tes 3 tracks les plus fortes et mets-les dans un dossier *"pas avant la 60ème minute"*. Force-toi à attendre. Quand tu en joues enfin une, remarque à quel point elle tape plus fort après 60 minutes de build.
+**À toi de jouer, chez toi :** choisis tes 3 tracks les plus fortes et range-les dans un dossier *« pas avant la seconde moitié »*. Force-toi à attendre. Quand tu en joues enfin une, remarque comme elle tape plus fort après une longue montée.
 """
 image = "lesson-images/rtc-energy-curve.png"
 image_caption = "Une courbe de set saine : montée lente, peak court et marqué, descente contrôlée."
@@ -145,53 +151,47 @@ image_caption = "Une courbe de set saine : montée lente, peak court et marqué,
 [[fr.pages]]
 title   = "Lire ta propre courbe en temps réel"
 content = """
-Tu n'as pas besoin de graphiques ou de tableurs. Tu as besoin d'**une vérification simple toutes les 15 minutes** :
+Pas besoin de graphiques ni de tableurs. Il te faut **une vérification simple toutes les 15 minutes environ** :
 
-1. Regarde le dancefloor — est-il plus plein ou plus vide qu'il y a 15 minutes ?
-2. Pense : *dans quelle zone suis-je maintenant ?*
+1. Regarde la piste : est-elle plus pleine ou plus vide qu'il y a 15 minutes ?
+2. Demande-toi : *dans quelle zone suis-je en ce moment ?*
 3. Demande-toi : *cette track me rapproche-t-elle ou m'éloigne-t-elle du peak que je veux construire ?*
 
 C'est tout le système à ce niveau.
 
-**Try this à ton prochain gig (ou session chez toi) :** mets un timer toutes les 15 minutes. Quand il sonne, arrête-toi et fais les trois vérifications ci-dessus avant de choisir ta prochaine track. Fais ça sur 5 gigs et ça devient automatique.
+**À toi de jouer :** pendant une session d'entraînement, mets un minuteur sur 15 minutes. Quand il sonne, arrête-toi et fais les trois vérifications avant de choisir ta prochaine track. Répète-le sur quelques sessions et ça devient automatique. Le jour où tu joueras devant un vrai public, tu auras déjà le réflexe.
 """
 
 [[fr.pages]]
-title   = "Set d'une heure vs set de quatre heures"
+title   = "Set d'une heure ou set de quatre heures"
 content = """
-Les zones restent les mêmes, mais le **budget temps** change radicalement.
+Les zones restent les mêmes, mais le **budget temps** change. Ces chiffres sont des repères approximatifs, pas des règles :
 
-- **Set de 1h :** warmup = 20 min, build = 20 min, peak = 15 min, afterpeak = 5 min. (Presque pas de closing — tu passes la main haut.)
-- **Set de 4h :** warmup = 60 min, build = 60 min, peak = 90 min, afterpeak = 30 min, closing = 20 min.
+- **Set d'1 h :** environ 20 min de warmup, 20 min de montée, 15 min de peak, quelques minutes d'afterpeak. (Presque pas de vrai closing : tu passes la main avec l'énergie encore haute.)
+- **Set de 4 h :** environ une heure de warmup, une heure de montée, un long peak, puis l'afterpeak et le closing.
 
-L'erreur la plus courante des débutants : **essayer de faire un arc de 4h en 1h**. Si ton slot dure 60 minutes, ton peak doit être modeste et tardif — pas massif et précoce.
+Erreur classique de débutant : **vouloir faire un arc de 4 h en 1 h**. Si ton créneau est court, garde un peak modeste et tardif, pas énorme et précoce.
 
-**Try this :** avant ton prochain set, écris l'heure d'horloge à laquelle tu veux atteindre le peak. Si ton slot commence à 21h et finit à 22h, écris *peak à 21h45*. Tiens-t'y.
+**À toi de jouer :** avant un set d'entraînement, écris l'heure à laquelle tu veux atteindre ton peak. Si ton créneau va de 21 h à 22 h, écris *peak vers 21 h 45*. Puis tiens-toi à ton plan.
 """
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Dans une courbe de set saine, ta track la plus forte doit vivre..."
-answers  = ["Dans les 20% initiaux de ton set", "Dans les 40% finaux de ton set", "Exactement au milieu"]
+question = "En règle générale, où se placent tes tracks les plus fortes dans un set ?"
+answers  = ["Dans les premières minutes", "Dans la seconde moitié, quand la foule est chauffée", "Nulle part — on ne les joue jamais"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Jouer ta meilleure track à la 15ème minute d'un set de 2h cause..."
-answers  = ["La foule danse à fond toute la nuit", "Rien — les tracks sont juste des tracks", "100 minutes de descente sans nulle part où aller"]
+question = "Jouer ta meilleure track à la 15ᵉ minute d'un set de 2 h peut causer..."
+answers  = ["Une foule en folie toute la nuit", "Rien — les tracks ne sont que des tracks", "Une longue descente, sans rien de plus fort derrière"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "La vérification des 15 minutes : regarde la piste, nomme ta zone, puis..."
-answers  = ["Demande si cette track te rapproche ou t'éloigne de ton peak planifié", "Joue plus fort", "Checke ton téléphone"]
-
-[[quiz]]
-correct = 2
-[quiz.fr]
-question = "Un slot d'ouverture festival d'1h devrait surtout être..."
-answers  = ["Des tracks peak pour impressionner vite", "Des tracks de closing pour se démarquer", "Warmup et début de build — passe la main haut au DJ suivant"]
+question = "Que veut dire « densité » sur une piste de danse ?"
+answers  = ["À quel point la piste est remplie", "À quel point la musique est forte", "À quel point le tempo est rapide"]
 
 [[sources]]
 label = "Chmiel & Schubert — Back to the inverted-U for music preference"

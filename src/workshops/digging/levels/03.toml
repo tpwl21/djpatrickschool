@@ -5,7 +5,7 @@ order = 3
 title       = "Blind Ear"
 short_desc  = "No cards. Just 4 previews. Pick with your ears."
 description = "All the technical info is hidden. You hear 8 seconds of each candidate, then choose. Reveals come AFTER the pick, as a debrief."
-details     = "This is how 90% of professional DJ digging actually works: listen, feel, decide. The numbers come after."
+details     = "This is close to how digging really happens: listen, feel, decide. The numbers come after."
 coach_tips  = [
   "Play each preview twice if you want. Listen for groove cousinage.",
   "A match you 'feel' before you can explain is usually right.",
@@ -16,6 +16,23 @@ recap = [
   "Groove cousinage is felt before it's explained.",
   "A wrong pick shows up in the first 2 seconds of the preview if you listen honestly.",
   "Between two 'right' options, pick the one that pushes energy forward."
+]
+
+[fr]
+title       = "Oreille aveugle"
+short_desc  = "Pas de fiches. Juste 4 previews. Choisis à l'oreille."
+description = "Toutes les infos techniques sont cachées. Tu écoutes 8 secondes de chaque candidate, puis tu choisis. Les révélations arrivent APRÈS ton choix, en debrief."
+details     = "C'est proche de la façon dont le digging se passe vraiment : écouter, sentir, décider. Les chiffres viennent après."
+coach_tips  = [
+  "Écoute chaque preview deux fois si tu veux. Cherche le cousinage de groove.",
+  "Un match que tu 'sens' avant de pouvoir l'expliquer est souvent le bon.",
+  "Si deux candidates te semblent bonnes, prends celle qui te porte vers l'avant en énergie."
+]
+recap = [
+  "Le vrai digging se fait à l'oreille — les chiffres ne font que confirmer la décision.",
+  "Le cousinage de groove se sent avant de s'expliquer.",
+  "Un mauvais choix se repère dans les 2 premières secondes de la preview si tu écoutes honnêtement.",
+  "Entre deux options 'justes', prends celle qui pousse l'énergie vers l'avant."
 ]
 
 [track.A]
@@ -37,11 +54,11 @@ show_fiches = false
 url = "AUDIO/Ensaios.mp3"
 title = "Ensaios"
 bpm = 130
-key = "1A"
+key = "12A"
 genre = "techno"
 energy = 5
 correct = true
-reason_en = "130 BPM lock. Camelot 1A is 2 steps from 11A (the most forgiving distance on the wheel's ring). Energy holds at 5. The texture feels like the same room."
+reason_en = "130 BPM lock. Camelot 12A is the direct neighbor of 11A (same letter, +1 number — a base compatible move). Energy holds at 5. The texture feels like the same room."
 reason_fr = "130 BPM parfait. Camelot 1A est à 2 cases de 11A (la distance la plus indulgente du cercle). Énergie tenue à 5. Même salle, même texture."
 
 [[candidates]]

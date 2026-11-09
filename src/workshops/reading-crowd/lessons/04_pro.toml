@@ -2,17 +2,215 @@ id = "LESSON_RTC_4_PRO"
 order = 4
 
 [en]
-title      = "Warmup: The Forgotten Art"
-short_desc = "Pro version coming soon."
+title      = "Warmup — Pro: Etiquette"
+short_desc = "What a good opener doesn't do: the headliner's tracks, the ceiling, the clock, and the booth."
+description = "The unwritten rules of the opening slot: respect the headliner's material, keep a ceiling, stay inside your time, and leave the booth better than you found it."
+recap = [
+  "A warm-up serves the night: your success is a room that's ready, not a set people remember for you.",
+  "**Don't play the headliner's tracks** (or anything strongly identified with them) — check beforehand if unsure.",
+  "**Keep a ceiling:** end at an energy and tempo from which the headliner can climb. Never take their peak.",
+  "**Respect the clock and the volume**: start on time, finish on time, keep the master where you found it.",
+  "Be quiet about it: no announcements, no tricks to get noticed, no complaints about the slot.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "Your job is the headliner's room"
+content = """
+At the pro level the warm-up is a **service role**. You are not rehearsing your own peak; you are preparing a room for someone else's.
+
+Practical consequences:
+
+- Ask the organiser (or the headliner's team) about their usual **style and starting tempo**. A short message beforehand saves a clash.
+- Aim to hand over a room that is **warm, fairly full, and still curious** — not already exhausted.
+- You'll rarely be thanked for the energy you *didn't* use. That's part of the craft.
+
+Your rewards are indirect: organisers who see a floor filling during your slot will think of you again, and headliners remember the openers who made their job easier.
+"""
+
+[[en.pages]]
+title   = "Repertoire etiquette: don't play their tracks"
+content = """
+Avoid, in this order:
+
+1. **Tracks the headliner made, remixed, or is famous for.** Playing them first steals their moment and makes their set feel like a repeat.
+2. **Tracks the headliner is known to open with or close with** — if you know them.
+3. **Your own biggest tracks.** They belong to a later slot; saving them is part of Lesson 3.
+4. **Obvious anthems for the genre.** They create a peak you can't follow.
+
+If you're not sure whether a track belongs to the headliner's world, either skip it or ask. There are plenty of other tracks, and nobody has ever complained that an opener was too tasteful.
+
+Tools: keep a short list of "no-go" tracks per night in your software (a playlist or a colour tag), so you aren't deciding under pressure.
+"""
+
+[[en.pages]]
+title   = "The ceiling, the clock and the volume"
+content = """
+Three limits you agree with yourself before the set:
+
+- **Energy ceiling.** Decide where you'll stop. A useful picture: your last track should be an energy level the headliner can build on, not match. If the room is clearly ready for more, you can add a little — but don't take the peak.
+- **Time.** Start when you're due and stop when you're due. An opener who runs long cuts into the next set or leaves a headliner waiting; one who ends early leaves a gap. Agree handover time in advance.
+- **Volume.** Keep to the opening level agreed with the sound engineer, and leave the master where you found it. Pushing the master at 22:30 takes away the headliner's headroom (see Lesson 3).
+
+If the slot changes (a delay, a longer set), re-plan your ceiling rather than just extending.
+"""
+
+[[en.pages]]
+title   = "In the booth: behave like a guest"
+content = """
+- **Arrive early** and check your USB, your cables and the booth layout before the doors open.
+- **Be quiet and tidy**: no equipment that isn't needed, no mess on the mixer.
+- **Keep the headliner's space free**: their USB, laptop or controller may need to go in quickly.
+- **Don't announce yourself or the next DJ** over the music, and don't ask the crowd for a reaction.
+- **Don't complain about the slot** in front of the room. A good warm-up is its own answer.
+
+The warm-up is where people learn who is easy to work with. A reputation for that is worth as much as a good set.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "What's the best response if you're unsure whether a track belongs to the headliner's catalogue?"
+answers  = ["Skip it or ask", "Play it as a tribute", "Play it later in your set"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "The right place to end your set is..."
+answers  = ["At the highest energy you can reach", "At the lowest energy possible", "At a level the headliner can build on, not match"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "You're asked to open the night. Which is the best preparation?"
+answers  = ["Prepare your own best set and play it", "Find out the headliner's usual style and tempo, and plan a ceiling below it", "Bring as many tracks as possible"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Why not push the master at the start of the night?"
+answers  = ["The speakers always break", "It's against every club's rules", "It takes away headroom the headliner will need"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Your slot is extended by 30 minutes. A good response is to..."
+answers  = ["Play your best tracks, since you have time", "Re-plan your ceiling and ramp for the longer slot, still leaving room for the headliner", "Ignore it and stop at the original time"]
+
+[[sources]]
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
+
+[[sources]]
+label = "Red Bull Music Academy — lectures"
+url   = "https://www.redbullmusicacademy.com/"
+
+[[sources]]
+label = "Pioneer DJ — mixer and player manuals"
+url   = "https://www.pioneerdj.com/"
 
 [fr]
-title      = "Warmup : l'art oublié"
-short_desc = "Version Pro en préparation."
+title      = "Warmup — Pro : l'étiquette"
+short_desc = "Ce qu'un bon DJ d'ouverture ne fait pas : les morceaux de la tête d'affiche, le plafond, l'horloge et la cabine."
+description = "Les règles non écrites du créneau d'ouverture : respecter le répertoire de la tête d'affiche, garder un plafond, rester dans son temps et laisser la cabine en meilleur état qu'à l'arrivée."
+recap = [
+  "Un warmup sert la soirée : ton succès, c'est une salle prête, pas un set dont les gens se souviennent pour toi.",
+  "**Ne joue pas les morceaux de la tête d'affiche** (ni rien qui lui soit fortement associé) ; vérifie avant si tu hésites.",
+  "**Garde un plafond :** termine à une énergie et un tempo d'où la tête d'affiche peut monter. Ne lui prends jamais son peak.",
+  "**Respecte l'horloge et le volume** : commence à l'heure, finis à l'heure, laisse le master où tu l'as trouvé.",
+  "Reste discret : pas d'annonces, pas de manœuvres pour te faire remarquer, pas de plaintes sur ton créneau.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Ton travail, c'est la salle de la tête d'affiche"
+content = """
+Au niveau pro, le warmup est un **rôle de service**. Tu ne répètes pas ton propre peak ; tu prépares une salle pour celui de quelqu'un d'autre.
+
+Conséquences pratiques :
+
+- Demande à l'organisateur (ou à l'équipe de la tête d'affiche) son **style et son tempo de départ** habituels. Un court message à l'avance évite un choc.
+- Vise à rendre une salle **chaude, assez pleine et encore curieuse**, pas déjà épuisée.
+- On te remerciera rarement pour l'énergie que tu *n'as pas* utilisée. Ça fait partie du métier.
+
+Tes récompenses sont indirectes : les organisateurs qui voient la piste se remplir pendant ton créneau penseront à toi, et les têtes d'affiche se souviennent des DJs d'ouverture qui leur ont facilité la tâche.
+"""
+
+[[fr.pages]]
+title   = "L'étiquette du répertoire : ne joue pas leurs morceaux"
+content = """
+Évite, dans cet ordre :
+
+1. **Les morceaux que la tête d'affiche a produits, remixés, ou pour lesquels elle est connue.** Les jouer en premier lui vole son moment et fait de son set une redite.
+2. **Les morceaux qu'elle joue habituellement en ouverture ou en clôture**, si tu les connais.
+3. **Tes propres plus gros morceaux.** Ils appartiennent à un créneau plus tardif ; les garder fait partie de la leçon 3.
+4. **Les hymnes évidents du genre.** Ils créent un peak que tu ne peux pas suivre.
+
+Si tu n'es pas sûr qu'un morceau appartient à l'univers de la tête d'affiche, saute-le ou demande. Il y a plein d'autres morceaux, et personne ne s'est jamais plaint qu'un DJ d'ouverture ait trop de goût.
+
+Outil : garde dans ton logiciel une courte liste de morceaux « interdits » par soirée (une playlist ou une couleur), pour ne pas décider sous pression.
+"""
+
+[[fr.pages]]
+title   = "Le plafond, l'horloge et le volume"
+content = """
+Trois limites à fixer avec toi-même avant le set :
+
+- **Plafond d'énergie.** Décide où tu t'arrêtes. Une bonne image : ton dernier morceau doit être à un niveau d'énergie sur lequel la tête d'affiche peut construire, pas qu'elle doit égaler. Si la salle est clairement prête pour plus, tu peux en ajouter un peu, mais ne prends pas le peak.
+- **Temps.** Commence quand c'est ton heure et arrête-toi quand c'est ton heure. Un DJ d'ouverture qui déborde empiète sur le set suivant ou fait attendre la tête d'affiche ; celui qui finit tôt laisse un trou. Convenez de l'heure de passation à l'avance.
+- **Volume.** Respecte le niveau d'ouverture convenu avec l'ingénieur du son et laisse le master où tu l'as trouvé. Pousser le master à 22 h 30 retire de la marge à la tête d'affiche (voir leçon 3).
+
+Si le créneau change (retard, set plus long), replanifie ton plafond plutôt que de simplement prolonger.
+"""
+
+[[fr.pages]]
+title   = "En cabine : comporte-toi en invité"
+content = """
+- **Arrive tôt** et vérifie ta clé USB, tes câbles et l'agencement de la cabine avant l'ouverture des portes.
+- **Reste discret et ordonné** : pas de matériel inutile, pas de désordre sur la table.
+- **Garde la place de la tête d'affiche libre** : sa clé USB, son ordinateur ou son contrôleur devra peut-être se brancher vite.
+- **Ne t'annonce pas, et n'annonce pas le DJ suivant** par-dessus la musique, et ne demande pas de réaction à la foule.
+- **Ne te plains pas de ton créneau** devant la salle. Un bon warmup est sa propre réponse.
+
+Le warmup est l'endroit où l'on apprend qui est agréable à côtoyer. Cette réputation vaut autant qu'un bon set.
+"""
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Que faire si tu ne sais pas si un morceau appartient au répertoire de la tête d'affiche ?"
+answers  = ["Le sauter ou demander", "Le jouer en hommage", "Le jouer plus tard dans ton set"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Le bon endroit pour terminer ton set, c'est..."
+answers  = ["À l'énergie la plus haute possible", "À l'énergie la plus basse possible", "À un niveau sur lequel la tête d'affiche peut construire, pas qu'elle doit égaler"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "On te demande d'ouvrir la soirée. Quelle est la meilleure préparation ?"
+answers  = ["Préparer ton meilleur set et le jouer", "Te renseigner sur le style et le tempo habituels de la tête d'affiche, et prévoir un plafond en dessous", "Apporter le plus de morceaux possible"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Pourquoi ne pas pousser le master en début de soirée ?"
+answers  = ["Les enceintes cassent toujours", "C'est interdit dans tous les clubs", "Ça retire la marge dont la tête d'affiche aura besoin"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Ton créneau est prolongé de 30 minutes. Une bonne réaction est de..."
+answers  = ["Jouer tes meilleurs morceaux, puisque tu as le temps", "Replanifier ton plafond et ta rampe pour le créneau plus long, en gardant de la place pour la tête d'affiche", "Ignorer et t'arrêter à l'heure d'origine"]
+
+[[sources]]
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"
+
+[[sources]]
+label = "Red Bull Music Academy — conférences"
+url   = "https://www.redbullmusicacademy.com/"
+
+[[sources]]
+label = "Pioneer DJ — manuels de tables et de lecteurs"
+url   = "https://www.pioneerdj.com/"

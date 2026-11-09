@@ -7,9 +7,9 @@ short_desc = "The formula, the JND thresholds in practice, and the workflow deci
 description = "EASY explained the tape-recorder effect by feel. Here we add the numbers: the semitone formula, the perception thresholds that determine when drift becomes a problem, and a clear decision framework for Master Tempo. No deep algorithm theory — that's PRO — but enough math to make informed choices mid-set."
 recap = [
   "Pitch and tempo are coupled on vinyl: +6% BPM ≈ +1 semitone up. The formula: semitones = 12 × log₂(rate), where rate = new_BPM / native_BPM.",
-  "JND (just-noticeable difference): ~5-6 cents isolated, ~15-25 cents in a dense mix. Keys start clashing audibly around 50 cents (½ semitone).",
+  "JND (just-noticeable difference): ~5-6 cents isolated, ~15-25 cents in a dense mix. Two basses start to rub from about 10-15 cents; at 50 cents (½ semitone) the clash is clear.",
   "Master Tempo (Key Lock) breaks the coupling via time-stretching. Clean within ±6-8%. Beyond that, metallic artifacts appear.",
-  "Rule: Master Tempo ON for blends over 30 seconds or with vocal tracks. OFF for tight transitions under 16 bars or deliberate peak-time pitch lifts.",
+  "Rule: Master Tempo ON for blends over 30 seconds or with vocal tracks. OFF (or your call by ear) for tight transitions with a small correction, or deliberate peak-time pitch lifts.",
   "Practical shortcut: +6% pitch ≈ 1 semitone = one step on a chromatic scale. +12% ≈ 2 semitones. Know your fader range."
 ]
 
@@ -26,13 +26,13 @@ Where `rate = new_BPM / native_BPM`.
 | Pitch fader | Approximate semitone shift | Key example (starting in Am) |
 |-------------|---------------------------|------------------------------|
 | +1% | +0.17 semitones | Still Am (barely) |
-| +3% | +0.51 semitones | ~Am (borderline) |
+| +3% | +0.51 semitones | Am, 50 cents sharp: already a clear clash |
 | **+6%** | **+1.01 semitones** | **A♯m / B♭m** |
-| +8% | +1.38 semitones | Between A♯m and Bm |
+| +8% | +1.33 semitones | Between A♯m and Bm |
 | +12% | +2.0 semitones | Bm |
 | +50% | +7.02 semitones | Em (a perfect fifth up) |
 
-**Takeaway**: a typical pitch fader range of ±8% means you can drift nearly **1.5 semitones** off your native key. That's well above the listening threshold in a long blend.
+**Takeaway**: a typical pitch fader range of ±8% means you can drift about **1.3 semitones** off your native key. That's far above the listening threshold, even on a short blend. For scale: 1% of pitch is about 17 cents.
 """
 
 [[en.pages]]
@@ -45,12 +45,12 @@ The **just-noticeable difference (JND)** for pitch tells you how much drift is "
 | Isolated pure tone | ~5-6 cents | Academic benchmark — not your real scenario |
 | Complex instrument/voice | ~8-10 cents | Solo instrument in a quiet room |
 | Dense mix (beat + bass + 2 tracks) | **15-25 cents** | Your real scenario — spectral masking helps |
-| Short transition (≤ 8 bars) | **~50 cents survivable** | The ear hasn't locked to a tonal center yet |
-| Long blend (2+ minutes) | **25-30 cents audible** | The ear calibrates over time and catches drift |
+| Short transition (≤ 8 bars) | **A bit more forgiving, but 10-15 cents already rub between two basses** | The ear hasn't locked to a tonal center yet |
+| Long blend (2+ minutes) | **25-30 cents obvious** | The ear calibrates over time and catches drift |
 
-**The 50-cent rule**: a half-semitone drift (50 cents) is survivable in a 4-8 bar cut. Stretched to 2 minutes, it becomes painful — the ear's temporal integration exposes what it initially tolerated.
+**The 10-15 cent rule**: past about 10-15 cents between two basses, it already rubs. A short cut forgives a little more than a long blend, but 50 cents (½ semitone) is never a pass. Stretched to 2 minutes, even a small drift becomes painful — the ear's temporal integration exposes what it initially tolerated.
 
-**Vocal tracks**: the human voice is the most pitch-sensitive sound the ear tracks. A 3-5% pitch drift on a recognizable vocal is immediately obvious — even at 3 cents on a clear voice. If your blend has vocals, treat the threshold as 2-3× stricter.
+**Vocal tracks**: the human voice is the most pitch-sensitive sound the ear tracks. A 3-5% pitch drift (roughly 50-85 cents) on a recognizable vocal is immediately obvious, and on a clear voice even 10-15 cents can start to show. If your blend has vocals, treat the threshold as 2-3× stricter.
 """
 
 [[en.pages]]
@@ -61,15 +61,15 @@ content = """
 **Turn it ON when:**
 - Blend will last more than 30 seconds (long enough for the ear to catch drift)
 - Track has recognizable vocals or a well-known melodic hook
-- You've key-matched two tracks and a +5%+ pitch correction would break the Camelot match
+- You've key-matched two tracks and a clear pitch correction (beyond a few %) would break the Camelot match
 - Dropping an acapella over an instrumental at a different BPM
 
 **Leave it OFF when:**
-- Short, tight transition under 16 bars — the drift is below the JND for that duration
+- Short, tight transition under 16 bars with a small correction (about 1% or less) — the drift stays near the threshold
 - You *want* the natural energy lift: pitching a track up 1-2% at peak time creates a subtle excitement; Key Lock kills that
 - Vinyl-purist aesthetic — the pitch drift is part of the sound
 
-**Workflow habit**: most pros leave Master Tempo ON by default and switch it OFF only for specific moves. Audit your setup: do you know what state your Key Lock is in right now?
+**Workflow habit**: know what state your Key Lock is in before every mix (Master Tempo on Pioneer/rekordbox, Key Lock on Denon/Serato/Traktor). Turn it on when you pitch clearly (beyond a few %); on a small correction, try both and keep what sounds best.
 """
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Master Tempo button on a CDJ-2000NXS2. Usually labeled 'Key' or 'Master Tempo'."
@@ -85,7 +85,7 @@ Do this in any DJ software (Rekordbox, Serato, Traktor, VirtualDJ):
 4. Now flip **Key Lock** on deck B. The keys snap back together, only BPMs differ.
 5. Try +3% (half a semitone). Then +12% (2 semitones). Hear the steps.
 
-**Advanced**: load two tracks from the same Camelot slot (e.g., both 8A). Pitch one by +7% — you've just drifted it to roughly A♯m. Play the blend. Does it still sound okay, or is there clash? That's your ear calibrating the 50-cent threshold in real time.
+**Advanced**: load two tracks from the same Camelot slot (e.g., both 8A). Pitch one by +7% — you've just drifted it to roughly A♯m. Play the blend. Does it still sound okay, or is there clash? That's your ear calibrating the 10-15 cent threshold in real time.
 """
 
 [[en.quiz]]
@@ -99,7 +99,7 @@ answers  = ["5-6 cents (same as an isolated tone)", "15-25 cents", "100 cents (1
 correct  = 1
 
 [[en.quiz]]
-question = "A 50-cent pitch drift is survivable in a 4-bar cut but painful after 2 minutes. Why?"
+question = "A small pitch drift passes in a 4-bar cut but becomes painful after 2 minutes. Why?"
 answers  = ["Spectral masking increases over time", "The ear's temporal integration calibrates to the dominant pitch — what was hidden at bar 1 is exposed at bar 64", "The room acoustics change as the set progresses"]
 correct  = 1
 
@@ -135,9 +135,9 @@ short_desc = "La formule, les seuils JND en pratique, et le choix workflow : Key
 description = "EASY a expliqué l'effet magnétophone par le ressenti. Ici on ajoute les chiffres : la formule en demi-tons, les seuils de perception qui déterminent quand la dérive devient un problème, et un cadre de décision clair pour Master Tempo. Pas de théorie d'algorithmes en profondeur — c'est pour le PRO — mais assez de maths pour faire des choix éclairés en plein set."
 recap = [
   "Pitch et tempo sont couplés sur vinyle : +6% BPM ≈ +1 demi-ton vers le haut. La formule : demi-tons = 12 × log₂(taux), où taux = BPM_nouveau / BPM_natif.",
-  "JND (seuil perceptible) : ~5-6 cents isolé, ~15-25 cents en mix dense. Les clés commencent à clasher audiblement autour de 50 cents (½ demi-ton).",
+  "JND (seuil perceptible) : ~5-6 cents isolé, ~15-25 cents en mix dense. Deux basses commencent à frotter dès 10-15 cents environ ; à 50 cents (½ demi-ton) le clash est net.",
   "Master Tempo (Key Lock) casse le couplage par time-stretching. Propre dans ±6-8%. Au-delà, des artefacts métalliques apparaissent.",
-  "Règle : Master Tempo ON pour les blends de plus de 30 secondes ou avec des tracks vocales. OFF pour les transitions serrées sous 16 mesures ou les lifts de pitch en peak-time.",
+  "Règle : Master Tempo ON pour les blends de plus de 30 secondes ou avec des tracks vocales. OFF (ou à l'oreille) pour les transitions serrées avec une petite correction, ou les lifts de pitch en peak-time.",
   "Raccourci pratique : +6% de pitch ≈ 1 demi-ton = un pas sur la gamme chromatique. +12% ≈ 2 demi-tons. Connais ta plage de fader."
 ]
 
@@ -154,13 +154,13 @@ Où `taux = BPM_nouveau / BPM_natif`.
 | Fader de pitch | Décalage en demi-tons | Exemple de clé (départ en Am) |
 |----------------|----------------------|-------------------------------|
 | +1% | +0,17 demi-ton | Encore Am (à peine) |
-| +3% | +0,51 demi-ton | ~Am (limite) |
+| +3% | +0,51 demi-ton | Am, 50 cents trop haut : clash déjà net |
 | **+6%** | **+1,01 demi-ton** | **A♯m / Si♭m** |
-| +8% | +1,38 demi-ton | Entre A♯m et Bm |
+| +8% | +1,33 demi-ton | Entre A♯m et Bm |
 | +12% | +2,0 demi-tons | Bm |
 | +50% | +7,02 demi-tons | Em (une quinte juste plus haut) |
 
-**À retenir** : une plage de fader typique de ±8% signifie que tu peux dériver de presque **1,5 demi-ton** depuis ta clé native. C'est bien au-dessus du seuil d'écoute sur un blend long.
+**À retenir** : une plage de fader typique de ±8% signifie que tu peux dériver d'environ **1,3 demi-ton** depuis ta clé native. C'est très au-dessus du seuil d'écoute, même sur un blend court. Pour l'échelle : 1% de pitch, c'est environ 17 cents.
 """
 
 [[fr.pages]]
@@ -173,12 +173,12 @@ Le **JND (just-noticeable difference)** en pitch te dit quelle dérive est "safe
 | Ton pur isolé | ~5-6 cents | Référence académique — pas ton vrai scénario |
 | Instrument / voix complexe | ~8-10 cents | Instrument solo dans une salle calme |
 | Mix dense (beat + basse + 2 tracks) | **15-25 cents** | Ton vrai scénario — le masking spectral aide |
-| Transition courte (≤ 8 mesures) | **~50 cents survivable** | L'oreille n'a pas encore calé son centre tonal |
-| Blend long (2+ minutes) | **25-30 cents audible** | L'oreille calibre dans le temps et attrape la dérive |
+| Transition courte (≤ 8 mesures) | **Un peu plus tolérant, mais 10-15 cents frottent déjà entre deux basses** | L'oreille n'a pas encore calé son centre tonal |
+| Blend long (2+ minutes) | **25-30 cents évident** | L'oreille calibre dans le temps et attrape la dérive |
 
-**La règle des 50 cents** : une dérive d'un demi-demi-ton (50 cents) est survivable dans une coupe de 4-8 mesures. Étirée à 2 minutes, elle devient douloureuse — l'intégration temporelle de l'oreille expose ce qu'elle avait d'abord toléré.
+**La règle des 10-15 cents** : au-delà de 10-15 cents environ entre deux basses, ça frotte déjà. Une coupe courte pardonne un peu plus qu'un blend long, mais 50 cents (½ demi-ton) ne passe jamais. Étirée à 2 minutes, même une petite dérive devient douloureuse — l'intégration temporelle de l'oreille expose ce qu'elle avait d'abord toléré.
 
-**Tracks vocales** : la voix humaine est le son que l'oreille suit avec le plus de précision. Une dérive de 3-5% sur une voix reconnaissable est immédiatement évidente — même à 3 cents sur une voix claire. Si ton blend a des voix, traite le seuil comme 2-3× plus strict.
+**Tracks vocales** : la voix humaine est le son que l'oreille suit avec le plus de précision. Une dérive de 3-5% (environ 50-85 cents) sur une voix reconnaissable est immédiatement évidente, et sur une voix claire même 10-15 cents peuvent commencer à se remarquer. Si ton blend a des voix, traite le seuil comme 2-3× plus strict.
 """
 
 [[fr.pages]]
@@ -189,15 +189,15 @@ content = """
 **Active-le quand :**
 - Le blend durera plus de 30 secondes (assez longtemps pour que l'oreille capte la dérive)
 - Le morceau a des voix reconnaissables ou un hook mélodique connu
-- Tu as calé deux tracks en key-match et une correction de +5%+ casserait le match Camelot
+- Tu as calé deux tracks en key-match et une correction nette (au-delà de quelques %) casserait le match Camelot
 - Tu droppes un acapella sur un instrumental à un BPM différent
 
 **Laisse-le off quand :**
-- Transition courte et serrée sous 16 mesures — la dérive est sous le JND pour cette durée
+- Transition courte et serrée sous 16 mesures avec une petite correction (environ 1% ou moins) — la dérive reste proche du seuil
 - Tu *veux* le lift d'énergie naturel : pitcher une track de 1-2% en peak time crée une excitation subtile ; Key Lock tue ça
 - Esthétique vinyl-puriste — la dérive de pitch fait partie du son
 
-**Habitude de workflow** : la plupart des pros laissent Master Tempo ON par défaut et le coupent uniquement pour des mouvements précis. Fais le point : tu sais dans quel état est ton Key Lock maintenant ?
+**Habitude de workflow** : sache dans quel état est ton Key Lock avant chaque mix (Master Tempo chez Pioneer/rekordbox, Key Lock chez Denon/Serato/Traktor). Active-le quand tu pitches nettement (au-delà de quelques %) ; sur une petite correction, essaie les deux et garde ce qui sonne le mieux.
 """
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Key' ou 'Master Tempo'."
@@ -213,7 +213,7 @@ Fais ça dans n'importe quel logiciel DJ (Rekordbox, Serato, Traktor, VirtualDJ)
 4. Maintenant active **Key Lock** sur la platine B. Les clés se recalent, seuls les BPM diffèrent.
 5. Essaie +3% (un demi demi-ton). Puis +12% (2 demi-tons). Entends les étapes.
 
-**Avancé** : charge deux tracks de la même case Camelot (ex : toutes les deux en 8A). Pitche l'une de +7% — tu viens de la dériver vers environ A♯m. Joue le blend. Ça sonne encore bien, ou y a-t-il un clash ? Ton oreille calibre le seuil de 50 cents en temps réel.
+**Avancé** : charge deux tracks de la même case Camelot (ex : toutes les deux en 8A). Pitche l'une de +7% — tu viens de la dériver vers environ A♯m. Joue le blend. Ça sonne encore bien, ou y a-t-il un clash ? Ton oreille calibre le seuil de 10-15 cents en temps réel.
 """
 
 [[fr.quiz]]
@@ -227,7 +227,7 @@ answers  = ["5-6 cents (comme un ton isolé)", "15-25 cents", "100 cents (1 demi
 correct  = 1
 
 [[fr.quiz]]
-question = "Une dérive de 50 cents est survivable dans une coupe de 4 mesures mais douloureuse après 2 minutes. Pourquoi ?"
+question = "Une petite dérive de pitch passe dans une coupe de 4 mesures mais devient douloureuse après 2 minutes. Pourquoi ?"
 answers  = ["Le masking spectral augmente avec le temps", "L'intégration temporelle de l'oreille calibre vers le pitch dominant — ce qui était caché à la mesure 1 est exposé à la mesure 64", "L'acoustique de la salle change au fil du set"]
 correct  = 1
 

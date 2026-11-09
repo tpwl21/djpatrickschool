@@ -3,126 +3,114 @@ order = 1
 
 [en]
 title      = "The Energy Curve — Pro"
-short_desc = "Berlyne's inverted-U, Freytag's pyramid, Sokolov habituation, nested arcs."
-description = "The psychophysiology and dramaturgy behind why a set curve works — and what happens neurologically when you ignore it."
+short_desc = "Berlyne's inverted U, habituation, the peak-end rule, and nested arcs — as working models, not laws."
+description = "Four psychology models that help explain why a set curve works, and how far you can trust them behind the decks."
 recap = [
-  "Berlyne's inverted-U: arousal potential and hedonic value trace an arch — too little = boredom, too much = aversion.",
-  "Freytag's pyramid maps directly to warmup/build/peak/afterpeak/closing — the five-act structure is not aesthetic, it's biological.",
-  "Sokolov habituation: after ~20–40 min of sustained high stimulation, the orienting response exhausts — crowds leave during what DJs think is their best moment.",
-  "Kahneman peak-end rule: memory = average of (emotional peak + ending). Closing is half the memory payload.",
-  "Club nights are nested Freytag arcs — each DJ is a sub-arc inside the master arc. Breaking the nesting breaks the night.",
+  "Berlyne's inverted U (1971): pleasure tends to peak at a moderate level of stimulation — too little bores, too much tires.",
+  "Freytag's five-act pyramid (1863) is a useful analogy for warmup / build / peak / afterpeak / closing — an analogy, not proof.",
+  "Habituation: a constant stimulus fades from attention. Variation inside the peak (breaks, stripped-back sections) keeps it alive.",
+  "Peak-end rule (Kahneman, Redelmeier): an experience is remembered mostly through its most intense moment and its ending.",
+  "A night with several DJs is a nested arc: your last minutes are the next DJ's starting point.",
 ]
 
 [[en.pages]]
-title   = "Berlyne's inverted-U and arousal physiology"
+title   = "Berlyne's inverted U: why the curve exists"
 content = """
-The energy curve isn't a DJ tradition — it's a consequence of **Berlyne's dual-process arousal model** (1971).
+Daniel Berlyne (1971) proposed that how much we like a stimulus follows an **inverted U** against its "arousal potential" (novelty, complexity, intensity). Too little stimulation = boredom. A moderate amount = maximum pleasure. Too much = discomfort.
 
-Berlyne proposed that hedonic value — how pleasurable a stimulus is — follows an inverted-U against arousal potential. Low arousal = boredom (the reward system under-fires). Moderate arousal = peak pleasure. High sustained arousal = the aversion system activates and overrides the reward system.
+Chmiel & Schubert (2017) reviewed the evidence for music in particular: the inverted U shows up for several musical properties, but it is **not universal** — familiarity, mood, context and individual taste all move the curve.
 
-Applied to a DJ set: a flat peak for 3 hours doesn't feel like sustained ecstasy. It feels like diminishing returns followed by active discomfort. The crowd isn't leaving because the tracks are bad. They're leaving because their **aversion system is now louder than their reward system**.
+What to take from it behind the decks:
 
-Chmiel & Schubert (2017) confirmed the inverted-U for music specifically: complexity, novelty, and intensity all follow the arch at the hedonic level. The set curve is the DJ's tool for managing arousal potential across time — the warmup keeps arousal below saturation, and the peak spends down accumulated potential.
-
-Practical implication: your peak should be **temporally bounded** — ideally 15–25% of your slot. Not because of aesthetic convention, but because the aversion system activates on a physiological clock (~20–40 min of sustained peak stimulation).
+- A flat, maximum-intensity stretch is not "sustained ecstasy": past a certain point returns diminish.
+- The warmup and build keep the room below saturation so the peak has somewhere to go.
+- The inverted U is a **model**. It gives you a direction to look in, not a number. No source gives a reliable "peak lasts X minutes" figure: your crowd's reaction decides.
 """
 
 [[en.pages]]
-title   = "Freytag's pyramid and the five-act structure"
+title   = "Freytag's pyramid: a useful analogy"
 content = """
-Gustav Freytag's analysis of dramatic structure (1863) identified a five-act pattern across narrative — exposition, rising action, climax, falling action, resolution — that maps precisely onto the DJ set arc:
+Gustav Freytag (1863) described drama in five parts: exposition, rising action, climax, falling action, resolution. The mapping to a set is tempting:
 
-- **Warmup = exposition**: establishes world, stakes, and emotional register without demanding full attention
-- **Build = rising action**: tension accumulates, pace increases, audience commits
-- **Peak = climax**: maximum narrative tension and release
-- **Afterpeak = falling action**: resolution of tension, emotional breath
-- **Closing = resolution**: final meaning-making moment
+| Freytag | Set zone | Job |
+|---|---|---|
+| Exposition | Warmup | Set the mood without demanding attention |
+| Rising action | Build | Tension accumulates, the floor commits |
+| Climax | Peak | Maximum tension and release |
+| Falling action | Afterpeak | Breath, without losing the room |
+| Resolution | Closing | A final moment that makes sense of the night |
 
-This parallel is not coincidental. Freytag's structure describes a pattern in human **attention and emotional engagement** that is independent of medium. DJ sets that follow this structure work because they map onto how human attention naturally rises and falls over an extended period.
-
-DJs who trained as musicians or theater practitioners often internalize this structure intuitively — Baldelli's 4-hour Cosmic sets and Villalobos's 8-hour constructions both follow the pyramid, just at radically different time scales.
-
-The failure mode — playing peak-time tracks from minute one — is structurally equivalent to beginning a film with the climax. The audience has no frame to interpret the intensity.
+Be honest about what this is: **an analogy** from theatre, not a proven law of attention. Its value is practical — it reminds you that intensity has no meaning without a frame. Starting with your peak is like opening a film with its climax: the audience has no context to feel anything.
 """
 
 [[en.pages]]
-title   = "Sokolov habituation and the 20-40 minute problem"
+title   = "Habituation: why a flat peak fades"
 content = """
-Evgeni Sokolov's orienting-response model describes what happens when a stimulus is sustained: the brain **habituates** — the novelty response exhausts, and the stimulus effectively disappears from consciousness.
+**Habituation** is a well-documented phenomenon: when a stimulus stays constant, the response to it weakens. The orienting response described by Sokolov is the classic example — a new stimulus grabs attention, a repeated one stops doing so.
 
-Applied to DJ sets: a sustained peak (constant high energy, high BPM, high complexity) triggers the orienting response for the first 20–30 minutes. After that, habituation kicks in. The crowd's nervous systems have adapted — the peak is no longer "loud", it's the baseline. To feel stimulated, they would need an even higher arousal input, which the DJ cannot provide indefinitely.
+Applied to a peak: if energy, tempo and texture stay exactly the same for a long time, the same intensity stops feeling like a peak and becomes the new baseline. There is no trustworthy figure for how long this takes in a club, since it depends on the crowd, the sound system and the music.
 
-This is why crowds leave during what DJs believe to be their best moments. The crowd isn't wrong — they are accurately detecting that they are no longer receiving novel arousal. The DJ was playing their strongest material into habituated ears.
+What it changes in practice:
 
-Practical implication: **intensity variation** within the peak is as important as peak level. Drops, breakdowns, stripped-back moments, and subtle BPM changes reset the orienting response partially. Pro residents (Ben Klock, Objekt) use micro-variations inside peak sections specifically to counter habituation — the brief drop to a minimal groove before the next build is not hesitation; it's arousal management.
+- **Vary inside the peak.** A short break, a stripped-back section, a change of texture or a small tempo shift gives the floor something new without lowering the overall energy.
+- A pause is not hesitation. Used on purpose, it makes the next hit land harder.
+- If you see the back of the room drifting during your "best" stretch, suspect sameness before suspecting your track choice.
 """
 
 [[en.pages]]
-title   = "Kahneman's peak-end rule and the closing's memory weight"
+title   = "The peak-end rule and the weight of the closing"
 content = """
-Daniel Kahneman's peak-end rule (established through colonoscopy pain research, later confirmed across many domains) states: **people evaluate an experience by the average of its emotional peak and its ending, not by the duration or mean**.
+Redelmeier and Kahneman (1996, medical-procedure study; replicated in other settings) found that people judge an experience mostly from **its most intense moment and its end**, rather than from the total duration. This is the **peak-end rule**. It is a tendency, not an exact formula.
 
-Two direct implications for DJs:
+Two implications for a set:
 
-1. **Your closing is worth as much as your peak** in the memory economy. A brilliant peak followed by a flat, rushed, or poorly-chosen closing produces a mediocre memory. A modest set with a perfectly-crafted closing produces a strong memory.
+1. **The ending counts a lot.** A strong peak followed by a rushed or careless ending can leave a weaker memory than the set deserved. Spend as much care on your last 15 minutes as on your peak.
+2. **Duration matters less than you'd think** for memory. A shorter set with a clear high point and a well-judged finish can be remembered better than a longer, even one.
 
-2. **Duration neglect**: a 4-hour set where the peak was average but the closing was perfect will be remembered more positively than a 6-hour set with a brilliant middle and a flat ending. This is why top-tier closing DJs command premium fees even when their "signature track" catalog is modest.
-
-Case-study evidence: **Marco Carola's Music On residency** (Amnesia Ibiza) was built explicitly around the closing arc — the 4 AM to 6 AM shift where peak-end memory formation is highest (morning light + residual MDMA + exhaustion all amplify emotional encoding). Promoters who book late slots understand this implicitly: the closing slot sells the festival press cycle, not the headliner.
-
-Practical implication: invest as much curation effort into your closing 15–20 minutes as you do into your peak. They have equal memory weight.
+Caveat: studies of the rule mostly come from other domains. Treat it as a strong working hypothesis for dancefloors, not a measured result.
 """
 
 [[en.pages]]
-title   = "Nested arcs: the night as multi-DJ Freytag pyramid"
+title   = "Nested arcs: the night is bigger than your set"
 content = """
-A club night with multiple DJs is not a series of independent sets — it's a **nested Freytag pyramid**: each DJ's arc is a sub-arc inside the master arc of the night.
+When several DJs share a night, each set is a **sub-arc** inside the arc of the whole evening.
 
-This is how Berghain's resident rotation functions structurally. The slot sequence (e.g., Klock → Dettmann → Rødhåd → Ostgut residents) is a composition, not a lineup. Each DJ's peak is timed so the transition to the next DJ coincides with a planned mini-peak in the master arc. The arriving DJ doesn't restart energy from zero — they inherit a room at a specific arousal level and carry it to a different level.
+- **Where you finish is where the next DJ starts.** Handing over a room at a sensible energy level is part of your set, not a favour.
+- **Your slot position defines your job.** An opening slot and a late slot call for different shapes, even with identical tracks.
+- **A swap or a delay changes the whole arc.** If your slot moves, redraw your curve before you play.
 
-Consequences for DJs:
-- **Your peak level = your successor's entry point.** Handing off high to the next DJ is not a gift to them — it's a structural requirement for the nested arc.
-- **Last-minute swaps destroy nights** not because the replacement is weaker, but because the nested arc is broken. A DJ playing in a slot they didn't build toward cannot maintain the nested structure.
-- **Booking position is an artistic parameter.** Playing before Villalobos at 4am versus after him at 8am are structurally different jobs. Pro DJs negotiate slot position as carefully as fees.
-
-Villalobos's well-documented practice of reserving specific Perlon edits for specific venues (Fabric/DC10) is slot-economics: those tracks are calibrated for the arousal level and frame of a specific point in a specific nested arc. Displaced, they lose their structural function and become merely interesting tracks.
+Practical habit: before the night, ask (or work out) who plays before and after you, what energy you're likely to inherit, and what energy you want to leave behind. Then plan your first and last ten minutes around those two numbers.
 """
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "Berlyne's inverted-U predicts that sustained high arousal..."
-answers  = ["Produces permanent pleasure", "Activates the aversion system — hedonic value decreases", "Has no effect on crowd behavior"]
+question = "Berlyne's inverted U says that pleasure, as a function of stimulation, is..."
+answers  = ["Always increasing", "Highest at moderate levels, lower when too low or too high", "Constant"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "Sokolov habituation means a sustained peak of 3 hours makes the crowd..."
-answers  = ["More and more engaged", "Confused about tempo", "Habituated — the peak is now their baseline, novelty response exhausted"]
+question = "What does habituation suggest for a long peak?"
+answers  = ["Keep everything identical so the crowd settles in", "Raise the tempo every 5 minutes", "Vary texture or intensity inside the peak so it doesn't become the new baseline"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "Kahneman's peak-end rule means the closing is..."
-answers  = ["Worth as much as the peak in memory terms", "Less important than the first track", "Only relevant for closing DJs"]
+question = "The peak-end rule suggests the closing matters because..."
+answers  = ["Memory leans heavily on the most intense moment and the ending", "The crowd only listens in the last ten minutes", "Closing tracks are always the loudest"]
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "The Freytag failure mode — playing peak tracks from minute one — is structurally equivalent to..."
-answers  = ["Starting a film in the middle", "Starting a film with the climax — no frame for the intensity", "Playing a film without a soundtrack"]
+question = "Why is Freytag's pyramid presented as an analogy here?"
+answers  = ["Because it comes from music research", "Because it comes from theatre: it's useful as a mental frame but not a proven law of dancefloors", "Because it only applies to techno"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "A nested arc is broken when a last-minute DJ swap happens because..."
-answers  = ["The replacement doesn't know the equipment", "The crowd doesn't trust the new DJ", "The sub-arc the replacement plays wasn't built toward by the preceding DJs"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "Pro residents use micro-variations inside peak sections (brief drops, breakdowns) primarily to..."
-answers  = ["Partially reset the orienting response and counter Sokolov habituation", "Show off technical skills", "Match the headliner's style"]
+question = "In a night with several DJs, your last ten minutes should..."
+answers  = ["Be your personal peak, whatever the next DJ plays", "Ignore the next DJ entirely", "Leave the room at an energy level the next DJ can work with"]
 
 [[sources]]
 label = "Chmiel & Schubert — Back to the inverted-U for music preference"
@@ -133,139 +121,127 @@ label = "Berlyne Revisited — Hedonic Tone in Music Appreciation (Frontiers)"
 url   = "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00536/full"
 
 [[sources]]
-label = "Freytag's Pyramid — dramatic structure (Wikipedia)"
+label = "Freytag's pyramid — dramatic structure (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Dramatic_structure"
+
+[[sources]]
+label = "Habituation (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Habituation"
 
 [[sources]]
 label = "Peak-end rule (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
-
-[[sources]]
-label = "Sokolov — The orienting reflex (Cambridge Encyclopedia of Psycholinguistics)"
-url   = "https://www.cambridge.org/core/books/abs/cambridge-handbook-of-psycholinguistics/orienting-reflex/4C3E56D2AE0DB54E05F7B5D96B7C5A02"
 
 [fr]
 title      = "La courbe d'énergie — Pro"
-short_desc = "U inversé de Berlyne, pyramide de Freytag, habituation de Sokolov, arcs emboîtés."
-description = "La psychophysiologie et la dramaturgie derrière pourquoi une courbe de set fonctionne — et ce qui se passe neurologiquement quand tu l'ignores."
+short_desc = "U inversé de Berlyne, habituation, règle pic-fin, arcs emboîtés : des modèles de travail, pas des lois."
+description = "Quatre modèles de psychologie qui aident à comprendre pourquoi une courbe de set fonctionne, et jusqu'où leur faire confiance derrière les platines."
 recap = [
-  "U inversé de Berlyne : potentiel d'arousal et valeur hédonique tracent un arche — trop peu = ennui, trop = aversion.",
-  "La pyramide de Freytag se mappe directement sur warmup/build/peak/afterpeak/closing — la structure en cinq actes n'est pas esthétique, elle est biologique.",
-  "Habituation de Sokolov : après ~20–40 min de stim haute continue, la réponse d'orientation s'épuise — les foules partent pendant ce que les DJs croient être leur meilleur moment.",
-  "Peak-end rule de Kahneman : mémoire = moyenne de (pic émotionnel + fin). Le closing est la moitié du payload mémoriel.",
-  "Les soirées club sont des arcs de Freytag emboîtés — chaque DJ est un sous-arc dans l'arc maître. Casser l'imbrication casse la soirée.",
+  "U inversé de Berlyne (1971) : le plaisir tend à culminer à un niveau de stimulation modéré — trop peu ennuie, trop fatigue.",
+  "La pyramide de Freytag (1863) est une analogie utile pour warmup / montée / peak / afterpeak / closing — une analogie, pas une preuve.",
+  "Habituation : un stimulus constant s'efface de l'attention. Varier à l'intérieur du peak (cassures, passages dépouillés) le garde vivant.",
+  "Règle pic-fin (Kahneman, Redelmeier) : une expérience se retient surtout par son moment le plus intense et par sa fin.",
+  "Une soirée à plusieurs DJs est un arc emboîté : tes dernières minutes sont le point de départ du DJ suivant.",
 ]
 
 [[fr.pages]]
-title   = "L'U inversé de Berlyne et la physiologie de l'arousal"
+title   = "L'U inversé de Berlyne : pourquoi la courbe existe"
 content = """
-La courbe d'énergie n'est pas une tradition DJ — c'est une conséquence du **modèle dual d'arousal de Berlyne** (1971).
+Daniel Berlyne (1971) a proposé que l'attrait d'un stimulus suit un **U inversé** par rapport à son « potentiel d'activation » (nouveauté, complexité, intensité). Trop peu de stimulation = ennui. Une quantité modérée = plaisir maximal. Trop = inconfort.
 
-Berlyne a proposé que la valeur hédonique — à quel point un stimulus est plaisant — suit un U inversé contre le potentiel d'arousal. Arousal bas = ennui (le système de récompense tire sous-régime). Arousal modéré = plaisir maximal. Arousal élevé soutenu = le système d'aversion s'active et prime sur le système de récompense.
+Chmiel et Schubert (2017) ont passé en revue les preuves pour la musique en particulier : le U inversé apparaît pour plusieurs propriétés musicales, mais il n'est **pas universel** : la familiarité, l'humeur, le contexte et le goût de chacun déplacent la courbe.
 
-Appliqué à un set DJ : un peak plat de 3h ne ressemble pas à de l'extase soutenue. Ça ressemble à des rendements décroissants suivis d'un inconfort actif. La foule ne part pas parce que les tracks sont mauvaises. Elle part parce que son **système d'aversion est maintenant plus fort que son système de récompense**.
+Ce qu'il faut en retenir derrière les platines :
 
-Chmiel & Schubert (2017) ont confirmé l'U inversé pour la musique spécifiquement : complexité, nouveauté et intensité suivent toutes l'arche au niveau hédonique. La courbe du set est l'outil du DJ pour gérer le potentiel d'arousal dans le temps — le warmup garde l'arousal sous saturation, et le peak dépense le potentiel accumulé.
-
-Implication pratique : ton peak doit être **temporellement borné** — idéalement 15–25% de ton slot. Pas pour des raisons de convention esthétique, mais parce que le système d'aversion s'active sur une horloge physiologique (~20–40 min de stim peak soutenue).
+- Un passage plat à intensité maximale n'est pas de « l'extase soutenue » : passé un certain point, le rendement baisse.
+- Le warmup et la montée gardent la salle sous la saturation pour que le peak ait de la marge.
+- Le U inversé est un **modèle**. Il t'indique une direction, pas un chiffre. Aucune source ne donne de durée fiable du type « le peak dure X minutes » : c'est la réaction de ta foule qui décide.
 """
 
 [[fr.pages]]
-title   = "La pyramide de Freytag et la structure en cinq actes"
+title   = "La pyramide de Freytag : une analogie utile"
 content = """
-L'analyse de Gustav Freytag de la structure dramatique (1863) a identifié un pattern en cinq actes dans les récits — exposition, action montante, climax, action descendante, résolution — qui se mappe précisément sur l'arc du set DJ :
+Gustav Freytag (1863) décrit le drame en cinq parties : exposition, action montante, climax, action descendante, dénouement. La correspondance avec un set est tentante :
 
-- **Warmup = exposition** : pose le monde, les enjeux, le registre émotionnel sans exiger toute l'attention
-- **Build = action montante** : la tension s'accumule, le tempo augmente, le public s'engage
-- **Peak = climax** : tension narrative et libération maximales
-- **Afterpeak = action descendante** : résolution de la tension, respiration émotionnelle
-- **Closing = résolution** : moment final de création de sens
+| Freytag | Zone du set | Rôle |
+|---|---|---|
+| Exposition | Warmup | Poser l'ambiance sans exiger d'attention |
+| Action montante | Montée | La tension s'accumule, la piste s'engage |
+| Climax | Peak | Tension et libération maximales |
+| Action descendante | Afterpeak | Reprendre son souffle sans perdre la salle |
+| Dénouement | Closing | Un dernier moment qui donne sens à la nuit |
 
-Ce parallèle n'est pas fortuit. La structure de Freytag décrit un pattern dans l'**attention humaine et l'engagement émotionnel** qui est indépendant du médium. Les sets DJ qui suivent cette structure fonctionnent parce qu'ils se mappent sur la façon dont l'attention humaine monte et descend naturellement sur une période étendue.
-
-Les DJs qui ont une formation musicale ou théâtrale internalisent souvent cette structure intuitivement — les sets Cosmic de 4h de Baldelli et les constructions de 8h de Villalobos suivent tous les deux la pyramide, simplement à des échelles de temps radicalement différentes.
-
-Le mode d'échec — jouer des tracks peak-time depuis la minute une — est structurellement équivalent à commencer un film par le climax. Le public n'a aucun cadre pour interpréter l'intensité.
+Sois honnête sur ce que c'est : **une analogie** venue du théâtre, pas une loi prouvée de l'attention. Sa valeur est pratique : elle rappelle que l'intensité n'a pas de sens sans cadre. Commencer par ton peak, c'est ouvrir un film par son climax : le public n'a aucun contexte pour ressentir quoi que ce soit.
 """
 
 [[fr.pages]]
-title   = "L'habituation de Sokolov et le problème des 20-40 minutes"
+title   = "L'habituation : pourquoi un peak plat s'éteint"
 content = """
-Le modèle du réflexe d'orientation d'Evgeni Sokolov décrit ce qui arrive quand un stimulus est soutenu : le cerveau **s'habitue** — la réponse à la nouveauté s'épuise, et le stimulus disparaît effectivement de la conscience.
+L'**habituation** est un phénomène bien documenté : quand un stimulus reste constant, la réponse qu'il provoque s'affaiblit. La réponse d'orientation décrite par Sokolov en est l'exemple classique : un stimulus nouveau attire l'attention, un stimulus répété n'y arrive plus.
 
-Appliqué aux sets DJ : un peak soutenu (énergie haute constante, BPM élevé, complexité haute) déclenche le réflexe d'orientation pendant les 20–30 premières minutes. Après ça, l'habituation s'enclenche. Les systèmes nerveux de la foule se sont adaptés — le peak n'est plus "fort", c'est la baseline. Pour se sentir stimulés, ils auraient besoin d'un input d'arousal encore plus élevé, que le DJ ne peut pas fournir indéfiniment.
+Appliqué à un peak : si l'énergie, le tempo et la texture restent exactement les mêmes longtemps, la même intensité ne fait plus l'effet d'un peak et devient la nouvelle base. Il n'existe pas de chiffre fiable pour la durée de ce phénomène en club, car elle dépend de la foule, du système son et de la musique.
 
-C'est pour ça que les foules partent pendant ce que les DJs croient être leurs meilleurs moments. La foule n'a pas tort — elle détecte avec précision qu'elle ne reçoit plus d'arousal nouveau. Le DJ jouait son matériel le plus fort dans des oreilles habituées.
+Ce que ça change en pratique :
 
-Implication pratique : la **variation d'intensité** à l'intérieur du peak est aussi importante que le niveau de peak. Les drops, breakdowns, moments épurés et changements subtils de BPM réinitialisent partiellement le réflexe d'orientation. Les résidents pro (Ben Klock, Objekt) utilisent des micro-variations à l'intérieur des sections peak précisément pour contrer l'habituation — la brève descente vers un groove minimal avant le prochain build n'est pas de l'hésitation ; c'est de la gestion d'arousal.
+- **Varie à l'intérieur du peak.** Une courte cassure, un passage dépouillé, un changement de texture ou un léger décalage de tempo donnent du neuf à la piste sans baisser l'énergie globale.
+- Une pause n'est pas de l'hésitation. Utilisée exprès, elle fait mieux tomber le coup suivant.
+- Si le fond de la salle décroche pendant ton « meilleur » passage, soupçonne la monotonie avant de remettre en cause ton choix de tracks.
 """
 
 [[fr.pages]]
-title   = "La peak-end rule de Kahneman et le poids mémoriel du closing"
+title   = "La règle pic-fin et le poids du closing"
 content = """
-La peak-end rule de Daniel Kahneman (établie via des recherches sur la douleur de la coloscopie, puis confirmée dans de nombreux domaines) stipule : **les gens évaluent une expérience par la moyenne de son pic émotionnel et de sa fin, pas par la durée ou la moyenne**.
+Redelmeier et Kahneman (1996, étude sur des actes médicaux, reproduite dans d'autres contextes) ont observé que les gens jugent une expérience surtout d'après **son moment le plus intense et sa fin**, plus que d'après sa durée totale. C'est la **règle pic-fin**. C'est une tendance, pas une formule exacte.
 
-Deux implications directes pour les DJs :
+Deux conséquences pour un set :
 
-1. **Ton closing vaut autant que ton peak** dans l'économie mémorielle. Un peak brillant suivi d'un closing plat, précipité, ou mal choisi produit un souvenir médiocre. Un set modeste avec un closing parfaitement construit produit un souvenir fort.
+1. **La fin compte beaucoup.** Un beau peak suivi d'une fin bâclée peut laisser un souvenir plus faible que le set ne le méritait. Mets autant de soin dans tes 15 dernières minutes que dans ton peak.
+2. **La durée pèse moins qu'on le croit** dans le souvenir. Un set plus court, avec un vrai point culminant et une fin bien jugée, peut être mieux retenu qu'un set plus long et uniforme.
 
-2. **Négligence de durée** : un set de 4h où le peak était moyen mais le closing parfait sera remémoré plus positivement qu'un set de 6h avec un milieu brillant et une fin plate. C'est pour ça que les DJs de closing top-tier commandent des cachets premium même quand leur catalogue de "track signature" est modeste.
-
-Evidence de case study : la **résidence Music On de Marco Carola** (Amnesia Ibiza) était construite explicitement autour de l'arc de closing — le shift 4h–6h où la formation de mémoire peak-end est la plus haute (lumière du matin + MDMA résiduelle + épuisement amplifient tous l'encodage émotionnel). Les promoteurs qui bookent des slots tardifs comprennent ça implicitement : le slot de closing vend le cycle de presse du festival, pas la tête d'affiche.
-
-Implication pratique : investis autant d'effort de curation dans tes 15–20 dernières minutes que dans ton peak. Elles ont un poids mémoriel égal.
+Réserve : les études sur cette règle viennent surtout d'autres domaines. Prends-la comme une bonne hypothèse de travail pour les pistes de danse, pas comme un résultat mesuré.
 """
 
 [[fr.pages]]
-title   = "Arcs emboîtés : la soirée comme pyramide de Freytag multi-DJ"
+title   = "Arcs emboîtés : la soirée dépasse ton set"
 content = """
-Une soirée club avec plusieurs DJs n'est pas une série de sets indépendants — c'est une **pyramide de Freytag emboîtée** : l'arc de chaque DJ est un sous-arc dans l'arc maître de la soirée.
+Quand plusieurs DJs se partagent une soirée, chaque set est un **sous-arc** dans l'arc de toute la soirée.
 
-C'est comme ça que fonctionne structurellement la rotation des résidents du Berghain. La séquence des slots (ex. Klock → Dettmann → Rødhåd → résidents Ostgut) est une composition, pas une affiche. Le peak de chaque DJ est chronométré pour que la transition vers le DJ suivant coïncide avec un mini-peak planifié dans l'arc maître. Le DJ qui arrive n'est pas en train de redémarrer l'énergie depuis zéro — il hérite d'une salle à un niveau d'arousal spécifique et l'amène à un niveau différent.
+- **Là où tu finis, le DJ suivant commence.** Rendre une salle à un niveau d'énergie raisonnable fait partie de ton set, ce n'est pas une faveur.
+- **La position de ton créneau définit ton rôle.** Un créneau d'ouverture et un créneau tardif demandent des formes différentes, même avec les mêmes tracks.
+- **Un échange de créneaux ou un retard change tout l'arc.** Si ton créneau bouge, redessine ta courbe avant de jouer.
 
-Conséquences pour les DJs :
-- **Ton niveau de peak = le point d'entrée de ton successeur.** Passer la main haut au DJ suivant n'est pas un cadeau — c'est une exigence structurelle de l'arc emboîté.
-- **Les swaps de dernière minute détruisent les soirées** non pas parce que le remplaçant est moins bon, mais parce que l'arc emboîté est cassé. Un DJ jouant dans un slot vers lequel il n'a pas construit ne peut pas maintenir la structure emboîtée.
-- **La position de booking est un paramètre artistique.** Jouer avant Villalobos à 4h versus après lui à 8h sont des boulots structurellement différents. Les DJs pro négocient la position du slot aussi soigneusement que les cachets.
-
-La pratique bien documentée de Villalobos de réserver des edits Perlon spécifiques pour des salles spécifiques (Fabric/DC10) est de l'économie du slot : ces tracks sont calibrées pour le niveau d'arousal et le cadre d'un point spécifique dans un arc emboîté spécifique. Déplacées, elles perdent leur fonction structurelle et deviennent de simples tracks intéressantes.
+Habitude pratique : avant la soirée, demande (ou déduis) qui joue avant et après toi, quelle énergie tu vas probablement hériter, et laquelle tu veux laisser. Puis construis tes dix premières et tes dix dernières minutes autour de ces deux niveaux.
 """
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "L'U inversé de Berlyne prédit qu'un arousal élevé soutenu..."
-answers  = ["Produit un plaisir permanent", "Active le système d'aversion — la valeur hédonique diminue", "N'a aucun effet sur le comportement de la foule"]
+question = "L'U inversé de Berlyne dit que le plaisir, en fonction de la stimulation, est..."
+answers  = ["Toujours croissant", "Maximal à un niveau modéré, plus faible quand c'est trop bas ou trop haut", "Constant"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "L'habituation de Sokolov signifie qu'un peak soutenu de 3h rend la foule..."
-answers  = ["De plus en plus engagée", "Confuse sur le tempo", "Habituée — le peak est maintenant sa baseline, réponse à la nouveauté épuisée"]
+question = "Que suggère l'habituation pour un long peak ?"
+answers  = ["Tout garder identique pour que la foule s'installe", "Accélérer le tempo toutes les 5 minutes", "Varier texture ou intensité dans le peak pour qu'il ne devienne pas la nouvelle base"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "La peak-end rule de Kahneman signifie que le closing vaut..."
-answers  = ["Autant que le peak en termes de mémoire", "Moins que le premier morceau", "Seulement pour les DJs de closing"]
+question = "La règle pic-fin suggère que le closing compte parce que..."
+answers  = ["La mémoire s'appuie beaucoup sur le moment le plus intense et sur la fin", "La foule n'écoute que les dix dernières minutes", "Les tracks de closing sont toujours les plus fortes"]
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Le mode d'échec de Freytag — jouer des tracks peak depuis la minute 1 — est structurellement équivalent à..."
-answers  = ["Commencer un film au milieu", "Commencer un film par le climax — aucun cadre pour l'intensité", "Jouer un film sans bande-son"]
+question = "Pourquoi la pyramide de Freytag est-elle présentée ici comme une analogie ?"
+answers  = ["Parce qu'elle vient de la recherche en musique", "Parce qu'elle vient du théâtre : utile comme cadre mental, mais pas une loi prouvée des pistes de danse", "Parce qu'elle ne s'applique qu'à la techno"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Un arc emboîté est cassé lors d'un swap de DJ de dernière minute parce que..."
-answers  = ["Le remplaçant ne connaît pas l'équipement", "La foule ne fait pas confiance au nouveau DJ", "Le sous-arc que joue le remplaçant n'a pas été construit par les DJs précédents"]
-
-[[quiz]]
-correct = 0
-[quiz.fr]
-question = "Les résidents pro utilisent des micro-variations à l'intérieur des sections peak (brefs drops, breakdowns) principalement pour..."
-answers  = ["Réinitialiser partiellement le réflexe d'orientation et contrer l'habituation de Sokolov", "Montrer leurs compétences techniques", "Correspondre au style de la tête d'affiche"]
+question = "Dans une soirée à plusieurs DJs, tes dix dernières minutes doivent..."
+answers  = ["Être ton propre peak, quoi que joue le DJ suivant", "Ignorer complètement le DJ suivant", "Laisser la salle à un niveau d'énergie que le DJ suivant peut travailler"]
 
 [[sources]]
 label = "Chmiel & Schubert — Back to the inverted-U for music preference"
@@ -276,13 +252,13 @@ label = "Berlyne Revisited — Hedonic Tone in Music Appreciation (Frontiers)"
 url   = "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00536/full"
 
 [[sources]]
-label = "Freytag's Pyramid — dramatic structure (Wikipedia)"
+label = "Pyramide de Freytag — structure dramatique (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Dramatic_structure"
 
 [[sources]]
-label = "Peak-end rule (Wikipedia)"
-url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
+label = "Habituation (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Habituation"
 
 [[sources]]
-label = "Sokolov — The orienting reflex"
-url   = "https://www.cambridge.org/core/books/abs/cambridge-handbook-of-psycholinguistics/orienting-reflex/4C3E56D2AE0DB54E05F7B5D96B7C5A02"
+label = "Règle pic-fin (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"

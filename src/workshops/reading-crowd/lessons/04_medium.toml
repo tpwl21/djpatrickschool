@@ -3,186 +3,198 @@ order = 4
 
 [en]
 title      = "Warmup — Medium"
-short_desc = "BPM ramp anatomy, harmonic space, and the frame-building mindset that turns a warmup into a career move."
-description = "The concrete warmup toolkit: BPM ramp timing, harmonic headroom, genre-specific opening registers, and why the warmup slot is the most undervalued career asset in DJ culture."
+short_desc = "A BPM ramp you can plan, harmonic headroom, density as your metric, and volume as a warm-up tool."
+description = "The working toolkit of a warmup: a planned tempo ramp, leaving harmonic room for the headliner, measuring density rather than applause, and using volume to keep room for later."
 recap = [
-  "Start **20 BPM below the headliner** — if they play 130, you open at 108–112.",
-  "The BPM ramp is **asymmetric**: most rise in the last 30 minutes, not distributed evenly.",
-  "**Deep and groovy** beats melodic and euphoric in a warmup — groove forgives an empty room; euphoria embarrasses it.",
-  "**Leave harmonic space**: open in adjacent/modal keys so the headliner's first track resolves into the room.",
-  "Your success metric is room density delta, not crowd reaction. Being absorbed is not being ignored.",
+  "Where the Easy lesson says *start low*, here you **plan the ramp**: slow steps early, firmer ones in the second half, never a straight line.",
+  "**Harmonic headroom:** don't leave the headliner a room full of your own tonal baggage — end somewhere that lets their first track breathe.",
+  "Your metric is the **density change** (is the floor fuller than 15 minutes ago?), not the crowd's reaction. Being absorbed is not being ignored.",
+  "**Volume is a warm-up tool:** start a little under your expected ceiling and raise it in small steps, so the headliner has room to go higher.",
 ]
 
 [[en.pages]]
-title   = "The warmup BPM ramp: anatomy of a 2-hour opening"
+title   = "Planning the BPM ramp of a two-hour warmup"
 content = """
-A 2-hour warmup (22:00–00:00) has a specific BPM shape that experienced openers have converged on:
+A two-hour warmup (say 22:00–00:00) can follow a plan like this. The figures are an example, not a rule — adapt them to the genre and to what the headliner will play:
 
-**22:00–22:30 (first 25%):** 100–108 BPM. Ambient-house, dub-techno, downtempo with groove. The room is filling, conversations are happening, the bar is busy. You're not competing with the noise — you're coexisting with it. Tracks with long intros, minimal drops.
+| Part of the slot | Example tempo | What it sounds like |
+|---|---|---|
+| First quarter | 100–108 BPM | Ambient, dub, downtempo with groove. Long intros, minimal drops. You coexist with the room's noise. |
+| Second quarter | 108–115 BPM | Deep house, minimal. Groove tightens, more people on the floor. Nobody dances hard yet. |
+| Third quarter | 115–122 BPM | More body in the groove. Density rises; people have committed to staying. |
+| Last quarter | 120–125 BPM | Handover territory. Your last track lands close to where the headliner will start, not on top of it. |
 
-**22:30–23:00 (25–50%):** 108–115 BPM. Deep house, minimal. The groove tightens. More people are on the floor. Still conversational in energy — nobody is fully dancing yet, but the body wants to.
+Two things to notice. The steps are **small early and a bit larger later**, because a tempo change feels bigger or smaller depending on what came before it. And the ramp is **never linear** — you hold a tempo for a while, then step.
 
-**23:00–23:30 (50–75%):** 115–122 BPM. House with a bit more body. Density is building, people have committed to staying. This is where you start to earn the energy you've been building.
-
-**23:30–00:00 (last 25%):** 120–125 BPM. Hand-off territory. Your last track leaves at +3 BPM into the headliner's opening register — not right at their floor tempo. The asymmetry is intentional: most of the BPM rise happens here, not at the start. The room has been loading for 90 minutes and responds more dramatically to tempo at this density.
-
-**Never** accelerate linearly. The curve front-loads patience, back-loads momentum.
+Plan your target BPM at 25%, 50%, 75% and 100% of your slot. Then let the crowd's reaction adjust it.
 """
 
 [[en.pages]]
-title   = "Harmonic space and key discipline"
+title   = "Harmonic headroom for the headliner"
 content = """
-A headliner who arrives to a harmonically compatible room has one less thing to fight. A headliner who arrives to a harmonically conflicting room spends their first 2–3 tracks clearing the residue. That costs them energy — and they'll know whose opening set caused it.
+A headliner who arrives in a room that blends with the last track has one thing less to fight. One who arrives in a clash spends their first minutes cleaning up.
 
-**Harmonic warmup strategy:**
-- Know what keys the headliner tends to work in. Most techno residents have key preferences — some favor the dark drama of D minor, others the tension of F# minor.
-- Warm up in **adjacent or modal keys** (parallel major/minor, or a fifth above/below). This leaves harmonic headroom — your key choices create a tension that the headliner's first track *resolves*.
-- Avoid warmups that end in the same key as the headliner's known opener. It makes their arrival sound like a continuation, not an arrival.
+Simple habits:
 
-**Practical:** if you don't know the headliner's key preferences, open in **major keys** (which read as *daylight*) and let the headliner move into minor territory (which reads as *night*). That transition is intuitive to the crowd and requires no coordination.
+- **Ask or find out** what tempo and style the headliner usually opens with.
+- **End your set somewhere neutral**: avoid finishing on a very distinctive tonal colour that the next DJ would have to answer.
+- If you don't know their style, keep the warm-up tonally open and **simple** (a bright, major-leaning feel at the start, more ambiguous towards the end) and let them take it darker or brighter.
 
-**On key modulation during the warmup:** each 30-minute block can have a subtle harmonic shift. Start bright (A major, D major), shift modal (A dorian, D dorian), end ambiguous. The harmonic journey builds anticipation without committing to a destination the headliner owns.
+If you use key labels (Camelot or Open Key in Rekordbox), treat them as a guide for **compatible** blends, not as a rule for the whole night. In a warm-up, a groove that stays out of the way matters more than the perfect key match.
 """
 
 [[en.pages]]
-title   = "The density metric: being absorbed vs being ignored"
+title   = "The density metric: absorbed vs ignored"
 content = """
-The biggest mistake warmup DJs make is confusing **being absorbed** with **being ignored**.
+The biggest warm-up mistake is to confuse **being absorbed** with **being ignored**.
 
-A warmup done right is *background-by-design*. The crowd is supposed to be chatting, getting drinks, arriving. If they're all staring at you at 22:15, you've escalated too soon. The right metric for the first 30 minutes is not crowd reaction — it's **room density delta**: is more people in the room now than 15 minutes ago?
+A good warm-up is *background by design*. The crowd is meant to talk, move around, arrive. If everyone is staring at you at 22:15, you may have pushed too early. The right metric for the first half hour isn't reaction — it's the **change in density**: are there more people on the floor than 15 minutes ago?
 
-**Tactical reframe:**
-- Not watching you at 22:15 = people are arriving and socializing. *Correct.*
-- Staring at the booth at 22:15 = you played something too big and interrupted the social fabric. *Incorrect.*
+- Nobody looking at you while people arrive and chat: *correct*.
+- Everyone staring at you at 22:15: you probably played something too big and interrupted the social flow.
 
-This is counterintuitive because normal performance logic says: audience attention = success. Warmup inverts this. Audience *absorption* (the music integrates into their social experience without demanding attention) = success.
+This is counter-intuitive, because normal performance logic says attention equals success. A warm-up flips that: the music fitting into people's evening without demanding attention equals success.
 
-When you've built 90 minutes of absorption correctly, the moment you start escalating at 23:30 cuts through like a knife — because the contrast is enormous. That contrast is what the warmup is building. It cannot be built if you demand attention at 22:15.
+**Check routine:** every 20 minutes, roughly count how many people are on the floor and how many at the bar. Track the change. That's your scoreboard.
+"""
 
-**The density check routine:** every 20 minutes, count approximately how many people are on the floor vs the bar. Track the delta. That's your performance metric.
+[[en.pages]]
+title   = "Volume: the quiet warm-up tool"
+content = """
+Volume is part of the arc, and in a warm-up it protects your **headroom**.
+
+- **Start a little under your ceiling.** A room that's already loud at 22:15 has nowhere to go; one that starts comfortable leaves the headliner something to give.
+- **Raise in small steps**, while the room fills, rather than in one move. People adapt without noticing.
+- **Don't use the master fader for emphasis.** Set each track's level with its channel gain and keep the master where you found it.
+- **Leave the faders as you'd want to find them.** The next person inherits your settings.
+- Ask the sound engineer or the organiser if there's a level agreed for the opening slot, and follow it.
+
+The principle is the same as for the tempo ramp: don't spend your reserves early. We go deeper on levels and hearing limits in the Pro lesson on peak timing.
 """
 
 [[en.quiz]]
-question = "If the headliner plays at 130 BPM, your warmup opening should be around..."
-answers  = ["128 BPM — close to the headliner's territory", "108–112 BPM — 20 BPM below", "140 BPM — start high and descend"]
-correct  = 1
-
-[[en.quiz]]
-question = "In a 2-hour warmup, the most BPM rise happens..."
-answers  = ["In the first 30 minutes, to build energy fast", "Evenly — 1 BPM per 6 minutes", "In the last 30 minutes — asymmetric by design"]
+question = "A well-built two-hour tempo ramp is best described as..."
+answers  = ["Perfectly linear, +1 BPM every 6 minutes", "Fast in the first 30 minutes to catch attention", "Held for a while, then stepping up — small steps early, a bit larger later"]
 correct  = 2
 
 [[en.quiz]]
-question = "Leaving harmonic space for the headliner means..."
-answers  = ["Not playing any tracks with melody", "Opening in adjacent/modal keys so the headliner's first track resolves into the room — not continuing it", "Playing in the exact same key as the headliner's set"]
+question = "Leaving harmonic headroom for the headliner means..."
+answers  = ["Playing no melodic tracks at all", "Ending somewhere neutral so their first track doesn't have to clean up your tonal colour", "Playing exactly in their key all night"]
 correct  = 1
 
 [[en.quiz]]
-question = "A crowd not watching you at 22:15 during a warmup means..."
-answers  = ["Your music is bad and they're ignoring you", "You should immediately escalate to get their attention", "They're being absorbed — which is correct; warmup is background-by-design"]
+question = "People barely look at you at 22:15 during a warm-up. This probably means..."
+answers  = ["Your music is bad and you're ignored", "You should escalate immediately", "They are absorbed — which is right for a warm-up"]
 correct  = 2
 
-[[en.sources]]
-label = "Daniele Baldelli — Tim Lawrence interview on the roots of Cosmic"
-url   = "https://www.timlawrence.info/articles2/2016/11/2/daniele-baldelli-explains-the-italian-roots-of-cosmic-disco"
+[[en.quiz]]
+question = "Which is a good way to use volume in a warm-up?"
+answers  = ["Start loud so everyone notices you", "Start a little under your expected ceiling and raise it in small steps", "Push the master as high as it goes"]
+correct  = 1
 
 [[en.sources]]
-label = "Daniele Baldelli — Red Bull Music Academy lecture"
-url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
 
 [[en.sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
+label = "Red Bull Music Academy — lectures"
+url   = "https://www.redbullmusicacademy.com/"
 
 [fr]
 title      = "Warmup — Medium"
-short_desc = "Anatomie de la rampe BPM, espace harmonique, et le mindset frame-building qui transforme un warmup en move de carrière."
-description = "La boîte à outils concrète du warmup : timing de la rampe BPM, marge harmonique, registres d'ouverture genre-spécifiques, et pourquoi le slot warmup est l'actif de carrière le plus sous-évalué de la culture DJ."
+short_desc = "Une rampe de BPM que tu planifies, de la marge harmonique, la densité comme mesure, et le volume comme outil de warmup."
+description = "La boîte à outils d'un warmup : une rampe de tempo planifiée, laisser de la place harmonique à la tête d'affiche, mesurer la densité plutôt que les applaudissements, et utiliser le volume pour garder de la marge pour la suite."
 recap = [
-  "Commence **20 BPM sous la tête d'affiche** — si elle joue 130, tu ouvres à 108–112.",
-  "La rampe BPM est **asymétrique** : la majorité de la montée dans les 30 dernières minutes, pas distribuée de façon homogène.",
-  "**Deep et groovy** bat mélodique et euphorique en warmup — le groove pardonne une salle vide ; l'euphorie la met mal à l'aise.",
-  "**Laisse de l'espace harmonique** : ouvre en tonalités adjacentes/modales pour que la première track de la tête résonne dans la salle.",
-  "Ta métrique de succès c'est le delta de densité de salle, pas la réaction de la foule. Être absorbé n'est pas être ignoré.",
+  "Là où la leçon Easy dit *pars bas*, ici tu **planifies la rampe** : petits pas au début, pas plus nets en seconde moitié, jamais une ligne droite.",
+  "**Marge harmonique :** ne laisse pas à la tête d'affiche une salle pleine de ta propre couleur tonale ; termine à un endroit qui laisse respirer son premier morceau.",
+  "Ta mesure est le **changement de densité** (la piste est-elle plus pleine qu'il y a 15 minutes ?), pas la réaction de la foule. Être absorbé n'est pas être ignoré.",
+  "**Le volume est un outil de warmup :** pars un peu sous ton plafond prévu et monte par petits pas, pour que la tête d'affiche ait de la place pour monter.",
 ]
 
 [[fr.pages]]
-title   = "La rampe BPM du warmup : anatomie d'une ouverture de 2 heures"
+title   = "Planifier la rampe de BPM d'un warmup de deux heures"
 content = """
-Un warmup de 2h (22h–00h) a une forme BPM spécifique sur laquelle les openers expérimentés ont convergé :
+Un warmup de deux heures (disons 22 h à minuit) peut suivre un plan comme celui-ci. Les chiffres sont un exemple, pas une règle : adapte-les au genre et à ce que jouera la tête d'affiche :
 
-**22h–22h30 (premiers 25%) :** 100–108 BPM. Ambient-house, dub-techno, downtempo avec groove. La salle se remplit, les conversations ont lieu, le bar est occupé. Tu ne concurrences pas le bruit — tu coexistes avec lui. Tracks avec de longues intros, des drops minimaux.
+| Partie du créneau | Tempo d'exemple | À quoi ça ressemble |
+|---|---|---|
+| Premier quart | 100–108 BPM | Ambient, dub, downtempo avec du groove. Longues intros, drops minimaux. Tu cohabites avec le bruit de la salle. |
+| Deuxième quart | 108–115 BPM | Deep house, minimal. Le groove se resserre, plus de monde sur la piste. Personne ne danse encore à fond. |
+| Troisième quart | 115–122 BPM | Plus de corps dans le groove. La densité monte ; les gens ont décidé de rester. |
+| Dernier quart | 120–125 BPM | Zone de passation. Ta dernière track atterrit près de l'endroit où la tête d'affiche va démarrer, pas par-dessus. |
 
-**22h30–23h (25–50%) :** 108–115 BPM. Deep house, minimal. Le groove se resserre. Plus de gens sur la piste. Encore conversationnel en énergie — personne ne danse vraiment encore, mais le corps en a envie.
+Deux choses à noter. Les pas sont **petits au début et un peu plus grands ensuite**, parce qu'un changement de tempo paraît plus ou moins grand selon ce qui précède. Et la rampe n'est **jamais linéaire** : tu tiens un tempo un moment, puis tu montes d'un cran.
 
-**23h–23h30 (50–75%) :** 115–122 BPM. House avec un peu plus de corps. La densité monte, les gens se sont engagés à rester. C'est là que tu commences à encaisser l'énergie que tu construis.
-
-**23h30–00h (derniers 25%) :** 120–125 BPM. Territoire de passation. Ta dernière track sort à +3 BPM dans le registre d'ouverture de la tête — pas directement à son tempo de plancher. L'asymétrie est intentionnelle : la majorité de la montée BPM se passe ici, pas au début. La salle charge depuis 90 minutes et répond plus dramatiquement au tempo à cette densité.
-
-**Ne** jamais accélérer linéairement. La courbe front-charge la patience, back-charge le momentum.
+Planifie ton BPM cible à 25 %, 50 %, 75 % et 100 % de ton créneau. Puis laisse la réaction de la foule l'ajuster.
 """
 
 [[fr.pages]]
-title   = "L'espace harmonique et la discipline de tonalité"
+title   = "La marge harmonique pour la tête d'affiche"
 content = """
-Une tête d'affiche qui arrive dans une salle harmoniquement compatible a une chose de moins à combattre. Une tête qui arrive dans une salle harmoniquement conflictuelle passe ses 2–3 premières tracks à nettoyer les résidus. Ça lui coûte de l'énergie — et elle saura de quel set d'ouverture c'est la faute.
+Une tête d'affiche qui arrive dans une salle qui se mélange bien avec le dernier morceau a une difficulté de moins. Celle qui arrive dans un choc passe ses premières minutes à nettoyer.
 
-**Stratégie harmonique de warmup :**
-- Sache dans quelles tonalités la tête travaille en général. La plupart des résidents techno ont des préférences de tonalité — certains favorisent le drame sombre du Ré mineur, d'autres la tension du Fa# mineur.
-- Ouvre en **tonalités adjacentes ou modales** (majeur/mineur parallèle, ou une quinte au-dessus/dessous). Ça laisse de la marge harmonique — tes choix de tonalité créent une tension que la première track de la tête *résout*.
-- Évite des warmups qui finissent dans la même tonalité que l'opener connu de la tête. Ça fait sonner son arrivée comme une continuation, pas une arrivée.
+Des habitudes simples :
 
-**Pratique :** si tu ne sais pas les préférences de tonalité de la tête, ouvre en **tonalités majeures** (qui sonnent *jour*) et laisse la tête aller en mineur (qui sonne *nuit*). Cette transition est intuitive pour la foule et ne demande aucune coordination.
+- **Demande ou renseigne-toi** sur le tempo et le style avec lesquels la tête d'affiche ouvre d'habitude.
+- **Termine ton set sur quelque chose de neutre** : évite de finir sur une couleur tonale très marquée à laquelle le DJ suivant devrait répondre.
+- Si tu ne connais pas son style, garde le warmup tonalement ouvert et **simple** (un ressenti lumineux, plutôt majeur au début, plus ambigu vers la fin) et laisse-le aller vers plus sombre ou plus lumineux.
 
-**Sur la modulation harmonique pendant le warmup :** chaque bloc de 30 minutes peut avoir un shift harmonique subtil. Commence lumineux (La majeur, Ré majeur), passe en modal (La dorien, Ré dorien), finis ambigu. Le voyage harmonique construit de l'anticipation sans s'engager vers une destination que la tête possède.
+Si tu utilises les codes de tonalité (Camelot ou Open Key dans Rekordbox), prends-les comme un guide pour des enchaînements **compatibles**, pas comme une règle pour toute la nuit. En warmup, un groove qui ne gêne pas compte plus que l'accord de tonalité parfait.
 """
 
 [[fr.pages]]
-title   = "La métrique de densité : être absorbé vs être ignoré"
+title   = "La mesure de densité : absorbé ou ignoré"
 content = """
-La plus grosse erreur des DJs de warmup c'est de confondre **être absorbé** avec **être ignoré**.
+La plus grosse erreur en warmup est de confondre **être absorbé** et **être ignoré**.
 
-Un warmup bien fait est du *background-by-design*. La foule est censée parler, prendre des verres, arriver. Si tout le monde te fixe à 22h15, tu as escaladé trop tôt. La bonne métrique pour les 30 premières minutes n'est pas la réaction de la foule — c'est le **delta de densité** : est-ce qu'il y a plus de gens dans la salle qu'il y a 15 minutes ?
+Un bon warmup est un *fond sonore par conception*. La foule est censée discuter, circuler, arriver. Si tout le monde te fixe à 22 h 15, tu as peut-être poussé trop tôt. La bonne mesure pour la première demi-heure n'est pas la réaction mais le **changement de densité** : y a-t-il plus de monde sur la piste qu'il y a 15 minutes ?
 
-**Recadrage tactique :**
-- Ne pas te regarder à 22h15 = les gens arrivent et socialisent. *Correct.*
-- Te fixer dans le booth à 22h15 = tu as joué quelque chose de trop gros et tu as interrompu le tissu social. *Incorrect.*
+- Personne ne te regarde pendant que les gens arrivent et discutent : *correct*.
+- Tout le monde te fixe à 22 h 15 : tu as probablement joué quelque chose de trop gros et coupé le flux social.
 
-C'est contre-intuitif parce que la logique normale de performance dit : attention du public = succès. Le warmup inverse ça. Absorption du public (la musique s'intègre dans leur expérience sociale sans exiger d'attention) = succès.
+C'est contre-intuitif, car la logique habituelle de la scène dit que l'attention égale le succès. Le warmup inverse ça : une musique qui s'intègre à la soirée des gens sans exiger d'attention égale le succès.
 
-Quand tu as correctement construit 90 minutes d'absorption, le moment où tu commences à escalader à 23h30 tranche comme un couteau — parce que le contraste est énorme. Ce contraste est ce que le warmup construit. Il ne peut pas être construit si tu exiges de l'attention à 22h15.
+**Routine de vérification :** toutes les 20 minutes, compte à peu près combien de personnes sont sur la piste et combien au bar. Suis l'évolution. C'est ton tableau de score.
+"""
 
-**La routine de vérification de densité :** toutes les 20 minutes, compte approximativement combien de gens sont sur la piste vs au bar. Suis le delta. C'est ta métrique de performance.
+[[fr.pages]]
+title   = "Le volume : l'outil discret du warmup"
+content = """
+Le volume fait partie de l'arc, et en warmup il protège ta **marge** (headroom).
+
+- **Pars un peu sous ton plafond.** Une salle déjà forte à 22 h 15 n'a plus où aller ; une salle qui commence confortable laisse quelque chose à donner à la tête d'affiche.
+- **Monte par petits pas**, pendant que la salle se remplit, plutôt qu'en un seul geste. Les gens s'adaptent sans le remarquer.
+- **N'utilise pas le fader master pour souligner.** Règle le niveau de chaque track avec le gain de sa voie et laisse le master là où tu l'as trouvé.
+- **Laisse les faders comme tu voudrais les trouver.** La personne suivante hérite de tes réglages.
+- Demande à l'ingénieur du son ou à l'organisateur s'il existe un niveau convenu pour le créneau d'ouverture, et suis-le.
+
+Le principe est le même que pour la rampe de tempo : ne dépense pas tes réserves trop tôt. On approfondit les niveaux et les limites d'écoute dans la leçon Pro sur le timing du peak.
 """
 
 [[fr.quiz]]
-question = "Si la tête d'affiche joue à 130 BPM, ton ouverture de warmup devrait être à environ..."
-answers  = ["128 BPM — proche du territoire de la tête", "108–112 BPM — 20 BPM en dessous", "140 BPM — commence haut et descends"]
-correct  = 1
-
-[[fr.quiz]]
-question = "Dans un warmup de 2h, la majorité de la montée BPM se passe..."
-answers  = ["Dans les 30 premières minutes, pour construire l'énergie vite", "De façon homogène — 1 BPM par 6 minutes", "Dans les 30 dernières minutes — asymétrique par design"]
+question = "Une rampe de tempo bien construite sur deux heures se décrit le mieux comme..."
+answers  = ["Parfaitement linéaire, +1 BPM toutes les 6 minutes", "Rapide dans les 30 premières minutes pour attirer l'attention", "Tenue un moment, puis par paliers : petits pas au début, un peu plus grands ensuite"]
 correct  = 2
 
 [[fr.quiz]]
-question = "Laisser de l'espace harmonique pour la tête d'affiche signifie..."
-answers  = ["Ne jouer aucune track avec de la mélodie", "Ouvrir en tonalités adjacentes/modales pour que la première track de la tête résolve dans la salle — pas la continuer", "Jouer exactement dans la même tonalité que le set de la tête"]
+question = "Laisser de la marge harmonique à la tête d'affiche signifie..."
+answers  = ["Ne jouer aucune track mélodique", "Terminer sur quelque chose de neutre pour que son premier morceau n'ait pas à nettoyer ta couleur tonale", "Jouer exactement dans sa tonalité toute la nuit"]
 correct  = 1
 
 [[fr.quiz]]
-question = "Une foule qui ne te regarde pas à 22h15 pendant un warmup signifie..."
-answers  = ["Ta musique est nulle et tu es ignoré", "Tu devrais escalader immédiatement pour attirer leur attention", "Ils sont absorbés — ce qui est correct ; le warmup est du background-by-design"]
+question = "Personne ne te regarde à 22 h 15 pendant un warmup. Cela signifie probablement..."
+answers  = ["Que ta musique est mauvaise et que tu es ignoré", "Que tu dois escalader tout de suite", "Qu'ils sont absorbés, ce qui est juste pour un warmup"]
 correct  = 2
 
-[[fr.sources]]
-label = "Daniele Baldelli — interview Tim Lawrence sur les racines du Cosmic"
-url   = "https://www.timlawrence.info/articles2/2016/11/2/daniele-baldelli-explains-the-italian-roots-of-cosmic-disco"
+[[fr.quiz]]
+question = "Quelle est une bonne façon d'utiliser le volume en warmup ?"
+answers  = ["Partir fort pour que tout le monde te remarque", "Partir un peu sous ton plafond prévu et monter par petits pas", "Pousser le master au maximum"]
+correct  = 1
 
 [[fr.sources]]
-label = "Daniele Baldelli — lecture Red Bull Music Academy"
-url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"
 
 [[fr.sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
+label = "Red Bull Music Academy — conférences"
+url   = "https://www.redbullmusicacademy.com/"

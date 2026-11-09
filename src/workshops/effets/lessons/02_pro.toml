@@ -8,7 +8,7 @@ description = "A digital delay is trivially a ring buffer until you try to make 
 recap = [
   "Ring buffer: write pointer advances 1/sample; read pointer lags by D samples (D = fs × delayTime).",
   "Non-integer delay needs interpolation: linear is cheap but attenuates HF in feedback; Hermite/cubic preserves transients.",
-  "Feedback stability: |gain| < 1 for exponential decay. DJM soft-clips at ~0.95 to allow near-infinite decays without runaway.",
+  "Feedback stability: |gain| < 1 for exponential decay. a soft-clip (tanh) in the feedback path allows near-infinite decays without runaway.",
   "Tape delay (RE-201): LP in feedback path (HF loss per pass), tanh saturation, pitch modulation (wow/flutter) from motor speed variation.",
   "All-pass interpolation gives flat magnitude response at the cost of phase distortion — audible on sustained feedback.",
 ]
@@ -37,7 +37,7 @@ This is the complete inner loop of most digital delays. N must be large enough f
 [[en.pages]]
 title   = "Interpolation: the sound of the math"
 content = """
-The read position D = fs × delayTime is almost never an integer. A 1/4-note delay at 130 BPM gives D = 44100 × (60/130) = 20351.5 samples. You must read between two buffer positions.
+The read position D = fs × delayTime is almost never an integer. A quarter-note delay (one beat) at 130 BPM lasts 60/130 s, so D = 44100 × (60/130) ≈ 20354 samples. You must read between two buffer positions.
 
 **Linear interpolation:**
 ```
@@ -68,13 +68,13 @@ g = 1.00:  n=10 → 1.0×   original  (infinite sustain)
 g = 1.01:  n=10 → 1.11×  original  (growing — unstable)
 ```
 
-The DJM-900 clamps g ≈ **0.95** and adds a tanh waveshaper in the feedback path. Result:
+Many delay designs keep g below 1 and add a tanh waveshaper in the feedback path. Result:
 1. Near-infinite decay without true infinite sustain.
 2. Loud transients cannot trigger exponential growth — the waveshaper limits the feedback amplitude.
 
 Without protection, g > 1.0 on a loud signal → exponential growth → digital clipping in seconds. The delay becomes a screeching oscillator.
 
-**Edge case:** g = 1.0 exactly with silent input after initial sound → perfect infinite sustain (frozen loop). Exposed deliberately in the Strymon delay "hold" function and the RE-201's sound-on-sound mode.
+**Edge case:** g = 1.0 exactly with silent input after initial sound → perfect infinite sustain (frozen loop). Some modern delay pedals expose it deliberately as a "hold" / freeze function.
 """
 image = "lesson-images/delay_feedback_stability.png"
 image_caption = "Feedback coefficient vs tail length: g=0.7, 0.85, 0.95, and the instability boundary at 1.0."
@@ -91,7 +91,7 @@ Tape has limited bandwidth. Each record/playback pass attenuates highs. Modeled 
 The tape motor runs at slightly variable speed. Wow = slow modulation (0.1–1 Hz), flutter = faster (5–15 Hz). DSP model: D(t) = D₀ × (1 + depth × sin(2π·rate·t)). Each echo has a slightly different pitch — the characteristic "shimmer."
 
 **3. Tape saturation**
-Soft-knee (≈ tanh) magnetic saturation. Hot input → gentle compression + even-order harmonics. Same mechanism as the Moog ladder warmth.
+Soft-knee (≈ tanh) magnetic saturation. Hot input → gentle compression + (for a symmetric curve) odd-order harmonics. Same mechanism as the Moog ladder warmth.
 
 **4. Head bump**
 Record head resonance at ~60–80 Hz adds a subtle bass boost to recordings — the "fatness" in RE-201 echoes.
@@ -171,7 +171,7 @@ description = "Un delay numérique est trivialement un ring buffer — jusqu'à 
 recap = [
   "Ring buffer : le pointeur d'écriture avance de 1/échantillon ; le pointeur de lecture est en retard de D échantillons (D = fs × delayTime).",
   "Un délai non-entier nécessite une interpolation : linéaire est peu coûteux mais atténue les HF en feedback ; Hermite/cubique préserve les transitoires.",
-  "Stabilité du feedback : |gain| < 1 pour un decay exponentiel. Le DJM soft-clip à ~0,95 pour des decays quasi-infinis sans runaway.",
+  "Stabilité du feedback : |gain| < 1 pour un decay exponentiel. un soft-clip (tanh) dans la boucle permet des decays quasi-infinis sans runaway.",
   "Tape delay (RE-201) : LP dans la boucle de feedback (perte HF par passage), saturation tanh, modulation de pitch (wow/flutter) par variation de vitesse moteur.",
   "L'interpolation all-pass donne une amplitude plate au prix d'une distorsion de phase — audible sur le feedback long.",
 ]
@@ -200,7 +200,7 @@ C'est la boucle complète de la plupart des delays. N doit être assez grand pou
 [[fr.pages]]
 title   = "L'interpolation : le son des maths"
 content = """
-La position de lecture D = fs × delayTime n'est presque jamais un entier. Un delay 1/4 de noire à 130 BPM donne D = 44100 × (60/130) = 20351,5 échantillons. Il faut lire entre deux positions.
+La position de lecture D = fs × delayTime n'est presque jamais un entier. Un delay d'une noire (un temps) à 130 BPM dure 60/130 s, donc D = 44100 × (60/130) ≈ 20354 échantillons. Il faut lire entre deux positions.
 
 **Interpolation linéaire :**
 ```
@@ -231,13 +231,13 @@ g = 1,00 :  n=10 → 1,0×   original  (sustain infini)
 g = 1,01 :  n=10 → 1,11×  original  (croissance — instable)
 ```
 
-Le DJM-900 clamp g ≈ **0,95** et ajoute un waveshaper tanh dans la boucle. Résultat :
+Beaucoup de delays gardent g sous 1 et ajoutent un waveshaper tanh dans la boucle. Résultat :
 1. Decay quasi-infini sans sustain réellement infini.
 2. Les transitoires forts ne déclenchent pas de croissance exponentielle.
 
 Sans protection, g > 1,0 sur un signal fort → croissance exponentielle → clipping numérique en quelques secondes.
 
-**Cas limite :** g = 1,0 exactement avec entrée silencieuse → sustain parfaitement infini (boucle gelée). Exposé délibérément dans la fonction "hold" des delays Strymon et le mode "sound-on-sound" du RE-201.
+**Cas limite :** g = 1,0 exactement avec entrée silencieuse → sustain parfaitement infini (boucle gelée). Certaines pédales de delay modernes l'exposent volontairement sous forme de fonction "hold" / freeze.
 """
 image = "lesson-images/delay_feedback_stability.png"
 image_caption = "Coefficient de feedback vs longueur de queue : g=0,7, 0,85, 0,95, seuil d'instabilité à 1,0."
@@ -254,7 +254,7 @@ La bande a une bande passante finie. Chaque passage atténue les aigus. Modélis
 Le moteur bande tourne à vitesse légèrement variable. Wow = modulation lente (0,1–1 Hz), flutter = plus rapide (5–15 Hz). DSP : D(t) = D₀ × (1 + depth × sin(2π·rate·t)). Chaque écho a un pitch légèrement différent — le "shimmer" des delays vintage.
 
 **3. Saturation de bande**
-Saturation magnétique soft-knee (≈ tanh). Signal fort → légère compression + harmoniques d'ordre pair. Même mécanisme que la chaleur du ladder Moog.
+Saturation magnétique soft-knee (≈ tanh). Signal fort → légère compression + (pour une courbe symétrique) harmoniques d'ordre impair. Même mécanisme que la chaleur du ladder Moog.
 
 **4. Head bump**
 Résonance de la tête d'enregistrement à ~60–80 Hz → léger boost de graves → "graisse" des échos RE-201.

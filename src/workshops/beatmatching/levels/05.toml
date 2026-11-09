@@ -4,17 +4,17 @@ order = 5
 [en]
 title       = "The Clap Master"
 short_desc  = "Start on the clap! Drop Train B exactly on the 162nd beat."
-description = "Start on the <strong>Clap</strong>! Do the math: you need to drop Train B exactly on the <strong>162nd beat</strong> (right after the drop). Note: Train B's CUE is on the 2nd beat!"
+description = "Start on the <strong>Clap</strong>! Do the math: you need to drop Train B exactly on the <strong>162nd beat</strong> (right after the drop). Note: Train B's CUE is already set on its 2nd beat for you, so start it when Train A reaches the clap, not on the beat before!"
 details     = "Focus: Precision cueing on a specific beat (Beat 162)."
 success     = "The Clap Master! You handled that offset drop like a boss. Patrick is proud!"
 coach_tips  = [
-  "This one is sneaky. Your B2B partner just dropped a track with an endlessly long break.",
-  "No sweat, we'll mix it anyway. Just set your cue point on the second beat instead of the first, it gives you a split second to react.",
-  "Make sure you wait exactly one beat before launching your track, or you'll be horribly out of phase.",
-  "Your turn—launch your track precisely when Train A drops."
+  "This one is sneaky. Your partner in this back-to-back (B2B: two DJs taking turns, track after track) just dropped a track with an endlessly long break.",
+  "No sweat, we'll mix it anyway. Train B's cue point is already placed on its second beat instead of the first, which gives you a split second to react.",
+  "Wait for the clap of Train A (the second beat) before pressing play, or you'll be one beat off, horribly out of phase.",
+  "Your turn: launch Train B precisely on the clap, right after Train A drops."
 ]
 recap = [
-  "Setting a CUE point on beat 2 (not beat 1) gives you a reaction buffer.",
+  "A CUE point on beat 2 (not beat 1) gives you a reaction buffer.",
   "If CUE is on beat 2, you must drop on beat 2 of Train A — or the phase flips.",
   "Target a specific beat on Train A (here: beat 162) instead of any kick.",
   "Great DJs pre-set their cue points during the previous track's playback."
@@ -23,14 +23,14 @@ recap = [
 [fr]
 title       = "Le Clap Master"
 short_desc  = "Démarre sur le Clap ! Calcule bien : tu dois lancer le Train B pile sur le 162ème temps."
-description = "Démarre sur le <strong>Clap</strong> ! Calcule bien : tu dois lancer le Train B pile au <strong>162ème temps</strong> (juste après le drop). Attention, ton Train B démarre déjà sur son second temps !"
+description = "Démarre sur le <strong>Clap</strong> ! Calcule bien : tu dois lancer le Train B pile au <strong>162ème temps</strong> (juste après le drop). Attention : le cue de ton Train B est déjà posé sur son second temps, lance-le quand le Train A arrive sur le clap !"
 details     = "Focus : Précision du départ sur un temps spécifique (Beat 162)."
 success     = "Le Clap Master ! Tu as géré le décalage de départ comme un chef. Patrick est fier !"
 coach_tips  = [
-  "Celle-là elle est fourbe. Ton pote de B2B t'as joué un morceau avec un break interminable",
-  "Qu'a cela ne tienne, tu vas le caler quand même, tu place le cue non pas sur le premier temps mais sur le deuxieme pour te laisser le temps de réagir.",
-  "Attention de bien laisser passer un temps avant de lancer ton morceau, sinon tu va être inversé cf Lvl3.",
-  "Aller à toi de jouer, lance ton morceau au moment du drop du train A"
+  "Celle-là elle est fourbe. Ton pote en B2B (un back-to-back : deux DJs qui jouent à tour de rôle) t'a joué un morceau avec un break interminable",
+  "Qu'à cela ne tienne, tu vas le caler quand même. Le cue du Train B est déjà posé non pas sur le premier temps mais sur le deuxième, pour te laisser le temps de réagir.",
+  "Attention : attends le clap du Train A (son deuxième temps) avant de lancer ton morceau, sinon tu seras décalé d'un temps, cf. niveau 3.",
+  "À toi de jouer : lance le Train B sur le clap, juste après le drop du Train A."
 ]
 recap = [
   "Poser le CUE sur le 2ème temps (pas le 1er) te laisse une marge de réaction.",

@@ -3,7 +3,7 @@ order = 4
 
 [en]
 title      = "Energy Architecture — Psychoacoustics, Affect Theory & Set Design"
-short_desc = "Russell's circumplex, valence-arousal mapping, multi-arc set design, and the Villalobos paradox."
+short_desc = "Russell's circumplex, valence-arousal mapping, multi-arc set design, and productive tension."
 
 [[en.pages]]
 title   = "Russell's circumplex: the psychoacoustic model of energy"
@@ -64,26 +64,26 @@ Energy
      0    30   60   90   120  150  180 min
 ```
 
-Each valley (afterpeak) is not a failure — it's a **deliberate release** that makes the next peak land harder. The physiological mechanism: the brain habituates to sustained high-arousal states within approximately 12–15 minutes (neurological adaptation). After habitual adaptation, you either escalate (diminishing returns, physiologically costly) or release and rebuild (sustainable, repeatable).
+Each valley (afterpeak) is not a failure — it's a **deliberate release** that makes the next peak land harder. The working idea: a crowd habituates to sustained high intensity — the same stimulus keeps producing less response. How fast depends on the room, the hour and the people, so watch the floor rather than counting minutes. Once it happens, you either escalate (diminishing returns, physically costly) or release and rebuild (sustainable, repeatable).
 
 **Valley design criteria:**
 - Energy drop: 1.5–2 levels on the 1–5 scale
-- Duration: minimum 10–12 minutes (shorter = the crowd doesn't re-sensitize)
+- Duration: long enough for the floor to settle — several tracks, not just one (shorter = the crowd doesn't re-sensitize)
 - Valence: can stay positive (warm, groovy) or go negative (dark, tense) — each primes a different type of peak
 - BPM: typically drops 4–6 BPM during the valley, not just energy level
 
-**The Berghain extended set:** 6–8 hour sets (Jeff Mills, Surgeon, Villalobos) contain 4–6 peaks, each separated by 30–60 minute valleys. The valleys are not accidents — they're the engineering underneath the peaks.
+**Extended sets:** in very long sets (6 hours and more), the arc repeats — several peaks, each separated by a valley. The valleys are not accidents — they're the engineering underneath the peaks.
 """
 
 [[en.pages]]
-title   = "Productive tension and the Villalobos paradox"
+title   = "Productive tension: committing to the 'wrong' choice"
 content = """
 The rules of technical compatibility (BPM, key, energy matching) work 90% of the time. The other 10% is where artistic identity lives.
 
-**The Villalobos paradox:** Ricardo Villalobos playing at Berghain at 8am after a 6-hour set occasionally drops a track that deliberately breaks the energy arc — a sudden deflation, a genre step backwards, a BPM slowdown that shouldn't work. It does work, because of how it's committed to.
+**The paradox:** a DJ deep into a long set sometimes drops a track that deliberately breaks the energy arc — a sudden deflation, a genre step backwards, a BPM slowdown that shouldn't work. It can work, because of how it's committed to.
 
 **Why it works:**
-According to dancefloor response studies (Garcia & Solberg, 2019), crowds *reward* micro-dissonance when it's **pattern-coherent**: a 32-beat tension maintained and then released reads as intentional. A 4-beat tension patched over quickly reads as mistake. The DJ's craft is making the commitment visible — holding the "wrong" decision long enough (16+ beats) that abandoning it would *break the frame* more than the original decision.
+As a rule of thumb, crowds tend to accept micro-dissonance when it's **pattern-coherent**: a tension held for a full phrase (32 beats) and then released reads as intentional. A tension patched over after a few beats reads as a mistake. The DJ's craft is making the commitment visible — holding the "wrong" decision long enough (16+ beats) that abandoning it would *break the frame* more than the original decision.
 
 **The partial mismatch ladder** (safe entry into productive tension):
 
@@ -109,7 +109,7 @@ answers  = ["64+ beats — they need a long time to notice", "4–8 beats — fa
 correct  = 1
 
 [[en.quiz]]
-question = "Why do multi-arc sets need valleys of at least 10–12 minutes duration?"
+question = "Why do multi-arc sets need valleys that last several tracks rather than just one?"
 answers  = ["The DJ needs a break", "Shorter valleys don't allow the brain to re-sensitize after arousal habituation", "Club sound systems need cooling", "Promoters require it"]
 correct  = 1
 
@@ -119,8 +119,8 @@ answers  = ["Break the BPM by ±6", "Break the key into a non-adjacent Camelot n
 correct  = 2
 
 [[en.quiz]]
-question = "Why does a Villalobos-style deliberate energy crash work when held for 3 minutes but fail when patched over in 30 seconds?"
-answers  = ["Longer tracks sound better", "Crowd tolerance for dissonance increases with commitment — 16+ beats reads as intentional, 4 beats reads as mistake", "The sound system needs time to adjust", "It's only a matter of volume level"]
+question = "Why does a deliberate energy crash work when held, but fail when patched over after a few beats?"
+answers  = ["Longer tracks sound better", "Crowd tolerance for dissonance increases with commitment — held long enough it reads as intentional, patched over quickly it reads as a mistake", "The sound system needs time to adjust", "It's only a matter of volume level"]
 correct  = 1
 
 [[en.sources]]
@@ -128,12 +128,8 @@ label = "Russell — A Circumplex Model of Affect (1980)"
 url   = "https://psycnet.apa.org/record/1981-25062-001"
 
 [[en.sources]]
-label = "Garcia & Solberg — Listening and Dancing in the Club (2019)"
-url   = "https://doi.org/10.1080/17510694.2019.1622197"
-
-[[en.sources]]
-label = "Ricardo Villalobos — RA artist page"
-url   = "https://ra.co/dj/ricardovillalobos"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "Kompakt Records — minimalist aesthetic, 2000–2008 catalog"
@@ -141,7 +137,7 @@ url   = "https://kompakt.fm/"
 
 [fr]
 title      = "Architecture Énergétique — Psychoacoustique, Théorie de l'Affect & Design de Set"
-short_desc = "Le circumplex de Russell, mapping valence-arousal, design multi-arc et le paradoxe Villalobos."
+short_desc = "Le circumplex de Russell, mapping valence-arousal, design multi-arc et la tension productive."
 
 [[fr.pages]]
 title   = "Le circumplex de Russell : le modèle psychoacoustique de l'énergie"
@@ -202,26 +198,26 @@ La théorie narrative appliquée aux sets DJ. La pyramide de Freytag classique (
      0    30   60   90   120  150  180 min
 ```
 
-Chaque vallée (afterpeak) n'est pas un échec — c'est une **release délibérée** qui fait tomber le peak suivant plus fort. Le mécanisme physiologique : le cerveau s'habitue aux états d'arousal élevé soutenu en environ 12–15 minutes (adaptation neurologique). Après adaptation, tu dois soit escalader (rendements décroissants, coûteux physiologiquement) soit relâcher et reconstruire (durable, reproductible).
+Chaque vallée (afterpeak) n'est pas un échec — c'est une **release délibérée** qui fait tomber le peak suivant plus fort. L'idée de travail : un public s'habitue à une intensité élevée soutenue — le même stimulus produit de moins en moins de réponse. La vitesse dépend de la salle, de l'heure et des gens : regarde le floor plutôt que de compter les minutes. Une fois que ça arrive, tu dois soit escalader (rendements décroissants, coûteux physiquement) soit relâcher et reconstruire (durable, reproductible).
 
 **Critères de design des vallées :**
 - Chute d'énergie : 1.5–2 niveaux sur l'échelle 1–5
-- Durée : minimum 10–12 minutes (moins = le public ne se re-sensibilise pas)
+- Durée : assez longue pour que le floor se pose — plusieurs tracks, pas une seule (moins = le public ne se re-sensibilise pas)
 - Valence : peut rester positive (chaude, groovy) ou passer négative (sombre, tendue) — chaque option amorce un type de peak différent
 - BPM : baisse typiquement de 4–6 BPM pendant la vallée, pas seulement le niveau d'énergie
 
-**Le set étendu Berghain :** les sets de 6–8h (Jeff Mills, Surgeon, Villalobos) contiennent 4–6 peaks, chacun séparé par des vallées de 30–60 minutes. Ces vallées ne sont pas des accidents — elles sont le génie d'ingénierie qui se trouve sous les peaks.
+**Les sets étendus :** dans les très longs sets (6h et plus), l'arc se répète — plusieurs peaks, chacun séparé par une vallée. Ces vallées ne sont pas des accidents — elles sont le génie d'ingénierie qui se trouve sous les peaks.
 """
 
 [[fr.pages]]
-title   = "La tension productive et le paradoxe Villalobos"
+title   = "La tension productive : assumer le 'mauvais' choix"
 content = """
 Les règles de compatibilité technique (BPM, clé, match d'énergie) marchent 90% du temps. Les 10% restants, c'est là que l'identité artistique vit.
 
-**Le paradoxe Villalobos :** Ricardo Villalobos jouant au Berghain à 8h du matin après un set de 6h balance parfois une track qui casse délibérément l'arc énergétique — une déflation soudaine, un pas en arrière de genre, un ralentissement BPM qui ne devrait pas marcher. Ça marche, à cause de la façon dont c'est assumé.
+**Le paradoxe :** un DJ avancé dans un long set balance parfois une track qui casse délibérément l'arc énergétique — une déflation soudaine, un pas en arrière de genre, un ralentissement BPM qui ne devrait pas marcher. Ça peut marcher, à cause de la façon dont c'est assumé.
 
 **Pourquoi ça marche :**
-Selon les études de réponse dancefloor (Garcia & Solberg, 2019), le public *récompense* la micro-dissonance quand elle est **pattern-cohérente** : une tension tenue 32 beats puis relâchée se lit comme intentionnelle. Une tension patchée en 4 beats se lit comme une erreur. L'artisanat du DJ, c'est rendre l'engagement visible — tenir la "mauvaise" décision assez longtemps (16+ beats) pour que l'abandonner casserait le cadre plus que la décision originale.
+En règle générale, le public accepte la micro-dissonance quand elle est **pattern-cohérente** : une tension tenue une phrase entière (32 beats) puis relâchée se lit comme intentionnelle. Une tension patchée au bout de quelques beats se lit comme une erreur. L'artisanat du DJ, c'est rendre l'engagement visible — tenir la "mauvaise" décision assez longtemps (16+ beats) pour que l'abandonner casserait le cadre plus que la décision originale.
 
 **L'échelle du mismatch partiel** (entrée safe dans la tension productive) :
 
@@ -247,7 +243,7 @@ answers  = ["64+ beats — il faut longtemps pour le remarquer", "4–8 beats �
 correct  = 1
 
 [[fr.quiz]]
-question = "Pourquoi les sets multi-arc ont-ils besoin de vallées d'au moins 10–12 minutes ?"
+question = "Pourquoi les sets multi-arc ont-ils besoin de vallées qui durent plusieurs tracks et pas une seule ?"
 answers  = ["Le DJ a besoin d'une pause", "Des vallées plus courtes ne laissent pas au cerveau le temps de se re-sensibiliser après l'habituation à l'arousal", "Les systèmes de son ont besoin de refroidir", "Les promoteurs l'exigent"]
 correct  = 1
 
@@ -257,7 +253,7 @@ answers  = ["Casser le BPM de ±6", "Casser la clé vers un voisin Camelot non a
 correct  = 2
 
 [[fr.quiz]]
-question = "Pourquoi un crash d'énergie délibéré à la Villalobos marche tenu 3 minutes mais échoue patchié en 30 secondes ?"
+question = "Pourquoi un crash d'énergie délibéré marche quand on le tient, mais échoue quand on le patche au bout de quelques beats ?"
 answers  = ["Les tracks longues sonnent mieux", "La tolérance du public à la dissonance augmente avec l'engagement — 16+ beats = intentionnel, 4 beats = erreur", "Le système son a besoin de temps pour s'ajuster", "C'est seulement une question de niveau de volume"]
 correct  = 1
 
@@ -266,12 +262,8 @@ label = "Russell — A Circumplex Model of Affect (1980)"
 url   = "https://psycnet.apa.org/record/1981-25062-001"
 
 [[fr.sources]]
-label = "Garcia & Solberg — Listening and Dancing in the Club (2019)"
-url   = "https://doi.org/10.1080/17510694.2019.1622197"
-
-[[fr.sources]]
-label = "Ricardo Villalobos — page artiste RA"
-url   = "https://ra.co/dj/ricardovillalobos"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "Kompakt Records — esthétique minimaliste, catalogue 2000–2008"

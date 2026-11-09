@@ -4,19 +4,37 @@ order = 3
 [en]
 title       = "Camelot Wheel Pick"
 short_desc  = "Use the Camelot wheel to find a compatible track. Not same-key — compatible."
-description = "Track A is in <b>11A</b> (F♯m). Any track in the compatibility set {11A, 11B, 10A, 12A, 6A} will blend. The wheel is your cheat-sheet: compatible cells light up lavender."
+description = "Track A is in <b>11A</b> (F♯m). The accepted set is {11A, 11B, 10A, 12A}: the four safe moves that blend. Watch out for 6A, the +7 move: it is a tension effect for a hard cut, not a blend, so it does not count here. (F♯m is the English notation for Fa dièse mineur; the A in 11A is the Camelot minor ring, not the note A.) The wheel is your cheat-sheet: compatible cells light up lavender."
 details     = "Validation: pick any compatible track, load B, play, hold 2s."
 success     = "Compatible, not identical. That's the real DJ move."
 coach_tips  = [
   "11A sits next to 10A and 12A on the ring — those are neighbors, 1 sharp/flat apart.",
   "11A and 11B share the same 7 notes (relative minor/major) — always smooth.",
-  "11A + 7 wraps to 6A — that's the energy-boost move."
+  "11A + 7 wraps to 6A (Gm). That is only +1 semitone from F♯m, with 2 notes in common: fine for a hard cut, never for a long blend, so it does not count here. Stick to the safe four."
 ]
 recap = [
   "The Camelot wheel shows every compatible move visually — neighbors and relative pairs.",
   "Same number different letter (11A ↔ 11B) = relative major/minor, always smooth.",
   "±1 on the wheel (10A, 12A from 11A) = closest harmonic neighbors.",
-  "+7 is the energy-boost jump — a classic move to lift a set."
+  "+7 (11A → 6A) is just +1 semitone: a rising tension effect for a hard cut, not a safe blend."
+]
+
+[fr]
+title       = "Choix sur la roue Camelot"
+short_desc  = "Utilise la roue Camelot pour trouver un morceau compatible. Pas la même clé : compatible."
+description = "Track A est en <b>11A</b> (Fa♯ mineur). Le set accepté est {11A, 11B, 10A, 12A} : les quatre mouvements sûrs qui se blendent. Attention à 6A, le mouvement +7 : c'est un effet de tension pour une coupe nette, pas un blend, donc il ne compte pas ici. (Fa♯m est la notation anglaise F♯m ; le A de 11A est l'anneau mineur de Camelot, pas la note La.) La roue est ton anti-sèche : les cases compatibles s'illuminent en lavande."
+details     = "Validation : choisis un morceau compatible, charge B, lance, tiens 2 s."
+success     = "Compatible, pas identique. C'est ça, le vrai geste de DJ."
+coach_tips  = [
+  "11A est voisin de 10A et 12A sur l'anneau — ce sont des voisins, à un dièse/bémol d'écart.",
+  "11A et 11B partagent les mêmes 7 notes (mineur/majeur relatifs) — toujours fluide.",
+  "11A + 7 retombe sur 6A (Solm). Ça ne fait que +1 demi-ton depuis Fa♯m, avec 2 notes en commun : possible en coupe nette, jamais en blend long, donc il ne compte pas ici. Reste sur les quatre mouvements sûrs."
+]
+recap = [
+  "La roue Camelot montre visuellement tous les mouvements compatibles — voisins et paires relatives.",
+  "Même chiffre, autre lettre (11A ↔ 11B) = majeur/mineur relatifs, toujours fluide.",
+  "±1 sur la roue (10A, 12A depuis 11A) = les voisins harmoniques les plus proches.",
+  "+7 (11A → 6A) n'est que +1 demi-ton : un effet de montée en tension pour une coupe nette, pas un blend sûr."
 ]
 
 [track.A]

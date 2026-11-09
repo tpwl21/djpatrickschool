@@ -3,16 +3,148 @@ order = 4
 
 [en]
 title      = "Loop Rolls: The Beat Repeat"
-short_desc = "Easy version coming soon."
+short_desc = "Repeat a tiny slice of the track for as long as you hold the button."
+description = "A loop roll repeats a tiny piece of the music while you hold a pad, then the track carries on as if nothing happened. Three sizes and one release habit are enough to start."
+recap = [
+  "A loop roll repeats a tiny slice of the track for as long as you hold the pad.",
+  "On a roll, sizes are fractions of a beat: 1/4 is a fast stutter, 1/8 is faster, 1/16 turns into a buzz.",
+  "The track keeps running underneath: when you release, you land where the music would be.",
+  "Use it on the last bar before a drop or at the end of a track, never to hide a bad mix.",
+  "Release on the 1 of the next bar, counting in your head.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Easy version of this lesson is being prepared. Check back soon!"
+title   = "A record that skips on purpose"
+content = """
+You know the sound of a scratched CD that gets stuck and repeats the same tiny bit? A **loop roll** does that on purpose. You hold a button, the deck repeats a small piece of the music, and when you let go, the music goes on.
+
+Sizes on a roll are counted as **fractions of one beat** (the pulse you tap your foot to):
+
+- **1/2**: half a beat. A clear, bouncy repeat.
+- **1/4**: a quarter of a beat. A fast stutter, like a machine gun.
+- **1/8**: an eighth of a beat. Edgy and nervous.
+- **1/16** and smaller: so fast that your ear stops hearing a rhythm and starts hearing a buzzing note.
+
+Careful: this is not the same convention as the delay lesson, where "1/4" meant a quarter **note** (one whole beat). On a loop roll, **1/4 means a quarter of a beat**. When in doubt, test with your ears.
+"""
+
+[[en.pages]]
+title   = "The track keeps running underneath"
+content = """
+Here is the clever part. While you hold the roll, the track does not stop: it keeps moving in the background, like a train passing behind a wall.
+
+When you let go, you don't go back to where the roll started. You jump to **where the music would be** now. That's why a roll doesn't throw you off the beat.
+
+It also means the roll is a great way to build tension: the crowd hears the music stuck, then released into the next part, all in time.
+"""
+
+[[en.pages]]
+title   = "When to use it, and when not"
+content = """
+**Use it:**
+- on the last bar before a drop, to make the crowd wait,
+- at the end of a track, as a way out.
+
+**Don't use it:**
+- to hide a bad mix. The crowd hears the stutter and your mistake,
+- every other phrase. A trick you use all the time stops being a trick.
+
+The real skill is the **release**. Hold the pad, count the beats in your head, and let go on the **1** of the next bar. If you release in the middle of a repeat, it sounds like a mistake.
+"""
+
+[[en.quiz]]
+question = "What does a loop roll do?"
+answers  = ["It repeats a tiny slice of the music while you hold the pad", "It slows the track down", "It changes the key of the track"]
+correct  = 0
+
+[[en.quiz]]
+question = "What happens to the track while you hold the roll?"
+answers  = ["It stays frozen", "It keeps running underneath, so you land where it would be when you release", "It restarts from the beginning"]
+correct  = 1
+
+[[en.quiz]]
+question = "When is it best to release the roll?"
+answers  = ["Anywhere, it doesn't matter", "On the 1 of the next bar", "Right in the middle of a repeat"]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — product pages (loop and roll functions)"
+url   = "https://www.pioneerdj.com/"
+
+[[en.sources]]
+label = "DJTechTools — tutorials and gear reviews"
+url   = "https://djtechtools.com/"
 
 [fr]
 title      = "Loop Rolls : Le Beat Repeat"
-short_desc = "Version Easy en préparation."
+short_desc = "Répète un tout petit bout de la track tant que tu tiens le bouton."
+description = "Un loop roll répète un petit morceau de musique tant que tu tiens un pad, puis la track repart comme si de rien n'était. Trois tailles et une habitude de relâchement suffisent pour commencer."
+recap = [
+  "Un loop roll répète un tout petit bout de la track tant que tu tiens le pad.",
+  "Sur un roll, les tailles sont des fractions de temps : 1/4 = stutter rapide, 1/8 = plus rapide, 1/16 = un bourdonnement.",
+  "La track continue de tourner dessous : au relâchement, tu retombes là où la musique serait.",
+  "À utiliser sur la dernière mesure avant un drop ou en fin de track, jamais pour cacher un mix raté.",
+  "Relâche sur le 1 de la mesure suivante, en comptant dans ta tête.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Easy de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Un disque qui saute exprès"
+content = """
+Tu connais le son d'un CD rayé qui reste coincé et répète le même petit bout ? Un **loop roll** fait ça exprès. Tu tiens un bouton, la platine répète un petit morceau de musique, et quand tu lâches, la musique repart.
+
+Sur un roll, les tailles se comptent en **fractions d'un temps** (le temps, la pulsation que tu tapes du pied) :
+
+- **1/2** : un demi-temps. Une répétition claire, qui rebondit.
+- **1/4** : un quart de temps. Un stutter rapide, comme une mitraillette.
+- **1/8** : un huitième de temps. Nerveux.
+- **1/16** et plus petit : si rapide que ton oreille n'entend plus un rythme mais une note qui bourdonne.
+
+Attention : ce n'est pas la même convention que dans la leçon sur le delay, où « 1/4 » voulait dire une **noire** (un temps entier). Sur un loop roll, **1/4 veut dire un quart de temps**. Dans le doute, fais confiance à tes oreilles.
+"""
+
+[[fr.pages]]
+title   = "La track continue de tourner dessous"
+content = """
+Voilà le côté malin. Pendant que tu tiens le roll, la track ne s'arrête pas : elle continue d'avancer en arrière-plan, comme un train qui passe derrière un mur.
+
+Quand tu lâches, tu ne reviens pas là où le roll a commencé. Tu sautes **là où la musique serait** maintenant. C'est pour ça qu'un roll ne te fait pas sortir du beat.
+
+C'est aussi une super façon de monter la tension : le public entend la musique coincée, puis relâchée dans la partie suivante, le tout en rythme.
+"""
+
+[[fr.pages]]
+title   = "Quand l'utiliser, quand éviter"
+content = """
+**À utiliser :**
+- sur la dernière mesure avant un drop, pour faire attendre le public,
+- en fin de track, comme sortie.
+
+**À éviter :**
+- pour cacher un mix raté. Le public entend le stutter et ton erreur,
+- une phrase sur deux. Un truc qu'on fait tout le temps n'est plus un truc.
+
+Le vrai skill, c'est le **relâchement**. Tiens le pad, compte les temps dans ta tête, et lâche sur le **1** de la mesure suivante. Si tu relâches au milieu d'une répétition, ça sonne comme une erreur.
+"""
+
+[[fr.quiz]]
+question = "Que fait un loop roll ?"
+answers  = ["Il répète un tout petit bout de musique tant que tu tiens le pad", "Il ralentit la track", "Il change la tonalité de la track"]
+correct  = 0
+
+[[fr.quiz]]
+question = "Que fait la track pendant que tu tiens le roll ?"
+answers  = ["Elle reste figée", "Elle continue de tourner dessous, donc tu retombes là où elle serait au relâchement", "Elle repart du début"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quel est le meilleur moment pour relâcher le roll ?"
+answers  = ["N'importe quand, ça ne change rien", "Sur le 1 de la mesure suivante", "Pile au milieu d'une répétition"]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — pages produits (fonctions loop et roll)"
+url   = "https://www.pioneerdj.com/"
+
+[[fr.sources]]
+label = "DJTechTools — tutoriels et tests de matériel"
+url   = "https://djtechtools.com/"

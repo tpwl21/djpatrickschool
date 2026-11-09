@@ -3,14 +3,14 @@ order = 1
 
 [en]
 title      = "The Filter: Cutoff, Resonance & Genre Moves"
-short_desc = "Slope, Q, self-oscillation, and the Carl Cox crutch."
+short_desc = "Slope, Q, self-oscillation, and the filter crutch."
 description = "You know what a filter does. Now learn the parameters that shape how it sounds — and the genre signatures that make the same sweep feel like techno, not house."
 recap = [
   "The slope (12 or 24 dB/oct) controls how hard the cutoff 'wall' is: 12 dB = musical, 24 dB = aggressive techno.",
   "Resonance (Q) boosts a narrow band at the cutoff — a little is beautiful, too much and the filter self-oscillates.",
   "Self-oscillation: the filter starts ringing as a sine wave with no input — avoid it live unless intentional.",
   "Highpass on a break cleans muddy low-mids before you bring in deck B.",
-  "Carl Cox: 'The filter is the crutch of DJs who can't mix.' He still uses it — the art is in restraint.",
+  "The filter becomes a crutch when every transition uses it — the art is in restraint.",
 ]
 
 [[en.pages]]
@@ -51,8 +51,8 @@ One of the most useful filter moves happens during a **break** (the drums-only o
 
 1. Track A is playing, you're about to mix in Track B.
 2. Engage a **highpass filter on Track A** and slowly raise the cutoff — you're cleaning out the muddy low-mids (100–400 Hz) that would clash with Track B's bass.
-3. Bring in Track B as the highpass on A peaks.
-4. Release the filter on A — it sounds like A just opened up as B arrives.
+3. Bring in Track B while the highpass on A is high. A has no bass left, so B's bass takes the floor alone.
+4. Before you reopen the filter on A, cut A's **low EQ** (or keep the highpass where it is). Otherwise A's bass comes back at the same moment as B's and you get two basslines fighting. Then release the filter: A opens up with its mids and highs while B carries the low end.
 
 This is the pro version of the EQ cut technique: instead of riding the low-EQ knob, you use the filter sweep as a narrative move.
 
@@ -60,17 +60,15 @@ The key: start the highpass early (4–8 bars before the blend), sweep slowly, a
 """
 
 [[en.pages]]
-title   = "Carl Cox and the crutch problem"
+title   = "The crutch problem"
 content = """
-Carl Cox once said in an interview: *"The filter is the crutch of DJs who don't know how to mix."*
-
-He's right. And he uses it anyway — because the filter is a legitimate, powerful tool. The issue isn't the tool; it's the dependency.
+A common saying among DJs: the filter is a crutch for people who can't mix. It's unfair, because the filter is a legitimate, powerful tool. The issue isn't the tool; it's the dependency.
 
 Intermediate DJs fall into a pattern: every transition starts with a filter sweep. It's safe, it fills time, it sounds dramatic. But when **every** transition is a filter, the crowd habituates. The move stops working.
 
 Genre signatures to internalize:
 - **House**: slow lowpass sweep over 8–16 bars, opens on the 1 of the drop.
-- **Techno**: sudden highpass cut to strip everything but the kick, then a violent open.
+- **Techno**: sudden highpass cut that strips out the kick and the bass (a lowpass would keep them), then a violent open. A short, dramatic gap in the low end.
 - **Afro house / melodic tech**: heavy lowpass on acapella or lead, with resonance pumped up for a vocal formant effect.
 
 The craft is picking **when** to filter, not just **how**.
@@ -135,14 +133,14 @@ url   = "https://www.allen-heath.com/hardware/xone/xone92/"
 
 [fr]
 title      = "Le Filtre : Cutoff, Résonance & Gestes de Genre"
-short_desc = "Pente, Q, self-oscillation, et la béquille de Carl Cox."
+short_desc = "Pente, Q, self-oscillation, et la béquille du filtre."
 description = "Tu sais ce que fait un filtre. Apprends maintenant les paramètres qui sculptent son son — et les signatures de genre qui font qu'un même sweep sonne techno, pas house."
 recap = [
   "La pente (12 ou 24 dB/oct) contrôle la dureté du 'mur' de coupure : 12 dB = musical, 24 dB = techno agressif.",
   "La résonance (Q) booste une bande étroite au cutoff — un peu c'est beau, trop et le filtre se met à auto-oscilller.",
   "Self-oscillation : le filtre se met à sonner comme une sinusoïde sans source — à éviter en live sauf si intentionnel.",
   "Le passe-haut sur un break nettoie les bas-mids boueux avant de ramener le deck B.",
-  "Carl Cox : 'Le filtre c'est la béquille des DJs qui savent pas mixer.' Il l'utilise quand même — l'art c'est la retenue.",
+  "Le filtre devient une béquille quand chaque transition l'utilise — l'art, c'est la retenue.",
 ]
 
 [[fr.pages]]
@@ -183,8 +181,8 @@ Un des gestes de filtre les plus utiles se passe pendant un **break** (la sectio
 
 1. La track A joue, tu vas mixer la track B.
 2. Engage un **filtre passe-haut sur la track A** et monte lentement le cutoff — tu nettoies les bas-mids boueux (100–400 Hz) qui clasheraient avec les basses de B.
-3. Amène B pendant que le passe-haut de A est au plus haut.
-4. Relâche le filtre de A — ça sonne comme si A venait de s'ouvrir au moment où B arrive.
+3. Amène B pendant que le passe-haut de A est haut. A n'a plus de basses, donc B a le grave pour lui tout seul.
+4. Avant de rouvrir le filtre de A, coupe les **basses de A** à l'EQ (ou laisse le passe-haut où il est). Sinon les basses de A reviennent en même temps que celles de B : deux basses qui se battent. Ensuite relâche le filtre : A s'ouvre avec ses médiums et ses aigus pendant que B porte le grave.
 
 C'est la version pro de la technique de coupe EQ : au lieu de rouler le knob de graves, tu utilises le sweep comme un geste narratif.
 
@@ -192,17 +190,15 @@ La clé : commence le passe-haut tôt (4–8 mesures avant le mélange), sweep l
 """
 
 [[fr.pages]]
-title   = "Carl Cox et le problème de la béquille"
+title   = "Le problème de la béquille"
 content = """
-Carl Cox a dit un jour dans une interview : *"Le filtre c'est la béquille des DJs qui savent pas mixer."*
-
-Il a raison. Et il l'utilise quand même — parce que le filtre est un outil légitime et puissant. Le problème n'est pas l'outil ; c'est la dépendance.
+On entend souvent dire que le filtre est la béquille des DJs qui ne savent pas mixer. C'est injuste : le filtre est un outil légitime et puissant. Le problème n'est pas l'outil ; c'est la dépendance.
 
 Les DJs intermédiaires tombent dans un schéma : chaque transition commence par un sweep de filtre. C'est safe, ça remplit le temps, ça sonne dramatique. Mais quand **chaque** transition est un filtre, le public s'habitue. Le geste arrête de fonctionner.
 
 Signatures de genre à intérioriser :
 - **House** : sweep passe-bas lent sur 8–16 mesures, s'ouvre sur le 1 du drop.
-- **Techno** : coupe passe-haut soudaine pour tout retirer sauf le kick, puis ouverture violente.
+- **Techno** : coupe passe-haut soudaine qui retire le kick et la basse (un passe-bas, lui, les garde), puis ouverture violente. Un trou court et dramatique dans le grave.
 - **Afro house / melodic tech** : passe-bas prononcé sur une acapella ou un lead, avec la résonance poussée pour un effet formantique vocal.
 
 L'art c'est de choisir **quand** filtrer, pas juste **comment**.

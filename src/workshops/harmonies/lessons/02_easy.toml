@@ -10,7 +10,7 @@ recap = [
   "When you pitch a track up to match a faster one, every instrument — kick, bass, vocals — rises in pitch too.",
   "Your ear notices vocal pitch drift faster than anything else: even 3-5 % is obvious.",
   "Master Tempo (Key Lock) breaks that link: tempo changes, key stays. Use it for long blends and vocal tracks.",
-  "Short, tight transitions under 16 bars: leave Key Lock off. The drift is inaudible and the natural tension can help."
+  "Short transition with a tiny pitch correction (under about 1 %, roughly 15 cents): you can leave Key Lock off if it sounds better. Beyond that, the drift is audible."
 ]
 
 [[en.pages]]
@@ -23,7 +23,7 @@ content = "Not all instruments reveal pitch drift at the same speed. In order of
 
 [[en.pages]]
 title   = "Key Lock (Master Tempo): the solution"
-content = "Somewhere in the late 1990s, Pioneer started shipping CDJs with a feature called **Master Tempo** (some decks call it **Key Lock**). The idea: change the tempo, but digitally stretch or compress the audio so the pitch stays the same.\n\nImagine you're zooming a photo on your screen: the picture gets bigger but the shapes don't distort — that's the software compensating. Master Tempo is the audio equivalent.\n\n**Turn it ON when:**\n- The blend will last more than 30 seconds (crowd will notice drift)\n- The track has recognizable vocals\n- You want to key-match two tracks precisely for a long ride\n\n**Leave it OFF when:**\n- Short, tight transition under 16 bars (nobody hears 3 % in 8 bars)\n- You *want* the natural energy lift of the pitch going up — at peak time, pitching a track up 1-2 % naturally creates tension and excitement"
+content = "Somewhere in the late 1990s, Pioneer started shipping CDJs with a feature called **Master Tempo** (Denon, Serato and Traktor call it **Key Lock**; same idea). The idea: change the tempo, but digitally stretch or compress the audio so the pitch stays the same.\n\nImagine you're zooming a photo on your screen: the picture gets bigger but the shapes don't distort — that's the software compensating. Master Tempo is the audio equivalent.\n\n**Turn it ON when:**\n- The blend will last more than 30 seconds (crowd will notice drift)\n- The track has recognizable vocals\n- You want to key-match two tracks precisely for a long ride\n- You are pitching clearly (beyond a few %): the drift would be obvious\n\n**Leave it OFF when:**\n- Short, tight transition under 16 bars with a tiny correction (under about 1 %). Past that, even 8 bars will show it\n- You *want* the natural energy lift of the pitch going up — at peak time, pitching a track up 1-2 % naturally creates tension and excitement"
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Master Tempo button on a CDJ-2000NXS2. Usually labeled 'Key' or 'Master Tempo'."
 
@@ -63,7 +63,7 @@ recap = [
   "Quand tu pitches un morceau vers le haut pour matcher un plus rapide, chaque instrument — kick, basse, voix — monte en hauteur aussi.",
   "Ton oreille détecte la dérive vocale plus vite que tout le reste : même 3-5 % est évident.",
   "Master Tempo (Key Lock) casse ce lien : le tempo change, la clé reste. Utilise-le pour les blends longs et les morceaux vocaux.",
-  "Transitions courtes et serrées sous 16 mesures : laisse Key Lock off. La dérive est inaudible et la tension naturelle peut aider."
+  "Transition courte avec une toute petite correction de pitch (moins d'environ 1 %, soit à peu près 15 cents) : tu peux laisser Key Lock off si ça sonne mieux. Au-delà, la dérive s'entend."
 ]
 
 [[fr.pages]]
@@ -76,7 +76,7 @@ content = "Tous les instruments ne révèlent pas la dérive de pitch à la mêm
 
 [[fr.pages]]
 title   = "Key Lock (Master Tempo) : la solution"
-content = "Quelque part à la fin des années 90, Pioneer a commencé à équiper ses CDJ d'une fonction appelée **Master Tempo** (certaines tables l'appellent **Key Lock**). L'idée : change le tempo, mais étire ou compresse numériquement l'audio pour que la hauteur reste la même.\n\nImagine que tu zoomes une photo sur ton écran : l'image s'agrandit mais les formes ne se déforment pas — le logiciel compense. Master Tempo est l'équivalent audio.\n\n**Active-le quand :**\n- Le blend durera plus de 30 secondes (le public remarquera la dérive)\n- Le morceau a des voix reconnaissables\n- Tu veux matcher des clés précisément pour un long ride\n\n**Laisse-le off quand :**\n- Transition courte et serrée sous 16 mesures (personne n'entend 3 % en 8 mesures)\n- Tu *veux* le lift d'énergie naturel de la montée en pitch — en peak time, pitcher un morceau de 1-2 % crée naturellement de la tension et de l'excitation"
+content = "Quelque part à la fin des années 90, Pioneer a commencé à équiper ses CDJ d'une fonction appelée **Master Tempo** (Denon, Serato et Traktor l'appellent **Key Lock** ; même principe). L'idée : change le tempo, mais étire ou compresse numériquement l'audio pour que la hauteur reste la même.\n\nImagine que tu zoomes une photo sur ton écran : l'image s'agrandit mais les formes ne se déforment pas — le logiciel compense. Master Tempo est l'équivalent audio.\n\n**Active-le quand :**\n- Le blend durera plus de 30 secondes (le public remarquera la dérive)\n- Le morceau a des voix reconnaissables\n- Tu veux matcher des clés précisément pour un long ride\n- Tu pitches nettement (au-delà de quelques %) : la dérive serait évidente\n\n**Laisse-le off quand :**\n- Transition courte et serrée sous 16 mesures avec une toute petite correction (moins d'environ 1 %). Au-delà, même 8 mesures le montrent\n- Tu *veux* le lift d'énergie naturel de la montée en pitch — en peak time, pitcher un morceau de 1-2 % crée naturellement de la tension et de l'excitation"
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Key' ou 'Master Tempo'."
 

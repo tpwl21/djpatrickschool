@@ -10,7 +10,7 @@ title   = "Your mission: find 10 tracks nobody plays"
 content = """
 Digging is simple: you hunt for tracks that nobody else in your scene has.
 
-**Why does that matter?** Because if you play the same Beatport Top 100 as every DJ at the party, nobody notices you. But when the room asks "what is THAT?" — that's your crate talking.
+**Why does that matter?** Because if you play the same Beatport Top 100 (the store's best-seller chart) as every DJ at the party, nobody notices you. But when the room asks "what is THAT?" — that's your crate talking (your crate is your personal box of tracks, the ones you've picked to play).
 
 Here's how it works in practice:
 
@@ -18,9 +18,9 @@ Here's how it works in practice:
 2. Go to the Advanced Search.
 3. Pick a genre you like — let's say **Electronic, Style: Deep House**.
 4. Set Year range: **1995–2005**.
-5. Filter Format: **12"** (the DJ format).
+5. Filter Format: **12"** (the 12-inch vinyl record, the format made for DJs).
 6. Hit search. You'll get hundreds of results.
-7. Click a cover that looks interesting. Listen to the preview. If it makes you curious — **Wantlist it**.
+7. Click a cover that looks interesting. Listen to the preview. If it makes you curious — **Wantlist it** (the Wantlist is Discogs' bookmark list for releases you want to own; when a copy is posted for sale on the Marketplace, the site's shop where members sell records, you get notified).
 
 Do this for 20 minutes. You'll Wantlist 10 things. That's your first crate.
 """
@@ -76,11 +76,11 @@ title   = "BPM basics for digging"
 content = """
 When you're digging, you're building a collection for a specific kind of set. BPM matters — not to be exact, but to filter.
 
-**Simple rule:** if you play around 125–130 BPM, look for tracks between **120 and 135 BPM**. That gives you room to pitch things together without sounding weird.
+**Simple rule:** pick the BPM you play around (say 128) and dig within about **±6%** of it — here, **120 to 136 BPM**. That gives you room to pitch things together without sounding weird (we'll see why 6% in lesson 3).
 
 Discogs doesn't always show BPM. Here's what to do:
 - Check if the tracklist mentions BPM
-- Look at the Style tag: Techno is usually 130–145, Deep House 120–128, Funk/Soul 90–115
+- Look at the Style tag: Techno is usually 125–140, Deep House 120–128, Funk/Soul 90–115
 - When in doubt, add it to your Wantlist and check the BPM in a DJ app later
 
 **Your action:** on your Discogs Wantlist from the previous exercise, write down what genre each track is. This tells you roughly where it lives BPM-wise.
@@ -98,7 +98,7 @@ correct  = 1
 
 [[en.quiz]]
 question = "Your set is around 128 BPM. What's the safe range to dig in?"
-answers  = ["Exactly 128 BPM only", "120–135 BPM", "Any BPM — pitch fixes everything"]
+answers  = ["Exactly 128 BPM only", "120–136 BPM", "Any BPM — pitch fixes everything"]
 correct  = 1
 
 [[en.quiz]]
@@ -115,8 +115,8 @@ label = "Discogs — How to use the Wantlist"
 url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
 
 [[en.sources]]
-label = "RA — The art of digging (beginner guide)"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [fr]
 title      = "C'est quoi le digging ? — Pratique"
@@ -127,7 +127,7 @@ title   = "Ta mission : trouver 10 tracks que personne ne joue"
 content = """
 Le digging, c'est simple : tu chasses des tracks que personne d'autre dans ta scène ne possède.
 
-**Pourquoi c'est important ?** Parce que si tu joues le même Top 100 Beatport que tous les DJs de la soirée, personne ne te remarque. Mais quand la salle demande "c'est quoi ÇA ?" — c'est ton crate qui parle.
+**Pourquoi c'est important ?** Parce que si tu joues le même Top 100 Beatport (le classement des meilleures ventes du store) que tous les DJs de la soirée, personne ne te remarque. Mais quand la salle demande "c'est quoi ÇA ?" — c'est ton crate qui parle (ton crate, c'est ta caisse perso : les tracks que tu as choisies pour jouer).
 
 Voilà comment ça marche en pratique :
 
@@ -135,9 +135,9 @@ Voilà comment ça marche en pratique :
 2. Va dans la Recherche Avancée.
 3. Choisis un genre que tu aimes — disons **Electronic, Style: Deep House**.
 4. Plage d'années : **1995–2005**.
-5. Format : **12"** (le format DJ).
+5. Format : **12"** (le disque vinyle 12 pouces, le format fait pour les DJs).
 6. Lance la recherche. Tu vas avoir des centaines de résultats.
-7. Clique sur une pochette qui t'attire. Écoute le preview. Si ça t'intrigue — **Wantlist**.
+7. Clique sur une pochette qui t'attire. Écoute le preview. Si ça t'intrigue — **Wantlist** (la Wantlist, c'est la liste de favoris de Discogs pour les disques que tu veux posséder ; quand un exemplaire est mis en vente sur la Marketplace, la boutique où les membres vendent leurs disques, tu es prévenu).
 
 Fais ça 20 minutes. Tu vas Wantlister 10 trucs. C'est ton premier crate.
 """
@@ -193,11 +193,11 @@ title   = "BPM de base pour le digging"
 content = """
 Quand tu digges, tu construis une collection pour un certain type de set. Le BPM compte — pas pour être exact, mais pour filtrer.
 
-**Règle simple :** si tu joues autour de 125–130 BPM, cherche des tracks entre **120 et 135 BPM**. Ça te donne de la marge pour pitcher ensemble sans que ça sonne bizarre.
+**Règle simple :** choisis le BPM autour duquel tu joues (disons 128) et digge à environ **±6%** de lui — ici, de **120 à 136 BPM**. Ça te donne de la marge pour pitcher ensemble sans que ça sonne bizarre (on verra pourquoi 6% dans la leçon 3).
 
 Discogs n'affiche pas toujours le BPM. Voilà quoi faire :
 - Vérifie si la tracklist mentionne le BPM
-- Regarde le tag Style : Techno c'est en général 130–145, Deep House 120–128, Funk/Soul 90–115
+- Regarde le tag Style : Techno c'est en général 125–140, Deep House 120–128, Funk/Soul 90–115
 - Si tu as un doute, ajoute à ta Wantlist et vérifie le BPM dans une appli DJ plus tard
 
 **Ton action :** sur ta Wantlist Discogs de l'exercice précédent, note le genre de chaque track. Ça te dit à peu près où elle se situe en BPM.
@@ -210,12 +210,12 @@ correct  = 1
 
 [[fr.quiz]]
 question = "Tu adores une track du label 'XYZ Records'. C'est quoi ton prochain move ?"
-answers  = ["Chercher aléatoirement d'autres musiques", "Browserd tout le catalogue XYZ Records sur Discogs", "N'acheter que des tracks de cet artiste"]
+answers  = ["Chercher aléatoirement d'autres musiques", "Parcourir tout le catalogue XYZ Records sur Discogs", "N'acheter que des tracks de cet artiste"]
 correct  = 1
 
 [[fr.quiz]]
 question = "Ton set tourne autour de 128 BPM. Quel est le range safe pour digger ?"
-answers  = ["Exactement 128 BPM seulement", "120–135 BPM", "N'importe quel BPM — le pitch arrange tout"]
+answers  = ["Exactement 128 BPM seulement", "120–136 BPM", "N'importe quel BPM — le pitch arrange tout"]
 correct  = 1
 
 [[fr.quiz]]
@@ -232,5 +232,5 @@ label = "Discogs — Comment utiliser la Wantlist"
 url   = "https://support.discogs.com/hc/en-us/articles/360001668133"
 
 [[fr.sources]]
-label = "RA — L'art du digging (guide débutant)"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"

@@ -6,18 +6,18 @@ title       = "The Real Groove"
 short_desc  = "Enough with the basic kicks. Let's see how a real groove works."
 description = "No more naked kick drums! Discover how a <strong>real groove</strong> is structured. Listen for the snare on the second beat!"
 details     = "Focus: Listen for the snare landing on the 2nd beat."
-success     = "Perfect pitch! Mixing blind and you still nailed it. That's crazy impressive!"
+success     = "Locked! Those snares land together on both decks. You've got the ear!"
 coach_tips  = [
   "Okay, kicks are cool, but let's step it up to a real track. You see how the groove falls into place?",
   "Basically, you usually have a crispy snare or clap on the 2nd beat, that's your anchor!",
   "When you sync the two trains, make sure those snares hit at the exact same moment on both decks.",
-  "Try dropping them totally off-beat on purpose just to hear how bad it sounds.",
+  "Try starting the two tracks one beat apart on purpose (so the kick of one hits the snare of the other) just to hear how bad it sounds.",
   "Use 'Slow down' or 'Speed up' to fix those tiny drifts."
 ]
 recap = [
   "Real tracks usually hit a snare or clap on beat 2 — that's your audible anchor.",
   "When syncing, snares from both decks must land at the exact same instant.",
-  "Start off-beat on purpose once to really hear what a trainwreck sounds like.",
+  "Start one beat apart on purpose once to really hear what a trainwreck sounds like.",
   "Nudge keeps working: tiny Slow down / Speed up corrections absorb the small drifts."
 ]
 
@@ -26,19 +26,19 @@ title       = "Le Rythme Vrai"
 short_desc  = "Fini le kick seul. Découvre comment le rythme s'organise dans un vrai morceau."
 description = "Fini le kick drum tout seul ! Découvre comment le rythme s'organise dans un <strong>vrai morceau</strong>. Repère la caisse claire (Snare) sur le deuxième temps !"
 details     = "Focus : Écoute de la Snare sur le 2ème temps."
-success     = "L'oreille absolue ! Même sans voir le BPM, tu as trouvé le réglage parfait. Impressionnant !"
+success     = "Calé ! Les snares tombent ensemble sur les deux decks. Tu as l'oreille !"
 coach_tips  = [
   "Bon c'est bien gentil le kick drum, mais cette fois on passe à un vrai morceau, tu comprends comment le rythme s'organise ?",
   "En gros tu as très souvent un élément distinctif sur le deuxième temps de ta mesure, c'est ton repère !",
   "Quand tu alignes les deux trains tu veux que les deux éléments tombent en même temps pour chaque train",
-  "Essaye de lancer les deux morceaux mais \"à l'envers\" pour te rendre compte",
-  "Utilise 'Reculer' ou 'Avancer' pour corriger les petits décalages."
+  "Essaye de lancer les deux morceaux décalés d'un temps exprès (le kick de l'un tombe sur la snare de l'autre) pour te rendre compte de ce que ça donne",
+  "Utilise 'Ralentir' ou 'Accélérer' pour corriger les petits décalages."
 ]
 recap = [
   "Les vrais morceaux ont souvent un snare ou clap sur le 2ème temps — c'est ton repère sonore.",
   "Pour synchroniser, les snares des deux platines doivent tomber au même instant.",
-  "Essaye une fois de lancer à l'envers pour entendre ce qu'est un trainwreck.",
-  "Le nudge reste utile : petites poussées Avancer/Reculer pour absorber la dérive."
+  "Essaye une fois de lancer décalé d'un temps pour entendre ce qu'est un trainwreck.",
+  "Le nudge reste utile : petites poussées Ralentir/Accélérer pour absorber la dérive."
 ]
 
 [track.A]

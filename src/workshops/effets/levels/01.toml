@@ -5,17 +5,17 @@ order = 1
 title       = "Filter Out / Filter In"
 short_desc  = "The filter transition. Close A, bring in B, open A, let go."
 description = "The most-used FX transition in the world. Learn the lowpass + bring-in + return."
-details     = "Focus: smooth filter sweeps, no jumps."
-success     = "Clean filter sweep! You just did what 95% of club DJs do every transition."
+details     = "Focus: smooth filter sweeps, no jumps. Booth reflex: a lowpass keeps A's bass, so when B's bass comes in you hear two basslines. On a real mixer, cut A's low EQ (or only let one bassline play) before B's bass arrives. The EQ is off in this practice, so just notice the clash."
+success     = "Clean filter sweep! Smooth, with no jumps."
 coach_tips  = [
   "Phrase 3: slowly turn Deck A's FILTER knob to the LEFT (lowpass). Lose the highs.",
-  "Phrase 4: B drops in. Bring up B's volume. Keep A filtered.",
-  "Phrase 5: open A's filter back to center. Both tracks breathe.",
+  "Phrase 4: B drops in. Bring up B's volume. Keep A filtered. Careful: the lowpass keeps A's bass, so two basses play together. In the booth, cut A's low EQ first.",
+  "Phrase 5: open A's filter back to center. Both tracks breathe. In the booth, only do this once A's bass is out of the way, or you get two basses again.",
   "Phrase 6: fade A out."
 ]
 recap = [
   "The lowpass filter sweep is the most common FX move in club DJing.",
-  "Four-step dance: close A's filter → bring in B → reopen A → fade A out.",
+  "Four-step dance: close A's filter → bring in B → reopen A → fade A out. A lowpass keeps the bass: cut A's low EQ (or keep one bassline) when B's bass comes in.",
   "Filter movement creates tension and release without touching the EQ.",
   "Smooth knob turns only — any sudden jump breaks the illusion."
 ]
@@ -24,17 +24,17 @@ recap = [
 title       = "Filter Out / Filter In"
 short_desc  = "La transition au filtre. On ferme A, on rentre B, on réouvre A, on lâche."
 description = "La transition FX la plus utilisée au monde. Apprends le passe-bas + intro B + retour."
-details     = "Focus : des sweeps propres, pas de saut."
-success     = "Filtre propre ! Tu viens de faire ce que 95% des DJs de club font à chaque transition."
+details     = "Focus : des sweeps propres, pas de saut. Réflexe de cabine : un passe-bas garde les basses de A, donc quand les basses de B arrivent tu entends deux basses. Sur une vraie table, coupe les basses de A à l'EQ (ou ne laisse jouer qu'une seule basse) avant l'arrivée de B. L'EQ est désactivé dans cet exercice : écoute simplement le conflit."
+success     = "Filtre propre ! Fluide, sans saut."
 coach_tips  = [
   "Phrase 3 : tourne doucement le FILTER du Deck A vers la GAUCHE (passe-bas). Les aigus disparaissent.",
-  "Phrase 4 : B arrive. Monte le volume de B. Garde A filtrée.",
-  "Phrase 5 : ouvre le filtre de A au centre. Les deux tracks respirent.",
+  "Phrase 4 : B arrive. Monte le volume de B. Garde A filtrée. Attention : le passe-bas garde les basses de A, donc deux basses jouent ensemble. En cabine, coupe d'abord les basses de A à l'EQ.",
+  "Phrase 5 : ouvre le filtre de A au centre. Les deux tracks respirent. En cabine, ne le fais que quand les basses de A sont déjà écartées, sinon tu retrouves deux basses.",
   "Phrase 6 : fade A."
 ]
 recap = [
   "Le sweep au filtre passe-bas est le move FX le plus utilisé en club.",
-  "Chorégraphie en 4 temps : fermer le filtre A → faire entrer B → rouvrir A → fade A.",
+  "Chorégraphie en 4 temps : fermer le filtre A → faire entrer B → rouvrir A → fade A. Un passe-bas garde la basse : coupe les basses de A à l'EQ (ou garde une seule basse) quand celles de B arrivent.",
   "Le mouvement du filtre crée tension et relâche sans toucher l'EQ.",
   "Mouvements doux uniquement — le moindre saut casse l'illusion."
 ]

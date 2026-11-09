@@ -16,16 +16,24 @@ recap = [
 [[en.pages]]
 title   = "What reverb is (really)"
 content = "Reverb simulates a space — how a sound bounces off surfaces before reaching your ear. Short reverb = small room, long reverb = cathedral. In DJ gear, it's usually a send: the track continues dry while a wet copy gets processed in parallel. When you bring up 'wet', you hear the room around the sound. Mathematically it's a convolution with an impulse response — the 'shape' of the space being simulated."
-medium_addendum = "Three knobs you'll always meet: **pre-delay** (the gap before the reverb starts — 20–80 ms gives separation between source and tail, without it vocals drown), **decay time** (how long the tail lasts, measured in seconds — 0.5 s = intimate, 4 s+ = gothic), and **high cut / damping** (rolls off the top of the wet signal to avoid muddy cymbals stacking). On a dense kick track, dial the high cut down around 4–5 kHz and the pre-delay up to 40 ms — the tail sits behind the music instead of smearing it."
-pro_deep_dive = "Two families of reverb DSP. **Algorithmic reverbs** synthesize a space from building blocks. The **Schroeder** (1962) design uses parallel comb filters (short recirculating delays creating echo density) feeding cascaded all-pass filters (frequency-flat but phase-scrambling diffusion). **Moorer** (1979) added early-reflection delays before the Schroeder tail for realism. Modern Lexicon-style designs use a **Feedback Delay Network (FDN)** — N delay lines cross-coupled through an orthogonal matrix (often a Hadamard matrix) that preserves energy while maximizing echo density. **Convolution reverb** bypasses synthesis entirely: measure the impulse response of a real room (starter pistol in Notre-Dame), convolve the input with it — mathematically perfect but can't modulate parameters in real time without tricks. Reverberation time **RT60** (time for the signal to decay 60 dB) predicts from room volume V and absorption area A via the **Sabine formula** RT60 ≈ 0.161·V/A — Eyring's formula corrects it for very absorbent rooms."
+
+[[en.pages]]
+title   = "The three knobs that matter"
+content = """
+Three knobs you'll always meet: **pre-delay** (the gap before the reverb starts — 20–80 ms gives separation between source and tail, without it vocals drown), **decay time** (how long the tail lasts, measured in seconds — 0.5 s = intimate, 4 s+ = gothic), and **high cut / damping** (rolls off the top of the wet signal to avoid muddy cymbals stacking). On a dense kick track, dial the high cut down around 4–5 kHz and the pre-delay up to 40 ms — the tail sits behind the music instead of smearing it.
+"""
 
 [[en.pages]]
 title   = "Where reverb works and where it kills the mix"
 content = "Reverb works on breaks, vocal acapellas, and sparse moments. It creates size. It does NOT work on a full dense kick-heavy track — the low end smears, the mix gets muddy, the rhythmic edges blur. This is why you barely hear reverb in club mixes. DJs use it as a garnish on a specific bar, not as a wash across a set. Rule of thumb: if the track you're treating already has a lot of low-frequency content, a touch of reverb pushes it into mud."
 
 [[en.pages]]
-title   = "The Boiler Room effect"
-content = "Since 2015 there's been a wave of DJs drowning everything in reverb, especially with the rise of the Keinemusik / Afro House / melodic-tech scene. The joke is: 'If it's reverb-heavy, it's Keinemusik.' The technique is easy to copy but rarely well. Real craft: use reverb to punctuate a moment — a drop, a breakdown, a single word of an acapella — then kill it. A two-bar tail followed by dry impact hits harder than two minutes of wash."
+title   = "Reverb as punctuation"
+content = """
+A lot of DJs drown everything in reverb because it sounds big on a first listen. It is easy to copy and rarely done well. Real craft: use reverb to punctuate a moment (a drop, a breakdown, a single word of an acapella) and then kill it. A two-bar tail followed by a dry impact hits harder than two minutes of wash.
+
+Habit: set the wet amount while the sound is sparse, and pull it back before the kick returns. If you hear the reverb tail still smearing the first kick, you waited one bar too long.
+"""
 
 [fr]
 title       = "Reverb : Tail vs Send"
@@ -42,16 +50,24 @@ recap = [
 [[fr.pages]]
 title   = "Ce qu'est vraiment une reverb"
 content = "La reverb simule un espace — comment un son rebondit sur les surfaces avant d'atteindre l'oreille. Reverb courte = petite pièce, reverb longue = cathédrale. En matos DJ, c'est presque toujours un send : la track continue dry pendant qu'une copie wet est traitée en parallèle. Quand tu montes le 'wet', tu entends la pièce autour du son. Mathématiquement c'est une convolution avec une impulse response — la 'forme' de l'espace simulé."
-medium_addendum = "Trois knobs que tu croiseras toujours : **pre-delay** (le silence avant que la reverb commence — 20–80 ms pour séparer source et queue, sans ça les voix se noient), **decay time** (la durée de la queue, en secondes — 0,5 s = intime, 4 s+ = gothique), et **high cut / damping** (coupe les aigus du signal wet pour éviter l'empilement de cymbales boueuses). Sur une track dense à kick, règle le high cut autour de 4–5 kHz et le pre-delay vers 40 ms — la queue s'assoit derrière la musique au lieu de baver dessus."
-pro_deep_dive = "Deux familles de reverb DSP. Les **reverbs algorithmiques** synthétisent un espace à partir de briques. Le design **Schroeder** (1962) utilise des filtres en peigne en parallèle (courts délais récirculants qui créent la densité d'échos) alimentant des all-pass en cascade (à réponse plate mais qui éclatent la phase pour diffuser). **Moorer** (1979) a ajouté des early reflections en amont du tail Schroeder pour plus de réalisme. Les designs modernes style Lexicon reposent sur un **Feedback Delay Network (FDN)** — N lignes à délai couplées par une matrice orthogonale (souvent Hadamard) qui préserve l'énergie en maximisant la densité d'échos. La **convolution reverb** zappe la synthèse : on mesure la réponse impulsionnelle d'une vraie pièce (coup de pistolet dans Notre-Dame), on convolue l'entrée avec — mathématiquement parfait mais impossible de moduler les paramètres en temps réel sans astuces. Le temps de réverbération **RT60** (temps pour que le signal chute de 60 dB) se prédit depuis le volume V et l'aire d'absorption A via la **formule de Sabine** RT60 ≈ 0,161·V/A — la formule d'Eyring la corrige pour les pièces très absorbantes."
+
+[[fr.pages]]
+title   = "Les trois réglages qui comptent"
+content = """
+Trois knobs que tu croiseras toujours : **pre-delay** (le silence avant que la reverb commence — 20–80 ms pour séparer source et queue, sans ça les voix se noient), **decay time** (la durée de la queue, en secondes — 0,5 s = intime, 4 s+ = gothique), et **high cut / damping** (coupe les aigus du signal wet pour éviter l'empilement de cymbales boueuses). Sur une track dense à kick, règle le high cut autour de 4–5 kHz et le pre-delay vers 40 ms — la queue s'assoit derrière la musique au lieu de baver dessus.
+"""
 
 [[fr.pages]]
 title   = "Où la reverb marche, où elle tue le mix"
 content = "La reverb marche sur les breaks, les acapellas, les moments aérés. Elle crée de la taille. Elle NE marche PAS sur une track dense avec du kick massif — les basses smear, le mix devient bouillie, les bords rythmiques se floutent. C'est pour ça qu'on entend si peu de reverb en club. Les DJs s'en servent comme garniture sur une mesure précise, pas comme nappe sur un set entier. Règle de pouce : si la track traitée a déjà beaucoup de basses, un peu de reverb et ça part en boue."
 
 [[fr.pages]]
-title   = "L'effet Boiler Room"
-content = "Depuis 2015 il y a une vague de DJs qui noient tout dans la reverb, surtout avec la scène Keinemusik / Afro House / melodic-tech. La blague : 'Si c'est reverb à mort, c'est Keinemusik.' La technique est facile à copier mais rarement bien faite. Le vrai travail : la reverb comme ponctuation sur un moment précis — un drop, un breakdown, un mot d'acapella — puis tu la coupes. Une queue de deux mesures suivie d'un impact dry tape plus fort que deux minutes de nappe."
+title   = "La reverb comme ponctuation"
+content = """
+Beaucoup de DJs noient tout dans la reverb parce que ça sonne grand à la première écoute. C'est facile à copier et rarement bien fait. Le vrai travail : la reverb comme ponctuation sur un moment précis (un drop, un breakdown, un mot d'acapella), puis tu la coupes. Une queue de deux mesures suivie d'un impact dry tape plus fort que deux minutes de nappe.
+
+Réflexe : règle le wet pendant que le son est aéré, et retire-le avant que le kick revienne. Si tu entends encore la queue baver sur le premier kick, tu as attendu une mesure de trop.
+"""
 
 [[quiz]]
 correct = 2
@@ -70,6 +86,15 @@ answers  = ["A punctuation — short bursts on specific moments", "A constant wa
 [quiz.fr]
 question = "La reverb s'utilise de préférence comme..."
 answers  = ["Une ponctuation — des bouffées courtes sur des moments précis", "Une nappe constante sur tout le set", "Un remplaçant du delay"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What does a pre-delay of about 40 ms do on a reverb?"
+answers  = ["It makes the tail longer", "It separates the dry sound from the tail so the source stays clear", "It lowers the volume of the wet signal"]
+[quiz.fr]
+question = "À quoi sert un pre-delay d'environ 40 ms sur une reverb ?"
+answers  = ["Il allonge la queue", "Il sépare le son dry de la queue, pour que la source reste nette", "Il baisse le volume du signal wet"]
 
 [[sources]]
 label = "Schroeder reverberator (Wikipedia)"

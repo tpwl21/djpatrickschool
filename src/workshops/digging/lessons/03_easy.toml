@@ -3,7 +3,7 @@ order = 3
 
 [en]
 title      = "BPM — The Speed of Your Music"
-short_desc = "One number, one big rule: stay within 10% and you're safe."
+short_desc = "One number, one big rule: stay within about 6% and you're safe."
 
 [[en.pages]]
 title   = "What BPM means in practice"
@@ -17,7 +17,7 @@ A few reference points to get your ears calibrated:
 - **130–140 BPM** — techno, trance. Running.
 - **170–175 BPM** — drum & bass. Full sprint.
 
-**The one rule to remember:** when you mix two tracks together, they should be close in BPM. More than 10% apart and things start sounding wrong — kicks drift, rhythms fight each other.
+**The one rule to remember:** when you mix two tracks together, they should be close in BPM. More than about 6% apart and you have to pitch too far — things start sounding wrong, kicks drift, rhythms fight each other.
 
 - 128 + 135 BPM = 5.5% apart. Workable.
 - 128 + 145 BPM = 13% apart. You'll hear it. Avoid.
@@ -34,7 +34,7 @@ DJ software lets you **pitch** a track — speed it up or slow it down. But ther
 - Stretch it too far (±10%) — it sounds broken.
 
 **The practical rule:**
-If a track is within ±6% of your target BPM, you can pitch it to match without anyone noticing.
+If a track is within ±6% of your target BPM, you can pitch it to match. The closer, the more invisible: around ±3% nobody hears a thing.
 
 For a 128 BPM set:
 - **Safe range to dig in:** 120–136 BPM
@@ -48,11 +48,11 @@ title   = "Half-time — the secret bridge"
 content = """
 Here's a trick the best DJs use: **half-time and double-time**.
 
-A track at **140 BPM** and a track at **70 BPM** — that seems too far apart, right? Actually they share the same pulse. The 140 BPM track has a kick on every beat. The 70 BPM track has a kick on every other beat. To your ear, it's the same heartbeat, just one breathes twice as fast.
+A track at **140 BPM** and a track at **70 BPM** — that seems too far apart, right? Actually they share the same pulse. Each beat of the 70 BPM track lands exactly on every other beat of the 140 BPM one. To your ear, it's the same heartbeat, just one breathes twice as fast.
 
 DJs use this to jump between genres that seem incompatible:
-- DnB (174 BPM) ↔ broken-beat (87 BPM) — same pulse, different density
-- Techno (130 BPM) ↔ dub (65 BPM) — same pulse, totally different vibe
+- Drum & bass (174 BPM) ↔ a slow hip-hop or downtempo track (87 BPM) — same pulse, different density
+- Techno (130 BPM) ↔ a slow dub track (65 BPM) — same pulse, totally different vibe
 
 **Practical tip:** if you love a track but it seems way off BPM from your set, check if it's exactly double or half your target. If yes — it might work as a genre-bridge transition.
 """
@@ -82,7 +82,7 @@ url   = "https://rekordbox.com/en/plan/free/"
 
 [fr]
 title      = "BPM — La vitesse de ta musique"
-short_desc = "Un seul chiffre, une seule règle : reste dans ±10% et tu es safe."
+short_desc = "Un seul chiffre, une seule règle : reste dans environ ±6% et tu es safe."
 
 [[fr.pages]]
 title   = "Ce que veut dire le BPM en pratique"
@@ -96,7 +96,7 @@ Quelques repères pour calibrer tes oreilles :
 - **130–140 BPM** — techno, trance. Course.
 - **170–175 BPM** — drum & bass. Sprint complet.
 
-**La règle à retenir :** quand tu mixtes deux tracks, elles doivent être proches en BPM. Au-delà de 10% d'écart, ça sonne faux — les kicks dérivent, les rythmes se battent.
+**La règle à retenir :** quand tu mixtes deux tracks, elles doivent être proches en BPM. Au-delà d'environ 6% d'écart, il faut pitcher trop loin — ça sonne faux, les kicks dérivent, les rythmes se battent.
 
 - 128 + 135 BPM = 5.5% d'écart. Gérable.
 - 128 + 145 BPM = 13% d'écart. Ça s'entend. À éviter.
@@ -113,7 +113,7 @@ Le logiciel DJ te permet de **pitcher** une track — l'accélérer ou la ralent
 - On l'étire trop (±10%) — ça sonne cassé.
 
 **La règle pratique :**
-Si une track est dans ±6% de ton BPM cible, tu peux la pitcher pour la faire matcher sans que personne entende la différence.
+Si une track est dans ±6% de ton BPM cible, tu peux la pitcher pour la faire matcher. Plus elle est proche, moins ça s'entend : vers ±3%, personne n'entend rien.
 
 Pour un set à 128 BPM :
 - **Range safe pour digger :** 120–136 BPM
@@ -127,11 +127,11 @@ title   = "Le half-time — le pont secret"
 content = """
 Voilà une astuce que les meilleurs DJs utilisent : le **half-time et le double-time**.
 
-Une track à **140 BPM** et une track à **70 BPM** — ça semble trop éloigné, non ? En fait elles partagent la même pulsation. La track à 140 BPM a un kick sur chaque beat. Celle à 70 BPM a un kick sur un beat sur deux. Pour ton oreille, c'est le même rythme cardiaque — l'une respire juste deux fois plus vite.
+Une track à **140 BPM** et une track à **70 BPM** — ça semble trop éloigné, non ? En fait elles partagent la même pulsation. Chaque temps de la track à 70 BPM tombe pile sur un temps sur deux de celle à 140 BPM. Pour ton oreille, c'est le même rythme cardiaque — l'une respire juste deux fois plus vite.
 
 Les DJs utilisent ça pour sauter entre des genres qui semblent incompatibles :
-- DnB (174 BPM) ↔ broken-beat (87 BPM) — même pulsation, densité différente
-- Techno (130 BPM) ↔ dub (65 BPM) — même pulsation, vibe totalement différente
+- Drum & bass (174 BPM) ↔ un hip-hop lent ou une track downtempo (87 BPM) — même pulsation, densité différente
+- Techno (130 BPM) ↔ un dub lent (65 BPM) — même pulsation, vibe totalement différente
 
 **Astuce pratique :** si tu adores une track mais qu'elle semble trop éloignée en BPM de ton set, vérifie si elle est exactement au double ou à la moitié de ta cible. Si oui — elle pourrait fonctionner comme pont entre genres.
 """

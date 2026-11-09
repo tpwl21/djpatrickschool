@@ -2,215 +2,215 @@ id = "LESSON_RTC_3_EASY"
 order = 3
 
 [en]
-title      = "Don't Play Your Best Track Too Early — Easy"
-short_desc = "The #1 mistake that kills a DJ's rebooking chances."
-description = "Every new DJ does it once: plays their strongest track in the first 20 minutes, then spends the next 90 minutes descending. Here's how to stop."
+title      = "Don't Play Your Best Track Too Early"
+short_desc = "A classic beginner mistake — and a simple way to avoid it."
+description = "Many new DJs do it once: they play their strongest track in the first 20 minutes, then spend the rest of the set coming down. Here's how to avoid it."
 recap = [
-  "Playing your best track early **feels** like proving yourself — it actually kills your arc.",
-  "Promoters judge whether the floor **filled or emptied** during your set. That's it.",
-  "Rule: your top 3 tracks stay in a separate folder labelled *not before minute 60*.",
-  "The urge to 'play it now' is nervous energy — learn to recognize it and wait.",
-  "**Try this:** write your 'peak unlock time' on a post-it before every set.",
+  "Playing your best track early **feels** like proving yourself — it often flattens the rest of your set.",
+  "Organisers often judge one simple thing: did the floor **fill up or empty out** during your set?",
+  "Rule of thumb: keep your 3 best tracks for the second half of your slot (roughly after 60% of the time).",
+  "The urge to 'play it now' is mostly nerves — learn to recognise it and wait.",
+  "**Try this:** write the clock time when you may unlock your best tracks on a sticky note before each practice set.",
 ]
 
 [[en.pages]]
 title   = "The trap every new DJ falls into"
 content = """
-You've been waiting to play this track for weeks. You get in the booth, the room is half-empty, you're nervous and want to prove yourself.
+You've been waiting to play this track for weeks. You get in the booth, the room is half-empty, you're nervous and you want to prove yourself.
 
 So you play it. **Right now.**
 
 The room reacts. People cheer. It feels amazing.
 
-But then what? You just gave the crowd their peak moment at minute 20. The next 90 minutes need to top that — and they can't. Every track after sounds like a letdown. People drift to the bar.
+But then what? You just gave the crowd their big moment at minute 20. The next 90 minutes have to top that — and they can't. Every track after it can sound like a letdown. People drift away from the floor.
 
-You didn't wreck their night. **You wrecked your own trajectory inside it.**
+You didn't wreck their night. **You wrecked your own build-up inside it.**
 
-**Try this at your next home session:** deliberately hold back your 3 favorite tracks until the last 30 minutes of a 60-minute practice mix. Notice how they hit differently when the build was real.
+**Try this at home:** deliberately hold back your 3 favourite tracks until the last 30 minutes of a 60-minute practice mix. Notice how differently they hit when the build was real.
 """
 
 [[en.pages]]
-title   = "The 60% rule"
+title   = "The 60% landmark"
 content = """
-Here's the simplest rule that will change your sets:
+Here's a simple landmark that can change your sets:
 
-**None of your top 3 tracks in the first 60% of your slot.**
+**Keep your top 3 tracks for after roughly 60% of your slot.**
 
 Do the math:
-- 1-hour slot → your big tracks unlock at minute **36**
-- 90-minute slot → unlock at minute **54**
-- 2-hour slot → unlock at minute **72**
+- 1-hour slot → unlock around minute **36**
+- 90-minute slot → around minute **54**
+- 2-hour slot → around minute **72**
 
-Why 60%? Because a peak needs a runway. The crowd needs time to warm up, lock in, and start wanting the big moment. If you give it to them unearned, it lands flat. If you make them wait, it lands like a wall.
+Why? Because a peak needs a runway. The crowd needs time to warm up, lock in, and start wanting the big moment. If you hand it over unearned, it lands flat. If you make them wait, it hits hard.
 
-**Try this before your next gig:** write your slot start time and your "unlock time" on a post-it and stick it on your laptop. Reference it if you feel the urge to play something early.
+It's a landmark, not a law: if the room is clearly ready earlier, you can move it earlier. What you want to avoid is doing it out of nerves.
+
+**Try this:** before a practice set, write your start time and your "unlock time" on a sticky note. Look at it when you feel the urge to play something big early.
 """
 
 [[en.pages]]
-title   = "What the promoter actually sees"
+title   = "What the organiser tends to look at"
 content = """
-Promoters aren't listening for your best mix. They're watching one thing:
+Organisers usually aren't analysing your transitions. Often they watch one simple thing:
 
-**Did the floor fill or empty during your set?**
+**Did the floor fill up or empty out during your set?**
 
-They stand at the back of the room and track the crowd density. Their internal notes basically come down to: *filled / held / emptied*. That's their rebooking decision.
+From the back of the room, that's easy to see — and it's a big part of whether they ask you back.
 
-If you played your best track at minute 20 and the floor peaked at 25 but emptied by 60, they saw a set that peaked at 25 and declined for 35 minutes. **They won't call back.**
+If your best track came at minute 20 and the floor was emptying for the next half hour, the story they see is "it peaked early and declined". If the floor slowly filled, peaked near the end of your slot and you handed over with energy still up, that's a much better story.
 
-If the floor slowly filled, peaked near the end of your slot, and handed off high to the next DJ? **Rebook.** That's it.
-
-**Try this:** next time you go to a club as a listener, stand at the back and watch the floor density for 30 minutes. Watch it like a promoter would. Notice when it fills and empties.
+**Try this:** next time you go out as a listener (or watch a live set video), watch the floor density for 30 minutes. Notice when it fills and when it empties.
 """
 
 [[en.pages]]
-title   = "One practical trick: the locked folder"
+title   = "One practical trick: the labelled folder"
 content = """
-Willpower alone won't stop you. You need an environment trick.
+Willpower alone often isn't enough. Use your environment.
 
-**Create a folder on your USB drive called "ONLY AFTER [TIME]"** — write the actual clock time, not a rule. If your slot starts at 22:00 and lasts 2 hours, write *ONLY AFTER 23:12* (that's 60% of 120 minutes).
+**Create a folder or playlist in your DJ software called "ONLY AFTER [TIME]"** — write an actual clock time, not a rule. If your slot starts at 22:00 and lasts 2 hours, write *ONLY AFTER 23:12* (that's 60% of 120 minutes).
 
-Put your top 3 tracks in that folder.
+Put your top 3 tracks in it.
 
-When your hand reaches for it before the target time, the label itself will make you pause. This works because it creates a tiny friction at the decision point — and that friction is enough to interrupt the nervous-system impulse.
+When your hand reaches for it too early, the label makes you pause. That small friction at the moment of decision is often enough to stop the impulse.
 
-**Try this tonight:** create that folder on your DJ software right now, before the urge is real. The habit forms when there's no pressure.
+**Try this now:** create that folder in your software, before the urge is real. Habits form best when there's no pressure.
 """
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "Playing your best track at minute 20 of a 2-hour set causes..."
-answers  = ["A great night all the way through", "The crowd to remember you forever", "90 minutes of decline — the crowd has nowhere to go but down"]
+question = "Playing your best track at minute 20 of a 2-hour set often causes..."
+answers  = ["A great night all the way through", "The crowd to remember you forever", "A long stretch where nothing can top it — the energy has nowhere to go but down"]
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "The 60% rule means your top tracks unlock at minute ___ of a 90-minute set."
+question = "With the 60% landmark, your best tracks unlock around minute ___ of a 90-minute set."
 answers  = ["30", "54", "72"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "What do promoters actually judge a DJ on?"
-answers  = ["Whether the floor filled or emptied during the set", "The technical quality of the mixes", "How many people recognized the tracks"]
+question = "What do organisers often look at to judge a DJ?"
+answers  = ["Whether the floor filled up or emptied out during the set", "Only how clean the mixes are", "How many people recognised the tracks"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "The practical environment trick for holding back top tracks is..."
-answers  = ["Memorizing a rule", "Asking a friend to stop you", "A USB folder labelled with the actual unlock time"]
+question = "A good trick for holding back your best tracks is..."
+answers  = ["Memorise a rule", "Ask a friend to stop you", "A labelled folder with the actual unlock time"]
 
 [[sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
 
 [[sources]]
 label = "Peak-end rule (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
 
 [fr]
-title      = "Ne joue pas ta meilleure track trop tôt — Easy"
-short_desc = "L'erreur n°1 qui tue les chances de rebook d'un DJ."
-description = "Tout nouveau DJ le fait une fois : joue sa track la plus forte dans les 20 premières minutes, puis passe les 90 minutes suivantes à descendre. Voilà comment arrêter."
+title      = "Ne joue pas ta meilleure track trop tôt"
+short_desc = "Une erreur classique de débutant, et une façon simple de l'éviter."
+description = "Beaucoup de DJs débutants le font une fois : ils jouent leur track la plus forte dans les 20 premières minutes, puis passent le reste du set à redescendre. Voici comment l'éviter."
 recap = [
-  "Jouer ta meilleure track tôt **ressemble** à une preuve de soi — ça tue en fait ton arc.",
-  "Les promoteurs jugent si la piste s'est **remplie ou vidée** pendant ton set. C'est tout.",
-  "Règle : tes 3 meilleures tracks restent dans un dossier séparé *pas avant la 60ème minute*.",
-  "L'envie de 'la jouer maintenant' est de l'énergie nerveuse — apprends à la reconnaître et attends.",
-  "**Try this :** écris ton 'heure de déverrouillage peak' sur un post-it avant chaque set.",
+  "Jouer ta meilleure track tôt **donne l'impression** de faire ses preuves : ça aplatit souvent la suite du set.",
+  "Les organisateurs jugent souvent une chose simple : la piste s'est-elle **remplie ou vidée** pendant ton set ?",
+  "Repère : garde tes 3 meilleures tracks pour la seconde moitié de ton créneau (à peu près après 60 % du temps).",
+  "L'envie de « la jouer maintenant » vient surtout du stress : apprends à la reconnaître et attends.",
+  "**À toi de jouer :** avant chaque set d'entraînement, note sur un post-it l'heure à partir de laquelle tu as le droit de sortir tes meilleures tracks.",
 ]
 
 [[fr.pages]]
 title   = "Le piège où tombe tout nouveau DJ"
 content = """
-Tu attends de jouer cette track depuis des semaines. Tu arrives au booth, la salle est à moitié vide, tu es nerveux et tu veux prouver.
+Tu attends de jouer cette track depuis des semaines. Tu arrives en cabine, la salle est à moitié vide, tu es stressé et tu veux faire tes preuves.
 
 Alors tu la joues. **Maintenant.**
 
-La salle réagit. Les gens crient. C'est extraordinaire.
+La salle réagit. Les gens crient. C'est génial.
 
-Mais ensuite ? Tu viens de donner à la foule son moment peak à la 20ème minute. Les 90 minutes suivantes doivent dépasser ça — et elles ne peuvent pas. Chaque track d'après sonne comme une déception. Les gens dérivent vers le bar.
+Et après ? Tu viens de donner à la foule son grand moment à la 20ᵉ minute. Les 90 minutes suivantes doivent faire mieux, et elles ne peuvent pas. Chaque track d'après peut sonner comme une déception. Les gens quittent la piste.
 
-Tu n'as pas raté leur soirée. **Tu as raté ta trajectoire dedans.**
+Tu n'as pas gâché leur soirée. **Tu as gâché ta propre montée dedans.**
 
-**Try this à ta prochaine session chez toi :** retiens délibérément tes 3 tracks favorites jusqu'aux 30 dernières minutes d'un mix de pratique de 60 minutes. Remarque à quel point elles tapent différemment quand le build était réel.
+**À toi de jouer, chez toi :** retiens volontairement tes 3 tracks préférées jusqu'aux 30 dernières minutes d'un mix d'entraînement de 60 minutes. Remarque comme elles tapent différemment quand la montée est réelle.
 """
 
 [[fr.pages]]
-title   = "La règle des 60%"
+title   = "Le repère des 60 %"
 content = """
-Voici la règle la plus simple qui va changer tes sets :
+Voici un repère simple qui peut changer tes sets :
 
-**Aucune de tes 3 meilleures tracks dans les premiers 60% de ton slot.**
+**Garde tes 3 meilleures tracks pour après environ 60 % de ton créneau.**
 
 Fais le calcul :
-- Slot d'1h → tes grosses tracks se déverrouillent à la minute **36**
-- Slot de 90 min → déverrouillage à la minute **54**
-- Slot de 2h → déverrouillage à la minute **72**
+- Créneau d'1 h : débloque vers la minute **36**
+- Créneau de 90 min : vers la minute **54**
+- Créneau de 2 h : vers la minute **72**
 
-Pourquoi 60% ? Parce qu'un peak a besoin d'une piste d'envol. La foule a besoin de temps pour se chauffer, s'accrocher, et commencer à vouloir le grand moment. Si tu le donnes sans l'avoir mérité, ça atterrit à plat. Si tu les fais attendre, ça tape comme un mur.
+Pourquoi ? Parce qu'un peak a besoin d'une piste d'élan. La foule doit avoir le temps de se chauffer, de s'accrocher et d'avoir envie du grand moment. Si tu le donnes sans l'avoir mérité, il retombe à plat. Si tu les fais attendre, il tape fort.
 
-**Try this avant ton prochain gig :** écris l'heure de début de ton slot et ton "heure de déverrouillage" sur un post-it et colle-le sur ton laptop. Consulte-le si tu sens l'envie de jouer quelque chose tôt.
+C'est un repère, pas une loi : si la salle est clairement prête plus tôt, tu peux avancer l'heure. Ce qu'il faut éviter, c'est de le faire par stress.
+
+**À toi de jouer :** avant un set d'entraînement, note ton heure de début et ton « heure de déblocage » sur un post-it. Regarde-le quand tu as envie de sortir un gros morceau trop tôt.
 """
 
 [[fr.pages]]
-title   = "Ce que le promoteur voit vraiment"
+title   = "Ce que regarde souvent l'organisateur"
 content = """
-Les promoteurs n'écoutent pas tes meilleurs mix. Ils regardent une chose :
+En général, les organisateurs n'analysent pas tes transitions. Souvent, ils regardent une chose simple :
 
 **La piste s'est-elle remplie ou vidée pendant ton set ?**
 
-Ils se tiennent au fond de la salle et suivent la densité de la foule. Leurs notes internes se résument essentiellement à : *rempli / tenu / vidé*. C'est leur décision de rebook.
+Depuis le fond de la salle, c'est facile à voir, et ça compte beaucoup pour savoir s'ils te rappelleront.
 
-Si tu as joué ta meilleure track à la 20ème minute et que la piste a peaké à 25 mais s'est vidée à 60, ils ont vu un set qui a peaké à 25 et décliné pendant 35 minutes. **Ils ne rappelleront pas.**
+Si ta meilleure track est tombée à la minute 20 et que la piste s'est vidée pendant la demi-heure suivante, l'histoire qu'ils voient est « ça a culminé tôt, puis ça a décliné ». Si la piste s'est remplie peu à peu, a culminé vers la fin de ton créneau et que tu as passé la main avec l'énergie encore haute, c'est une bien meilleure histoire.
 
-Si la piste s'est progressivement remplie, a peaké vers la fin de ton slot, et a passé la main haut au DJ suivant ? **Rebook.** C'est tout.
-
-**Try this :** la prochaine fois que tu vas en club comme auditeur, tiens-toi au fond et regarde la densité de la piste pendant 30 minutes. Regarde-la comme un promoteur. Remarque quand elle se remplit et se vide.
+**À toi de jouer :** la prochaine fois que tu sors en tant qu'auditeur (ou que tu regardes la vidéo d'un set live), observe la densité de la piste pendant 30 minutes. Note quand elle se remplit et quand elle se vide.
 """
 
 [[fr.pages]]
-title   = "Une astuce pratique : le dossier verrouillé"
+title   = "Une astuce pratique : le dossier étiqueté"
 content = """
-La volonté seule ne t'arrêtera pas. Tu as besoin d'une astuce d'environnement.
+La volonté seule ne suffit souvent pas. Utilise ton environnement.
 
-**Crée un dossier sur ta clé USB appelé "SEULEMENT APRES [HEURE]"** — écris l'heure d'horloge réelle, pas une règle. Si ton slot commence à 22h et dure 2h, écris *SEULEMENT APRES 23h12* (c'est 60% de 120 minutes).
+**Crée un dossier ou une playlist dans ton logiciel de DJ appelé « SEULEMENT APRÈS [HEURE] »** : écris une vraie heure, pas une règle. Si ton créneau commence à 22 h et dure 2 h, écris *SEULEMENT APRÈS 23 h 12* (soit 60 % de 120 minutes).
 
-Mets tes 3 meilleures tracks dans ce dossier.
+Mets-y tes 3 meilleures tracks.
 
-Quand ta main va chercher le dossier avant l'heure cible, le label lui-même te fera marquer une pause. Ça marche parce que ça crée une légère friction au moment de la décision — et cette friction suffit à interrompre l'impulsion du système nerveux.
+Quand ta main va vers ce dossier trop tôt, l'étiquette te fait marquer une pause. Cette petite friction au moment de décider suffit souvent à couper l'élan.
 
-**Try this ce soir :** crée ce dossier dans ton logiciel DJ maintenant, avant que l'envie soit réelle. L'habitude se forme quand il n'y a pas de pression.
+**À toi de jouer maintenant :** crée ce dossier dans ton logiciel, avant que l'envie ne soit réelle. Les habitudes se forment mieux sans pression.
 """
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Jouer ta meilleure track à la 20ème minute d'un set de 2h cause..."
-answers  = ["Une super soirée jusqu'au bout", "La foule se souvient de toi pour toujours", "90 minutes de descente — la foule n'a nulle part où aller qu'en bas"]
+question = "Jouer ta meilleure track à la 20ᵉ minute d'un set de 2 h provoque souvent..."
+answers  = ["Une super soirée jusqu'au bout", "Une foule qui se souvient de toi pour toujours", "Un long passage où rien ne peut faire mieux : l'énergie ne peut que redescendre"]
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "La règle des 60% signifie que tes meilleures tracks se déverrouillent à la minute ___ d'un slot de 90 min."
+question = "Avec le repère des 60 %, tes meilleures tracks se débloquent vers la minute ___ d'un créneau de 90 min."
 answers  = ["30", "54", "72"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "Sur quoi les promoteurs jugent-ils vraiment un DJ ?"
-answers  = ["Si la piste s'est remplie ou vidée pendant le set", "La qualité technique des mix", "Combien de gens reconnaissaient les tracks"]
+question = "Que regardent souvent les organisateurs pour juger un DJ ?"
+answers  = ["Si la piste s'est remplie ou vidée pendant le set", "Uniquement la propreté des mix", "Combien de gens reconnaissaient les tracks"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "L'astuce pratique pour retenir ses meilleures tracks c'est..."
-answers  = ["Mémoriser une règle", "Demander à un ami de t'arrêter", "Un dossier USB labellisé avec l'heure de déverrouillage réelle"]
+question = "Une bonne astuce pour retenir tes meilleures tracks, c'est..."
+answers  = ["Mémoriser une règle", "Demander à un ami de t'arrêter", "Un dossier étiqueté avec l'heure réelle de déblocage"]
 
 [[sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"
 
 [[sources]]
-label = "Peak-end rule (Wikipedia)"
+label = "Règle pic-fin (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"

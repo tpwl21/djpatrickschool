@@ -2,17 +2,231 @@ id = "LESSON_RTC_5_PRO"
 order = 5
 
 [en]
-title      = "Closing: The Signature Moment"
-short_desc = "Pro version coming soon."
+title      = "Closing — Pro: The Handover"
+short_desc = "Passing the booth cleanly: ending on a long outro, switching USB sticks and decks, leaving the mixer ready."
+description = "A good ending is also a good handover. How to finish on a track the next DJ can work with, change over USB sticks and decks without a gap, and leave the booth ready."
+recap = [
+  "A handover is part of your set: the last track must give the next DJ **time** to load and match.",
+  "**Finish on a long outro** (about 2–3 minutes of a clear, beat-driven ending) — never on a track that ends sharply.",
+  "**Change USB sticks and decks only on the deck that isn't playing**; never eject the deck that is.",
+  "Leave the mixer **neutral**: trims, EQ, filters, FX and the master as you found them.",
+  "One short message helps: tell the next DJ the tempo you're leaving and which deck is live.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "The handover is part of your set"
+content = """
+When another DJ follows you (a headliner, a closer, or a friend taking over), the handover is the last thing the room hears from you — and the first thing it hears from them.
+
+A clean one has three parts:
+
+1. **Preparation** — you know when it will happen and what the next DJ needs.
+2. **The overlap** — a short window where both of you are in control.
+3. **The exit** — you leave, and the sound doesn't change.
+
+Where most handovers fail is in the overlap: either the incoming DJ hasn't had time to load, or the outgoing one stops before the sound is ready. Plan the end of your set backwards from the moment the next DJ will be ready.
+"""
+
+[[en.pages]]
+title   = "Finish on a long outro"
+content = """
+The best closing track for a handover is one with a **long, clear outro** — usually **2–3 minutes** of repeated beat and few other elements.
+
+Why it works:
+
+- The next DJ has time to load a track, check the tempo and cue it in headphones.
+- A steady beat is easy to match: the incoming track can slide in under the outro rather than bolt on at the end.
+- You can play it out without improvising.
+
+Avoid ending on a track that stops sharply, loses its beat early, or has a very different tempo from the next DJ's first track. If you know their opening tempo, aim to land within a few BPM of it. If you don't, ask.
+
+Tip: when you pick tracks for the last 15 minutes of a set, note where each outro begins (a memory cue in Rekordbox) and how long it lasts.
+"""
+
+[[en.pages]]
+title   = "USB sticks and decks: the technical handover"
+content = """
+On CDJs (media players), the usual rule is simple: **the deck that is playing is never touched.**
+
+1. The next DJ inserts their stick in a **deck that isn't playing**, loads their first track and cues it in headphones.
+2. You keep playing on your live deck. If you had a second track ready on the other deck, **leave it or clear it** before they load.
+3. When they take over, the stick in the deck that was playing for you stays put until that deck is free. **Never eject a stick from a playing deck.** (Use the eject button on a deck that isn't live.)
+4. Remove your own stick only after your last track has finished and the sound has moved to their deck.
+
+If you play on a laptop or controller, agree on the switching plan in advance: usually the incoming DJ plugs in on a free channel while you're still playing, and the changeover happens at the mixer.
+
+If you can, **keep your set on two sticks or a backup**. Whatever the handover, a failure on your side during someone else's start is a bad look.
+"""
+
+[[en.pages]]
+title   = "Leave the mixer neutral"
+content = """
+A good outgoing DJ leaves the booth as they'd want to find it:
+
+- **Channel trims** around where you found them (or at a sensible default).
+- **EQ at neutral** (centre). **Filters** centred. **FX off.**
+- **Channel faders and crossfader** set sensibly for the next DJ; the master level unchanged.
+- **Headphone cue** off and the monitors where they were.
+- **Cables, sticks, bottles and personal items** cleared from the booth.
+
+And one short message to the next DJ is worth more than any gesture: tell them the tempo you're leaving and which deck is live. It takes five seconds and prevents the most common handover surprise.
+
+If you want a quick checklist, ask yourself: *if I walked in right now, could I start playing without touching anything but my own stick?*
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Why is a long, steady outro good for a handover?"
+answers  = ["It's easier for the crowd to dance to", "It gives the next DJ time to load, check tempo and cue a track", "It lets you leave the booth early"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "You're playing from the left deck. Where does the next DJ plug in their USB stick?"
+answers  = ["The left deck, to save time", "Either deck — it doesn't matter", "The deck that isn't playing"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Which closing track is the worst for a handover?"
+answers  = ["A track that stops abruptly with a short or no outro", "A track with a 2–3 minute beat-driven outro", "A track close in tempo to the next DJ's first track"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "What do you do with your mixer before you leave the booth?"
+answers  = ["Max the master so the next DJ starts loud", "Leave it neutral: trims and master as you found them, EQs and filters centred, FX off", "Turn everything to zero"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What is the most useful thing to tell the next DJ?"
+answers  = ["How much you were paid", "What your favourite track is", "The tempo you're leaving and which deck is live"]
+
+[[sources]]
+label = "Pioneer DJ — CDJ and mixer manuals"
+url   = "https://www.pioneerdj.com/"
+
+[[sources]]
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
+
+[[sources]]
+label = "Rekordbox — official site"
+url   = "https://rekordbox.com/"
 
 [fr]
-title      = "Closing : le moment signature"
-short_desc = "Version Pro en préparation."
+title      = "Closing — Pro : la passation"
+short_desc = "Passer la cabine proprement : finir sur une longue outro, changer de clé USB et de platine, laisser la table prête."
+description = "Une bonne fin est aussi une bonne passation. Comment finir sur un morceau avec lequel le DJ suivant peut travailler, changer de clé USB et de platine sans trou, et laisser la cabine prête."
+recap = [
+  "La passation fait partie de ton set : ton dernier morceau doit laisser au DJ suivant le **temps** de charger et de caler.",
+  "**Termine sur une longue outro** (environ 2 à 3 minutes de fin claire, portée par le rythme), jamais sur un morceau qui s'arrête net.",
+  "**Change de clé USB et de platine uniquement sur la platine qui ne joue pas** ; n'éjecte jamais celle qui joue.",
+  "Laisse la table **neutre** : trims, EQ, filtres, effets et master comme tu les as trouvés.",
+  "Un court message aide : dis au DJ suivant le tempo que tu laisses et quelle platine est en jeu.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "La passation fait partie de ton set"
+content = """
+Quand un autre DJ prend la suite (une tête d'affiche, un DJ de closing ou un ami qui te remplace), la passation est la dernière chose que la salle entend de toi, et la première qu'elle entend de lui ou d'elle.
+
+Une passation propre a trois temps :
+
+1. **La préparation** : tu sais quand ça aura lieu et ce dont le DJ suivant a besoin.
+2. **Le chevauchement** : une courte fenêtre où vous contrôlez tous les deux.
+3. **La sortie** : tu pars, et le son ne change pas.
+
+C'est dans le chevauchement que la plupart des passations échouent : soit le DJ qui arrive n'a pas eu le temps de charger, soit celui qui part s'arrête avant que le son ne soit prêt. Planifie la fin de ton set à rebours, à partir du moment où le DJ suivant sera prêt.
+"""
+
+[[fr.pages]]
+title   = "Termine sur une longue outro"
+content = """
+Le meilleur morceau de fin pour une passation est un morceau avec une **longue outro claire**, en général **2 à 3 minutes** de rythme répété avec peu d'autres éléments.
+
+Pourquoi ça marche :
+
+- Le DJ suivant a le temps de charger un morceau, de vérifier le tempo et de le caler au casque.
+- Un rythme régulier est facile à caler : le morceau entrant peut glisser sous l'outro plutôt que d'être collé à la fin.
+- Tu peux le laisser jouer sans improviser.
+
+Évite de finir sur un morceau qui s'arrête net, qui perd son rythme tôt, ou dont le tempo est très différent de celui du premier morceau du DJ suivant. Si tu connais son tempo d'ouverture, vise à atterrir à quelques BPM près. Sinon, demande.
+
+Astuce : quand tu choisis les morceaux de tes 15 dernières minutes, note où commence chaque outro (un repère mémoire dans Rekordbox) et combien de temps elle dure.
+"""
+
+[[fr.pages]]
+title   = "Clés USB et platines : la passation technique"
+content = """
+Sur des CDJ (lecteurs multimédia), la règle de base est simple : **la platine qui joue ne se touche pas.**
+
+1. Le DJ suivant insère sa clé dans une **platine qui ne joue pas**, charge son premier morceau et le cale au casque.
+2. Tu continues sur ta platine en jeu. Si tu avais un second morceau prêt sur l'autre platine, **laisse-le ou efface-le** avant qu'il charge.
+3. Quand il prend le relais, la clé de la platine qui jouait pour toi reste en place jusqu'à ce que cette platine soit libre. **N'éjecte jamais une clé d'une platine qui joue.** (Utilise le bouton d'éjection sur une platine qui n'est pas en jeu.)
+4. Retire ta propre clé seulement une fois ton dernier morceau terminé et le son passé sur sa platine.
+
+Si tu joues sur ordinateur ou contrôleur, convenez du plan de changement à l'avance : en général, le DJ entrant se branche sur une voie libre pendant que tu joues encore, et le changement se fait à la table.
+
+Si tu le peux, **garde ton set sur deux clés ou avec une sauvegarde**. Quelle que soit la passation, une panne de ton côté pendant le début de quelqu'un d'autre fait mauvais effet.
+"""
+
+[[fr.pages]]
+title   = "Laisse la table neutre"
+content = """
+Un bon DJ sortant laisse la cabine comme il voudrait la trouver :
+
+- **Trims des voies** à peu près où tu les as trouvés (ou à une valeur par défaut raisonnable).
+- **EQ au neutre** (au centre). **Filtres** centrés. **Effets coupés.**
+- **Faders de voies et crossfader** placés de façon raisonnable pour le DJ suivant ; niveau master inchangé.
+- **Pré-écoute casque** coupée et retours à leur place.
+- **Câbles, clés, bouteilles et affaires personnelles** retirés de la cabine.
+
+Et un court message au DJ suivant vaut mieux que n'importe quel geste : dis-lui le tempo que tu laisses et quelle platine est en jeu. Ça prend cinq secondes et ça évite la surprise de passation la plus courante.
+
+Pour une checklist rapide, demande-toi : *si j'arrivais maintenant, pourrais-je commencer à jouer sans toucher à autre chose que ma propre clé ?*
+"""
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Pourquoi une longue outro régulière est-elle bonne pour une passation ?"
+answers  = ["C'est plus facile à danser pour la foule", "Elle laisse au DJ suivant le temps de charger, vérifier le tempo et caler un morceau", "Elle te permet de quitter la cabine plus tôt"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Tu joues sur la platine de gauche. Où le DJ suivant branche-t-il sa clé USB ?"
+answers  = ["Sur la platine de gauche, pour gagner du temps", "Sur n'importe laquelle : peu importe", "Sur la platine qui ne joue pas"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Quel morceau de fin est le pire pour une passation ?"
+answers  = ["Un morceau qui s'arrête net, avec une outro courte ou inexistante", "Un morceau avec une outro de 2 à 3 minutes portée par le rythme", "Un morceau au tempo proche de celui du premier morceau du DJ suivant"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Que fais-tu de ta table avant de quitter la cabine ?"
+answers  = ["Mettre le master à fond pour que le DJ suivant démarre fort", "La laisser neutre : trims et master comme trouvés, EQ et filtres au centre, effets coupés", "Tout remettre à zéro"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Quelle est l'information la plus utile à donner au DJ suivant ?"
+answers  = ["Combien tu as été payé", "Quel est ton morceau préféré", "Le tempo que tu laisses et quelle platine est en jeu"]
+
+[[sources]]
+label = "Pioneer DJ — manuels CDJ et tables de mixage"
+url   = "https://www.pioneerdj.com/"
+
+[[sources]]
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"
+
+[[sources]]
+label = "Rekordbox — site officiel"
+url   = "https://rekordbox.com/"

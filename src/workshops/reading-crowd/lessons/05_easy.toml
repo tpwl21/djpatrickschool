@@ -2,64 +2,58 @@ id = "LESSON_RTC_5_EASY"
 order = 5
 
 [en]
-title      = "Closing — Easy"
-short_desc = "The track they'll remember. How to choose it and land it."
-description = "The closing is its own skill — separate from peaking. This lesson gives you the concrete rules for picking and playing a closer."
+title      = "Closing"
+short_desc = "The track they'll remember. How to choose it and how to land it."
+description = "The closing is a skill of its own — different from playing the peak. This lesson gives you simple rules for choosing and playing a closing track."
 recap = [
-  "Closing is **not a slowdown** — it's a final arc that ends with one memorable moment.",
-  "Your closer is **not your biggest track** — it's the right track for the emotion you've built.",
-  "Closer energy: **3–4**, not 5. Body-impact is for peak. Closer is for memory.",
-  "**Never announce 'last track'** — the realization is the payoff.",
-  "**Try this:** record your next set's last 10 minutes and listen back within 48 hours.",
+  "The closing is **not a slow-down** — it's a final arc that ends on a memorable moment.",
+  "Your closing track is **not your biggest track** — it's the right track for the feeling you've built.",
+  "A closing track's energy is usually **3–4**, not 5: the peak is for the body, the closing is for memory.",
+  "Avoid announcing 'last track' — letting people realise is part of the effect.",
+  "**Try this:** record the last 10 minutes of a practice set and listen back the next day.",
 ]
 
 [[en.pages]]
-title   = "Closing ≠ slowdown"
+title   = "Closing is not a slow-down"
 content = """
-Many new DJs think of closing as just *playing slower tracks at the end*. That's warmdown, not closing.
+Many new DJs think of the closing as *playing slower tracks at the end*. That's a cool-down, not a closing.
 
 The closing is its own arc:
-- It starts at **afterpeak energy** (4), not descending from peak (5)
-- It has a **direction** — building toward one final moment
-- It ends with **one track** the crowd will remember
+- It starts at **afterpeak energy** (about 4), not by falling off a cliff after the peak (5)
+- It has a **direction** — it builds toward a final moment
+- It ends on **one track** the crowd will remember
 
-Your job is to deliver a single moment the crowd will tell people about the next day. Everything in the closing section is setup for that one drop — **the closer**.
+Your job is to deliver one moment people will talk about the next day. Everything in the closing section is a setup for that moment — **the closer**.
 
-**Try this at your next home session:** practice a 15-minute closing section. Pick the closer track first, then build backward — what 2–3 tracks would set it up perfectly?
+**Try this at home:** practise a 15-minute closing section. Pick the closer first, then work backwards — which 2–3 tracks would set it up perfectly?
 """
 
 [[en.pages]]
 title   = "How to choose a closer"
 content = """
-Here are the rules for picking a closer:
+Simple rules for choosing a closer:
 
-1. **Not your biggest track.** The biggest is for the peak. The closer is for memory, not body-impact.
+1. **Not your biggest track.** The biggest is for the peak. The closer is for memory, not for body impact.
 
-2. **Slightly unexpected.** The best closers feel *of course* in hindsight — the crowd didn't see them coming, but they make perfect sense. That's the signature move.
+2. **A little unexpected.** The best closers feel *obvious* in hindsight — the crowd didn't see them coming, but they make perfect sense.
 
-3. **Energy 3–4, not 5.** A closer at energy 5 is just another peak track. A closer at 3–4 gives the crowd a breath, a resolution, a feeling of *arrival*.
+3. **Energy 3–4, not 5.** A closer at energy 5 is just another peak track. At 3–4 it gives the crowd a breath, a resolution, a feeling of *arriving*.
 
-4. **It should feel like you.** Peak tracks are shared vocabulary. Your closer is your dialect. When people describe your set later, they should say *that last track was so [your name]*.
+4. **It should sound like you.** Peak tracks are shared vocabulary. Your closer is your own dialect. Later, people should be able to say *that last track was so you*.
 
-5. **Never announce it.** If you say "last track of the night", you spoil the landing. The crowd should realize it's the closer when the lights come up — and that realization IS the emotional payoff.
+5. **Avoid announcing it.** If you say "last track of the night", you spoil the landing. The crowd should realise it's the closer as the lights come up.
 
-**Try this:** look at your DJ library right now and find 3 tracks that could be a closer. Write them down. Bring them to your next gig.
+**Try this:** look through your library and find 3 tracks that could be a closer. Write them down. Try them in your next practice set.
 """
 
 [[en.pages]]
-title   = "The Villalobos principle"
+title   = "Why a long build makes the ending land"
 content = """
-Ricardo Villalobos plays 7–8 hour sets where *almost nothing happens*. Long minimal stretches. No obvious bangers.
+Imagine a set where you've built one coherent mood for a long time. Your last ten minutes then carry the weight of everything before them. The longer the build-up, the more a simple, well-chosen closing track can mean.
 
-And his closings are legendary.
+This works at any length. Even in a two-hour set, if you've kept a consistent groove for an hour and fifty minutes, your last ten minutes will hit harder than if you'd changed direction every few tracks.
 
-Why? Because he spends 7 hours drawing the crowd into a deep trance — and the closer is the moment that breaks it. Just one track. One drop.
-
-The closing lands with the weight of everything that came before it.
-
-**The lesson that scales to any set length:** even in a 2-hour set, if you've built a consistent groove frame for 1h50, your last 10 minutes will feel disproportionately powerful. The runway makes the landing.
-
-**Try this:** the next time you listen to a DJ set (YouTube, RA, Mixcloud), skip to the last 20 minutes. Notice how the closing feels. Does it land? Does it feel like a natural end? Learn to recognize good closings by listening to them.
+**Try this:** next time you listen to a DJ set (YouTube or a DJ platform), skip to the last 20 minutes. Does the ending land? Does it feel like a natural end? Learn to recognise good closings by listening to them.
 """
 
 [[en.pages]]
@@ -68,161 +62,155 @@ content = """
 How you leave the room matters almost as much as what you play.
 
 **Do this:**
-- Let the closer track play fully — don't cut it early
-- Fade the low-end out progressively over 20–30 seconds (sub → bass → mids → highs)
-- Don't play *one more* after the closer — the crowd's memory locks in within 5 seconds of what they perceive as the end
+- Let the closing track play out — don't cut it early
+- If you fade the sound, do it gradually over 20–30 seconds with the three EQ bands: lower the **low** (bass) first, then the **mid**, then the **high**
+- Don't play *one more* after the closer — people's memory settles in the seconds after what they take to be the ending
 
 **Don't do this:**
-- Cut abruptly (sounds like a technical error)
-- Play a bonus track that dilutes the closer's emotional weight
-- Announce "last track" — it removes the surprise
+- Cut abruptly (it sounds like a technical error)
+- Play a bonus track that dilutes the closer
+- Announce "last track"
 
-The applause happens at the end of the closer. That's when you know it worked.
+Applause usually comes at the end of the closer. That's how you know it worked.
 
-**Try this right now:** practice the EQ fade technique. Take any track and over 25 seconds, progressively cut sub, then low, then mid, then high. Feel how it creates a sense of intentional ending.
+**Try this now:** practise the EQ fade. Take any track and, over 25 seconds, gradually cut the low, then the mid, then the high. Feel how it creates an intentional ending.
 """
 
 [[quiz]]
 correct = 1
 [quiz.en]
 question = "A closer's energy should typically be..."
-answers  = ["5 — same as the peak", "3–4 — afterpeak register", "1–2 — warmdown level"]
+answers  = ["5 — same as the peak", "3–4 — afterpeak register", "1–2 — cool-down level"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "Why shouldn't you announce 'last track of the night'?"
-answers  = ["Club rules", "Bad luck tradition", "It spoils the emotional payoff — the crowd's realization should be the moment"]
+question = "Why avoid announcing 'last track of the night'?"
+answers  = ["Club rule", "Superstition", "It spoils the emotional landing — realising it is part of the payoff"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "The Villalobos principle is: a long runway makes..."
-answers  = ["The closer land with the weight of everything that came before", "The crowd tired and ready to leave", "Your set feel like a flat plateau"]
+question = "A long, coherent build-up before the closing helps because..."
+answers  = ["The closing track lands with the weight of everything before it", "The crowd gets tired and wants to leave", "Your set sounds flat"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "When closing down the sound technically, you should..."
-answers  = ["Cut everything at once", "Fade highs first, then lows", "Progressively cut sub → bass → mids → highs over 20–30 seconds"]
+question = "To fade out smoothly at the end, you could..."
+answers  = ["Cut everything at once", "Fade the high first, then the bass", "Gradually cut low, then mid, then high over 20–30 seconds"]
 
 [[sources]]
 label = "Peak-end rule (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
 
 [[sources]]
-label = "Rewind: Daniele Baldelli — Cosmic Tapes (Resident Advisor)"
-url   = "https://ra.co/features/4473"
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
 
 [fr]
-title      = "Closing — Easy"
+title      = "Le closing"
 short_desc = "La track dont ils se souviendront. Comment la choisir et la faire atterrir."
-description = "Le closing est une compétence à part — distincte du peaking. Cette leçon te donne les règles concrètes pour choisir et jouer une closer."
+description = "Le closing est une compétence à part, différente de jouer le peak. Cette leçon te donne des règles simples pour choisir et jouer un morceau de fin."
 recap = [
-  "Le closing n'est **pas un ralentissement** — c'est un arc final qui se termine par un moment mémorable.",
-  "Ta closer n'est **pas ta plus grosse track** — c'est la bonne track pour l'émotion que tu as construite.",
-  "Énergie de la closer : **3–4**, pas 5. L'impact corporel c'est pour le peak. La closer c'est pour la mémoire.",
-  "**Ne jamais annoncer 'dernière track'** — la réalisation est la récompense.",
-  "**Try this :** enregistre les 10 dernières minutes de ton prochain set et réécoute dans les 48h.",
+  "Le closing n'est **pas un ralentissement** : c'est un dernier arc qui se termine sur un moment dont on se souvient.",
+  "Ton morceau de fin n'est **pas ton plus gros morceau** : c'est le bon morceau pour l'émotion que tu as construite.",
+  "L'énergie d'un morceau de fin est généralement de **3–4**, pas 5 : le peak parle au corps, le closing parle à la mémoire.",
+  "Évite d'annoncer « dernière track » : laisser les gens s'en rendre compte fait partie de l'effet.",
+  "**À toi de jouer :** enregistre les 10 dernières minutes d'un set d'entraînement et réécoute-les le lendemain.",
 ]
 
 [[fr.pages]]
-title   = "Closing ≠ ralentissement"
+title   = "Le closing n'est pas un ralentissement"
 content = """
-Beaucoup de nouveaux DJs pensent au closing comme à *jouer des tracks plus lentes à la fin*. C'est du warmdown, pas du closing.
+Beaucoup de DJs débutants voient le closing comme *jouer des tracks plus lentes à la fin*. C'est une redescente, pas un closing.
 
 Le closing est son propre arc :
-- Il commence en **énergie afterpeak** (4), pas en descente depuis le peak (5)
-- Il a une **direction** — il construit vers un dernier moment final
-- Il se termine par **une track** dont la foule se souviendra
+- Il commence à une **énergie d'afterpeak** (environ 4), sans chute brutale après le peak (5)
+- Il a une **direction** : il construit vers un dernier moment
+- Il se termine sur **un seul morceau** dont la foule se souviendra
 
-Ton boulot c'est de délivrer un seul moment que la foule racontera le lendemain. Tout ce qui est dans la section closing est un setup pour ce drop — **la closer**.
+Ton travail est de livrer un moment dont on parlera le lendemain. Tout ce qui précède dans la section de closing prépare ce moment : **le morceau de fin**.
 
-**Try this à ta prochaine session chez toi :** pratique une section de closing de 15 minutes. Choisis la track closer en premier, puis construis en arrière — quelles 2–3 tracks la mettraient parfaitement en place ?
+**À toi de jouer, chez toi :** entraîne-toi sur une section de closing de 15 minutes. Choisis d'abord le morceau de fin, puis remonte en arrière : quels 2 ou 3 morceaux le mettraient parfaitement en place ?
 """
 
 [[fr.pages]]
-title   = "Comment choisir une closer"
+title   = "Comment choisir un morceau de fin"
 content = """
-Voici les règles pour choisir une closer :
+Des règles simples pour choisir ton morceau de fin :
 
-1. **Pas ta plus grosse track.** La plus grosse c'est pour le peak. La closer c'est pour la mémoire, pas l'impact corporel.
+1. **Pas ton plus gros morceau.** Le plus gros est pour le peak. Le morceau de fin est pour la mémoire, pas pour l'impact sur le corps.
 
-2. **Légèrement inattendue.** Les meilleures closers sonnent *évident* avec du recul — la foule ne les voyait pas venir, mais elles ont du sens parfait. C'est le move signature.
+2. **Un peu inattendu.** Les meilleurs morceaux de fin semblent *évidents* avec le recul : la foule ne les voyait pas venir, mais ils ont tout leur sens.
 
-3. **Énergie 3–4, pas 5.** Une closer à l'énergie 5 n'est qu'une autre track de peak. Une closer à 3–4 donne à la foule une respiration, une résolution, un sentiment d'*arrivée*.
+3. **Énergie 3–4, pas 5.** Un morceau de fin à l'énergie 5 n'est qu'un morceau de peak de plus. À 3–4, il offre à la foule une respiration, une résolution, un sentiment d'*arriver*.
 
-4. **Elle doit sonner toi.** Les tracks de peak sont du vocabulaire partagé. Ta closer est ton dialecte. Quand les gens décriront ton set plus tard, ils devront dire *ce dernier morceau c'était tellement [ton nom]*.
+4. **Il doit sonner comme toi.** Les morceaux de peak sont un vocabulaire partagé. Ton morceau de fin est ton propre dialecte. Plus tard, les gens doivent pouvoir dire *ce dernier morceau, c'était tellement toi*.
 
-5. **Ne l'annonce jamais.** Si tu dis "dernière track de la soirée", tu spoil l'atterrissage. La foule doit réaliser que c'est la closer quand les lumières remontent — et cette réalisation EST la récompense émotionnelle.
+5. **Évite de l'annoncer.** Si tu dis « dernière track de la soirée », tu gâches l'atterrissage. La foule doit s'en rendre compte quand les lumières se rallument.
 
-**Try this :** regarde ta librairie DJ maintenant et trouve 3 tracks qui pourraient être une closer. Écris-les. Amène-les à ton prochain gig.
+**À toi de jouer :** parcours ta bibliothèque et trouve 3 morceaux qui pourraient servir de fin. Note-les. Essaie-les à ton prochain set d'entraînement.
 """
 
 [[fr.pages]]
-title   = "Le principe Villalobos"
+title   = "Pourquoi une longue montée fait atterrir la fin"
 content = """
-Ricardo Villalobos joue des sets de 7–8h où *il ne se passe presque rien*. De longues étendues minimales. Aucun banger évident.
+Imagine un set où tu as construit une ambiance cohérente pendant longtemps. Tes dix dernières minutes portent alors le poids de tout ce qui précède. Plus la montée est longue, plus un morceau de fin simple et bien choisi peut compter.
 
-Et ses closings sont légendaires.
+Ça marche quelle que soit la durée. Même dans un set de deux heures, si tu as gardé un groove cohérent pendant une heure cinquante, tes dix dernières minutes taperont plus fort que si tu avais changé de direction tous les trois morceaux.
 
-Pourquoi ? Parce qu'il passe 7h à attirer la foule dans une transe profonde — et la closer est le moment qui la casse. Une seule track. Un drop.
-
-Le closing atterrit avec le poids de tout ce qui a précédé.
-
-**La leçon qui s'adapte à toutes les longueurs de set :** même dans un set de 2h, si tu as construit une frame de groove cohérente pendant 1h50, tes 10 dernières minutes sonneront disproportionnellement puissantes. La piste d'envol fait l'atterrissage.
-
-**Try this :** la prochaine fois que tu écoutes un set DJ (YouTube, RA, Mixcloud), saute aux 20 dernières minutes. Remarque comment le closing sonne. Est-ce qu'il atterrit ? Est-ce que ça sonne comme une fin naturelle ? Apprends à reconnaître les bons closings en les écoutant.
+**À toi de jouer :** la prochaine fois que tu écoutes un set de DJ (YouTube ou plateforme de DJ), va directement aux 20 dernières minutes. La fin atterrit-elle ? A-t-on l'impression d'une fin naturelle ? Apprends à reconnaître les bons closings en les écoutant.
 """
 
 [[fr.pages]]
 title   = "La sortie technique"
 content = """
-Comment tu quittes la salle compte presque autant que ce que tu joues.
+La façon dont tu quittes la salle compte presque autant que ce que tu joues.
 
-**Fais ça :**
-- Laisse la track closer jouer complètement — ne la coupe pas tôt
-- Fade le bas progressivement sur 20–30 secondes (sub → bass → mediums → aigus)
-- Ne joue pas *une de plus* après la closer — la mémoire de la foule se fige dans les 5 secondes après ce qu'elle perçoit comme la fin
+**Fais ceci :**
+- Laisse le morceau de fin jouer jusqu'au bout, ne le coupe pas tôt
+- Si tu fais un fondu, fais-le progressivement sur 20 à 30 secondes avec les trois bandes d'EQ : baisse d'abord le **grave**, puis le **médium**, puis l'**aigu**
+- Ne joue pas *un de plus* après le morceau de fin : le souvenir des gens se fixe dans les secondes qui suivent ce qu'ils prennent pour la fin
 
-**Ne fais pas ça :**
-- Couper abruptement (ça sonne comme une erreur technique)
-- Jouer une track bonus qui dilue le poids émotionnel de la closer
-- Annoncer "dernière track" — ça retire la surprise
+**Ne fais pas ceci :**
+- Couper brusquement (ça sonne comme une erreur technique)
+- Jouer un morceau bonus qui dilue le morceau de fin
+- Annoncer « dernière track »
 
-Les applaudissements arrivent à la fin de la closer. C'est là que tu sais que ça a marché.
+Les applaudissements viennent généralement à la fin du morceau de fin. C'est là que tu sais que ça a marché.
 
-**Try this maintenant :** pratique la technique de fade EQ. Prends n'importe quelle track et sur 25 secondes, coupe progressivement le sub, puis le bas, puis le mid, puis les aigus. Sens comment ça crée un sentiment de fin intentionnelle.
+**À toi de jouer maintenant :** entraîne-toi au fondu à l'EQ. Prends n'importe quel morceau et, sur 25 secondes, coupe progressivement le grave, puis le médium, puis l'aigu. Sens comme ça donne une fin voulue.
 """
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "L'énergie d'une closer devrait typiquement être..."
-answers  = ["5 — comme le peak", "3–4 — registre afterpeak", "1–2 — niveau warmdown"]
+question = "L'énergie d'un morceau de fin devrait généralement être..."
+answers  = ["5 : comme le peak", "3–4 : registre afterpeak", "1–2 : niveau de redescente"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Pourquoi ne pas annoncer 'dernière track de la soirée' ?"
-answers  = ["Règle du club", "Tradition superstitieuse", "Ça spoil la récompense émotionnelle — la réalisation de la foule doit être le moment"]
+question = "Pourquoi éviter d'annoncer « dernière track de la soirée » ?"
+answers  = ["Règle du club", "Superstition", "Ça gâche l'atterrissage émotionnel : s'en rendre compte fait partie de l'effet"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "Le principe Villalobos : une longue piste d'envol fait..."
-answers  = ["Atterrir la closer avec le poids de tout ce qui précède", "La foule se fatiguer et vouloir partir", "Ton set sonner comme un plateau plat"]
+question = "Une longue montée cohérente avant le closing aide parce que..."
+answers  = ["Le morceau de fin atterrit avec le poids de tout ce qui précède", "La foule se fatigue et veut partir", "Ton set sonne plat"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Pour couper le son techniquement lors du closing, tu devrais..."
-answers  = ["Tout couper d'un coup", "Fader les aigus d'abord, puis les basses", "Couper progressivement sub → bass → mediums → aigus sur 20–30 secondes"]
+question = "Pour finir en douceur, tu peux..."
+answers  = ["Tout couper d'un coup", "Baisser d'abord l'aigu, puis le grave", "Baisser progressivement le grave, puis le médium, puis l'aigu sur 20 à 30 secondes"]
 
 [[sources]]
-label = "Peak-end rule (Wikipedia)"
+label = "Règle pic-fin (Wikipedia)"
 url   = "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
 
 [[sources]]
-label = "Rewind: Daniele Baldelli — Cosmic Tapes (Resident Advisor)"
-url   = "https://ra.co/features/4473"
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"

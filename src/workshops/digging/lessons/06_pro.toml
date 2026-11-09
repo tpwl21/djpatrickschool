@@ -149,8 +149,8 @@ label = "Awesome Tapes From Africa — cassette archive"
 url   = "https://awesometapes.com/"
 
 [[en.sources]]
-label = "Resident Advisor — vinyl speculation feature (2021)"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [fr]
 title      = "Discogs — Architecture de Base de Données, Distorsion de Marché & Angles Morts Archivistiques"
@@ -300,5 +300,5 @@ label = "Awesome Tapes From Africa — archive de cassettes"
 url   = "https://awesometapes.com/"
 
 [[fr.sources]]
-label = "Resident Advisor — enquête spéculation vinyle (2021)"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"

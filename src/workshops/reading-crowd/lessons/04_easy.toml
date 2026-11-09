@@ -2,213 +2,205 @@ id = "LESSON_RTC_4_EASY"
 order = 4
 
 [en]
-title      = "Warmup — Easy"
-short_desc = "The hardest slot. Here's what it actually asks of you."
-description = "Warmup is the slot nobody brags about — and the one that separates good DJs from great ones. This lesson gives you the concrete rules for your first warmup."
+title      = "Warmup"
+short_desc = "The hardest slot. Here's what it really asks of you."
+description = "The warmup is the slot nobody brags about — and the one that separates good DJs from great ones. This lesson gives you simple landmarks for your first warmup."
 recap = [
-  "Warmup = **no crowd momentum**. You create energy from nothing.",
-  "Start **~20 BPM below the headliner** — if they play 130, you open at 108–112.",
-  "**Deep and groovy** always beats melodic and euphoric in a half-empty room.",
-  "The right metric for warmup: *is the room filling?* — not *is the room cheering?*",
-  "**Try this:** record your next warmup set. Listen back and count how many times you escalated too soon.",
+  "A warmup starts with **no crowd momentum**: you create the energy from zero.",
+  "Open **well below** the headliner's tempo — for example around 110 BPM if they'll play 130.",
+  "**Deep and groovy** usually works better than melodic and euphoric in a half-empty room.",
+  "The right question: *is the room filling up?* — not *is the room cheering?*",
+  "**Try this:** record a practice warmup, listen back, and count how often you pushed too early.",
 ]
 
 [[en.pages]]
-title   = "Why warmup is the hardest slot"
+title   = "Why the warmup is the hardest slot"
 content = """
-The headliner walks into a full room, a crowd buzzing with anticipation, and peak energy already in the air.
+The headliner walks into a full room, a crowd buzzing with anticipation, and energy already in the air.
 
-The warmup DJ walks into: coats still on, people queuing for the bar, half the room chatting.
+The warmup DJ walks into: coats still on, people queuing, half the room chatting.
 
 **You have no momentum to ride.** You have to create it from zero.
 
-That's why warmup is considered the most technically difficult slot. Most gigs get easier with experience. Warmup stays hard, because every warmup is a different version of the same challenge: building something from nothing.
+That's why many DJs consider the warmup the hardest slot. Every warmup is a new version of the same challenge: building something out of nothing.
 
-**Try this next time you DJ at home:** practice a 20-minute set that starts at 105 BPM and slowly climbs to 118 BPM without ever sounding rushed. That controlled ramp is the core skill.
+**Try this at home:** practise a 20-minute set that starts around 105 BPM and slowly rises to about 118 BPM without ever sounding rushed. That controlled ramp is the core skill.
+
+(BPM = beats per minute, the tempo of a track.)
 """
 
 [[en.pages]]
-title   = "The concrete warmup rules"
+title   = "Concrete landmarks for a warmup"
 content = """
-These aren't preferences — they're tested rules from the warmup canon:
+These are landmarks, not laws — but they work in most rooms:
 
-1. **Start ~20 BPM below the headliner.** If the headliner plays 130, you open at 108–112. You're setting the floor, not the ceiling.
+1. **Start well below the headliner's tempo.** If they'll play 130 BPM, opening around 108–112 is a good example. You set the floor, not the ceiling.
 
-2. **Deep and groovy beats melodic and euphoric.** A half-empty room feels awkward under euphoric tracks. Groove forgives emptiness — it gives people something to lock into quietly, without demanding they react.
+2. **Deep and groovy beats melodic and euphoric.** A half-empty room feels awkward under euphoric tracks. Groove gives people something to hold on to quietly, without asking them to react.
 
-3. **Don't play your own signature tracks.** Or the headliner's. Warmup is not the moment to show your best cards.
+3. **Don't play your own big tracks — or the headliner's.** The warmup isn't the time to show your best cards.
 
-4. **The right metric is density, not applause.** If everyone is staring at you, you may have escalated too soon. A proper warmup is background-by-design: people should be arriving, chatting, and slowly moving toward the floor.
+4. **The right measure is density, not applause.** *Density* means how full the dancefloor is. If everyone stares at you, you may have pushed too early. A good warmup is background by design: people arrive, chat, and drift towards the floor.
 
-**Try this at your next gig:** at the 30-minute mark, look at the room density. Is it more full than when you started? If yes, you're doing your job.
+**Try this:** in a practice set, check the 'room' at minute 30 (imagine it, or use a recording of a real club set). Is it fuller than at the start? If so, you're doing the job.
 """
 
 [[en.pages]]
-title   = "The Daniele Baldelli lesson"
+title   = "Earning the right to ask for energy later"
 content = """
-Daniele Baldelli played at **Cosmic** (Verona, late 70s / early 80s). His warmup sets started around **60 BPM** and climbed to 140 BPM — over 4 hours.
+The point of a warmup is to **earn the right to ask the crowd for energy later**.
 
-He said the crowd's *body* learned to trust him before their *ears* did. The first 30–40 minutes were so slow and atmospheric that people barely knew they were dancing. By the time the first proper dance track dropped, the room was already his.
+Start slowly and atmospherically, so people settle in without realising they've started moving. By the time the first really energetic track arrives, the room is already with you. If you skip that step, no drop will work as well.
 
-**The lesson:** warmup is earning the right to ask the crowd for energy later. If you earn it, one small gesture lands massively. If you skip it, no drop works.
+You can hear this in recorded club sets: listen to the first 20 minutes of a long set and notice how little is "happening" — and how naturally the energy builds afterwards.
 
-**Try this:** find a Daniele Baldelli Cosmic mix on YouTube. Listen to the first 20 minutes. Notice how he builds without rushing.
+**Try this:** find a long live-set recording on YouTube or a DJ platform. Listen to the first 20 minutes. Notice how it builds without hurrying.
 """
 
 [[en.pages]]
-title   = "Not escalating when you want to"
+title   = "Don't escalate just because you feel like it"
 content = """
-The hardest part of warmup is **emotional**, not technical.
+The hardest part of a warmup is **emotional**, not technical.
 
-The room is thin. Nobody's reacting. The promoter is across the bar, not looking at you. You feel invisible. Every instinct says: *play something bigger, get their attention*.
+The room is thin. Nobody reacts. The organiser is at the bar, not looking. You feel invisible. Every instinct says: *play something bigger, get their attention.*
 
 **Don't.**
 
-Your job is to hold the slope. Keep the BPM gradual. Play tracks that fill space without demanding reaction. The payoff comes 60–90 minutes later when the headliner drops their first track and the room *explodes* — because you spent an hour building the drag coefficient.
+Your job is to hold the slope. Keep the tempo rising gradually. Play tracks that fill the space without demanding a reaction. The reward comes later, when the headliner starts and the room *explodes* — partly because you spent an hour building momentum.
 
-Jeff Mills once said: *the warmup DJ actually determines the shape of the night. The headliner just drives the last section.*
-
-**Try this:** next home practice, set a rule — for 20 minutes, play nothing above 118 BPM, no matter how much you want to. That restraint muscle is what warmup asks for.
+**Try this:** in your next practice, set a rule — for 20 minutes, nothing above 118 BPM, no matter what. That muscle of restraint is what a warmup asks for.
 """
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "If the headliner plays at 130 BPM, you should open the warmup at approximately..."
+question = "If the headliner plays at 130 BPM, a good warmup might open around..."
 answers  = ["130 BPM — match them", "108–112 BPM — start well below", "145 BPM — start high and come down"]
 
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "In a half-empty warmup room, which style works better?"
+question = "In a half-empty warmup room, which style usually works best?"
 answers  = ["Euphoric and melodic", "Fast and energetic", "Deep and groovy"]
 
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "The right metric to judge your warmup by is..."
-answers  = ["Is the room filling?", "Is the crowd cheering?", "Are people filming you?"]
+question = "The right question to judge your warmup is..."
+answers  = ["Is the room filling up?", "Is the crowd cheering?", "Are people filming me?"]
 
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "The Daniele Baldelli principle is: warmup = ..."
-answers  = ["Playing the same BPM all night", "Earning the right to ask for crowd energy later", "Starting fast to prove your skills"]
+question = "The point of a warmup is to..."
+answers  = ["Play the same tempo all night", "Earn the right to ask the crowd for energy later", "Start strong to prove your skills"]
 
 [[sources]]
-label = "Daniele Baldelli — Red Bull Music Academy lecture"
-url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"
+label = "Resident Advisor — features on DJing and club culture"
+url   = "https://ra.co/"
 
 [[sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
-
-[[sources]]
-label = "Subcultural Art of the Warm Up Set — Sub Club"
-url   = "https://subclub.co.uk/subcultural-art-of-the-warm-up-set/"
+label = "Red Bull Music Academy — lectures"
+url   = "https://www.redbullmusicacademy.com/"
 
 [fr]
-title      = "Warmup — Easy"
-short_desc = "Le slot le plus dur. Voici ce qu'il te demande vraiment."
-description = "Le warmup est le slot dont personne ne se vante — et celui qui sépare les bons DJs des grands. Cette leçon te donne les règles concrètes pour ton premier warmup."
+title      = "Le warmup"
+short_desc = "Le créneau le plus difficile. Voici ce qu'il te demande vraiment."
+description = "Le warmup est le créneau dont personne ne se vante, et celui qui sépare les bons DJs des grands. Cette leçon te donne des repères simples pour ton premier warmup."
 recap = [
-  "Warmup = **aucun momentum de foule**. Tu crées l'énergie depuis zéro.",
-  "Commence **~20 BPM sous la tête d'affiche** — s'ils jouent 130, tu ouvres à 108–112.",
-  "**Deep et groovy** bat toujours mélodique et euphorique dans une salle à moitié vide.",
-  "La bonne métrique pour un warmup : *la salle se remplit ?* — pas *la salle applaudit ?*",
-  "**Try this :** enregistre ton prochain set de warmup. Réécoute et compte combien de fois tu as escaladé trop tôt.",
+  "Un warmup démarre avec **aucun élan de foule** : tu crées l'énergie à partir de zéro.",
+  "Ouvre **bien en dessous** du tempo de la tête d'affiche, par exemple vers 110 BPM si elle jouera à 130.",
+  "**Deep et groovy** marche généralement mieux que mélodique et euphorique dans une salle à moitié vide.",
+  "La bonne question : *la salle se remplit-elle ?* et non *la salle applaudit-elle ?*",
+  "**À toi de jouer :** enregistre un warmup d'entraînement, réécoute-le et compte combien de fois tu as poussé trop tôt.",
 ]
 
 [[fr.pages]]
-title   = "Pourquoi le warmup est le slot le plus dur"
+title   = "Pourquoi le warmup est le créneau le plus difficile"
 content = """
-La tête d'affiche entre dans une salle pleine, un public qui buzz d'anticipation, et de l'énergie peak déjà dans l'air.
+La tête d'affiche entre dans une salle pleine, un public qui bouillonne d'attente, et de l'énergie déjà dans l'air.
 
-Le DJ de warmup entre dans : manteaux sur le dos, gens qui font la queue au bar, moitié de la salle qui discute.
+Le DJ de warmup entre dans : manteaux encore sur le dos, gens qui font la queue, moitié de la salle qui discute.
 
-**Tu n'as aucun momentum à surfer.** Tu dois le créer depuis zéro.
+**Tu n'as aucun élan à exploiter.** Tu dois le créer à partir de zéro.
 
-C'est pour ça que le warmup est considéré comme le slot techniquement le plus difficile. La plupart des gigs deviennent plus faciles avec l'expérience. Le warmup reste dur, parce que chaque warmup est une version différente du même défi : construire quelque chose depuis rien.
+C'est pourquoi beaucoup de DJs considèrent le warmup comme le créneau le plus difficile. Chaque warmup est une nouvelle version du même défi : construire quelque chose à partir de rien.
 
-**Try this la prochaine fois que tu DJs chez toi :** pratique un set de 20 minutes qui commence à 105 BPM et monte lentement jusqu'à 118 BPM sans jamais sonner précipité. Cette rampe contrôlée est la compétence centrale.
+**À toi de jouer, chez toi :** entraîne-toi sur un set de 20 minutes qui démarre vers 105 BPM et monte doucement jusqu'à environ 118 BPM sans jamais sonner précipité. Cette rampe contrôlée est la compétence centrale.
+
+(BPM = battements par minute, le tempo d'une track.)
 """
 
 [[fr.pages]]
-title   = "Les règles concrètes du warmup"
+title   = "Des repères concrets pour un warmup"
 content = """
-Ce ne sont pas des préférences — ce sont des règles testées du canon du warmup :
+Ce sont des repères, pas des lois, mais ils fonctionnent dans la plupart des salles :
 
-1. **Commence ~20 BPM sous la tête d'affiche.** Si la tête joue 130, tu ouvres à 108–112. Tu poses le plancher, pas le plafond.
+1. **Commence bien en dessous du tempo de la tête d'affiche.** Si elle jouera à 130 BPM, ouvrir vers 108–112 est un bon exemple. Tu poses le plancher, pas le plafond.
 
-2. **Deep et groovy bat mélodique et euphorique.** Une salle à moitié vide se sent mal à l'aise sous des tracks euphoriques. Le groove pardonne la vacuité — il donne aux gens quelque chose sur quoi s'accrocher tranquillement, sans leur demander de réagir.
+2. **Deep et groovy bat mélodique et euphorique.** Une salle à moitié vide se sent mal à l'aise sous des tracks euphoriques. Le groove donne aux gens quelque chose à quoi s'accrocher discrètement, sans leur demander de réagir.
 
-3. **Ne joue pas tes tracks signature.** Ni celles de la tête d'affiche. Le warmup n'est pas le moment de montrer tes meilleures cartes.
+3. **Ne joue ni tes plus gros morceaux, ni ceux de la tête d'affiche.** Le warmup n'est pas le moment de montrer tes meilleures cartes.
 
-4. **La bonne métrique est la densité, pas les applaudissements.** Si tout le monde te fixe, tu as peut-être escaladé trop tôt. Un bon warmup est du background by design : les gens arrivent, discutent, se déplacent lentement vers la piste.
+4. **La bonne mesure est la densité, pas les applaudissements.** La *densité*, c'est à quel point la piste est remplie. Si tout le monde te fixe, tu as peut-être poussé trop tôt. Un bon warmup est un fond sonore par conception : les gens arrivent, discutent et dérivent vers la piste.
 
-**Try this à ton prochain gig :** à la 30ème minute, regarde la densité de la salle. Est-elle plus pleine qu'au début ? Si oui, tu fais ton boulot.
+**À toi de jouer :** pendant un set d'entraînement, vérifie la « salle » à la minute 30 (imagine-la, ou prends l'enregistrement d'un vrai set de club). Est-elle plus pleine qu'au début ? Si oui, tu fais le travail.
 """
 
 [[fr.pages]]
-title   = "La leçon Daniele Baldelli"
+title   = "Gagner le droit de demander de l'énergie plus tard"
 content = """
-Daniele Baldelli jouait au **Cosmic** (Vérone, fin 70s / début 80s). Ses sets de warmup commençaient autour de **60 BPM** et montaient à 140 BPM — sur 4 heures.
+Le but d'un warmup est de **gagner le droit de demander de l'énergie à la foule plus tard**.
 
-Il disait que le *corps* du public apprenait à lui faire confiance avant que les *oreilles* ne le fassent. Les 30–40 premières minutes étaient si lentes et atmosphériques que les gens savaient à peine qu'ils dansaient. Au moment où la première vraie track de danse tombait, la salle était déjà sienne.
+Commence lentement et en ambiance, pour que les gens s'installent sans s'apercevoir qu'ils ont commencé à bouger. Quand arrive le premier morceau vraiment énergique, la salle est déjà avec toi. Si tu sautes cette étape, aucun drop ne fonctionnera aussi bien.
 
-**La leçon :** le warmup, c'est gagner le droit de demander de l'énergie à la foule plus tard. Si tu le gagnes, le moindre geste atterrit massivement. Si tu le sautes, aucun drop ne fonctionne.
+On l'entend dans les sets de club enregistrés : écoute les 20 premières minutes d'un long set et remarque à quel point il « se passe » peu de choses, et à quel point l'énergie monte naturellement ensuite.
 
-**Try this :** trouve un mix live de Daniele Baldelli au Cosmic sur YouTube. Écoute les 20 premières minutes. Remarque comment il construit sans se précipiter.
+**À toi de jouer :** trouve l'enregistrement d'un long set live sur YouTube ou une plateforme de DJ. Écoute les 20 premières minutes. Remarque comme il monte sans se presser.
 """
 
 [[fr.pages]]
-title   = "Ne pas escalader quand tu en as envie"
+title   = "Ne pas escalader juste parce que tu en as envie"
 content = """
 La partie la plus difficile du warmup est **émotionnelle**, pas technique.
 
-La salle est fine. Personne ne réagit. Le promoteur est au bar, il ne te regarde pas. Tu te sens invisible. Chaque instinct dit : *joue quelque chose de plus gros, attire leur attention*.
+La salle est clairsemée. Personne ne réagit. L'organisateur est au bar et ne regarde pas. Tu te sens invisible. Tous tes instincts disent : *joue plus gros, attire leur attention.*
 
 **Ne le fais pas.**
 
-Ton boulot c'est de tenir la pente. Garde le BPM progressif. Joue des tracks qui remplissent l'espace sans exiger de réaction. La récompense arrive 60–90 minutes plus tard quand la tête d'affiche drop sa première track et que la salle *explose* — parce que tu as passé une heure à construire le coefficient de traînée.
+Ton travail est de tenir la pente. Fais monter le tempo progressivement. Joue des tracks qui remplissent l'espace sans exiger de réaction. La récompense vient plus tard, quand la tête d'affiche démarre et que la salle *explose*, en partie parce que tu as passé une heure à construire l'élan.
 
-Jeff Mills a dit un jour : *le DJ de warmup détermine réellement la forme de la soirée. La tête d'affiche ne fait que conduire la dernière section.*
-
-**Try this :** à ta prochaine pratique chez toi, fixe une règle — pendant 20 minutes, ne joue rien au-dessus de 118 BPM, quoi qu'il arrive. Ce muscle de la retenue, c'est ce que le warmup demande.
+**À toi de jouer :** à ton prochain entraînement, fixe-toi une règle : pendant 20 minutes, rien au-dessus de 118 BPM, quoi qu'il arrive. Ce muscle de la retenue, c'est ce que demande un warmup.
 """
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Si la tête d'affiche joue à 130 BPM, tu devrais ouvrir le warmup à environ..."
-answers  = ["130 BPM — les égaler", "108–112 BPM — commencer bien en dessous", "145 BPM — partir haut et descendre"]
+question = "Si la tête d'affiche joue à 130 BPM, un bon warmup peut s'ouvrir vers..."
+answers  = ["130 BPM : l'égaler", "108–112 BPM : partir bien en dessous", "145 BPM : partir haut et redescendre"]
 
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Dans une salle de warmup à moitié vide, quel style marche mieux ?"
+question = "Dans une salle de warmup à moitié vide, quel style marche généralement le mieux ?"
 answers  = ["Euphorique et mélodique", "Rapide et énergique", "Deep et groovy"]
 
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "La bonne métrique pour juger ton warmup c'est..."
-answers  = ["La salle se remplit ?", "La foule applaudit ?", "Les gens te filment ?"]
+question = "La bonne question pour juger ton warmup, c'est..."
+answers  = ["La salle se remplit-elle ?", "La foule applaudit-elle ?", "Les gens me filment-ils ?"]
 
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Le principe Daniele Baldelli c'est : warmup = ..."
-answers  = ["Jouer le même BPM toute la nuit", "Gagner le droit de demander l'énergie de la foule plus tard", "Partir fort pour prouver ses skills"]
+question = "Le but d'un warmup est de..."
+answers  = ["Jouer le même tempo toute la nuit", "Gagner le droit de demander de l'énergie à la foule plus tard", "Partir fort pour prouver ses compétences"]
 
 [[sources]]
-label = "Daniele Baldelli — Red Bull Music Academy lecture"
-url   = "https://www.redbullmusicacademy.com/lectures/daniele-baldelli-elevator-ride/"
+label = "Resident Advisor — articles sur le DJing et la culture club"
+url   = "https://ra.co/"
 
 [[sources]]
-label = "The Esoteric Art of the Opening DJ — Resident Advisor"
-url   = "https://ra.co/features/1095"
-
-[[sources]]
-label = "Subcultural Art of the Warm Up Set — Sub Club"
-url   = "https://subclub.co.uk/subcultural-art-of-the-warm-up-set/"
+label = "Red Bull Music Academy — conférences"
+url   = "https://www.redbullmusicacademy.com/"

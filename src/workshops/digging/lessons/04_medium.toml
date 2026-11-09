@@ -39,13 +39,15 @@ A track's energy = product of:
 **Reading the numbers:**
 - Going from 3 → 5: a jump. Fine for peak-time, fatal 10 minutes into warmup.
 - Going from 4 → 2: a release. Works after sustained 4, not after 30 seconds at 4.
-- Holding at 4 for 30 minutes: habituation sets in — the crowd stops responding. Plan a valley.
+- Holding at 4 for too long: habituation sets in — the crowd stops responding. Plan a valley.
 
 **The Rekordbox colour system:**
 Use the colour tag as a second dimension:
 - Red: high-energy / peak-time
 - Yellow: mid-energy / transitional
 - Green: low-energy / warmup-afterhours
+
+These three colours are reserved for energy — don't reuse them for anything else (rescue categories get other colours, see the next lesson).
 
 Colour tag visible at a glance during a set. Combine with energy number in Comments for a two-axis sort.
 """
@@ -64,11 +66,11 @@ Change ONE axis at a time, keep the others intact.
 Full mismatch on all axes at once is for DJs with 15+ years of reading rooms. Partial mismatch is the path to productive tension for everyone else.
 
 **The commitment rule:**
-A deliberate mismatch only works if you hold it long enough for the crowd to accept it as intentional. Studies on dancefloor response show:
-- 32 beats of tension then release = reads as intentional
-- 4 beats then quick patch = reads as mistake
+A deliberate mismatch only works if you hold it long enough for the crowd to accept it as intentional. Rules of thumb:
+- A full phrase (32 beats) of tension, then release = reads as intentional
+- A few beats, then a quick patch = reads as a mistake
 
-**Villalobos at Berghain 8am:** a 3-minute energy crash that the crowd interpreted as a deliberate decompression, not a DJ mistake. The difference between the two: how long he held it.
+Same energy crash, two outcomes: the difference is how long you hold it.
 
 **The connection to closing (LESSON_RTC_5):** surprise only lands when it's committed to.
 """
@@ -99,16 +101,16 @@ answers  = ["Breaking all technical rules simultaneously", "Changing one axis (k
 correct  = 1
 
 [[en.sources]]
-label = "Ricardo Villalobos — RA artist page (Berghain sets)"
-url   = "https://ra.co/dj/ricardovillalobos"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "Rekordbox — colour tags and Comments field workflow"
 url   = "https://rekordbox.com/en/support/manual/"
 
 [[en.sources]]
-label = "RA — Club music energy and dancefloor response"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [fr]
 title      = "Énergie vs Compatibilité Technique — Design de Set Pratique"
@@ -148,13 +150,15 @@ L'énergie d'une track = produit de :
 **Lire les chiffres :**
 - Passer de 3 → 5 : un saut. Cool si c'est peak-time, fatal à 10 minutes de warmup.
 - Passer de 4 → 2 : une release. Marche après un sustain prolongé à 4, pas après 30 secondes à 4.
-- Tenir à 4 pendant 30 minutes : l'habituation s'installe — le public cesse de répondre. Prévois une vallée.
+- Tenir à 4 trop longtemps : l'habituation s'installe — le public cesse de répondre. Prévois une vallée.
 
 **Le système de couleur Rekordbox :**
 Utilise le tag couleur comme deuxième dimension :
 - Rouge : haute énergie / peak-time
 - Jaune : énergie moyenne / transitionnel
 - Vert : basse énergie / warmup-afterhours
+
+Ces trois couleurs sont réservées à l'énergie — ne les réutilise pas pour autre chose (les catégories de sauvetage ont d'autres couleurs, voir la leçon suivante).
 
 Tag couleur visible d'un coup d'œil en set. Combine avec le chiffre d'énergie dans Comments pour un tri à deux axes.
 """
@@ -173,11 +177,11 @@ Change UN axe à la fois, garde les autres intacts.
 Le mismatch total sur tous les axes d'un coup, c'est pour les DJs avec 15+ ans de lecture de salles. Le mismatch partiel, c'est la voie vers la tension productive pour tous les autres.
 
 **La règle de l'engagement :**
-Un mismatch délibéré ne marche que si tu le tiens assez longtemps pour que le public l'accepte comme intentionnel. Les études sur la réponse dancefloor montrent :
-- 32 beats de tension puis release = se lit comme intentionnel
-- 4 beats puis patch rapide = se lit comme erreur
+Un mismatch délibéré ne marche que si tu le tiens assez longtemps pour que le public l'accepte comme intentionnel. Repères :
+- Une phrase entière (32 beats) de tension, puis release = se lit comme intentionnel
+- Quelques beats, puis patch rapide = se lit comme une erreur
 
-**Villalobos au Berghain à 8h :** un crash d'énergie de 3 minutes que le public a interprété comme une décompression délibérée, pas une erreur de DJ. La différence entre les deux : combien de temps il l'a tenu.
+Même crash d'énergie, deux résultats : la différence, c'est combien de temps tu le tiens.
 
 **Le lien avec le closing (LESSON_RTC_5) :** la surprise ne tombe que si elle est assumée.
 """
@@ -208,13 +212,13 @@ answers  = ["Casser toutes les règles techniques simultanément", "Changer un a
 correct  = 1
 
 [[fr.sources]]
-label = "Ricardo Villalobos — page artiste RA (sets Berghain)"
-url   = "https://ra.co/dj/ricardovillalobos"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "Rekordbox — tags couleur et workflow champ Comments"
 url   = "https://rekordbox.com/en/support/manual/"
 
 [[fr.sources]]
-label = "RA — Énergie de la musique club et réponse dancefloor"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"

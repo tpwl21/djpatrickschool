@@ -8,8 +8,8 @@ description = "BPM is just a number that tells you how fast a song goes. This le
 recap = [
   "BPM = how many beats happen in one minute. Fast song = high number.",
   "If two tracks run at different speeds, their kicks drift apart — that sounds terrible.",
-  "The pitch fader on your deck is the speed dial. Push it, the track speeds up or slows down.",
-  "Your job: make deck B match deck A's speed so both kicks land together.",
+  "The pitch fader on your deck is the speed dial. Move it, the track speeds up or slows down.",
+  "Your job: make deck B match deck A's speed (tempo), then line up the kicks (phase) so they land together.",
   "You don't need to read numbers to beatmatch — your ears will tell you when it's right."
 ]
 
@@ -19,6 +19,8 @@ content = """
 A song at **120 BPM** has 120 beats in one minute — or 2 beats every second. Fast songs have high numbers, slow songs have low numbers.
 
 That's it. No formula needed.
+
+Beats come in groups of four: 1-2-3-4, 1-2-3-4. One group of four beats is a **bar** (*mesure* in French). Remember it, we'll count in bars soon.
 
 ## How to feel it
 
@@ -36,12 +38,19 @@ Imagine two songs playing at the same time. One is faster than the other. Every 
 
 **The fix**: slow one down or speed up the other until both kicks land at the same instant.
 
+Two different things can go wrong, so learn the two words now:
+
+- **Tempo** is the speed. Different tempos = the kicks slowly drift apart.
+- **Phase** is the alignment of the beats. Two tracks can have the exact same tempo and still be out of phase, like two runners at the same pace, one a step behind the other. You hear the kicks landing a bit apart, a constant flutter.
+
+The pitch fader fixes the tempo. A small push fixes the phase (more on that below).
+
 ## Try it right now
 
 1. Load any two tracks into a DJ app (or use the practice level after this lesson)
 2. Start both playing
 3. Listen — do the kicks hit together, or do they flutter?
-4. Drag the pitch fader on deck B slightly up or down until they lock
+4. Move the pitch fader on deck B slightly up or down until they lock
 """
 
 [[en.pages]]
@@ -49,11 +58,17 @@ title   = "The speed dial (pitch fader)"
 content = """
 On every DJ deck there is a **pitch fader** — a vertical slider usually on the right side of the deck. Despite the name, right now think of it purely as a **speed dial**:
 
-- Slide it **up** → track plays **faster**
-- Slide it **down** → track plays **slower**
+- Slide it **down** (toward you) → track plays **faster**, that's the "+" side
+- Slide it **up** (away from you) → track plays **slower**, that's the "−" side
 - Leave it in the **middle** → original speed
 
+Yes, it feels backwards at first: on real turntables and CDJs, "+" is at the bottom. The game does the same, so your hands will already know the move when you touch real gear.
+
 The number shown (like +2.0% or -1.5%) tells you how much faster or slower you've made it relative to the original recording.
+
+## The little push: nudge
+
+Once the speed is right, the kicks can still be offset (phase). To fix that you give the track a tiny, temporary push called a **nudge**. On real gear you do it with the **jog** (the wheel on top of the deck): touch it a hair forward or backward. In the game, the **Slow down** and **Speed up** buttons do the same job.
 
 **Don't overthink the number.** Use your ears. When the kicks lock together you're done.
 """
@@ -79,10 +94,10 @@ answers  = ["Deux morceaux parfaitement en sync", "Un seul morceau qui joue", "D
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "What does moving the pitch fader up do?"
+question = "On a real deck, what does pulling the pitch fader down (toward the \"+\" side) do?"
 answers  = ["Speeds up the track", "Slows down the track", "Changes the volume"]
 [quiz.fr]
-question = "Que fait le fader pitch poussé vers le haut ?"
+question = "Sur une vraie platine, que fait le fader pitch tiré vers le bas (côté \"+\") ?"
 answers  = ["Accélère le morceau", "Ralentit le morceau", "Change le volume"]
 
 [[quiz]]
@@ -109,8 +124,8 @@ description = "Le BPM c'est juste un nombre qui indique la vitesse d'un morceau.
 recap = [
   "BPM = combien de beats arrivent en une minute. Morceau rapide = chiffre élevé.",
   "Deux morceaux à vitesses différentes : leurs kicks se décalent — ça sonne très mal.",
-  "Le fader pitch sur ta platine c'est le bouton de vitesse. Tu le pousses, ça accélère ou ralentit.",
-  "Ton but : faire matcher la vitesse du deck B sur celle du deck A pour que les kicks tombent ensemble.",
+  "Le fader pitch sur ta platine c'est le bouton de vitesse. Tu le bouges, ça accélère ou ralentit.",
+  "Ton but : faire matcher la vitesse (le tempo) du deck B sur celle du deck A, puis aligner les kicks (la phase) pour qu'ils tombent ensemble.",
   "Tu n'as pas besoin de lire des chiffres pour beatmatcher — tes oreilles te diront quand c'est bon."
 ]
 
@@ -120,6 +135,8 @@ content = """
 Un morceau à **120 BPM** a 120 beats en une minute — soit 2 beats par seconde. Les morceaux rapides ont des chiffres élevés, les lents ont des chiffres bas.
 
 C'est tout. Pas de formule nécessaire.
+
+Les beats vont par groupes de quatre : 1-2-3-4, 1-2-3-4. Un groupe de quatre beats, c'est une **mesure**. Retiens-le, on va bientôt compter en mesures.
 
 ## Comment le ressentir
 
@@ -137,12 +154,19 @@ Imagine deux morceaux qui jouent en même temps. L'un est plus rapide que l'autr
 
 **La correction** : ralentir l'un ou accélérer l'autre jusqu'à ce que les deux kicks tombent au même instant.
 
+Deux choses différentes peuvent clocher, alors retiens ces deux mots dès maintenant :
+
+- Le **tempo**, c'est la vitesse. Tempos différents = les kicks s'écartent doucement l'un de l'autre.
+- La **phase**, c'est le calage des temps. Deux morceaux peuvent avoir exactement le même tempo et être quand même déphasés, comme deux coureurs au même rythme dont l'un a un pas de retard. Tu entends les kicks tomber un peu à côté, un flottement constant.
+
+Le fader pitch règle le tempo. Une petite poussée règle la phase (on y vient plus bas).
+
 ## Essaie maintenant
 
 1. Charge deux morceaux dans une appli DJ (ou utilise le niveau de pratique après cette leçon)
 2. Lance les deux
 3. Écoute — les kicks tombent-ils ensemble, ou flottent-ils ?
-4. Glisse le fader pitch du deck B légèrement vers le haut ou le bas jusqu'à ce qu'ils se verrouillent
+4. Bouge le fader pitch du deck B légèrement vers le haut ou le bas jusqu'à ce qu'ils se verrouillent
 """
 
 [[fr.pages]]
@@ -150,50 +174,20 @@ title   = "Le bouton de vitesse (fader pitch)"
 content = """
 Sur chaque platine DJ il y a un **fader pitch** — un slider vertical généralement à droite. Malgré son nom, pour l'instant pense-y uniquement comme un **bouton de vitesse** :
 
-- Glisse vers le **haut** → le morceau joue **plus vite**
-- Glisse vers le **bas** → le morceau joue **plus lentement**
+- Glisse vers le **bas** (vers toi) → le morceau joue **plus vite**, c'est le côté "+"
+- Glisse vers le **haut** (loin de toi) → le morceau joue **plus lentement**, c'est le côté "−"
 - Laisse au **milieu** → vitesse originale
+
+Oui, ça paraît à l'envers au début : sur les vraies platines (Technics, CDJ), le "+" est en bas. Le jeu fait pareil, donc tes mains connaîtront déjà le geste sur du vrai matos.
 
 Le chiffre affiché (genre +2.0% ou -1.5%) indique de combien tu t'es écarté de la vitesse d'enregistrement d'origine.
 
+## La petite poussée : le nudge
+
+Une fois la vitesse bonne, les kicks peuvent encore être décalés (la phase). Pour corriger, tu donnes au morceau une toute petite poussée ponctuelle : un **nudge**. Sur du vrai matos, ça se fait avec la **jog** (la roue sur le dessus de la platine) : tu la touches à peine, un poil vers l'avant ou l'arrière. Dans le jeu, les boutons **Ralentir** et **Accélérer** font le même travail.
+
 **N'overthink pas le chiffre.** Utilise tes oreilles. Quand les kicks se verrouillent, c'est terminé.
 """
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "A track at 60 BPM has how many beats per second?"
-answers  = ["2 beats per second", "1 beat per second", "Half a beat per second"]
-[quiz.fr]
-question = "Un morceau à 60 BPM a combien de beats par seconde ?"
-answers  = ["2 beats par seconde", "1 beat par seconde", "Un demi-beat par seconde"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "What does a 'trainwreck' sound like?"
-answers  = ["Two tracks perfectly in sync", "One track playing alone", "Two tracks whose beats drift apart — a flutter"]
-[quiz.fr]
-question = "À quoi ressemble un 'trainwreck' ?"
-answers  = ["Deux morceaux parfaitement en sync", "Un seul morceau qui joue", "Deux morceaux dont les beats se décalent — un flottement"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "What does moving the pitch fader up do?"
-answers  = ["Speeds up the track", "Slows down the track", "Changes the volume"]
-[quiz.fr]
-question = "Que fait le fader pitch poussé vers le haut ?"
-answers  = ["Accélère le morceau", "Ralentit le morceau", "Change le volume"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "When is beatmatching done?"
-answers  = ["When the BPM numbers match on screen", "When your ears hear the kicks landing together", "When the waveforms look identical"]
-[quiz.fr]
-question = "Quand le beatmatching est-il terminé ?"
-answers  = ["Quand les chiffres BPM correspondent à l'écran", "Quand tes oreilles entendent les kicks tomber ensemble", "Quand les formes d'onde semblent identiques"]
 
 [[sources]]
 label = "BPM Counter — Tap your tempo (outil en ligne)"

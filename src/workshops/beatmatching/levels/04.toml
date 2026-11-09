@@ -5,34 +5,34 @@ order = 4
 title       = "The Loop"
 short_desc  = "Line up the loops AND the wagons so the downbeats sync perfectly."
 description = "Sync the <strong>loops</strong> AND the <strong>wagons</strong>! Note: you must now launch on the 1st beat of a loop (beat 1, 9, 17, 25...)."
-details     = "Focus: Structural phrasing (8-bar loops)."
+details     = "Focus: Structure, loops of 8 beats (2 bars)."
 success     = "King of the kick! Those loops are perfectly locked, the floor is going wild!"
 coach_tips  = [
-  "Alright, now we're looking at the bigger picture. In dance music, we usually count in phrases of 8 beats.",
+  "Alright, now we're looking at the bigger picture. In dance music, we count in loops of 8 beats (2 bars). Four loops make a 32-beat phrase.",
   "Drop the track at the start of a loop, count to 8, and drop Train B right in the pocket."
 ]
 recap = [
-  "Electronic music is built in 8-beat phrases — count them, don't just feel them.",
+  "Electronic music is built in loops of 8 beats (2 bars), and 4 loops make a 32-beat phrase — count them, don't just feel them.",
   "Train B must drop on beat 1, 9, 17, 25… not just any beat.",
   "A clean loop alignment sounds automatically tighter than beat-by-beat matching.",
-  "Phrase-level thinking is the bridge between beatmatching and real mixing."
+  "Thinking in loops and phrases is the bridge between beatmatching and real mixing."
 ]
 
 [fr]
 title       = "La Boucle"
 short_desc  = "Aligne les boucles ET les wagons pour que les temps forts se synchronisent."
 description = "Aligne les <strong>boucles</strong> ET les <strong>wagons</strong> ! Attention, tu dois maintenant démarrer sur un début de boucle (temps 1, 9, 17, 25...)."
-details     = "Focus : Calage structurel (8 temps)."
+details     = "Focus : Structure, boucles de 8 temps (2 mesures)."
 success     = "Le roi du kick ! Tes boucles sont parfaitement alignées, la foule est en délire !"
 coach_tips  = [
-  "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, en général pour la musique électronique on compte par 8",
+  "Bon là on va commencer à s'intéresser à une subdivision du train un peu plus grande, en général pour la musique électronique on compte par boucles de 8 temps (2 mesures). 4 boucles font une phrase de 32 temps",
   "Lance bien le train au début d'une boucle, compte jusqu'à 8 et lâche le train B au bon moment"
 ]
 recap = [
-  "La musique électronique se construit en phrases de 8 temps — compte-les, ne les ressens pas à l'aveugle.",
+  "La musique électronique se construit en boucles de 8 temps (2 mesures), et 4 boucles font une phrase de 32 temps — compte-les, ne les ressens pas à l'aveugle.",
   "Le Train B doit être lancé sur un temps 1, 9, 17, 25… pas n'importe lequel.",
   "Un calage de boucle propre sonne automatiquement plus carré qu'un beat-à-beat.",
-  "Penser en phrase, c'est le pont entre le beatmatching et le vrai mix."
+  "Penser en boucles puis en phrases, c'est le pont entre le beatmatching et le vrai mix."
 ]
 
 [track.A]

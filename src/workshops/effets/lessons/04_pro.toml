@@ -3,16 +3,212 @@ order = 4
 
 [en]
 title      = "Loop Rolls: The Beat Repeat"
-short_desc = "Pro version coming soon."
+short_desc = "Slip behavior, roll sizes in milliseconds, quantize, and when to keep your hands off."
+description = "A roll is simple to press and easy to overuse. Here are the numbers behind the sizes, how slip and quantize decide where you land, how a deck roll differs from an FX stutter, and when silence is better."
+recap = [
+  "At 128 BPM a beat is 469 ms: a 1/4 roll repeats every 117 ms, 1/8 every 59 ms, 1/16 every 29 ms.",
+  "Under about 30 ms the repeat is heard as a pitch, not a rhythm.",
+  "A roll is a slip loop: the track keeps running underneath, so release lands on the live position.",
+  "Quantize starts the roll on the grid, but trusts your beatgrid.",
+  "A roll can cover tension, never a bad blend; and no roll at all is often the best choice.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "Sizes in milliseconds, and the 30 ms line"
+content = """
+Roll sizes are fractions of a beat. At 128 BPM, one beat lasts 60 / 128 = 0.469 s.
+
+| Roll size | Repeat length | Feel |
+|---|---|---|
+| 1/2 | 234 ms | bouncy, clearly rhythmic |
+| 1/4 | 117 ms | stutter, machine gun |
+| 1/8 | 59 ms | fast, nervous |
+| 1/16 | 29 ms | about 34 repeats per second: starts to sound like a note |
+
+When a repeat gets shorter than roughly 30 ms, your ear no longer follows a rhythm: it hears a **pitch**. That's why 1/16 and 1/32 rolls sound tonal, and why the same size sounds different at 124 and 174 BPM.
+
+Practical consequence: at a fast tempo (drum and bass, around 174 BPM) a beat is 345 ms, so even 1/8 is only 43 ms. You hit the tonal zone with bigger sizes than in house.
+"""
+
+[[en.pages]]
+title   = "Slip, quantize and the release"
+content = """
+**Slip behavior.** On a roll, the deck keeps counting the track position in the background. When you release, the playhead jumps to the position the track would have reached. That's why a roll never throws you out of phase with the other deck. If your deck has slip mode off, a roll becomes a normal loop and you come out at the wrong place.
+
+**Quantize.** With quantize on, the roll starts on the nearest grid division, even if your press is a little early or late. With quantize off, it starts exactly when you press. Quantize only works as well as the **beatgrid**: a grid a few ms off gives a roll a few ms off. Check the grid on both decks.
+
+**Deck roll vs FX stutter.** Two sources for the same gesture:
+- a **deck roll / slip loop** works on the track on that deck;
+- a **mixer FX roll or stutter** repeats the last slice of the signal going through the effect, which is useful when you want to roll a mix of two decks or add a roll without touching the deck.
+
+Whichever you use, **release on the 1** (1.875 s per bar at 128 BPM). A release in the middle of a bar sounds like a mistake.
+"""
+
+[[en.pages]]
+title   = "Placement: when not to roll"
+content = """
+**Where it works:**
+- the last bar before a drop (a roll that gets faster, 1/4 then 1/8, tightens the tension);
+- the end of an outro, as a way out.
+
+**Where to keep your hands off:**
+- to hide a bad blend or an off-beat transition: the stutter draws attention to what you wanted to hide;
+- on every phrase: once the crowd expects it, it has no effect;
+- when the track already has a stutter, a fill or a snare roll: you stack two rolls and get noise;
+- at low energy, in a warm-up or a deep moment: a roll is a high-energy gesture.
+
+**Silence option:** after a roll, a 1/2 beat cut-out before the downbeat can hit harder than any further effect. Try it, then compare with a plain release on the 1.
+"""
+
+[[en.quiz]]
+question = "At 128 BPM, how long does a 1/4-beat roll repeat last?"
+answers  = ["About 117 ms", "About 469 ms", "About 29 ms", "About 234 ms"]
+correct  = 0
+
+[[en.quiz]]
+question = "Why do very short rolls (1/16, 1/32) sound like a note?"
+answers  = [
+  "Because the deck changes the key",
+  "Because below roughly 30 ms the repeat rate is heard as a pitch",
+  "Because quantize is off",
+  "Because the BPM doubles"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "What does slip behavior do on a roll?"
+answers  = [
+  "It keeps counting the track position, so release lands where the track would be",
+  "It slows the roll down",
+  "It cuts the bass",
+  "It turns on quantize"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "Which situation is best to avoid a roll?"
+answers  = [
+  "The last bar before a drop",
+  "To cover a bad blend between two tracks",
+  "An outro",
+  "A build to a peak moment"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — product pages (loop, slip and roll functions)"
+url   = "https://www.pioneerdj.com/"
+
+[[en.sources]]
+label = "DJTechTools — tutorials and gear reviews"
+url   = "https://djtechtools.com/"
+
+[[en.sources]]
+label = "Granular synthesis — Wikipedia (very short repeats and pitch)"
+url   = "https://en.wikipedia.org/wiki/Granular_synthesis"
 
 [fr]
 title      = "Loop Rolls : Le Beat Repeat"
-short_desc = "Version Pro en préparation."
+short_desc = "Comportement slip, tailles de roll en millisecondes, quantize, et quand ne pas y toucher."
+description = "Un roll est simple à déclencher et facile à abuser. Voici les chiffres derrière les tailles, comment le slip et le quantize décident de où tu atterris, la différence entre un roll de platine et un stutter FX, et quand le silence vaut mieux."
+recap = [
+  "À 128 BPM un temps fait 469 ms : un roll 1/4 répète toutes les 117 ms, 1/8 toutes les 59 ms, 1/16 toutes les 29 ms.",
+  "Sous environ 30 ms, la répétition s'entend comme une hauteur, pas comme un rythme.",
+  "Un roll est une boucle slip : la track continue dessous, donc le relâchement tombe sur la position réelle.",
+  "Le quantize démarre le roll sur la grille, mais fait confiance à ta beatgrid.",
+  "Un roll peut couvrir de la tension, jamais un mauvais mix ; et pas de roll du tout est souvent le meilleur choix.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Les tailles en millisecondes, et la ligne des 30 ms"
+content = """
+Les tailles de roll sont des fractions d'un temps. À 128 BPM, un temps dure 60 / 128 = 0,469 s.
+
+| Taille du roll | Durée de répétition | Sensation |
+|---|---|---|
+| 1/2 | 234 ms | rebondissant, clairement rythmique |
+| 1/4 | 117 ms | stutter, mitraillette |
+| 1/8 | 59 ms | rapide, nerveux |
+| 1/16 | 29 ms | environ 34 répétitions par seconde : ça commence à sonner comme une note |
+
+Quand une répétition devient plus courte qu'environ 30 ms, l'oreille ne suit plus un rythme : elle entend une **hauteur**. C'est pour ça que les rolls 1/16 et 1/32 sonnent tonals, et que la même taille sonne différemment à 124 et à 174 BPM.
+
+Conséquence pratique : à tempo rapide (drum and bass, vers 174 BPM) un temps fait 345 ms, donc même un 1/8 ne dure que 43 ms. Tu atteins la zone tonale avec des tailles plus grandes qu'en house.
+"""
+
+[[fr.pages]]
+title   = "Slip, quantize et relâchement"
+content = """
+**Comportement slip.** Sur un roll, la platine continue de compter la position de la track en arrière-plan. Au relâchement, la tête de lecture saute à la position que la track aurait atteinte. C'est pour ça qu'un roll ne te sort jamais de la phase avec l'autre platine. Si le mode slip de ta platine est désactivé, un roll devient une boucle normale et tu ressors au mauvais endroit.
+
+**Quantize.** Avec le quantize actif, le roll démarre sur la division de grille la plus proche, même si ton appui est un peu en avance ou en retard. Sans quantize, il démarre exactement quand tu appuies. Le quantize n'est aussi bon que la **beatgrid** : une grille décalée de quelques ms donne un roll décalé de quelques ms. Vérifie la grille sur les deux platines.
+
+**Roll de platine vs stutter FX.** Deux sources pour le même geste :
+- un **roll / loop slip de platine** travaille sur la track de cette platine ;
+- un **roll ou stutter FX de la table** répète la dernière tranche du signal qui traverse l'effet, utile quand tu veux rouler un mélange de deux platines ou ajouter un roll sans toucher la platine.
+
+Quel que soit ton choix, **relâche sur le 1** (1,875 s par mesure à 128 BPM). Un relâchement au milieu de la mesure sonne comme une erreur.
+"""
+
+[[fr.pages]]
+title   = "Placement : quand ne pas rouler"
+content = """
+**Là où ça marche :**
+- la dernière mesure avant un drop (un roll qui accélère, 1/4 puis 1/8, resserre la tension) ;
+- la fin d'un outro, comme sortie.
+
+**Là où il faut s'abstenir :**
+- pour cacher un mix raté ou une transition décalée : le stutter attire l'attention sur ce que tu voulais cacher ;
+- à chaque phrase : quand le public l'attend, ça ne fait plus d'effet ;
+- quand la track a déjà un stutter, un fill ou un roulement de caisse claire : tu empiles deux rolls et tu obtiens du bruit ;
+- à basse énergie, en warm-up ou dans un moment deep : un roll est un geste de haute énergie.
+
+**Option silence :** après un roll, une coupure d'un demi-temps avant le temps fort peut frapper plus fort que n'importe quel effet de plus. Essaie, puis compare avec un simple relâchement sur le 1.
+"""
+
+[[fr.quiz]]
+question = "À 128 BPM, combien dure une répétition d'un roll 1/4 de temps ?"
+answers  = ["Environ 117 ms", "Environ 469 ms", "Environ 29 ms", "Environ 234 ms"]
+correct  = 0
+
+[[fr.quiz]]
+question = "Pourquoi les rolls très courts (1/16, 1/32) sonnent-ils comme une note ?"
+answers  = [
+  "Parce que la platine change la tonalité",
+  "Parce qu'en dessous d'environ 30 ms la cadence de répétition s'entend comme une hauteur",
+  "Parce que le quantize est désactivé",
+  "Parce que le BPM double"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Que fait le comportement slip sur un roll ?"
+answers  = [
+  "Il continue de compter la position de la track, donc le relâchement tombe là où elle serait",
+  "Il ralentit le roll",
+  "Il coupe les basses",
+  "Il active le quantize"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Dans quelle situation vaut-il mieux éviter un roll ?"
+answers  = [
+  "La dernière mesure avant un drop",
+  "Pour cacher un mauvais mix entre deux tracks",
+  "Un outro",
+  "Un build vers un moment fort"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — pages produits (fonctions loop, slip et roll)"
+url   = "https://www.pioneerdj.com/"
+
+[[fr.sources]]
+label = "DJTechTools — tutoriels et tests de matériel"
+url   = "https://djtechtools.com/"
+
+[[fr.sources]]
+label = "Synthèse granulaire — Wikipédia (répétitions très courtes et hauteur)"
+url   = "https://en.wikipedia.org/wiki/Granular_synthesis"

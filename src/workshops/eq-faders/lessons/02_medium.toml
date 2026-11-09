@@ -3,13 +3,13 @@ order = 2
 
 [en]
 title       = "Gain Staging: Signal Chain, LUFS, and Headroom"
-short_desc  = "LUFS vs dBFS, the DJ signal chain in order, -6 dB headroom, and Fletcher-Munson basics."
+short_desc  = "LUFS vs dBFS, the DJ signal chain in order, headroom and the mixer's \"0\", and Fletcher-Munson basics."
 description = "Understanding the signal chain from trim to master is the difference between sets that translate to any system and sets that fall apart. LUFS measures perceived loudness. dBFS measures peak. Both matter, for different reasons."
 recap = [
   "Signal chain order: source → TRIM → EQ → volume fader → crossfader → master output.",
   "LUFS measures perceived loudness (weighted like the ear). dBFS measures raw digital peak. A -8 LUFS track and a -14 LUFS track can both peak at -0.1 dBFS.",
-  "Streaming targets: Spotify -14 LUFS, Apple Music -16 LUFS, EBU R128 broadcast -23 LUFS.",
-  "Leave -6 dB headroom from peak to 0 dBFS: live transients, room acoustics, and speaker dynamics all add overshoot.",
+  "Streaming targets: Spotify -14 LUFS, Tidal -14 LUFS, Apple Music -16 LUFS, EBU R128 broadcast -23 LUFS.",
+  "On the game's meter, the dotted line is the mixer's \"0\": aim for the top of the green, a few oranges on peaks, never red. That \"0\" already leaves margin before digital clipping (0 dBFS). Room acoustics is a separate matter.",
   "Fletcher-Munson: at low SPL your ears suppress lows and highs. At club SPL the response flattens — a mix calibrated at home will sound bass-heavy in the club."
 ]
 
@@ -67,7 +67,8 @@ Two tracks can both peak at -0.1 dBFS and differ by 8 LUFS:
 
 Platforms normalize to integrated LUFS to create a consistent listening experience:
 - **Spotify**: -14 LUFS integrated
-- **Apple Music / Tidal**: -16 LUFS
+- **Tidal**: -14 LUFS
+- **Apple Music**: -16 LUFS
 - **YouTube**: -14 LUFS
 - **EBU R128 broadcast**: -23 LUFS
 
@@ -79,30 +80,30 @@ When you're mixing tracks from different eras or genres, the LUFS difference is 
 """
 
 [[en.pages]]
-title   = "The -6 dB headroom rule"
+title   = "Headroom: where the mixer's \"0\" sits"
 content = """
-## Why -6 dB and not 0 dBFS
+## Two different problems, two different fixes
 
-If you aim for 0 dBFS at the mixer output, the signal hitting the PA amplifier will clip. Here's why:
+People mix up two things under the word "headroom". Keep them apart.
 
-**Three sources of overshoot stack:**
-1. **Live transient overshoot**: digital peaks measured by a sample-rate meter don't capture inter-sample peaks. A -1 dBFS digital reading can produce +1 dBTP (true peak) on reconstruction.
-2. **Room acoustics**: standing waves in the room cause frequency buildup — some bass notes add up instead of canceling, increasing the effective SPL by 3–6 dB at resonant nodes.
-3. **Speaker driver dynamics**: bass drivers overshoot mechanically on fast transients — the cone takes slightly longer to stop than the signal commands.
+### 1. Electrical / digital headroom: don't clip
 
-These three additions can sum to **+5 to +8 dB** above what the meter shows.
+**0 dBFS** is the digital ceiling. Above it the signal is chopped flat (**clipping**). Two details make touching it dangerous:
 
-## The industry rule
+- **Inter-sample peaks**: a sample-based meter can read -1 dBFS while the reconstructed analog wave goes above full scale (about +1 dBTP in bad cases). The meter does not show it.
+- **Summing**: while two decks overlap, and with any EQ boost, the levels add up before the master.
 
-Leave **-6 dB** between your loudest peak and 0 dBFS. The corresponding VU meter marker is your calibration target.
+This is why the "0" of a DJ mixer is placed *below* 0 dBFS. On the game's meter, the **dotted line is that "0"**, the border between green and yellow. The rule: aim for the top of the green, a few oranges on the loudest peaks, **never red**.
 
-Why -6 specifically: +6 dB = 2× voltage amplitude, which is the standard safety factor for analog reconstruction circuits, PA amplifier headroom, and linear driver operation.
+### 2. Room acoustics: what you hear is not what the mixer sends
+
+Standing waves make some bass notes add up and others cancel depending on where you stand. That changes the **perceived** bass at one spot of the room by several dB. It does not make your signal clip, and trim does not fix it: it is the PA tuning and the sound engineer's job. Speaker protection (limiters in the PA processor) is also theirs.
 
 ## Practical implementation
 
-- Trim each track so peaks hit **-6 dB on the channel meter** during the drop.
-- Run your master output meter peaking at **-6 dBFS** during the loudest passages.
-- If your channel peaks hit -6 but the master is higher, something in the mix summation is adding gain — check your crossfader overlap or EQ boosts.
+- Trim each track so the peaks reach the **dotted line** on the channel meter during the drop.
+- Keep the master meter in the green with a few oranges at most during the loudest passages.
+- If your channels sit on the dotted line but the master is much higher, something in the summing is adding gain: check the overlap of your faders and your EQ boosts.
 """
 
 [[en.pages]]
@@ -112,7 +113,7 @@ content = """
 
 The human ear isn't equally sensitive across the frequency spectrum. At different volume levels, the balance of what you hear shifts.
 
-This was measured by Fletcher and Munson in 1933 (refined by ISO 226:2003 as the Robinson-Dadson curves):
+Fletcher and Munson measured this in 1933, Robinson and Dadson redid it in 1956, and the current reference is ISO 226:2003, which replaced the Robinson-Dadson curves:
 
 - At **40 dB SPL** (quiet conversation): the ear strongly suppresses lows and highs. Mids are dominant.
 - At **80 dB SPL** (loud conversation, monitor volume): moderate suppression of lows and highs.
@@ -126,7 +127,7 @@ A mix calibrated at **70 dB** in your bedroom will sound:
 
 ## How to compensate
 
-Use a **fixed reference level** for booth monitors — typically 80–85 dB SPL (measured at the DJ position).
+Use a **fixed reference level** for booth monitors — a known setting you can find again (ask the sound engineer).
 Do NOT turn booth monitors up or down to chase the room sound. Keep them at a known reference level so your EQ decisions are made at a consistent point on the equal-loudness curve.
 
 Many well-equipped clubs fix the booth monitor level at the system-design stage. If yours has a booth monitor volume knob, ask the sound engineer for the reference level before you play.
@@ -140,7 +141,7 @@ content = """
 1. Load track into the CDJ/controller.
 2. CUE it (headphones only).
 3. Let it play through the loudest section (drop, chorus).
-4. Adjust TRIM until the **channel meter peaks at -6 dB**.
+4. Adjust TRIM until the **channel meter peaks at the dotted line** (the mixer's "0", top of the green, never red).
 5. Check: does it sound approximately as loud in your headphones as the current track sounds in the room?
 6. Start the mix.
 
@@ -172,8 +173,8 @@ answers  = ["-6 LUFS", "-23 LUFS", "-14 LUFS"]
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "Why does leaving -6 dB headroom matter on a live PA system?"
-answers  = ["Live transients, room acoustics, and speaker overshoot can add 5–8 dB above what the meter shows", "Because -6 dB sounds better perceptually", "Because it saves energy in the PA amplifier"]
+question = "Why do we keep the signal around the mixer's \"0\" (dotted line) instead of pushing toward 0 dBFS?"
+answers  = ["The mixer's \"0\" leaves margin before digital clipping: inter-sample peaks and two overlapping decks can add several dB", "Because lower levels sound better", "Because it saves energy in the PA amplifier"]
 
 [[quiz]]
 correct = 2
@@ -215,13 +216,13 @@ url   = "https://www.digido.com/portfolio-item/mastering-audio/"
 
 [fr]
 title       = "Gain Staging : Chaîne Signal, LUFS et Headroom"
-short_desc  = "LUFS vs dBFS, la chaîne de signal DJ dans l'ordre, headroom à -6 dB, et les bases de Fletcher-Munson."
+short_desc  = "LUFS vs dBFS, la chaîne de signal DJ dans l'ordre, headroom et « 0 » de la table, et les bases de Fletcher-Munson."
 description = "Comprendre la chaîne de signal du trim au master, c'est la différence entre des sets qui s'adaptent à n'importe quel système et des sets qui s'effondrent. Le LUFS mesure la loudness perçue. Le dBFS mesure le pic brut. Les deux comptent, pour des raisons différentes."
 recap = [
   "Ordre de la chaîne de signal : source → TRIM → EQ → fader de volume → crossfader → sortie master.",
   "Le LUFS mesure la loudness perçue (pondérée comme l'oreille). Le dBFS mesure le pic numérique brut. Une track à -8 LUFS et une à -14 LUFS peuvent toutes les deux crêter à -0,1 dBFS.",
-  "Cibles streaming : Spotify -14 LUFS, Apple Music -16 LUFS, broadcast EBU R128 -23 LUFS.",
-  "Laisser -6 dB de headroom entre le pic et 0 dBFS : les transitoires live, l'acoustique de la salle et la dynamique des enceintes ajoutent tous de l'overshoot.",
+  "Cibles streaming : Spotify -14 LUFS, Tidal -14 LUFS, Apple Music -16 LUFS, broadcast EBU R128 -23 LUFS.",
+  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : vise le haut du vert, quelques oranges en crête, jamais de rouge. Ce « 0 » laisse déjà de la marge avant la saturation numérique (0 dBFS). L'acoustique de la salle est un autre sujet.",
   "Fletcher-Munson : à bas SPL tes oreilles suppriment graves et aigus. À SPL de club la réponse s'aplatit — un mix calibré à la maison sonnera chargé en basses en club."
 ]
 
@@ -279,7 +280,8 @@ Deux tracks peuvent toutes les deux crêter à -0,1 dBFS et différer de 8 LUFS 
 
 Les plateformes normalisent à un LUFS intégré pour créer une expérience d'écoute cohérente :
 - **Spotify** : -14 LUFS intégrés
-- **Apple Music / Tidal** : -16 LUFS
+- **Tidal** : -14 LUFS
+- **Apple Music** : -16 LUFS
 - **YouTube** : -14 LUFS
 - **Broadcast EBU R128** : -23 LUFS
 
@@ -291,30 +293,30 @@ Quand tu mixe des tracks d'époque ou de genre différents, la différence de LU
 """
 
 [[fr.pages]]
-title   = "La règle des -6 dB de headroom"
+title   = "Headroom : où se place le « 0 » de la table"
 content = """
-## Pourquoi -6 dB et pas 0 dBFS
+## Deux problèmes différents, deux solutions différentes
 
-Si tu vises 0 dBFS à la sortie de la table, le signal qui tape dans l'ampli PA clippe. Voici pourquoi :
+On mélange deux choses sous le mot « headroom ». Garde-les séparées.
 
-**Trois sources d'overshoot s'accumulent :**
-1. **Overshoot de transitoire live** : les pics numériques mesurés par un mètre à fréquence d'échantillonnage ne capturent pas les pics inter-échantillons. Une lecture numérique à -1 dBFS peut produire +1 dBTP (true peak) lors de la reconstruction.
-2. **Acoustique de la salle** : les ondes stationnaires dans la salle causent une accumulation de fréquences — certaines notes de basse s'additionnent au lieu de s'annuler, augmentant le SPL effectif de 3–6 dB aux noeuds de résonance.
-3. **Dynamique des drivers** : les drivers graves dépassent mécaniquement sur les transitoires rapides — le cône met légèrement plus de temps à s'arrêter que ce que le signal commande.
+### 1. Headroom électrique / numérique : ne pas clipper
 
-Ces trois ajouts peuvent sommer à **+5 à +8 dB** au-dessus de ce que montre le mètre.
+**0 dBFS** est le plafond numérique. Au-dessus, le signal est coupé net (**clipping**). Deux détails rendent dangereux le fait d'y toucher :
 
-## La règle de l'industrie
+- **Pics inter-échantillons** : un mètre basé sur les échantillons peut lire -1 dBFS alors que l'onde analogique reconstruite dépasse la pleine échelle (environ +1 dBTP dans les mauvais cas). Le mètre ne le montre pas.
+- **Sommation** : pendant que deux decks se chevauchent, et avec tout boost d'EQ, les niveaux s'additionnent avant le master.
 
-Laisser **-6 dB** entre ton pic le plus fort et 0 dBFS. La marque correspondante sur le VU meter est ta cible de calibrage.
+C'est pour ça que le « 0 » d'une table DJ est placé *sous* 0 dBFS. Sur le mètre du jeu, la **ligne pointillée est ce « 0 »**, la frontière entre le vert et le jaune. La règle : vise le haut du vert, quelques oranges sur les crêtes les plus fortes, **jamais de rouge**.
 
-Pourquoi -6 spécifiquement : +6 dB = 2× l'amplitude de tension, qui est le facteur de sécurité standard pour les circuits de reconstruction analogique, le headroom d'ampli PA, et le fonctionnement linéaire des drivers.
+### 2. Acoustique de salle : ce que tu entends n'est pas ce que la table envoie
+
+Les ondes stationnaires font que certaines notes de basse s'additionnent et d'autres s'annulent selon l'endroit où tu te tiens. Ça change la basse **perçue** à un endroit de la salle de plusieurs dB. Ça ne fait pas clipper ton signal, et le trim ne le corrige pas : c'est le réglage de la PA et le travail de l'ingé son. La protection des enceintes (limiteurs dans le processeur de la PA) est aussi la sienne.
 
 ## Implémentation pratique
 
-- Trime chaque track pour que les pics tapent à **-6 dB sur le mètre de canal** pendant le drop.
-- Fais tourner ton mètre de sortie master en crêtant à **-6 dBFS** pendant les passages les plus forts.
-- Si tes canaux crêtent à -6 mais que le master est plus haut, quelque chose dans la sommation du mix ajoute du gain — vérifie ton chevauchement de crossfader ou tes boosts EQ.
+- Trime chaque track pour que les pics atteignent la **ligne pointillée** sur le mètre de canal pendant le drop.
+- Garde le mètre master dans le vert, avec quelques oranges au maximum, pendant les passages les plus forts.
+- Si tes canaux sont sur la ligne pointillée mais que le master est bien plus haut, quelque chose dans la sommation ajoute du gain : vérifie le chevauchement de tes faders et tes boosts d'EQ.
 """
 
 [[fr.pages]]
@@ -324,7 +326,7 @@ content = """
 
 L'oreille humaine n'est pas également sensible sur tout le spectre fréquentiel. À différents niveaux de volume, l'équilibre de ce que tu entends se déplace.
 
-Mesuré par Fletcher et Munson en 1933 (affiné par ISO 226:2003 comme courbes Robinson-Dadson) :
+Fletcher et Munson l'ont mesuré en 1933, Robinson et Dadson l'ont refait en 1956, et la référence actuelle est l'ISO 226:2003, qui a remplacé les courbes Robinson-Dadson :
 
 - À **40 dB SPL** (conversation calme) : l'oreille supprime fortement graves et aigus. Les mids dominent.
 - À **80 dB SPL** (conversation forte, volume moniteur) : suppression modérée des graves et aigus.
@@ -338,7 +340,7 @@ Un mix calibré à **70 dB** dans ta chambre sonnera :
 
 ## Comment compenser
 
-Utilise un **niveau de référence fixe** pour les moniteurs du booth — typiquement 80–85 dB SPL (mesuré à la position DJ).
+Utilise un **niveau de référence fixe** pour les moniteurs du booth — un réglage connu que tu peux retrouver (demande à l'ingé son).
 Ne monte PAS et ne baisse PAS les moniteurs du booth pour chasser le son de la salle. Garde-les à un niveau de référence connu pour que tes décisions EQ se prennent à un point cohérent sur la courbe d'égale loudness.
 
 Beaucoup de clubs bien équipés fixent le niveau des moniteurs du booth au stade de la conception du système. Si le tien a un bouton de volume pour les moniteurs du booth, demande le niveau de référence à l'ingénieur son avant de jouer.
@@ -352,7 +354,7 @@ content = """
 1. Charge la track dans le CDJ/contrôleur.
 2. Mets-la en CUE (casque uniquement).
 3. Laisse-la jouer sur la section la plus forte (drop, refrain).
-4. Ajuste le TRIM jusqu'à ce que le **mètre de canal crête à -6 dB**.
+4. Ajuste le TRIM jusqu'à ce que le **mètre de canal crête sur la ligne pointillée** (le « 0 » de la table, haut du vert, jamais de rouge).
 5. Vérifie : ça sonne à peu près aussi fort dans ton casque que le morceau actuel dans la salle ?
 6. Lance le mix.
 
@@ -384,8 +386,8 @@ answers  = ["-6 LUFS", "-23 LUFS", "-14 LUFS"]
 [[quiz]]
 correct = 0
 [quiz.fr]
-question = "Pourquoi laisser -6 dB de headroom est-il important sur une PA live ?"
-answers  = ["Les transitoires live, l'acoustique de la salle et l'overshoot des enceintes peuvent ajouter 5–8 dB au-dessus de ce que montre le mètre", "Parce que -6 dB sonne mieux perceptuellement", "Parce que ça économise de l'énergie dans l'ampli PA"]
+question = "Pourquoi garde-t-on le signal autour du « 0 » de la table (ligne pointillée) plutôt que de pousser vers 0 dBFS ?"
+answers  = ["Le « 0 » de la table laisse de la marge avant la saturation numérique : les pics inter-échantillons et deux decks qui se chevauchent peuvent ajouter plusieurs dB", "Parce que les niveaux plus bas sonnent mieux", "Parce que ça économise de l'énergie dans l'ampli PA"]
 
 [[quiz]]
 correct = 2

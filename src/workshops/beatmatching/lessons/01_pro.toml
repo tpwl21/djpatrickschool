@@ -6,23 +6,23 @@ title       = "BPM: DSP, Time-Scale Modification, and the Limits of Detection"
 short_desc  = "WSOLA, phase vocoders, beat-tracking algorithms, and why vinyl DJs never fully trust the screen."
 description = "Behind the BPM number lies a chain of DSP algorithms, perceptual thresholds, and engineering trade-offs. This lesson goes there."
 recap = [
-  "Tempo in DAWs is defined at tick resolution (1/960th of a quarter note in Ableton) — vinyl decks drift mechanically.",
+  "Tempo in DAWs is defined at tick resolution (960 ticks per quarter note is a common value) — a vinyl deck's speed is set by its pitch fader and the record itself.",
   "BPM auto-detection uses onset detection + autocorrelation or beat-tracking (Dixon, Scheirer). Accurate within ±1 BPM on clean 4/4, unreliable on swung, live, or short material.",
   "Pitch-rate coupling: Δpitch (semitones) = 12 × log₂(new_rate / old_rate). 6% ≈ 1 semitone.",
   "WSOLA (Waveform-Similarity Overlap-Add) slices audio into overlapping frames, maximizes cross-correlation across splice points, reassembles at target rate.",
   "Phase vocoder does the same in the frequency domain: resynthesizes at new rate by phase interpolation of STFT bins.",
-  "Both methods degrade above ±10–15%: transient smearing (WSOLA) or metallic phasing (phase vocoder). Laroche-Dolson phase locking reduces artifacts at the cost of added complexity.",
-  "At 120 BPM a 1 ms phase error = 0.2% of a beat — human hearing resolves phase to ~1 ms interaurally."
+  "Both methods degrade on big rate changes: WSOLA tends to double or skip hits (stutter), the phase vocoder smears transients and sounds phasey. Laroche-Dolson phase locking reduces the phasiness at the cost of added complexity.",
+  "At 120 BPM a 1 ms phase error = 0.2% of a beat — far below the few milliseconds at which two kicks start to sound like a flam (see lesson 2)."
 ]
 
 [[en.pages]]
 title   = "Tempo in the machine: ticks, drift, and mechanical limits"
 content = """
-Inside a DAW, tempo is not stored as BPM but as **microseconds per beat** (MIDI standard: 480,000 μs = 120 BPM). Ableton works at **tick resolution**: 1/960th of a quarter note, roughly 0.52 ms at 120 BPM. This gives sub-millisecond alignment accuracy — far below human perception thresholds.
+Inside a DAW, tempo is not stored as BPM but as **microseconds per beat** (MIDI standard: 480,000 μs = 120 BPM). DAWs work at **tick resolution**: a common value is 960 ticks per quarter note, roughly 0.52 ms at 120 BPM. This gives sub-millisecond alignment accuracy — far below human perception thresholds.
 
-Vinyl turntables are the opposite: the platter is driven by an AC motor, and its speed drifts with motor load, stylus friction, and platter weight distribution. A standard 1200 has a quartz-locked motor, but even quartz-locked decks exhibit ~±0.1 BPM drift over the duration of a record. That's why vinyl DJs micro-nudge constantly — they're compensating for real mechanical variation, not just phase errors.
+Vinyl turntables are the opposite: a Technics 1200 is a direct-drive deck whose motor is servo-controlled by a quartz reference, so the platter speed itself is very stable. The drift a DJ fights comes from elsewhere: the pitch fader (its resolution and its physical position), and records that were not mastered to a perfectly rigid tempo (live-played drums, tempo changes inside the track). That's why vinyl DJs micro-nudge constantly — they're compensating for the gap between two imperfect tempos, not just a one-off phase error.
 
-CDJs solve this with a digital motor simulator (the platter is a rotary encoder, not a true motor driving a spindle), but older firmware had similar timing jitter on the USB read buffer, especially with high-resolution waveform rendering enabled.
+CDJs have no motor setting the speed: playback is clocked digitally, and the jog wheel is a sensor that tells the player when you push or brake it. The pitch fader still sets the rate, so the same logic applies.
 
 **Implication**: when you're told a track is "120 BPM", that is an *approximation*. On vinyl it's a statistical mean. In a well-produced DAW session it's accurate to microseconds. Know which world you're operating in.
 """
@@ -67,7 +67,7 @@ Algorithm (Verhelst & Roelands 1993, refined by Driedger & Müller 2016):
 
 The search step is what makes WSOLA "waveform-similarity" — it minimizes phase discontinuities at splice points. This works well for **steady tonal content** up to about ±8–10% rate change.
 
-**Artifacts above ±10%**: the cross-correlation can't find good matches, splice points become audible as transient smearing (the attack of a kick is spread over several frames).
+**Artifacts above ±10%**: the cross-correlation can't find good matches, and splice points become audible as doubled or skipped hits (a kick repeated, or a stutter), because a frame can be copied twice or dropped.
 
 ## Phase Vocoder
 
@@ -78,18 +78,18 @@ Algorithm (Flanagan & Golden 1966, improved by Laroche & Dolson 1999):
 
 Pitch is preserved because the frequency content of each bin is unchanged; only the time positions of frames change.
 
-**Laroche-Dolson phase locking** (1999): in the standard phase vocoder, peaks in the spectrum "rotate" at different speeds, causing metallic/phasey artifacts on sustained notes. Phase locking groups bins around spectral peaks and rotates them as a unit — dramatically reducing the artifact at the cost of additional computation.
+The classic weaknesses of the phase vocoder are **transient smearing** (a kick attack gets blurred in time) and a phasey, metallic color. **Laroche-Dolson phase locking** (1999) targets the second one: in the standard phase vocoder, peaks in the spectrum "rotate" at different speeds, causing metallic/phasey artifacts on sustained notes. Phase locking groups bins around spectral peaks and rotates them as a unit — dramatically reducing the artifact at the cost of additional computation.
 
 ## Trade-offs
 
 | | WSOLA | Phase Vocoder |
 |---|---|---|
-| Quality on percussives | Good | Metallic artifacts |
+| Quality on percussives | Good (watch for doubled or skipped hits) | Smeared transients, metallic color |
 | Quality on sustained tones | OK | Good (with phase locking) |
 | Computational cost | Low | Higher |
 | Latency | Low | Higher (full STFT frame) |
 
-This project's audio engine uses WSOLA for Key Lock (see `src/audio/` — an AudioWorklet implementation). Above ±8%, expect transient smearing.
+This project's audio engine uses WSOLA for Key Lock (see `public/audio-worklets/wsola-processor.js` — an AudioWorklet implementation). Above ±8%, expect doubled or skipped hits.
 """
 
 [[quiz]]
@@ -162,23 +162,23 @@ title       = "BPM : DSP, modification temporelle, et les limites de la détecti
 short_desc  = "WSOLA, phase vocoders, algos de beat-tracking, et pourquoi les DJs vinyle ne font jamais totalement confiance à l'écran."
 description = "Derrière le chiffre BPM se cache une chaîne d'algorithmes DSP, de seuils perceptuels et de compromis d'ingénierie. Cette leçon va là."
 recap = [
-  "Le tempo en MAO est défini à la résolution des ticks (1/960e de noire dans Ableton) — les platines vinyle dérivent mécaniquement.",
+  "Le tempo en MAO est défini à la résolution des ticks (960 ticks par noire est une valeur courante) — la vitesse d'une platine vinyle dépend de son fader de pitch et du disque lui-même.",
   "La détection BPM auto utilise détection d'onset + autocorrélation ou beat-tracking (Dixon, Scheirer). Précis à ±1 BPM sur du 4/4 propre, peu fiable sur swingué, live ou court.",
   "Couplage pitch-rate : Δpitch (demi-tons) = 12 × log₂(nouveau_rate / ancien_rate). 6% ≈ 1 demi-ton.",
   "WSOLA découpe l'audio en frames recouvrantes, maximise la cross-corrélation aux jointures, recolle au rate cible.",
   "Le phase vocoder fait la même chose dans le domaine fréquentiel : resynth au nouveau rate par interpolation de phase des bins STFT.",
-  "Les deux dégradent au-delà de ±10–15% : étalement des transitoires (WSOLA) ou phasage métallique (phase vocoder). Le phase locking Laroche-Dolson réduit les artefacts au prix d'une complexité accrue.",
-  "À 120 BPM une erreur de phase de 1 ms = 0,2% d'un beat — l'audition humaine résout la phase à ~1 ms en interaural."
+  "Les deux dégradent sur les gros changements de rate : WSOLA a tendance à doubler ou sauter des coups (bégaiement), le phase vocoder étale les transitoires et sonne phasé. Le phase locking Laroche-Dolson réduit le côté phasé au prix d'une complexité accrue.",
+  "À 120 BPM une erreur de phase de 1 ms = 0,2% d'un beat — très en dessous des quelques millisecondes à partir desquelles deux kicks sonnent comme un flam (cf. leçon 2)."
 ]
 
 [[fr.pages]]
 title   = "Le tempo dans la machine : ticks, dérive et limites mécaniques"
 content = """
-Dans un DAW, le tempo n'est pas stocké en BPM mais en **microsecondes par beat** (standard MIDI : 480 000 μs = 120 BPM). Ableton travaille à la **résolution des ticks** : 1/960e de noire, soit environ 0,52 ms à 120 BPM. Cela permet un calage sub-millisecondes — bien en dessous des seuils de perception humaine.
+Dans un DAW, le tempo n'est pas stocké en BPM mais en **microsecondes par beat** (standard MIDI : 480 000 μs = 120 BPM). Les DAW travaillent à la **résolution des ticks** : une valeur courante est 960 ticks par noire, soit environ 0,52 ms à 120 BPM. Cela permet un calage sub-millisecondes — bien en dessous des seuils de perception humaine.
 
-Les platines vinyle sont l'opposé : le plateau est entraîné par un moteur AC, et sa vitesse dérive avec la charge moteur, la friction du saphir et la distribution du poids du plateau. Une 1200 standard a un moteur à quartz, mais même les decks à quartz présentent ~±0,1 BPM de dérive sur la durée d'un disque. C'est pour ça que les DJs vinyle micro-nudgent constamment — ils compensent une vraie variation mécanique, pas seulement des erreurs de phase.
+Les platines vinyle sont l'opposé : une Technics 1200 est une platine à entraînement direct dont le moteur est asservi sur une référence à quartz, donc la vitesse du plateau est très stable. La dérive que le DJ combat vient d'ailleurs : le fader de pitch (sa résolution, sa position physique) et des disques qui ne sont pas calés sur un tempo parfaitement rigide (batterie jouée live, changements de tempo dans le morceau). C'est pour ça que les DJs vinyle micro-nudgent constamment — ils compensent l'écart entre deux tempos imparfaits, pas seulement une erreur de phase ponctuelle.
 
-Les CDJ résolvent ça avec un simulateur de moteur numérique (le plateau est un encodeur rotatif, pas un vrai moteur), mais les anciennes versions de firmware avaient une gigue temporelle similaire sur le buffer de lecture USB, surtout avec le rendu de forme d'onde haute résolution activé.
+Les CDJ n'ont pas de moteur qui fixe la vitesse : la lecture est cadencée numériquement, et la roue jog est un capteur qui détecte quand tu la pousses ou la freines. Le fader de pitch règle toujours le rate, donc la logique est la même.
 
 **Implication** : quand on te dit qu'un morceau est à "120 BPM", c'est une *approximation*. Sur vinyle c'est une moyenne statistique. Dans une session MAO bien produite c'est précis à la microseconde. Sache dans quel monde tu opères.
 """
@@ -223,7 +223,7 @@ Algorithme (Verhelst & Roelands 1993, affiné par Driedger & Müller 2016) :
 
 L'étape de recherche est ce qui rend WSOLA "waveform-similarity" — elle minimise les discontinuités de phase aux jointures. Fonctionne bien pour **contenu tonal stable** jusqu'à environ ±8–10% de changement de rate.
 
-**Artefacts au-delà de ±10%** : la cross-corrélation ne trouve plus de bonnes correspondances, les jointures deviennent audibles comme étalement des transitoires.
+**Artefacts au-delà de ±10%** : la cross-corrélation ne trouve plus de bonnes correspondances, et les jointures deviennent audibles comme des coups doublés ou sautés (un kick répété, un bégaiement), car une frame peut être copiée deux fois ou abandonnée.
 
 ## Phase Vocoder
 
@@ -234,64 +234,19 @@ Algorithme (Flanagan & Golden 1966, amélioré par Laroche & Dolson 1999) :
 
 Le pitch est préservé car le contenu fréquentiel de chaque bin est inchangé ; seules les positions temporelles des frames changent.
 
-**Phase locking Laroche-Dolson** (1999) : dans le phase vocoder standard, les pics spectraux "tournent" à des vitesses différentes, causant des artefacts métalliques/phasés sur les notes tenues. Le phase locking groupe les bins autour des pics spectraux et les fait tourner comme une unité — réduit dramatiquement l'artefact au prix d'un calcul supplémentaire.
+Les faiblesses classiques du phase vocoder sont l'**étalement des transitoires** (l'attaque d'un kick est floutée dans le temps) et une couleur phasée, métallique. Le **phase locking Laroche-Dolson** (1999) vise la seconde : dans le phase vocoder standard, les pics spectraux "tournent" à des vitesses différentes, causant des artefacts métalliques/phasés sur les notes tenues. Le phase locking groupe les bins autour des pics spectraux et les fait tourner comme une unité — réduit dramatiquement l'artefact au prix d'un calcul supplémentaire.
 
 ## Comparaison
 
 | | WSOLA | Phase Vocoder |
 |---|---|---|
-| Qualité sur percussions | Bonne | Artefacts métalliques |
+| Qualité sur percussions | Bonne (attention aux coups doublés ou sautés) | Transitoires étalées, couleur métallique |
 | Qualité sur sons tenus | Correcte | Bonne (avec phase locking) |
 | Coût calcul | Faible | Plus élevé |
 | Latence | Faible | Plus élevée (frame STFT complète) |
 
-Le moteur audio de ce projet utilise WSOLA pour le Key Lock (cf. `src/audio/` — une implémentation AudioWorklet). Au-delà de ±8%, attend-toi à un étalement des transitoires.
+Le moteur audio de ce projet utilise WSOLA pour le Key Lock (cf. `public/audio-worklets/wsola-processor.js` — une implémentation AudioWorklet). Au-delà de ±8%, attend-toi à des coups doublés ou sautés.
 """
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "In WSOLA, what does the 'waveform similarity' step do?"
-answers  = ["Computes the STFT of each input frame", "Locks the phase of spectral peaks together", "Cross-correlates candidate frames to minimize phase discontinuities at splice points"]
-[quiz.fr]
-question = "Dans WSOLA, que fait l'étape 'similarité de forme d'onde' ?"
-answers  = ["Calcule la STFT de chaque frame d'entrée", "Verrouille la phase des pics spectraux ensemble", "Cross-corrèle les frames candidates pour minimiser les discontinuités de phase aux jointures"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "What does Laroche-Dolson phase locking solve in the phase vocoder?"
-answers  = ["Metallic/phasey artifacts on sustained tones caused by peaks rotating at different speeds", "Transient smearing at high stretch ratios", "High computational cost of the STFT"]
-[quiz.fr]
-question = "Que résout le phase locking de Laroche-Dolson dans le phase vocoder ?"
-answers  = ["Les artefacts métalliques/phasés sur les notes tenues causés par des pics tournant à des vitesses différentes", "L'étalement des transitoires aux forts ratios d'étirement", "Le coût de calcul élevé de la STFT"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "At 120 BPM, roughly what percentage of a beat does a 1 ms phase error represent?"
-answers  = ["0.02%", "0.2%", "2%"]
-[quiz.fr]
-question = "À 120 BPM, environ quel pourcentage d'un beat représente une erreur de phase de 1 ms ?"
-answers  = ["0,02%", "0,2%", "2%"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "Why does autocorrelation-based BPM detection misfire on half-time feels?"
-answers  = ["The spectral flux is too low to detect onsets", "Phase deviation is suppressed in half-time grooves", "The kick falls every 2 beats — the autocorrelation peak at 2× the true BPM is strong"]
-[quiz.fr]
-question = "Pourquoi la détection BPM par autocorrélation plante-t-elle sur les feels half-time ?"
-answers  = ["Le flux spectral est trop faible pour détecter les onsets", "La déviation de phase est supprimée dans les grooves half-time", "Le kick tombe tous les 2 beats — le pic d'autocorrélation à 2× le BPM réel est fort"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "What is the pitch change formula when changing playback rate by a ratio r?"
-answers  = ["12 × log₂(r) semitones", "r × 12 semitones", "log₁₀(r) × 100 cents"]
-[quiz.fr]
-question = "Quelle est la formule de changement de pitch quand on change le rate par un ratio r ?"
-answers  = ["12 × log₂(r) demi-tons", "r × 12 demi-tons", "log₁₀(r) × 100 cents"]
 
 [[sources]]
 label = "Driedger & Müller — A Review of Time-Scale Modification of Music Signals (2016)"

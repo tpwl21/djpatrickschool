@@ -7,25 +7,40 @@ short_desc  = "Why filter-before-delay sounds different from delay-before-filter
 description = "FX don't commute. The order in which signal passes through them changes the result drastically. Every DJ should know their default chain order."
 recap = [
   "Default DJ chain: EQ → Filter → send FX (Delay, Reverb) → Volume fader → Crossfader.",
-  "Filter-before-delay: echoes inherit the filtered tone. Delay-before-filter: echoes are frozen snapshots.",
+  "Filter then delay: echoes are snapshots of the filtered sound. Delay then filter: the whole tail follows the filter knob.",
   "Sends run FX in parallel on an auxiliary bus — the dry track stays untouched.",
-  "Pre-fader vs post-fader send = does pulling the volume also pull the effect tail?",
-  "Two linear filters commute (convolution); feedback and non-linearity break commutativity."
+  "Pre-fader vs post-fader send = does the effect keep listening to the track when you pull the volume?",
+  "The order of effects changes the result — learn the chain of your own mixer and test it."
 ]
 
 [[en.pages]]
 title   = "The default order: EQ → Filter → Delay → Reverb"
-content = "On most DJ mixers (Pioneer DJM, Allen & Heath Xone), the signal flow is EQ first, then filter, then whatever effect you've dialed up (send FX). This order exists for a reason. EQ shapes the track's fundamental timbre — that should happen first, while the signal is still clean. Filter then shapes what spectrum remains. Only AFTER these do echoes and reverbs get layered on top, so they inherit the shaped signal, not the raw one."
-medium_addendum = "Two routing concepts to nail. **Insert vs send**: EQ and filter are **inserts** — 100% of the signal passes through them, they replace the dry track. Delay and reverb are **sends** — a *copy* is tapped off and processed on an auxiliary bus, then mixed back in. This is why you can dial a send to 80% without losing the dry kick. **Pre-fader vs post-fader send**: post-fader (DJM default) means the send volume follows the channel fader — pull the fader down and the delay tail goes with it. Pre-fader means the send feeds from before the fader — pull the fader and the tail continues alone (the real 'echo-out' trick). Most DJMs offer both modes."
-pro_deep_dive = "Formally, the question is whether the effect operators *commute*: does F(G(x)) = G(F(x))? For **linear time-invariant** (LTI) systems, two filters always commute — it's a direct consequence of the **convolution theorem**: multiplication in the frequency domain is commutative, and LTI systems correspond to multiplication of the Fourier transform by a transfer function. So a static lowpass and a static highpass applied in either order produce the same output. Commutativity breaks as soon as you introduce: (1) **feedback** (delay with feedback, reverb) — the feedback path depends on what the output was, which depends on the whole upstream chain; (2) **non-linearity** (saturation, compression, soft-clip) — f(a+b) ≠ f(a) + f(b), so the order of the non-linear and linear stages changes the harmonics generated; (3) **time-variance** (a filter being swept in real time). That's why in practice FX chain order matters dramatically the moment you leave the pure static-linear regime — which is, essentially, always."
+content = "On many DJ mixers, the signal flow is typically EQ first, then filter, then whatever effect you've dialed up (send FX). This order exists for a reason. EQ shapes the track's fundamental timbre — that should happen first, while the signal is still clean. Filter then shapes what spectrum remains. Only AFTER these do echoes and reverbs get layered on top, so they inherit the shaped signal, not the raw one."
 
 [[en.pages]]
-title   = "Filter-before-delay vs delay-before-filter"
-content = "If you filter a delayed signal: each echo keeps its full spectrum until it hits the filter, so the tail keeps brightening/dimming as the filter moves. Very musical. If you delay a filtered signal: the filter only affects the dry track; the echoes are frozen snapshots of whatever was there at the moment of each tap. Very static. Most mixers use filter-before-delay by default — but some send FX units flip this, which is why the same delay setting sounds different on two different mixers."
+title   = "Insert vs send, pre- vs post-fader"
+content = """
+Two routing concepts to nail.
+
+**Insert vs send.** EQ and filter are **inserts**: 100% of the signal passes through them, they replace the dry track. Delay and reverb are **sends**: a *copy* is tapped off, processed on an auxiliary bus, then mixed back in. That's why you can push a send to 80% wet without losing the dry kick.
+
+**Pre-fader vs post-fader.** Post-fader means the send listens after the channel fader: pull the fader down and no new music enters the effect, but the echoes already inside keep fading out by themselves. Pre-fader means it listens before the fader: the effect keeps receiving the track even with the fader at zero, so you hear only the wet signal. This is the same explanation as in the delay lesson. Whether your mixer cuts the tail with the fader depends on the model and the effect mode, so **check it on your gear**: play a loop, turn the effect on, pull the fader, and listen.
+"""
+
+[[en.pages]]
+title   = "Filter then delay vs delay then filter"
+content = """
+The order of the two changes what the echoes do.
+
+- **Filter, then delay** (the delay sits after the filter): the delay copies what the filter lets through at that instant. Each echo is a snapshot of that moment. If you keep sweeping the filter, the echoes already in the tail don't change: they are frozen.
+- **Delay, then filter** (the filter sits after the delay): the echoes pass through the filter too, so the whole tail follows your knob. Sweep the filter and the echoes darken or open live. Very musical for a transition.
+
+Which one you get depends on the gear and the mode, and some mixers let you choose. That is why the same delay setting can sound different from one mixer to another. Test it: put an echo on a loop, sweep the filter, and listen to whether the tail moves with the knob.
+"""
 
 [[en.pages]]
 title   = "The chain you should memorize for transitions"
-content = "For 90% of transitions the ideal chain is: **dry track → trim → 3-band EQ → filter → delay & reverb sends → volume fader → crossfader**. EQ and filter work on the core of the sound. Delay and reverb are sends (parallel copies). Volume fader is last because you always want immediate per-deck gain control, regardless of what's processing before it. When people tell you 'a great DJ doesn't touch many knobs' — they mean: they know which knob is in which position of the chain, and reach for the right one for the right problem."
+content = "For most transitions a good chain to keep in mind is: **dry track → trim → 3-band EQ → filter → delay & reverb sends → volume fader → crossfader**. EQ and filter work on the core of the sound. Delay and reverb are sends (parallel copies). Volume fader is last because you always want immediate per-deck gain control, regardless of what's processing before it. When people tell you 'a great DJ doesn't touch many knobs' — they mean: they know which knob is in which position of the chain, and reach for the right one for the right problem."
 
 [fr]
 title       = "FX Chain : L'Ordre Change Tout"
@@ -33,25 +48,40 @@ short_desc  = "Pourquoi filtre-avant-delay ne sonne pas comme delay-avant-filtre
 description = "Les FX ne commutent pas. L'ordre dans lequel le signal les traverse change drastiquement le résultat. Tout DJ devrait connaître l'ordre par défaut de sa chaîne."
 recap = [
   "Chaîne DJ par défaut : EQ → Filtre → sends FX (Delay, Reverb) → Fader de volume → Crossfader.",
-  "Filtre-avant-delay : les échos héritent du filtrage. Delay-avant-filtre : échos figés.",
+  "Filtre puis delay : les échos sont des instantanés du son filtré. Delay puis filtre : toute la queue suit le potard du filtre.",
   "Les sends font tourner les FX en parallèle sur un bus auxiliaire — la track dry reste intacte.",
-  "Pre-fader vs post-fader send = est-ce que baisser le volume coupe aussi la queue d'effet ?",
-  "Deux filtres linéaires commutent (convolution) ; feedback et non-linéarité cassent la commutativité."
+  "Send pre-fader vs post-fader = l'effet continue-t-il d'écouter la track quand tu baisses le volume ?",
+  "L'ordre des effets change le résultat — apprends la chaîne de ta propre table et teste-la."
 ]
 
 [[fr.pages]]
 title   = "L'ordre standard : EQ → Filtre → Delay → Reverb"
-content = "Sur la plupart des tables DJ (Pioneer DJM, Allen & Heath Xone), le signal passe par l'EQ d'abord, puis le filtre, puis les sends FX. Cet ordre a une raison. L'EQ sculpte le timbre fondamental de la track — c'est ce qui doit arriver en premier, quand le signal est encore propre. Le filtre ensuite décide quel spectre reste. Seulement APRÈS, les échos et reverbs se superposent, héritant du signal déjà sculpté, pas du brut."
-medium_addendum = "Deux notions de routing à maîtriser. **Insert vs send** : EQ et filtre sont des **inserts** — 100% du signal passe à travers, ils remplacent la track dry. Delay et reverb sont des **sends** — on *tape* une copie qu'on envoie sur un bus auxiliaire pour traitement, puis on la mixe. C'est pour ça que tu peux pousser un send à 80% sans perdre le kick dry. **Pre-fader vs post-fader send** : post-fader (défaut DJM) = le send suit le fader de canal — tu baisses le fader, la queue de delay suit. Pre-fader = le send se nourrit avant le fader — tu baisses le fader, la queue continue seule (le vrai truc de l'echo-out). La plupart des DJM offrent les deux modes."
-pro_deep_dive = "Formellement, la question est de savoir si les opérateurs d'effet *commutent* : a-t-on F(G(x)) = G(F(x)) ? Pour les systèmes **linéaires invariants dans le temps** (LTI), deux filtres commutent toujours — conséquence directe du **théorème de convolution** : la multiplication dans le domaine fréquentiel est commutative, et un système LTI correspond à une multiplication de la transformée de Fourier par une fonction de transfert. Donc un passe-bas statique et un passe-haut statique appliqués dans un ordre ou l'autre donnent le même output. La commutativité se casse dès que tu introduis : (1) du **feedback** (delay avec feedback, reverb) — le chemin de feedback dépend de ce qu'était la sortie, qui dépend de toute la chaîne amont ; (2) de la **non-linéarité** (saturation, compression, soft-clip) — f(a+b) ≠ f(a) + f(b), donc l'ordre entre une étape non-linéaire et une étape linéaire change les harmoniques générés ; (3) de la **variance temporelle** (un filtre qu'on sweepe en live). D'où, en pratique, l'ordre de la chaîne FX compte dramatiquement dès qu'on quitte le régime statique-linéaire pur — c'est-à-dire, essentiellement, tout le temps."
+content = "Sur beaucoup de tables DJ, le signal passe en général par l'EQ d'abord, puis le filtre, puis les sends FX. Cet ordre a une raison. L'EQ sculpte le timbre fondamental de la track — c'est ce qui doit arriver en premier, quand le signal est encore propre. Le filtre ensuite décide quel spectre reste. Seulement APRÈS, les échos et reverbs se superposent, héritant du signal déjà sculpté, pas du brut."
 
 [[fr.pages]]
-title   = "Filtre-avant-delay vs delay-avant-filtre"
-content = "Si tu filtres un signal déjà retardé : chaque écho garde tout son spectre jusqu'à ce qu'il passe par le filtre, donc la queue s'éclaircit/s'assombrit au fur et à mesure que le filtre bouge. Très musical. Si tu retardes un signal déjà filtré : le filtre n'agit que sur le signal dry ; les échos sont des snapshots figés de ce qui était là au moment de chaque tap. Très statique. La plupart des tables font filtre-avant-delay par défaut — mais certains racks send FX inversent, et c'est pour ça que le même réglage de delay ne sonne pas pareil sur deux mixers."
+title   = "Insert vs send, pre- vs post-fader"
+content = """
+Deux notions de routing à maîtriser.
+
+**Insert vs send.** EQ et filtre sont des **inserts** : 100% du signal passe à travers, ils remplacent la track dry. Delay et reverb sont des **sends** : on *tape* une copie qu'on envoie sur un bus auxiliaire pour traitement, puis on la remixe. C'est pour ça que tu peux pousser un send à 80% wet sans perdre le kick dry.
+
+**Pre-fader vs post-fader.** Post-fader : le send écoute après le fader de canal. Tu baisses le fader, plus de musique n'entre dans l'effet, mais les échos déjà présents continuent de s'éteindre d'eux-mêmes. Pre-fader : il écoute avant le fader, donc l'effet continue de recevoir la track même fader à zéro, et tu n'entends que le signal wet. C'est la même explication que dans la leçon delay. Savoir si ta table coupe la queue avec le fader dépend du modèle et du mode de l'effet, donc **vérifie sur ton matériel** : lance une boucle, active l'effet, baisse le fader, écoute.
+"""
+
+[[fr.pages]]
+title   = "Filtre puis delay vs delay puis filtre"
+content = """
+L'ordre des deux change ce que font les échos.
+
+- **Filtre, puis delay** (le delay est après le filtre) : le delay copie ce que le filtre laisse passer à cet instant. Chaque écho est un instantané de ce moment. Si tu continues à balayer le filtre, les échos déjà dans la queue ne changent pas : ils sont figés.
+- **Delay, puis filtre** (le filtre est après le delay) : les échos passent aussi dans le filtre, donc toute la queue suit ton potard. Tu balayes le filtre et les échos s'assombrissent ou s'ouvrent en direct. Très musical pour une transition.
+
+Lequel tu obtiens dépend du matériel et du mode, et certaines tables te laissent choisir. C'est pour ça que le même réglage de delay peut sonner différemment d'une table à l'autre. Teste : mets un écho sur une boucle, balaye le filtre et écoute si la queue bouge avec le potard.
+"""
 
 [[fr.pages]]
 title   = "La chaîne à mémoriser pour les transitions"
-content = "Pour 90% des transitions, la chaîne idéale c'est : **track dry → trim → EQ 3 bandes → filtre → sends delay & reverb → fader de volume → crossfader**. EQ et filtre travaillent sur le cœur du son. Delay et reverb sont des sends (copies parallèles). Le fader de volume est en dernier parce que tu veux toujours un contrôle de gain immédiat par deck, quel que soit ce qui traite avant. Quand on te dit 'un grand DJ ne touche pas beaucoup de knobs' — ça veut dire : il sait quel knob est à quelle étape de la chaîne, et il va chercher le bon pour le bon problème."
+content = "Pour la plupart des transitions, une bonne chaîne à garder en tête : **track dry → trim → EQ 3 bandes → filtre → sends delay & reverb → fader de volume → crossfader**. EQ et filtre travaillent sur le cœur du son. Delay et reverb sont des sends (copies parallèles). Le fader de volume est en dernier parce que tu veux toujours un contrôle de gain immédiat par deck, quel que soit ce qui traite avant. Quand on te dit 'un grand DJ ne touche pas beaucoup de knobs' — ça veut dire : il sait quel knob est à quelle étape de la chaîne, et il va chercher le bon pour le bon problème."
 
 [[quiz]]
 correct = 1
@@ -65,11 +95,11 @@ answers  = ["Parce qu'il est le plus fort", "Tu veux un contrôle de gain imméd
 [[quiz]]
 correct = 0
 [quiz.en]
-question = "What's the practical difference between filter-before-delay and delay-before-filter?"
-answers  = ["The echo tails change color with the filter in the first case, stay frozen in the second", "Volume", "Stereo image"]
+question = "What's the practical difference between filter-then-delay and delay-then-filter?"
+answers  = ["With filter then delay the echoes are snapshots; with delay then filter the tail follows the filter live", "Volume", "Stereo image"]
 [quiz.fr]
-question = "Quelle est la différence pratique entre filtre-avant-delay et delay-avant-filtre ?"
-answers  = ["Les queues d'écho changent de couleur avec le filtre dans le premier cas, restent figées dans le second", "Le volume", "L'image stéréo"]
+question = "Quelle est la différence pratique entre filtre-puis-delay et delay-puis-filtre ?"
+answers  = ["Avec filtre puis delay les échos sont des instantanés ; avec delay puis filtre la queue suit le filtre en direct", "Le volume", "L'image stéréo"]
 
 [[sources]]
 label = "Convolution theorem (Wikipedia)"

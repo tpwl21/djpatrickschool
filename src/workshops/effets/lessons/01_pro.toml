@@ -52,7 +52,7 @@ Feedback: -k × output fed back to input (k = resonance coefficient)
 
 What makes it special:
 1. **Nonlinear coupling**: as cutoff frequency changes, the input impedance of each stage changes, which cross-modulates the resonance. There is no clean separation of cutoff and Q — they bleed into each other. This is perceived as "organic" or "alive."
-2. **Soft saturation**: the tanh response of the transistors clips gently at high drive levels. The harmonics generated are predominantly even-order (2nd, 4th), which sound warm rather than harsh.
+2. **Soft saturation**: the tanh response of the transistors clips gently at high drive levels. tanh is an odd function (symmetric clipping), so the harmonics generated are predominantly odd-order (3rd, 5th) — a soft, rounded saturation rather than a harsh one.
 3. **Self-oscillation**: when k > 1 (feedback exceeds unity), the ladder self-oscillates at the cutoff frequency. Bob Moog initially considered this a malfunction. It became a defining feature.
 
 No pure digital biquad chain reproduces this behavior without explicit nonlinear modeling — either waveshaping in the feedback path or numerical integration of the analog circuit (SPICE-level simulation or DASP).
@@ -68,7 +68,7 @@ A filter self-oscillates when its internal feedback loop meets the **Barkhausen 
 1. **Loop gain = 1** (or greater) at the oscillation frequency.
 2. **Total loop phase = 360°** (or equivalently 0°) at that frequency.
 
-For the Moog ladder, the four one-pole stages each contribute 90° of phase lag at cutoff, totaling 360°. When resonance feedback is strong enough to compensate the gain loss, the system oscillates.
+For the Moog ladder, the four one-pole stages each contribute 45° of phase lag at the cutoff frequency, so 180° in total. The feedback loop inverts the signal (another 180°), which brings the loop to 360°. When resonance feedback is strong enough to compensate the gain loss, the system oscillates.
 
 In the Z-domain, self-oscillation corresponds to a pair of poles sitting **on** (or outside) the unit circle. A stable filter keeps its poles strictly inside.
 
@@ -114,7 +114,7 @@ correct  = 1
 question = "What is the primary source of 'warmth' in the Moog ladder filter?"
 answers  = [
   "The 24 dB/oct slope",
-  "tanh soft-clip saturation in the transistor feedback path generating predominantly even-order harmonics",
+  "tanh soft-clip saturation in the transistor feedback path generating predominantly odd-order harmonics",
   "The number of filter stages"
 ]
 correct  = 1
@@ -213,7 +213,7 @@ Feedback : -k × sortie réinjectée à l'entrée (k = coefficient de résonance
 
 Ce qui le rend spécial :
 1. **Couplage non-linéaire** : quand la fréquence de coupure change, l'impédance d'entrée de chaque stage change, ce qui module en croisé la résonance. Il n'y a pas de séparation nette entre cutoff et Q — ils se contaminent mutuellement. C'est perçu comme "organique" ou "vivant."
-2. **Saturation douce** : la réponse tanh des transistors écrête doucement à fort signal. Les harmoniques générés sont surtout d'ordre pair (2e, 4e), qui sonnent chaud plutôt que dur.
+2. **Saturation douce** : la réponse tanh des transistors écrête doucement à fort signal. tanh est une fonction impaire (écrêtage symétrique), donc les harmoniques générés sont surtout d'ordre impair (3e, 5e) — une saturation douce et arrondie plutôt que dure.
 3. **Self-oscillation** : quand k > 1 (le feedback dépasse l'unité), le ladder s'auto-oscille à la fréquence de coupure. Bob Moog l'a d'abord considéré comme une panne. C'est devenu une feature définissante.
 
 Aucune chaîne biquad numérique pure ne reproduit ce comportement sans modélisation non-linéaire explicite — soit waveshaping dans la boucle de feedback, soit intégration numérique du circuit analogique (simulation SPICE ou DASP).
@@ -229,7 +229,7 @@ Un filtre s'auto-oscille quand sa boucle de feedback interne satisfait le **crit
 1. **Gain de boucle = 1** (ou plus) à la fréquence d'oscillation.
 2. **Phase totale de boucle = 360°** (ou équivalemment 0°) à cette fréquence.
 
-Pour le ladder Moog, les quatre cellules un-pôle contribuent chacune 90° de déphasage à la fréquence de coupure, soit 360° au total. Quand le feedback de résonance est assez fort pour compenser la perte de gain, le système oscille.
+Pour le ladder Moog, les quatre cellules un-pôle contribuent chacune 45° de déphasage à la fréquence de coupure, soit 180° au total. La boucle de feedback inverse le signal (encore 180°), ce qui amène la boucle à 360°. Quand le feedback de résonance est assez fort pour compenser la perte de gain, le système oscille.
 
 Dans le domaine Z, la self-oscillation correspond à une paire de pôles **sur** (ou en dehors) du cercle unité. Un filtre stable garde ses pôles strictement à l'intérieur.
 
@@ -275,7 +275,7 @@ correct  = 1
 question = "Quelle est la source principale de la 'chaleur' du ladder transistors Moog ?"
 answers  = [
   "La pente à 24 dB/oct",
-  "La saturation soft-clip tanh dans la boucle de feedback des transistors, générant des harmoniques d'ordre pair",
+  "La saturation soft-clip tanh dans la boucle de feedback des transistors, générant des harmoniques d'ordre impair",
   "Le nombre de stages du filtre"
 ]
 correct  = 1

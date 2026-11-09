@@ -74,8 +74,8 @@ answers  = ["No — changing vibe always requires a BPM change", "Yes — vibe a
 correct  = 1
 
 [[en.sources]]
-label = "RA — Understanding set energy and flow"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "Rekordbox — add energy notes to your tracks in Comments field"
@@ -154,8 +154,8 @@ answers  = ["Non — changer la vibe demande toujours un changement de BPM", "Ou
 correct  = 1
 
 [[fr.sources]]
-label = "RA — Comprendre l'énergie et le flow d'un set"
-url   = "https://ra.co/features/3890"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "Rekordbox — ajouter des notes d'énergie dans le champ Comments"

@@ -3,40 +3,34 @@ order = 1
 
 [en]
 title       = "EQ in Practice: Bands, Masking, and Headphone Listening"
-short_desc  = "Frequency ranges in Hz, frequency masking, sweep vs kill, PFL and split-cue."
-description = "You know the three bands. Now you understand exactly which frequencies they target, why masking kills vocal clarity, why DJs kill rather than sweep on a club PA, and how to use your headphone cue properly."
+short_desc  = "Frequency landmarks in Hz, frequency masking, one bass at a time, PFL and split-cue."
+description = "You know the three bands. Now you understand exactly which frequencies they target, why masking kills vocal clarity, why DJs kill the bass and swap instead of letting two basses overlap, and how to use your headphone cue properly."
 recap = [
-  "Pioneer DJM: Low–Mid crossover ~300 Hz, Mid–High ~4 kHz. Allen & Heath Xone: Mid centered ~1.2 kHz with narrower Q.",
-  "Frequency masking: a loud signal at 250 Hz can mask a softer one at 2 kHz (upward masking spread).",
-  "Kill (snap to -∞ dB on the downbeat) sounds cleaner than a slow sweep on a club PA because the PA's multiband compressor can't react in time.",
-  "PFL routes the channel signal to headphones — after EQ on most DJ mixers, so your EQ decisions are reflected in the cue.",
+  "Rough landmarks, not a standard: Low below ~250–300 Hz, Mid up to a few kHz, High above. The exact crossovers change from one mixer to the next.",
+  "Frequency masking: a loud low signal (a kick fundamental around 50–100 Hz) can mask softer content higher up (upward spread of masking).",
+  "One bass at a time: kill the incoming bass, then swap on the first beat of a phrase. Two basses at once = mud and phase cancellation in the low end.",
+  "PFL routes the channel signal to headphones — before the fader and, on most DJ mixers, after the EQ, so your EQ decisions are reflected in the cue.",
   "Split-cue: A in left ear, B in right ear — beat drift is immediately audible as left-right bounce."
 ]
 
 [[en.pages]]
-title   = "The exact frequencies: what each band covers"
+title   = "Where the bands sit: rough landmarks"
 content = """
 ## Not all EQs are equal
 
-The three bands aren't standardized across manufacturers. Knowing your gear matters.
+The three bands are not standardized: each manufacturer picks its own crossover points and band shapes. The numbers below are **landmarks**, not specs. For your exact mixer, read the manual.
 
-**Pioneer DJM series (DJM-900NXS2, DJM-A9):**
-- Low: 20 Hz – ~300 Hz (shelving)
-- Mid: ~300 Hz – ~4 kHz (peaking bell)
-- High: ~4 kHz – 20 kHz (shelving)
-
-**Allen & Heath Xone:96 / Xone:43:**
-- Low: similar floor, crossover ~200 Hz
-- Mid: centered ~1.2 kHz with a narrower bandwidth (higher Q)
-- High: crossover ~3.5 kHz
+- **Low** (shelving): roughly everything below 250–300 Hz. A kick drum's fundamental sits around 50–100 Hz; the bass line lives here too.
+- **Mid** (bell): from there up to a few kHz. Body, voices, most synth leads.
+- **High** (shelving): above a few kHz. Hi-hats, cymbals, air.
 
 ## What this changes in practice
 
-The same mid-cut feels different on a Pioneer vs a Xone.
-On a Pioneer, cutting the Mid takes out a wide chunk from 300 Hz to 4 kHz — you're removing body AND presence AND vocal clarity at once.
-On a Xone, the narrower mid band cuts more surgically around the vocal fundamental.
+The same mid-cut feels different from one mixer to another. A wide mid band removes body AND presence AND vocal clarity at once; a narrower one cuts more surgically around the voice.
 
-When you move between gear, spend two minutes identifying where each crossover sits by cutting one band and listening to what disappears.
+Some mixers also let you choose how the EQ behaves: a classic EQ that leaves a little signal at the end of the knob, or an **isolator** that cuts the band completely. You will see this in the Pro lesson.
+
+When you move between gear, spend two minutes finding where each crossover sits: cut one band and listen to what disappears.
 """
 
 [[en.pages]]
@@ -44,47 +38,49 @@ title   = "Frequency masking: why two vocals always fight"
 content = """
 ## The 800 Hz – 3 kHz problem
 
-Human voices — singing, rapping, DJing — sit primarily in the **800 Hz – 3 kHz** range.
+Human voices — singing, rapping, DJing — get their presence and intelligibility mostly in the **800 Hz – 3 kHz** range.
 When two tracks with vocals overlap, both signals compete for the same frequency space.
 
-The ear can't cleanly separate them when the energy overlaps. This is **frequency masking**: the louder signal partially obscures the quieter one, even at the same pitch range.
+The ear can't cleanly separate them when the energy overlaps. This is **frequency masking**: the louder signal partially obscures the quieter one.
 
 ## The masking asymmetry
 
-Masking is not symmetric. A loud low-frequency signal can mask a softer high-frequency signal — this is called **upward spread of masking**.
-A 250 Hz kick can mask a 2 kHz snare hit if the level difference is large enough.
+Masking is not symmetric. A loud low-frequency signal can mask a softer signal higher up — this is called **upward spread of masking**.
+A kick (fundamental around 50–100 Hz) can mask softer content above it if the level difference is large enough.
 
-This is the acoustic reason why a heavy kick makes the mix feel muddy at the top:
-the sub energy upward-masks the presence region.
+This is part of the acoustic reason why a heavy low end makes the mix feel muddy at the top: the low energy upward-masks the presence region.
 
 ## Practical EQ response
 
-- Two vocal tracks: cut the Mid on the outgoing track 4–6 dB.
-- Heavy kick masking the snare: cut 2–3 dB around 250 Hz on the kick-heavy track.
+- Two vocal tracks: cut the Mid on the outgoing track by a few dB.
+- Low end crowded: take the Low of the track whose bass you don't need right now.
 - You're not destroying — you're making room for what you want the ear to focus on.
 """
 
 [[en.pages]]
-title   = "Sweep vs kill: why the PA has opinions"
+title   = "Kill and swap: one bass at a time"
 content = """
 ## Two options for removing a band
 
 **Sweep**: gradually turn the knob from noon to full cut over 2–4 bars.
-**Kill**: snap to full cut (-∞ dB) in a single move, on the downbeat.
+**Kill**: snap to full cut in a single move, on the downbeat.
 
-## Why kills win on club PAs
+## Why the bass gets a kill and a swap
 
-A large club PA includes a **multiband compressor** downstream of the mixer, protecting drivers across frequency ranges.
+The real reason is not the PA, it is the low end itself. When two basses play together:
 
-When you sweep the low band over 4 bars, the compressor's sidechain in the mid band detects that the masking from the lows is decreasing. It releases gain — the mids get louder. Then as you continue, the mids feel "too loud," the compressor pulls them back. You hear this as **pumping** — a breathing artifact that sounds like the PA is tired.
+- Notes that are not the same pitch beat against each other and turn the low end into **mud**.
+- Kicks that are even a few milliseconds apart partly **cancel each other** in the lows (phase cancellation): the bass gets thin and hollow instead of louder.
 
-A hard kill lands in ~1ms. The compressor has no time to react. No pumping, no artifact.
+So the rule is simple: **one bass at a time**. Kill the bass of the incoming track while it blends in, then do the swap in one move on the **first beat of a phrase** (32 beats, 8 bars): A's Low goes down, B's Low comes up. The ear reads a phrase change as a natural boundary, so the swap disappears into the music.
+
+A slow sweep of the Low leaves a stretch where both basses are half-present, exactly the zone you were trying to avoid. That is why kill-and-swap wins for routine transitions.
 
 ## When sweeping is intentional
 
-A long filter sweep is a compositional choice — Loco Dice, Ricardo Villalobos, Objekt all use it deliberately as a tension tool. But it requires the mix to support it structurally, not just a tool to clean up a transition.
+A long filter sweep is a compositional choice, a tension tool. It works when the track structure supports it, not as a way to clean up a transition.
 
-Routine transitions: kill. Intentional tension: sweep.
+Routine transitions: kill and swap. Intentional tension: sweep.
 """
 
 [[en.pages]]
@@ -143,8 +139,8 @@ Most DJs never change it mid-set — pick one before you play.
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "On a Pioneer DJM, approximately where is the Low–Mid crossover frequency?"
-answers  = ["100 Hz", "300 Hz", "1.2 kHz"]
+question = "Roughly where does the Low band end and the Mid band begin on most DJ mixers?"
+answers  = ["100 Hz", "About 250–300 Hz (the exact point varies by mixer)", "1.2 kHz"]
 
 [[quiz]]
 correct = 2
@@ -155,8 +151,8 @@ answers  = ["High frequencies masking low frequencies", "A DJ technique for boos
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "Why does a slow EQ sweep cause pumping on a club PA but not on headphones?"
-answers  = ["Because headphones have better bass response", "Because the PA's multiband compressor reacts to the changing frequency balance and audibly re-balances the remaining bands", "Because club PAs are always too loud"]
+question = "Why do DJs kill the incoming bass and swap on the first beat of a phrase?"
+answers  = ["Because the club's PA can't handle sweeps", "Because two basses at once make mud and phase cancellation in the low end", "Because a kill is louder than a sweep"]
 
 [[quiz]]
 correct = 0
@@ -192,40 +188,34 @@ url   = "https://www.soundonsound.com/sound-advice/q-what-do-solo-pfl-and-afl-do
 
 [fr]
 title       = "L'EQ en pratique : bandes, masquage, écoute casque"
-short_desc  = "Plages de fréquences en Hz, masquage fréquentiel, sweep vs kill, PFL et split-cue."
-description = "Tu connais les trois bandes. Maintenant tu comprends exactement quelles fréquences elles ciblent, pourquoi le masquage tue la clarté vocale, pourquoi on kill plutôt que sweeper sur une PA de club, et comment utiliser ton cue casque correctement."
+short_desc  = "Repères de fréquences en Hz, masquage fréquentiel, une seule basse à la fois, PFL et split-cue."
+description = "Tu connais les trois bandes. Maintenant tu comprends exactement quelles fréquences elles ciblent, pourquoi le masquage tue la clarté vocale, pourquoi on kill la basse et on swap au lieu de laisser deux basses se chevaucher, et comment utiliser ton cue casque correctement."
 recap = [
-  "Pioneer DJM : crossover Low-Mid ~300 Hz, Mid-High ~4 kHz. Allen & Heath Xone : Mid centré ~1,2 kHz avec Q plus étroit.",
-  "Masquage fréquentiel : un signal fort à 250 Hz peut masquer un son plus doux à 2 kHz (upward masking spread).",
-  "Kill (claque à -∞ dB sur le downbeat) sonne plus propre qu'un sweep lent sur une PA de club car le compresseur multibande n'a pas le temps de réagir.",
-  "Le PFL route le signal du canal vers le casque — après l'EQ sur la plupart des tables DJ, donc tes décisions EQ se reflètent dans le cue.",
+  "Repères approximatifs, pas une norme : Low sous ~250–300 Hz, Mid jusqu'à quelques kHz, High au-dessus. Les crossovers exacts changent d'une table à l'autre.",
+  "Masquage fréquentiel : un signal grave fort (le fondamental d'une grosse caisse vers 50–100 Hz) peut masquer un contenu plus doux situé plus haut (upward spread of masking).",
+  "Une seule basse à la fois : kill la basse entrante, puis swap sur le premier temps d'une phrase. Deux basses en même temps = boue et annulations de phase dans le grave.",
+  "Le PFL route le signal du canal vers le casque — avant le fader et, sur la plupart des tables DJ, après l'EQ, donc tes décisions EQ se reflètent dans le cue.",
   "Split-cue : A dans l'oreille gauche, B dans la droite — le drift de beat est immédiatement audible comme un rebond gauche-droite."
 ]
 
 [[fr.pages]]
-title   = "Les fréquences exactes : ce que couvre chaque bande"
+title   = "Où se placent les bandes : des repères"
 content = """
-## Toutes les EQs ne sont pas pareilles
+## Tous les EQ ne se valent pas
 
-Les trois bandes ne sont pas standardisées entre fabricants. Connaître ton matos compte.
+Les trois bandes ne sont pas standardisées : chaque fabricant choisit ses propres points de crossover et la forme de ses bandes. Les chiffres ci-dessous sont des **repères**, pas des specs. Pour ta table précise, lis le manuel.
 
-**Pioneer DJM (DJM-900NXS2, DJM-A9) :**
-- Low : 20 Hz – ~300 Hz (shelving)
-- Mid : ~300 Hz – ~4 kHz (peaking bell)
-- High : ~4 kHz – 20 kHz (shelving)
-
-**Allen & Heath Xone:96 / Xone:43 :**
-- Low : plancher similaire, crossover ~200 Hz
-- Mid : centré ~1,2 kHz avec une bande plus étroite (Q plus élevé)
-- High : crossover ~3,5 kHz
+- **Low** (shelving) : en gros tout ce qui est sous 250–300 Hz. Le fondamental d'une grosse caisse se situe vers 50–100 Hz ; la ligne de basse vit là aussi.
+- **Mid** (cloche) : de là jusqu'à quelques kHz. Le corps, les voix, la plupart des leads de synthé.
+- **High** (shelving) : au-dessus de quelques kHz. Hi-hats, cymbales, air.
 
 ## Ce que ça change en pratique
 
-Le même mid-cut donne un résultat différent sur une Pioneer vs une Xone.
-Sur une Pioneer, couper le Mid retire une large tranche de 300 Hz à 4 kHz — tu enlèves corps ET présence ET clarté vocale en même temps.
-Sur une Xone, la bande mid plus étroite coupe plus chirurgicalement autour du fondamental vocal.
+Le même mid-cut ne se ressent pas pareil d'une table à l'autre. Une bande mid large retire le corps ET la présence ET la clarté des voix d'un coup ; une bande plus étroite coupe plus chirurgicalement autour de la voix.
 
-Quand tu changes de matos, prends deux minutes pour identifier où se trouve chaque crossover en coupant une bande et en écoutant ce qui disparaît.
+Certaines tables te laissent aussi choisir le comportement de l'EQ : un EQ classique qui laisse un peu de signal en bout de course, ou un **isolator** qui coupe la bande complètement. Tu verras ça dans la leçon Pro.
+
+Quand tu changes de matériel, passe deux minutes à repérer où se trouve chaque crossover : coupe une bande et écoute ce qui disparaît.
 """
 
 [[fr.pages]]
@@ -233,47 +223,49 @@ title   = "Masquage fréquentiel : pourquoi deux voix se battent toujours"
 content = """
 ## Le problème 800 Hz – 3 kHz
 
-Les voix humaines — chant, rap, talk — se trouvent principalement dans la plage **800 Hz – 3 kHz**.
-Quand deux morceaux avec des voix se superposent, les deux signaux se disputent le même espace fréquentiel.
+Les voix humaines — chant, rap, DJ au micro — tirent leur présence et leur intelligibilité surtout de la zone **800 Hz – 3 kHz**.
+Quand deux morceaux avec voix se chevauchent, les deux signaux se disputent le même espace fréquentiel.
 
-L'oreille ne peut pas les séparer proprement quand l'énergie se chevauche. C'est le **masquage fréquentiel** : le signal le plus fort cache partiellement le plus faible, même dans la même plage de fréquences.
+L'oreille ne peut pas les séparer proprement quand l'énergie se recouvre. C'est le **masquage fréquentiel** : le signal le plus fort cache en partie le plus faible.
 
 ## L'asymétrie du masquage
 
-Le masquage n'est pas symétrique. Un signal grave fort peut masquer un signal aigu plus doux — c'est l'**upward spread of masking**.
-Un kick à 250 Hz peut masquer une caisse claire à 2 kHz si la différence de niveau est suffisante.
+Le masquage n'est pas symétrique. Un signal grave fort peut masquer un signal plus doux situé plus haut — c'est l'**upward spread of masking**.
+Une grosse caisse (fondamental vers 50–100 Hz) peut masquer du contenu plus doux au-dessus d'elle si l'écart de niveau est assez grand.
 
-C'est la raison acoustique pour laquelle un kick très présent rend le mix boueux dans les hauts :
-l'énergie sub masque vers le haut la région de présence.
+C'est une partie de la raison acoustique pour laquelle un grave chargé rend le mix boueux dans le haut : l'énergie grave masque vers le haut la zone de présence.
 
 ## Réponse EQ pratique
 
-- Deux morceaux vocaux : coupe le Mid du morceau sortant de 4–6 dB.
-- Kick lourd qui masque la caisse claire : coupe 2–3 dB vers 250 Hz sur le morceau à kick chargé.
-- Tu ne détruis pas — tu fais de la place pour ce que tu veux que l'oreille perçoive.
+- Deux voix : baisse le Mid du morceau sortant de quelques dB.
+- Grave encombré : prends le Low du morceau dont tu n'as pas besoin de la basse en ce moment.
+- Tu ne détruis rien — tu fais de la place pour ce sur quoi tu veux que l'oreille se concentre.
 """
 
 [[fr.pages]]
-title   = "Sweep vs kill : pourquoi la PA a son mot à dire"
+title   = "Kill et swap : une seule basse à la fois"
 content = """
 ## Deux options pour retirer une bande
 
-**Sweep** : tourne progressivement le bouton de midi vers le full cut sur 2–4 mesures.
-**Kill** : claque à fond (-∞ dB) en un seul geste, sur le downbeat.
+**Sweep** : tourner progressivement le bouton de midi à la coupe complète sur 2 à 4 mesures.
+**Kill** : claquer à la coupe complète en un seul geste, sur le temps fort.
 
-## Pourquoi les kills gagnent sur les PAs de club
+## Pourquoi la basse a droit à un kill et un swap
 
-Une grosse PA de club inclut un **compresseur multibande** en aval de ta table, qui protège les drivers sur toutes les plages de fréquences.
+La vraie raison n'est pas la PA, c'est le grave lui-même. Quand deux basses jouent ensemble :
 
-Quand tu sweeps le Low sur 4 mesures, la sidechain du compresseur sur la bande Mid détecte que le masquage des basses diminue. Il relâche son gain — les mids deviennent plus forts. Puis au fur et à mesure que tu continues, les mids semblent "trop forts", le compresseur les tire vers le bas. Tu entends ça comme du **pompage** — un artefact de respiration qui donne l'impression que la PA fatigue.
+- Les notes qui ne sont pas à la même hauteur battent l'une contre l'autre et transforment le grave en **boue**.
+- Des grosses caisses décalées de quelques millisecondes seulement s'**annulent** en partie dans le grave (annulation de phase) : la basse devient fine et creuse au lieu d'être plus forte.
 
-Un hard kill prend ~1ms. Le compresseur n'a pas le temps de réagir. Pas de pompage, pas d'artefact.
+La règle est donc simple : **une seule basse à la fois**. Kill la basse du morceau entrant pendant qu'il se fond, puis fais le swap d'un seul geste sur le **premier temps d'une phrase** (32 temps, 8 mesures) : le Low de A descend, le Low de B monte. L'oreille lit un changement de phrase comme une frontière naturelle, donc le swap disparaît dans la musique.
 
-## Quand sweeper est intentionnel
+Un sweep lent du Low laisse un moment où les deux basses sont à moitié présentes, exactement la zone que tu voulais éviter. C'est pour ça que kill + swap gagne pour les transitions de routine.
 
-Un long sweep de filtre est un choix compositionnel — Loco Dice, Ricardo Villalobos, Objekt l'utilisent délibérément comme outil de tension. Mais ça demande que le mix le supporte structurellement, pas juste pour nettoyer une transition.
+## Quand le sweep est voulu
 
-Transitions courantes : kill. Tension intentionnelle : sweep.
+Un long filter sweep est un choix de composition, un outil de tension. Ça marche quand la structure du morceau le soutient, pas comme une façon de nettoyer une transition.
+
+Transitions de routine : kill et swap. Tension voulue : sweep.
 """
 
 [[fr.pages]]
@@ -332,8 +324,8 @@ La plupart des DJs ne la changent jamais en plein set — choisis avant de jouer
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Sur une Pioneer DJM, où se situe approximativement la fréquence de crossover Low-Mid ?"
-answers  = ["100 Hz", "300 Hz", "1,2 kHz"]
+question = "À peu près où la bande Low s'arrête-t-elle et où la bande Mid commence-t-elle sur la plupart des tables DJ ?"
+answers  = ["100 Hz", "Vers 250–300 Hz (le point exact varie selon la table)", "1,2 kHz"]
 
 [[quiz]]
 correct = 2
@@ -344,8 +336,8 @@ answers  = ["Les hautes fréquences qui masquent les basses fréquences", "Une t
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Pourquoi un sweep EQ lent cause-t-il du pompage sur une PA de club mais pas dans le casque ?"
-answers  = ["Parce que le casque a une meilleure réponse dans les basses", "Parce que le compresseur multibande de la PA réagit au changement d'équilibre fréquentiel et rééquilibre audiblement les bandes restantes", "Parce que les PAs de club sont toujours trop fortes"]
+question = "Pourquoi les DJs kill la basse entrante et swappent sur le premier temps d'une phrase ?"
+answers  = ["Parce que la PA du club ne supporte pas les sweeps", "Parce que deux basses en même temps font de la boue et des annulations de phase dans le grave", "Parce qu'un kill est plus fort qu'un sweep"]
 
 [[quiz]]
 correct = 0

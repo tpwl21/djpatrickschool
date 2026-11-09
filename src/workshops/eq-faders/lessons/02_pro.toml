@@ -3,14 +3,14 @@ order = 2
 
 [en]
 title       = "Gain Staging Pro: EBU R128, PA System Design, and Calibration"
-short_desc  = "EBU R128 time windows, Funktion-One vs Void vs L-Acoustics, Sabine reverberation, Berghain calibration, and analog vs digital clipping."
-description = "Professional gain staging is a system-level discipline, not just a mixer setting. It requires understanding loudness measurement standards, PA system design philosophy, room acoustics, and the difference between analog saturation and digital destruction. This lesson covers the full chain from the music's origin to the dancefloor."
+short_desc  = "EBU R128 time windows, Sabine reverberation, venue calibration, and analog vs digital clipping."
+description = "Professional gain staging is a system-level discipline, not just a mixer setting. It requires understanding loudness measurement standards, what the venue's system does, room acoustics, and the difference between analog saturation and digital clipping."
 recap = [
   "EBU R128 defines three time windows: momentary (400 ms), short-term (3 s), and integrated (full program). Each serves a different purpose.",
-  "Funktion-One: horn-loaded, minimal crossovers, transient-forgiving. Void: clinical, high-SPL, reveals mix errors. L-Acoustics K2: pattern-controlled line array for large venues.",
-  "Sabine reverberation time: T60 = 0.161 × V / A. Room RT60 determines how much bass buildup occurs before the PA reaches steady state.",
-  "Analog clipping = musical harmonic distortion (odd and even harmonics, tape saturation). Digital clipping = flat-topped waveshaping = aliased square-wave harmonics.",
-  "Berghain: the Funktion-One rig is calibrated to a fixed reference SPL at the DJ booth. DJs receive a normalized gain structure — the venue absorbs the gain staging problem."
+  "The PA is a chain: processor (EQ, delays, limiters), amplifiers, speakers. The engineer sets the system; you deliver a clean signal to its input.",
+  "Sabine reverberation time: T60 = 0.161 × V / A. For V = 2000 m³ and A = 300–500 m², T60 = 0.64 to 1.07 s. A packed room absorbs more than an empty one.",
+  "Analog clipping rounds the peaks (mostly low-order harmonics). Digital clipping flattens them (high-order odd harmonics, aliasing).",
+  "On the game's meter, the dotted line is the mixer's \"0\": top of the green, a few oranges, never red. That \"0\" already leaves margin before 0 dBFS."
 ]
 
 [[en.pages]]
@@ -38,45 +38,34 @@ Loudness perception depends on duration. A very loud 100ms transient is processe
 
 ## True Peak (dBTP)
 
-EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, this uses oversampling (typically 4×) to detect inter-sample peaks that occur during digital-to-analog reconstruction. Spec: **≤ -1 dBTP** for broadcast. In DJ practice: trim so your channel output never exceeds **-1 dBTP** on the oversampled output.
-
-Most modern DJ mixers with dBTP meters (Pioneer DJM-A9, Allen & Heath V10) display this correctly. Older mixers with sample-rate VU only: assume 1–2 dB of headroom beyond your meter for inter-sample peaks.
+EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, this uses oversampling (typically 4×) to detect inter-sample peaks that occur during digital-to-analog reconstruction. Spec: **≤ -1 dBTP** for broadcast. DJ mixer meters generally read sample peaks, not true peak, so inter-sample peaks can go above what they show. That is one of the reasons the mixer's "0" (the dotted line on the game's meter) sits below the digital ceiling: stay at the top of the green, a few oranges at most, never red, and the margin takes care of it.
 """
 
 [[en.pages]]
-title   = "PA system design philosophies and their effect on DJ mixing"
+title   = "The venue's system: what you control and what you don't"
 content = """
-## Funktion-One: transient forgiveness
+## A PA is a chain, not a box
 
-Used at: Fabric (London), Printworks (London), Panorama Bar/Berghain.
+Between your mixer's output and the air, a club system usually has:
 
-**Design philosophy**: minimal crossover points, horn-loaded mid and high drivers, very low distortion at moderate SPL. The horn loading smooths fast transients — a sharp EQ kill or a slightly clipped transient gets "rounded" by the horn's impulse response.
+- a **system processor** (crossovers, EQ, delays, **limiters** that protect the speakers),
+- **amplifiers**,
+- **loudspeakers**, sometimes in several zones with different delays.
 
-**DJ implication**: forgiving. You can make small gain staging errors and the room absorbs them. Tight, punchy low end. Not the loudest by raw SPL, but consistent across the room.
+Whoever runs the system sets the gain of that chain and the room tuning. You are the **input signal**.
 
-## Void Acoustics: clinical accuracy
+## What this means for you
 
-Used at: Space Ibiza (historic), Awakenings (Amsterdam), many EDM venues.
+- **Your job**: a clean, consistent level at your mixer output. Trim each track so the channel meters sit at the dotted line, never red, and leave the master where the engineer wants it.
+- **Their job**: how loud the room is, how the system is tuned, and protecting the speakers.
 
-**Design philosophy**: high-SPL, wide dispersion, clinical accuracy. Engineered to reproduce the signal faithfully without coloration.
+Different systems react differently to the same signal: some are more forgiving, some reveal every flaw, and none of that is predictable from a brand name. The only reliable move is to **ask the engineer and listen**.
 
-**DJ implication**: unforgiving. Every dB over the headroom target is audible as distortion in the first three rows. Gain staging errors propagate without softening. Rewards precise trim discipline.
+## What to ask before the first track
 
-## L-Acoustics K2 / K1: pattern-controlled line arrays
-
-Used at: Festival main stages (Glastonbury, Tomorrowland), large arenas, outdoor events.
-
-**Design philosophy**: controlled directivity, long-throw SPL, consistent coverage at large distances. DSP-controlled waveguides for precision pattern control.
-
-**DJ implication**: primarily used for large-scale events, not intimate clubs. Gain staging here involves coordination with the FOH engineer, who manages the full PA chain. DJs contribute input signal quality; the engineer manages the rest.
-
-## d&b audiotechnik: precision and predictability
-
-Used at: opera houses, theaters, some high-end clubs.
-
-**Design philosophy**: mathematically-predictable coverage, calibrated via manufacturer software (ArrayCalc/R1). Every box in the system is modeled before installation.
-
-**DJ implication**: extremely consistent from seat to seat / area to area. Easier to calibrate, harder to damage accidentally. Common in European venues with high acoustic standards.
+1. What is the nominal level expected at the booth output?
+2. Is the master locked, or may I touch it?
+3. Is there a clip indicator on the system that I should watch?
 """
 
 [[en.pages]]
@@ -98,15 +87,15 @@ Where:
 - V = room volume in m³
 - A = total absorption in the room (sum of surface area × absorption coefficient for each material)
 
-A typical mid-size club: 2000 m³ volume, absorption A ≈ 300–500 m² (concrete, glass, bodies). T60 ≈ 0.9–1.1 seconds.
+A typical mid-size club: 2000 m³ volume, absorption A ≈ 300–500 m² (concrete, glass, bodies). T60 = 0.161 × 2000 / 500 to 0.161 × 2000 / 300, so **0.64 to 1.07 seconds**.
 
 ## What RT60 means for bass
 
 Bass wavelengths are long (20 Hz = 17 meters). A 20 Hz standing wave in a 50m room reverberates long after the transient that caused it. The practical consequence:
 
 - In clubs with RT60 > 1.2 s at low frequencies, bass energy accumulates between kick drums. The room "builds up" bass.
-- A set that sounds perfectly gain-staged at the start of the night may feel bass-heavy 2 hours in, as the room warms up and acoustic absorption decreases slightly (the crowd absorbs less when densely packed and sweating).
-- Solution: trim tracks slightly lower in a reverberant room, or ask the engineer to engage the venue's sub-bass high-pass filter at the system level.
+- People absorb sound. An empty room (soundcheck, opening) is **more reverberant** than the same room packed later, so the bass can feel boomier early on and tighter once the floor is full.
+- Trim does not fix room acoustics. If the low end feels boomy, tell the engineer: system EQ and high-pass filters are their tools.
 
 ## Sound engineers use this
 
@@ -148,36 +137,26 @@ Likewise, the **D/A converter at the analog output** is fixed-point. If the mast
 ## The practical rule
 
 - ADC input clip: set trim so the input doesn't clip. Use the clip LED as a hard limit.
-- DAC output clip: keep master output below 0 dBFS. The -6 dB target ensures you never touch this in practice.
+- DAC output clip: keep the master out of the red. The mixer's "0" (the dotted line) already leaves margin below 0 dBFS, so staying at the top of the green means you never touch this in practice.
 - There is no "mix hot and fix it later" in live DJ performance. The D/A is the last stage.
 """
 
 [[en.pages]]
-title   = "Berghain: a case study in venue-level gain staging"
+title   = "Gain staging at venue level: a checklist"
 content = """
-## The problem venues solve (or don't)
+## The problem
 
-Most clubs have a PA system with no consistent gain calibration across different DJs and events. The master output may drift. The system gain may vary depending on what the previous DJ set. Each artist arrives to an unknown starting state.
+Most clubs have no consistent gain calibration across different DJs and events. The master may have been moved by the previous artist. Each DJ arrives to an unknown starting state, often without a soundcheck.
 
-## Berghain's approach
+## What you can do about it
 
-Berghain (Berlin) calibrates the entire signal chain from the DJ mixer output to the final amplifier input to a **fixed, documented reference level**. The Funktion-One rig is optimized for that reference. The system operates at a known point on the equal-loudness curve.
+1. **Normalize your own setup**: choose a trim habit (every track to the dotted line) and stick to it. Practice at home the way you will play.
+2. **Talk to the engineer** before the gig: nominal level at the booth, master locked or not, which indicator to watch.
+3. **Prefer a fixed master**: do not ride the master during the set. Ride the channels.
+4. **Budget about 10 minutes after load-in** to check your trim against the system before the audience arrives.
+5. **Keep the booth reference fixed**: do not turn the booth monitors up and down to chase the room.
 
-Every DJ who plays the main floor receives:
-- A verified trim-to-master chain at the correct level
-- Booth monitors at a fixed calibrated reference SPL
-- No control over the master gain (it's locked at the tech desk)
-
-The result: a DJ focused on music selection and EQ makes no decisions that can accidentally destroy the PA chain. The sound remains consistent as DJ lineups change — sometimes every 4–6 hours, without soundcheck.
-
-## What DJs should take from this
-
-1. **Normalize your personal DJ setup** — choose a reference trim level and stick to it. Your at-home gain structure should match your club setup as closely as possible.
-2. **Communicate with the venue engineer** before every gig. Ask: what is the nominal level at the booth output? Is there a clip LED I should watch?
-3. **Prefer fixed master outputs** — don't ride the master during the set. Ride the channels.
-4. **Budget 10 minutes after load-in** to calibrate trim against the system before the audience arrives.
-
-The DJ is the first node in a system. Clean input to that system protects every node downstream.
+The DJ is the first node in a system. A clean input protects every node downstream.
 """
 
 [[quiz]]
@@ -189,8 +168,8 @@ answers  = ["3 seconds", "400 ms", "30 seconds"]
 [[quiz]]
 correct = 1
 [quiz.en]
-question = "Which PA system design philosophy is described as 'forgiving' to DJ mixing errors due to horn-loaded transient smoothing?"
-answers  = ["Void Acoustics", "Funktion-One", "L-Acoustics K2"]
+question = "A club has V = 2000 m³ and A = 400 m². What T60 does Sabine's formula give?"
+answers  = ["0.4 s", "About 0.8 s", "1.6 s"]
 
 [[quiz]]
 correct = 2
@@ -221,14 +200,6 @@ label = "EBU R 128 — Loudness normalisation and permitted maximum level (EBU)"
 url   = "https://tech.ebu.ch/docs/r/r128.pdf"
 
 [[sources]]
-label = "Funktion-One — System Design Philosophy"
-url   = "https://www.funktion-one.com/sound-quality/"
-
-[[sources]]
-label = "Void Acoustics — System Overview"
-url   = "https://www.voidaudio.net/"
-
-[[sources]]
 label = "Sabine's Reverberation Equation — Hyperphysics (Georgia State)"
 url   = "http://hyperphysics.phy-astr.gsu.edu/hbase/Acoustic/sabine.html"
 
@@ -238,14 +209,14 @@ url   = "https://en.wikipedia.org/wiki/Audio_bit_depth"
 
 [fr]
 title       = "Gain Staging Pro : EBU R128, Systèmes PA et Calibrage"
-short_desc  = "Fenêtres temporelles EBU R128, Funktion-One vs Void vs L-Acoustics, réverbération de Sabine, calibrage Berghain, et clipping analogique vs numérique."
-description = "Le gain staging professionnel est une discipline de niveau système, pas juste un réglage de table. Il requiert de comprendre les standards de mesure de loudness, la philosophie de conception des systèmes PA, l'acoustique des salles, et la différence entre saturation analogique et destruction numérique. Cette leçon couvre la chaîne complète de l'origine de la musique au dancefloor."
+short_desc  = "Fenêtres temporelles EBU R128, réverbération de Sabine, calibrage en salle, et clipping analogique vs numérique."
+description = "Le gain staging professionnel est une discipline de niveau système, pas juste un réglage de table. Il requiert de comprendre les standards de mesure de loudness, ce que fait le système de la salle, l'acoustique des salles, et la différence entre saturation analogique et clipping numérique."
 recap = [
   "EBU R128 définit trois fenêtres temporelles : momentanée (400 ms), court-terme (3 s) et intégrée (programme complet). Chacune a un usage différent.",
-  "Funktion-One : à pavillon, crossovers minimaux, transitoires pardonnants. Void : clinique, haut SPL, révèle les erreurs de mix. L-Acoustics K2 : line array à directivité contrôlée pour grandes salles.",
-  "Temps de réverbération de Sabine : T60 = 0,161 × V / A. Le RT60 de la salle détermine l'accumulation de basses avant que la PA atteigne l'état stable.",
-  "Clipping analogique = distorsion harmonique musicale (harmoniques pairs et impairs, saturation de bande). Clipping numérique = troncature à plat = harmoniques de carré aliasées.",
-  "Berghain : le rig Funktion-One est calibré à un SPL de référence fixe au booth DJ. Les DJs reçoivent une structure de gain normalisée — la salle absorbe le problème de gain staging."
+  "La PA est une chaîne : processeur (EQ, délais, limiteurs), amplis, enceintes. L'ingé règle le système ; toi, tu livres un signal propre à son entrée.",
+  "Temps de réverbération de Sabine : T60 = 0,161 × V / A. Pour V = 2000 m³ et A = 300–500 m², T60 = 0,64 à 1,07 s. Une salle pleine absorbe plus qu'une salle vide.",
+  "Le clipping analogique arrondit les crêtes (surtout des harmoniques d'ordre bas). Le clipping numérique les aplatit (harmoniques impairs d'ordre élevé, aliasing).",
+  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : haut du vert, quelques oranges, jamais de rouge. Ce « 0 » laisse déjà de la marge avant 0 dBFS."
 ]
 
 [[fr.pages]]
@@ -273,45 +244,34 @@ La perception de la loudness dépend de la durée. Un transitoire très fort de 
 
 ## True Peak (dBTP)
 
-EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fréquence d'échantillonnage, ceci utilise un suréchantillonnage (typiquement 4×) pour détecter les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique. Spec : **≤ -1 dBTP** pour le broadcast. En pratique DJ : trime pour que ta sortie canal ne dépasse jamais **-1 dBTP** sur la sortie suréchantillonnée.
-
-La plupart des tables DJ modernes avec mètres dBTP (Pioneer DJM-A9, Allen & Heath V10) affichent ça correctement. Tables anciennes avec VU à fréquence d'échantillonnage seulement : suppose 1–2 dB de headroom au-delà de ton mètre pour les pics inter-échantillons.
+EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fréquence d'échantillonnage, ceci utilise un suréchantillonnage (typiquement 4×) pour détecter les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique. Spec : **≤ -1 dBTP** pour le broadcast. Les mètres de table DJ lisent en général les pics d'échantillons, pas le true peak : les pics inter-échantillons peuvent donc dépasser ce qu'ils montrent. C'est l'une des raisons pour lesquelles le « 0 » de la table (la ligne pointillée du mètre du jeu) est placé sous le plafond numérique : reste en haut du vert, quelques oranges au maximum, jamais de rouge, et la marge fait le reste.
 """
 
 [[fr.pages]]
-title   = "Philosophies de conception PA et leur effet sur le mix DJ"
+title   = "Le système de la salle : ce que tu contrôles et ce que tu ne contrôles pas"
 content = """
-## Funktion-One : tolérance aux transitoires
+## Une PA est une chaîne, pas une boîte
 
-Utilisé à : Fabric (Londres), Printworks (Londres), Panorama Bar/Berghain.
+Entre la sortie de ta table et l'air, un système de club comporte en général :
 
-**Philosophie de conception** : points de crossover minimaux, drivers mid et high à pavillon, très faible distorsion à SPL modéré. Le chargement à pavillon adoucit les transitoires rapides — un kill EQ brusque ou un transitoire légèrement clippé est "arrondi" par la réponse impulsionnelle du pavillon.
+- un **processeur système** (crossovers, EQ, délais, **limiteurs** qui protègent les enceintes),
+- des **amplis**,
+- des **enceintes**, parfois en plusieurs zones avec des délais différents.
 
-**Implication DJ** : pardonnant. Tu peux faire de petites erreurs de gain staging et la salle les absorbe. Basse tendue et percutante. Pas le plus fort en SPL brut, mais cohérent dans toute la salle.
+Celui ou celle qui gère le système règle le gain de cette chaîne et l'accord de la salle. Toi, tu es le **signal d'entrée**.
 
-## Void Acoustics : précision clinique
+## Ce que ça signifie pour toi
 
-Utilisé à : Space Ibiza (historique), Awakenings (Amsterdam), beaucoup de salles EDM.
+- **Ton boulot** : un niveau propre et régulier à la sortie de ta table. Trime chaque morceau pour que les mètres de canal soient sur la ligne pointillée, jamais dans le rouge, et laisse le master là où l'ingé le veut.
+- **Leur boulot** : le volume de la salle, l'accord du système, et la protection des enceintes.
 
-**Philosophie de conception** : haut SPL, dispersion large, précision clinique. Conçu pour reproduire fidèlement le signal sans coloration.
+Des systèmes différents réagissent différemment au même signal : certains pardonnent plus, d'autres révèlent chaque défaut, et rien de ça ne se déduit d'un nom de marque. Le seul geste fiable, c'est de **demander à l'ingé et d'écouter**.
 
-**Implication DJ** : impitoyable. Chaque dB au-dessus de la cible de headroom est audible comme distorsion dans les trois premiers rangs. Les erreurs de gain staging se propagent sans adoucissement. Récompense une discipline de trim précise.
+## À demander avant le premier morceau
 
-## L-Acoustics K2 / K1 : line arrays à directivité contrôlée
-
-Utilisé à : main stages de festivals (Glastonbury, Tomorrowland), grandes arènes, événements outdoor.
-
-**Philosophie de conception** : directivité contrôlée, SPL longue portée, couverture cohérente sur de grandes distances. Guides d'ondes contrôlés par DSP pour un contrôle précis du rayonnement.
-
-**Implication DJ** : principalement utilisé pour les grands événements, pas les clubs intimistes. Le gain staging ici implique la coordination avec l'ingénieur FOH, qui gère toute la chaîne PA. Les DJs contribuent la qualité du signal d'entrée ; l'ingénieur gère le reste.
-
-## d&b audiotechnik : précision et prédictibilité
-
-Utilisé à : opéras, théâtres, certains clubs haut de gamme.
-
-**Philosophie de conception** : couverture mathématiquement prédictible, calibrée via logiciel fabricant (ArrayCalc/R1). Chaque enceinte du système est modélisée avant installation.
-
-**Implication DJ** : extrêmement cohérent de siège en siège / de zone en zone. Plus facile à calibrer, plus difficile à endommager accidentellement. Courant dans les salles européennes avec des standards acoustiques élevés.
+1. Quel niveau nominal est attendu à la sortie du booth ?
+2. Le master est-il verrouillé, ou puis-je y toucher ?
+3. Y a-t-il un indicateur de clip sur le système que je dois surveiller ?
 """
 
 [[fr.pages]]
@@ -333,15 +293,15 @@ Où :
 - V = volume de la salle en m³
 - A = absorption totale dans la salle (somme de la surface × coefficient d'absorption pour chaque matériau)
 
-Un club de taille moyenne typique : volume 2000 m³, absorption A ≈ 300–500 m² (béton, verre, corps). T60 ≈ 0,9–1,1 secondes.
+Un club de taille moyenne typique : volume 2000 m³, absorption A ≈ 300–500 m² (béton, verre, corps). T60 = 0,161 × 2000 / 500 à 0,161 × 2000 / 300, soit **0,64 à 1,07 seconde**.
 
 ## Ce que le RT60 signifie pour les basses
 
 Les longueurs d'onde graves sont longues (20 Hz = 17 mètres). Une onde stationnaire à 20 Hz dans une salle de 50m réverbère longtemps après le transitoire qui l'a causée. La conséquence pratique :
 
 - Dans les clubs avec RT60 > 1,2 s aux basses fréquences, l'énergie grave s'accumule entre les grosses caisses. La salle "charge" les basses.
-- Un set qui semble parfaitement stagé au début de la soirée peut paraître chargé en basses 2 heures plus tard, quand la salle se réchauffe et que l'absorption acoustique diminue légèrement (la foule absorbe moins quand elle est dense et transpirante).
-- Solution : trime les morceaux légèrement plus bas dans une salle réverbérante, ou demande à l'ingénieur d'engager le filtre passe-haut sub-graves du système au niveau système.
+- Les gens absorbent le son. Une salle vide (soundcheck, ouverture) est **plus réverbérante** que la même salle pleine plus tard : les basses peuvent donc sembler plus boomy au début et plus serrées une fois le dancefloor rempli.
+- Le trim ne corrige pas l'acoustique de la salle. Si le grave est boomy, dis-le à l'ingé : l'EQ système et les filtres passe-haut sont ses outils.
 
 ## Les ingés son utilisent ça
 
@@ -383,36 +343,26 @@ De même, le **convertisseur N/A à la sortie analogique** est fixed-point. Si l
 ## La règle pratique
 
 - Clip CAN entrée : règle le trim pour que l'entrée ne clippe pas. Utilise le LED de clip comme limite absolue.
-- Clip CNA sortie : garde la sortie master sous 0 dBFS. La cible -6 dB assure que tu n'y touches jamais en pratique.
+- Clip CNA sortie : garde le master hors du rouge. Le « 0 » de la table (la ligne pointillée) laisse déjà de la marge sous 0 dBFS : en restant en haut du vert, tu n'y touches jamais en pratique.
 - Il n'y a pas de "mixer chaud et réparer plus tard" en performance DJ live. Le CNA est le dernier étage.
 """
 
 [[fr.pages]]
-title   = "Berghain : étude de cas en gain staging de niveau salle"
+title   = "Gain staging au niveau de la salle : une checklist"
 content = """
-## Le problème que les salles résolvent (ou pas)
+## Le problème
 
-La plupart des clubs ont un système PA sans calibrage de gain cohérent entre différents DJs et événements. La sortie master peut dériver. Le gain système peut varier selon ce que le DJ précédent a réglé. Chaque artiste arrive dans un état de départ inconnu.
+La plupart des clubs n'ont pas de calibrage de gain cohérent d'un DJ et d'un événement à l'autre. Le master a peut-être été bougé par l'artiste précédent. Chaque DJ arrive dans un état de départ inconnu, souvent sans soundcheck.
 
-## L'approche Berghain
+## Ce que tu peux faire
 
-Berghain (Berlin) calibre toute la chaîne de signal de la sortie table DJ jusqu'à l'entrée ampli final à un **niveau de référence fixe et documenté**. Le rig Funktion-One est optimisé pour cette référence. Le système fonctionne à un point connu sur la courbe d'égale loudness.
+1. **Normalise ton propre setup** : choisis une habitude de trim (chaque morceau sur la ligne pointillée) et tiens-t'y. Entraîne-toi chez toi comme tu joueras.
+2. **Parle à l'ingé** avant le gig : niveau nominal au booth, master verrouillé ou non, quel indicateur surveiller.
+3. **Préfère un master fixe** : ne gère pas le master pendant le set. Gère les canaux.
+4. **Prévois environ 10 minutes après l'installation** pour vérifier ton trim par rapport au système avant l'arrivée du public.
+5. **Garde la référence du booth fixe** : ne monte pas et ne baisse pas les moniteurs du booth pour courir après la salle.
 
-Chaque DJ qui joue sur le dancefloor principal reçoit :
-- Une chaîne trim-to-master vérifiée au niveau correct
-- Des moniteurs de booth à un SPL de référence calibré fixe
-- Aucun contrôle sur le gain master (verrouillé à la régie technique)
-
-Résultat : un DJ concentré sur la sélection musicale et l'EQ ne prend aucune décision pouvant accidentellement détruire la chaîne PA. Le son reste cohérent au fil des changements de lineup — parfois toutes les 4–6 heures, sans soundcheck.
-
-## Ce que les DJs doivent en retenir
-
-1. **Normalise ton setup DJ personnel** — choisis un niveau de trim de référence et tiens-t'y. Ta structure de gain à la maison doit correspondre le plus possible à ton setup en club.
-2. **Communique avec l'ingénieur son de la salle** avant chaque gig. Demande : quel est le niveau nominal à la sortie du booth ? Y a-t-il un LED de clip à surveiller ?
-3. **Préfère des sorties master fixes** — ne gère pas le master pendant le set. Gère les canaux.
-4. **Prévois 10 minutes après l'installation** pour calibrer le trim par rapport au système avant l'arrivée du public.
-
-Le DJ est le premier noeud d'un système. Un signal d'entrée propre protège chaque noeud en aval.
+Le DJ est le premier noeud d'un système. Une entrée propre protège chaque noeud en aval.
 """
 
 [[quiz]]
@@ -424,8 +374,8 @@ answers  = ["3 secondes", "400 ms", "30 secondes"]
 [[quiz]]
 correct = 1
 [quiz.fr]
-question = "Quelle philosophie de système PA est décrite comme 'pardonnante' aux erreurs de mix DJ grâce à l'adoucissement des transitoires par pavillon ?"
-answers  = ["Void Acoustics", "Funktion-One", "L-Acoustics K2"]
+question = "Un club a V = 2000 m³ et A = 400 m². Quel T60 donne la formule de Sabine ?"
+answers  = ["0,4 s", "Environ 0,8 s", "1,6 s"]
 
 [[quiz]]
 correct = 2
@@ -454,14 +404,6 @@ answers  = ["La réverbération de salle", "Les pics inter-échantillons qui se 
 [[sources]]
 label = "EBU R 128 — Normalisation de la loudness (EBU)"
 url   = "https://tech.ebu.ch/docs/r/r128.pdf"
-
-[[sources]]
-label = "Funktion-One — Philosophie de conception du système"
-url   = "https://www.funktion-one.com/sound-quality/"
-
-[[sources]]
-label = "Void Acoustics — Présentation du système"
-url   = "https://www.voidaudio.net/"
 
 [[sources]]
 label = "Équation de réverbération de Sabine — Hyperphysics (Georgia State)"

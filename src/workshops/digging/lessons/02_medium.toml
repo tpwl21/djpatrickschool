@@ -22,7 +22,7 @@ Electronic labels have a precise vocabulary for different versions of the same t
 | VIP | Variable | Variable | Artist's own re-edit, often darker/clubbier |
 | Club Edit | 5–6 min | Mid-track | Compromise — less structural room than Extended |
 
-**Caution**: some labels invert conventions, especially in Italian disco (where "Dub" sometimes means the long version). Always verify by checking length — under 4 min = Radio Edit regardless of label.
+**Caution**: some labels invert conventions, especially in Italian disco (where "Dub" sometimes means the long version). Always verify with the version name and the length. Under 4 min is often a Radio Edit, but some DJ edits and short tools are that short too — read the title, not just the clock.
 
 The **Extended Mix** is typically the DJ's best friend: it gives 8–12 minutes of structure with enough intro/outro to blend in either direction.
 """
@@ -68,7 +68,7 @@ title   = "The drop as genre signature"
 content = """
 The "drop" is the moment of maximum energy arrival — when all elements return after a stripped-down section. Its specific shape is a genre fingerprint:
 
-**House / Deep House**: gradual threshold crossing. Density rises phrase by phrase; the "drop" is less a moment than a sustained arrival. Jeff Mills described this as "one layer removed, one layer added every 32 beats."
+**House / Deep House**: gradual threshold crossing. Density rises phrase by phrase; the "drop" is less a moment than a sustained arrival.
 
 **Big-room EDM**: dramatic silence (1–4 beats), then full-energy impact on the downbeat. Dynamic range can exceed 20 dB (silence → kick + everything). Designed for a crowd to anticipate and respond physically.
 
@@ -113,8 +113,8 @@ label = "Beatport — Club Mix vs Extended Mix examples"
 url   = "https://www.beatport.com/"
 
 [[en.sources]]
-label = "Jeff Mills — RA interview on track structure"
-url   = "https://ra.co/features/2003"
+label = "Resident Advisor — features and interviews (starting point)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "Discogs — version label conventions"
@@ -141,7 +141,7 @@ Les labels électroniques ont un vocabulaire précis pour les différentes versi
 | VIP | Variable | Variable | Re-edit de l'artiste, souvent plus sombre/club |
 | Club Edit | 5–6 min | Milieu de track | Compromis — moins de structure que l'Extended |
 
-**Attention** : certains labels inversent les conventions, notamment en disco italien (où "Dub" signifie parfois la version longue). Vérifie toujours la durée — moins de 4 min = Radio Edit quelle que soit l'étiquette.
+**Attention** : certains labels inversent les conventions, notamment en disco italien (où "Dub" signifie parfois la version longue). Vérifie toujours le nom de la version et la durée. Moins de 4 min, c'est souvent un Radio Edit, mais certains edits DJ et outils courts font aussi cette durée — lis le titre, pas seulement la montre.
 
 L'**Extended Mix** est en général le meilleur ami du DJ : 8–12 minutes de structure avec assez d'intro/outro pour blender dans les deux sens.
 """
@@ -187,7 +187,7 @@ title   = "Le drop comme signature de genre"
 content = """
 Le "drop" est le moment d'arrivée à énergie maximale — quand tous les éléments reviennent après une section épurée. Sa forme précise est une empreinte de genre :
 
-**House / Deep House** : franchissement progressif d'un seuil. La densité monte phrase après phrase ; le "drop" est moins un moment qu'une arrivée soutenue. Jeff Mills a décrit ça comme "une couche enlevée, une couche ajoutée toutes les 32 beats."
+**House / Deep House** : franchissement progressif d'un seuil. La densité monte phrase après phrase ; le "drop" est moins un moment qu'une arrivée soutenue.
 
 **Big-room EDM** : silence dramatique (1–4 beats), puis impact pleine énergie sur le premier temps. La dynamique peut dépasser 20 dB (silence → kick + tout). Conçu pour que le public anticipe et réponde physiquement.
 
@@ -232,8 +232,8 @@ label = "Beatport — exemples Club Mix vs Extended Mix"
 url   = "https://www.beatport.com/"
 
 [[fr.sources]]
-label = "Jeff Mills — interview RA sur la structure de track"
-url   = "https://ra.co/features/2003"
+label = "Resident Advisor — articles et interviews (point de départ)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "Discogs — conventions d'étiquetage des versions"

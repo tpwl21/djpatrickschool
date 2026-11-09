@@ -13,13 +13,13 @@ coach_tips  = [
   "No training wheels here. You have to trust your ears to set the tempo, and you have to do it during the breakdown.",
   "Start hitting CUE repeatedly while adjusting the pitch to test the waters.",
   "If it drifts apart instantly, your pitch is way off.",
-  "You can still use the nudge buttons. If you constantly have to push it forward, it means your pitch is too slow!"
+  "You can still use the nudge buttons. If you constantly have to press Speed up, it means your pitch is too slow!"
 ]
 recap = [
   "Without BPM numbers, your ear becomes the tempo reference — trust it.",
   "Hit CUE repeatedly at different pitch settings to probe the right zone.",
   "Fast drift = way off pitch. Slow drift = nearly locked.",
-  "If you keep pushing Forward, pitch is too slow. Keep pushing Back, too fast."
+  "If you keep pressing Speed up, your pitch is too slow. Keep pressing Slow down, it is too fast."
 ]
 
 [fr]
@@ -40,7 +40,7 @@ recap = [
   "Sans chiffres de BPM, l'oreille devient ta référence de tempo — fais-lui confiance.",
   "Tape CUE plusieurs fois à différents pitch pour sonder la bonne zone.",
   "Dérive rapide = pitch très faux. Dérive lente = presque calé.",
-  "Si tu pousses constamment Avancer, le pitch est trop lent. Constamment Reculer, trop rapide."
+  "Si tu appuies constamment sur Accélérer, le pitch est trop lent. Constamment Ralentir, trop rapide."
 ]
 
 [track.A]

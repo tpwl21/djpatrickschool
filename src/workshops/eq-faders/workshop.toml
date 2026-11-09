@@ -8,19 +8,19 @@ kind = "eq"
 [en]
 title      = "EQ & FADERS"
 short_desc = "Sculpt the frequencies. Cleanest transitions in the game."
-long_desc  = "Crossfader, volumes, three-band EQ — the actual craft of mixing. Each level drills a canonical transition: fader ride, bass swap, progressive fade, mid cut, double drop, and the full pro blend."
+long_desc   = "Crossfader, volumes, three-band EQ — the actual craft of mixing. Three levels: ride the crossfader to bring a track in, swap the bass between two decks, and set your trims so tracks of different loudness sit at the same level."
 objectives = [
   "Master the crossfader and volume faders",
   "Execute the classic bass swap without clashing",
-  "Blend tracks using all three EQ bands"
+  "Match the loudness of two tracks with the trim knobs"
 ]
 
 [fr]
 title      = "EQ & FADERS"
 short_desc = "Sculpte les fréquences. La transition la plus propre du game."
-long_desc  = "Crossfader, volumes, EQ trois bandes — le vrai métier du mixage. Chaque niveau travaille une transition classique : fader, swap de basses, fade progressif, mids, double drop, et la transition pro complète."
+long_desc   = "Crossfader, volumes, EQ trois bandes — le vrai métier du mixage. Trois niveaux : accompagner le crossfader pour faire entrer un morceau, swapper la basse entre deux decks, et régler tes trims pour que des morceaux de loudness différente se retrouvent au même niveau."
 objectives = [
   "Maîtriser le crossfader et les faders de volume",
   "Réaliser le swap de basses classique sans clash",
-  "Blender les morceaux avec les trois bandes EQ"
+  "Égaliser la loudness de deux morceaux avec les boutons de trim"
 ]

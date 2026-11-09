@@ -3,39 +3,39 @@ order = 8
 
 [en]
 title       = "The Purist"
-short_desc  = "No BPM, NO NUDGING allowed. Lock it all in with the pitch fader like a true vinyl head."
-description = "Total Mastery. <strong>No BPM display, NO NUDGING.</strong> Lock the tempos using only Play/CUE and Pitch!"
-details     = "Focus: Absolute mastery of the deck."
+short_desc  = "Pitch-only exercise: no BPM, no nudge buttons. Lock it all in with the pitch fader."
+description = "Total Mastery. <strong>No BPM display, NO NUDGE buttons.</strong> A pitch-only exercise: lock the tempos using only Play/CUE and Pitch!"
+details     = "Focus: Pitch-only exercise, absolute control of the pitch fader."
 success     = "DJ MASTER STATUS! Absolute deck control, nothing can stop you. Ready for the main stage?"
 coach_tips  = [
   "This is it. No magic buttons, just you and the turntable.",
-  "Use the pitch fader ONLY. If it's lagging, push the pitch way up for a second so it catches up, then pull it back to the right tempo.",
+  "Use the pitch fader ONLY. If it's lagging, nudge the pitch toward \"+\" (down) for a second so it catches up, then bring it back to the right tempo.",
   "You're essentially 'riding the pitch' in waves to fix the phase.",
-  "Basically, the pitch fader replaces the nudge buttons. Imagine touching the vinyl or the platter is strictly forbidden."
+  "Basically, the pitch fader replaces the nudge buttons for this exercise. On real vinyl you would also push and brake the platter, here we deliberately take that away to train your pitch hand."
 ]
 recap = [
-  "The pitch fader can also do nudge's job — briefly push up, then back down.",
-  "\"Riding the pitch\" in small waves corrects phase without touching the jog.",
-  "Vinyl-style purism: no jog, no nudge — only Play, CUE, and Pitch.",
+  "The pitch fader can also do nudge's job — briefly nudge it one way, then back.",
+  "\"Riding the pitch\" in small waves corrects phase without the nudge buttons.",
+  "Pitch-only exercise: no nudge buttons — only Play, CUE, and Pitch. (On real vinyl you would also push and brake the platter.)",
   "This is the test that proves you truly hear the drift instead of seeing it."
 ]
 
 [fr]
 title       = "Le Puriste"
-short_desc  = "Pas de BPM, et surtout PAS DE NUDGE. Aligne tout au Pitch, comme un vrai."
-description = "Expertise Totale. <strong>Pas de BPM, et surtout PAS DE NUDGE.</strong> Aligne tes trains uniquement avec le Play/CUE et le Pitch !"
-details     = "Focus : Maîtrise totale du plateau."
+short_desc  = "Exercice « pitch seul » : pas de BPM, pas de boutons de nudge. Aligne tout avec le fader pitch."
+description = "Expertise Totale. <strong>Pas de BPM, et surtout PAS de boutons de nudge.</strong> Un exercice « pitch seul » : aligne tes trains uniquement avec le Play/CUE et le Pitch !"
+details     = "Focus : Exercice « pitch seul », contrôle total du fader pitch."
 success     = "DJ MASTER ! Le contrôle total, plus rien ne t'arrête. Prêt pour la scène ?"
 coach_tips  = [
   "Ici, c'est du sérieux. Pas de bouton magique, juste toi et le disque.",
   "Sers-toi du pitch uniquement, force un des trains à être plus rapide qu'il ne doit être, pour qu'il rattrape l'autre, ou dans l'autre sens",
   "Tu peux faire des vagues avec le pitch, c'est-à-dire accélérer puis ralentir, pour corriger les petits décalages.",
-  "En gros le pitch remplace le bouton accélérer ou ralentir, c'est comme si tu n'avais pas le droit de toucher le vinyle ou ton jog"
+  "En gros le pitch remplace les boutons Accélérer et Ralentir le temps de cet exercice. Sur un vrai vinyle tu pousserais et freinerais aussi le plateau, ici on te l'enlève exprès pour entraîner ta main sur le pitch."
 ]
 recap = [
-  "Le pitch peut aussi faire le job du nudge — petit coup vers le haut, puis retour.",
-  "\"Rider le pitch\" en petites vagues corrige la phase sans toucher le jog.",
-  "Puriste vinyle : ni jog, ni nudge — juste Play, CUE et Pitch.",
+  "Le pitch peut aussi faire le job du nudge — petit coup dans un sens, puis retour.",
+  "\"Rider le pitch\" en petites vagues corrige la phase sans les boutons de nudge.",
+  "Exercice « pitch seul » : pas de nudge — juste Play, CUE et Pitch. (Sur un vrai vinyle tu pousserais et freinerais aussi le plateau.)",
   "C'est le test qui prouve que tu entends la dérive au lieu de la voir."
 ]
 

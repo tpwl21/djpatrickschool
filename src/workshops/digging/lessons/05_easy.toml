@@ -77,7 +77,7 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[en.sources]]
 label = "Laurent Garnier — The Man With The Red Face (the ultimate oh-shit track)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"
 
 [fr]
 title      = "Ton Crate de Set — Organisé pour te sauver"
@@ -155,4 +155,4 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[fr.sources]]
 label = "Laurent Garnier — The Man With The Red Face (la track oh-shit ultime)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"

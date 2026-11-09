@@ -10,7 +10,7 @@ recap = [
   "Works beautifully on breaks and vocals — destroys dense kick-heavy tracks.",
   "Three controls: pre-delay (gap before reverb starts), decay (how long the tail lasts), wet/dry (how much space you hear).",
   "Use it as a punctuation, not a wash — a two-bar tail then silence hits harder than two minutes of reverb.",
-  "The Keinemusik / Afro house sound = heavy reverb on sparse moments, then dry impact.",
+  "The Afro house / melodic techno trick = heavy reverb on a sparse moment, then a dry impact.",
 ]
 
 [[en.pages]]
@@ -26,6 +26,11 @@ Reverb simulates a space:
 - **Cathedral**: massive space, very long tail (3–8 seconds).
 
 In DJ gear, you add reverb to a track and it suddenly sounds like it's playing in a bigger room.
+
+Three controls to know:
+- **Decay**: how long the tail lasts.
+- **Wet/dry**: how much of the space you hear (dry = the original sound, wet = the reverb).
+- **Pre-delay**: a tiny pause before the reverb starts (a few hundredths of a second). In the bathroom, it's the time your voice travels before the first bounce comes back. A little pre-delay keeps the voice clear and puts the space behind it instead of on top of it.
 """
 
 [[en.pages]]
@@ -45,9 +50,9 @@ This is why you hear reverb so rarely in actual club mixes — most tracks are a
 """
 
 [[en.pages]]
-title   = "The Keinemusik move: reverb as punctuation"
+title   = "Reverb as punctuation"
 content = """
-Since around 2015, the Berlin collective **Keinemusik** (Adam Port, &ME, Rampa) popularized a specific reverb technique in Afro house and melodic techno:
+A reverb technique you hear a lot in Afro house and melodic techno:
 
 - Find a sparse moment — a single percussive hit, a vocal phrase, a chord stab.
 - Hit it with **heavy reverb**: long decay, high wet mix.
@@ -78,7 +83,7 @@ answers  = [
 correct  = 1
 
 [[en.quiz]]
-question = "What is the Keinemusik reverb move?"
+question = "What is the 'reverb as punctuation' move?"
 answers  = [
   "Constant reverb wash for the whole set",
   "Heavy reverb on a sparse moment, then cut back to a dry punchy impact for contrast",
@@ -87,8 +92,8 @@ answers  = [
 correct  = 1
 
 [[en.sources]]
-label = "Keinemusik collective — RA feature"
-url   = "https://ra.co/features/3600"
+label = "Resident Advisor — features and DJ interviews (root)"
+url   = "https://ra.co/"
 
 [[en.sources]]
 label = "Reverb explained — SoundOnSound"
@@ -103,7 +108,7 @@ recap = [
   "Marche magnifiquement sur les breaks et voix — détruit les tracks denses avec beaucoup de kick.",
   "Trois réglages : pre-delay (silence avant que ça commence), decay (durée de la queue), wet/dry (combien d'espace tu entends).",
   "Utilise-la comme ponctuation, pas comme nappe — une queue de deux mesures puis le silence tape plus fort que deux minutes de reverb.",
-  "Le son Keinemusik / Afro house = reverb heavy sur moments aérés, puis impact dry.",
+  "L'astuce Afro house / melodic techno = reverb heavy sur un moment aéré, puis impact dry.",
 ]
 
 [[fr.pages]]
@@ -119,6 +124,11 @@ La reverb simule un espace :
 - **Cathédrale** : espace immense, queue très longue (3–8 secondes).
 
 Sur du matos DJ, tu ajoutes de la reverb à une track et elle sonne soudain comme si elle jouait dans une plus grande pièce.
+
+Trois réglages à connaître :
+- **Decay** : la durée de la queue.
+- **Wet/dry** : combien d'espace tu entends (dry = le son d'origine, wet = la reverb).
+- **Pre-delay** : une toute petite pause avant que la reverb démarre (quelques centièmes de seconde). Dans la salle de bain, c'est le temps que ta voix met avant que le premier rebond revienne. Un peu de pre-delay garde la voix nette et met l'espace derrière elle plutôt que dessus.
 """
 
 [[fr.pages]]
@@ -138,9 +148,9 @@ C'est pour ça qu'on entend si peu de reverb dans les vrais mixes de club — la
 """
 
 [[fr.pages]]
-title   = "Le move Keinemusik : la reverb comme ponctuation"
+title   = "La reverb comme ponctuation"
 content = """
-Depuis environ 2015, le collectif berlinois **Keinemusik** (Adam Port, &ME, Rampa) a popularisé une technique de reverb spécifique dans l'Afro house et la melodic techno :
+Une technique de reverb qu'on entend beaucoup en Afro house et en melodic techno :
 
 - Trouve un moment aéré — un coup de percussion seul, une phrase vocale, un stab d'accord.
 - Balance une **reverb lourde** : decay long, mix wet élevé.
@@ -171,7 +181,7 @@ answers  = [
 correct  = 1
 
 [[fr.quiz]]
-question = "Quel est le move reverb de Keinemusik ?"
+question = "Quel est le move « reverb comme ponctuation » ?"
 answers  = [
   "Nappe de reverb constante sur tout le set",
   "Reverb heavy sur un moment aéré, puis retour à un impact sec pour le contraste",
@@ -180,8 +190,8 @@ answers  = [
 correct  = 1
 
 [[fr.sources]]
-label = "Collectif Keinemusik — dossier RA"
-url   = "https://ra.co/features/3600"
+label = "Resident Advisor — dossiers et interviews DJ (accueil)"
+url   = "https://ra.co/"
 
 [[fr.sources]]
 label = "La reverb expliquée — SoundOnSound"

@@ -7,10 +7,11 @@ short_desc  = "Turn the knobs, listen to what changes. No Hz, no theory — just
 description = "Three knobs on the mixer change the bass, the middle, and the treble of a track. You already know what they do with your ears. This lesson puts names to what you already hear."
 recap = [
   "Low = kick drum and bass. Mid = voices and instruments. High = hi-hats and cymbals.",
-  "The bass swap: kill the bass of the incoming track, wait for the right moment, then swap.",
+  "The volume fader sets how loud one deck is; the crossfader sets which deck the crowd hears (A, B, or both).",
+  "The bass swap: kill the bass of the incoming deck, wait for the right moment, then swap.",
   "Full kill (knob all the way left) = the band disappears completely. Quick and clean.",
   "Cutting the mids of a track creates space for the voice of the other track.",
-  "The CUE button lets you listen in your headphones without the crowd hearing."
+  "CUE has two meanings: on the mixer it sends a deck to your headphones only; on the player it is the start point of a track."
 ]
 
 [[en.pages]]
@@ -38,6 +39,26 @@ That's EQ. You now know what each knob does.
 """
 
 [[en.pages]]
+title   = "The two faders: volume and crossfader"
+content = """
+## Two faders, two different jobs
+
+Before the knobs go to work, you need to know the two sliders you will touch all the time.
+
+- **Volume fader** (one per deck, slides up and down): how loud **that one deck** is in the room. Down = silence, up = full volume. Think of it as the volume knob of one instrument.
+- **Crossfader** (one wide slider, slides left and right): **which deck the crowd hears**. All the way left = only Deck A. All the way right = only Deck B. In the middle = both together. Think of a door between two rooms: you slide it from one side to the other.
+
+## Two ways to bring a track in
+
+1. Raise the volume fader of the new deck.
+2. Slide the crossfader from A toward B.
+
+Level 1 of this workshop is exactly this: bring Deck B in with the crossfader, slowly, while Deck A finishes. Ride it, don't slam it: a sudden move makes a hole or a bump in the energy.
+
+The three knobs of the previous page then let you shape *what* you let through while you do this.
+"""
+
+[[en.pages]]
 title   = "The bass swap: one kick at a time"
 content = """
 ## Why you need this
@@ -48,9 +69,9 @@ The fix is simple: **only one bass at a time**.
 
 ## How to do it
 
-1. Load Track B in your headphones (CUE on). Check the mix is ready.
-2. **Turn Track B's LOW all the way left** — kill the bass. Now B has no kick.
-3. Start the blend: bring Track B's volume up.
+1. Load the next track on Deck B and press its **CUE** button (the headphones button on the mixer channel). CUE sends that deck to **your headphones only** — the crowd hears nothing. Use it to check that B is ready.
+2. **Turn Deck B's LOW all the way left** — kill the bass. Now B has no kick.
+3. Start the blend: bring Deck B's volume up.
 4. Wait for a musical moment — usually the start of a phrase (every 8 or 16 bars).
 5. **Swap**: turn A's LOW left, and B's LOW back to noon. In one move.
 
@@ -92,10 +113,10 @@ Voices sit in the **MID** range. When two tracks both have singing or rapping, t
 
 ## The trick
 
-While Track B's vocal is coming in, **turn Track A's MID down a little** — maybe halfway.
+While Deck B's vocal is coming in, **turn Deck A's MID down a little** — maybe halfway.
 You're not killing the track. You're just stepping back to let B's voice come forward.
 
-Once Track A is done, bring its mids back or fade it out.
+Once Deck A is done, bring its mids back or fade it out.
 
 ## What it sounds like
 
@@ -110,6 +131,10 @@ title   = "The CUE button: your private headphone mix"
 content = """
 ## What is CUE?
 
+CUE has **two meanings**, and DJs use the same word for both:
+- **On the mixer**: the button that sends a channel to your headphones only (also called PFL). That is what this page is about.
+- **On the player**: the CUE point, the spot where a track starts when you press CUE. You met it in Beatmatching.
+
 Every channel on a DJ mixer has a **CUE button** (sometimes labeled PFL).
 When you press it, that track goes into **your headphones only**.
 The crowd hears nothing from it yet.
@@ -117,13 +142,13 @@ The crowd hears nothing from it yet.
 ## Why this matters
 
 You use CUE to:
-- Listen to Track B **before** bringing it in
+- Listen to Deck B **before** bringing it in
 - Check your EQ moves before committing them to the main sound
-- Beatmatch — hear both tracks in your headphones at once
+- Beatmatch — hear both decks in your headphones at once
 
 ## The split-cue trick
 
-Some mixers have a **split-cue mode**: Track A in your left ear, Track B in your right ear, at the same time.
+Some mixers have a **split-cue mode**: Deck A in your left ear, Deck B in your right ear, at the same time.
 If the beats line up, they hit both ears together. If they drift, you hear them bounce left-right.
 Once you try it, you never go back.
 """
@@ -137,7 +162,7 @@ answers  = ["The kick drum and bass", "The hi-hats and cymbals", "The reverb lev
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "In a bass swap, what do you do to Track B's LOW before mixing it in?"
+question = "In a bass swap, what do you do to Deck B's LOW before mixing it in?"
 answers  = ["Boost it to the max", "Leave it at noon", "Kill it — turn it all the way left"]
 
 [[quiz]]
@@ -170,10 +195,11 @@ short_desc  = "Tourne les boutons, écoute ce qui change. Pas de Hz, pas de thé
 description = "Trois boutons sur la table changent les graves, le milieu et les aigus d'un morceau. Tu sais déjà ce qu'ils font avec tes oreilles. Cette leçon met des noms sur ce que tu entends déjà."
 recap = [
   "Low = grosse caisse et basse. Mid = voix et instruments. High = hi-hats et cymbales.",
-  "Le bass swap : coupe les basses du morceau entrant, attends le bon moment, puis swap.",
+  "Le fader de volume règle le volume d'un seul deck ; le crossfader choisit quel deck le public entend (A, B ou les deux).",
+  "Le bass swap : coupe les basses du deck entrant, attends le bon moment, puis swap.",
   "Full kill (bouton complètement à gauche) = la bande disparaît complètement. Rapide et propre.",
   "Couper les mids d'un morceau crée de la place pour la voix de l'autre morceau.",
-  "Le bouton CUE permet d'écouter dans le casque sans que le public n'entende."
+  "CUE a deux sens : sur la table, il envoie un deck dans ton casque uniquement ; sur la platine, c'est le point de départ d'un morceau."
 ]
 
 [[fr.pages]]
@@ -201,6 +227,26 @@ Voilà l'EQ. Tu sais maintenant ce que fait chaque bouton.
 """
 
 [[fr.pages]]
+title   = "Les deux faders : volume et crossfader"
+content = """
+## Deux faders, deux boulots différents
+
+Avant que les boutons se mettent au travail, tu dois connaître les deux curseurs que tu vas toucher tout le temps.
+
+- **Fader de volume** (un par deck, il monte et descend) : le volume de **ce deck-là seul** dans la salle. En bas = silence, en haut = plein volume. Pense au bouton de volume d'un seul instrument.
+- **Crossfader** (un grand curseur horizontal, il va à gauche et à droite) : **quel deck le public entend**. Tout à gauche = Deck A seul. Tout à droite = Deck B seul. Au milieu = les deux ensemble. Pense à une porte entre deux pièces : tu la fais glisser d'un côté à l'autre.
+
+## Deux façons de faire entrer un morceau
+
+1. Monter le fader de volume du nouveau deck.
+2. Glisser le crossfader de A vers B.
+
+Le niveau 1 de cet atelier, c'est exactement ça : faire entrer le Deck B au crossfader, doucement, pendant que le Deck A se termine. Accompagne le mouvement, ne le claque pas : un geste brusque crée un trou ou une bosse dans l'énergie.
+
+Les trois boutons de la page précédente te permettent ensuite de choisir *ce que* tu laisses passer pendant ce temps.
+"""
+
+[[fr.pages]]
 title   = "Le bass swap : une grosse caisse à la fois"
 content = """
 ## Pourquoi tu en as besoin
@@ -211,9 +257,9 @@ La solution est simple : **une seule basse à la fois**.
 
 ## Comment faire
 
-1. Charge Track B dans ton casque (bouton CUE allumé). Vérifie que le mix est prêt.
-2. **Tourne le LOW de Track B complètement à gauche** — tue les basses. B n'a plus de grosse caisse.
-3. Commence le blend : monte le volume de Track B.
+1. Charge le morceau suivant sur le Deck B et appuie sur son bouton **CUE** (le bouton casque du canal sur la table). Le CUE envoie ce deck **dans ton casque uniquement** — le public n'entend rien. Sers-t'en pour vérifier que B est prêt.
+2. **Tourne le LOW de Deck B complètement à gauche** — tue les basses. B n'a plus de grosse caisse.
+3. Commence le blend : monte le volume de Deck B.
 4. Attends un moment musical — généralement le départ d'une phrase (toutes les 8 ou 16 mesures).
 5. **Swap** : tourne le LOW de A à gauche, et le LOW de B revient à midi. En un seul geste.
 
@@ -255,10 +301,10 @@ Les voix se trouvent dans la plage **MID**. Quand deux morceaux ont tous les deu
 
 ## L'astuce
 
-Pendant que la voix de Track B entre, **baisse un peu le MID de Track A** — peut-être jusqu'à mi-chemin.
+Pendant que la voix de Deck B entre, **baisse un peu le MID de Deck A** — peut-être jusqu'à mi-chemin.
 Tu ne coupes pas le morceau. Tu lui demandes juste de reculer pour laisser la voix de B avancer.
 
-Une fois que Track A est terminée, remets ses mids ou fais-la sortir.
+Une fois que Deck A est terminée, remets ses mids ou fais-la sortir.
 
 ## Ce que ça donne à l'oreille
 
@@ -273,6 +319,10 @@ title   = "Le bouton CUE : ton mix casque privé"
 content = """
 ## C'est quoi le CUE ?
 
+CUE a **deux sens**, et les DJs utilisent le même mot pour les deux :
+- **Sur la table** : le bouton qui envoie un canal dans ton casque uniquement (aussi appelé PFL). C'est le sujet de cette page.
+- **Sur la platine** : le point CUE, l'endroit où un morceau démarre quand tu appuies sur CUE. Tu l'as croisé en Beatmatching.
+
 Chaque canal d'une table DJ a un **bouton CUE** (parfois écrit PFL).
 Quand tu l'appuies, ce morceau arrive **dans ton casque uniquement**.
 Le public n'entend rien de lui pour l'instant.
@@ -280,13 +330,13 @@ Le public n'entend rien de lui pour l'instant.
 ## Pourquoi c'est important
 
 Tu utilises le CUE pour :
-- Écouter Track B **avant** de la faire rentrer
+- Écouter le Deck B **avant** de le faire rentrer
 - Vérifier tes gestes EQ avant de les envoyer sur le son principal
-- Beatmatcher — entendre les deux morceaux dans le casque en même temps
+- Beatmatcher — entendre les deux decks dans le casque en même temps
 
 ## L'astuce du split-cue
 
-Certaines tables ont un mode **split-cue** : Track A dans ton oreille gauche, Track B dans ta droite, en même temps.
+Certaines tables ont un mode **split-cue** : Deck A dans ton oreille gauche, Deck B dans ta droite, en même temps.
 Si les beats sont alignés, ils arrivent ensemble dans les deux oreilles. S'ils dérivent, tu les entends rebondir gauche-droite.
 Une fois que tu l'as essayé, tu ne reviens pas en arrière.
 """
@@ -300,7 +350,7 @@ answers  = ["La grosse caisse et la basse", "Les hi-hats et cymbales", "Le nivea
 [[quiz]]
 correct = 2
 [quiz.fr]
-question = "Dans un bass swap, que fais-tu au LOW de Track B avant de la mixer ?"
+question = "Dans un bass swap, que fais-tu au LOW de Deck B avant de la mixer ?"
 answers  = ["Tu le montes au maximum", "Tu le laisses à midi", "Tu le tues — tu le tournes complètement à gauche"]
 
 [[quiz]]

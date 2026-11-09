@@ -8,7 +8,7 @@ description = "Before you can mix, you need to hear what a beat is actually made
 recap = [
   "The kick drum is the loudest 'boom' — it hits every beat in most club music.",
   "The snare is the sharp 'crack' on beats 2 and 4 — your easiest sync anchor.",
-  "When two snares hit slightly apart, that small echo is a 'flam' — push or pull to fix it.",
+  "When two snares hit slightly apart, that small echo is a 'flam' — a nudge fixes it.",
   "A phrase is 8 bars (32 beats) — DJs mix at phrase endings, not randomly.",
   "Count to 32 out loud while music plays. When you reach 32 without getting lost, you understand phrase structure."
 ]
@@ -18,13 +18,13 @@ title   = "The kick: your heartbeat"
 content = """
 In almost all electronic club music, a **kick drum** (grosse caisse) hits on every single beat — boom, boom, boom, boom. In one bar of 4 beats, that's 4 kicks.
 
-This is called **four-on-the-floor** because in a live band, the kick pedal hits the floor on every beat.
+This pattern is called **four-on-the-floor**: four kicks per bar, one on every beat.
 
 ## Exercise
 
 Put on any house or techno track. Tap your hand on your knee every time you hear the big "boom". If you're tapping 4 times per bar, you found the kick. That steady pulse is your number-one anchor when beatmatching.
 
-**When both decks are locked, both kicks hit at exactly the same instant.** If they flutter, the phase is off. If they drift apart over time, the BPM is off.
+**When both decks are locked, both kicks hit at exactly the same instant.** If they flutter, the **phase** is off (the beats are offset, see lesson 1). If they drift apart over time, the **tempo** (BPM) is off.
 """
 
 [[en.pages]]
@@ -36,7 +36,7 @@ Here's why this matters for beatmatching: **when two tracks are perfectly in pha
 
 ## How to use the flam
 
-- Hear a flam? Phase is off. Nudge (gently tap the jog wheel forward or back) to close the gap.
+- Hear a flam? Phase is off. Nudge to close the gap: on real gear, gently touch the jog wheel forward or back; in the game, tap Slow down / Speed up.
 - No flam, snares land together? Phase is locked. You're good.
 
 The snare is often easier to use than the kick for phase-checking because it's sharper and higher-pitched — your ears can detect tiny timing errors in it more easily.
@@ -49,16 +49,16 @@ Music doesn't just flow randomly — it's built in blocks. The most common block
 
 A track typically has:
 - **Intro** (1–2 phrases): sparse, no drop, for mixing in
-- **Build** (1 phrase): energy rising, maybe a filter sweep
+- **Build** (1 phrase): energy rising, often with a **riser** (a sound that sweeps upward to build tension)
 - **Drop** (2+ phrases): full energy, kick, bass, everything
-- **Break** (1 phrase): stripped back, just drums or pads
+- **Break** (1 phrase): stripped back, no kick, just light percussion or soft sounds
 - **Outro** (1–2 phrases): sparse, for mixing out
 
 **The rule**: mix at phrase endings — when one 32-beat block ends and the next begins. Mix in the middle and it will sound wrong, even if the BPM is perfect.
 
 ## How to count phrases
 
-Count beats out loud: 1-2-3-4 / 2-2-3-4 / 3-2-3-4 / ... / 8-2-3-4. When you hit 8-4, that's the end of a phrase. Something in the music usually happens there — a fill, a cymbal crash, a filter opening.
+Count beats out loud: 1-2-3-4 / 2-2-3-4 / 3-2-3-4 / ... / 8-2-3-4. When you hit 8-4, that's the end of a phrase. Something in the music usually happens there — a **fill** (a short drum roll), a **crash** (a big cymbal hit), a sound suddenly opening up.
 """
 
 [[quiz]]
@@ -112,7 +112,7 @@ description = "Avant de pouvoir mixer, tu dois entendre ce dont un beat est vrai
 recap = [
   "La grosse caisse c'est le 'boom' le plus fort — elle tombe sur chaque beat en musique club.",
   "La snare c'est le 'clac' aigu sur les temps 2 et 4 — ton ancre de sync la plus facile.",
-  "Quand deux snares tombent légèrement décalées, ce petit écho s'appelle un 'flam' — nudge pour corriger.",
+  "Quand deux snares tombent légèrement décalées, ce petit écho s'appelle un 'flam' — un nudge le corrige.",
   "Une phrase fait 8 mesures (32 beats) — les DJs mixent aux fins de phrases, pas au hasard.",
   "Compte jusqu'à 32 à voix haute sur de la musique. Quand tu y arrives sans te perdre, tu comprends la structure en phrases."
 ]
@@ -122,13 +122,13 @@ title   = "Le kick : ton coeur de métronome"
 content = """
 Dans presque toute la musique électronique de club, une **grosse caisse** tombe sur chaque beat — boom, boom, boom, boom. Dans une mesure de 4 temps, ça fait 4 kicks.
 
-On appelle ça le **four-on-the-floor** (quatre sur le plancher) parce que dans un groupe live, la pédale de grosse caisse tape le sol sur chaque temps.
+On appelle ce motif le **four-on-the-floor** (« quatre sur le plancher ») : quatre kicks par mesure, un sur chaque temps.
 
 ## Exercice
 
 Mets un morceau house ou techno. Tape de la main sur ton genou chaque fois que tu entends le grand "boom". Si tu tapes 4 fois par mesure, tu as trouvé le kick. Cette pulsation stable est ton ancre numéro 1 pour le beatmatching.
 
-**Quand les deux decks sont verrouillés, les deux kicks tombent exactement au même instant.** S'ils flottent, la phase est décalée. S'ils s'écartent avec le temps, le BPM est décalé.
+**Quand les deux decks sont verrouillés, les deux kicks tombent exactement au même instant.** S'ils flottent, la **phase** est décalée (les temps sont décalés, cf. leçon 1). S'ils s'écartent avec le temps, le **tempo** (BPM) est décalé.
 """
 
 [[fr.pages]]
@@ -140,7 +140,7 @@ Voilà pourquoi ça compte pour le beatmatching : **quand deux morceaux sont par
 
 ## Comment utiliser le flam
 
-- Tu entends un flam ? La phase est décalée. Nudge (tape doucement la roue jog en avant ou en arrière) pour réduire l'écart.
+- Tu entends un flam ? La phase est décalée. Nudge pour réduire l'écart : sur du vrai matos, touche doucement la roue jog vers l'avant ou l'arrière ; dans le jeu, appuie sur Ralentir / Accélérer.
 - Pas de flam, les snares tombent ensemble ? La phase est verrouillée. C'est bon.
 
 La snare est souvent plus facile à utiliser que le kick pour vérifier la phase parce qu'elle est plus sèche et plus aigüe — tes oreilles peuvent détecter de minuscules erreurs de timing dedans plus facilement.
@@ -153,53 +153,17 @@ La musique ne coule pas de façon aléatoire — elle est construite en blocs. L
 
 Un morceau a typiquement :
 - **Intro** (1–2 phrases) : sparse, sans drop, pour mixer
-- **Build** (1 phrase) : énergie montante, peut-être un sweep de filtre
+- **Build** (1 phrase) : l'énergie monte, souvent avec un **riser** (un son qui monte pour faire grimper la tension)
 - **Drop** (2+ phrases) : pleine énergie, kick, basse, tout
-- **Break** (1 phrase) : stripped back, juste batterie ou pads
+- **Break** (1 phrase) : tout est dépouillé, plus de kick, juste de la percussion légère ou des sons doux
 - **Outro** (1–2 phrases) : sparse, pour mixer en sortie
 
 **La règle** : mixer aux fins de phrases — quand un bloc de 32 beats se termine et que le suivant commence. Mixer au milieu et ça sonnera faux, même si le BPM est parfait.
 
 ## Comment compter les phrases
 
-Compte les beats à voix haute : 1-2-3-4 / 2-2-3-4 / 3-2-3-4 / ... / 8-2-3-4. Quand tu arrives à 8-4, c'est la fin d'une phrase. Quelque chose dans la musique se passe généralement là — un fill, un crash de cymbale, un filtre qui s'ouvre.
+Compte les beats à voix haute : 1-2-3-4 / 2-2-3-4 / 3-2-3-4 / ... / 8-2-3-4. Quand tu arrives à 8-4, c'est la fin d'une phrase. Quelque chose dans la musique se passe généralement là — un **fill** (un petit roulement de batterie), un **crash** (un gros coup de cymbale), un son qui s'ouvre d'un coup.
 """
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "What is the kick drum's role in beatmatching?"
-answers  = ["It's the primary tempo reference — if both kicks land together, you're in sync", "It marks phrase endings", "It tells you when to apply the crossfader"]
-[quiz.fr]
-question = "Quel est le rôle de la grosse caisse dans le beatmatching ?"
-answers  = ["C'est la référence tempo principale — si les deux kicks tombent ensemble, tu es en sync", "Elle marque les fins de phrases", "Elle t'indique quand appliquer le crossfader"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "On which beats does the snare typically fall in house music?"
-answers  = ["Beats 1 and 3", "Beats 2 and 4", "Every beat, like the kick"]
-[quiz.fr]
-question = "Sur quels temps tombe généralement la snare en house music ?"
-answers  = ["Les temps 1 et 3", "Les temps 2 et 4", "Chaque temps, comme le kick"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "You hear a small echo (flam) between two snares. What does that mean?"
-answers  = ["The BPM is slightly off — use the pitch fader", "The tracks are in a different key", "The phase is slightly off — nudge to fix it"]
-[quiz.fr]
-question = "Tu entends un petit écho (flam) entre deux snares. Qu'est-ce que ça signifie ?"
-answers  = ["Le BPM est légèrement décalé — utilise le fader pitch", "Les morceaux sont dans une tonalité différente", "La phase est légèrement décalée — nudge pour corriger"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "How many beats are in a standard 8-bar DJ phrase?"
-answers  = ["8", "16", "32"]
-[quiz.fr]
-question = "Combien de beats y a-t-il dans une phrase DJ standard de 8 mesures ?"
-answers  = ["8", "16", "32"]
 
 [[sources]]
 label = "Four on the floor — Wikipedia"

@@ -20,10 +20,10 @@ Below ±3% almost nobody hears it. Between 3% and 6% is the mixing sweet spot.
 
 | Track A | Track B | Difference | Verdict |
 |---|---|---|---|
-| 127 BPM | 130 BPM | 2.3% | Transparent — mix safely |
-| 124 BPM | 130 BPM | 4.6% | Audible on melodic material, fine on drums |
-| 125 BPM | 135 BPM | 7.4% | Audible — use key lock or avoid |
-| 120 BPM | 130 BPM | 8.0% | Too far without key lock |
+| 127 BPM | 130 BPM | 2.4% | Transparent — mix safely |
+| 124 BPM | 130 BPM | 4.8% | Audible on melodic material, fine on drums |
+| 125 BPM | 135 BPM | 8.0% | Past the ±6% edge — use key lock or avoid |
+| 120 BPM | 130 BPM | 8.3% | Too far without key lock |
 
 The exact math — why ±6% ≈ one semitone, and the log₂ relationship between playback rate and perceived pitch — lives in **LESSON_HARMONIES_2 (Pitch, Key & Master Tempo)**. For this lesson: ±3% invisible, ±6% audible edge, ±10% surgery.
 """
@@ -44,16 +44,18 @@ content = """
 
 **Double-time / half-time** is the workaround for tempo gaps that key lock can't fix.
 
-A 140 BPM DnB track and a 70 BPM hip-hop track share the same pulse: the DnB kick lands on every beat, the hip-hop kick on every other. Mixed with EQ and crossfader, you can transition across the gap. Classic bridges:
-- 140 DnB ↔ 70 trap
+A 140 BPM track and a 70 BPM track share the same pulse: each beat of the 70 lands exactly on every other beat of the 140. Mixed with EQ and crossfader, you can transition across the gap. Classic bridges:
+- 140 dubstep / grime ↔ 70 half-time (the same dubstep felt at half speed, or a slow hip-hop track)
 - 130 techno ↔ 65 dub
-- 174 DnB ↔ 87 broken-beat / UKG
+- 174 drum & bass ↔ 87 half-time (slow hip-hop, downtempo): each beat of the 87 lands on every other beat of the DnB
+
+Note that DnB is not four-on-the-floor: its kick and snare pattern is syncopated, and the 87 BPM pulse is the one your body actually follows.
 """
 
 [[en.pages]]
 title   = "Using BPM ranges when digging — three-neighborhood strategy"
 content = """
-When building a set around 128 BPM, filter for **120–134** (±5% gives room). Inside that range, you can pitch anything to 128 without audible issue.
+When building a set around 128 BPM, filter for **120–136** (±6%). Inside that range you can pitch anything to 128 — just remember the closer to the edge, the more you hear it.
 
 But the further a track is from your target, the more pitch-shift it needs — and some tracks tolerate it better than others:
 - **Loop-heavy techno:** pitches cleanly up to ±6%
@@ -65,11 +67,11 @@ But the further a track is from your target, the more pitch-shift it needs — a
 |---|---|---|
 | Warmup | 120–125 | Build the energy slowly |
 | Main | 126–130 | Core of the set |
-| Peak | 130–134 | Maximum density and intensity |
+| Peak | 131–136 | Maximum density and intensity |
 
 Each is a separate Rekordbox folder. You jump between neighborhoods only at **phrase boundaries** (32- or 64-beat lines).
 
-**On Beatport / Bandcamp:** use the BPM slider as a range (e.g. 120–134 for a 128 target). On Rekordbox, sort by BPM and visually bracket the three zones.
+**On Beatport / Bandcamp:** use the BPM slider as a range (e.g. 120–136 for a 128 target). On Rekordbox, sort by BPM and visually bracket the three zones.
 """
 
 [[en.pages]]
@@ -77,20 +79,20 @@ title   = "BPM hubs — where genres cross"
 content = """
 Certain BPM values are **genre intersection points** — tracks from multiple families share the same tempo:
 
-**140 BPM:** techno, grime, dubstep, trap, and DnB-adjacent all intersect here. A digger treats 140 as a hub: tracks from any of these genres live in the same BPM cell and can be cross-programmed. The kick placement and bass tone determine which genre the track *reads as*, not the BPM alone.
+**140 BPM:** techno, grime, dubstep and trap (often felt at half-time, ~70) all intersect here. A digger treats 140 as a hub: tracks from any of these genres live in the same BPM cell and can be cross-programmed. The kick placement and bass tone determine which genre the track *reads as*, not the BPM alone.
 
-**130 BPM:** techno / deep house / downtempo-doubled (65 BPM half-time).
+**130 BPM:** techno / tech house, with 65 BPM as the half-time companion. UK garage / 2-step lives just next door, around 130–135.
 
-**174 BPM:** DnB / jungle, with 87 BPM broken-beat as the half-time companion.
+**174 BPM:** drum & bass / jungle (roughly 170–175), with ~87 BPM as the half-time companion.
 
 **When you filter your library, don't think 'one number, one genre'** — think 'this BPM, which half-time or double-time families live here?'
 
-Genre-crossing transitions at hubs require a minimum 64-beat overlap — the crowd needs time to re-read the tempo before the genre shift fully registers.
+Genre-crossing transitions at hubs work best with a long overlap (a couple of phrases) — the crowd needs time to re-read the tempo before the genre shift fully registers.
 """
 
 [[en.quiz]]
 question = "A track at 125 BPM and your target 130 BPM — what's the pitch shift percentage?"
-answers  = ["2.3%", "3.8%", "7.4%", "10%"]
+answers  = ["2.3%", "4%", "7.4%", "10%"]
 correct  = 1
 
 [[en.quiz]]
@@ -139,10 +141,10 @@ Sous ±3% presque personne n'entend. Entre 3% et 6% c'est la zone de confort du 
 
 | Track A | Track B | Différence | Verdict |
 |---|---|---|---|
-| 127 BPM | 130 BPM | 2.3% | Transparent — mixe sans problème |
-| 124 BPM | 130 BPM | 4.6% | Audible sur matériel mélodique, ok sur drums |
-| 125 BPM | 135 BPM | 7.4% | Audible — utilise le key lock ou évite |
-| 120 BPM | 130 BPM | 8.0% | Trop loin sans key lock |
+| 127 BPM | 130 BPM | 2.4% | Transparent — mixe sans problème |
+| 124 BPM | 130 BPM | 4.8% | Audible sur matériel mélodique, ok sur drums |
+| 125 BPM | 135 BPM | 8.0% | Au-delà du bord de ±6% — utilise le key lock ou évite |
+| 120 BPM | 130 BPM | 8.3% | Trop loin sans key lock |
 
 Le détail mathématique exact — pourquoi ±6% ≈ un demi-ton, et la relation log₂ entre rate et hauteur perçue — vit dans **LESSON_HARMONIES_2 (Pitch, Tonalité & Master Tempo)**. Pour cette leçon : ±3% invisible, ±6% bord audible, ±10% chirurgie.
 """
@@ -163,16 +165,18 @@ Le **key lock** (aussi 'master tempo') est une fonction DSP qui découple la hau
 
 **Double-time / half-time** est la parade pour les écarts de tempo que le key lock ne peut pas absorber.
 
-Une DnB 140 BPM et un hip-hop 70 BPM partagent la même pulsation : le kick DnB tombe sur chaque beat, le kick hip-hop sur un beat sur deux. Mixé avec EQ et crossfader, tu traverses le gap. Ponts classiques :
-- 140 DnB ↔ 70 trap
+Une track à 140 BPM et une track à 70 BPM partagent la même pulsation : chaque temps du 70 tombe pile sur un temps sur deux du 140. Mixé avec EQ et crossfader, tu traverses le gap. Ponts classiques :
+- 140 dubstep / grime ↔ 70 half-time (le même dubstep ressenti à demi-vitesse, ou un hip-hop lent)
 - 130 techno ↔ 65 dub
-- 174 DnB ↔ 87 broken-beat / UKG
+- 174 drum & bass ↔ 87 half-time (hip-hop lent, downtempo) : chaque temps du 87 tombe sur un temps sur deux de la DnB
+
+Attention, la DnB n'est pas du four-on-the-floor : son pattern kick/snare est syncopé, et c'est la pulsation à 87 BPM que ton corps suit vraiment.
 """
 
 [[fr.pages]]
 title   = "Utiliser les ranges BPM en diggant — stratégie à trois quartiers"
 content = """
-Quand tu construis un set autour de 128 BPM, filtre entre **120 et 134** (±5% laisse de la marge). Dans ce range, tu peux tout pitcher à 128 sans problème audible.
+Quand tu construis un set autour de 128 BPM, filtre entre **120 et 136** (±6%). Dans ce range, tu peux tout pitcher à 128 — retiens juste que plus tu approches du bord, plus ça s'entend.
 
 Mais plus une track est loin de ta cible, plus elle demande de shift — et certaines supportent mieux que d'autres :
 - **Techno loop-heavy :** se pitche proprement jusqu'à ±6%
@@ -184,11 +188,11 @@ Mais plus une track est loin de ta cible, plus elle demande de shift — et cert
 |---|---|---|
 | Warmup | 120–125 | Monter l'énergie doucement |
 | Cœur | 126–130 | Cœur du set |
-| Peak | 130–134 | Densité et intensité maximales |
+| Peak | 131–136 | Densité et intensité maximales |
 
 Chacun est un dossier Rekordbox séparé. Tu passes entre quartiers uniquement sur des **frontières de phrase** (lignes de 32 ou 64 beats).
 
-**Sur Beatport / Bandcamp :** utilise le slider BPM comme un range (ex. 120–134 pour une cible à 128). Sur Rekordbox, trie par BPM et encadre visuellement les trois zones.
+**Sur Beatport / Bandcamp :** utilise le slider BPM comme un range (ex. 120–136 pour une cible à 128). Sur Rekordbox, trie par BPM et encadre visuellement les trois zones.
 """
 
 [[fr.pages]]
@@ -196,20 +200,20 @@ title   = "Les hubs BPM — là où les genres se croisent"
 content = """
 Certaines valeurs BPM sont des **points d'intersection de genres** — des tracks de plusieurs familles partagent le même tempo :
 
-**140 BPM :** techno, grime, dubstep, trap, et le bord DnB se croisent ici. Un digger traite 140 comme un hub : des tracks de n'importe lequel de ces genres vivent dans la même cellule BPM et se cross-programment. Le placement du kick et le timbre de la basse déterminent dans quel genre la track se *lit*, pas le BPM seul.
+**140 BPM :** techno, grime, dubstep et trap (souvent ressentis en half-time, ~70) se croisent ici. Un digger traite 140 comme un hub : des tracks de n'importe lequel de ces genres vivent dans la même cellule BPM et se cross-programment. Le placement du kick et le timbre de la basse déterminent dans quel genre la track se *lit*, pas le BPM seul.
 
-**130 BPM :** techno / deep house / downtempo-doublé (65 BPM half-time).
+**130 BPM :** techno / tech house, avec 65 BPM comme compagnon half-time. Le UK garage / 2-step vit juste à côté, vers 130–135.
 
-**174 BPM :** DnB / jungle, avec 87 BPM broken-beat comme compagnon half-time.
+**174 BPM :** drum & bass / jungle (environ 170–175), avec ~87 BPM comme compagnon half-time.
 
 **Quand tu filtres ta librairie, ne pense pas 'un chiffre, un genre'** — pense 'ce BPM, quelles familles half-time ou double-time y vivent ?'
 
-Les transitions cross-genre aux hubs nécessitent un overlap minimum de 64 beats — le public a besoin de temps pour re-lire le tempo avant que le shift de genre soit pleinement enregistré.
+Les transitions cross-genre aux hubs marchent mieux avec un long overlap (deux phrases environ) — le public a besoin de temps pour re-lire le tempo avant que le shift de genre soit pleinement enregistré.
 """
 
 [[fr.quiz]]
 question = "Une track à 125 BPM et ta cible à 130 BPM — quel est le pourcentage de pitch shift ?"
-answers  = ["2.3%", "3.8%", "7.4%", "10%"]
+answers  = ["2.3%", "4%", "7.4%", "10%"]
 correct  = 1
 
 [[fr.quiz]]

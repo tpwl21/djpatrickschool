@@ -2,17 +2,185 @@ id = "LESSON_DIGGING_2_PRO"
 order = 2
 
 [en]
-title      = "Anatomy of a DJ-Friendly Track"
-short_desc = "Pro version coming soon."
+title      = "Vetting a Track Like a Working DJ"
+short_desc = "Check the version, the grid and the mix windows before a track earns a place in your crate."
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "The label lies: verify the version"
+content = """
+Version names are a convention, not a guarantee. A "Club Mix" can have a vocal from bar 1, and a "Radio Edit" can be a perfectly usable edit. Treat the title as a hint and check the file.
+
+**Three checks, in this order:**
+
+1. **Length vs. name.** Under 4 minutes is a red flag, not a verdict: some DJ edits and short tools are that short on purpose. Over 6 minutes usually means a DJ-oriented structure, but not always.
+2. **First 30 seconds.** Drums only, or a vocal / lead right away? That is your real mix-in window.
+3. **Last 30 seconds.** Does the track peel away, or stop dead? A hard stop means you must be out before it ends.
+
+**Dub, Instrumental, Club Edit:** names vary by label and era. Judge by content: no vocals in the mix-in zone is what you are buying.
+
+**Rule:** a track you have not checked at both ends is a track you do not own yet.
+"""
+
+[[en.pages]]
+title   = "Intro length in phrases, and the grid"
+content = """
+Count the intro in phrases, not minutes. At 128 BPM one beat lasts about 0.47 s, so:
+
+| Intro | Beats | Time at 128 BPM |
+|---|---|---|
+| 1 phrase (8 bars) | 32 | about 15 s |
+| 2 phrases | 64 | about 30 s |
+| 4 phrases | 128 | about 60 s |
+
+One phrase leaves little room: a short blend, or a cut. Two is workable, four is comfortable. Different BPM, different seconds: always recompute.
+
+**Check the beatgrid before you trust it.** Automatic analysis is a starting point. Look for:
+- the first downbeat marked on the first real kick, not on a pickup or a noise
+- a grid that stays aligned to the end: if it drifts, the track was probably not made on a fixed grid (live drums, old recordings), and it will need manual fixing or careful riding by hand
+- half or double BPM readings: if the display says 64 on what feels like 128, fix it before it fools your sync
+
+A wrong grid makes every cue and every sync decision wrong, so it comes before the cue points.
+"""
+
+[[en.pages]]
+title   = "Cue plan and recap"
+content = """
+Once the version and the grid are right, set the markers you will actually use:
+
+- **Mix-in** at the start of the clean intro.
+- **Mix-out** at the start of the outro.
+- **Break** marker just before any breakdown: it tells you where the energy will fall, so you never get surprised by it live.
+- A **loop** on the last phrase before a break gives you extra time if the next track is not ready (details in lesson 5).
+
+Fewer markers you trust beat many you do not. A track gets into the crate when you can mix it in and out blind.
+
+**Recap**
+- Title is a hint; length, first 30 s and last 30 s are the evidence.
+- Count intros in phrases and recompute seconds for the BPM.
+- Fix the beatgrid first; every cue depends on it.
+- Mark mix-in, mix-out and breaks, then preview the whole track once.
+"""
+
+[[en.quiz]]
+question = "A track is called 'Club Mix' but opens with a lead vocal on bar 1. What do you do?"
+answers  = ["Trust the name: it is a DJ version", "Treat it as having no usable mix-in window and plan around it (cut, or mix in later)", "Delete it automatically", "Pitch it by 10%"]
+correct  = 1
+
+[[en.quiz]]
+question = "At 128 BPM, roughly how long is a 2-phrase (64-beat) intro?"
+answers  = ["About 15 seconds", "About 30 seconds", "About 60 seconds", "About 2 minutes"]
+correct  = 1
+
+[[en.quiz]]
+question = "The grid is aligned at the start but drifts audibly towards the end. What is the most likely cause?"
+answers  = ["The key is wrong", "The track was not made on a fixed tempo grid (live drums, old recording)", "The file is too loud", "Key lock is on"]
+correct  = 1
+
+[[en.quiz]]
+question = "Why come to the beatgrid before setting cue points?"
+answers  = ["Cue points do not work without a grid file", "Every cue and sync decision is positioned on the grid, so a wrong grid makes them all wrong", "The grid makes the track louder", "It is only a visual preference"]
+correct  = 1
+
+[[en.sources]]
+label = "Rekordbox — manual (beat grid, cue points, phrase analysis)"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[en.sources]]
+label = "Beatport — version names in practice"
+url   = "https://www.beatport.com/"
+
+[[en.sources]]
+label = "Discogs — help centre (tracklist and version conventions)"
+url   = "https://support.discogs.com/"
 
 [fr]
-title      = "Anatomie d'une track DJ-friendly"
-short_desc = "Version Pro en préparation."
+title      = "Évaluer une track comme un DJ en activité"
+short_desc = "Vérifie la version, la grille et les fenêtres de mix avant qu'une track entre dans ton crate."
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "L'étiquette ment : vérifie la version"
+content = """
+Les noms de version sont une convention, pas une garantie. Un "Club Mix" peut avoir une voix dès la mesure 1, et un "Radio Edit" peut être un edit parfaitement jouable. Considère le titre comme un indice et vérifie le fichier.
+
+**Trois vérifications, dans cet ordre :**
+
+1. **Durée vs. nom.** Moins de 4 minutes est un signal d'alerte, pas un verdict : certains edits DJ et outils sont courts exprès. Plus de 6 minutes indique en général une structure pensée pour les DJs, mais pas toujours.
+2. **Les 30 premières secondes.** Drums seuls, ou voix / lead tout de suite ? C'est ta vraie fenêtre de mix en entrée.
+3. **Les 30 dernières secondes.** La track se vide progressivement, ou s'arrête net ? Un arrêt net veut dire que tu dois être sorti avant la fin.
+
+**Dub, Instrumental, Club Edit :** les noms varient selon le label et l'époque. Juge sur le contenu : pas de voix dans la zone de mix en entrée, c'est ça que tu achètes.
+
+**Règle :** une track dont tu n'as pas vérifié les deux bouts n'est pas encore à toi.
+"""
+
+[[fr.pages]]
+title   = "Longueur d'intro en phrases, et grille"
+content = """
+Compte l'intro en phrases, pas en minutes. À 128 BPM un temps dure environ 0,47 s, donc :
+
+| Intro | Temps | Durée à 128 BPM |
+|---|---|---|
+| 1 phrase (8 mesures) | 32 | environ 15 s |
+| 2 phrases | 64 | environ 30 s |
+| 4 phrases | 128 | environ 60 s |
+
+Une phrase laisse peu de place : un blend court, ou une coupe. Deux, c'est jouable ; quatre, confortable. Autre BPM, autres secondes : recalcule toujours.
+
+**Vérifie la beatgrid avant de lui faire confiance.** L'analyse automatique est un point de départ. Regarde :
+- le premier temps fort posé sur le premier vrai kick, pas sur une levée ou un bruit
+- une grille qui reste alignée jusqu'à la fin : si elle dérive, la track n'a sans doute pas été faite sur une grille fixe (batterie live, vieux enregistrements) et demandera une correction manuelle ou un mix très attentif à la main
+- les lectures en demi ou double BPM : si l'écran affiche 64 sur ce qui se ressent comme du 128, corrige avant que ça trompe ton sync
+
+Une grille fausse fausse chaque cue et chaque décision de sync : elle passe donc avant les cue points.
+"""
+
+[[fr.pages]]
+title   = "Plan de cues et récap"
+content = """
+Une fois la version et la grille justes, pose les repères que tu utiliseras vraiment :
+
+- **Mix-in** au début de l'intro propre.
+- **Mix-out** au début de l'outro.
+- Un repère de **break** juste avant chaque breakdown : il te dit où l'énergie va tomber, donc jamais de surprise en live.
+- Un **loop** sur la dernière phrase avant un break te donne du temps si la track suivante n'est pas prête (détails dans la leçon 5).
+
+Peu de repères fiables valent mieux que beaucoup de repères douteux. Une track entre dans le crate quand tu sais la mixer en entrée et en sortie les yeux fermés.
+
+**Récap**
+- Le titre est un indice ; la durée, les 30 premières et les 30 dernières secondes sont la preuve.
+- Compte les intros en phrases et recalcule les secondes selon le BPM.
+- Corrige la beatgrid d'abord ; chaque cue en dépend.
+- Marque mix-in, mix-out et breaks, puis prévisualise la track en entier une fois.
+"""
+
+[[fr.quiz]]
+question = "Une track s'appelle 'Club Mix' mais démarre avec une voix lead dès la mesure 1. Que fais-tu ?"
+answers  = ["Je fais confiance au nom : c'est une version DJ", "Je considère qu'elle n'a pas de fenêtre de mix en entrée exploitable et je m'organise (coupe, ou entrée plus tard)", "Je la supprime automatiquement", "Je la pitche de 10 %"]
+correct  = 1
+
+[[fr.quiz]]
+question = "À 128 BPM, combien dure environ une intro de 2 phrases (64 temps) ?"
+answers  = ["Environ 15 secondes", "Environ 30 secondes", "Environ 60 secondes", "Environ 2 minutes"]
+correct  = 1
+
+[[fr.quiz]]
+question = "La grille est alignée au début mais dérive nettement vers la fin. Quelle est la cause la plus probable ?"
+answers  = ["La clé est fausse", "La track n'a pas été faite sur une grille de tempo fixe (batterie live, vieil enregistrement)", "Le fichier est trop fort", "Le key lock est activé"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi s'occuper de la beatgrid avant de poser les cue points ?"
+answers  = ["Les cue points ne marchent pas sans fichier de grille", "Chaque cue et chaque décision de sync se positionne sur la grille : une grille fausse les fausse tous", "La grille rend la track plus forte", "C'est juste une préférence visuelle"]
+correct  = 1
+
+[[fr.sources]]
+label = "Rekordbox — manuel (beat grid, cue points, phrase analysis)"
+url   = "https://rekordbox.com/en/support/manual/"
+
+[[fr.sources]]
+label = "Beatport — les noms de version en pratique"
+url   = "https://www.beatport.com/"
+
+[[fr.sources]]
+label = "Discogs — centre d'aide (tracklist et conventions de version)"
+url   = "https://support.discogs.com/"

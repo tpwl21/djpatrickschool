@@ -20,7 +20,7 @@ Stand in a valley and shout. A second later, you hear yourself come back from th
 
 A DJ delay does exactly this — but with three controls:
 
-- **Time**: how long is the gap before you hear the echo. On DJ gear, you set this in beats: 1/4 note, 1/2 note, 1 full beat, 2 beats.
+- **Time**: how long is the gap before you hear the echo. On DJ gear, you set this in musical time, not in seconds. The reference is the **beat** (the pulse you tap your foot to). A **quarter note** (1/4) lasts exactly one beat. An **eighth note** (1/8) is half a beat. A **sixteenth** (1/16) is a quarter of a beat. Some gear shows the same thing as fractions of a beat: "1/2" means half a beat.
 - **Feedback**: how many times the echo repeats. 0 = one echo and it's gone. 0.8 = the echo keeps repeating, getting quieter each time.
 - **Mix**: how loud the echo is compared to the original. 0% = you don't hear the echo at all. 100% = you hear only the echo.
 
@@ -34,11 +34,11 @@ Here's the problem with free-running delay: if the echo doesn't land on the beat
 
 Imagine clapping along to a song. Now imagine someone else clapping — but half a beat late. Even if they're quiet, it's immediately distracting.
 
-**BPM-synced delay** locks the echo to the grid of the music. If you choose "1/4 note", every echo lands on a quarter note — always in rhythm, always musical.
+**BPM-synced delay** locks the echo to the grid of the music. If you choose "1/4 note", every echo lands exactly one beat after the last one — always in rhythm, always musical.
 
-This is why modern DJ gear doesn't have a millisecond knob for delay: they give you **beat subdivisions** instead. You choose 1/4, 1/2, 1 beat, and the gear does the math.
+This is why modern DJ gear doesn't have a millisecond knob for delay: they give you **beat subdivisions** instead. You choose 1/4, 1/8, one beat, and the gear does the math for the current BPM.
 
-Try listening to a track with a synced delay at 1/4 note. Every echo hits exactly where you expect it. Remove sync, and the same setting becomes a mess.
+Try listening to a track with a synced delay at 1/4 note (one beat). Every echo hits exactly where you expect it. Remove sync, and the same setting becomes a mess.
 """
 
 [[en.pages]]
@@ -47,13 +47,13 @@ content = """
 This is one of the most cinematic tricks in DJing, and it uses delay:
 
 1. You're at the end of a track. It has no good outro.
-2. Turn on delay: time = 1/2 beat, feedback = 0.65, mix = 50%.
+2. Turn on delay: time = half a beat (1/8 note), feedback = 0.65, mix = 50%.
 3. Slowly pull the volume fader of the track down.
-4. The music disappears — but the last beat keeps echoing for 5–10 seconds, getting quieter and quieter.
+4. The music disappears — but the last beat keeps echoing for several seconds, getting quieter and quieter.
 
 That tail is the track saying goodbye. You can use that silence to bring in the next track, or just let it breathe.
 
-**Larry Heard**, creator of the deep house sound, was one of the first DJs to use this as a structural move in the late 1980s. It became a signature of thoughtful mixing.
+It's a structural move: the echo is the outro the track didn't have. Make sure your tail is not louder than the incoming track.
 """
 
 [[en.quiz]]
@@ -79,10 +79,6 @@ correct  = 1
 label = "Delay effect explained — Sound On Sound"
 url   = "https://www.soundonsound.com/techniques/creative-use-delay"
 
-[[en.sources]]
-label = "Larry Heard interview — The Wire"
-url   = "https://www.thewire.co.uk/"
-
 [fr]
 title      = "Le Delay : L'Écho dans la Montagne"
 short_desc = "Crie dans une vallée, tu t'entends en écho. C'est le delay."
@@ -102,7 +98,7 @@ Mets-toi dans une vallée et crie. Une seconde plus tard, tu t'entends revenir d
 
 Un delay DJ fait exactement ça — avec trois réglages :
 
-- **Time** : combien de temps s'écoule avant d'entendre l'écho. Sur du matos DJ, ça se règle en beats : 1/4 de note, 1/2 note, 1 beat complet, 2 beats.
+- **Time** : combien de temps s'écoule avant d'entendre l'écho. Sur du matos DJ, ça se règle en temps musical, pas en secondes. La référence, c'est le **beat** (le temps, la pulsation que tu tapes du pied). Une **noire** (1/4) dure exactement un beat. Une **croche** (1/8) dure un demi-beat. Une **double-croche** (1/16) dure un quart de beat. Certains appareils affichent la même chose en fractions de beat : « 1/2 » veut dire un demi-beat.
 - **Feedback** : combien de fois l'écho se répète. 0 = un seul écho et c'est parti. 0,8 = l'écho continue de se répéter, de plus en plus doux.
 - **Mix** : le volume de l'écho par rapport à l'original. 0% = tu n'entends pas l'écho. 100% = tu n'entends que l'écho.
 
@@ -116,11 +112,11 @@ Le problème avec un delay libre : si l'écho ne tombe pas sur le beat, il se ba
 
 Imagine battre des mains en rythme sur une chanson. Maintenant imagine quelqu'un d'autre qui bat des mains — mais un demi-beat en retard. Même s'ils sont discrets, c'est immédiatement distrayant.
 
-**Le delay syncé au BPM** verrouille l'écho sur la grille de la musique. Si tu choisis "1/4 de note", chaque écho tombe sur une noire — toujours en rythme, toujours musical.
+**Le delay syncé au BPM** verrouille l'écho sur la grille de la musique. Si tu choisis "1/4 de note", chaque écho tombe exactement un beat après le précédent — toujours en rythme, toujours musical.
 
-C'est pour ça que le matos DJ moderne n'a pas de knob en millisecondes pour le delay : il te donne des **subdivisions de beat** à la place. Tu choisis 1/4, 1/2, 1 beat, et la machine fait le calcul.
+C'est pour ça que le matos DJ moderne n'a pas de knob en millisecondes pour le delay : il te donne des **subdivisions de beat** à la place. Tu choisis 1/4, 1/8, un beat, et la machine fait le calcul pour le BPM du moment.
 
-Écoute une track avec un delay syncé à 1/4 de note. Chaque écho tombe exactement où tu l'attends. Désactive le sync, et le même réglage devient du chaos.
+Écoute une track avec un delay syncé à 1/4 de note (un beat). Chaque écho tombe exactement où tu l'attends. Désactive le sync, et le même réglage devient du chaos.
 """
 
 [[fr.pages]]
@@ -129,13 +125,13 @@ content = """
 C'est un des moves les plus cinématographiques du DJing, et il utilise le delay :
 
 1. Tu es à la fin d'une track. Elle n'a pas de bon outro.
-2. Active le delay : time = 1/2 beat, feedback = 0,65, mix = 50%.
+2. Active le delay : time = un demi-beat (1/8 de note), feedback = 0,65, mix = 50%.
 3. Descends lentement le fader de volume de la track.
-4. La musique disparaît — mais le dernier beat continue de résonner 5 à 10 secondes, de plus en plus doux.
+4. La musique disparaît — mais le dernier beat continue de résonner pendant plusieurs secondes, de plus en plus doux.
 
 Cette queue, c'est la track qui dit au revoir. Tu peux utiliser ce silence pour amener la prochaine track, ou juste laisser respirer.
 
-**Larry Heard**, créateur du son deep house, a été un des premiers DJs à utiliser ça comme geste structurel à la fin des années 1980. C'est devenu une signature du mix soigné.
+C'est un geste structurel : l'écho, c'est l'outro que la track n'avait pas. Fais attention que la queue ne soit pas plus forte que la track qui arrive.
 """
 
 [[fr.quiz]]
@@ -161,6 +157,3 @@ correct  = 1
 label = "L'effet delay expliqué — Sound On Sound"
 url   = "https://www.soundonsound.com/techniques/creative-use-delay"
 
-[[fr.sources]]
-label = "Interview Larry Heard — The Wire"
-url   = "https://www.thewire.co.uk/"

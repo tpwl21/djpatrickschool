@@ -7,10 +7,10 @@ short_desc  = "What BPM really means, genre conventions, and why the pitch fader
 description = "BPM is more than a number — it's the contract between a DJ and a track. Understand tempo coupling, genre ranges, and the logic of beatmatching before touching the fader."
 recap = [
   "BPM = Beats Per Minute, the unit of tempo. 120 BPM = 2 beats/second.",
-  "A 0.5 BPM mismatch between two tracks becomes 1 full beat of drift in ~30 seconds.",
+  "At 128 BPM, a 0.5 BPM mismatch is about 0.25 beat of drift after 30 seconds, and a full beat after roughly 2 minutes.",
   "Genre conventions (house 120–130, techno 130–145, D&B 170–180) are starting points, not rules.",
   "On classic DJ gear, pitch fader changes rate, tempo AND musical pitch simultaneously.",
-  "Key Lock / Master Tempo separates those three: tempo changes without pitch shift.",
+  "Master Tempo / Key Lock separates those three: tempo changes without pitch shift.",
   "Automatic BPM detection is accurate on clean 4/4 but fails on swung, half-time, or live material."
 ]
 
@@ -80,7 +80,7 @@ They are coupled because of how analog audio works: play back a tape faster, and
 
 ## Key Lock / Master Tempo
 
-Most modern gear includes **Key Lock** (Pioneer) or **Master Tempo** (Denon). This preserves the original pitch while changing the playback rate, using time-scale modification (TSM) algorithms.
+Most modern gear includes **Master Tempo** (Pioneer / rekordbox) or **Key Lock** (Denon, Serato, Traktor). This preserves the original pitch while changing the playback rate, using time-scale modification (TSM) algorithms.
 
 Without Key Lock: faster = higher pitch. With Key Lock: faster = same pitch, different tempo only.
 
@@ -150,10 +150,10 @@ short_desc  = "Ce que le BPM signifie vraiment, les conventions de genres, et po
 description = "Le BPM c'est plus qu'un chiffre — c'est le contrat entre un DJ et un morceau. Comprends le couplage tempo, les plages de genres, et la logique du beatmatching avant de toucher le fader."
 recap = [
   "BPM = Battements Par Minute, l'unité de tempo. 120 BPM = 2 beats/seconde.",
-  "Un écart de 0,5 BPM entre deux morceaux = 1 beat entier de dérive en ~30 secondes.",
+  "À 128 BPM, un écart de 0,5 BPM donne environ 0,25 beat de dérive au bout de 30 secondes, et 1 beat entier au bout de ~2 minutes.",
   "Les conventions de genre (house 120–130, techno 130–145, D&B 170–180) sont des repères, pas des règles.",
   "Sur du matos DJ classique, le fader pitch change le rate, le tempo ET la hauteur musicale simultanément.",
-  "Key Lock / Master Tempo sépare ces trois : changement de tempo sans décalage de pitch.",
+  "Master Tempo / Key Lock sépare ces trois : changement de tempo sans décalage de pitch.",
   "La détection automatique de BPM est fiable sur du 4/4 propre mais plante sur les grooves swingués, half-time ou live."
 ]
 
@@ -223,57 +223,12 @@ Ils sont couplés à cause de la nature du son analogique : jouer une bande plus
 
 ## Key Lock / Master Tempo
 
-La plupart du matos moderne inclut le **Key Lock** (Pioneer) ou **Master Tempo** (Denon). Il préserve le pitch d'origine tout en changeant le rate de lecture, via des algorithmes de modification temporelle (TSM).
+La plupart du matos moderne inclut le **Master Tempo** (Pioneer / rekordbox) ou le **Key Lock** (Denon, Serato, Traktor). Il préserve le pitch d'origine tout en changeant le rate de lecture, via des algorithmes de modification temporelle (TSM).
 
 Sans Key Lock : plus vite = plus haut. Avec Key Lock : plus vite = même pitch, tempo seul change.
 
 L'utiliser ou non est une question de goût : les puristes vinyle le laissent off parce que le couplage pitch-vitesse fait partie de l'esthétique.
 """
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "At 120 BPM, how long does a single beat last?"
-answers  = ["250 ms", "1 second", "500 ms"]
-[quiz.fr]
-question = "À 120 BPM, combien de temps dure un seul beat ?"
-answers  = ["250 ms", "1 seconde", "500 ms"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "A 0.5 BPM difference between two 120 BPM tracks becomes clearly audible after roughly how long?"
-answers  = ["5 seconds", "30 seconds", "2 minutes"]
-[quiz.fr]
-question = "Un écart de 0,5 BPM entre deux morceaux à 120 BPM devient clairement audible après environ combien de temps ?"
-answers  = ["5 secondes", "30 secondes", "2 minutes"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "What does Key Lock / Master Tempo do?"
-answers  = ["Preserves musical pitch while changing tempo", "Locks the BPM so it can't be changed", "Syncs the phase between two decks"]
-[quiz.fr]
-question = "Que fait le Key Lock / Master Tempo ?"
-answers  = ["Préserve la hauteur musicale tout en changeant le tempo", "Verrouille le BPM pour qu'il ne change pas", "Synchronise la phase entre deux decks"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "When does BPM auto-detection typically fail?"
-answers  = ["On clean quantized 4/4 techno", "On tracks above 130 BPM", "On swung grooves, half-time feels, and live drumming"]
-[quiz.fr]
-question = "Quand la détection automatique de BPM échoue-t-elle typiquement ?"
-answers  = ["Sur de la techno 4/4 quantisée propre", "Sur des morceaux au-dessus de 130 BPM", "Sur les grooves swingués, les feels half-time et la batterie live"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "Roughly how many semitones does a 6% pitch increase correspond to?"
-answers  = ["Half a semitone", "1 semitone", "2 semitones"]
-[quiz.fr]
-question = "Environ combien de demi-tons correspond une augmentation de 6% du pitch ?"
-answers  = ["Un demi demi-ton", "1 demi-ton", "2 demi-tons"]
 
 [[sources]]
 label = "Pitch control — Wikipedia"

@@ -3,16 +3,218 @@ order = 3
 
 [en]
 title      = "Reverb: Tail vs Send"
-short_desc = "Pro version coming soon."
+short_desc = "Trails, Beat FX vs Color FX, quantize, external reverb, and when to leave it off."
+description = "A reverb is easy to turn on and hard to place. This lesson is about the practical side: where the tail goes when you pull a fader, which effect section to use, how to send to an external unit, and when not to use it."
+recap = [
+  "A reverb tail has to end before the next downbeat you care about: at 128 BPM one bar lasts 1.875 s.",
+  "Beat FX are tempo-synced and routed on a send or the master; Color FX are one-knob effects on the channel.",
+  "Quantize snaps your trigger to the beatgrid, but only as well as your grid is right.",
+  "External reverb: send out, unit at 100% wet, return into a channel, high-pass the return.",
+  "No reverb on a dense low end, and none when the crowd is dancing to a groove you don't want to smear.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "Trails: where the tail goes"
+content = """
+A reverb **tail** is the reverb signal that keeps ringing after the input stops. When you pull a fader or cut the effect, what happens to the tail depends on the routing:
+
+- **Send / return, post-fader**: no new music enters the reverb once the fader is down, but the tail already inside rings out on its own.
+- **Send / return, pre-fader**: the reverb keeps listening to the track even with the fader at zero, so you hear only the wet signal until you turn the effect off.
+- **Effect directly on the channel**: on some mixers the tail is cut when you turn the effect off.
+
+Rather than trust a manual, **test it**: loop, reverb on, fader down, listen. The result differs from one mixer to the next.
+
+**Numbers to keep:** at 128 BPM one beat is 0.469 s and one bar 1.875 s. A decay of 3 to 4 s is about two bars: enough to drown a break, too long if the next kick lands one bar later. Set the decay so the tail is gone (or inaudible under the next track) by the downbeat you want to land.
+"""
+
+[[en.pages]]
+title   = "Beat FX vs Color FX, and quantize"
+content = """
+Many mixers split effects into two families:
+
+| | Beat FX | Color FX |
+|---|---|---|
+| Control | choose effect, time (beat fraction), level | one knob that does the effect |
+| Tempo | synced to the BPM (auto or tap) | no tempo, you play it by ear |
+| Routing | assigned to a channel or the master, often as a send | on the channel |
+| Use | delay, reverb, rolls, with a precise length | filter, noise, crush, fast gestures |
+
+On reverb, a Color FX "space" or "dub" knob changes size and wet at once: quick, safe, less precise. A Beat FX reverb lets you set the amount and when it ends.
+
+**Quantize** (when your gear has it) snaps the moment you press to the beatgrid. A stab or a roll lands on the beat even if your finger is early. But it trusts your grid: if the beatgrid is a few milliseconds off, the quantized effect is off too. Check the grid first.
+"""
+
+[[en.pages]]
+title   = "External reverb, and when to leave it off"
+content = """
+**Send / return to an external unit:** many mixers have a send out and a return in. You take a copy of the signal out of the mixer, run it into a reverb unit, and bring it back on a free channel or return.
+
+1. Set the external unit to **100% wet**. If it mixes dry too, you hear the track twice and get phasing.
+2. Control the amount with the return level on the mixer, not on the unit.
+3. **High-pass the return** (roughly 200 to 300 Hz) so the reverb doesn't add mud to the low end.
+4. If the unit has tap tempo, set it to the BPM: at 128 BPM a beat is 60000 / 128 = 469 ms.
+
+**When not to use reverb:**
+- on a dense low end (kick and bass): the tail smears the groove;
+- when the crowd is locked into a groove, don't wash it;
+- when two tracks are already blending: reverb on top turns the mix to mud;
+- when you can't say in one sentence what it does for the crowd.
+
+Less is more. A short, planned reverb at one moment beats a constant wash.
+"""
+
+[[en.quiz]]
+question = "At 128 BPM, how long does one bar last?"
+answers  = ["0.469 s", "1.875 s", "3.75 s", "7.5 s"]
+correct  = 1
+
+[[en.quiz]]
+question = "What is the usual difference between Beat FX and Color FX?"
+answers  = [
+  "Beat FX are tempo-synced with a set length; Color FX are one-knob effects on the channel",
+  "Beat FX are only for reverb, Color FX only for delay",
+  "Color FX are tempo-synced, Beat FX are not",
+  "There is no difference"
+]
+correct  = 0
+
+[[en.quiz]]
+question = "Why set an external reverb unit to 100% wet when using send / return?"
+answers  = [
+  "To make it louder",
+  "So you don't hear the dry signal twice, which causes phasing",
+  "To lower the BPM",
+  "Because the unit would break otherwise"
+]
+correct  = 1
+
+[[en.quiz]]
+question = "Why can quantize still sound off?"
+answers  = [
+  "Because quantize changes the key",
+  "Because it trusts the beatgrid: if the grid is off, the effect is off too",
+  "Because it only works with reverb",
+  "It can't sound off"
+]
+correct  = 1
+
+[[en.sources]]
+label = "Pioneer DJ — mixer product pages (Beat FX and Color FX)"
+url   = "https://www.pioneerdj.com/"
+
+[[en.sources]]
+label = "Sound On Sound — techniques articles (reverb, sends and returns)"
+url   = "https://www.soundonsound.com/techniques"
+
+[[en.sources]]
+label = "Resident Advisor — features and DJ interviews"
+url   = "https://ra.co/"
 
 [fr]
 title      = "Reverb : Tail vs Send"
-short_desc = "Version Pro en préparation."
+short_desc = "Traînes, Beat FX vs Color FX, quantize, reverb externe, et quand ne pas en mettre."
+description = "Une reverb est facile à activer et difficile à placer. Cette leçon parle de la pratique : où va la traîne quand tu baisses un fader, quelle section d'effets utiliser, comment envoyer vers une unité externe, et quand ne pas l'utiliser."
+recap = [
+  "Une traîne de reverb doit finir avant le prochain temps fort qui compte : à 128 BPM, une mesure dure 1,875 s.",
+  "Les Beat FX sont synchro au tempo et routés en send ou sur le master ; les Color FX sont des effets à un potard sur le canal.",
+  "Le quantize cale ton déclenchement sur la grille, mais seulement aussi bien que ta grille est juste.",
+  "Reverb externe : send out, unité à 100% wet, retour sur un canal, passe-haut sur le retour.",
+  "Pas de reverb sur un grave dense, ni quand le public danse sur un groove que tu ne veux pas baver.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Les traînes : où va la queue"
+content = """
+La **traîne** (tail) d'une reverb, c'est le signal de reverb qui continue de sonner après que l'entrée s'arrête. Quand tu baisses un fader ou coupes l'effet, ce qui arrive à la traîne dépend du routing :
+
+- **Send / return, post-fader** : plus de musique n'entre dans la reverb une fois le fader baissé, mais la traîne déjà présente sonne toute seule jusqu'au bout.
+- **Send / return, pre-fader** : la reverb continue d'écouter la track même fader à zéro, donc tu n'entends que le signal wet jusqu'à ce que tu coupes l'effet.
+- **Effet directement sur le canal** : sur certaines tables, la traîne est coupée quand tu désactives l'effet.
+
+Plutôt que de croire une notice, **teste** : boucle, reverb on, fader baissé, écoute. Le résultat change d'une table à l'autre.
+
+**Chiffres à retenir :** à 128 BPM, un temps dure 0,469 s et une mesure 1,875 s. Un decay de 3 à 4 s fait environ deux mesures : assez pour noyer un break, trop long si le prochain kick tombe une mesure plus tard. Règle le decay pour que la traîne soit finie (ou inaudible sous la track suivante) au temps fort où tu veux atterrir.
+"""
+
+[[fr.pages]]
+title   = "Beat FX vs Color FX, et le quantize"
+content = """
+Beaucoup de tables séparent les effets en deux familles :
+
+| | Beat FX | Color FX |
+|---|---|---|
+| Contrôle | choix de l'effet, du temps (fraction de beat), du niveau | un potard qui fait l'effet |
+| Tempo | synchro au BPM (auto ou tap) | pas de tempo, tu joues à l'oreille |
+| Routing | assigné à un canal ou au master, souvent en send | sur le canal |
+| Usage | delay, reverb, rolls, à longueur précise | filtre, bruit, crush, gestes rapides |
+
+Sur la reverb, un potard Color FX « space » ou « dub » change la taille et le wet en même temps : rapide, sûr, moins précis. Une reverb en Beat FX te laisse régler la quantité et la fin.
+
+Le **quantize** (quand ton matériel en a un) cale l'instant où tu appuies sur la grille. Un stab ou un roll tombe sur le temps même si ton doigt est en avance. Mais il fait confiance à ta grille : si la beatgrid est décalée de quelques millisecondes, l'effet quantizé l'est aussi. Vérifie la grille d'abord.
+"""
+
+[[fr.pages]]
+title   = "Reverb externe, et quand s'en passer"
+content = """
+**Send / return vers une unité externe :** beaucoup de tables ont une sortie send et une entrée return. Tu sors une copie du signal de la table, tu l'envoies dans une unité de reverb, et tu la ramènes sur un canal libre ou un return.
+
+1. Règle l'unité externe à **100% wet**. Si elle mixe aussi du dry, tu entends la track deux fois et tu as du phasing.
+2. Contrôle la quantité avec le niveau du retour sur la table, pas sur l'unité.
+3. **Passe-haut sur le retour** (environ 200 à 300 Hz) pour que la reverb n'ajoute pas de boue dans le grave.
+4. Si l'unité a un tap tempo, cale-la sur le BPM : à 128 BPM un temps fait 60000 / 128 = 469 ms.
+
+**Quand ne pas utiliser de reverb :**
+- sur un grave dense (kick et basse) : la traîne bave sur le groove ;
+- quand le public est calé dans un groove, ne le noie pas ;
+- quand deux tracks sont déjà en train de se mélanger : de la reverb par-dessus fait de la boue ;
+- quand tu ne peux pas dire en une phrase ce qu'elle apporte au public.
+
+Moins, c'est mieux. Une reverb courte et prévue à un moment précis vaut mieux qu'une nappe constante.
+"""
+
+[[fr.quiz]]
+question = "À 128 BPM, combien de temps dure une mesure ?"
+answers  = ["0,469 s", "1,875 s", "3,75 s", "7,5 s"]
+correct  = 1
+
+[[fr.quiz]]
+question = "Quelle est la différence habituelle entre Beat FX et Color FX ?"
+answers  = [
+  "Les Beat FX sont synchro au tempo avec une longueur réglée ; les Color FX sont des effets à un potard sur le canal",
+  "Les Beat FX sont réservés à la reverb, les Color FX au delay",
+  "Les Color FX sont synchro au tempo, pas les Beat FX",
+  "Il n'y a aucune différence"
+]
+correct  = 0
+
+[[fr.quiz]]
+question = "Pourquoi régler une reverb externe à 100% wet en send / return ?"
+answers  = [
+  "Pour qu'elle soit plus forte",
+  "Pour ne pas entendre le signal dry deux fois, ce qui crée du phasing",
+  "Pour baisser le BPM",
+  "Parce que l'unité casserait sinon"
+]
+correct  = 1
+
+[[fr.quiz]]
+question = "Pourquoi le quantize peut-il quand même sonner faux ?"
+answers  = [
+  "Parce qu'il change la tonalité",
+  "Parce qu'il fait confiance à la beatgrid : si la grille est décalée, l'effet l'est aussi",
+  "Parce qu'il ne marche qu'avec la reverb",
+  "Il ne peut pas sonner faux"
+]
+correct  = 1
+
+[[fr.sources]]
+label = "Pioneer DJ — pages produits des tables (Beat FX et Color FX)"
+url   = "https://www.pioneerdj.com/"
+
+[[fr.sources]]
+label = "Sound On Sound — articles de techniques (reverb, sends et returns)"
+url   = "https://www.soundonsound.com/techniques"
+
+[[fr.sources]]
+label = "Resident Advisor — dossiers et interviews DJ"
+url   = "https://ra.co/"

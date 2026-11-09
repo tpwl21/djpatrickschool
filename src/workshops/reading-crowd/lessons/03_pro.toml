@@ -2,17 +2,225 @@ id = "LESSON_RTC_3_PRO"
 order = 3
 
 [en]
-title      = "The Trap of 'I Play My Best Track at 23:00'"
-short_desc = "Pro version coming soon."
+title      = "Peak Timing — Pro: Volume Over the Night"
+short_desc = "Loudness is part of the curve. Leave headroom, don't push the master, and protect the room's ears."
+description = "How to manage level across a whole night: where the headroom comes from, why the master isn't a lever, and the hearing limits behind a sensible ceiling."
+recap = [
+  "Perceived loudness is part of the energy curve: starting a little lower leaves you somewhere to go.",
+  "Set levels with each channel's **trim/gain**, and keep the master at its normal position — the master is for the end of the chain, not for emphasis.",
+  "**Headroom** is your reserve. A master pushed into the red at 23:00 leaves nothing for 01:00 and adds distortion.",
+  "At low volume the ear hears less bass (equal-loudness contours), so don't compensate by simply pushing everything up.",
+  "Reference point for hearing: 85 dB(A) for 8 hours (NIOSH). Every +3 dB roughly halves the safe duration.",
+]
 
 [[en.pages]]
-title   = "Coming Soon"
-content = "The Pro version of this lesson is being prepared. Check back soon!"
+title   = "Loudness is part of the curve"
+content = """
+We usually talk about the curve in terms of tracks and BPM, but **volume** is part of it too. A room feels different at the same tempo when it's a little louder or quieter.
+
+Two reasons to respect that:
+
+- **Contrast needs room.** If the room is already loud at 22:30, you've used up one of your best tools for the peak.
+- **The ear isn't flat.** Equal-loudness contours (Fletcher and Munson, 1933, revised later in ISO 226) show that we hear low frequencies less well at low levels. The bass seems to fade when you turn down — and people are tempted to compensate by pushing everything up.
+
+Practical consequence: during the warm-up, work **a little under** the level you expect at the peak. If the room asks for more, give it gradually — not in one jump.
+"""
+
+[[en.pages]]
+title   = "The master isn't a lever"
+content = """
+The cleanest way to keep **headroom** is to set levels at the source:
+
+1. Use each channel's **trim/gain** so the channel meter reaches its normal working zone on the loudest part of the track — and never into the red.
+2. Keep the **master** at its normal position and leave it there. The master isn't a tool for emphasis.
+3. If a track sounds weak, change the **track** or fix its channel gain — not the master.
+
+Why? Because the master is the last stage. Pushing it:
+
+- uses up your reserve: with no headroom left, the next loud moment can only clip;
+- adds distortion that people hear as fatigue, long before they could name the cause;
+- may hit the **venue's limiter** (many rooms have one): your push then does nothing but squash the sound.
+
+Ask the sound engineer before you play where the master should sit and whether the system has a limit. In a club with a resident engineer, their answer wins over any rule of thumb in this lesson.
+"""
+
+[[en.pages]]
+title   = "Spending the volume across the night"
+content = """
+A simple way to plan:
+
+| Moment | Level approach |
+|---|---|
+| Warm-up | Comfortable for conversation, a little under the level you expect later |
+| Build | Raise in small steps as the room fills; check the back of the room |
+| Peak | Your ceiling — reached by tracks and arrangement, not by raising the master |
+| Afterpeak / closing | Come down slightly; keep clarity rather than force |
+
+Peak impact doesn't only come from decibels. **Dynamic contrast** — a break, a stripped-back phrase, then the return of the full groove — often impresses more than a constant high level. Compare it with the habituation idea from lesson 1: a constant level quickly becomes the new baseline.
+"""
+
+[[en.pages]]
+title   = "Hearing limits and the handover"
+content = """
+Hearing safety gives you an objective ceiling. NIOSH recommends a limit of **85 dB(A) averaged over 8 hours**, with a **3 dB exchange rate**: every +3 dB halves the recommended duration (88 dB for 4 hours, 91 dB for 2 hours, and so on). Club levels often exceed this, which is why many venues have limiters, and why ear protection for you and for people near the speakers is reasonable.
+
+Handover point: when you finish, **leave the mixer in a state the next DJ can use** — trims where you found them, master unchanged, EQs and filters neutral. A DJ who inherits a master pushed to the limit has lost their headroom before they start.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "Where should you set the overall level of a track you're playing?"
+answers  = ["With the master fader, track by track", "With the channel trim/gain, keeping the master at its normal position", "With the headphone volume"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "What is 'headroom'?"
+answers  = ["The space above the booth", "The delay between the decks", "The reserve between your normal level and distortion"]
+
+[[quiz]]
+correct = 0
+[quiz.en]
+question = "Why does bass seem weaker when you turn the volume down?"
+answers  = ["Equal-loudness contours: the ear is less sensitive to low frequencies at low levels", "The speakers lose power", "The track gets slower"]
+
+[[quiz]]
+correct = 1
+[quiz.en]
+question = "By the NIOSH 3 dB rule, raising the level by 3 dB means the recommended exposure time is..."
+answers  = ["Doubled", "Halved", "Unchanged"]
+
+[[quiz]]
+correct = 2
+[quiz.en]
+question = "Which is the better way to give the peak more impact?"
+answers  = ["Push the master into the red", "Keep the same constant level the whole time", "Use dynamic contrast (breaks, stripped-back phrases) and good track choice"]
+
+[[sources]]
+label = "NIOSH — Noise and hearing loss prevention"
+url   = "https://www.cdc.gov/niosh/"
+
+[[sources]]
+label = "Equal-loudness contour (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Equal-loudness_contour"
+
+[[sources]]
+label = "Headroom (audio signal processing) (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Headroom_(audio_signal_processing)"
+
+[[sources]]
+label = "Pioneer DJ — mixer and player manuals"
+url   = "https://www.pioneerdj.com/"
 
 [fr]
-title      = "Le piège du 'je claque mon meilleur morceau à 23h'"
-short_desc = "Version Pro en préparation."
+title      = "Timing du peak — Pro : le volume sur la soirée"
+short_desc = "Le volume fait partie de la courbe. Garde de la marge, ne pousse pas le master, protège les oreilles de la salle."
+description = "Comment gérer le niveau sur toute une soirée : d'où vient la marge, pourquoi le master n'est pas un levier, et les limites d'écoute derrière un plafond raisonnable."
+recap = [
+  "Le volume perçu fait partie de la courbe d'énergie : commencer un peu plus bas te laisse de la marge.",
+  "Règle les niveaux avec le **trim/gain** de chaque voie et garde le master à sa position normale : le master sert en bout de chaîne, pas à l'emphase.",
+  "La **marge** (headroom) est ta réserve. Un master poussé dans le rouge à 23 h ne laisse rien pour 1 h du matin et ajoute de la distorsion.",
+  "À faible volume, l'oreille entend moins de grave (courbes d'isosonie) : ne compense pas en poussant tout.",
+  "Repère pour l'audition : 85 dB(A) pendant 8 h (NIOSH). Chaque +3 dB divise à peu près par deux la durée sûre.",
+]
 
 [[fr.pages]]
-title   = "Bientôt disponible"
-content = "La version Pro de cette leçon est en cours de rédaction. Reviens bientôt !"
+title   = "Le volume fait partie de la courbe"
+content = """
+On parle souvent de la courbe en termes de tracks et de BPM, mais le **volume** en fait partie aussi. À tempo égal, une salle ne se ressent pas pareil un peu plus fort ou un peu moins fort.
+
+Deux raisons de le respecter :
+
+- **Le contraste demande de la place.** Si la salle est déjà forte à 22 h 30, tu as épuisé un de tes meilleurs outils pour le peak.
+- **L'oreille n'est pas linéaire.** Les courbes d'isosonie (Fletcher et Munson, 1933, révisées ensuite dans la norme ISO 226) montrent qu'on entend moins bien les graves à faible niveau. Le grave semble disparaître quand on baisse, et on est tenté de compenser en poussant tout.
+
+Conséquence pratique : pendant le warmup, travaille **un peu en dessous** du niveau que tu prévois au peak. Si la salle en demande plus, donne-le progressivement, pas d'un coup.
+"""
+
+[[fr.pages]]
+title   = "Le master n'est pas un levier"
+content = """
+La façon la plus propre de garder de la **marge** (headroom) est de régler les niveaux à la source :
+
+1. Utilise le **trim/gain** de chaque voie pour que le vumètre de la voie atteigne sa zone de travail normale sur la partie la plus forte du morceau, sans jamais aller dans le rouge.
+2. Garde le **master** à sa position normale et laisse-le là. Le master n'est pas un outil d'emphase.
+3. Si un morceau semble faible, change de **morceau** ou corrige le gain de sa voie, pas le master.
+
+Pourquoi ? Parce que le master est le dernier étage. Le pousser :
+
+- consomme ta réserve : sans marge, le prochain moment fort ne peut que saturer ;
+- ajoute de la distorsion que les gens ressentent comme de la fatigue, bien avant de pouvoir en nommer la cause ;
+- peut atteindre le **limiteur de la salle** (beaucoup en ont un) : ton coup de pouce ne fait alors qu'écraser le son.
+
+Avant de jouer, demande à l'ingénieur du son où placer le master et si le système a une limite. Dans un club avec un ingénieur résident, sa réponse prime sur toute règle de cette leçon.
+"""
+
+[[fr.pages]]
+title   = "Dépenser le volume sur la soirée"
+content = """
+Une façon simple de planifier :
+
+| Moment | Approche du niveau |
+|---|---|
+| Warmup | Confortable pour discuter, un peu sous le niveau prévu plus tard |
+| Montée | Monte par petits pas à mesure que la salle se remplit ; regarde le fond de la salle |
+| Peak | Ton plafond : atteint par les tracks et l'arrangement, pas en poussant le master |
+| Afterpeak / closing | Redescends un peu ; privilégie la clarté à la force |
+
+L'impact du peak ne vient pas que des décibels. Le **contraste dynamique** (une cassure, une phrase dépouillée, puis le retour du groove complet) impressionne souvent plus qu'un niveau élevé constant. Rapproche-le de l'idée d'habituation de la leçon 1 : un niveau constant devient vite la nouvelle base.
+"""
+
+[[fr.pages]]
+title   = "Limites d'écoute et passation"
+content = """
+La sécurité auditive te donne un plafond objectif. Le NIOSH recommande une limite de **85 dB(A) en moyenne sur 8 heures**, avec un **taux d'échange de 3 dB** : chaque +3 dB divise la durée recommandée par deux (88 dB pendant 4 h, 91 dB pendant 2 h, etc.). Les niveaux de club dépassent souvent ces valeurs, ce qui explique que beaucoup de salles aient des limiteurs et qu'une protection auditive, pour toi comme pour les personnes près des enceintes, soit raisonnable.
+
+Pour la passation : quand tu finis, **laisse la table dans un état utilisable par le DJ suivant** : trims comme tu les as trouvés, master inchangé, EQ et filtres neutres. Un DJ qui hérite d'un master poussé à la limite a perdu sa marge avant de commencer.
+"""
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "Où régler le niveau général d'une track que tu joues ?"
+answers  = ["Au fader master, track par track", "Au trim/gain de la voie, en gardant le master à sa position normale", "Au volume du casque"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Qu'est-ce que la « marge » (headroom) ?"
+answers  = ["L'espace au-dessus de la cabine", "Le retard entre les platines", "La réserve entre ton niveau normal et la distorsion"]
+
+[[quiz]]
+correct = 0
+[quiz.fr]
+question = "Pourquoi le grave semble-t-il plus faible quand on baisse le volume ?"
+answers  = ["Courbes d'isosonie : l'oreille est moins sensible aux graves à faible niveau", "Les enceintes perdent de la puissance", "La track ralentit"]
+
+[[quiz]]
+correct = 1
+[quiz.fr]
+question = "D'après la règle des 3 dB du NIOSH, monter le niveau de 3 dB fait que la durée d'exposition recommandée est..."
+answers  = ["Doublée", "Divisée par deux", "Inchangée"]
+
+[[quiz]]
+correct = 2
+[quiz.fr]
+question = "Quelle est la meilleure façon de donner plus d'impact au peak ?"
+answers  = ["Pousser le master dans le rouge", "Garder le même niveau constant tout du long", "Utiliser le contraste dynamique (cassures, phrases dépouillées) et un bon choix de tracks"]
+
+[[sources]]
+label = "NIOSH — prévention du bruit et de la perte auditive"
+url   = "https://www.cdc.gov/niosh/"
+
+[[sources]]
+label = "Courbe d'isosonie (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Equal-loudness_contour"
+
+[[sources]]
+label = "Marge de sécurité / headroom (Wikipedia)"
+url   = "https://en.wikipedia.org/wiki/Headroom_(audio_signal_processing)"
+
+[[sources]]
+label = "Pioneer DJ — manuels de tables et de lecteurs"
+url   = "https://www.pioneerdj.com/"

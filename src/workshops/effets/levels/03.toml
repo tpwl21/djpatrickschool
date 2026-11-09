@@ -5,11 +5,11 @@ order = 3
 title       = "Loop Rolls & Combo"
 short_desc  = "Stutter A's outro with loop rolls, combo into B with filter."
 description = "The modern DJ signature sound. Hold a loop roll on the last bar of A, release into B with a filter sweep."
-details     = "Focus: glitch with intention, not random."
+details     = "Focus: glitch with intention, not random. Booth reflex: closing A with a lowpass keeps its bass, so when B drops in the two basses overlap. In a real set, cut A's low EQ or keep only one bassline while B takes over. The EQ is off in this practice, so just listen for the clash."
 success     = "Glitch-god! That was surgical."
 coach_tips  = [
   "Phrase 4: HOLD a 1/8 loop roll on Deck A. The last bar turns into a stutter.",
-  "Phrase 5: Release the pad. Filter A closes (lowpass). B drops in.",
+  "Phrase 5: Release the pad. Filter A closes (lowpass). B drops in. The lowpass keeps A's bass: in the booth, cut A's low EQ so only B's bass plays.",
   "Phrase 6: A gone. B's filter opens up wide. You live on the other side."
 ]
 recap = [
@@ -23,11 +23,11 @@ recap = [
 title       = "Loop Rolls & Combo"
 short_desc  = "Stutter l'outro de A aux loop rolls, combo vers B au filtre."
 description = "Le son signature du DJ moderne. Tiens un loop roll sur la dernière mesure de A, relâche vers B avec un sweep de filtre."
-details     = "Focus : glitch intentionnel, pas aléatoire."
+details     = "Focus : glitch intentionnel, pas aléatoire. Réflexe de cabine : fermer A au passe-bas garde ses basses, donc quand B rentre les deux basses se chevauchent. En vrai set, coupe les basses de A à l'EQ ou ne garde qu'une seule basse pendant que B prend le relais. L'EQ est désactivé dans cet exercice : écoute simplement le conflit."
 success     = "Glitch-god ! Chirurgical."
 coach_tips  = [
   "Phrase 4 : MAINTIENS un loop roll 1/8 sur le Deck A. La dernière mesure devient stutter.",
-  "Phrase 5 : relâche le pad. Filter A ferme (passe-bas). B rentre.",
+  "Phrase 5 : relâche le pad. Filter A ferme (passe-bas). B rentre. Le passe-bas garde les basses de A : en cabine, coupe les basses de A à l'EQ pour que seule celle de B joue.",
   "Phrase 6 : A disparaît. Filter B grand ouvert. Tu vis de l'autre côté."
 ]
 recap = [

@@ -3,12 +3,12 @@ order = 1
 
 [en]
 title       = "Don't Kill the Warmup"
-short_desc  = "22:15. Thirty people. A banger now would be the end."
-description = "Classic trap for the young DJ: the room is half-empty and slow, you panic, and you drop your best track. Result: the people already there leave, and the people arriving feel like they missed the peak."
+short_desc  = "22:15. Thirty people. Your biggest track now would be the end."
+description = "Classic trap for the young DJ: the room is half-empty and slow, you panic, and you drop your best track. Result: the people already there leave, and the people arriving feel like they missed the peak. Density = how full the floor is (the higher the number, the fuller the room)."
 coach_tips  = [
   "Energy 2 + density 2 = warmup territory. The room is still filling.",
   "The right pick holds space for later. It grooves without crying out.",
-  "A banger here is a crime. Save it for 01:00."
+  "A huge track here is a mistake. Save it for 01:00."
 ]
 recap = [
   "Warmup isn't boring — it's future peak built patiently.",
@@ -19,18 +19,18 @@ recap = [
 
 [fr]
 title       = "Ne tue pas le warmup"
-short_desc  = "22h15. Trente personnes. Un banger maintenant, ce serait la fin."
-description = "Piège classique du jeune DJ : la salle est à moitié vide et lente, tu paniques, et tu drop ta meilleure track. Résultat : les early birds partent, et ceux qui arrivent ont l'impression d'avoir raté le peak."
+short_desc  = "22h15. Trente personnes. Ta plus grosse track maintenant, ce serait la fin."
+description = "Piège classique du jeune DJ : la salle est à moitié vide et lente, tu paniques, et tu envoies ta meilleure track. Résultat : ceux qui étaient déjà là partent, et ceux qui arrivent ont l'impression d'avoir raté le moment fort. Densité = à quel point la piste est remplie (plus le chiffre est haut, plus la salle est pleine)."
 coach_tips  = [
   "Énergie 2 + densité 2 = territoire warmup. La salle se remplit encore.",
   "Le bon pick tient l'espace pour plus tard. Il groove sans crier.",
-  "Un banger ici est un crime. Garde-le pour 01h00."
+  "Une énorme track ici est une erreur. Garde-la pour 01h00."
 ]
 recap = [
-  "Le warmup n'est pas ennuyeux — c'est le peak futur construit patiemment.",
+  "Le warmup (la mise en route de la soirée) n'est pas ennuyeux : c'est le moment fort futur, construit patiemment.",
   "Énergie +1 à la fois : ne saute pas de 2 à 5.",
   "Envoyer une énergie 1 sur une foule énergie 2, c'est régresser.",
-  "L'erreur qui vide les salles : peaker trop tôt."
+  "L'erreur qui vide les salles : jouer le moment fort trop tôt."
 ]
 
 [track.A]
@@ -58,18 +58,18 @@ genre = "tech house"
 energy = 3
 vibe = "groovy, patient"
 correct = true
-reason_en = "Energy 3 builds on top of a warmup state without crying. Groovy + patient — early birds nod, late arrivals don't feel like they missed anything. Textbook warmup pick."
-reason_fr = "Énergie 3 qui construit sur un warmup sans crier. Groovy + patient — les early birds dodelinent, les retardataires n'ont pas l'impression d'avoir raté quoi que ce soit. Pick de manuel warmup."
+reason_en = "Energy 3 builds on top of a warmup state without crying. Groovy + patient — early arrivals nod, late arrivals don't feel like they missed anything. Textbook warmup pick."
+reason_fr = "Énergie 3 qui construit sur un warmup sans crier. Groovy + patient — ceux qui sont arrivés tôt dodelinent, ceux qui arrivent en retard n'ont pas l'impression d'avoir raté quoi que ce soit. Choix de manuel pour un warmup."
 
 [[candidates]]
 url = "AUDIO/SCIFI.mp3"
 title = "SciFi"
 genre = "peak techno"
 energy = 5
-vibe = "banger"
+vibe = "huge, peak"
 correct = false
-reason_en = "Dropping energy 5 at 22:15 is the classic newbie trap. You'll empty the room in 15 minutes and the peak will feel anticlimactic when it finally arrives. Save this for 01:00."
-reason_fr = "Claquer énergie 5 à 22h15 c'est le piège du débutant. Tu vides la salle en 15 min et le peak, quand il arrive, sonne creux. Garde ça pour 01h00."
+reason_en = "Dropping energy 5 at 22:15 is the classic newbie trap. You risk emptying the room and the peak will feel anticlimactic when it finally arrives. Save this for 01:00."
+reason_fr = "Jouer une énergie 5 à 22h15 est le piège du débutant. Tu risques de vider la salle et le moment fort, quand il arrive, sonne creux. Garde ça pour 01h00."
 
 [[candidates]]
 url = "AUDIO/Bjork.mp3"

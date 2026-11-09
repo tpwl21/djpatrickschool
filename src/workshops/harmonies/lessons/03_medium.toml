@@ -2,14 +2,14 @@ id = "LESSON_HARMONIES_3_MEDIUM"
 order = 3
 
 [en]
-title      = "The Camelot wheel in depth: 5 moves, the circle of fifths, and harmonic tension"
-short_desc = "The full mapping, the +7 energy boost, ii-V-I tension on the wheel, and how modes create blind spots."
-description = "EASY gave you the 3 basic moves. MEDIUM adds the complete Camelot ↔ classical notation table, the +7 energy boost move, an introduction to why the wheel encodes the circle of fifths, how to use harmonic tension deliberately (the ii-V-I arc), and where the A/B encoding lies about modes. Ready to mix with intention."
+title      = "The Camelot wheel in depth: 4 safe moves, the circle of fifths, and harmonic tension"
+short_desc = "The full mapping, the +7 tension cut (and why it is never a blend), ii-V-I on the wheel, and how modes create blind spots."
+description = "EASY gave you the 3 basic moves. MEDIUM adds the complete Camelot ↔ classical notation table, the +7 move (a risky, cut-only tension effect), an introduction to why the wheel encodes the circle of fifths, how to use harmonic tension deliberately (the ii-V-I arc), and where the A/B encoding lies about modes. Ready to mix with intention."
 recap = [
-  "5 compatible moves from any NX: same key, letter flip (relative), ±1 step, +7 energy boost.",
-  "Each clockwise Camelot step = +7 semitones (a perfect fifth). Adjacent keys share 6 of 7 notes. The +7 boost shares 6 notes and injects energy.",
+  "4 safe moves from any NX: same key, letter flip (relative), +1 step, -1 step. A fifth one exists, +7, but it is a risky cut-only effect, not a safe move.",
+  "Each clockwise Camelot step = +7 semitones (a perfect fifth). Adjacent keys share 6 of 7 notes. +7 on the wheel is only +1 semitone (8A Am → 3A B♭m): just 2 notes in common, so a hard cut at best, never a long blend.",
   "Full table: 8A = Am, 8B = C, 9A = Em, 9B = G, 7A = Dm, 7B = F — know your neighborhood.",
-  "The ii-V-I arc on the wheel (6A → 1B → 8B in C-major world) creates real tension and release across tracks.",
+  "The ii-V-I arc on the wheel (7A → 9B → 8B in C-major world) creates real tension and release across tracks. Rule: from I = NB, ii = (N-1)A and V = (N+1)B.",
   "Camelot only knows Aeolian (A) and Ionian (B). Dorian and Phrygian tracks land in A-ring but can clash with each other. Ear-check always wins."
 ]
 
@@ -41,9 +41,9 @@ image         = "lesson-images/camelot-wheel.png"
 image_caption = "The Camelot wheel — each clockwise step = +7 semitones (a perfect fifth). 8A = Am is the most common zone in dance music."
 
 [[en.pages]]
-title   = "The 5 moves — including the energy boost"
+title   = "The 4 safe moves — and the +7 cut"
 content = """
-From any key NX, **5 keys** are harmonically safe:
+From any key NX, **4 keys** (plus your own) are harmonically safe:
 
 | Move | From 8A | Notes shared | Use case |
 |------|---------|-------------|----------|
@@ -51,13 +51,12 @@ From any key NX, **5 keys** are harmonically safe:
 | **Letter flip** | 8A → 8B | 7/7 (diff. tonic) | Dark to bright, same notes |
 | **Step clockwise** | 8A → 9A | 6/7 | Gentle movement, one new note |
 | **Step counter-clockwise** | 8A → 7A | 6/7 | Same, other direction |
-| **Energy boost** | 8A → **3A** | 6/7 | Inject energy at peak time |
 
-**The energy boost** (+7 positions clockwise, same letter): this is the DJ's secret weapon for lifting the room. From 8A, that's 8+7=15, which wraps to 15-12=**3A** (B♭m). The boost shares 6 of 7 notes — close enough to blend, different enough to feel like a lift.
+**Wrap the count**: always count modulo 12. 12A + 1 = **1A**. 1A - 1 = **12A**.
 
-**Wrap the count**: always count modulo 12. 6A + 7 = 13 → 13-12 = **1A**. 11A + 7 = 18 → 18-12 = **6A**.
+**The +7 move (advanced, risky)**: some DJs talk about a "+7 energy boost" (same letter, 7 positions clockwise). Be clear about what it is. 8A + 7 = 15, which wraps to **3A** (B♭m). A minor to B♭ minor is just **+1 semitone**. They share only **2 notes**, so there is no harmony to blend: the two bass lines will fight. It is *not* the dominant either. What it gives you is a rising, tense "key change" effect, like pitching the song up a notch. Use it **only as a hard cut** (new track on the downbeat of a new phrase, old one gone), never as a long blend.
 
-Beyond these 5, you enter harmonic tension territory — not forbidden, but intentional.
+Beyond these moves, you enter harmonic tension territory — not forbidden, but intentional.
 """
 
 [[en.pages]]
@@ -72,6 +71,8 @@ In C-major world (8B = C major, 8A = A minor):
 
 **Wheel path: 7A → 9B → 8B**
 
+**General rule**: relative to a target key I = NB, **ii = (N-1)A** and **V = (N+1)B**. For I = 8B: ii = 7A, V = 9B.
+
 How to use it in a set:
 1. Open with a track in **7A** (Dm territory — slightly unresolved feeling)
 2. Drop a high-energy track in **9B** (G major — the dominant, full tension)
@@ -79,7 +80,7 @@ How to use it in a set:
 
 The crowd feels this arc even without knowing theory. The resolution from 9B to 8B lands with a satisfying *click* that a same-key drop never quite achieves.
 
-**The +7 move is the dominant relationship**: NX → (N+7)X is always V→I or i→iv depending on context. That's why it feels like an energy injection — you're landing on the dominant of the next track.
+Notice that V → I (9B → 8B) is just a ±1 step on the wheel. The arc works because of the order you play the keys, not because of any special jump. And the +7 move above has nothing to do with the dominant.
 """
 
 [[en.pages]]
@@ -101,7 +102,7 @@ The other five modes all get **squeezed into the nearest A or B slot**:
 
 **Practical consequence**: a Dorian deep house track and an Aeolian techno track can share 8A — but their raised-6 vs natural-6 will clash on any sustained melodic moment. The wheel says compatible; your ear may say otherwise.
 
-**The fix**: ear-check always wins. If two tracks share a Camelot slot and something sounds off on the blend, suspect a modal mismatch. A brief EQ mid-cut (500 Hz–2 kHz) on one deck during the blend can mask the harmonic clash while you assess.
+**The fix**: ear-check always wins. If two tracks share a Camelot slot and something sounds off on the blend, suspect a modal mismatch. First, make sure only one bassline plays at a time (bass swap). Then a brief EQ mid-cut (500 Hz–2 kHz) on one deck can soften a chord or lead clash while you assess.
 """
 
 [[en.quiz]]
@@ -110,8 +111,8 @@ answers  = ["8B", "8A", "9A"]
 correct  = 1
 
 [[en.quiz]]
-question = "From 8A, the +7 energy boost lands on..."
-answers  = ["3A (8+7=15, wraps to 3)", "15A (no wrap)", "1A (8+7=15, wraps wrong)"]
+question = "From 8A, going +7 on the wheel lands on 3A (B♭m). What is that, musically?"
+answers  = ["+1 semitone, only 2 notes in common: a cut-only tension move", "A perfect fifth up: totally safe for a long blend", "The relative major of 8A"]
 correct  = 0
 
 [[en.quiz]]
@@ -146,14 +147,14 @@ label = "DJ TechTools — The Guide to Harmonic Mixing"
 url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
 
 [fr]
-title      = "La roue Camelot en profondeur : 5 mouvements, cercle des quintes et tension harmonique"
-short_desc = "Le mapping complet, le +7 energy boost, l'arc ii-V-I sur la roue, et les angles morts modaux."
-description = "EASY t'a donné les 3 mouvements de base. MEDIUM ajoute le tableau complet Camelot ↔ notation classique, le mouvement +7 energy boost, une introduction à pourquoi la roue encode le cercle des quintes, comment utiliser la tension harmonique délibérément (l'arc ii-V-I), et où l'encodage A/B ment sur les modes. Prêt à mixer avec intention."
+title      = "La roue Camelot en profondeur : 4 mouvements sûrs, cercle des quintes et tension harmonique"
+short_desc = "Le mapping complet, le +7 en coupe de tension (jamais en blend), l'arc ii-V-I sur la roue, et les angles morts modaux."
+description = "EASY t'a donné les 3 mouvements de base. MEDIUM ajoute le tableau complet Camelot ↔ notation classique, le mouvement +7 (un effet de tension risqué, uniquement en coupe), une introduction à pourquoi la roue encode le cercle des quintes, comment utiliser la tension harmonique délibérément (l'arc ii-V-I), et où l'encodage A/B ment sur les modes. Prêt à mixer avec intention."
 recap = [
-  "5 mouvements compatibles depuis NX : même clé, flip de lettre (relatif), ±1 pas, +7 energy boost.",
-  "Chaque pas horaire Camelot = +7 demi-tons (une quinte juste). Les clés adjacentes partagent 6 des 7 notes. Le boost +7 partage 6 notes et injecte de l'énergie.",
+  "4 mouvements sûrs depuis NX : même clé, flip de lettre (relatif), +1 pas, -1 pas. Un cinquième existe, le +7, mais c'est un effet de coupe risqué, pas un mouvement sûr.",
+  "Chaque pas horaire Camelot = +7 demi-tons (une quinte juste). Les clés adjacentes partagent 6 des 7 notes. +7 sur la roue ne fait que +1 demi-ton (8A Lam → 3A Si♭m) : 2 notes en commun seulement, donc une coupe nette au mieux, jamais un blend long.",
   "Table complète : 8A = Am, 8B = Do, 9A = Em, 9B = Sol, 7A = Dm, 7B = Fa — connais ton voisinage.",
-  "L'arc ii-V-I sur la roue (7A → 9B → 8B en monde Do majeur) crée une vraie tension et libération entre morceaux.",
+  "L'arc ii-V-I sur la roue (7A → 9B → 8B en monde Do majeur) crée une vraie tension et libération entre morceaux. Règle : depuis I = NB, ii = (N-1)A et V = (N+1)B.",
   "Camelot ne connaît que l'éolien (A) et l'ionien (B). Les morceaux doriens et phrygiens atterrissent en anneau A mais peuvent clasher entre eux. L'oreille gagne toujours."
 ]
 
@@ -185,9 +186,9 @@ image         = "lesson-images/camelot-wheel.png"
 image_caption = "La roue Camelot — chaque pas horaire = +7 demi-tons (une quinte juste). 8A = Am est la zone la plus courante en musique dance."
 
 [[fr.pages]]
-title   = "Les 5 mouvements — y compris l'energy boost"
+title   = "Les 4 mouvements sûrs — et la coupe +7"
 content = """
-Depuis n'importe quelle clé NX, **5 clés** sont harmoniquement sûres :
+Depuis n'importe quelle clé NX, **4 clés** (plus la tienne) sont harmoniquement sûres :
 
 | Mouvement | Depuis 8A | Notes partagées | Usage |
 |-----------|---------|----------------|-------|
@@ -195,13 +196,12 @@ Depuis n'importe quelle clé NX, **5 clés** sont harmoniquement sûres :
 | **Flip de lettre** | 8A → 8B | 7/7 (tonique diff.) | Sombre vers lumineux, mêmes notes |
 | **Pas horaire** | 8A → 9A | 6/7 | Mouvement doux, une nouvelle note |
 | **Pas anti-horaire** | 8A → 7A | 6/7 | Même chose, autre direction |
-| **Energy boost** | 8A → **3A** | 6/7 | Injecter de l'énergie en peak time |
 
-**L'energy boost** (+7 positions dans le sens horaire, même lettre) : c'est l'arme secrète du DJ pour lifter la salle. Depuis 8A, ça fait 8+7=15, qui wrap à 15-12=**3A** (Si♭m). Le boost partage 6 des 7 notes — assez proche pour blender, assez différent pour sentir comme un lift.
+**Wrap le compte** : toujours compter modulo 12. 12A + 1 = **1A**. 1A - 1 = **12A**.
 
-**Wrap le compte** : toujours compter modulo 12. 6A + 7 = 13 → 13-12 = **1A**. 11A + 7 = 18 → 18-12 = **6A**.
+**Le mouvement +7 (avancé, risqué)** : certains DJs parlent d'un "energy boost +7" (même lettre, 7 positions dans le sens horaire). Voyons ce que c'est vraiment. 8A + 7 = 15, qui wrap à **3A** (Si♭m). De La mineur à Si♭ mineur, c'est juste **+1 demi-ton**. Elles ne partagent que **2 notes**, donc il n'y a pas d'harmonie à blender : les deux lignes de basse vont se battre. Ce n'est pas non plus la dominante. Ce que ça te donne, c'est un effet de montée, de "changement de ton" tendu, comme si tu pitchais le morceau d'un cran. À utiliser **uniquement en coupe nette** (nouveau morceau sur le premier temps d'une nouvelle phrase, l'ancien disparu), jamais en blend long.
 
-Au-delà de ces 5, tu entres dans le territoire de la tension harmonique — pas interdit, mais intentionnel.
+Au-delà de ces mouvements, tu entres dans le territoire de la tension harmonique — pas interdit, mais intentionnel.
 """
 
 [[fr.pages]]
@@ -210,20 +210,22 @@ content = """
 La **cadence ii-V-I** est la résolution harmonique la plus satisfaisante de la musique occidentale : tension (ii → V) suivie de libération (V → I). Tu peux construire ça entre des morceaux, pas seulement à l'intérieur d'un.
 
 En monde Do majeur (8B = Do majeur, 8A = La mineur) :
-- **ii** = Ré mineur = **7A** (Dm est l'accord ii de Do majeur)
-- **V** = Sol majeur = **9B** (Sol est le dominant de Do)
+- **ii** = Ré mineur = **7A** (Rém est l'accord ii de Do majeur)
+- **V** = Sol majeur = **9B** (Sol est la dominante de Do)
 - **I** = Do majeur = **8B**
 
 **Chemin sur la roue : 7A → 9B → 8B**
 
+**Règle générale** : par rapport à une tonalité cible I = NB, **ii = (N-1)A** et **V = (N+1)B**. Pour I = 8B : ii = 7A, V = 9B.
+
 Comment l'utiliser dans un set :
-1. Ouvre avec un morceau en **7A** (territoire Dm — feeling légèrement irresolu)
-2. Droppe un morceau à haute énergie en **9B** (Sol majeur — le dominant, tension pleine)
+1. Ouvre avec un morceau en **7A** (territoire Rém — feeling légèrement irrésolu)
+2. Droppe un morceau à haute énergie en **9B** (Sol majeur — la dominante, tension pleine)
 3. Résous avec un anthem de peak en **8B** (Do majeur — libération, arrivée)
 
 La foule ressent cet arc sans connaître la théorie. La résolution de 9B vers 8B atterrit avec un *clic* satisfaisant qu'un drop en même clé n'atteint jamais tout à fait.
 
-**Le mouvement +7 est la relation dominante** : NX → (N+7)X est toujours V→I ou i→iv selon le contexte. C'est pour ça qu'il ressemble à une injection d'énergie — tu atterris sur le dominant du morceau suivant.
+Remarque : V → I (9B → 8B) n'est qu'un pas de ±1 sur la roue. L'arc fonctionne grâce à l'ordre dans lequel tu joues les tonalités, pas grâce à un saut spécial. Et le mouvement +7 vu plus haut n'a rien à voir avec la dominante.
 """
 
 [[fr.pages]]
@@ -245,7 +247,7 @@ Les cinq autres modes sont tous **compressés dans la case A ou B la plus proche
 
 **Conséquence pratique** : un morceau de deep house dorien et un morceau de techno éolien peuvent partager 8A — mais leur 6e haussée vs naturelle clashera sur tout moment mélodique soutenu. La roue dit compatible ; ton oreille peut dire le contraire.
 
-**Le fix** : l'oreille gagne toujours. Si deux tracks partagent une case Camelot et que quelque chose sonne faux dans le blend, suspecte un mismatch modal. Une brève coupe EQ des médiums (500 Hz–2 kHz) sur une platine pendant le blend peut masquer le clash harmonique le temps que tu évalues.
+**Le fix** : l'oreille gagne toujours. Si deux tracks partagent une case Camelot et que quelque chose sonne faux dans le blend, suspecte un mismatch modal. D'abord, assure-toi qu'une seule ligne de basse joue à la fois (bass swap). Ensuite, une brève coupe EQ des médiums (500 Hz–2 kHz) sur une platine peut adoucir un clash d'accords ou de lead le temps que tu évalues.
 """
 
 [[fr.quiz]]
@@ -254,8 +256,8 @@ answers  = ["8B", "8A", "9A"]
 correct  = 1
 
 [[fr.quiz]]
-question = "Depuis 8A, l'energy boost +7 atterrit sur..."
-answers  = ["3A (8+7=15, wrap vers 3)", "15A (pas de wrap)", "1A (8+7=15, wrap incorrect)"]
+question = "Depuis 8A, aller de +7 sur la roue atterrit sur 3A (Si♭m). Musicalement, qu'est-ce que c'est ?"
+answers  = ["+1 demi-ton, seulement 2 notes en commun : un mouvement de tension en coupe uniquement", "Une quinte juste plus haut : totalement sûr pour un blend long", "Le relatif majeur de 8A"]
 correct  = 0
 
 [[fr.quiz]]

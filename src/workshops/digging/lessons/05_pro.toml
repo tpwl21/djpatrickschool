@@ -16,7 +16,7 @@ A gig crate is a **write-once, read-many database**. Every organisational decisi
 
 **2. Moment index (secondary):** folder-level classification — Warmup, Peak, Afterpeak, Closing. These map to temporal position in a set, not energy level. An Afterpeak track may be energy 3, but it's specifically designed for the post-peak cooldown — its harmonic and textural properties are different from a generic energy-3 Main track.
 
-**3. Rescue category (tertiary):** colour-coded in Rekordbox (Red = oh-shit, Yellow = safety banger, Green = secret weapon). This is a sparse index — 5–10 tracks per colour is correct. More than 20 tracks in the Red folder means you don't understand what a rescue actually is.
+**3. Rescue category (tertiary):** colour-coded in Rekordbox (Purple = oh-shit, Aqua = safety banger, Pink = secret weapon — red / yellow / green stay reserved for energy). This is a sparse index — 10–15 tracks per category is correct. More than 20 tracks in the oh-shit folder means you don't understand what a rescue actually is.
 
 **The retrieval query you're optimising for:** "Given that track X is playing at phrase boundary in 64 beats, I need a track with energy ≥ 3, BPM within ±5 of X, and compatible Camelot key, findable in under 10 seconds." If your crate can't answer this query in under 10 seconds, your schema is under-indexed.
 
@@ -125,7 +125,7 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[en.sources]]
 label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"
 
 [[en.sources]]
 label = "Mixed In Key — Mashup automated harmonic mixing"
@@ -146,7 +146,7 @@ Un crate de set est une **base de données write-once, read-many**. Chaque déci
 
 **2. Index de moment (secondaire) :** classification au niveau dossier — Warmup, Peak, Afterpeak, Closing. Ça se mappe sur la position temporelle dans un set, pas le niveau d'énergie. Une track Afterpeak peut être énergie 3, mais elle est spécifiquement conçue pour le refroidissement post-peak — ses propriétés harmoniques et texturales diffèrent d'une track Main générique à énergie 3.
 
-**3. Catégorie de sauvetage (tertiaire) :** code couleur dans Rekordbox (Rouge = oh-shit, Jaune = banger safe, Vert = arme secrète). C'est un index sparse — 5–10 tracks par couleur, c'est correct. Plus de 20 tracks dans le dossier Rouge signifie que tu n'as pas compris ce qu'est un sauvetage.
+**3. Catégorie de sauvetage (tertiaire) :** code couleur dans Rekordbox (Violet = oh-shit, Turquoise = banger safe, Rose = arme secrète — rouge / jaune / vert restent réservés à l'énergie). C'est un index sparse — 10–15 tracks par catégorie, c'est correct. Plus de 20 tracks dans le dossier oh-shit signifie que tu n'as pas compris ce qu'est un sauvetage.
 
 **La requête de récupération pour laquelle tu optimises :** "Étant donné que la track X joue à une frontière de phrase dans 64 beats, j'ai besoin d'une track avec énergie ≥ 3, BPM dans ±5 de X, et clé Camelot compatible, trouvable en moins de 10 secondes." Si ton crate ne peut pas répondre à cette requête en moins de 10 secondes, ton schéma est sous-indexé.
 
@@ -255,7 +255,7 @@ url   = "https://rekordbox.com/en/support/manual/"
 
 [[fr.sources]]
 label = "Laurent Garnier — The Man With The Red Face (F Comm, 2000)"
-url   = "https://www.discogs.com/release/8839"
+url   = "https://www.discogs.com/search/?q=Laurent+Garnier+The+Man+With+The+Red+Face&type=all"
 
 [[fr.sources]]
 label = "Mixed In Key — Mashup mix harmonique automatisé"

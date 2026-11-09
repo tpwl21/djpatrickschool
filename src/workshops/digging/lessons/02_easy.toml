@@ -11,7 +11,7 @@ content = """
 You can tell if a track will be DJ-friendly **before even listening** — just by reading the release page.
 
 **Signal 1 — Length**
-- Under 4 minutes: almost certainly a Radio Edit. Starts with vocals, no DJ intro. Skip it.
+- Under 4 minutes: often a Radio Edit (the short version made for radio): vocals from the first seconds, no DJ intro. Check the version name before deciding — but it's a red flag.
 - 5–8 minutes: Extended or Club Mix. DJ-ready.
 - 8–12 minutes: Extended Mix. Maximum DJ utility.
 
@@ -59,7 +59,7 @@ Once you have a track in Rekordbox (or Serato, or any DJ software), the waveform
 - **Low waveform at the end** = drums-only outro. Good.
 
 **Your exercise:**
-1. Load 5 tracks you already have into Rekordbox (free version works).
+1. Load 5 tracks you already have into Rekordbox (free version works). No tracks or no software yet? Open the preview of 5 releases on Beatport or Bandcamp and just listen to the first 30 seconds: does the track start with drums only, or with vocals right away?
 2. Look at each waveform. Which ones have quiet intros and outros?
 3. Mark those as your first "mixable" tracks.
 4. Compare to a Radio Edit of the same song — notice the difference?
@@ -75,8 +75,8 @@ Breaks are **great for DJs who know about them** — you can plan a transition d
 Breaks are a **trap** if you don't know about them — you're in the middle of a mix and suddenly the track drops to almost nothing. The crowd looks confused. You scramble.
 
 **How to avoid the trap:**
-- In Rekordbox, scrub (drag) through the waveform before playing live. Look for any gaps.
-- Place a **Cue Point** right before a break (so you can anticipate it)
+- In Rekordbox, scrub through the waveform before playing live (scrub = move the playhead by hand, back and forth, like rubbing a record). Look for any gaps.
+- Place a **Cue Point** right before a break (a cue point is a bookmark on the track that you can jump back to with one button, so you can anticipate the break)
 - Write a note in the Comments field: "break at 3:20"
 
 **Rule of thumb**: any track where you haven't scrubbed the full waveform is a track that can surprise you. Never play a track live that you haven't previewed fully at least once.
@@ -124,7 +124,7 @@ content = """
 Tu peux savoir si une track sera DJ-friendly **avant même d'écouter** — juste en lisant la fiche de release.
 
 **Signal 1 — La durée**
-- Moins de 4 minutes : presque certainement un Radio Edit. Commence avec la voix, pas d'intro DJ. Skip.
+- Moins de 4 minutes : souvent un Radio Edit (la version courte faite pour la radio) : voix dès les premières secondes, pas d'intro DJ. Vérifie le nom de la version avant de trancher — mais c'est un signal d'alerte.
 - 5–8 minutes : Extended ou Club Mix. DJ-ready.
 - 8–12 minutes : Extended Mix. Utilité DJ maximale.
 
@@ -172,7 +172,7 @@ Une fois que tu as une track dans Rekordbox (ou Serato, ou n'importe quel logici
 - **Waveform basse à la fin** = outro drums seuls. Bien.
 
 **Ton exercice :**
-1. Charge 5 tracks que tu as déjà dans Rekordbox (la version gratuite marche).
+1. Charge 5 tracks que tu as déjà dans Rekordbox (la version gratuite marche). Pas de tracks ou pas de logiciel ? Ouvre l'extrait de 5 sorties sur Beatport ou Bandcamp et écoute juste les 30 premières secondes : ça démarre avec des drums seuls, ou direct avec la voix ?
 2. Regarde chaque waveform. Lesquelles ont des intros et outros silencieux ?
 3. Marque celles-là comme tes premières tracks "mixables".
 4. Compare avec un Radio Edit de la même chanson — tu vois la différence ?
@@ -188,8 +188,8 @@ Les breaks sont **géniaux pour les DJs qui le savent** — tu peux planifier un
 Les breaks sont un **piège** si tu ne les connais pas — tu es au milieu d'un mix et soudain la track tombe à presque rien. Le public se regarde. Tu paniquest.
 
 **Comment éviter le piège :**
-- Dans Rekordbox, scrub (glisse) à travers la waveform avant de jouer en live. Cherche des trous.
-- Place un **Cue Point** juste avant un break (pour pouvoir l'anticiper)
+- Dans Rekordbox, scrub la waveform avant de jouer en live (scrubber = déplacer la tête de lecture à la main, en avant et en arrière, comme on frotte un disque). Cherche des trous.
+- Place un **Cue Point** juste avant un break (un cue point, c'est un repère posé sur la track où tu peux revenir d'un seul bouton, pour pouvoir anticiper le break)
 - Écris une note dans le champ Comments : "break à 3:20"
 
 **Règle de base** : toute track dont tu n'as pas scrubé la waveform complète est une track qui peut te surprendre. Ne joue jamais en live une track que tu n'as pas prévisualisée entièrement au moins une fois.

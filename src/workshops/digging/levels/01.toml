@@ -14,7 +14,7 @@ coach_tips  = [
 recap = [
   "Three filters to pick the next track: BPM, key (Camelot), genre/energy.",
   "BPM drift beyond ±6% sounds forced even with pitch.",
-  "A +7 Camelot move is the classic energy-boost jump.",
+  "Compatible Camelot moves: same number, ±1, or A↔B on the same number. Two steps away is not recommended.",
   "Any candidate that breaks one rule hard is a trap, no matter how good the others look."
 ]
 
@@ -31,7 +31,7 @@ coach_tips  = [
 recap = [
   "Trois filtres pour choisir la suivante : BPM, clé (Camelot), genre/énergie.",
   "Un écart BPM > ±6% sonne forcé même en pitchant.",
-  "Le saut +7 en Camelot est le classique boost d'énergie.",
+  "Mouvements Camelot compatibles : même numéro, ±1, ou A↔B sur le même numéro. À 2 cases, c'est déconseillé.",
   "Une candidate qui casse une règle à fond est un piège, même si les autres règles passent."
 ]
 
@@ -54,12 +54,12 @@ show_fiches = true
 url = "AUDIO/Tech.mp3"
 title = "Tech"
 bpm = 127
-key = "8A"
+key = "5A"
 genre = "tech house"
 energy = 3
 correct = true
-reason_en = "Tempo +4% (122→127), Camelot 8A is compatible with 4A via the +7 energy-boost move. Energy rises cleanly. Textbook pick."
-reason_fr = "Tempo +4% (122→127), Camelot 8A compatible avec 4A via le +7 (boost d'énergie). Énergie qui monte proprement. Pick de manuel."
+reason_en = "Tempo +4% (122→127), Camelot 5A is the direct neighbor of 4A (same letter, +1 number — a base compatible move). Energy rises cleanly. Textbook pick."
+reason_fr = "Tempo +4% (122→127), Camelot 5A voisine directe de 4A (même lettre, +1 numéro — un mouvement de base compatible). Énergie qui monte proprement. Pick de manuel."
 
 [[candidates]]
 url = "AUDIO/SCIFI.mp3"
@@ -80,5 +80,5 @@ key = "2A"
 genre = "downtempo"
 energy = 2
 correct = false
-reason_en = "BPM -18% and energy drop. On a peak moment this empties the dancefloor in 30 seconds."
-reason_fr = "BPM -18% et chute d'énergie. Sur un moment de peak, ça vide la piste en 30 secondes."
+reason_en = "BPM -18%, energy drop, and its key (2A) is two steps from 4A — not recommended. On a peak moment this empties the dancefloor in 30 seconds."
+reason_fr = "BPM -18%, chute d'énergie, et sa clé (2A) est à 2 cases de 4A — déconseillé. Sur un moment de peak, ça vide la piste en 30 secondes."

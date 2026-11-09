@@ -8,9 +8,9 @@ description = "The kick is just the beginning. Understanding the full anatomy of
 recap = [
   "Four-on-the-floor is a disco inheritance, dominant in electronic music because the steady isochronous pulse entrains easily.",
   "The backbeat (snare on 2 & 4) comes from R&B/funk; in Afrobeat or Latin, the snare lies — use kick only.",
-  "A flam = phase error. The Haas/precedence effect fuses transients below ~5 ms; above it they become distinct events.",
-  "Standard phrase = 32 beats (8 bars), often subdivided as 8+8+16 or 16+16 with fills at bar 7 and 15.",
-  "Trance uses 64-bar phrases; hip-hop uses 4-bar and 16-bar; knowing the convention tells you when to expect the next change.",
+  "A flam = phase error. Rules of thumb: below 2–3 ms two hits fuse, 5–10 ms the kick goes soft, 10–20 ms a clear flam, above 30 ms two separate hits.",
+  "Standard phrase = 32 beats (8 bars), often subdivided as 8+8+16 or 16+16 with fills at the end of each 16-beat half (bars 4 and 8).",
+  "Trance often runs 64-beat (16-bar) blocks; hip-hop 4 or 16 bars; knowing the convention tells you when to expect the next change.",
   "Phrase alignment is a prerequisite for harmonic mixing: key changes should land on phrase boundaries."
 ]
 
@@ -39,13 +39,14 @@ For DJs, the backbeat is a **phase detector**: when two tracks are perfectly syn
 
 ## The physics of the flam
 
-The Haas effect (also called the precedence effect) explains why the flam appears:
+The Haas effect (also called the precedence effect) explains why the flam appears. Rules of thumb for two identical transients:
 
-- Two identical transients separated by **< 1 ms**: fused, heard as one event with a slightly diffuse source
-- Separated by **1–5 ms**: still fused, but with a directional bias toward the leading sound
-- Separated by **> 5 ms**: heard as two distinct events — that's the flam
+- **< 2–3 ms**: fused, heard as one hit
+- **5–10 ms**: the kick goes soft, it loses its snap
+- **10–20 ms**: a clear flam, you hear a double hit
+- **> 30 ms**: two separate hits
 
-At 120 BPM, one beat = 500 ms. A 5 ms flam threshold = 1% of a beat. Human interaural time discrimination is ~10–20 μs, but for non-localised (headphone) listening, the detection threshold for flutter is around 1 ms.
+At 120 BPM, one beat = 500 ms, so 5 ms = 1% of a beat. These are orders of magnitude, not hard limits: they vary with the sound and the listener.
 
 ## When the snare lies
 
@@ -63,14 +64,14 @@ The **32-beat phrase** (8 bars) is the fundamental unit of DJ thinking. It's not
 
 A 32-beat phrase typically has internal structure:
 - **8+8+16**: two 8-beat cells followed by a 16-beat expansion (common in progressive house)
-- **16+16**: two equal halves, each with a fill or tension peak at bar 7 (16th beat)
-- **4+4+4+4+16**: first half in 4-bar micro-phrases, second half as continuous build
+- **16+16**: two equal halves, each ending with a fill or tension peak (beats 13–16 and 29–32)
+- **4+4+4+4+16**: first half in 4-beat cells, second half as one continuous 16-beat build
 
-The **fill or risebar** at bar 7 (beat 29–32) is a nearly universal signal: something changes next. If you're mixing in, this is your cue to have the incoming track ready.
+A **fill** (a short drum roll that announces a change) or a **risebar** (a riser that builds tension) in bar 8 (beats 29–32) is a nearly universal signal: something changes next. If you're mixing in, this is your cue to have the incoming track ready.
 
 ## Genre phrase lengths
 
-| Genre | Typical phrase length |
+| Genre | Typical phrase length (rule of thumb) |
 |---|---|
 | House / Techno | 32 beats (8 bars) |
 | Trance | 64 beats (16 bars) at peak sections |
@@ -94,11 +95,11 @@ answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
 [[quiz]]
 correct = 2
 [quiz.en]
-question = "Above roughly what separation time do two identical transients become audible as distinct events (flam threshold)?"
-answers  = ["0.1 ms", "1 ms", "5 ms"]
+question = "Roughly what separation makes two identical transients sound like a clear flam (a double hit)?"
+answers  = ["0.1 ms", "1 ms", "10–20 ms"]
 [quiz.fr]
-question = "Au-dessus de quelle séparation temporelle deux transitoires identiques deviennent-ils audibles comme événements distincts (seuil du flam) ?"
-answers  = ["0,1 ms", "1 ms", "5 ms"]
+question = "À peu près quelle séparation fait que deux transitoires identiques sonnent comme un flam net (un double coup) ?"
+answers  = ["0,1 ms", "1 ms", "10–20 ms"]
 
 [[quiz]]
 correct = 0
@@ -150,9 +151,9 @@ description = "Le kick n'est que le début. Comprendre l'anatomie complète d'un
 recap = [
   "Le four-on-the-floor est un héritage disco, dominant en musique électronique parce que la pulsation isochrone stable s'accroche facilement.",
   "Le backbeat (snare sur 2 & 4) vient du R&B/funk ; en Afrobeat ou Latin, la snare ment — utilise le kick uniquement.",
-  "Un flam = erreur de phase. L'effet Haas/précédence fusionne les transitoires en dessous de ~5 ms ; au-delà ils deviennent des événements distincts.",
-  "Phrase standard = 32 beats (8 mesures), souvent subdivisée en 8+8+16 ou 16+16 avec fills en mesure 7 et 15.",
-  "La trance utilise des phrases de 64 mesures ; le hip-hop 4 et 16 mesures ; connaître la convention te dit quand attendre le prochain changement.",
+  "Un flam = erreur de phase. Repères : sous 2–3 ms deux coups fusionnent, 5–10 ms le kick s'amollit, 10–20 ms flam net, au-delà de 30 ms deux coups distincts.",
+  "Phrase standard = 32 beats (8 mesures), souvent subdivisée en 8+8+16 ou 16+16 avec des fills à la fin de chaque moitié de 16 temps (mesures 4 et 8).",
+  "La trance tourne souvent sur des blocs de 64 temps (16 mesures) ; le hip-hop 4 ou 16 mesures ; connaître la convention te dit quand attendre le prochain changement.",
   "L'alignement de phrase est un prérequis pour le mix harmonique : les changements de tonalité doivent tomber sur les fins de phrases."
 ]
 
@@ -181,13 +182,14 @@ Pour les DJs, le backbeat est un **détecteur de phase** : quand deux morceaux s
 
 ## La physique du flam
 
-L'effet Haas (aussi appelé effet de précédence) explique pourquoi le flam apparaît :
+L'effet Haas (aussi appelé effet de précédence) explique pourquoi le flam apparaît. Repères pour deux transitoires identiques :
 
-- Deux transitoires identiques séparés de **< 1 ms** : fusionnés, entendus comme un seul événement avec une source légèrement diffuse
-- Séparés de **1–5 ms** : encore fusionnés, mais avec un biais directionnel vers le son le plus en avance
-- Séparés de **> 5 ms** : entendus comme deux événements distincts — c'est le flam
+- **< 2–3 ms** : fusionnés, entendus comme un seul coup
+- **5–10 ms** : le kick s'amollit, il perd son claquant
+- **10–20 ms** : un flam net, tu entends un double coup
+- **> 30 ms** : deux coups distincts
 
-À 120 BPM, un beat = 500 ms. Le seuil de flam de 5 ms = 1% d'un beat. La discrimination temporelle interaurale humaine est ~10–20 μs, mais pour une écoute non localisée (casque), le seuil de détection du flottement est d'environ 1 ms.
+À 120 BPM, un beat = 500 ms, donc 5 ms = 1% d'un beat. Ce sont des ordres de grandeur, pas des limites strictes : ça varie selon le son et l'auditeur.
 
 ## Quand la snare ment
 
@@ -205,14 +207,14 @@ La **phrase de 32 beats** (8 mesures) est l'unité fondamentale de la pensée DJ
 
 Une phrase de 32 beats a typiquement une structure interne :
 - **8+8+16** : deux cellules de 8 beats suivies d'une expansion de 16 beats (courante en progressive house)
-- **16+16** : deux moitiés égales, chacune avec un fill ou pic de tension en mesure 7
-- **4+4+4+4+16** : première moitié en micro-phrases de 4 mesures, deuxième moitié en build continu
+- **16+16** : deux moitiés égales, chacune finissant par un fill ou un pic de tension (temps 13–16 et 29–32)
+- **4+4+4+4+16** : première moitié en cellules de 4 temps, deuxième moitié en un seul build de 16 temps
 
-Le **fill ou risebar** en mesure 7 (beats 29–32) est un signal quasi-universel : quelque chose change ensuite. Si tu mixes en entrée, c'est ton signal pour avoir le morceau entrant prêt.
+Un **fill** (un petit roulement de batterie qui annonce un changement) ou un **risebar** (un riser qui fait monter la tension) en mesure 8 (temps 29–32) est un signal quasi-universel : quelque chose change ensuite. Si tu mixes en entrée, c'est ton signal pour avoir le morceau entrant prêt.
 
 ## Longueurs de phrase par genre
 
-| Genre | Longueur de phrase typique |
+| Genre | Longueur de phrase typique (repère) |
 |---|---|
 | House / Techno | 32 beats (8 mesures) |
 | Trance | 64 beats (16 mesures) sur les sections peak |
@@ -223,51 +225,6 @@ Le **fill ou risebar** en mesure 7 (beats 29–32) est un signal quasi-universel
 
 L'alignement de phrase n'est pas seulement une question de timing — c'est le prérequis pour le **mix harmonique** (mixer dans des tonalités compatibles). Un changement de tonalité qui tombe au milieu d'une phrase jarre même si les tonalités sont théoriquement compatibles. La progression harmonique doit résoudre avant que celle du nouveau morceau commence. C'est pour ça que le workshop Harmonies (suivant) s'appuie directement sur la structure en phrases.
 """
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "Which drummer is often credited with codifying the four-on-the-floor kick in disco?"
-answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
-[quiz.fr]
-question = "Quel batteur est souvent crédité pour avoir codifié le kick four-on-the-floor dans le disco ?"
-answers  = ["James Brown", "Earl Young", "Bernard Purdie"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "Above roughly what separation time do two identical transients become audible as distinct events (flam threshold)?"
-answers  = ["0.1 ms", "1 ms", "5 ms"]
-[quiz.fr]
-question = "Au-dessus de quelle séparation temporelle deux transitoires identiques deviennent-ils audibles comme événements distincts (seuil du flam) ?"
-answers  = ["0,1 ms", "1 ms", "5 ms"]
-
-[[quiz]]
-correct = 0
-[quiz.en]
-question = "In Afrobeat and Latin music, why is the snare unreliable as a phase anchor?"
-answers  = ["It falls on unexpected subdivisions, creating polyrhythms against the kick", "It is usually pitched higher than the kick", "It is mixed too quietly to hear in the booth"]
-[quiz.fr]
-question = "En Afrobeat et musique latine, pourquoi la snare est-elle peu fiable comme ancre de phase ?"
-answers  = ["Elle tombe sur des subdivisions inattendues, créant des polyrythmies contre le kick", "Elle est généralement plus aigüe que le kick", "Elle est mixée trop doucement pour s'entendre en cabine"]
-
-[[quiz]]
-correct = 1
-[quiz.en]
-question = "What is the most common internal structure of a 32-beat phrase in progressive house?"
-answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
-[quiz.fr]
-question = "Quelle est la structure interne la plus courante d'une phrase de 32 beats en progressive house ?"
-answers  = ["4+4+8+16", "8+8+16", "16+8+8"]
-
-[[quiz]]
-correct = 2
-[quiz.en]
-question = "Why does phrase alignment matter for harmonic mixing?"
-answers  = ["It ensures both tracks are at the same BPM", "It keeps the energy level consistent", "A key change mid-phrase jars even with compatible keys — progressions need to resolve first"]
-[quiz.fr]
-question = "Pourquoi l'alignement de phrase est-il important pour le mix harmonique ?"
-answers  = ["Il s'assure que les deux morceaux sont au même BPM", "Il maintient un niveau d'énergie cohérent", "Un changement de tonalité au milieu d'une phrase jarre même avec des tonalités compatibles — les progressions doivent d'abord résoudre"]
 
 [[sources]]
 label = "Four on the floor — Wikipedia"
