@@ -47,6 +47,8 @@ const fr = {
     },
     workshopsTitle: "ATELIERS DJ",
     soon: "Bientôt",
+    credits: "Créé par DJ Patrick · open source",
+    licenses: "Licences",
     beyond: {
       title: "Au-delà de l'école",
       labTitle: "Patrick's Lab",

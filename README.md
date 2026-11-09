@@ -45,6 +45,16 @@ The harder it gets, the darker the club.
 
 The site is available in English and French. Your progress is saved in your browser.
 
+## License
+
+Created by **DJ Patrick**. Open source and free for classes, workshops and events.
+
+- **Code**: [AGPL-3.0](LICENSE). Modified versions you publish stay open source and keep the credits.
+- **Lessons, levels, Patrick and the artwork**: [CC BY-NC-SA 4.0](LICENSE-CONTENT.txt). Credit required; **commercial use needs permission**.
+- The DJ Patrick School name and the Patrick character are not licensed as a brand.
+
+Details in [NOTICE.md](NOTICE.md). Using it in a class or an event? I'd love to hear about it.
+
 ---
 
 <details>

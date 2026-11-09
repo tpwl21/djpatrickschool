@@ -550,6 +550,9 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
       </div>
 
       <p className="home-disclaimer">{t('home.disclaimer')}</p>
+      <p className="home-credits">
+        {t('home.credits')} · <a href="https://github.com/tpwl21/djpatrickschool/blob/main/NOTICE.md" target="_blank" rel="noreferrer">{t('home.licenses')}</a>
+      </p>
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -1132,6 +1135,8 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         .secret-input-field:focus-within + .secret-input-line {
           width: 100%;
         }
+        .home-credits { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin: 6px 0 24px; }
+        .home-credits a { color: inherit; font-weight: 900; }
         .home-disclaimer {
           max-width: 900px;
           margin: 24px auto 8px auto;

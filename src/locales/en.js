@@ -46,6 +46,8 @@ const en = {
       PRO: "For the heads only. Razor-thin tolerance, absolutely zero visual feedback. 5s hold or bust."
     },
     workshopsTitle: "DJ WORKSHOPS",
+    credits: "Created by DJ Patrick · open source",
+    licenses: "Licenses",
     beyond: {
       title: "Beyond the school",
       labTitle: "Patrick's Lab",
