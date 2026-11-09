@@ -67,7 +67,7 @@ A 32-beat phrase typically has internal structure:
 - **16+16**: two equal halves, each ending with a fill or tension peak (beats 13–16 and 29–32)
 - **4+4+4+4+16**: first half in 4-beat cells, second half as one continuous 16-beat build
 
-A **fill** (a short drum roll that announces a change) or a **risebar** (a riser that builds tension) in bar 8 (beats 29–32) is a nearly universal signal: something changes next. If you're mixing in, this is your cue to have the incoming track ready.
+A **fill** (a short drum roll that announces a change) or a **riser** (a rising sweep that builds tension) in bar 8 (beats 29–32) is a nearly universal signal: something changes next. If you're mixing in, this is your cue to have the incoming track ready.
 
 ## Genre phrase lengths
 
@@ -152,7 +152,7 @@ recap = [
   "Le four-on-the-floor est un héritage disco, dominant en musique électronique parce que la pulsation isochrone stable s'accroche facilement.",
   "Le backbeat (snare sur 2 & 4) vient du R&B/funk ; en Afrobeat ou Latin, la snare ment — utilise le kick uniquement.",
   "Un flam = erreur de phase. Repères : sous 2–3 ms deux coups fusionnent, 5–10 ms le kick s'amollit, 10–20 ms flam net, au-delà de 30 ms deux coups distincts.",
-  "Phrase standard = 32 beats (8 mesures), souvent subdivisée en 8+8+16 ou 16+16 avec des fills à la fin de chaque moitié de 16 temps (mesures 4 et 8).",
+  "Phrase standard = 32 temps (8 mesures), souvent subdivisée en 8+8+16 ou 16+16 avec des fills à la fin de chaque moitié de 16 temps (mesures 4 et 8).",
   "La trance tourne souvent sur des blocs de 64 temps (16 mesures) ; le hip-hop 4 ou 16 mesures ; connaître la convention te dit quand attendre le prochain changement.",
   "L'alignement de phrase est un prérequis pour le mix harmonique : les changements de tonalité doivent tomber sur les fins de phrases."
 ]
@@ -210,7 +210,7 @@ Une phrase de 32 beats a typiquement une structure interne :
 - **16+16** : deux moitiés égales, chacune finissant par un fill ou un pic de tension (temps 13–16 et 29–32)
 - **4+4+4+4+16** : première moitié en cellules de 4 temps, deuxième moitié en un seul build de 16 temps
 
-Un **fill** (un petit roulement de batterie qui annonce un changement) ou un **risebar** (un riser qui fait monter la tension) en mesure 8 (temps 29–32) est un signal quasi-universel : quelque chose change ensuite. Si tu mixes en entrée, c'est ton signal pour avoir le morceau entrant prêt.
+Un **fill** (un petit roulement de batterie qui annonce un changement) ou un **riser** (un effet montant qui fait monter la tension) en mesure 8 (temps 29–32) est un signal quasi-universel : quelque chose change ensuite. Si tu mixes en entrée, c'est ton signal pour avoir le morceau entrant prêt.
 
 ## Longueurs de phrase par genre
 

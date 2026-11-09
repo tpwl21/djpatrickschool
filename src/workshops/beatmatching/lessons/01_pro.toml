@@ -245,7 +245,7 @@ Les faiblesses classiques du phase vocoder sont l'**étalement des transitoires*
 | Coût calcul | Faible | Plus élevé |
 | Latence | Faible | Plus élevée (frame STFT complète) |
 
-Le moteur audio de ce projet utilise WSOLA pour le Key Lock (cf. `public/audio-worklets/wsola-processor.js` — une implémentation AudioWorklet). Au-delà de ±8%, attend-toi à des coups doublés ou sautés.
+Le moteur audio de ce projet utilise WSOLA pour le Key Lock (cf. `public/audio-worklets/wsola-processor.js` — une implémentation AudioWorklet). Au-delà de ±8%, attends-toi à des coups doublés ou sautés.
 """
 
 [[sources]]

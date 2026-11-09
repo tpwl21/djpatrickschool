@@ -14,18 +14,18 @@ At around ±6–7% the ear starts hearing it:
 - Kicks sound thinner or muddy
 - Voices sound helium-y or sluggish
 
-Below ±3% almost nobody hears it. Between 3% and 6% is the mixing sweet spot.
+A single track pitched alone, mostly rhythmic, rarely bothers anyone below ±3%. Between 3% and 6% you start to hear it, especially on melodic material. Layering changes the rules: two basslines or melodies stacked rub from about 10–15 cents apart, roughly **1%** of pitch difference.
 
 **Concrete examples:**
 
 | Track A | Track B | Difference | Verdict |
 |---|---|---|---|
-| 127 BPM | 130 BPM | 2.4% | Transparent — mix safely |
+| 127 BPM | 130 BPM | 2.4% | Fine for a track played alone; in a long blend with two basslines it rubs (over 1%) |
 | 124 BPM | 130 BPM | 4.8% | Audible on melodic material, fine on drums |
 | 125 BPM | 135 BPM | 8.0% | Past the ±6% edge — use key lock or avoid |
 | 120 BPM | 130 BPM | 8.3% | Too far without key lock |
 
-The exact math — why ±6% ≈ one semitone, and the log₂ relationship between playback rate and perceived pitch — lives in **LESSON_HARMONIES_2 (Pitch, Key & Master Tempo)**. For this lesson: ±3% invisible, ±6% audible edge, ±10% surgery.
+The exact math — why ±6% ≈ one semitone, and the log₂ relationship between playback rate and perceived pitch — lives in **LESSON_HARMONIES_2 (Pitch, Key & Master Tempo)**. For this lesson: ±3% discreet on a lone rhythmic track, ±6% audible edge, ±10% surgery.
 """
 
 [[en.pages]]
@@ -55,10 +55,10 @@ Note that DnB is not four-on-the-floor: its kick and snare pattern is syncopated
 [[en.pages]]
 title   = "Using BPM ranges when digging — three-neighborhood strategy"
 content = """
-When building a set around 128 BPM, filter for **120–136** (±6%). Inside that range you can pitch anything to 128 — just remember the closer to the edge, the more you hear it.
+When building a set around 128 BPM, filter for roughly **120–136** (about ±6%). Inside that range you can pitch anything to 128 — just remember the closer to the edge, the more you hear it.
 
 But the further a track is from your target, the more pitch-shift it needs — and some tracks tolerate it better than others:
-- **Loop-heavy techno:** pitches cleanly up to ±6%
+- **Loop-heavy techno:** pitches cleanly up to ±6% when played alone
 - **Melodic tracks with long vocal notes:** reveals shift at ±3%
 
 **Three-neighborhood architecture:**
@@ -135,18 +135,18 @@ Vers ±6–7% l'oreille commence à l'entendre :
 - Les kicks sonnent maigres ou brouillons
 - Les voix deviennent hélium ou pâteuses
 
-Sous ±3% presque personne n'entend. Entre 3% et 6% c'est la zone de confort du mix.
+Une track seule, surtout rythmique, gêne rarement sous ±3 %. Entre 3 % et 6 %, ça commence à s'entendre, surtout sur du mélodique. Superposer change la donne : deux basses ou mélodies empilées frottent dès 10–15 cents d'écart, soit environ **1 %** de différence de pitch.
 
 **Exemples concrets :**
 
 | Track A | Track B | Différence | Verdict |
 |---|---|---|---|
-| 127 BPM | 130 BPM | 2.4% | Transparent — mixe sans problème |
+| 127 BPM | 130 BPM | 2.4% | Ok pour une track seule ; en blend long avec deux basses, ça frotte (plus de 1 %) |
 | 124 BPM | 130 BPM | 4.8% | Audible sur matériel mélodique, ok sur drums |
 | 125 BPM | 135 BPM | 8.0% | Au-delà du bord de ±6% — utilise le key lock ou évite |
 | 120 BPM | 130 BPM | 8.3% | Trop loin sans key lock |
 
-Le détail mathématique exact — pourquoi ±6% ≈ un demi-ton, et la relation log₂ entre rate et hauteur perçue — vit dans **LESSON_HARMONIES_2 (Pitch, Tonalité & Master Tempo)**. Pour cette leçon : ±3% invisible, ±6% bord audible, ±10% chirurgie.
+Le détail mathématique exact — pourquoi ±6% ≈ un demi-ton, et la relation log₂ entre rate et hauteur perçue — vit dans **LESSON_HARMONIES_2 (Pitch, Tonalité & Master Tempo)**. Pour cette leçon : ±3 % discret sur une track rythmique seule, ±6 % bord audible, ±10 % chirurgie.
 """
 
 [[fr.pages]]
@@ -176,10 +176,10 @@ Attention, la DnB n'est pas du four-on-the-floor : son pattern kick/snare est sy
 [[fr.pages]]
 title   = "Utiliser les ranges BPM en diggant — stratégie à trois quartiers"
 content = """
-Quand tu construis un set autour de 128 BPM, filtre entre **120 et 136** (±6%). Dans ce range, tu peux tout pitcher à 128 — retiens juste que plus tu approches du bord, plus ça s'entend.
+Quand tu construis un set autour de 128 BPM, filtre grosso modo entre **120 et 136** (environ ±6 %). Dans ce range, tu peux tout pitcher à 128 — retiens juste que plus tu approches du bord, plus ça s'entend.
 
 Mais plus une track est loin de ta cible, plus elle demande de shift — et certaines supportent mieux que d'autres :
-- **Techno loop-heavy :** se pitche proprement jusqu'à ±6%
+- **Techno loop-heavy :** se pitche proprement jusqu'à ±6 % quand elle joue seule
 - **Tracks mélodiques avec longues notes vocales :** révèle le shift dès ±3%
 
 **Architecture à trois quartiers :**

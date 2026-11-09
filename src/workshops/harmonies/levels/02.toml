@@ -4,7 +4,7 @@ order = 2
 [en]
 title       = "Same-Key, Different BPM"
 short_desc  = "Same key but BPM mismatch. Pitch, then discover Master Tempo."
-description = "Track A is in <b>Fm</b> (F minor; in English notation F = Fa, m = minor) at 122 BPM. The playlist has one Fm track at a different BPM. Load it, sync the BPMs by pitching — and watch the key drift. Then flip the MASTER TEMPO switch to lock the key back."
+description = "Track A is in <b>Fm</b> (F minor, Fm) at 122 BPM. The playlist has one Fm track at a different BPM. Load it, sync the BPMs by pitching — and watch the key drift. Then flip the MASTER TEMPO switch to lock the key back."
 details     = "Validation: BPMs synced · MASTER TEMPO ON · effective key = Fm."
 success     = "Key-locked and tempo-matched. That's how CDJs mix long."
 coach_tips  = [
@@ -16,7 +16,7 @@ recap = [
   "Pitching changes BPM AND key — they're coupled on traditional gear.",
   "Master Tempo (key-lock) decouples them: tempo moves, pitch stays.",
   "Without key-lock, a +6% pitch drifts about a semitone off key.",
-  "Turn Master Tempo ON when you pitch clearly (beyond a few %) to keep the key. On a tiny correction, leave it off if that sounds better."
+  "Turn Master Tempo ON beyond about 1% when both tracks have basslines or melodies that overlap, to keep the key. On a tiny correction, leave it off if that sounds better."
 ]
 
 [fr]
@@ -34,7 +34,7 @@ recap = [
   "Pitcher change le BPM ET la clé — ils sont couplés sur le matériel traditionnel.",
   "Le Master Tempo (key-lock) les découple : le tempo bouge, la hauteur reste.",
   "Sans key-lock, un pitch +6% fait dériver d'environ un demi-ton.",
-  "Active le Master Tempo quand tu pitches nettement (au-delà de quelques %) pour garder la clé. Sur une toute petite correction, laisse-le off si ça sonne mieux."
+  "Active le Master Tempo au-delà d'environ 1 % quand les deux morceaux ont des basses ou des mélodies qui se superposent, pour garder la clé. Sur une toute petite correction, laisse-le off si ça sonne mieux."
 ]
 
 [track.A]

@@ -10,7 +10,7 @@ recap = [
   "The PA is a chain: processor (EQ, delays, limiters), amplifiers, speakers. The engineer sets the system; you deliver a clean signal to its input.",
   "Sabine reverberation time: T60 = 0.161 × V / A. For V = 2000 m³ and A = 300–500 m², T60 = 0.64 to 1.07 s. A packed room absorbs more than an empty one.",
   "Analog clipping rounds the peaks (mostly low-order harmonics). Digital clipping flattens them (high-order odd harmonics, aliasing).",
-  "On the game's meter, the dotted line is the mixer's \"0\": top of the green, a few oranges, never red. That \"0\" already leaves margin before 0 dBFS."
+  "On the game's meter, the dotted line is the mixer's \"0\": top of the green, a few yellow flashes, never red. That \"0\" already leaves margin before 0 dBFS."
 ]
 
 [[en.pages]]
@@ -38,7 +38,7 @@ Loudness perception depends on duration. A very loud 100ms transient is processe
 
 ## True Peak (dBTP)
 
-EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, this uses oversampling (typically 4×) to detect inter-sample peaks that occur during digital-to-analog reconstruction. Spec: **≤ -1 dBTP** for broadcast. DJ mixer meters generally read sample peaks, not true peak, so inter-sample peaks can go above what they show. That is one of the reasons the mixer's "0" (the dotted line on the game's meter) sits below the digital ceiling: stay at the top of the green, a few oranges at most, never red, and the margin takes care of it.
+EBU R128 also specifies **True Peak** measurement — unlike sample-rate dBFS, this uses oversampling (typically 4×) to detect inter-sample peaks that occur during digital-to-analog reconstruction. Spec: **≤ -1 dBTP** for broadcast. DJ mixer meters generally read sample peaks, not true peak, so inter-sample peaks can go above what they show. That is one of the reasons the mixer's "0" (the dotted line on the game's meter) sits below the digital ceiling: stay at the top of the green, a few yellow flashes at most, never red, and the margin takes care of it.
 """
 
 [[en.pages]]
@@ -216,7 +216,7 @@ recap = [
   "La PA est une chaîne : processeur (EQ, délais, limiteurs), amplis, enceintes. L'ingé règle le système ; toi, tu livres un signal propre à son entrée.",
   "Temps de réverbération de Sabine : T60 = 0,161 × V / A. Pour V = 2000 m³ et A = 300–500 m², T60 = 0,64 à 1,07 s. Une salle pleine absorbe plus qu'une salle vide.",
   "Le clipping analogique arrondit les crêtes (surtout des harmoniques d'ordre bas). Le clipping numérique les aplatit (harmoniques impairs d'ordre élevé, aliasing).",
-  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : haut du vert, quelques oranges, jamais de rouge. Ce « 0 » laisse déjà de la marge avant 0 dBFS."
+  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : haut du vert, quelques flashs jaunes, jamais de rouge. Ce « 0 » laisse déjà de la marge avant 0 dBFS."
 ]
 
 [[fr.pages]]
@@ -244,7 +244,7 @@ La perception de la loudness dépend de la durée. Un transitoire très fort de 
 
 ## True Peak (dBTP)
 
-EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fréquence d'échantillonnage, ceci utilise un suréchantillonnage (typiquement 4×) pour détecter les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique. Spec : **≤ -1 dBTP** pour le broadcast. Les mètres de table DJ lisent en général les pics d'échantillons, pas le true peak : les pics inter-échantillons peuvent donc dépasser ce qu'ils montrent. C'est l'une des raisons pour lesquelles le « 0 » de la table (la ligne pointillée du mètre du jeu) est placé sous le plafond numérique : reste en haut du vert, quelques oranges au maximum, jamais de rouge, et la marge fait le reste.
+EBU R128 spécifie aussi la mesure **True Peak** — contrairement au dBFS à fréquence d'échantillonnage, ceci utilise un suréchantillonnage (typiquement 4×) pour détecter les pics inter-échantillons qui se produisent lors de la reconstruction numérique-analogique. Spec : **≤ -1 dBTP** pour le broadcast. Les mètres de table DJ lisent en général les pics d'échantillons, pas le true peak : les pics inter-échantillons peuvent donc dépasser ce qu'ils montrent. C'est l'une des raisons pour lesquelles le « 0 » de la table (la ligne pointillée du mètre du jeu) est placé sous le plafond numérique : reste en haut du vert, quelques flashs jaunes au maximum, jamais de rouge, et la marge fait le reste.
 """
 
 [[fr.pages]]

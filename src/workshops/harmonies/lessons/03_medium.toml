@@ -43,7 +43,7 @@ image_caption = "The Camelot wheel — each clockwise step = +7 semitones (a per
 [[en.pages]]
 title   = "The 4 safe moves — and the +7 cut"
 content = """
-From any key NX, **4 keys** (plus your own) are harmonically safe:
+From any key NX, **3 neighbouring keys**, plus your own, are harmonically safe:
 
 | Move | From 8A | Notes shared | Use case |
 |------|---------|-------------|----------|
@@ -81,6 +81,8 @@ How to use it in a set:
 The crowd feels this arc even without knowing theory. The resolution from 9B to 8B lands with a satisfying *click* that a same-key drop never quite achieves.
 
 Notice that V → I (9B → 8B) is just a ±1 step on the wheel. The arc works because of the order you play the keys, not because of any special jump. And the +7 move above has nothing to do with the dominant.
+
+One warning: the ii → V jump (7A → 9B) is **not** one of the safe moves. It is two steps and a letter change at once. Play it as a clean cut or on a breakdown, never as a long blend.
 """
 
 [[en.pages]]
@@ -153,7 +155,7 @@ description = "EASY t'a donné les 3 mouvements de base. MEDIUM ajoute le tablea
 recap = [
   "4 mouvements sûrs depuis NX : même clé, flip de lettre (relatif), +1 pas, -1 pas. Un cinquième existe, le +7, mais c'est un effet de coupe risqué, pas un mouvement sûr.",
   "Chaque pas horaire Camelot = +7 demi-tons (une quinte juste). Les clés adjacentes partagent 6 des 7 notes. +7 sur la roue ne fait que +1 demi-ton (8A Lam → 3A Si♭m) : 2 notes en commun seulement, donc une coupe nette au mieux, jamais un blend long.",
-  "Table complète : 8A = Am, 8B = Do, 9A = Em, 9B = Sol, 7A = Dm, 7B = Fa — connais ton voisinage.",
+  "Table complète : 8A = Lam, 8B = Do, 9A = Mim, 9B = Sol, 7A = Rém, 7B = Fa — connais ton voisinage.",
   "L'arc ii-V-I sur la roue (7A → 9B → 8B en monde Do majeur) crée une vraie tension et libération entre morceaux. Règle : depuis I = NB, ii = (N-1)A et V = (N+1)B.",
   "Camelot ne connaît que l'éolien (A) et l'ionien (B). Les morceaux doriens et phrygiens atterrissent en anneau A mais peuvent clasher entre eux. L'oreille gagne toujours."
 ]
@@ -188,7 +190,7 @@ image_caption = "La roue Camelot — chaque pas horaire = +7 demi-tons (une quin
 [[fr.pages]]
 title   = "Les 4 mouvements sûrs — et la coupe +7"
 content = """
-Depuis n'importe quelle clé NX, **4 clés** (plus la tienne) sont harmoniquement sûres :
+Depuis n'importe quelle clé NX, **3 clés voisines**, plus la tienne, sont harmoniquement sûres :
 
 | Mouvement | Depuis 8A | Notes partagées | Usage |
 |-----------|---------|----------------|-------|
@@ -226,6 +228,8 @@ Comment l'utiliser dans un set :
 La foule ressent cet arc sans connaître la théorie. La résolution de 9B vers 8B atterrit avec un *clic* satisfaisant qu'un drop en même clé n'atteint jamais tout à fait.
 
 Remarque : V → I (9B → 8B) n'est qu'un pas de ±1 sur la roue. L'arc fonctionne grâce à l'ordre dans lequel tu joues les tonalités, pas grâce à un saut spécial. Et le mouvement +7 vu plus haut n'a rien à voir avec la dominante.
+
+Un avertissement : le saut ii → V (7A → 9B) **sort des mouvements sûrs**. C'est deux pas et un changement de lettre d'un coup. Enchaîne-le en coupe nette ou sur un break, jamais en blend long.
 """
 
 [[fr.pages]]
@@ -266,7 +270,7 @@ answers  = ["5 demi-tons (une quarte juste)", "7 demi-tons (une quinte juste)", 
 correct  = 1
 
 [[fr.quiz]]
-question = "Dans l'arc ii-V-I pour Do majeur (8B), le dominant (V = Sol) se trouve à quelle position Camelot ?"
+question = "Dans l'arc ii-V-I pour Do majeur (8B), la dominante (V = Sol) se trouve à quelle position Camelot ?"
 answers  = ["7A", "9B", "8A"]
 correct  = 1
 

@@ -69,7 +69,7 @@ content = """
 - You *want* the natural energy lift: pitching a track up 1-2% at peak time creates a subtle excitement; Key Lock kills that
 - Vinyl-purist aesthetic — the pitch drift is part of the sound
 
-**Workflow habit**: know what state your Key Lock is in before every mix (Master Tempo on Pioneer/rekordbox, Key Lock on Denon/Serato/Traktor). Turn it on when you pitch clearly (beyond a few %); on a small correction, try both and keep what sounds best.
+**Workflow habit**: know what state your Key Lock is in before every mix (Master Tempo on Pioneer/rekordbox, Key Lock on Denon/Serato/Traktor). Turn it on beyond about 1% when both tracks have basslines or melodies that overlap; on a small correction, try both and keep what sounds best.
 """
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Master Tempo button on a CDJ-2000NXS2. Usually labeled 'Key' or 'Master Tempo'."
@@ -158,7 +158,7 @@ Où `taux = BPM_nouveau / BPM_natif`.
 | **+6%** | **+1,01 demi-ton** | **A♯m / Si♭m** |
 | +8% | +1,33 demi-ton | Entre A♯m et Bm |
 | +12% | +2,0 demi-tons | Bm |
-| +50% | +7,02 demi-tons | Em (une quinte juste plus haut) |
+| +50% | +7,02 demi-tons | Mim (une quinte juste plus haut) |
 
 **À retenir** : une plage de fader typique de ±8% signifie que tu peux dériver d'environ **1,3 demi-ton** depuis ta clé native. C'est très au-dessus du seuil d'écoute, même sur un blend court. Pour l'échelle : 1% de pitch, c'est environ 17 cents.
 """
@@ -197,7 +197,7 @@ content = """
 - Tu *veux* le lift d'énergie naturel : pitcher une track de 1-2% en peak time crée une excitation subtile ; Key Lock tue ça
 - Esthétique vinyl-puriste — la dérive de pitch fait partie du son
 
-**Habitude de workflow** : sache dans quel état est ton Key Lock avant chaque mix (Master Tempo chez Pioneer/rekordbox, Key Lock chez Denon/Serato/Traktor). Active-le quand tu pitches nettement (au-delà de quelques %) ; sur une petite correction, essaie les deux et garde ce qui sonne le mieux.
+**Habitude de workflow** : sache dans quel état est ton Key Lock avant chaque mix (Master Tempo chez Pioneer/rekordbox, Key Lock chez Denon/Serato/Traktor). Active-le au-delà d'environ 1 % quand les deux morceaux ont des basses ou des mélodies qui se superposent ; sur une petite correction, essaie les deux et garde ce qui sonne le mieux.
 """
 image         = "lesson-images/pioneer-key-lock.png"
 image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Key' ou 'Master Tempo'."
@@ -208,7 +208,7 @@ content = """
 Fais ça dans n'importe quel logiciel DJ (Rekordbox, Serato, Traktor, VirtualDJ) :
 
 1. Charge le même morceau sur les deux platines — fichier identique, clé identique.
-2. Met le pitch de la platine B à **+6%**. Joue les deux simultanément.
+2. Mets le pitch de la platine B à **+6%**. Joue les deux simultanément.
 3. Tu entends un intervalle d'environ 1 demi-ton — le 'battement' ou la tension entre les deux platines.
 4. Maintenant active **Key Lock** sur la platine B. Les clés se recalent, seuls les BPM diffèrent.
 5. Essaie +3% (un demi demi-ton). Puis +12% (2 demi-tons). Entends les étapes.

@@ -226,7 +226,7 @@ correct  = 1
 
 [[fr.quiz]]
 question = "Tu trouves une release au numéro de catalogue PHK-007. Quel est le prochain move efficace ?"
-answers  = ["Chercher uniquement les autres sorties de l'artiste", "Browserd PHK-001 à PHK-015 — les numéros de catalogue adjacents = même époque et même esthétique", "Filtrer par le même style seulement", "Ajouter PHK-007 à la Wantlist et s'arrêter"]
+answers  = ["Chercher uniquement les autres sorties de l'artiste", "Parcours PHK-001 à PHK-015 — les numéros de catalogue adjacents = même époque et même esthétique", "Filtrer par le même style seulement", "Ajouter PHK-007 à la Wantlist et s'arrêter"]
 correct  = 1
 
 [[fr.sources]]

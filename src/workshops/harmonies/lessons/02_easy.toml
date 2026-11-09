@@ -4,7 +4,7 @@ order = 2
 [en]
 title      = "Speed changes the voice"
 short_desc = "No math. When you pitch a track up or down, what actually happens to the music?"
-description = "Before Master Tempo, all DJ decks worked like a tape player: faster = higher-pitched. This lesson explains that coupling with your ear, not a formula. You'll understand why pitch-shift matters and when to flip Key Lock — no numbers required."
+description = "Before Master Tempo, all DJ decks worked like a tape player: faster = higher-pitched. This lesson explains that coupling with your ear, not a formula. You'll understand why pitch-shift matters and when to flip Key Lock — by ear first, numbers only in the recap."
 recap = [
   "Faster playback = higher pitch. Slower = lower. It's the same physics as a tape recorder.",
   "When you pitch a track up to match a faster one, every instrument — kick, bass, vocals — rises in pitch too.",
@@ -57,7 +57,7 @@ url   = "https://djtechtools.com/2011/09/07/the-guide-to-harmonic-mixing/"
 [fr]
 title      = "La vitesse change la voix"
 short_desc = "Pas de maths. Quand tu pitches un morceau, qu'est-ce qui se passe vraiment ?"
-description = "Avant Master Tempo, toutes les tables de mixage fonctionnaient comme un magnétophone : plus rapide = plus aigu. Cette leçon explique ce couplage avec ton oreille, pas une formule. Tu comprendras pourquoi le pitch-shift compte et quand activer Key Lock — sans chiffres."
+description = "Avant Master Tempo, toutes les platines fonctionnaient comme un magnétophone : plus rapide = plus aigu. Cette leçon explique ce couplage avec ton oreille, pas une formule. Tu comprendras pourquoi le pitch-shift compte et quand activer Key Lock — à l'oreille d'abord, les chiffres seulement dans le récap."
 recap = [
   "Lecture plus rapide = hauteur plus aiguë. Plus lente = plus grave. C'est la même physique qu'un magnétophone.",
   "Quand tu pitches un morceau vers le haut pour matcher un plus rapide, chaque instrument — kick, basse, voix — monte en hauteur aussi.",
@@ -68,7 +68,7 @@ recap = [
 
 [[fr.pages]]
 title   = "L'effet magnétophone"
-content = "Pense à un vieux magnétophone. Tu l'as probablement vu dans des films : quand la bande tourne vite, tout le monde ressemble à Alvin et les Chipmunks. Quand elle tourne lentement, ça ressemble à un monstre.\n\nLes tables de mixage DJ fonctionnent pareil. Quand tu montes le **fader de pitch** pour matcher un morceau plus rapide, tu accélères la bande. Tous les instruments montent en hauteur — le kick sonne plus léger, la basse remonte, et les voix (s'il y en a) commencent à dériver vers le haut.\n\nCe n'est pas un défaut. C'est de la physique. La question est : **combien de dérive le public peut-il tolérer avant que ça sonne faux ?**\n\nLa réponse dépend du morceau et de la durée du blend."
+content = "Pense à un vieux magnétophone. Tu l'as probablement vu dans des films : quand la bande tourne vite, tout le monde ressemble à Alvin et les Chipmunks. Quand elle tourne lentement, ça ressemble à un monstre.\n\nLes platines DJ fonctionnent pareil. Quand tu montes le **fader de pitch** pour matcher un morceau plus rapide, tu accélères la bande. Tous les instruments montent en hauteur — le kick sonne plus léger, la basse remonte, et les voix (s'il y en a) commencent à dériver vers le haut.\n\nCe n'est pas un défaut. C'est de la physique. La question est : **combien de dérive le public peut-il tolérer avant que ça sonne faux ?**\n\nLa réponse dépend du morceau et de la durée du blend."
 
 [[fr.pages]]
 title   = "Ce qui dérive en premier : la voix"
@@ -82,7 +82,7 @@ image_caption = "Bouton Master Tempo sur un CDJ-2000NXS2. Souvent étiqueté 'Ke
 
 [[fr.pages]]
 title   = "Exercice rapide — entends-le toi-même"
-content = "Fais ça avec n'importe quel logiciel DJ (Serato, Rekordbox, Traktor, ou même VirtualDJ) :\n\n1. Charge le même morceau sur les deux platines.\n2. Met le pitch d'une platine à **+6 %** et laisse l'autre à **0 %**.\n3. Joue les deux simultanément — entends les deux hauteurs différentes clasher.\n4. Maintenant active **Key Lock / Master Tempo** sur la platine à +6 %.\n5. Les clés reviennent ensemble. Seuls les BPM diffèrent.\n\nCe snap, c'est l'algorithme au travail. La légère qualité 'métallique' que tu pourrais entendre est le coût de l'algorithme — il fait de l'étirement audio en temps réel, et ce n'est pas gratuit."
+content = "Fais ça avec n'importe quel logiciel DJ (Serato, Rekordbox, Traktor, ou même VirtualDJ) :\n\n1. Charge le même morceau sur les deux platines.\n2. Mets le pitch d'une platine à **+6 %** et laisse l'autre à **0 %**.\n3. Joue les deux simultanément — entends les deux hauteurs différentes clasher.\n4. Maintenant active **Key Lock / Master Tempo** sur la platine à +6 %.\n5. Les clés reviennent ensemble. Seuls les BPM diffèrent.\n\nCe snap, c'est l'algorithme au travail. La légère qualité 'métallique' que tu pourrais entendre est le coût de l'algorithme — il fait de l'étirement audio en temps réel, et ce n'est pas gratuit."
 
 [[fr.quiz]]
 question = "Quand tu augmentes la vitesse de lecture sans Key Lock, la hauteur..."

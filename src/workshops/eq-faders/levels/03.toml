@@ -5,7 +5,7 @@ order = 3
 title       = "Gain Staging"
 short_desc  = "Match perceived loudness between a compressed track and a vintage one — no clip, no mush."
 description = "Track A is a modern loud master (brickwalled). Track B is a 90s pressing with lots of headroom. Your job: set each deck's TRIM so their meters peak around the dotted line (the mixer's \"0\", the green/yellow boundary) and NEVER hit red. A few orange flashes on the loudest hits are fine. Then mix normally."
-details     = "Target: both meters hover around the dotted line (top of the green) through the whole mix, a few oranges at most, never red."
+details     = "Target: both meters hover around the dotted line (top of the green) through the whole mix, a few yellow flashes at most, never red."
 success     = "Pro-level staging. The engineer at the venue just gave you a thumbs-up."
 coach_tips  = [
   "Track A is loud by nature — turn TRIM A DOWN until its meter sits on the dotted line.",
@@ -23,7 +23,7 @@ recap = [
 title       = "Gain Staging"
 short_desc  = "Égalise la loudness perçue entre une track compressée et une vintage — ni clip, ni bouillie."
 description = "Track A est un master moderne très compressé (brickwall). Track B est un pressing des années 90 avec beaucoup de headroom. Ton boulot : régler le TRIM de chaque deck pour que leurs mètres crêtent vers la ligne pointillée (le « 0 » de la table, la frontière vert/jaune) sans JAMAIS toucher le rouge. Quelques flashs orange sur les coups les plus forts sont acceptables. Puis mixer normalement."
-details     = "Cible : les deux mètres se tiennent vers la ligne pointillée (haut du vert) sur tout le mix, quelques oranges au maximum, jamais de rouge."
+details     = "Cible : les deux mètres se tiennent vers la ligne pointillée (haut du vert) sur tout le mix, quelques flashs jaunes au maximum, jamais de rouge."
 success     = "Staging niveau pro. L'ingé son du club vient de te faire un pouce."
 coach_tips  = [
   "Track A est forte par nature — baisse TRIM A jusqu'à ce que son mètre se cale sur la ligne pointillée.",

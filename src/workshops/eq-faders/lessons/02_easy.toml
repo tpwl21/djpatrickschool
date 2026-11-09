@@ -8,7 +8,7 @@ description = "Some tracks sound twice as loud as others even with the same sett
 recap = [
   "Tracks from different eras are mastered at different loudness levels. Old records are quieter; new tracks hit harder.",
   "The TRIM (or GAIN) knob is your first fix. Use it before touching anything else.",
-  "Target: on the game's meter, the loudest parts reach the dotted line (the mixer's \"0\", top of the green), a few oranges at most, never red.",
+  "Target: on the game's meter, the loudest parts reach the dotted line (the mixer's \"0\", top of the green), a few yellow flashes at most, never red.",
   "Mixing without adjusting trim = constantly fighting your faders to compensate.",
   "The headphone CUE reflects the trim — if your trim is wrong, your headphone reference is wrong too."
 ]
@@ -53,7 +53,7 @@ content = """
 
 ## What the meter is telling you
 
-- **The dotted line** is the "0" of the mixer: the border between green and yellow. That is your target. Aim for the top of the green, with a few orange flashes on the loudest hits at most.
+- **The dotted line** is the "0" of the mixer: the border between green and yellow. That is your target. Aim for the top of the green, with a few yellow flashes on the loudest hits at most.
 - **Red** = **clipping**. Clipping means the signal is too strong for the equipment, so the top of each wave gets chopped flat. You hear it as harsh crackling distortion. Never go there.
 - **Low in the green** = too quiet. You would have to push your fader too high to be heard.
 
@@ -146,7 +146,7 @@ description = "Certains morceaux sonnent deux fois plus fort que d'autres même 
 recap = [
   "Les morceaux d'époque différente sont masterisés à des niveaux de loudness différents. Les vieux disques sont plus calmes ; les nouvelles tracks tapent plus fort.",
   "Le bouton TRIM (ou GAIN) est le premier réglage. Fais-le avant de toucher quoi que ce soit d'autre.",
-  "Objectif : sur le mètre du jeu, les parties les plus fortes atteignent la ligne pointillée (le « 0 » de la table, haut du vert), quelques oranges au maximum, jamais de rouge.",
+  "Objectif : sur le mètre du jeu, les parties les plus fortes atteignent la ligne pointillée (le « 0 » de la table, haut du vert), quelques flashs jaunes au maximum, jamais de rouge.",
   "Mixer sans ajuster le trim = se battre constamment avec ses faders pour compenser.",
   "Le CUE casque reflète le trim — si ton trim est faux, ta référence casque est fausse aussi."
 ]
@@ -191,7 +191,7 @@ content = """
 
 ## Ce que le mètre te dit
 
-- **La ligne pointillée** est le « 0 » de la table : la frontière entre le vert et le jaune. C'est ta cible. Vise le haut du vert, avec quelques flashs orange sur les coups les plus forts au maximum.
+- **La ligne pointillée** est le « 0 » de la table : la frontière entre le vert et le jaune. C'est ta cible. Vise le haut du vert, avec quelques flashs jaunes sur les coups les plus forts au maximum.
 - **Rouge** = **clipping**. Le clipping, c'est quand le signal est trop fort pour le matériel : le haut de chaque onde est coupé net. Tu l'entends comme une distorsion dure qui crépite. Ne va jamais là.
 - **Bas du vert** = trop calme. Tu devrais pousser ton fader trop haut pour être entendu.
 

@@ -8,7 +8,7 @@ description = "BPM is more than a number — it's the contract between a DJ and 
 recap = [
   "BPM = Beats Per Minute, the unit of tempo. 120 BPM = 2 beats/second.",
   "At 128 BPM, a 0.5 BPM mismatch is about 0.25 beat of drift after 30 seconds, and a full beat after roughly 2 minutes.",
-  "Genre conventions (house 120–130, techno 130–145, D&B 170–180) are starting points, not rules.",
+  "Genre conventions (house 120–130, techno 130–145, D&B 170–175) are starting points, not rules.",
   "On classic DJ gear, pitch fader changes rate, tempo AND musical pitch simultaneously.",
   "Master Tempo / Key Lock separates those three: tempo changes without pitch shift.",
   "Automatic BPM detection is accurate on clean 4/4 but fails on swung, half-time, or live material."
@@ -36,7 +36,7 @@ Many modern tracks have a *humanized* tempo grid — the BPM drifts slightly by 
 | House | 120–130 |
 | Techno | 130–145 |
 | Hard Techno | 145–160 |
-| Drum & Bass | 170–180 |
+| Drum & Bass | 170–175 |
 | Gabber | 160–200 |
 
 These are *conventions*, not rules. Context and feel matter as much as the number.
@@ -151,7 +151,7 @@ description = "Le BPM c'est plus qu'un chiffre — c'est le contrat entre un DJ 
 recap = [
   "BPM = Battements Par Minute, l'unité de tempo. 120 BPM = 2 beats/seconde.",
   "À 128 BPM, un écart de 0,5 BPM donne environ 0,25 beat de dérive au bout de 30 secondes, et 1 beat entier au bout de ~2 minutes.",
-  "Les conventions de genre (house 120–130, techno 130–145, D&B 170–180) sont des repères, pas des règles.",
+  "Les conventions de genre (house 120–130, techno 130–145, D&B 170–175) sont des repères, pas des règles.",
   "Sur du matos DJ classique, le fader pitch change le rate, le tempo ET la hauteur musicale simultanément.",
   "Master Tempo / Key Lock sépare ces trois : changement de tempo sans décalage de pitch.",
   "La détection automatique de BPM est fiable sur du 4/4 propre mais plante sur les grooves swingués, half-time ou live."
@@ -179,7 +179,7 @@ Beaucoup de morceaux modernes ont une grille tempo *humanisée* — le BPM déri
 | House | 120–130 |
 | Techno | 130–145 |
 | Hard Techno | 145–160 |
-| Drum & Bass | 170–180 |
+| Drum & Bass | 170–175 |
 | Gabber | 160–200 |
 
 Ce sont des *conventions*, pas des règles. Le contexte et le ressenti comptent autant que le chiffre.

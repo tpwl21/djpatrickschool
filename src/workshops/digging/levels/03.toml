@@ -59,7 +59,7 @@ genre = "techno"
 energy = 5
 correct = true
 reason_en = "130 BPM lock. Camelot 12A is the direct neighbor of 11A (same letter, +1 number — a base compatible move). Energy holds at 5. The texture feels like the same room."
-reason_fr = "130 BPM parfait. Camelot 1A est à 2 cases de 11A (la distance la plus indulgente du cercle). Énergie tenue à 5. Même salle, même texture."
+reason_fr = "130 BPM parfait. 12A est le voisin direct de 11A (même lettre, +1) : un mouvement de base compatible. Énergie tenue à 5. Même salle, même texture."
 
 [[candidates]]
 url = "AUDIO/JazzMan_Doucheur.mp3"
@@ -69,8 +69,8 @@ key = "5B"
 genre = "nu-jazz"
 energy = 2
 correct = false
-reason_en = "BPM -27%, major key instead of minor, energy collapse. Even with the preview alone you should feel the difference in 2 seconds — the groove sits back instead of pushing forward."
-reason_fr = "BPM -27%, clé majeure au lieu de mineure, énergie qui s'écroule. Même en preview tu dois sentir la différence en 2 secondes — le groove recule au lieu de pousser."
+reason_en = "BPM +37% to reach 130 (95→130), major key instead of minor, energy collapse. Even with the preview alone you should feel the difference in 2 seconds — the groove sits back instead of pushing forward."
+reason_fr = "BPM +37 % pour atteindre 130 (95→130), clé majeure au lieu de mineure, énergie qui s'écroule. Même en preview tu dois sentir la différence en 2 secondes — le groove recule au lieu de pousser."
 
 [[candidates]]
 url = "AUDIO/Electro_Static.mp3"
@@ -91,5 +91,5 @@ key = "9B"
 genre = "deep house"
 energy = 3
 correct = false
-reason_en = "BPM -8% and a genre drop from techno peak to deep house. Works as a closer, not as a peak-sustainer."
-reason_fr = "BPM -8% et genre qui tombe du peak techno vers la deep house. Ça marche en closing, pas en sustain de peak."
+reason_en = "BPM +8.3% to reach 130 (120→130) and a genre drop from techno peak to deep house. Works as a closer, not as a peak-sustainer."
+reason_fr = "BPM +8,3 % pour atteindre 130 (120→130) et genre qui tombe du peak techno vers la deep house. Ça marche en closing, pas en sustain de peak."

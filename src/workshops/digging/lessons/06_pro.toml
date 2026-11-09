@@ -56,7 +56,7 @@ The advanced Discogs research methodology starts from a sonic description and tr
 **The full reverse-engineering stack:**
 
 **Step 1 — Sonic identification (before Discogs):**
-- Shazam / SoundHound — catches ~60% of identifiable releases. Fails on: white labels, bootlegs, unreleased dubs, pre-digital recordings digitised without metadata.
+- Shazam / SoundHound — catches a good share of commercial releases. Fails on: white labels, bootlegs, unreleased dubs, pre-digital recordings digitised without metadata.
 - **WhoSampled** — if you recognise a sample, traces both the sample source and all tracks that sample it. Extremely useful for hip-hop and soul digging.
 - **NoteMyMe / Moises** — hum or sing the melody; rough pitch/key estimate. Feeds into Discogs filter.
 
@@ -207,7 +207,7 @@ La méthodologie de recherche Discogs avancée commence d'une description sonore
 **La pile complète de rétro-ingénierie :**
 
 **Étape 1 — Identification sonore (avant Discogs) :**
-- Shazam / SoundHound — identifie ~60% des releases identifiables. Échoue sur : white labels, bootlegs, dubs non sortis, enregistrements pré-numériques digitisés sans métadonnées.
+- Shazam / SoundHound — identifie une bonne partie des sorties commerciales. Échoue sur : white labels, bootlegs, dubs non sortis, enregistrements pré-numériques digitisés sans métadonnées.
 - **WhoSampled** — si tu reconnais un sample, trace à la fois la source du sample et toutes les tracks qui le samplent. Extrêmement utile pour le digging hip-hop et soul.
 - **NoteMyMe / Moises** — fredonne ou chante la mélodie ; estimation grossière de hauteur/clé. Alimente le filtre Discogs.
 

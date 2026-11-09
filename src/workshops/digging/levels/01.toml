@@ -9,7 +9,7 @@ details     = "Rules: BPM within ±6%, Camelot-compatible keys, energy coherent 
 coach_tips  = [
   "Track A is at 122 BPM, key 4A, tech house groove in its last third.",
   "Preview each candidate. Match BPM first, then Camelot, then genre.",
-  "A candidate that breaks one rule badly (bpm +20%) is always a trap."
+  "A candidate that breaks one rule badly (bpm ±20%) is always a trap."
 ]
 recap = [
   "Three filters to pick the next track: BPM, key (Camelot), genre/energy.",
@@ -26,7 +26,7 @@ details     = "Règles : BPM à ±6%, clé Camelot compatible, énergie cohéren
 coach_tips  = [
   "Track A : 122 BPM, clé 4A, tech house bien posée dans son dernier tiers.",
   "Écoute chaque candidate. Matche le BPM d'abord, la Camelot ensuite, le genre après.",
-  "Une candidate qui casse une règle fort (bpm +20%) est toujours un piège."
+  "Une candidate qui casse une règle fort (bpm ±20%) est toujours un piège."
 ]
 recap = [
   "Trois filtres pour choisir la suivante : BPM, clé (Camelot), genre/énergie.",
@@ -58,8 +58,8 @@ key = "5A"
 genre = "tech house"
 energy = 3
 correct = true
-reason_en = "Tempo +4% (122→127), Camelot 5A is the direct neighbor of 4A (same letter, +1 number — a base compatible move). Energy rises cleanly. Textbook pick."
-reason_fr = "Tempo +4% (122→127), Camelot 5A voisine directe de 4A (même lettre, +1 numéro — un mouvement de base compatible). Énergie qui monte proprement. Pick de manuel."
+reason_en = "Tempo -4% (pitch 127→122), Camelot 5A is the direct neighbor of 4A (same letter, +1 number — a base compatible move). Energy rises cleanly. Textbook pick."
+reason_fr = "Tempo -4% (pitch 127→122), Camelot 5A voisine directe de 4A (même lettre, +1 numéro — un mouvement de base compatible). Énergie qui monte proprement. Pick de manuel."
 
 [[candidates]]
 url = "AUDIO/SCIFI.mp3"
@@ -69,8 +69,8 @@ key = "12A"
 genre = "techno"
 energy = 5
 correct = false
-reason_en = "BPM +19% in one step is a trainwreck even with aggressive pitch. The crowd feels the tempo jump before the first kick lands."
-reason_fr = "BPM +19% d'un coup, trainwreck garanti même en pitchant fort. Le dancefloor sent le saut de tempo avant le premier kick."
+reason_en = "BPM -16% in one step (145→122) is a trainwreck even with aggressive pitch. The crowd feels the tempo jump before the first kick lands."
+reason_fr = "BPM -16% d'un coup (145→122), trainwreck garanti même en pitchant fort. Le dancefloor sent le saut de tempo avant le premier kick."
 
 [[candidates]]
 url = "AUDIO/Bjork.mp3"
@@ -80,5 +80,5 @@ key = "2A"
 genre = "downtempo"
 energy = 2
 correct = false
-reason_en = "BPM -18%, energy drop, and its key (2A) is two steps from 4A — not recommended. On a peak moment this empties the dancefloor in 30 seconds."
-reason_fr = "BPM -18%, chute d'énergie, et sa clé (2A) est à 2 cases de 4A — déconseillé. Sur un moment de peak, ça vide la piste en 30 secondes."
+reason_en = "BPM +22% to reach 122 (100→122), energy drop, and its key (2A) is two steps from 4A — not recommended. On a peak moment this kills the energy on the floor."
+reason_fr = "BPM +22% pour atteindre 122 (100→122), chute d'énergie, et sa clé (2A) est à 2 cases de 4A — déconseillé. Sur un moment de peak, ça tue l'énergie de la piste."

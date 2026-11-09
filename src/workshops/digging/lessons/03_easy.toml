@@ -19,8 +19,8 @@ A few reference points to get your ears calibrated:
 
 **The one rule to remember:** when you mix two tracks together, they should be close in BPM. More than about 6% apart and you have to pitch too far — things start sounding wrong, kicks drift, rhythms fight each other.
 
-- 128 + 135 BPM = 5.5% apart. Workable.
-- 128 + 145 BPM = 13% apart. You'll hear it. Avoid.
+- 135 pitched down to 128 BPM = −5.2%. Workable.
+- 145 pitched down to 128 BPM = −11.7%. You'll hear it. Avoid.
 """
 
 [[en.pages]]
@@ -34,7 +34,7 @@ DJ software lets you **pitch** a track — speed it up or slow it down. But ther
 - Stretch it too far (±10%) — it sounds broken.
 
 **The practical rule:**
-If a track is within ±6% of your target BPM, you can pitch it to match. The closer, the more invisible: around ±3% nobody hears a thing.
+If a track is within ±6% of your target BPM, you can pitch it to match. The closer, the more invisible: a track played alone, mostly rhythmic, can go to about ±3% without much notice. But two tracks layered with basslines or melodies start to rub from about 1% of pitch difference.
 
 For a 128 BPM set:
 - **Safe range to dig in:** 120–136 BPM
@@ -59,7 +59,7 @@ DJs use this to jump between genres that seem incompatible:
 
 [[en.quiz]]
 question = "Your set runs at 128 BPM. Which track is safest to mix in?"
-answers  = ["140 BPM — that's only 12 BPM away", "125 BPM — that's only 2.3% away", "100 BPM — big contrast is exciting"]
+answers  = ["140 BPM — that's only 12 BPM away", "125 BPM — that's only about 2.4% away", "100 BPM — big contrast is exciting"]
 correct  = 1
 
 [[en.quiz]]
@@ -98,8 +98,8 @@ Quelques repères pour calibrer tes oreilles :
 
 **La règle à retenir :** quand tu mixtes deux tracks, elles doivent être proches en BPM. Au-delà d'environ 6% d'écart, il faut pitcher trop loin — ça sonne faux, les kicks dérivent, les rythmes se battent.
 
-- 128 + 135 BPM = 5.5% d'écart. Gérable.
-- 128 + 145 BPM = 13% d'écart. Ça s'entend. À éviter.
+- 135 pitchée à 128 BPM = −5,2 %. Gérable.
+- 145 pitchée à 128 BPM = −11,7 %. Ça s'entend. À éviter.
 """
 
 [[fr.pages]]
@@ -113,7 +113,7 @@ Le logiciel DJ te permet de **pitcher** une track — l'accélérer ou la ralent
 - On l'étire trop (±10%) — ça sonne cassé.
 
 **La règle pratique :**
-Si une track est dans ±6% de ton BPM cible, tu peux la pitcher pour la faire matcher. Plus elle est proche, moins ça s'entend : vers ±3%, personne n'entend rien.
+Si une track est dans ±6% de ton BPM cible, tu peux la pitcher pour la faire matcher. Plus elle est proche, moins ça s'entend : une track seule, surtout rythmique, passe jusqu'à environ ±3 % sans que ça gêne. Mais deux tracks superposées avec des basses ou des mélodies commencent à frotter dès environ 1 % d'écart de hauteur.
 
 Pour un set à 128 BPM :
 - **Range safe pour digger :** 120–136 BPM
@@ -138,7 +138,7 @@ Les DJs utilisent ça pour sauter entre des genres qui semblent incompatibles :
 
 [[fr.quiz]]
 question = "Ton set tourne à 128 BPM. Quelle track est la plus safe à mixer ?"
-answers  = ["140 BPM — c'est seulement 12 BPM de différence", "125 BPM — c'est seulement 2.3% d'écart", "100 BPM — le grand contraste c'est excitant"]
+answers  = ["140 BPM — c'est seulement 12 BPM de différence", "125 BPM — c'est seulement 2,4 % d'écart", "100 BPM — le grand contraste c'est excitant"]
 correct  = 1
 
 [[fr.quiz]]

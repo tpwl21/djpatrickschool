@@ -70,6 +70,18 @@ The most under-discussed skill:
 - **Know when to cut the sound.** When the final applause peaks and starts to fade, that's the moment. Listen to the room.
 """
 
+[fr]
+title       = "Closing : le moment signature"
+short_desc  = "La track dont ils se souviendront. Pas forcément la plus grosse."
+description = "Le closing est une discipline à part du peak. Choisir selon la taille de la salle, une longue piste d'envol, les derniers applaudissements, et quatre types de closer."
+recap = [
+  "Le closing n'est **pas une redescente** — c'est son propre arc, qui démarre en énergie afterpeak (environ 4), pas en descente depuis le peak.",
+  "La mission, c'est **un seul moment mémorable** — la closer — dont les gens parlent encore des jours plus tard.",
+  "**Choisis selon la salle** : grande salle = hymnes partagés, club moyen = favoris de la scène, petite salle = intimité et spécificité.",
+  "Une **piste d'envol** longue et cohérente donne plus de poids à une closer modeste — quelle que soit la durée du slot.",
+  "Laisse la closer finir, utilise une **longue outro**, fade low → mid → high, et évite le morceau bonus."
+]
+
 [[fr.pages]]
 title   = "Le closing n'est PAS une redescente"
 content = """

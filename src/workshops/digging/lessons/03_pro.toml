@@ -14,7 +14,7 @@ The ±6% rule has a psychoacoustic foundation. Here's the precise chain:
 A playback rate change of r% shifts perceived pitch by log₂(1+r/100) octaves, or equivalently (1200 × log₂(1+r/100)) cents. At 6%, that's ~1 semitone (≈100 cents). At 3%, it's ~0.5 semitone (≈50 cents).
 
 **Just-Noticeable Difference (JND) for pitch:**
-For trained ears on sustained tones, the JND for pitch is approximately 10 cents (0.5%) in controlled laboratory conditions. In practice, kick drums and transient-heavy material mask pitch shifts up to 3%: the percussive envelope dominates the spectral content, hiding sub-semitone deviations. Melodic material (sustained pads, vocals, piano) has a JND closer to 20–30 cents in club acoustic conditions — meaning ~1.7% becomes audible on melodic tracks.
+For trained ears on sustained tones, the JND for pitch is approximately 10 cents (0.5%) in controlled laboratory conditions. In practice, kick drums and transient-heavy material mask pitch shifts up to 3%: the percussive envelope dominates the spectral content, hiding sub-semitone deviations. That masking only works for a track played alone: layer two basslines or melodies and they start to beat against each other from roughly 10–15 cents apart, about 1% of pitch difference. Melodic material (sustained pads, vocals, piano) has a JND closer to 20–30 cents in club acoustic conditions — meaning ~1.7% becomes audible on melodic tracks.
 
 **Practical consequence:** the safe pitch-shift ceiling is not universal — it's track-dependent. A percussive minimal techno loop: up to ±6% usually passes. A choral vocal pad: ±2% before artifacts. Learn to classify tracks on this axis before buying.
 
@@ -172,7 +172,7 @@ La règle des ±6% a un fondement psychoacoustique. Voici la chaîne précise :
 Un changement de rate de r% décale la hauteur perçue de log₂(1+r/100) octaves, soit (1200 × log₂(1+r/100)) cents. À 6%, c'est ~1 demi-ton (≈100 cents). À 3%, c'est ~0.5 demi-ton (≈50 cents).
 
 **Just-Noticeable Difference (JND) pour la hauteur :**
-Pour des oreilles entraînées sur des notes tenues, le JND de hauteur est d'environ 10 cents (0.5%) en conditions de laboratoire. En pratique, les kicks et les transitoires masquent les shifts jusqu'à 3% : l'enveloppe percussive domine le contenu spectral, cachant les déviations sub-demi-ton. Le matériel mélodique (pads tenus, voix, piano) a un JND d'environ 20–30 cents en conditions acoustiques club — soit ~1.7% devient audible sur des tracks mélodiques.
+Pour des oreilles entraînées sur des notes tenues, le JND de hauteur est d'environ 10 cents (0.5%) en conditions de laboratoire. En pratique, les kicks et les transitoires masquent les shifts jusqu'à 3% : l'enveloppe percussive domine le contenu spectral, cachant les déviations sub-demi-ton. Ce masquage ne vaut que pour une track seule : superpose deux basses ou mélodies et elles battent l'une contre l'autre dès environ 10–15 cents d'écart, soit environ 1 % de différence de pitch. Le matériel mélodique (pads tenus, voix, piano) a un JND d'environ 20–30 cents en conditions acoustiques club — soit ~1.7% devient audible sur des tracks mélodiques.
 
 **Conséquence pratique :** le plafond de pitch shift sûr n'est pas universel — il dépend de la track. Une loop de techno minimale percussive : jusqu'à ±6% passe en général. Un pad vocal choral : ±2% avant artefacts. Apprends à classer tes tracks sur cet axe avant d'acheter.
 

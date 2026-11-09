@@ -9,7 +9,7 @@ recap = [
   "Signal chain order: source → TRIM → EQ → volume fader → crossfader → master output.",
   "LUFS measures perceived loudness (weighted like the ear). dBFS measures raw digital peak. A -8 LUFS track and a -14 LUFS track can both peak at -0.1 dBFS.",
   "Streaming targets: Spotify -14 LUFS, Tidal -14 LUFS, Apple Music -16 LUFS, EBU R128 broadcast -23 LUFS.",
-  "On the game's meter, the dotted line is the mixer's \"0\": aim for the top of the green, a few oranges on peaks, never red. That \"0\" already leaves margin before digital clipping (0 dBFS). Room acoustics is a separate matter.",
+  "On the game's meter, the dotted line is the mixer's \"0\": aim for the top of the green, a few yellow flashes on peaks, never red. That \"0\" already leaves margin before digital clipping (0 dBFS). Room acoustics is a separate matter.",
   "Fletcher-Munson: at low SPL your ears suppress lows and highs. At club SPL the response flattens — a mix calibrated at home will sound bass-heavy in the club."
 ]
 
@@ -93,7 +93,7 @@ People mix up two things under the word "headroom". Keep them apart.
 - **Inter-sample peaks**: a sample-based meter can read -1 dBFS while the reconstructed analog wave goes above full scale (about +1 dBTP in bad cases). The meter does not show it.
 - **Summing**: while two decks overlap, and with any EQ boost, the levels add up before the master.
 
-This is why the "0" of a DJ mixer is placed *below* 0 dBFS. On the game's meter, the **dotted line is that "0"**, the border between green and yellow. The rule: aim for the top of the green, a few oranges on the loudest peaks, **never red**.
+This is why the "0" of a DJ mixer is placed *below* 0 dBFS. On the game's meter, the **dotted line is that "0"**, the border between green and yellow. The rule: aim for the top of the green, a few yellow flashes on the loudest peaks, **never red**.
 
 ### 2. Room acoustics: what you hear is not what the mixer sends
 
@@ -102,7 +102,7 @@ Standing waves make some bass notes add up and others cancel depending on where 
 ## Practical implementation
 
 - Trim each track so the peaks reach the **dotted line** on the channel meter during the drop.
-- Keep the master meter in the green with a few oranges at most during the loudest passages.
+- Keep the master meter in the green with a few yellow flashes at most during the loudest passages.
 - If your channels sit on the dotted line but the master is much higher, something in the summing is adding gain: check the overlap of your faders and your EQ boosts.
 """
 
@@ -222,7 +222,7 @@ recap = [
   "Ordre de la chaîne de signal : source → TRIM → EQ → fader de volume → crossfader → sortie master.",
   "Le LUFS mesure la loudness perçue (pondérée comme l'oreille). Le dBFS mesure le pic numérique brut. Une track à -8 LUFS et une à -14 LUFS peuvent toutes les deux crêter à -0,1 dBFS.",
   "Cibles streaming : Spotify -14 LUFS, Tidal -14 LUFS, Apple Music -16 LUFS, broadcast EBU R128 -23 LUFS.",
-  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : vise le haut du vert, quelques oranges en crête, jamais de rouge. Ce « 0 » laisse déjà de la marge avant la saturation numérique (0 dBFS). L'acoustique de la salle est un autre sujet.",
+  "Sur le mètre du jeu, la ligne pointillée est le « 0 » de la table : vise le haut du vert, quelques flashs jaunes en crête, jamais de rouge. Ce « 0 » laisse déjà de la marge avant la saturation numérique (0 dBFS). L'acoustique de la salle est un autre sujet.",
   "Fletcher-Munson : à bas SPL tes oreilles suppriment graves et aigus. À SPL de club la réponse s'aplatit — un mix calibré à la maison sonnera chargé en basses en club."
 ]
 
@@ -306,7 +306,7 @@ On mélange deux choses sous le mot « headroom ». Garde-les séparées.
 - **Pics inter-échantillons** : un mètre basé sur les échantillons peut lire -1 dBFS alors que l'onde analogique reconstruite dépasse la pleine échelle (environ +1 dBTP dans les mauvais cas). Le mètre ne le montre pas.
 - **Sommation** : pendant que deux decks se chevauchent, et avec tout boost d'EQ, les niveaux s'additionnent avant le master.
 
-C'est pour ça que le « 0 » d'une table DJ est placé *sous* 0 dBFS. Sur le mètre du jeu, la **ligne pointillée est ce « 0 »**, la frontière entre le vert et le jaune. La règle : vise le haut du vert, quelques oranges sur les crêtes les plus fortes, **jamais de rouge**.
+C'est pour ça que le « 0 » d'une table DJ est placé *sous* 0 dBFS. Sur le mètre du jeu, la **ligne pointillée est ce « 0 »**, la frontière entre le vert et le jaune. La règle : vise le haut du vert, quelques flashs jaunes sur les crêtes les plus fortes, **jamais de rouge**.
 
 ### 2. Acoustique de salle : ce que tu entends n'est pas ce que la table envoie
 
@@ -315,7 +315,7 @@ Les ondes stationnaires font que certaines notes de basse s'additionnent et d'au
 ## Implémentation pratique
 
 - Trime chaque track pour que les pics atteignent la **ligne pointillée** sur le mètre de canal pendant le drop.
-- Garde le mètre master dans le vert, avec quelques oranges au maximum, pendant les passages les plus forts.
+- Garde le mètre master dans le vert, avec quelques flashs jaunes au maximum, pendant les passages les plus forts.
 - Si tes canaux sont sur la ligne pointillée mais que le master est bien plus haut, quelque chose dans la sommation ajoute du gain : vérifie le chevauchement de tes faders et tes boosts d'EQ.
 """
 
