@@ -87,7 +87,10 @@ La jouabilité du Beatmatching est bonne ; les autres ateliers ont de bonnes id�
 - [ ] **EQ & Faders**
 - [ ] **Harmonies**
 - [ ] **FX**
-- [ ] **Digging**, avec un nouveau type de niveau : **validation par URL Discogs**
+- [ ] **Digging** : **un niveau de pratique par source** (demande du 9 nov.) — le joueur va chercher un morceau précis et colle son URL ; validation sur l'identifiant contenu dans l'URL :
+  - YouTube (`v=` / `youtu.be/<id>`), Discogs (plusieurs niveaux : `/release/<id>`, `/master/<id>`), Bandcamp (`<artiste>.bandcamp.com/track/<slug>`), Beatport (`/track/<slug>/<id>`) ; autres sources à étudier
+  - leçons associées : comment chercher sur chaque source (filtres, labels, années…)
+- [ ] (idée d'origine) **validation par URL Discogs**
   - le joueur fouille Discogs (filtres, labels, années…) et colle l'URL du disque attendu
   - validation sans API : on extrait l'identifiant de l'URL (`/release/123`, `/master/456`), une ou plusieurs bonnes réponses acceptées
   - `[?]` accepter release *et* master ? plusieurs pressages ? afficher la pochette après réussite (demanderait l'API Discogs)
