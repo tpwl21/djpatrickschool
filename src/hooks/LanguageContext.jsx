@@ -20,7 +20,8 @@ export const LanguageProvider = ({ children }) => {
 
   const dictionary = language === 'en' ? en : fr;
 
-  const t = (key) => {
+  // vars : remplace les {nom} du texte, ex. t('tiers.door', { tier: 'Medium' })
+  const t = (key, vars) => {
     const keys = key.split('.');
     let result = dictionary;
     for (const k of keys) {
@@ -30,7 +31,9 @@ export const LanguageProvider = ({ children }) => {
       }
       result = result[k];
     }
-    return result;
+    return vars && typeof result === 'string'
+      ? result.replace(/\{(\w+)\}/g, (m, name) => (vars[name] ?? m))
+      : result;
   };
 
   return (

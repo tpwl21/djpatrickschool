@@ -1,29 +1,13 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
-const STORAGE_KEY = 'dj_teacher_difficulty';
 const VALID = new Set(['EASY', 'MEDIUM', 'PRO']);
 
 const DifficultyContext = createContext();
 
+// Palier en cours de jeu (EASY / MEDIUM / PRO). Ce n'est plus un réglage global du joueur :
+// App le déduit de la route (palier de la leçon / du niveau ouvert), donc rien en localStorage.
 export function DifficultyProvider({ children }) {
-  const [difficulty, setDifficultyState] = useState(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return VALID.has(raw) ? raw : 'EASY';
-    } catch {
-      return 'EASY';
-    }
-  });
-
-  useEffect(() => {
-    const onStorage = (e) => {
-      if (e.key === STORAGE_KEY && VALID.has(e.newValue)) {
-        setDifficultyState(e.newValue);
-      }
-    };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, []);
+  const [difficulty, setDifficultyState] = useState('EASY');
 
   // Sync the ambiance theme to the <html> element so CSS tokens in theme.css
   // can react globally. SecretBooth overrides this locally via a wrapper.
@@ -32,15 +16,9 @@ export function DifficultyProvider({ children }) {
     document.documentElement.dataset.theme = difficulty.toLowerCase();
   }, [difficulty]);
 
-  const setDifficulty = (value) => {
-    if (!VALID.has(value)) return;
-    setDifficultyState(value);
-    try {
-      localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      /* ignore */
-    }
-  };
+  const setDifficulty = useCallback((value) => {
+    if (VALID.has(value)) setDifficultyState(value);
+  }, []);
 
   return (
     <DifficultyContext.Provider value={[difficulty, setDifficulty]}>

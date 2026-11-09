@@ -12,6 +12,8 @@ const SecretBooth = lazy(() => import('./workshops/SecretBooth'));
 import LessonLevel from './workshops/LessonLevel';
 import LoadingLabel from './components/LoadingLabel';
 import { useDifficulty } from './hooks/useDifficulty.jsx';
+import { TIERS, currentTier, unlockedTiers } from './lib/progression';
+import { TierNavContext } from './hooks/useTierNav';
 import { workshops, getWorkshop, getLevelByOrder, getLessonByOrder, getLessonVariant } from './lib/levels/load';
 
 const PROGRESSION_KEY = 'dj_teacher_progression_v3';
@@ -91,8 +93,9 @@ function parseHash() {
   if (parts.length >= 3 && parts[1] === 'lesson') {
     const workshopId = parts[0];
     const lessonOrder = parseInt(parts[2], 10);
+    const difficulty = TIERS.includes(parts[3]) ? parts[3] : 'EASY';
     if (getWorkshop(workshopId) && !Number.isNaN(lessonOrder)) {
-      return { view: 'lesson', workshopId, lessonOrder };
+      return { view: 'lesson', workshopId, lessonOrder, difficulty };
     }
   }
 
@@ -100,7 +103,7 @@ function parseHash() {
   if (parts.length >= 2) {
     const workshopId = parts[0];
     const levelOrder = parseInt(parts[1], 10);
-    const difficulty = parts[2] || 'EASY';
+    const difficulty = TIERS.includes(parts[2]) ? parts[2] : 'EASY';
     if (getWorkshop(workshopId) && !Number.isNaN(levelOrder)) {
       return { view: 'level', workshopId, levelOrder, difficulty };
     }
@@ -114,7 +117,10 @@ function routeToHash(route) {
     case 'home': return '/';
     case 'booth': return '/booth';
     case 'workshop_home': return `/workshop/${route.workshopId}`;
-    case 'lesson': return `/${route.workshopId}/lesson/${route.lessonOrder}`;
+    case 'lesson':
+      return route.difficulty && route.difficulty !== 'EASY'
+        ? `/${route.workshopId}/lesson/${route.lessonOrder}/${route.difficulty}`
+        : `/${route.workshopId}/lesson/${route.lessonOrder}`;
     case 'level':
       return route.difficulty && route.difficulty !== 'EASY'
         ? `/${route.workshopId}/${route.levelOrder}/${route.difficulty}`
@@ -175,6 +181,17 @@ function App() {
   const [pendingNext, setPendingNext] = useState(null); // { workshopId, order, difficulty }
   const [difficulty, setDifficulty] = useDifficulty();
 
+  // Le palier joué donne l'ambiance (la nuit tombe) : celui de la route en leçon/niveau,
+  // le palier atteint sur la page d'un atelier, le jour sur l'accueil.
+  // shortcut: une URL tapée à la main peut ouvrir un palier pas encore débloqué ; pas de garde tant que c'est un jeu sans enjeu.
+  useEffect(() => {
+    const ws = route.workshopId ? getWorkshop(route.workshopId) : null;
+    const tier = route.view === 'level' || route.view === 'lesson' ? route.difficulty
+      : route.view === 'workshop_home' && ws ? currentTier(ws, unlockedOrder[route.workshopId])
+      : 'EASY';
+    setDifficulty(tier);
+  }, [route, unlockedOrder, setDifficulty]);
+
   useEffect(() => {
     window.location.hash = routeToHash(route);
   }, [route]);
@@ -207,19 +224,20 @@ function App() {
   }, []);
 
   const startLevel = useCallback((workshopId, levelOrder, diff = 'EASY') => {
-    setDifficulty(diff);
+    setDifficulty(diff); // même lot que la route : le niveau monte directement au bon palier
     setRoute({ view: 'level', workshopId, levelOrder, difficulty: diff });
     setRetryKey(0);
     setIsGraduated(false);
     setPendingNext(null);
   }, [setDifficulty]);
 
-  const startLesson = useCallback((workshopId, lessonOrder) => {
-    setRoute({ view: 'lesson', workshopId, lessonOrder });
+  const startLesson = useCallback((workshopId, lessonOrder, diff = 'EASY') => {
+    setDifficulty(diff);
+    setRoute({ view: 'lesson', workshopId, lessonOrder, difficulty: diff });
     setRetryKey(0);
     setIsGraduated(false);
     setPendingNext(null);
-  }, []);
+  }, [setDifficulty]);
 
   const unlockNext = useCallback((workshopId, completedOrder, completedDifficulty) => {
     setUnlockedOrder((prev) => {
@@ -288,14 +306,14 @@ function App() {
 
   const handleNextLesson = useCallback(() => {
     if (route.view !== 'lesson') return;
-    const { workshopId, lessonOrder } = route;
+    const { workshopId, lessonOrder } = route; // route.difficulty : palier en cours
     const workshop = getWorkshop(workshopId);
     if (!workshop) return;
     if (lessonOrder >= workshop.lessonsList.length) {
       goWorkshop(workshopId);
       return;
     }
-    startLesson(workshopId, lessonOrder + 1);
+    startLesson(workshopId, lessonOrder + 1, route.difficulty);
   }, [route, goWorkshop, startLesson]);
 
   const startPendingLevel = useCallback(() => {
@@ -324,6 +342,7 @@ function App() {
         lessons: Math.max(1, ws.lessonsList?.length || 1),
         completedLessons: {},
         completedPractice: {},
+        unlockedAll: true, // mot de passe du coffre : tous les paliers ouverts
       };
     }
     setUnlockedOrder(all);
@@ -367,11 +386,11 @@ function App() {
     }
     return (
       <LessonRoute
-        key={`${route.workshopId}-lesson-${route.lessonOrder}-${difficulty}-${retryKey}`}
+        key={`${route.workshopId}-lesson-${route.lessonOrder}-${route.difficulty}-${retryKey}`}
         workshop={workshop}
         workshopId={route.workshopId}
         order={route.lessonOrder}
-        difficulty={difficulty}
+        difficulty={route.difficulty}
         retryKey={retryKey}
         onNextLevel={handleNextLesson}
         onRetry={handleRetry}
@@ -383,10 +402,18 @@ function App() {
 
   const pendingLevelObj = pendingNext ? getLevelByOrder(pendingNext.workshopId, pendingNext.order) : null;
   const pendingWorkshop = pendingNext ? getWorkshop(pendingNext.workshopId) : null;
-  const pendingIsBeatmatching = pendingWorkshop?.meta?.kind === 'beatmatching';
+
+  // Sélecteur de palier de l'en-tête (leçon / niveau) : paliers ouverts dans cet atelier, et on rejoue au palier choisi
+  const navWs = (route.view === 'level' || route.view === 'lesson') ? getWorkshop(route.workshopId) : null;
+  const tierNav = navWs ? {
+    unlocked: unlockedTiers(navWs, unlockedOrder[route.workshopId]),
+    pick: (tier) => (route.view === 'level'
+      ? startLevel(route.workshopId, route.levelOrder, tier)
+      : startLesson(route.workshopId, route.lessonOrder, tier)),
+  } : null;
 
   return (
-    <>
+    <TierNavContext.Provider value={tierNav}>
       <ThemeTransition />
       {route.view === 'home' && (
         <Home
@@ -415,9 +442,11 @@ function App() {
           <SecretBooth onBack={goHome} />
         )}
 
-        {route.view === 'level' && renderLevel()}
+        {/* les ateliers lisent leurs règles au montage : on attend que le palier du contexte soit celui de la route
+            (URL ouverte directement, retour arrière) */}
+        {route.view === 'level' && difficulty === route.difficulty && renderLevel()}
       </Suspense>
-      {route.view === 'lesson' && renderLesson()}
+      {route.view === 'lesson' && difficulty === route.difficulty && renderLesson()}
 
       {isGraduated && (
         <GraduationPopup difficulty={route.difficulty} onBackHome={goHome} />
@@ -428,15 +457,14 @@ function App() {
           <LevelPopup
             workshopMeta={pendingWorkshop?.meta}
             level={pendingLevelObj}
-            difficulty={pendingIsBeatmatching ? pendingNext.difficulty : null}
-            requireDifficulty={pendingIsBeatmatching}
+            difficulty={pendingNext.difficulty}
             onCancel={goHome}
             onStart={startPendingLevel}
           />
         )}
       </AnimatePresence>
 
-    </>
+    </TierNavContext.Provider>
   );
 }
 

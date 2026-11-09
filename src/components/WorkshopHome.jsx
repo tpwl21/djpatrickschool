@@ -12,13 +12,15 @@ import LanguageSwitcher from './LanguageSwitcher';
 import Glyph from './Glyph';
 import { inkOn } from '../utils/color';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { TIERS, unlockedTiers, isUnlockedIn, isDoneIn } from '../lib/progression';
 
 
 const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 }, onStart, onStartLesson, onBack }) => {
   const { language, t } = useContext(LanguageContext);
   const workshop = getWorkshop(workshopId);
-  const [difficulty, setDifficulty] = useDifficulty();
+  const [, setDifficulty] = useDifficulty();
   const [selectedLevel, setSelectedLevel] = useState(null);
+  const [viewTier, setViewTier] = useState(null); // palier affiché (par défaut : le plus haut débloqué)
   // titre d'onglet (avant tout return anticipé : règle des hooks)
   useDocumentTitle(workshop ? pickText(workshop.meta, language)?.title : t('notFound.title'));
 
@@ -38,12 +40,19 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
   const shortDesc = metaText?.short_desc;
   const longDesc = metaText?.long_desc;
   const objectives = metaText?.objectives || [];
-  const isBeatmatching = meta.kind === 'beatmatching';
-
-  const unlockedPractice = typeof unlockedOrder === 'object' ? (unlockedOrder.practice || 1) : unlockedOrder;
-  const unlockedLessons = typeof unlockedOrder === 'object' ? (unlockedOrder.lessons || 1) : 1;
   const completedLessons = unlockedOrder.completedLessons || [];
   const completedPractice = unlockedOrder.completedPractice || {};
+
+  const tiers = unlockedTiers(workshop, unlockedOrder);
+  const tier = tiers.includes(viewTier) ? viewTier : tiers.at(-1);
+  const tierName = (k) => DIFFICULTY_SETTINGS[k].name;
+  const pickTier = (k) => { setViewTier(k); setDifficulty(k); }; // l'ambiance suit le palier regardé
+  // Porte vers le palier suivant, tant qu'il n'est pas ouvert : ce qu'il reste à finir dans celui-ci
+  const nextTier = TIERS[TIERS.indexOf(tier) + 1];
+  const showDoor = nextTier && !tiers.includes(nextTier);
+  const doorDone = lessonsList.filter((l) => isDoneIn(unlockedOrder, 'lesson', l.order, tier)).length
+    + levelsList.filter((l) => isDoneIn(unlockedOrder, 'level', l.order, tier)).length;
+  const doorTotal = lessonsList.length + levelsList.length;
 
   return (
     <div className="workshop-home-container" style={{ '--wh-color': color, '--wh-ink': inkOn(color), '--primary': color }}>
@@ -52,7 +61,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           <button className="btn-crayon wh-back-btn" onClick={onBack}>← {t('workshop.menu')}</button>
           <LanguageSwitcher />
         </div>
-        <DifficultySwitcher mini={true} />
+        <DifficultySwitcher mini={true} unlocked={tiers} value={tier} onPick={pickTier} />
       </div>
 
       <motion.div
@@ -93,12 +102,12 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
             </div>
             <div className="wh-levels-grid">
               {lessonsList.map((lesson) => {
-                const isLocked = lesson.order > unlockedLessons;
+                const isLocked = !isUnlockedIn(unlockedOrder, 'lesson', lesson.order, tier);
                 // completedLessons is { [order]: ['EASY', 'MEDIUM', ...] }
                 const lessonDiffs = Array.isArray(completedLessons)
                   ? (completedLessons.includes(lesson.order) ? ['MEDIUM'] : [])
                   : (completedLessons[lesson.order] || []);
-                const isDone = lessonDiffs.length > 0;
+                const isDone = isDoneIn(unlockedOrder, 'lesson', lesson.order, tier);
                 const lesText = pickText(lesson, language);
                 const lessonTitle = lesText?.title;
                 const lessonDesc = lesText?.short_desc || lesText?.description;
@@ -107,7 +116,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
                     key={lesson.id}
                     className={`wh-level-card lesson-card ${isLocked ? 'locked' : ''} ${isDone ? 'done' : ''}`}
                     whileHover={!isLocked ? { scale: 1.03, rotate: -1 } : {}}
-                    onClick={() => !isLocked && onStartLesson(workshopId, lesson.order)}
+                    onClick={() => !isLocked && onStartLesson(workshopId, lesson.order, tier)}
                     disabled={isLocked}
                   >
                     <div className="wh-level-num">{isLocked ? <Glyph name="lock" label={language === 'fr' ? 'Verrouillé' : 'Locked'} /> : `L${lesson.order}`}</div>
@@ -140,15 +149,16 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
 
           <div className="wh-levels-grid">
             {levelsList.map((level) => {
-              const isLocked = level.order > unlockedPractice;
+              const isLocked = !isUnlockedIn(unlockedOrder, 'level', level.order, tier);
               const diffs = completedPractice[level.order] || [];
+              const isDone = isDoneIn(unlockedOrder, 'level', level.order, tier);
               const lvlText = pickText(level, language);
               const levelTitle = lvlText?.title;
               const levelDesc = lvlText?.short_desc || lvlText?.description;
               return (
                 <motion.button
                   key={level.id}
-                  className={`wh-level-card ${isLocked ? 'locked' : ''} ${diffs.length > 0 ? 'done' : ''}`}
+                  className={`wh-level-card ${isLocked ? 'locked' : ''} ${isDone ? 'done' : ''}`}
                   whileHover={!isLocked ? { scale: 1.03, rotate: -1 } : {}}
                   onClick={() => !isLocked && setSelectedLevel(level)}
                   disabled={isLocked}
@@ -172,6 +182,20 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
             })}
           </div>
         </div>
+
+        {showDoor && (
+          <div className="wh-door" style={{ '--door-color': DIFF_COLORS[nextTier] }}>
+            <Glyph name="lock" size="1.6em" />
+            <div>
+              <div className="wh-door-title">{t('tiers.door', { tier: tierName(nextTier) })}</div>
+              <div className="wh-door-hint">{t('tiers.lockedHint', { tier: tierName(nextTier), prev: tierName(tier) })}</div>
+              <div className="wh-door-progress">
+                <span style={{ width: `${(doorDone / Math.max(1, doorTotal)) * 100}%` }} />
+              </div>
+              <div className="wh-door-count">{t('tiers.doorProgress', { done: doorDone, total: doorTotal, prev: tierName(tier) })}</div>
+            </div>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
@@ -179,15 +203,25 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           <LevelPopup
             workshopMeta={meta}
             level={selectedLevel}
-            difficulty={isBeatmatching ? difficulty : null}
-            requireDifficulty={isBeatmatching}
+            difficulty={tier}
             onCancel={() => setSelectedLevel(null)}
-            onStart={() => onStart(workshopId, selectedLevel.order, isBeatmatching ? difficulty : 'EASY')}
+            onStart={() => onStart(workshopId, selectedLevel.order, tier)}
           />
         )}
       </AnimatePresence>
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .wh-door {
+          display: flex; align-items: center; gap: 16px;
+          margin-top: 28px; padding: 16px 20px;
+          border: 3px dashed var(--door-color); border-radius: 18px;
+          background: color-mix(in srgb, var(--door-color) 10%, transparent);
+        }
+        .wh-door-title { font-weight: 900; font-size: 1.1rem; }
+        .wh-door-hint { color: var(--text-muted); font-size: 0.9rem; margin: 2px 0 8px; }
+        .wh-door-progress { height: 10px; border: 2px solid var(--border-strong, #333); border-radius: 6px; overflow: hidden; max-width: 320px; }
+        .wh-door-progress span { display: block; height: 100%; background: var(--door-color); }
+        .wh-door-count { font-size: 0.8rem; font-weight: 900; margin-top: 4px; color: var(--text-muted); }
         .workshop-home-container {
           background: var(--surface-solid, #fff);
           color: var(--text, #333);

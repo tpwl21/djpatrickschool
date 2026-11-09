@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
 import { LanguageContext } from '../hooks/LanguageContext';
-import { useDifficulty } from '../hooks/useDifficulty.jsx';
+import { TIERS, unlockedTiers, isUnlockedIn, isDoneIn } from '../lib/progression';
 import { workshopsList } from '../lib/levels/load';
 import { t as pickText } from '../lib/levels/schema';
 import coachImg from '../assets/coach_patrick.webp';
@@ -22,6 +22,7 @@ import CrateIcon from './CrateIcon';
 import HarmonyIcon from './HarmonyIcon';
 import CrowdIcon from './CrowdIcon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import Glyph from './Glyph';
 
 const VAULT_ITEMS = [
   {
@@ -71,15 +72,12 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
     for (const ws of workshopsList) {
       if (ws.meta.forthcoming) continue;
       const p = unlockedOrder[ws.meta.id] || {};
-      const lessonsUnlock = typeof p === 'object' ? (p.lessons || 1) : 1;
-      const practiceUnlock = typeof p === 'object' ? (p.practice || 1) : p;
-      const doneLessons = p.completedLessons || {};
-      const donePractice = p.completedPractice || {};
-      const lessonDone = (o) => (Array.isArray(doneLessons) ? doneLessons.includes(o) : (doneLessons[o] || []).length > 0);
-      const les = (ws.lessonsList || []).find((l) => l.order <= lessonsUnlock && !lessonDone(l.order));
-      if (les) return { kind: 'lesson', ws, item: les };
-      const lvl = (ws.levelsList || []).find((l) => l.order <= practiceUnlock && !(donePractice[l.order] || []).length);
-      if (lvl) return { kind: 'level', ws, item: lvl };
+      const tier = unlockedTiers(ws, p).at(-1);
+      const open = (kind) => (l) => isUnlockedIn(p, kind, l.order, tier) && !isDoneIn(p, kind, l.order, tier);
+      const les = (ws.lessonsList || []).find(open('lesson'));
+      if (les) return { kind: 'lesson', ws, item: les, tier };
+      const lvl = (ws.levelsList || []).find(open('level'));
+      if (lvl) return { kind: 'level', ws, item: lvl, tier };
     }
     return null;
   })();
@@ -87,8 +85,8 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
     && (Object.keys(p.completedLessons || {}).length || Object.keys(p.completedPractice || {}).length));
   const startNext = () => {
     if (!nextStep) return;
-    if (nextStep.kind === 'lesson') onStartLesson(nextStep.ws.meta.id, nextStep.item.order);
-    else onStartLevel(nextStep.ws.meta.id, nextStep.item.order, difficulty);
+    if (nextStep.kind === 'lesson') onStartLesson(nextStep.ws.meta.id, nextStep.item.order, nextStep.tier);
+    else onStartLevel(nextStep.ws.meta.id, nextStep.item.order, nextStep.tier);
   };
   const [secretCode, setSecretCode] = useState('');
   const [vaultFeedback, setVaultFeedback] = useState('');
@@ -138,7 +136,6 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
     ctx.init().catch((e) => console.warn('Audio accueil indisponible', e));
     return ctx;
   });
-  const [difficulty, setDifficulty] = useDifficulty();
 
   const [hoveredDescription, setHoveredDescription] = useState(t('home.welcome'));
   const [currentCoachImg, setCurrentCoachImg] = useState(coachImg);
@@ -146,12 +143,6 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
   useEffect(() => {
     setHoveredDescription(t('home.welcome'));
   }, [language]);
-
-  const difficultyInfo = {
-    EASY: t('home.difficultyInfo.EASY'),
-    MEDIUM: t('home.difficultyInfo.MEDIUM'),
-    PRO: t('home.difficultyInfo.PRO')
-  };
 
   const difficultyImages = {
     EASY: easyImg,
@@ -229,33 +220,13 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
             >
               <span className="continue-cta-label">{hasProgress ? t('home.continue.resume') : t('home.continue.start')} →</span>
               <span className="continue-cta-sub">
-                {pickText(nextStep.ws.meta, language)?.title} · {nextStep.kind === 'lesson' ? `${t('lesson.lessonLabel')} ${nextStep.item.order}` : `${t('home.popup.level')} ${nextStep.item.order}`} : {pickText(nextStep.item, language)?.title}
+                {pickText(nextStep.ws.meta, language)?.title}{nextStep.tier !== 'EASY' && ` · ${DIFFICULTY_SETTINGS[nextStep.tier].name}`} · {nextStep.kind === 'lesson' ? `${t('lesson.lessonLabel')} ${nextStep.item.order}` : `${t('home.popup.level')} ${nextStep.item.order}`} : {pickText(nextStep.item, language)?.title}
               </span>
             </motion.button>
           )}
         </div>
 
         <div className="nav-section">
-          <div className="difficulty-row">
-            {Object.entries(DIFFICULTY_SETTINGS).map(([key, setting]) => (
-              <button
-                key={key}
-                className={`diff-btn ${difficulty === key ? 'active' : ''}`}
-                onClick={() => setDifficulty(key)}
-                onMouseEnter={() => {
-                  setHoveredDescription(`${setting.name} : ${difficultyInfo[key]}`);
-                  setCurrentCoachImg(difficultyImages[key]);
-                }}
-                onMouseLeave={() => {
-                  setCurrentCoachImg(coachImg);
-                  setHoveredDescription(t('home.welcome'));
-                }}
-              >
-                {setting.name}
-              </button>
-            ))}
-          </div>
-
           <div className="categories-container">
             <h2>{t('home.workshopsTitle')}</h2>
             {workshopsList.map((ws) => {
@@ -266,10 +237,14 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
               const title = metaText?.title;
               const shortDesc = metaText?.short_desc;
               const wsProgress = unlockedOrder[id] || { practice: 1, lessons: 1 };
-              const workshopUnlock = typeof wsProgress === 'object' ? (wsProgress.practice || 1) : wsProgress;
-              const lessonsUnlock = typeof wsProgress === 'object' ? (wsProgress.lessons || 1) : 1;
               const completedLessons = wsProgress.completedLessons || {};
               const completedPractice = wsProgress.completedPractice || {};
+              // Paliers : la rangée montre le palier atteint ; les paliers finis se replient en une pastille ✓,
+              // et une « porte » au bout annonce le palier suivant tant qu'il est fermé.
+              const tiers = unlockedTiers(ws, wsProgress);
+              const tier = tiers.at(-1);
+              const nextTier = TIERS[TIERS.indexOf(tier) + 1];
+              const tierName = (k) => DIFFICULTY_SETTINGS[k].name;
               const hasLevels = !meta.forthcoming && levelsList.length > 0;
               const hasLessons = !meta.forthcoming && ws.lessonsList?.length > 0;
 
@@ -295,6 +270,12 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                       ) : title}
                     </h3>
                     {meta.forthcoming && <span className="tag-soon">{t('home.soon')}</span>}
+                    {/* paliers finis : pastille ✓ à côté du titre (la rangée garde la place pour les tuiles et la porte) */}
+                    {tiers.slice(0, -1).map((k) => (
+                      <span key={k} className="tier-chip" style={{ '--tier-color': DIFF_COLORS[k] }} title={t('tiers.replay', { tier: tierName(k) })}>
+                        {k[0]} ✓
+                      </span>
+                    ))}
                   </div>
                   {hasLevels || hasLessons ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -303,11 +284,11 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                         <div className="levels-row" style={{ alignItems: 'center' }}>
                           <BookIcon color={color} style={{ marginRight: '10px', transform: 'scale(0.75)', transformOrigin: 'left center' }} />
                           {ws.lessonsList.map((les) => {
-                            const isLocked = les.order > lessonsUnlock;
+                            const isLocked = !isUnlockedIn(wsProgress, 'lesson', les.order, tier);
                             const lessonDiffs = Array.isArray(completedLessons)
                               ? (completedLessons.includes(les.order) ? ['MEDIUM'] : [])
                               : (completedLessons[les.order] || []);
-                            const isDone = lessonDiffs.length > 0;
+                            const isDone = isDoneIn(wsProgress, 'lesson', les.order, tier);
                             const lesText = pickText(les, language);
                             const lesTitle = lesText?.title;
                             const lesDesc = lesText?.short_desc || lesText?.description;
@@ -324,7 +305,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   if (isLocked) setHoveredDescription(lesHint);
-                                  else onStartLesson(id, les.order);
+                                  else onStartLesson(id, les.order, tier);
                                 }}
                                 onMouseEnter={(e) => {
                                   e.stopPropagation();
@@ -333,7 +314,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                 onFocus={() => setHoveredDescription(lesInfo)}
                                 title={isLocked ? lesHint : lesTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
-                                style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative' }}
+                                style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative', '--tier-color': DIFF_COLORS[tier] }}
                               >
                                 {isLocked ? '?' : `L${les.order}`}
                                 {lessonDiffs.length > 0 && (
@@ -370,8 +351,9 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                             <CrowdIcon color={color} style={{ marginRight: '20px', transform: 'scale(0.85)' }} />
                           )}
                           {levelsList.map((lvl) => {
-                            const isLocked = lvl.order > workshopUnlock;
+                            const isLocked = !isUnlockedIn(wsProgress, 'level', lvl.order, tier);
                             const diffs = completedPractice[lvl.order] || [];
+                            const isDone = isDoneIn(wsProgress, 'level', lvl.order, tier);
                             const lvlText = pickText(lvl, language);
                             const lvlTitle = lvlText?.title;
                             const lvlDesc = lvlText?.short_desc || lvlText?.description;
@@ -387,7 +369,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   if (isLocked) setHoveredDescription(lvlHint);
-                                  else onStartLevel(id, lvl.order, difficulty);
+                                  else onStartLevel(id, lvl.order, tier);
                                 }}
                                 onMouseEnter={(e) => {
                                   e.stopPropagation();
@@ -395,7 +377,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                 }}
                                 onFocus={() => setHoveredDescription(lvlInfo)}
                                 title={isLocked ? lvlHint : lvlTitle}
-                                className={`level-btn ${isLocked ? 'locked' : ''} ${diffs.length > 0 ? 'completed' : ''}`}
+                                className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
                                 style={{
                                   display: 'flex',
                                   flexDirection: 'column',
@@ -403,6 +385,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   alignItems: 'center',
                                   gap: '2px',
                                   position: 'relative',
+                                  '--tier-color': DIFF_COLORS[tier],
                                 }}
                               >
                                 {isLocked ? '?' : (
@@ -420,6 +403,25 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                               </motion.button>
                             );
                           })}
+                          {nextTier && (() => {
+                            const hint = t('tiers.lockedHint', { tier: tierName(nextTier), prev: tierName(tier) });
+                            const show = () => { setHoveredDescription(hint); setCurrentCoachImg(difficultyImages[nextTier]); };
+                            return (
+                              <button
+                                type="button"
+                                className="level-btn tier-door"
+                                style={{ '--tier-color': DIFF_COLORS[nextTier] }}
+                                aria-disabled="true"
+                                aria-label={`${title}, ${hint}`}
+                                title={hint}
+                                onClick={(e) => { e.stopPropagation(); show(); }}
+                                onMouseEnter={(e) => { e.stopPropagation(); show(); }}
+                                onFocus={show}
+                              >
+                                <Glyph name="lock" size="0.9em" />{nextTier[0]}
+                              </button>
+                            );
+                          })()}
                         </div>
                       )}
                     </div>
@@ -716,6 +718,22 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
         }
         .level-btn:hover:not(.locked) {
           transform: rotate(-3deg) scale(1.1);
+        }
+        /* palier en cours : la bordure des tuiles ouvertes prend sa couleur (vert / orange / rouge) */
+        .level-btn:not(.locked):not(.tier-door) { border-color: var(--tier-color, #333); }
+        .tier-door {
+          border: 3px dashed var(--tier-color) !important;
+          color: var(--tier-color);
+          background: color-mix(in srgb, var(--tier-color) 10%, transparent) !important;
+          font-weight: 900;
+          gap: 2px;
+          cursor: help;
+        }
+        .tier-chip {
+          display: inline-flex; align-items: center; justify-content: center;
+          height: 22px; padding: 0 8px;
+          border-radius: 999px; background: var(--tier-color); color: #fff;
+          font-size: 0.7rem; font-weight: 900; white-space: nowrap;
         }
         .level-btn.locked {
           opacity: 0.3;

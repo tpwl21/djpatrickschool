@@ -23,9 +23,9 @@ src/workshops/<folder>/
 
 Hash routes parsed in `src/App.jsx` (`parseHash`): `#/`, `#/workshop/<id>`, `#/<id>/lesson/<n>`, `#/<id>/<n>[/EASY|MEDIUM|PRO]`, `#/booth`. A retry remounts the level by bumping `retryKey` in its `key`.
 
-`localStorage` keys: progression `dj_teacher_progression_v3` (App.jsx migrates older ones), difficulty `dj_teacher_difficulty` (`useDifficulty`), language `djPatrickLanguage`. Every access sits in try/catch: the game must run with storage blocked.
+`localStorage` keys: progression `dj_teacher_progression_v3` (App.jsx migrates older ones), language `djPatrickLanguage`. Every access sits in try/catch: the game must run with storage blocked.
 
-Difficulty (EASY/MEDIUM/PRO, `src/constants/difficulty.js`) changes rules in Beatmatching and mostly visuals/theme elsewhere; its redesign is an open decision (TODO.md, phase 4).
+Difficulty is a **tier progression**, not a global setting: EASY → MEDIUM → PRO unlock per workshop when every lesson and level of the previous tier is cleared. `src/lib/progression.js` derives it all from the saved completions (check: `node scripts/check-progression.mjs`). The tier lives in the route (`#/<id>/<n>/MEDIUM`, `#/<id>/lesson/<n>/PRO`); App mirrors it into `useDifficulty` (rules + theme) and `TierNavContext` (header tier switcher). What each tier changes outside Beatmatching is decided per workshop in phase 2 (TODO.md).
 
 ## Audio, animation, MIDI
 

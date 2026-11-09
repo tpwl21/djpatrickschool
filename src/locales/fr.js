@@ -1,4 +1,12 @@
 const fr = {
+  tiers: {
+    lockedHint: "Palier {tier} verrouillé : finis tout le palier {prev} de cet atelier (leçons et pratiques).",
+    door: "Palier {tier}",
+    doorProgress: "{done}/{total} réussis en {prev}",
+    doorOpen: "Palier {tier} ouvert !",
+    replay: "Palier {tier} réussi (rejouable depuis la page de l'atelier)",
+    switchTo: "Passer au palier {tier}",
+  },
   home: {
     continue: {
       start: "Commencer",
@@ -12,7 +20,7 @@ const fr = {
       unlockLevel: "Verrouillé : réussis d'abord le niveau {n}.",
       openWorkshop: "Ouvrir l'atelier"
     },
-    welcome: "Bienvenue à l'école de DJing ! Choisis ta difficulté juste au-dessus des ateliers (tu peux la changer à tout moment), puis lance-toi avec le bouton sous moi.",
+    welcome: "Bienvenue à l'école de DJing ! Chaque atelier commence en Easy ; finis-le en entier et le palier Medium s'ouvre, puis Pro. Lance-toi avec le bouton sous moi.",
     disclaimer: "Les techniques présentées ici ne sont pas des règles absolues — juste des bases pour t'aider à comprendre le métier. Pas de limite à la créativité : trouve ton propre style, casse les codes quand ça a du sens, et surtout, amuse-toi.",
     difficultyInfo: {
       EASY: "Parfait pour débuter. Tolérance généreuse, feedback visuel complet et maintien court (3s).",

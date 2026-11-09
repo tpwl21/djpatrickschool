@@ -111,17 +111,18 @@ Les leçons ont été écrites par un LLM et pas toutes relues. Objectif : du co
 
 ---
 
-## Phase 4 — Simplifier le système de difficulté `[?]`
+## Phase 4 — Difficulté = progression (décidé le 9 nov.)
 
-Constat : EASY / MEDIUM / PRO, c'est bien pour le jeu (surtout en Beatmatching), mais ça triple le contenu (3 versions par leçon) et ce n'est pas clair pour le joueur. Pistes à discuter :
+Constat : la difficulté globale ne change les règles qu'en Beatmatching, et le sélecteur global est confus.
 
-- **A. La difficulté ne touche que la pratique** (tolérance, aides visuelles, temps de maintien, comme en Beatmatching). Une seule version des leçons pour tout le monde.
-- **B. Leçon unique + encarts « Pour aller plus loin »** dépliables pour les curieux, au lieu de 3 fichiers.
-- **C. Difficulté par niveau** : on réussit un niveau, puis on débloque son « mode défi » (étoiles / badges), au lieu de choisir une difficulté globale au départ.
-
-- En PRO (« à l'oreille »), l'EQ et les FX affichent encore le visualiseur SOURCE/TARGET complet : à trancher avec le reste.
-
-On peut combiner (par exemple A + B). À trancher avant la phase 3, pour ne réécrire le contenu qu'une fois.
+**Décision :**
+- **Plus de sélecteur global.** EASY → MEDIUM → PRO deviennent des **paliers** qu'on débloque : finir tout le palier facile ouvre le palier medium, puis pro.
+- **On garde les 3 versions des leçons** : elles deviennent des leçons en plus (pas des encarts « pour aller plus loin »).
+- Même logique pour la pratique : finir les pratiques d'un palier ouvre le palier suivant ; dans un niveau, un sélecteur permet de rejouer dans un palier déjà ouvert.
+- Ce que chaque palier change dans les pratiques EQ / FX / Harmonies / Digging / Foule (dont le visualiseur en PRO) : décidé atelier par atelier pendant la refonte de la phase 2.
+- Déblocage **par atelier** : finir tout le palier facile d'un atelier (leçons + pratiques) ouvre son palier medium, etc.
+- Accueil : **rangée continue + tuile « porte »** : après le dernier niveau du palier, une porte ouvre la suite au palier suivant ; la couleur des tuiles dit le palier (vert / orange / rouge).
+- [x] Implémenter (progression, accueil, page d'atelier, sélecteur dans le niveau, thème qui suit le palier joué)
 
 ---
 

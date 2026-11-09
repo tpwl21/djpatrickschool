@@ -1,4 +1,12 @@
 const en = {
+  tiers: {
+    lockedHint: "{tier} tier locked: clear the whole {prev} tier of this workshop (lessons and practice).",
+    door: "{tier} tier",
+    doorProgress: "{done}/{total} cleared in {prev}",
+    doorOpen: "{tier} tier open!",
+    replay: "{tier} tier cleared (replay it from the workshop page)",
+    switchTo: "Switch to the {tier} tier",
+  },
   home: {
     continue: {
       start: "Start here",
@@ -12,7 +20,7 @@ const en = {
       unlockLevel: "Locked: clear level {n} first.",
       openWorkshop: "Open workshop"
     },
-    welcome: "Welcome to Patrick's DJ School! Pick your difficulty just above the workshops (you can change it anytime), then jump in with the button below me.",
+    welcome: "Welcome to Patrick's DJ School! Every workshop starts in Easy; clear all of it and the Medium tier opens, then Pro. Jump in with the button below me.",
     disclaimer: "The techniques taught here aren't absolute rules — just foundations to help you understand the craft. Creativity has no ceiling: find your own style, break the rules when it makes sense, and above all, have fun.",
     difficultyInfo: {
       EASY: "Perfect for bedroom beginners. Generous tolerance, full visual feedback, and short hold (3s).",
