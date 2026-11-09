@@ -84,7 +84,8 @@ La jouabilité du Beatmatching est bonne ; les autres ateliers ont de bonnes id�
   - progression visible vers la victoire (jauge « tiens 2 s » près des commandes)
   - **zéro scroll sur téléphone** : déjà OK pour Beatmatching (portrait), EQ 1-2, Digging, Lecture de foule ; restent EQ 3, FX, Harmonies (portrait et paysage) et Beatmatching 3/6 en paysage
 - [ ] **Beatmatching** : petits détails de synchro à corriger (à lister ensemble)
-  - relecture DJ confirmé : Pro trop facile (15 ms / 5 s, BPM encore affichés niveaux 1-6) → proposition 6 ms RMS / 32 mesures / BPM masqués ; fader ±8 % + mode fin ; pitch MIDI en 14 bits ; jog MIDI actif au niveau 8 « sans nudge » ; `difficulty.js` = config morte (les vraies valeurs sont dans `beatmatching/workshop.toml`)
+  - [x] fait le 9 nov. : Pro 10 ms / 16 mesures, BPM masqués, fader ±8 % + fin, MIDI 14 bits, jog bloqué sans nudge. Restent : fiches morceaux (`TRACKS.md`, à mesurer dans Rekordbox) puis durcir si besoin
+  - (constat initial) relecture DJ confirmé : Pro trop facile (15 ms / 5 s, BPM encore affichés niveaux 1-6) → proposition 6 ms RMS / 32 mesures / BPM masqués ; fader ±8 % + mode fin ; pitch MIDI en 14 bits ; jog MIDI actif au niveau 8 « sans nudge » ; `difficulty.js` = config morte (les vraies valeurs sont dans `beatmatching/workshop.toml`)
 - [ ] **EQ & Faders**
 - [ ] **Harmonies**
 - [ ] **FX**
@@ -107,7 +108,7 @@ Les leçons ont été écrites par un LLM et pas toutes relues. Objectif : du co
 - [ ] Relecture guidée, étape par étape, à partir de ce que tu as en tête (on avance leçon par leçon)
 - [ ] Alléger : moins de texte, plus de démonstrations, de visuels et de pratique
 - [x] Coquilles repérées : « Apprend à utiliser le fader » → « Apprends » (consigne EQ 1, FR)
-- [ ] **Relecture par 3 profils (9 nov.)** : débutant / Easy, intermédiaire / Medium, DJ confirmé / Pro + exactitude. À corriger en priorité :
+- [x] **Relecture par 3 profils (9 nov.)** — erreurs graves, contradictions, vocabulaire Easy, [fr] manquants, quiz, anecdotes et placeholders corrigés par sous-agents + relecture de contrôle (commits 4fd9435 → 0fcddc6). Restent pour la relecture dans ta voix : alléger le Pro (moins de DSP, plus de cabine), réduire les redites Easy/Medium, vérifier les URLs des sources : débutant / Easy, intermédiaire / Medium, DJ confirmé / Pro + exactitude. À corriger en priorité :
   - **Erreurs graves** : Camelot « +7 = dominante, 6 notes communes » (c'est +1 demi-ton) et cadence ii-V-I fausse (harmonies 03 medium/pro, digging levels 01-03) ; tolérances de désaccord dangereuses (« 50 cents passe ») ; passe-haut qui « garde le kick » (effets 01_medium) ; croche pointée 3/16 → 3/4 de temps (effets 02_medium) ; Key Lock / Master Tempo inversés (beatmatching 01_medium) ; sens du pitch (+ en bas sur Technics/CDJ, beatmatching 01_easy) ; DnB 140 / UKG 87 (digging 03) ; tanh = harmoniques impairs, ladder 45°/étage (effets 01_pro) ; Sabine mal calculé (eq 02_pro)
   - **Contradictions entre leçons et niveaux** : mètre -6 dB vs 0 dB (eq 02 / levels/03) ; phrase 32 temps vs « phrase de 8 temps » (beatmatching levels/04) ; distance Camelot 2 cases piège en digging L2, bonne réponse en L3 ; 4A→8A présenté comme +7 (digging levels/01) ; titres Intro/Outro inversés (beatmatching levels/06) ; Master Tempo « toujours » vs « OFF sous 16 mesures »
   - **Vocabulaire jamais expliqué en Easy** : phase, nudge/jog, crossfader, CUE (deux sens), Am/Fm (notation anglaise), +7, noire, loop roll, crate, densité
