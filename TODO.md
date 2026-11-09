@@ -84,6 +84,7 @@ La jouabilité du Beatmatching est bonne ; les autres ateliers ont de bonnes id�
   - progression visible vers la victoire (jauge « tiens 2 s » près des commandes)
   - **zéro scroll sur téléphone** : déjà OK pour Beatmatching (portrait), EQ 1-2, Digging, Lecture de foule ; restent EQ 3, FX, Harmonies (portrait et paysage) et Beatmatching 3/6 en paysage
 - [ ] **Beatmatching** : petits détails de synchro à corriger (à lister ensemble)
+  - relecture DJ confirmé : Pro trop facile (15 ms / 5 s, BPM encore affichés niveaux 1-6) → proposition 6 ms RMS / 32 mesures / BPM masqués ; fader ±8 % + mode fin ; pitch MIDI en 14 bits ; jog MIDI actif au niveau 8 « sans nudge » ; `difficulty.js` = config morte (les vraies valeurs sont dans `beatmatching/workshop.toml`)
 - [ ] **EQ & Faders**
 - [ ] **Harmonies**
 - [ ] **FX**
@@ -105,7 +106,15 @@ Les leçons ont été écrites par un LLM et pas toutes relues. Objectif : du co
 - [ ] Inventaire des leçons et de leur volume de texte
 - [ ] Relecture guidée, étape par étape, à partir de ce que tu as en tête (on avance leçon par leçon)
 - [ ] Alléger : moins de texte, plus de démonstrations, de visuels et de pratique
-- [ ] Coquilles repérées : « Apprend à utiliser le fader » → « Apprends » (consigne EQ 1, FR)
+- [x] Coquilles repérées : « Apprend à utiliser le fader » → « Apprends » (consigne EQ 1, FR)
+- [ ] **Relecture par 3 profils (9 nov.)** : débutant / Easy, intermédiaire / Medium, DJ confirmé / Pro + exactitude. À corriger en priorité :
+  - **Erreurs graves** : Camelot « +7 = dominante, 6 notes communes » (c'est +1 demi-ton) et cadence ii-V-I fausse (harmonies 03 medium/pro, digging levels 01-03) ; tolérances de désaccord dangereuses (« 50 cents passe ») ; passe-haut qui « garde le kick » (effets 01_medium) ; croche pointée 3/16 → 3/4 de temps (effets 02_medium) ; Key Lock / Master Tempo inversés (beatmatching 01_medium) ; sens du pitch (+ en bas sur Technics/CDJ, beatmatching 01_easy) ; DnB 140 / UKG 87 (digging 03) ; tanh = harmoniques impairs, ladder 45°/étage (effets 01_pro) ; Sabine mal calculé (eq 02_pro)
+  - **Contradictions entre leçons et niveaux** : mètre -6 dB vs 0 dB (eq 02 / levels/03) ; phrase 32 temps vs « phrase de 8 temps » (beatmatching levels/04) ; distance Camelot 2 cases piège en digging L2, bonne réponse en L3 ; 4A→8A présenté comme +7 (digging levels/01) ; titres Intro/Outro inversés (beatmatching levels/06) ; Master Tempo « toujours » vs « OFF sous 16 mesures »
+  - **Vocabulaire jamais expliqué en Easy** : phase, nudge/jog, crossfader, CUE (deux sens), Am/Fm (notation anglaise), +7, noire, loop roll, crate, densité
+  - **Contenu manquant** : effets 04-05 Easy (« Bientôt disponible »), Pro effets 03-05 et foule 03-05 (placeholders), `[fr]` absent de harmonies/levels/03 et digging/levels/03, `medium_addendum` jamais affiché (effets 03-05, foule 05)
+  - **Anecdotes et chiffres inventés à retirer ou sourcer** : Berghain, Villalobos, Koze, Carola, Garcia & Solberg 2019, « les études », pourcentages de foule, citations Carl Cox / Larry Heard
+  - **Pro** : trop de DSP (WSOLA, biquad…), pas assez de cabine (retour façade, passation, étiquette du warm-up, Beat FX vs Color FX, EQ/Isolator)
+  - **Métadonnées audio incohérentes** : un même MP3 a plusieurs BPM/tonalités selon les niveaux (SuperMarket, Bjork, Ensaios) → une seule source par fichier, mesurée dans Rekordbox, avec décalage du premier temps
 - [ ] Produire les 10 illustrations de leçons manquantes (`public/lesson-images/`, voir `GEMINI.md`)
 - [ ] **Vidéos YouTube** : l'intégration marche techniquement (pas de blocage sur une page statique), mais **19 des 21 vidéos des leçons n'existent pas** : identifiants inventés par le LLM (vérifié via oEmbed le 2026-11-08). Les 2 vidéos réelles sont dans `harmonies/lessons/01_pro.toml` et `02_pro.toml`, dont une hors sujet.
   - [x] court terme : champs `youtube` invalides retirés
