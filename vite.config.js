@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { execSync } from 'node:child_process'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { parse } from 'smol-toml'
@@ -22,10 +23,15 @@ function lessonMeta() {
   }
 }
 
+// Version courte du commit, affichée dans le pied des mails de retours (Patrick's Notes)
+let appVersion = 'dev'
+try { appVersion = execSync('git rev-parse --short HEAD').toString().trim() } catch { /* hors dépôt git */ }
+
 // https://vite.dev/config/
 export default defineConfig({
   base: '/djpatrickschool/',
   plugins: [lessonMeta(), react()],
+  define: { 'import.meta.env.VITE_APP_VERSION': JSON.stringify(appVersion) },
   server: {
     host: true,
     port: 5173,
