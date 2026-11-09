@@ -432,7 +432,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
         <div className="control-group">
           <h2>{t('workshop.trainB')}</h2>
           <div className="control-buttons">
-            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? '...' : t('workshop.play')}</button>
+            <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>{!isReady ? <LoadingLabel compact /> : t('workshop.play')}</button>
             <button className="btn-crayon nudge-btn" onClick={cueB}>{t('workshop.cue')}</button>
 
             {allowNudge && (

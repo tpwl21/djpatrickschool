@@ -3,9 +3,9 @@ order = 2
 
 [en]
 title       = "Spot the Subtle Trap"
-short_desc  = "Fiches visible. 4 candidates, all close. Only one truly fits."
+short_desc  = "Cards visible. 4 candidates, all close. Only one truly fits."
 description = "Harder now — all four candidates pass the obvious filters (BPM within range, not wildly wrong). The trap is in the details."
-details     = "Energy direction, Camelot distance, genre cousinage. Read the fiches and listen hard."
+details     = "Energy direction, Camelot distance, genre cousinage. Read the cards and listen hard."
 coach_tips  = [
   "Two candidates match in BPM but diverge in energy — one sustains the vibe, one kills it.",
   "Camelot +4 positions is a valid 'energy boost' for some DJs but a clash for others. Trust your ears.",

@@ -12,13 +12,13 @@ coach_tips  = [
   "Basically, you usually have a crispy snare or clap on the 2nd beat, that's your anchor!",
   "When you sync the two trains, make sure those snares hit at the exact same moment on both decks.",
   "Try dropping them totally off-beat on purpose just to hear how bad it sounds.",
-  "Use 'Drag' or 'Push' to fix those tiny drifts."
+  "Use 'Slow down' or 'Speed up' to fix those tiny drifts."
 ]
 recap = [
   "Real tracks usually hit a snare or clap on beat 2 — that's your audible anchor.",
   "When syncing, snares from both decks must land at the exact same instant.",
   "Start off-beat on purpose once to really hear what a trainwreck sounds like.",
-  "Nudge keeps working: tiny Push/Drag corrections absorb the small drifts."
+  "Nudge keeps working: tiny Slow down / Speed up corrections absorb the small drifts."
 ]
 
 [fr]

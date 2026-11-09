@@ -2,8 +2,8 @@ id = "DIGGING_LEVEL_1"
 order = 1
 
 [en]
-title       = "Read the Fiches"
-short_desc  = "Pick the right next track. Fiches visible. 3 candidates."
+title       = "Read the Cards"
+short_desc  = "Pick the right next track. Cards visible. 3 candidates."
 description = "Track A is playing. You need to load the next one. All BPMs, keys and genres are visible. One candidate is the clean follow-up. Two are traps."
 details     = "Rules: BPM within ±6%, Camelot-compatible keys, energy coherent with the moment."
 coach_tips  = [

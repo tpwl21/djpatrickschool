@@ -21,7 +21,7 @@ recap = [
 [fr]
 title       = "Crossfader"
 short_desc  = "Utilise le fader. Monte B pendant que A se termine."
-description = "Apprend à utiliser le fader. Monte le son de B lentement pendant la phrase 4 (Outro de A)."
+description = "Apprends à utiliser le fader. Monte le son de B lentement pendant la phrase 4 (Outro de A)."
 details     = "Focus : transfert d'énergie avec le fader uniquement."
 success     = "Fader ultra propre ! Une transition d'énergie parfaite."
 coach_tips  = [

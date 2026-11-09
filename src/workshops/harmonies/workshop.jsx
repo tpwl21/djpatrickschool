@@ -243,18 +243,18 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
         audioCtx={audioCtxRef.current}
         vizColor="#8E44AD"
       >
-        {/* Status HUD */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+        {/* Status HUD : rien tant qu'il n'y a rien à dire (un « — » rouge seul ne veut rien dire) */}
+        {feedback && <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
           <div style={{
             background: isOk ? '#1e8449' : '#c0392b', color: 'white',
             padding: '6px 16px', borderRadius: 12, fontSize: '0.8rem',
             fontWeight: 900, border: '2px solid #333',
             maxWidth: 560, textAlign: 'center',
           }}>
-            {feedback || '—'}
+            {feedback}
             {isOk && ` · ${holdPct}%`}
           </div>
-        </div>
+        </div>}
       </LevelHeader>
 
       {/* Deck cards row + (on laptop) Deck B controls to the right of Deck B */}

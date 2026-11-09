@@ -3,7 +3,7 @@ order = 3
 
 [en]
 title       = "Blind Ear"
-short_desc  = "No fiches. Just 4 previews. Pick with your ears."
+short_desc  = "No cards. Just 4 previews. Pick with your ears."
 description = "All the technical info is hidden. You hear 8 seconds of each candidate, then choose. Reveals come AFTER the pick, as a debrief."
 details     = "This is how 90% of professional DJ digging actually works: listen, feel, decide. The numbers come after."
 coach_tips  = [

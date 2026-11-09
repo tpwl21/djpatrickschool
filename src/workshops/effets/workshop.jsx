@@ -299,7 +299,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
             </div>
             <div className="control-buttons">
               <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady}>
-                {!isReady ? '...' : (isPlayingB ? t('workshop.running') : t('workshop.startTrainB'))}
+                {!isReady ? <LoadingLabel compact /> : (isPlayingB ? t('workshop.running') : t('workshop.startTrainB'))}
               </button>
               <button className="btn-crayon nudge-btn" onClick={cueB}>{t('workshop.cue')}</button>
             </div>

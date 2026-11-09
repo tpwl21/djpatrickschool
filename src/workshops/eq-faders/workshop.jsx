@@ -386,7 +386,7 @@ const EqLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNextLevel, on
             />
             <div className="control-buttons" style={isSmall ? { flexWrap: 'nowrap', gap: 4 } : undefined}>
               <button className="btn-crayon play-btn" onClick={playB} disabled={isPlayingB || !isReady} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
-                {!isReady ? '...' : (isPlayingB ? t('workshop.running') : t(isSmall ? 'workshop.play' : 'workshop.startTrainB'))}
+                {!isReady ? <LoadingLabel compact /> : (isPlayingB ? t('workshop.running') : t(isSmall ? 'workshop.play' : 'workshop.startTrainB'))}
               </button>
               <button className="btn-crayon nudge-btn" onClick={cueB} style={{ padding: isSmall ? '8px 10px' : undefined, fontSize: isSmall ? '0.85rem' : undefined }}>
                 {t('workshop.cue')}

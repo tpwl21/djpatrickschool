@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { LanguageContext } from '../hooks/LanguageContext';
 import PitchBlock from './PitchBlock';
+import LoadingLabel from './LoadingLabel';
 
 // Generic deck card used in workshop UIs.
 // Mirrors the organisation of SecretBooth's DeckUI:
@@ -91,7 +92,7 @@ const DeckCard = ({
           disabled={isPlaying || isLoading || disabled}
           style={{ flex: 2, background: isPlaying ? '#95a5a6' : '#2ecc71', color: '#2b2b2b', fontSize: '0.8rem', padding: '6px 10px' }}
         >
-          {isLoading ? '...' : (isPlaying ? (t('booth.controls.pause') || 'PLAYING') : (t('booth.controls.play') || 'PLAY'))}
+          {isLoading ? <LoadingLabel compact /> : (isPlaying ? (t('booth.controls.pause') || 'PLAYING') : (t('booth.controls.play') || 'PLAY'))}
         </button>
         <button
           className="btn-crayon"
