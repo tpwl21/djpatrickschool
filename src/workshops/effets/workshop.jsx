@@ -7,6 +7,7 @@ import LoopRollPads from '../../components/LoopRollPads';
 import Cinematic from '../../components/Cinematic';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
+import { useAutoStartDeckA } from '../../hooks/useAutoStartDeckA';
 import { useWinSequence } from '../../hooks/useWinSequence';
 import { useMobileDetection, useShortViewport } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
@@ -53,6 +54,7 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
   const showEq = level.ui?.show_eq !== false;
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
+  useAutoStartDeckA(audioCtx, isReady, setIsPlayingA);
   const [isPlayingB, setIsPlayingB] = useState(false);
 
   const [fxState, setFxState] = useState({
@@ -175,7 +177,6 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
   });
 
   const playA = async () => { if (audioCtx && !isPlayingA) { await audioCtx.playTrack('A'); setIsPlayingA(true); } };
-  const cueA = () => { if (audioCtx) { audioCtx.cueTrack('A', 0); setIsPlayingA(false); } };
   const playB = async () => {
     if (audioCtx && !isPlayingB) {
       const deckB = audioCtx.decks.B;
@@ -264,7 +265,6 @@ const EffetsLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext }) =>
               <button className="btn-crayon play-btn start-a-btn" onClick={playA} disabled={isPlayingA || !isReady}>
                 {!isReady ? <LoadingLabel /> : (isPlayingA ? t('workshop.running') : t('workshop.startTrainA'))}
               </button>
-              <button className="btn-crayon nudge-btn" onClick={cueA}>{t('workshop.cue')}</button>
             </div>
           </div>
 

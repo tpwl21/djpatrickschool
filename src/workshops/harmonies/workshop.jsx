@@ -5,6 +5,7 @@ import DeckCard from '../../components/DeckCard';
 import TrackBrowser from '../../components/TrackBrowser';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
+import { useAutoStartDeckA } from '../../hooks/useAutoStartDeckA';
 import { useWinSequence } from '../../hooks/useWinSequence';
 import { LanguageContext } from '../../hooks/LanguageContext';
 import AudioVisualizer from '../../components/AudioVisualizer';
@@ -57,6 +58,7 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configBPlaceholder, TRACK_LENGTH_SEC);
 
   const [isPlayingA, setIsPlayingA] = useState(false);
+  useAutoStartDeckA(audioCtx, isReady, setIsPlayingA);
   const [isPlayingB, setIsPlayingB] = useState(false);
   const [loadedB, setLoadedB] = useState(null); // track object from pool
   const [rateB, setRateB] = useState(1.0); // relative to B's native BPM
@@ -100,7 +102,6 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
     await audioCtx.playTrack('A');
     setIsPlayingA(true);
   };
-  const cueA = () => { if (audioCtx) { audioCtx.cueTrack('A', 0); setIsPlayingA(false); } };
 
   const playB = async () => {
     if (!audioCtx || isPlayingB || !loadedB) return;
@@ -268,7 +269,6 @@ const HarmoniesLevel = ({ levelId, onNextLevel, onRetry, onBack, onUnlockNext })
           isPlaying={isPlayingA}
           isLoading={!isReady}
           onPlay={playA}
-          onCue={cueA}
         />
         <DeckCard
           side="B"

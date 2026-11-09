@@ -3,6 +3,7 @@ import PitchBlock from '../../components/PitchBlock';
 import Cinematic from '../../components/Cinematic';
 import { useAnimationFrame } from '../../hooks/useAnimationFrame';
 import { useAudioDeck } from '../../hooks/useAudioDeck';
+import { useAutoStartDeckA } from '../../hooks/useAutoStartDeckA';
 import { useWinSequence } from '../../hooks/useWinSequence';
 import { useMobileDetection, useShortViewport } from '../../hooks/useMobileDetection';
 import { LanguageContext } from '../../hooks/LanguageContext';
@@ -77,6 +78,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   const isShort = useShortViewport();
   const { audioCtx, audioCtxRef, isReady, loadError } = useAudioDeck(configA, configB, TRACK_LENGTH_SEC);
   const [isPlayingA, setIsPlayingA] = useState(false);
+  useAutoStartDeckA(audioCtx, isReady, setIsPlayingA);
   const [isPlayingB, setIsPlayingB] = useState(false);
 
   const [currentPhraseA, setCurrentPhraseA] = useState(null);
