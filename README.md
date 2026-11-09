@@ -47,7 +47,7 @@ The site is available in English and French. Your progress is saved in your brow
 
 ## License
 
-Created by **DJ Patrick**. Open source and free for classes, workshops and events.
+Created by **Théophane**. Open source and free for classes, workshops and events.
 
 - **Code**: [AGPL-3.0](LICENSE). Modified versions you publish stay open source and keep the credits.
 - **Lessons, levels, Patrick and the artwork**: [CC BY-NC-SA 4.0](LICENSE-CONTENT.txt). Credit required; **commercial use needs permission**.

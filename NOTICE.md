@@ -1,6 +1,6 @@
 # DJ Patrick School: licensing
 
-Created by **DJ Patrick**. © 2026 DJ Patrick.
+Created by **Théophane**. © 2026 Théophane.
 
 DJ Patrick School is open source and made for learning. You can use it in classes, workshops and events, study it and improve it. Three rules keep the project credited and open.
 
@@ -17,7 +17,7 @@ The educational and artistic content is licensed under **Creative Commons Attrib
 - lessons, quizzes, levels and their texts (`src/workshops/**/*.toml`, `src/locales/`);
 - the Patrick illustrations, logo and drawn icons (`src/assets/`, `src/components/PatrickAvatar.jsx`, `src/components/Glyph.jsx`).
 
-- **Credit**: "DJ Patrick School, by DJ Patrick", with a link to https://github.com/tpwl21/djpatrickschool.
+- **Credit**: "DJ Patrick School, by Théophane", with a link to https://github.com/tpwl21/djpatrickschool.
 - **Non-commercial**: schools, associations, free workshops and events are welcome. **Any commercial use needs written permission**: get in touch first.
 - **Share alike**: adaptations keep this same license.
 
