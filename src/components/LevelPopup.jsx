@@ -34,7 +34,8 @@ const LevelPopup = ({ workshopMeta, level, difficulty, requireDifficulty = true,
         </div>
 
         <h1 className="popup-title">{title}</h1>
-        <p className="popup-desc">{desc}</p>
+        {/* les consignes de niveau contiennent du <strong> (contenu maison, même rendu que l'en-tête du niveau) */}
+        <p className="popup-desc" dangerouslySetInnerHTML={{ __html: desc }} />
 
         {details && (
           <div className="popup-details-box">

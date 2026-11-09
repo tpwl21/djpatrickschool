@@ -304,4 +304,6 @@ const Md = ({ children, className = '' }) => {
   );
 };
 
+// Rendu en ligne seul (gras / italique / code) pour les textes courts : récaps, bulles…
+export { Inline as MdInline };
 export default Md;

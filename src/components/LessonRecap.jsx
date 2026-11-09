@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { LanguageContext } from '../hooks/LanguageContext';
+import { MdInline } from './Md';
 
 export default function LessonRecap({ recap, title }) {
   const { t } = useContext(LanguageContext);
@@ -23,7 +24,7 @@ export default function LessonRecap({ recap, title }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 + i * 0.1 }}
           >
-            {point}
+            <MdInline text={point} />
           </motion.li>
         ))}
       </ul>

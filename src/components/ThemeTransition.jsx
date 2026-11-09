@@ -51,11 +51,18 @@ export default function ThemeTransition() {
           justify-content: center;
           opacity: 0;
           pointer-events: none;
+          visibility: hidden;
+          transition: opacity 300ms ease, visibility 0s linear 300ms;
+        }
+        /* flou seulement pendant la transition : un backdrop-filter laissé en place (même à opacité 0)
+           peut voiler toute la page sur Safari iOS */
+        .theme-transition-active {
+          opacity: 1;
+          visibility: visible;
           transition: opacity 300ms ease;
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
         }
-        .theme-transition-active { opacity: 1; }
         
         .theme-transition-content {
           display: flex;

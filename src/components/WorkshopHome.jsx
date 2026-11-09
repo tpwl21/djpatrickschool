@@ -292,8 +292,8 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           flex: 1;
           max-width: 220px;
           height: auto;
+          /* pas de mix-blend multiply : sur les fonds sombres MEDIUM/PRO il teintait Patrick d'un voile */
           filter: var(--sticker-shadow);
-          mix-blend-mode: multiply;
         }
         .wh-body {
           display: flex;
