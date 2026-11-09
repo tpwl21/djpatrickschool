@@ -1,4 +1,22 @@
 const fr = {
+  notes: {
+    button: "Notes",
+    open: "Ouvrir les notes de Patrick (retours de bêta-test)",
+    title: "Les notes de Patrick",
+    intro: "Un bug, une idée, un cours pas clair, un son bizarre ? Note-le ici, la page et ton appareil sont joints automatiquement. Tes notes restent dans ton navigateur jusqu'à ce que tu les envoies.",
+    placeholder: "Qu'est-ce que tu as remarqué ?",
+    add: "Ajouter la note",
+    delete: "Supprimer la note",
+    close: "Fermer",
+    mail: "Envoyer par mail",
+    copy: "Copier (pour Discord)",
+    copied: "Copié !",
+    clear: "Tout effacer",
+    clearConfirm: "Effacer toutes tes notes ? Pense à les envoyer avant.",
+    mailSubject: "DJ Patrick School : retours de bêta-test",
+    truncated: "(… message coupé : utilise « Copier » pour tout envoyer)",
+    cat: { lessons: "Cours", gameplay: "Jouabilité", visuals: "Graphisme", sound: "Son", other: "Autre" },
+  },
   tiers: {
     lockedHint: "Palier {tier} verrouillé : finis tout le palier {prev} de cet atelier (leçons et pratiques).",
     door: "Palier {tier}",
@@ -29,6 +47,13 @@ const fr = {
     },
     workshopsTitle: "ATELIERS DJ",
     soon: "Bientôt",
+    beyond: {
+      title: "Au-delà de l'école",
+      labTitle: "Patrick's Lab",
+      labDesc: "Fabrique en vrai le matériel du jeu : les modules, potards et faders, version hardware.",
+      marketTitle: "Patrick's Market",
+      marketDesc: "Merch et vinyles sélectionnés par Patrick.",
+    },
     mysteriesTitle: "LES MYSTÈRES DE PATRICK",
     mysterySections: [
       { title: "DJ Patrick secret tricks", desc: "Les techniques interdites." },

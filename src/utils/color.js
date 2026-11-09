@@ -10,3 +10,11 @@ export const inkOn = (bg) => {
   const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return (L + 0.05) / 0.0668 >= 1.05 / (L + 0.05) ? '#2b2b2b' : '#ffffff';
 };
+
+// Paliers dans la couleur de l'atelier (la charte reste celle de l'atelier) :
+// EASY = teinte claire, MEDIUM = couleur pleine, PRO = ombre foncée.
+export const tierColor = (color, tier) =>
+  tier === 'EASY' ? `color-mix(in srgb, ${color} 50%, #fff)`
+    : tier === 'PRO' ? `color-mix(in srgb, ${color} 60%, #000)`
+      : color;
+export const tierInk = (color, tier) => (tier === 'EASY' ? '#2b2b2b' : tier === 'PRO' ? '#ffffff' : inkOn(color));

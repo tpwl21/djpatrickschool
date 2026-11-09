@@ -4,6 +4,7 @@ import AudioVisualizer from './AudioVisualizer';
 import DifficultySwitcher from './DifficultySwitcher';
 import SoundOnIndicator from './SoundOnIndicator';
 import CoachPatrick from './CoachPatrick';
+import PatrickNotes from './PatrickNotes';
 import { inkOn } from '../utils/color';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
@@ -39,6 +40,7 @@ const LevelHeader = ({
         <h1 className="lh-title">{title}</h1>
         <div className="lh-right">
           <DifficultySwitcher mini={true} />
+          <PatrickNotes compact />
           <SoundOnIndicator />
         </div>
       </div>

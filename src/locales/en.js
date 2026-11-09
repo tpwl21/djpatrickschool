@@ -1,4 +1,22 @@
 const en = {
+  notes: {
+    button: "Notes",
+    open: "Open Patrick's notes (beta feedback)",
+    title: "Patrick's Notes",
+    intro: "A bug, an idea, an unclear lesson, a weird sound? Write it here, the page and your device are attached automatically. Your notes stay in your browser until you send them.",
+    placeholder: "What did you notice?",
+    add: "Add note",
+    delete: "Delete note",
+    close: "Close",
+    mail: "Send by email",
+    copy: "Copy (for Discord)",
+    copied: "Copied!",
+    clear: "Clear all",
+    clearConfirm: "Clear all your notes? Remember to send them first.",
+    mailSubject: "DJ Patrick School: beta feedback",
+    truncated: "(… message cut: use “Copy” to send everything)",
+    cat: { lessons: "Lessons", gameplay: "Gameplay", visuals: "Visuals", sound: "Sound", other: "Other" },
+  },
   tiers: {
     lockedHint: "{tier} tier locked: clear the whole {prev} tier of this workshop (lessons and practice).",
     door: "{tier} tier",
@@ -28,6 +46,13 @@ const en = {
       PRO: "For the heads only. Razor-thin tolerance, absolutely zero visual feedback. 5s hold or bust."
     },
     workshopsTitle: "DJ WORKSHOPS",
+    beyond: {
+      title: "Beyond the school",
+      labTitle: "Patrick's Lab",
+      labDesc: "Build the game's gear for real: its modules, knobs and faders, as hardware.",
+      marketTitle: "Patrick's Market",
+      marketDesc: "Merch and records picked by Patrick.",
+    },
     soon: "Dropping soon",
     mysteriesTitle: "PATRICK'S VAULT",
     mysterySections: [

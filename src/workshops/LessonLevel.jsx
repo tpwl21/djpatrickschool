@@ -8,6 +8,7 @@ import CamelotMappingTable from '../components/CamelotMappingTable';
 import Md from '../components/Md';
 import LessonRecap from '../components/LessonRecap';
 import DifficultySwitcher from '../components/DifficultySwitcher';
+import PatrickNotes from '../components/PatrickNotes';
 import Glyph from '../components/Glyph';
 import { inkOn } from '../utils/color';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -58,6 +59,7 @@ const LessonLevel = ({ lesson, workshop, requestedDifficulty, servedDifficulty, 
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <DifficultySwitcher mini={true} />
+          <PatrickNotes compact />
           <div className="lesson-badge">{t('lesson.lessonLabel')} {lesson.order}</div>
         </div>
       </div>

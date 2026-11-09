@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
+import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
+import { tierColor } from '../utils/color';
 import { LanguageContext } from '../hooks/LanguageContext';
-import { TIERS, unlockedTiers, isUnlockedIn, isDoneIn } from '../lib/progression';
+import { TIERS, unlockedTiers, isUnlockedIn, isDoneIn, isTierDone } from '../lib/progression';
 import { workshopsList } from '../lib/levels/load';
 import { t as pickText } from '../lib/levels/schema';
 import coachImg from '../assets/coach_patrick.webp';
@@ -12,6 +13,7 @@ import mediumImg from '../assets/medium_patrick.webp';
 import proImg from '../assets/pro_patrick.webp';
 import logoUrl from '../assets/logo.svg';
 import LanguageSwitcher from './LanguageSwitcher';
+import PatrickNotes from './PatrickNotes';
 import AudioVisualizer from './AudioVisualizer';
 import { MagicAudioContext } from '../audio/MagicAudioContext';
 import Locomotive from './Locomotive';
@@ -154,6 +156,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
     <div className="home-container premium" style={{ position: 'relative' }}>
 
       <LanguageSwitcher style={{ position: 'absolute', top: 20, left: 20, zIndex: 100 }} />
+      <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 100 }}><PatrickNotes /></div>
 
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100vh', zIndex: -1, opacity: 0.15, pointerEvents: 'none', overflow: 'hidden' }}>
         <div aria-hidden="true" style={{
@@ -271,8 +274,8 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                     </h3>
                     {meta.forthcoming && <span className="tag-soon">{t('home.soon')}</span>}
                     {/* paliers finis : pastille ✓ à côté du titre (la rangée garde la place pour les tuiles et la porte) */}
-                    {tiers.slice(0, -1).map((k) => (
-                      <span key={k} className="tier-chip" style={{ '--tier-color': DIFF_COLORS[k] }} title={t('tiers.replay', { tier: tierName(k) })}>
+                    {tiers.slice(0, -1).filter((k) => isTierDone(ws, wsProgress, k)).map((k) => (
+                      <span key={k} className="tier-chip" style={{ '--tier-color': tierColor(color, k) }} title={t('tiers.replay', { tier: tierName(k) })}>
                         {k[0]} ✓
                       </span>
                     ))}
@@ -314,13 +317,13 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                 onFocus={() => setHoveredDescription(lesInfo)}
                                 title={isLocked ? lesHint : lesTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
-                                style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative', '--tier-color': DIFF_COLORS[tier] }}
+                                style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative', '--tier-color': tierColor(color, tier) }}
                               >
                                 {isLocked ? '?' : `L${les.order}`}
                                 {lessonDiffs.length > 0 && (
                                   <span className="level-btn-diffs">
                                     {lessonDiffs.map((d) => (
-                                      <span key={d} style={{ background: DIFF_COLORS[d] }} className="level-btn-diff-dot" />
+                                      <span key={d} style={{ background: tierColor(color, d) }} className="level-btn-diff-dot" />
                                     ))}
                                   </span>
                                 )}
@@ -385,7 +388,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                   alignItems: 'center',
                                   gap: '2px',
                                   position: 'relative',
-                                  '--tier-color': DIFF_COLORS[tier],
+                                  '--tier-color': tierColor(color, tier),
                                 }}
                               >
                                 {isLocked ? '?' : (
@@ -394,7 +397,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                                     {diffs.length > 0 && (
                                       <span className="level-btn-diffs">
                                         {diffs.map((d) => (
-                                          <span key={d} style={{ background: DIFF_COLORS[d] }} className="level-btn-diff-dot" />
+                                          <span key={d} style={{ background: tierColor(color, d) }} className="level-btn-diff-dot" />
                                         ))}
                                       </span>
                                     )}
@@ -410,7 +413,7 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                               <button
                                 type="button"
                                 className="level-btn tier-door"
-                                style={{ '--tier-color': DIFF_COLORS[nextTier] }}
+                                style={{ '--tier-color': tierColor(color, nextTier) }}
                                 aria-disabled="true"
                                 aria-label={`${title}, ${hint}`}
                                 title={hint}
@@ -431,6 +434,22 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                 </div>
               );
             })}
+          </div>
+
+          {/* Au-delà de l'école : univers à venir (Lab = hardware des modules du jeu, Market = merch / vinyles) */}
+          <div className="beyond-section">
+            <h2>{t('home.beyond.title')}</h2>
+            <div className="beyond-grid">
+              {[['lab', 'bolt'], ['market', 'vinyl']].map(([key, glyph]) => (
+                <div key={key} className="beyond-card" aria-disabled="true">
+                  <Glyph name={glyph} size="1.8em" />
+                  <div>
+                    <div className="beyond-name">{t(`home.beyond.${key}Title`)} <span className="tag-soon">{t('home.soon')}</span></div>
+                    <div className="beyond-desc">{t(`home.beyond.${key}Desc`)}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -729,10 +748,20 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
           gap: 2px;
           cursor: help;
         }
+        .beyond-section { margin-top: 22px; }
+        .beyond-section h2 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin: 0 0 8px; }
+        .beyond-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .beyond-card {
+          display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+          border: 3px dashed var(--border-strong, #333); border-radius: 16px; opacity: 0.85;
+        }
+        .beyond-name { font-weight: 900; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .beyond-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
         .tier-chip {
           display: inline-flex; align-items: center; justify-content: center;
           height: 22px; padding: 0 8px;
-          border-radius: 999px; background: var(--tier-color); color: #fff;
+          border-radius: 999px; border: 2px solid var(--tier-color);
+          background: color-mix(in srgb, var(--tier-color) 25%, transparent); color: var(--text);
           font-size: 0.7rem; font-weight: 900; white-space: nowrap;
         }
         .level-btn.locked {

@@ -56,6 +56,13 @@ function loadProgression() {
       const normalized = {};
       for (const [id, entry] of Object.entries(parsed)) {
         normalized[id] = normalizeWorkshopEntry(entry);
+        // ancien « tout débloquer » (mot de passe tapé avant les paliers) : tout ouvert, rien de réussi
+        const ws = workshops[id];
+        const n = normalized[id];
+        if (ws && !n.unlockedAll && ws.levelsList.length > 1 && n.practice >= ws.levelsList.length && n.lessons >= (ws.lessonsList?.length || 1)
+          && !Object.keys(n.completedPractice).length && !Object.keys(n.completedLessons).length) {
+          n.unlockedAll = true;
+        }
       }
       return normalized;
     }

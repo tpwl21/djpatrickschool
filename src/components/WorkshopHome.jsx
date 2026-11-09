@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LevelPopup from './LevelPopup';
 import BookIcon from './BookIcon';
 import { LanguageContext } from '../hooks/LanguageContext';
-import { DIFFICULTY_SETTINGS, DIFF_COLORS } from '../constants/difficulty';
+import { DIFFICULTY_SETTINGS } from '../constants/difficulty';
 import { useDifficulty } from '../hooks/useDifficulty.jsx';
 import { getWorkshop } from '../lib/levels/load';
 import { t as pickText } from '../lib/levels/schema';
 import DifficultySwitcher from './DifficultySwitcher';
 import LanguageSwitcher from './LanguageSwitcher';
+import PatrickNotes from './PatrickNotes';
 import Glyph from './Glyph';
-import { inkOn } from '../utils/color';
+import { inkOn, tierColor, tierInk } from '../utils/color';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { TIERS, unlockedTiers, isUnlockedIn, isDoneIn } from '../lib/progression';
 
@@ -61,7 +62,10 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
           <button className="btn-crayon wh-back-btn" onClick={onBack}>← {t('workshop.menu')}</button>
           <LanguageSwitcher />
         </div>
-        <DifficultySwitcher mini={true} unlocked={tiers} value={tier} onPick={pickTier} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <PatrickNotes compact />
+          <DifficultySwitcher mini={true} unlocked={tiers} value={tier} onPick={pickTier} />
+        </div>
       </div>
 
       <motion.div
@@ -126,7 +130,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
                       {lessonDiffs.length > 0 && (
                         <div className="wh-diff-badges">
                           {lessonDiffs.map((d) => (
-                            <span key={d} className="wh-diff-badge" style={{ background: DIFF_COLORS[d] }}>
+                            <span key={d} className="wh-diff-badge" style={{ background: tierColor(color, d), color: tierInk(color, d) }}>
                               {d[0]}
                             </span>
                           ))}
@@ -170,7 +174,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
                     {diffs.length > 0 && (
                       <div className="wh-diff-badges">
                         {diffs.map((d) => (
-                          <span key={d} className="wh-diff-badge" style={{ background: DIFF_COLORS[d] }}>
+                          <span key={d} className="wh-diff-badge" style={{ background: tierColor(color, d), color: tierInk(color, d) }}>
                             {d[0]}
                           </span>
                         ))}
@@ -184,7 +188,7 @@ const WorkshopHome = ({ workshopId, unlockedOrder = { practice: 1, lessons: 1 },
         </div>
 
         {showDoor && (
-          <div className="wh-door" style={{ '--door-color': DIFF_COLORS[nextTier] }}>
+          <div className="wh-door" style={{ '--door-color': tierColor(color, nextTier) }}>
             <Glyph name="lock" size="1.6em" />
             <div>
               <div className="wh-door-title">{t('tiers.door', { tier: tierName(nextTier) })}</div>
