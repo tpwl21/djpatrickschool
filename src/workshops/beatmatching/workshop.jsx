@@ -101,6 +101,7 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   const [pitch, setPitch] = useState(initialBpmB / configB.bpm);
   const latestPitchRef = useRef(initialBpmB / configB.bpm);
   const lastUiUpdateRef = useRef(0);
+  const pitchUiTimerRef = useRef(null);
   const jogLastDirRef = useRef(0);
   const jogLastPulseTimeRef = useRef(0);
 
@@ -108,7 +109,14 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
   const syncStartTimeRef = useRef(0);
   const scoreRef = useRef(0);
 
-  const midiStateRef = useRef({ pitchVelocity: null, buttons: {} });
+  // pitchNorm : position MIDI du fader (0..1), posée par le callback et vidée par la boucle RAF.
+  // pitchMsb/pitchLsb : octets 14 bits reçus ; pitchLsb reste null tant que le contrôleur n'en envoie pas (7 bits).
+  const midiStateRef = useRef({ pitchNorm: null, pitchMsb: 0, pitchLsb: null, buttons: {} });
+
+  // Plage du fader : ±8 % du BPM natif de B, ±16 % si la cible (A) ou le départ aléatoire en sort.
+  const pitchNeeded = Math.max(Math.abs(bpmA / configB.bpm - 1), Math.abs(initialBpmB / configB.bpm - 1));
+  const pitchRange = [0.08, 0.16].find((r) => pitchNeeded <= r) ?? pitchNeeded;
+  const normToBpm = (n) => configB.bpm * (1 + pitchRange * (2 * n - 1));
 
   const wagonsA = useMemo(() => generateWagons(bpmA, TRACK_LENGTH_SEC, forceComplexWagons || viewType !== 'simple'), [bpmA, viewType, forceComplexWagons]);
   const wagonsB = useMemo(() => generateWagons(configB.bpm, TRACK_LENGTH_SEC, forceComplexWagons || viewType !== 'simple'), [configB.bpm, viewType, forceComplexWagons]);
@@ -117,7 +125,8 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
 
   const pitchToleranceBpm = tuning.pitch_tolerance_bpm ?? 0.2;
   const toleranceSec = tuning.tolerance_sec ?? 0.040;
-  const winDurationSec = tuning.win_duration_sec ?? 3.0;
+  // win_duration_bars (mesures de 4 temps au BPM de A) prime sur win_duration_sec
+  const winDurationSec = tuning.win_duration_bars ? tuning.win_duration_bars * 4 * 60 / bpmA : (tuning.win_duration_sec ?? 3.0);
 
   useEffect(() => {
     if (!audioCtx) return;
@@ -178,12 +187,9 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
     if (isWinSequence) return;
 
     const mState = midiStateRef.current;
-    if (mState.pitchVelocity !== null) {
-      const minBpm = configB.bpm - 25;
-      const maxBpm = configB.bpm + 25;
-      const targetBpm = minBpm + (mState.pitchVelocity / 127) * (maxBpm - minBpm);
-      handlePitchChange(targetBpm);
-      mState.pitchVelocity = null;
+    if (mState.pitchNorm !== null) {
+      handlePitchChange(normToBpm(mState.pitchNorm));
+      mState.pitchNorm = null;
     }
     if (mState.buttons[0x0B] > 0) mState.buttons[0x0B] = 0;
 
@@ -253,9 +259,13 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
     latestPitchRef.current = newRate;
     if (audioCtxRef.current) audioCtxRef.current.setPlaybackRate('B', newRate);
     const now = performance.now();
+    clearTimeout(pitchUiTimerRef.current);
     if (now - lastUiUpdateRef.current > 33) {
       setPitch(newRate);
       lastUiUpdateRef.current = now;
+    } else {
+      // la dernière valeur d'un geste ne doit pas rester bloquée par le throttle
+      pitchUiTimerRef.current = setTimeout(() => setPitch(latestPitchRef.current), 40);
     }
   };
 
@@ -266,16 +276,19 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
     const type = status & 0xF0;
 
     if (type === 0xB0) {
-      if (note === 0x00 && channel === 2) {
-        midiStateRef.current.pitchVelocity = velocity;
-        const minBpm = configB.bpm - 25;
-        const maxBpm = configB.bpm + 25;
-        const targetBpm = minBpm + (velocity / 127) * (maxBpm - minBpm);
-        const newRate = targetBpm / configB.bpm;
+      // Pitch deck B : MSB = CC 0x00, LSB = CC 0x20 (norme MIDI : LSB = MSB + 32), canal 2.
+      // Sans LSB (contrôleur 7 bits), on retombe sur le MSB seul.
+      if ((note === 0x00 || note === 0x20) && channel === 2) {
+        const m = midiStateRef.current;
+        if (note === 0x00) m.pitchMsb = velocity;
+        else m.pitchLsb = velocity;
+        const norm = m.pitchLsb === null ? m.pitchMsb / 127 : ((m.pitchMsb << 7) | m.pitchLsb) / 16383;
+        m.pitchNorm = norm;
+        const newRate = normToBpm(norm) / configB.bpm;
         latestPitchRef.current = newRate;
         if (audioCtxRef.current) audioCtxRef.current.setPlaybackRate('B', newRate);
       }
-      if (note === 0x22 && channel === 2) {
+      if (note === 0x22 && channel === 2 && allowNudge) { // jog = nudge : interdit si le niveau l'interdit
         const delta = velocity > 64 ? (velocity - 64) : (velocity - 128);
         const dir = delta > 0 ? 1 : -1;
         const now = performance.now();
@@ -410,10 +423,12 @@ const BeatmatchingLevel = ({ levelId, difficulty: propDifficulty = 'EASY', onNex
             nativeBpm={configB.bpm}
             rate={pitch}
             onRateChange={(r) => handlePitchChange({ target: { value: r * configB.bpm } })}
-            targetBpm={showBpm ? bpmA : null}
-            showTargetBadge={showBpm}
-            showBpm={showBpm}
-            showPercent={true}
+            range={pitchRange}
+            fineStepBpm={0.05}
+            targetBpm={showBpm && !isBlindMode ? bpmA : null}
+            showTargetBadge={showBpm && !isBlindMode}
+            showBpm={showBpm && !isBlindMode}
+            showPercent={!isBlindMode /* Pro : aucune lecture chiffrée, à l'oreille */}
             percentBaseline={initialBpmB / configB.bpm}
             bpmColor={showBpm && difficulty === 'EASY' ? (isPerfectPitch ? '#27ae60' : '#ff6b6b') : '#ffffff'}
             percentColor={pitch >= (initialBpmB / configB.bpm) ? '#ff6b6b' : '#4ecdc4'}

@@ -1,29 +1,13 @@
+// Noms affichés des paliers. Les tolérances de jeu ne vivent PAS ici :
+// beatmatching → [validation_defaults.*] de src/workshops/beatmatching/workshop.toml.
 export const DIFFICULTY_SETTINGS = {
-  EASY: {
-    name: 'Easy',
-    toleranceSec: 0.040,      // 40ms - Very generous
-    winDurationSec: 3.0,     // 3s - Fast success
-    pitchToleranceBpm: 0.2,  // Easy to hit with slider
-    nudgeAmount: 0.010       // 10ms - Effective movement
-  },
-  MEDIUM: {
-    name: 'Medium',
-    toleranceSec: 0.02,     // 20ms
-    winDurationSec: 4.0,     // 4s
-    pitchToleranceBpm: 0.2,
-    nudgeAmount: 0.005       // 5ms
-  },
-  PRO: {
-    name: 'Pro',
-    toleranceSec: 0.015,     // 4ms - Professional grade
-    winDurationSec: 5.0,     // 5s
-    pitchToleranceBpm: 0.1,  // Tolérance augmentée pour le slider (0.01 était physiquement injouable)
-    nudgeAmount: 0.001       // 1ms
-  }
+  EASY: { name: 'Easy' },
+  MEDIUM: { name: 'Medium' },
+  PRO: { name: 'Pro' },
 };
 
-// Global config - Change this to switch difficulty across all levels
-export const CURRENT_DIFFICULTY = 'EASY'; 
+// Mort : le palier joué vient de la route (useDifficulty). Gardé car encore importé par SecretBooth.jsx.
+export const CURRENT_DIFFICULTY = 'EASY';
 
 // Couleurs de difficulté (pastilles, badges E/M/P). Assez foncées pour porter du texte blanc (≥4.5:1).
 export const DIFF_COLORS = { EASY: '#1e8449', MEDIUM: '#b45309', PRO: '#c0392b' };

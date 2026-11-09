@@ -19,25 +19,42 @@ export const useMidiControl = (onMidiMessage) => {
     let accessObj = null;
 
     const lastCCNoteTime = {};
+    const pendingCC = {}; // dernier message CC retenu par le bouclier, par contrôle
+    const pendingTimer = {};
+
+    const deliver = (data) => {
+      if (callbackRef.current) callbackRef.current(data);
+    };
 
     const handleMIDIMessage = (message) => {
       const data = message.data;
       const status = data[0];
       const type = status & 0xF0;
       const note = data[1];
-      
+
       // SAFETY SHIELD: Prevent browser saturation by dropping high-frequency CC messages.
       // 0xB0 is the status for Control Change (Pitch/Jog/Knobs).
       if (type === 0xB0) {
+        const key = (status << 8) | note; // par contrôle ET par canal (pitch A ≠ pitch B)
         const now = performance.now();
-        const last = lastCCNoteTime[note] || 0;
-        if (now - last < 10) return; // Hard cap at 100Hz per control to avoid I/O flooding
-        lastCCNoteTime[note] = now;
+        const wait = 10 - (now - (lastCCNoteTime[key] || 0));
+        if (wait > 0) {
+          // Hard cap at 100Hz per control; le dernier message de la rafale est livré en fin de fenêtre
+          // pour que la position finale d'un fader (MSB/LSB) ne soit jamais perdue.
+          pendingCC[key] = data;
+          if (!pendingTimer[key]) {
+            pendingTimer[key] = setTimeout(() => {
+              pendingTimer[key] = null;
+              lastCCNoteTime[key] = performance.now();
+              deliver(pendingCC[key]);
+            }, wait);
+          }
+          return;
+        }
+        lastCCNoteTime[key] = now;
       }
 
-      if (callbackRef.current) {
-        callbackRef.current(data);
-      }
+      deliver(data);
     };
 
     const attachListeners = (access) => {
@@ -67,6 +84,7 @@ export const useMidiControl = (onMidiMessage) => {
       });
 
     return () => {
+      Object.values(pendingTimer).forEach((id) => id && clearTimeout(id));
       // Cleanup listeners
       if (accessObj) {
         accessObj.onstatechange = null;

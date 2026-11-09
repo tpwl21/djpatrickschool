@@ -25,20 +25,22 @@ objectives = [
   "Ressentir le phrasé musical (boucles 8, phrases 32)"
 ]
 
+# Source unique des tolérances du beatmatching (lu par workshop.jsx via applyDefaults ;
+# un niveau peut surcharger dans [validation.easy|medium|pro]).
+#   pitch_tolerance_bpm : écart de BPM toléré entre B et A
+#   tolerance_sec       : écart de phase toléré (secondes)
+#   win_duration_sec    : temps à tenir le calage ; win_duration_bars (mesures de 4 temps au BPM de A) le remplace s'il est présent
 [validation_defaults.easy]
 pitch_tolerance_bpm = 0.2
 tolerance_sec       = 0.040
 win_duration_sec    = 3.0
-nudge_amount        = 0.010
 
 [validation_defaults.medium]
 pitch_tolerance_bpm = 0.2
 tolerance_sec       = 0.020
 win_duration_sec    = 4.0
-nudge_amount        = 0.005
 
 [validation_defaults.pro]
 pitch_tolerance_bpm = 0.1
-tolerance_sec       = 0.015
-win_duration_sec    = 5.0
-nudge_amount        = 0.001
+tolerance_sec       = 0.010
+win_duration_bars   = 16

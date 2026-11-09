@@ -22,6 +22,8 @@ import { inkOn } from '../utils/color';
 //   percentBaseline (default 1) — anchor rate for the % display. Used when the "zero" isn't the native rate (beatmatching randomizes initial BPM).
 //   bpmColor / percentColor — strings or (effBpm|rate) => string. Override the default colors.
 //   boxed / disabled       — card wrapper + greyed-out + click-locked.
+//   range (default null = ±25 BPM) — plage du fader en fraction du BPM natif (0.08 = ±8 %).
+//   fineStepBpm            — affiche des boutons −/+ de ce pas (réglage fin au doigt). Maj+glisser / Maj+flèche marchent toujours.
 //
 const PitchBlock = ({
   nativeBpm,
@@ -45,10 +47,19 @@ const PitchBlock = ({
   percentColor,
   boxed = false,
   disabled = false,
+  range = null,
+  fineStepBpm = null,
 }) => {
   const { language } = useContext(LanguageContext);
   const bpm = nativeBpm || 120;
   const effBpm = bpm * rate;
+  const minBpm = range ? bpm * (1 - range) : bpm - 25;
+  const maxBpm = range ? bpm * (1 + range) : bpm + 25;
+  const fineBtnStyle = {
+    minWidth: 36, minHeight: 36, fontWeight: 900, fontSize: '1rem', borderRadius: 8,
+    border: '2px solid #333', background: '#fff', color: '#333', cursor: 'pointer',
+  };
+  const stepBpm = (dir) => onRateChange(Math.max(minBpm, Math.min(maxBpm, effBpm + dir * fineStepBpm)) / bpm);
   const synced = targetBpm != null && Math.abs(effBpm - targetBpm) < targetToleranceBpm;
   const showMasterTempo = typeof keyLock === 'boolean' && typeof onKeyLockChange === 'function';
   const showBadge = showTargetBadge ?? (targetBpm != null);
@@ -109,8 +120,8 @@ const PitchBlock = ({
         </div>
       )}
       <PitchFader
-        min={bpm - 25}
-        max={bpm + 25}
+        min={minBpm}
+        max={maxBpm}
         value={effBpm}
         onChange={(val) => onRateChange(val / bpm)}
         orientation={orientation}
@@ -119,6 +130,14 @@ const PitchBlock = ({
         label={label}
         ariaLabel={label || 'Pitch'}
       />
+      {fineStepBpm && (
+        <div style={{ display: 'flex', gap: 6 }}>
+          <button type="button" style={fineBtnStyle} onClick={() => stepBpm(-1)}
+            aria-label={language === 'fr' ? 'Pitch fin : moins' : 'Fine pitch: down'}>−</button>
+          <button type="button" style={fineBtnStyle} onClick={() => stepBpm(1)}
+            aria-label={language === 'fr' ? 'Pitch fin : plus' : 'Fine pitch: up'}>+</button>
+        </div>
+      )}
       {activeMode && (
         <div style={{ display: 'flex', flexDirection: orientation === 'horizontal' ? 'row' : 'column', alignItems: 'center', marginTop: 4, gap: orientation === 'horizontal' ? 8 : 4 }}>
           {activeMode === 'bpm' && (

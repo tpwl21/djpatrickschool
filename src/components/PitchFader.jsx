@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 
+const FINE_FACTOR = 0.1; // Maj : 10× plus précis (souris et clavier)
+
 const PitchFaderLabel = ({ label, value }) => (
   <div style={{
     position: 'absolute',
@@ -27,6 +29,7 @@ const PitchFader = ({
 }) => {
   const faderRef = useRef(null);
   const dragRectRef = useRef(null);
+  const dragRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const percent = (value - min) / (max - min);
@@ -37,21 +40,31 @@ const PitchFader = ({
     onChange(finalReset);
   };
 
-  const handlePointerMove = (e) => {
-    if (!isDragging || !faderRef.current) return;
-    const rect = dragRectRef.current || faderRef.current.getBoundingClientRect();
-    let newPercent;
-    
+  // Position du pointeur → fraction de la plage (0 = min, 1 = max)
+  const pointerFraction = (e, rect) => {
     if (orientation === 'vertical') {
       const y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
-      newPercent = invertVertical ? 1 - (y / rect.height) : (y / rect.height);
-    } else {
-      const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
-      newPercent = x / rect.width;
+      return invertVertical ? 1 - (y / rect.height) : (y / rect.height);
     }
-    
-    const newValue = min + newPercent * (max - min);
-    onChange(newValue);
+    const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+    return x / rect.width;
+  };
+
+  // Glisser : position absolue ; Maj enfoncée = réglage fin (relatif, ×FINE_FACTOR).
+  // drag = { cur: fraction émise, lastP: dernière fraction du pointeur, offset, fine }
+  const handlePointerMove = (e) => {
+    const d = dragRef.current;
+    if (!isDragging || !d || !faderRef.current) return;
+    const p = pointerFraction(e, dragRectRef.current || faderRef.current.getBoundingClientRect());
+    if (e.shiftKey) {
+      d.cur = Math.max(0, Math.min(1, d.cur + (p - d.lastP) * FINE_FACTOR));
+    } else {
+      if (d.fine) d.offset = d.cur - p; // en relâchant Maj, la poignée ne saute pas sous le pointeur
+      d.cur = Math.max(0, Math.min(1, p + d.offset));
+    }
+    d.fine = e.shiftKey;
+    d.lastP = p;
+    onChange(min + d.cur * (max - min));
   };
 
   const handlePointerDown = (e) => {
@@ -60,27 +73,26 @@ const PitchFader = ({
     
     const rect = faderRef.current.getBoundingClientRect();
     dragRectRef.current = rect;
-    
-    let newPercent;
-    if (orientation === 'vertical') {
-      const y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
-      newPercent = invertVertical ? 1 - (y / rect.height) : (y / rect.height);
-    } else {
-      const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
-      newPercent = x / rect.width;
+    const p = pointerFraction(e, rect);
+    if (e.shiftKey) {
+      // Maj + clic : on garde la valeur actuelle, pas de saut
+      dragRef.current = { cur: Math.max(0, Math.min(1, percent)), lastP: p, offset: 0, fine: true };
+      return;
     }
-    const newValue = min + newPercent * (max - min);
-    onChange(newValue);
+    dragRef.current = { cur: p, lastP: p, offset: 0, fine: false };
+    onChange(min + p * (max - min));
   };
 
   const handlePointerUp = () => {
     setIsDragging(false);
     dragRectRef.current = null;
+    dragRef.current = null;
   };
 
-  // Clavier : la flèche déplace la poignée dans le sens visuel (haut = vers le haut, droite = vers la droite)
+  // Clavier : la flèche déplace la poignée dans le sens visuel (haut = vers le haut, droite = vers la droite).
+  // Maj+flèche = pas fin ; PageUp/PageDown = grand pas.
   const handleKeyDown = (e) => {
-    const step = (e.shiftKey ? 0.1 : 0.02) * (max - min);
+    const step = (e.shiftKey ? 0.02 * FINE_FACTOR : 0.02) * (max - min);
     const upIsPlus = orientation !== 'vertical' || invertVertical;
     const delta = {
       ArrowRight: step, ArrowLeft: -step,

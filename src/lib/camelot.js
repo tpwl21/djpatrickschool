@@ -17,6 +17,8 @@ function wrap12(n) {
   return ((((n - 1) % 12) + 12) % 12) + 1;
 }
 
+// Mouvements de base enseignés : même clé, relatif (A↔B), ±1. Le « +7 » (+1 demi-ton) n'en fait pas partie :
+// c'est une montée de tension à faire en coupure nette, pas une compatibilité de blend (décision du 9 nov.).
 export function compatibleSet(keyStr) {
   const key = parseCamelot(keyStr);
   if (!key) return [];
@@ -27,7 +29,6 @@ export function compatibleSet(keyStr) {
     formatCamelot({ n,             letter: other }),
     formatCamelot({ n: wrap12(n - 1), letter }),
     formatCamelot({ n: wrap12(n + 1), letter }),
-    formatCamelot({ n: wrap12(n + 7), letter }),
   ]);
   return Array.from(set);
 }
