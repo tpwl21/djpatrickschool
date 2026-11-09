@@ -8,6 +8,8 @@ const fr = {
       lesson: "leçon",
       level: "niveau",
       locked: "verrouillé",
+      unlockLesson: "Verrouillée : termine d'abord la leçon {n}.",
+      unlockLevel: "Verrouillé : réussis d'abord le niveau {n}.",
       openWorkshop: "Ouvrir l'atelier"
     },
     welcome: "Bienvenue à l'école de DJing ! Choisis ta difficulté juste au-dessus des ateliers (tu peux la changer à tout moment), puis lance-toi avec le bouton sous moi.",

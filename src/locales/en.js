@@ -8,6 +8,8 @@ const en = {
       lesson: "lesson",
       level: "level",
       locked: "locked",
+      unlockLesson: "Locked: finish lesson {n} first.",
+      unlockLevel: "Locked: clear level {n} first.",
       openWorkshop: "Open workshop"
     },
     welcome: "Welcome to Patrick's DJ School! Pick your difficulty just above the workshops (you can change it anytime), then jump in with the button below me.",

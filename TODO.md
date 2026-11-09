@@ -64,7 +64,7 @@ Objectif : apparence pro, fluide, pratique à jouer, rien qui se superpose, bien
 - [x] Chaque exercice n'affiche que ce qu'il enseigne (`show_eq`, `fx_modules`, `show_pitch` dans le TOML)
 - [x] Mode PRO : carton aux couleurs de la nuit, plus de « ! » orphelin (ton conservé)
 - [x] Trains A/B distingués par la couleur ; plus de 1re ligne surlignée en Harmonies
-- [ ] Relancer `/impeccable critique` pour mesurer le nouveau score
+- [x] Relancer `/impeccable critique` pour mesurer le nouveau score (26/40 le 8 nov. ; corrections rapides faites, tuiles verrouillées qui disent comment les débloquer)
 
 ### Vérification & perf
 - [x] Audit automatique Chrome sur 10 écrans × 7 tailles : 377 chevauchements → 0, plus de défilement horizontal
@@ -129,4 +129,4 @@ On peut combiner (par exemple A + B). À trancher avant la phase 3, pour ne ré�
 
 - [ ] Vraie DA vectorielle : planche de personnage de Patrick (poses, expressions, accessoires par atelier) → Recraft ou illustrateur (Figma) → animations Rive
 - [x] Dossier `patricks-school/` (ancienne copie du dépôt) supprimé
-- [ ] `CLAUDE.md` en partie périmé (ateliers maintenant en TOML, `src/constants/workshops.js` n'existe plus)
+- [x] `CLAUDE.md` réécrit sur l'architecture actuelle (TOML, un shell par famille)

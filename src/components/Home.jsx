@@ -311,23 +311,27 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                             const lesText = pickText(les, language);
                             const lesTitle = lesText?.title;
                             const lesDesc = lesText?.short_desc || lesText?.description;
+                            // verrouillée : pas muette, elle dit comment la débloquer (bulle de Patrick + infobulle)
+                            const lesHint = t('home.a11y.unlockLesson').replace('{n}', les.order - 1);
+                            const lesInfo = isLocked ? lesHint : `${lesTitle} : ${lesDesc}`;
                             return (
                               <motion.button
                                 type="button"
                                 key={les.id}
-                                disabled={isLocked}
-                                aria-label={isLocked ? `${title}, ${t('home.a11y.lesson')} ${les.order}, ${t('home.a11y.locked')}` : `${title}, ${t('home.a11y.lesson')} ${les.order} : ${lesTitle}`}
+                                aria-disabled={isLocked || undefined}
+                                aria-label={isLocked ? `${title}, ${t('home.a11y.lesson')} ${les.order}. ${lesHint}` : `${title}, ${t('home.a11y.lesson')} ${les.order} : ${lesTitle}`}
                                 whileHover={!isLocked ? { scale: 1.1, backgroundColor: color, color: '#fff' } : {}}
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  if (!isLocked) onStartLesson(id, les.order);
+                                  if (isLocked) setHoveredDescription(lesHint);
+                                  else onStartLesson(id, les.order);
                                 }}
                                 onMouseEnter={(e) => {
                                   e.stopPropagation();
-                                  if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`);
+                                  setHoveredDescription(lesInfo);
                                 }}
-                                onFocus={() => { if (!isLocked) setHoveredDescription(`${lesTitle} : ${lesDesc}`); }}
-                                title={isLocked ? undefined : lesTitle}
+                                onFocus={() => setHoveredDescription(lesInfo)}
+                                title={isLocked ? lesHint : lesTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${isDone ? 'completed' : ''}`}
                                 style={{ fontSize: '0.7rem', fontWeight: 900, position: 'relative' }}
                               >
@@ -371,23 +375,26 @@ const Home = ({ onWorkshopSelect, onStartLevel, onStartLesson, onStartBooth, unl
                             const lvlText = pickText(lvl, language);
                             const lvlTitle = lvlText?.title;
                             const lvlDesc = lvlText?.short_desc || lvlText?.description;
+                            const lvlHint = t('home.a11y.unlockLevel').replace('{n}', lvl.order - 1);
+                            const lvlInfo = isLocked ? lvlHint : `${lvlTitle} : ${lvlDesc}`;
                             return (
                               <motion.button
                                 type="button"
                                 key={lvl.id}
-                                disabled={isLocked}
-                                aria-label={isLocked ? `${title}, ${t('home.a11y.level')} ${lvl.order}, ${t('home.a11y.locked')}` : `${title}, ${t('home.a11y.level')} ${lvl.order} : ${lvlTitle}`}
+                                aria-disabled={isLocked || undefined}
+                                aria-label={isLocked ? `${title}, ${t('home.a11y.level')} ${lvl.order}. ${lvlHint}` : `${title}, ${t('home.a11y.level')} ${lvl.order} : ${lvlTitle}`}
                                 whileHover={!isLocked ? { scale: 1.1, backgroundColor: color, color: '#fff' } : {}}
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  if (!isLocked) onStartLevel(id, lvl.order, difficulty);
+                                  if (isLocked) setHoveredDescription(lvlHint);
+                                  else onStartLevel(id, lvl.order, difficulty);
                                 }}
                                 onMouseEnter={(e) => {
                                   e.stopPropagation();
-                                  if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`);
+                                  setHoveredDescription(lvlInfo);
                                 }}
-                                onFocus={() => { if (!isLocked) setHoveredDescription(`${lvlTitle} : ${lvlDesc}`); }}
-                                title={isLocked ? undefined : lvlTitle}
+                                onFocus={() => setHoveredDescription(lvlInfo)}
+                                title={isLocked ? lvlHint : lvlTitle}
                                 className={`level-btn ${isLocked ? 'locked' : ''} ${diffs.length > 0 ? 'completed' : ''}`}
                                 style={{
                                   display: 'flex',
